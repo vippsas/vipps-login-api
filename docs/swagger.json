@@ -12,9 +12,9 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "Welcome to the ORY Hydra HTTP API documentation. You will find documentation for all HTTP APIs here.",
-    "title": "ORY Hydra",
-    "version": "latest"
+    "description": "Welcome to the Vipps Log In API documentation. You will find documentation for all HTTP APIs here.",
+    "title": "Vipps Log In",
+    "version": "0.9"
   },
   "basePath": "/",
   "paths": {
