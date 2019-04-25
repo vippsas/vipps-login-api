@@ -42,9 +42,9 @@ paths:
   /.well-known/openid-configuration:
     get:
       description: |-
-        The well known endpoint an be used to retrieve information for OpenID Connect clients. We encourage you to not roll
-        your own OpenID Connect client but to use an OpenID Connect client library instead. You can learn more on this
-        flow at https://openid.net/specs/openid-connect-discovery-1_0.html
+        The well known endpoint an be used to retrieve information for OpenID Connect clients. You should not write your
+        own OpenID Connect client, but use a tried and tested OpenID Connect client library instead.
+        You can learn more on this flow at https://openid.net/specs/openid-connect-discovery-1_0.html
       produces:
         - application/json
       schemes:
@@ -71,7 +71,7 @@ paths:
     get:
       description: |-
         This endpoint is not documented here because you should never use your own implementation to perform OAuth2 flows.
-        OAuth2 is a very popular protocol and a library for your programming language will exists.
+        OAuth2 is a very popular protocol and a library for your programming language exists.
 
         To learn more about this flow please refer to the specification: https://tools.ietf.org/html/rfc6749
       consumes:
@@ -152,7 +152,7 @@ paths:
         - oauth2: []
       description: |-
         This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token.
-        The endpoint implements http://openid.net/specs/openid-connect-core-1_0.html#UserInfo .
+        The endpoint implements http://openid.net/specs/openid-connect-core-1_0.html#UserInfo.
       produces:
         - application/json
       schemes:
@@ -185,7 +185,10 @@ definitions:
       - alg
     properties:
       alg:
-        description: "The 'alg' (algorithm) parameter identifies the algorithm intended for use with the key.  The values used should either be registered in the IANA 'JSON Web Signature and Encryption Algorithms' registry established by [JWA] or be a value that contains a Collision- Resistant Name."
+        description: |-
+          The 'alg' (algorithm) parameter identifies the algorithm intended for use with the key. The values used should
+          either be registered in the IANA 'JSON Web Signature and Encryption Algorithms' registry established by [JWA]
+          or be a value that contains a collision resistant name."
         type: string
         example: RS256
       crv:
@@ -208,25 +211,20 @@ definitions:
         example: GawgguFyGrWKav7AX4VKUg
       kid:
         description: |-
-          The "kid" (key ID) parameter is used to match a specific key.  This
-          is used, for instance, to choose among a set of keys within a JWK Set
-          during key rollover.  The structure of the "kid" value is
-          unspecified.  When "kid" values are used within a JWK Set, different
-          keys within the JWK Set SHOULD use distinct "kid" values.  (One
-          example in which different keys might use the same "kid" value is if
-          they have different "kty" (key type) values but are considered to be
-          equivalent alternatives by the application using them.)  The "kid"
-          value is a case-sensitive string.
+          The "kid" (key ID) parameter is used to match a specific key. This is used, for example, to choose among
+          a set of keys within a JWK Set during key rollover. The format of the "kid" value is unspecified.
+          When "kid" values are used within a JWK Set, different keys within the JWK Set SHOULD use distinct "kid" values.
+          (One example in which different keys might use the same "kid" value is if they have different "kty" (key type)
+          values but are considered to be equivalent alternatives by the application using them.)
+          The "kid" value is a case-sensitive string.
         type: string
         x-go-name: Kid
         example: 1603dfe0af8f4596
       kty:
         description: |-
-          The "kty" (key type) parameter identifies the cryptographic algorithm
-          family used with the key, such as "RSA" or "EC". "kty" values should
-          either be registered in the IANA "JSON Web Key Types" registry
-          established by [JWA] or be a value that contains a Collision-
-          Resistant Name.  The "kty" value is a case-sensitive string.
+          The "kty" (key type) parameter identifies the cryptographic algorithm family used with the key, such as "RSA" or "EC".
+          "kty" values should either be registered in the IANA "JSON Web Key Types" registry established by [JWA]
+          or be a value that contains a collision resistant name. The "kty" value is a case-sensitive string.
         type: string
         example: RSA
       'n':
@@ -243,10 +241,9 @@ definitions:
         example: GyM_p6JrXySiz1toFgKbWV-JdI3jQ4ypu9rbMWx3rQJBfmt0FoYzgUIZEVFEcOqwemRN81zoDAaa-Bk0KWNGDjJHZDdDmFhW3AN7lI-puxk_mHZGJ11rxyR8O55XLSe3SPmRfKwZI6yU24ZxvQKFYItdldUKGzO6Ia6zTKhAVRU
       use:
         description: |-
-          Use ("public key use") identifies the intended use of
-          the public key. The "use" parameter is employed to indicate whether
-          a public key is used for encrypting data or verifying the signature
-          on data. Values are commonly "sig" (signature) or "enc" (encryption).
+          Use ("public key use") identifies the intended use of the public key. The "use" parameter is employed to indicate
+          whether a public key is used for encrypting data or verifying the signature on data.
+          Values are commonly "sig" (signature) or "enc" (encryption).
         type: string
         example: sig
       x:
@@ -254,13 +251,10 @@ definitions:
         example: f83OJ3D2xF1Bg8vub9tLe1gHMzV76e8Tus9uPHvRVEU
       x5c:
         description: |-
-          The "x5c" (X.509 certificate chain) parameter contains a chain of one
-          or more PKIX certificates [RFC5280].  The certificate chain is
-          represented as a JSON array of certificate value strings.  Each
-          string in the array is a base64-encoded (Section 4 of [RFC4648] --
-          not base64url-encoded) DER [ITU.X690.1994] PKIX certificate value.
-          The PKIX certificate containing the key value MUST be the first
-          certificate.
+          The "x5c" (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates [RFC5280].
+          The certificate chain is represented as a JSON array of certificate value strings.  Each string in the array
+          is a base64-encoded (Section 4 of [RFC4648] --not base64url-encoded) DER [ITU.X690.1994] PKIX certificate value.
+          The PKIX certificate containing the key value MUST be the first certificate.
         type: array
         items:
           type: string
@@ -419,14 +413,14 @@ definitions:
         description: "Subject - Identifier for the End-User at the IssuerURL."
         type: string
       updated_at:
-        description: "Time the End-User''s information was last updated. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time."
+        description: "Time the End-User's information was last updated. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time."
         type: integer
         format: int64
       website:
         description: "URL of the End-User's Web page or blog. This Web page SHOULD contain information published by the End-User or an organization that the End-User is affiliated with."
         type: string
       zoneinfo:
-        description: "String from zoneinfo [zoneinfo] time zone database representing the End-User''s time zone. For example, Europe/Paris or America/Los_Angeles."
+        description: "String from zoneinfo [zoneinfo] time zone database representing the End-User's time zone. For example, Europe/Paris or America/Los_Angeles."
         type: string
   OauthTokenResponse:
     description: "The token response"
