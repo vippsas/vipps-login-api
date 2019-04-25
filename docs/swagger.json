@@ -7,7 +7,6 @@
     "application/json"
   ],
   "schemes": [
-    "http",
     "https"
   ],
   "swagger": "2.0",
@@ -28,7 +27,6 @@
           "application/json"
         ],
         "schemes": [
-          "http",
           "https"
         ],
         "tags": [
@@ -59,7 +57,6 @@
           "application/json"
         ],
         "schemes": [
-          "http",
           "https"
         ],
         "tags": [
@@ -96,7 +93,6 @@
           "application/x-www-form-urlencoded"
         ],
         "schemes": [
-          "http",
           "https"
         ],
         "tags": [
@@ -141,7 +137,6 @@
           "application/json"
         ],
         "schemes": [
-          "http",
           "https"
         ],
         "tags": [
@@ -206,7 +201,6 @@
           "application/json"
         ],
         "schemes": [
-          "http",
           "https"
         ],
         "tags": [

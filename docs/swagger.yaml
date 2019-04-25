@@ -4,7 +4,6 @@ consumes:
 produces:
   - application/json
 schemes:
-  - http
   - https
 swagger: '2.0'
 info:
@@ -24,7 +23,6 @@ paths:
       produces:
         - application/json
       schemes:
-        - http
         - https
       tags:
         - public
@@ -48,7 +46,6 @@ paths:
       produces:
         - application/json
       schemes:
-        - http
         - https
       tags:
         - public
@@ -77,7 +74,6 @@ paths:
       consumes:
         - application/x-www-form-urlencoded
       schemes:
-        - http
         - https
       tags:
         - public
@@ -106,13 +102,11 @@ paths:
 
         > Do not implement a client for this endpoint yourself. Use a library. There are many libraries
         > available for any programming language. You can find a list of libraries here: https://oauth.net/code/
-        >
       consumes:
         - application/x-www-form-urlencoded
       produces:
         - application/json
       schemes:
-        - http
         - https
       tags:
         - public
@@ -155,7 +149,6 @@ paths:
       produces:
         - application/json
       schemes:
-        - http
         - https
       tags:
         - public
