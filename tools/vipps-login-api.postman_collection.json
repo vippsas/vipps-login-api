@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "2c5a9dc9-4731-45d0-8149-6a1d9394b9d5",
+		"name": "vipps-login-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get OIDC well-known",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "01c35a25-46a3-4a4f-8867-9a715fe4fdb8",
+						"exec": [
+							"var uuid = require('uuid');",
+							"var url = require('url');",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"token_endpoint\", jsonData.token_endpoint);",
+							"pm.environment.set(\"userinfo_endpoint\", jsonData.userinfo_endpoint);",
+							"",
+							"var start_login_uri = ",
+							"    jsonData.authorization_endpoint ",
+							"        + \"?client_id=\" + pm.variables.get(\"client_id\")",
+							"        + \"&response_type=\" + pm.variables.get(\"response_type\")",
+							"        + \"&scope=\" + pm.variables.get(\"scope\")",
+							"        + \"&state=\" + uuid.v4()",
+							"        + \"&redirect_uri=\" + pm.variables.get(\"redirect_uri\");",
+							"",
+							"pm.environment.set(\"start_login_uri\", url.format(start_login_uri));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{well-known_uri}}",
+					"host": [
+						"{{well-known_uri}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3b9d97a4-e7dd-4677-94b7-40e449bf788d",
+						"exec": [
+							"var client_id = pm.environment.get(\"client_id\");",
+							"var client_secret = pm.environment.get(\"client_secret\");",
+							"",
+							"var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + \":\" + client_secret);",
+							"var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);",
+							"",
+							"pm.environment.set(\"client_authorization\", client_authorization);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1847b02f-8988-4823-a04e-c1f8e9fce19a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var access_token = pm.response.json().access_token;",
+							"",
+							"pm.environment.set(\"access_token\", access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {{client_authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "{{code}}",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirect_uri}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{token_endpoint}}",
+					"host": [
+						"{{token_endpoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "163013c5-f205-4709-aec2-7ab1758e86dd",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{userinfo_endpoint}}",
+					"host": [
+						"{{userinfo_endpoint}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
