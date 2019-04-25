@@ -13,21 +13,27 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 
 - [Overview](#overview)
   * [Login](#login)
-  * [Flow diagram](#flow-diagram)
-    + [Flow diagram details](#flow-diagram-details)
+  * [Getting Started](#getting-started)
 - [API endpoints](#api-endpoints)
 
 
 # Overview
-The Vipps Login API offers functionality for authenticating and authorizing end users both
-using web browsers on websites and in native apps for iOS and Android using app switching. 
+The Vipps Login API offers functionality for authenticating and authorizing end users founded on the OAuth2 and Open Id connect
+specifications. It supports using web browsers on websites and in native apps for iOS and Android using app switching. 
 
 ## Login
+This service is currently in a pre release version. This documentation will be expanded, and is likely to undergo changes 
+as we move closer to a public release.  
+
+## Getting Started
+
+* The first step towards using Vipps Login is creating a client.  
+TODO: Hvordan skal et brukersted få opprettet en client? Skal vi skrive en mailadresse her i første omgang?
 
 
-## Flow diagram
 
-## Flow diagram details
+### Supported Open Id Connect Flows
+TODO: Hvilke flows støtter vi? Så langt har vi vel bare brukt authorization code flow?
 
 
 # Api endpoints
