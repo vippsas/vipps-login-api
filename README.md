@@ -13,4 +13,4 @@ contact information,
 contribution guidelines,
 etc.
 
-You can peruse the API reference documentation here: https://vippsas.github.io/vipps-login-api/
+You can study the API reference documentation here: https://vippsas.github.io/vipps-login-api/
