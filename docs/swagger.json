@@ -133,7 +133,7 @@
             "oauth2": []
           }
         ],
-        "description": "The client makes a request to the token endpoint by sending the\nfollowing parameters using the \"application/x-www-form-urlencoded\" HTTP\nrequest entity-body.\n\n> Do not implement a client for this endpoint yourself. Use a library. There are many libraries\n> available for any programming language. You can find a list of libraries here: https://oauth.net/code/\n>\n> Do not the the Hydra SDK does not implement this endpoint properly. Use one of the libraries listed above!",
+        "description": "The client makes a request to the token endpoint by sending the\nfollowing parameters using the \"application/x-www-form-urlencoded\" HTTP\nrequest entity-body.\n\n> Do not implement a client for this endpoint yourself. Use a library. There are many libraries\n> available for any programming language. You can find a list of libraries here: https://oauth.net/code/",
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
