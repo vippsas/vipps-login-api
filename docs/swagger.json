@@ -11,8 +11,8 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "Welcome to the Vipps Log In API documentation. You will find documentation for all HTTP APIs here.",
-    "title": "Vipps Log In",
+    "description": "Welcome to the Vipps Login API documentation. You will find documentation for all HTTP APIs here.",
+    "title": "Vipps Login",
     "version": "0.9"
   },
   "basePath": "/",
