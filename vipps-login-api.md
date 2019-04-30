@@ -30,11 +30,11 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 
 # Overview
 The Vipps Login API offers functionality for authenticating and authorizing end users founded on the OAuth2 and OpenId connect
-    specifications. It supports using web browsers on websites and in native apps for iOS and Android using app switching. 
+specifications. It supports using web browsers on websites and in native apps for iOS and Android using app switching. 
 
 ## Login
 This service is currently in a pre release version. This documentation will be expanded, and is likely to undergo changes 
-    as we move closer to a public release.  
+as we move closer to a public release.  
 
 ## Getting Started
 
@@ -255,7 +255,8 @@ The client constructs the request URI by adding the following
 **Response**
 
 ## OAuth 2.0 Token
-TODO: Add description
+The token endpoint is a an OIDC standard endpoint used for requesting various combination of ID, Access and Refresh tokens.
+The type of request (and corresponding response) is determined by the grant_type.
 
 **Request**
 
@@ -270,12 +271,12 @@ TODO: Add description
 
 ```json
 {
-  "access_token": "string",
-  "expires_in": 0,
+  "access_token": "hel39XaKjGH5tkCvIENGPNbsSHz1DLKluOat4qP-A4.WyV61hCK1E2snVs1aOvjOWZOXOayZad0K-Qfo3lLzus",
+  "expires_in": 3600,
   "id_token": 0,
   "refresh_token": "string",
-  "scope": 0,
-  "token_type": "string"
+  "scope": "openid",
+  "token_type": "bearer"
 }
 ```
 **Response**
