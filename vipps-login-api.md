@@ -28,8 +28,9 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
     
 
 # Overview
-The Vipps Login API offers functionality for authenticating and authorizing end users founded on the OAuth2 and OpenId connect
-specifications. It supports using web browsers on websites and in native apps for iOS and Android using app switching. 
+The Vipps Login API offers functionality for authenticating end users and authorizing clients, founded on the OAuth2 and 
+OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS and Android using 
+app switching. 
 
 **NB!**  
 This service is currently in a pre release version. This documentation will be expanded, and is likely to undergo changes 
