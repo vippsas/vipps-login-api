@@ -10,16 +10,23 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 # Table of contents
 
 * [Overview](#overview)
-  * [Login](#login)
-  * [Getting Started](#getting-started)
-  * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
-    * [Authorization Code Grant](#authorization-code-grant)
+    * [Login](#login)
+    * [Getting Started](#getting-started)
+    * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
+        * [Authorization Code Grant](#authorization-code-grant)
 * [API endpoints](#api-endpoints)
     * [JSON Web Keys Discovery](#json-web-keys-discovery)
     * [OpenID Connect Discovery](#openid-connect-discovery)
     * [OAuth 2.0 Authorize](#oauth-20-authorize)
     * [OAuth 2.0 Token](#oauth-20-token)
     * [OpenID Connect Userinfo](#openid-connect-userinfo)
+    * [Exception handling](#exception-handling)
+    * [Error groups](#error-groups)
+    * [Error codes](#error-codes)
+* [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)
+    * [Callback endpoints](#callback-endpoints)
+    * [Callback](#callback)
+    
 
 # Overview
 The Vipps Login API offers functionality for authenticating and authorizing end users founded on the OAuth2 and OpenId connect
@@ -215,7 +222,31 @@ Examples
 ```
 
 ## OAuth 2.0 Authorize
-TODO: Add description
+The client constructs the request URI by adding the following
+   parameters to the query component of the authorization endpoint URI
+   using the "application/x-www-form-urlencoded" format.
+   
+| Query             | Description                               |
+| ----------------- | ----------------------------------------- |
+| response_type     | Value MUST be set to "code".              |
+| client_id         | The client identifier.                    |
+| redirect_uri      | 
+   
+    response_type
+         REQUIRED.  Value MUST be set to "code".
+    client_id
+         REQUIRED.  The client identifier as described in Section 2.2.
+    redirect_uri
+         OPTIONAL.  As described in Section 3.1.2.
+    scope
+         OPTIONAL.  The scope of the access request as described by
+         Section 3.3.
+    state
+         RECOMMENDED.  An opaque value used by the client to maintain
+         state between the request and callback.  The authorization
+         server includes this value when redirecting the user-agent back
+         to the client.  The parameter SHOULD be used for preventing
+         cross-site request forgery as described in Section 10.12.
 
 **Request**
 
