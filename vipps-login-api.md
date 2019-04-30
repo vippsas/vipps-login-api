@@ -222,39 +222,30 @@ Examples
 ```
 
 ## OAuth 2.0 Authorize
-The client constructs the request URI by adding the following
-   parameters to the query component of the authorization endpoint URI
-   using the "application/x-www-form-urlencoded" format.
+For more information see [RFC-6749 section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)
+
+The client constructs the request URI by adding the following parameters to the query component of the authorization 
+    endpoint URI using the "application/x-www-form-urlencoded" format. The client directs the resource owner to the 
+    constructed URI using an HTTP redirection response, or by other means available to it via the user-agent.
    
-| Query             | Description                               |
-| ----------------- | ----------------------------------------- |
-| response_type     | Value MUST be set to "code".              |
-| client_id         | The client identifier.                    |
-| redirect_uri      | 
-   
-    response_type
-         REQUIRED.  Value MUST be set to "code".
-    client_id
-         REQUIRED.  The client identifier as described in Section 2.2.
-    redirect_uri
-         OPTIONAL.  As described in Section 3.1.2.
-    scope
-         OPTIONAL.  The scope of the access request as described by
-         Section 3.3.
-    state
-         RECOMMENDED.  An opaque value used by the client to maintain
-         state between the request and callback.  The authorization
-         server includes this value when redirecting the user-agent back
-         to the client.  The parameter SHOULD be used for preventing
-         cross-site request forgery as described in Section 10.12.
+| Query             | Description                                                                                                                                                                               |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| response_type     | Value MUST be set to "code".                                                                                                                                                              |
+| client_id         | The client identifier, issued by Vipps.                                                                                                                                                   |
+| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)          |
+| scope             | Scope of the access request, space separated list.                                                                                                                                        |
+| state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
 
 **Request**
 
-[`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth)
+[`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth)
 
 **Response**
 
+
 ## OAuth 2.0 Token
+For more information see [RFC-6749 section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)
+
 TODO: Add description
 
 **Request**
