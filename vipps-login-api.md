@@ -243,7 +243,7 @@ The client constructs the request URI by adding the following parameters to the 
 
 **Response**
 
-For more information see [RFC-6749 section 4.1.1](https://tools.ietf.org/html/rfc6749#section-4.1.1)
+For more information see [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1)
 
 ## OAuth 2.0 Token
 
@@ -272,7 +272,7 @@ TODO: Add description
 ```
 **Response**
 
-For more information see [RFC-6749 section 4.1.3](https://tools.ietf.org/html/rfc6749#section-4.1.3)
+For more information see [RFC-6749 section 4.1.3-4.1.4](https://tools.ietf.org/html/rfc6749#section-4.1.3)
 
 ## OpenID Connect Userinfo
 This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token. 
