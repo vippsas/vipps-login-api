@@ -230,6 +230,23 @@ TODO: Add description
 
 [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
 
+| HTTP status             | Description                                             |
+| ----------------------- | ------------------------------------------------------- |
+| `200 OK`                | Request successful.                                     |
+| `401 Unauthorized`      | Invalid credentials.                                    |
+| `500 Server Error`      | An internal Vipps problem.                              |
+
+
+```json
+{
+  "access_token": "string",
+  "expires_in": 0,
+  "id_token": 0,
+  "refresh_token": "string",
+  "scope": 0,
+  "token_type": "string"
+}
+```
 **Response**
 
 ## OpenID Connect Userinfo
@@ -252,7 +269,7 @@ Overview
 | `500 Server Error`      | An internal Vipps problem.                              |
 
 Examples
-``` json
+```json
 {
   "birthdate": "string",
   "email": "string",
@@ -263,16 +280,10 @@ Examples
   "locale": "string",
   "middle_name": "string",
   "name": "string",
-  "nickname": "string",
   "phone_number": "string",
-  "phone_number_verified": true,
-  "picture": "string",
-  "preferred_username": "string",
   "profile": "string",
   "sub": "string",
-  "updated_at": 0,
-  "website": "string",
-  "zoneinfo": "string"
+  "updated_at": 0
 }
 ```
 
