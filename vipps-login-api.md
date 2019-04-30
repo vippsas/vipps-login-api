@@ -110,6 +110,8 @@ Note: The lines illustrating steps (A), (B), and (C) are broken into two parts a
            step (C).  If valid, the authorization server responds back with
            an access token and, optionally, a refresh token.
 
+For more information see [RFC-6749 section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)
+
 # Api endpoints
 This section contains complete HTTP `requests` and `responses` for each API endpoint
 
@@ -222,7 +224,6 @@ Examples
 ```
 
 ## OAuth 2.0 Authorize
-For more information see [RFC-6749 section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)
 
 The client constructs the request URI by adding the following parameters to the query component of the authorization 
     endpoint URI using the "application/x-www-form-urlencoded" format. The client directs the resource owner to the 
@@ -242,9 +243,9 @@ The client constructs the request URI by adding the following parameters to the 
 
 **Response**
 
+For more information see [RFC-6749 section 4.1.1](https://tools.ietf.org/html/rfc6749#section-4.1.1)
 
 ## OAuth 2.0 Token
-For more information see [RFC-6749 section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)
 
 TODO: Add description
 
@@ -270,6 +271,8 @@ TODO: Add description
 }
 ```
 **Response**
+
+For more information see [RFC-6749 section 4.1.3](https://tools.ietf.org/html/rfc6749#section-4.1.3)
 
 ## OpenID Connect Userinfo
 This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token. 
