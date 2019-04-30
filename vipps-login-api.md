@@ -10,7 +10,6 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 # Table of contents
 
 * [Overview](#overview)
-    * [Login](#login)
     * [Getting Started](#getting-started)
     * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
         * [Authorization Code Grant](#authorization-code-grant)
@@ -32,7 +31,7 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 The Vipps Login API offers functionality for authenticating and authorizing end users founded on the OAuth2 and OpenId connect
 specifications. It supports using web browsers on websites and in native apps for iOS and Android using app switching. 
 
-## Login
+**NB!**  
 This service is currently in a pre release version. This documentation will be expanded, and is likely to undergo changes 
 as we move closer to a public release.  
 
@@ -266,10 +265,22 @@ For example, the authorization server redirects the user-agent by
 For more information see [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1)
 
 ## OAuth 2.0 Token
-The token endpoint is a an OIDC standard endpoint used for requesting various combination of ID, Access and Refresh tokens.
-The type of request (and corresponding response) is determined by the grant_type.
+The token endpoint is a standard OIDC endpoint used for requesting Access and Id tokens.
+The client constructs the the request by adding the following parameters to the HTTP body by using the "application/x-www-form-urlencoded" format.
 
 **Request**
+
+| Header            | Description                            |
+| ----------------- | -------------------------------------  |
+| Content-Type      | application/x-www-form-urlencoded      |                                                                                                                                                 |
+
+
+| Query             | Description                                                                                                                                                                               |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| code              | The authorization code received from the authorization server. |
+| client_id         | The client identifier, issued by Vipps.                                                                                                                                                   |
+| client_secret     | The client secret, issued by Vipps.                                                                                                                                                       |
+| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant).         |                                                                                                                                    |
 
 [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
 
@@ -279,13 +290,10 @@ The type of request (and corresponding response) is determined by the grant_type
 | `401 Unauthorized`      | Invalid credentials.                                    |
 | `500 Server Error`      | An internal Vipps problem.                              |
 
-
 ```json
 {
   "access_token": "hel39XaKjGH5tkCvIENGPNbsSHz1DLKluOat4qP-A4.WyV61hCK1E2snVs1aOvjOWZOXOayZad0K-Qfo3lLzus",
   "expires_in": 3600,
-  "id_token": 0,
-  "refresh_token": "string",
   "scope": "openid",
   "token_type": "bearer"
 }
