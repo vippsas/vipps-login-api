@@ -37,15 +37,15 @@ This section contains complete HTTP `requests` and `responses` for each API endp
 
 | Operation                 | Description         | Endpoint          |
 | ------------------------- | ------------------- | ----------------- |
-| JSON Web Keys Discovery   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
-| OpenID Connect Discovery  | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
-| OAuth 2.0 Authorize       | Start an Oauth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth) |
-| OAuth 2.0 Token           | Get an Oauth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
-| OpenID Connect Userinfo   | Returns information the user have consented to give. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
+| [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
+| [OpenID Connect Discovery](#openid-connect-discovery) | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
+| [OAuth 2.0 Authorize](#OAuth-2.0-Authorize)           | Start an Oauth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth) |
+| [OAuth 2.0 Token](#OAuth-2.0-Token)                   | Get an Oauth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
+| [OpenID Connect Userinfo](#OpenID-Connect-Userinfo)   | Returns information the user have consented to give. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
 
 ## JSON Web Keys Discovery
-TODO: Add description
-
+This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and, if enabled, 
+OAuth 2.0 JWT Access Tokens.
 **Request**
 
 [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown)
