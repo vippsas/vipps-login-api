@@ -52,7 +52,8 @@ This section contains complete HTTP `requests` and `responses` for each API endp
 
 ## JSON Web Keys Discovery
 This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and, if enabled, 
-OAuth 2.0 JWT Access Tokens.
+OAuth 2.0 JWT Access Tokens. 
+
 **Request**
 
 [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown)
@@ -87,7 +88,8 @@ Examples
 This operation does not require authentication
 
 ## OpenID Connect Discovery
-TODO: Add description
+The well known endpoint an be used to retrieve configuration information for OpenID Connect clients.  
+You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
 **Request**
 
@@ -167,7 +169,9 @@ TODO: Add description
 **Response**
 
 ## OpenID Connect Userinfo
-TODO: Add description
+This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token. 
+You can learn more at the [OIDC Standard](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
+
 
 **Request**
 
@@ -175,16 +179,38 @@ TODO: Add description
 
 **Response**
 
-# HTTP response codes
-TODO: Kanskje flytte desse til hver enkel request over?
-This API returns the following HTTP statuses in the responses:
+Overview
 
 | HTTP status             | Description                                             |
 | ----------------------- | ------------------------------------------------------- |
 | `200 OK`                | Request successful.                                     |
-| `302 Found`             | Request successful, client is redirected.               |
 | `401 Unauthorized`      | Invalid credentials.                                    |
 | `500 Server Error`      | An internal Vipps problem.                              |
+
+Examples
+``` json
+{
+  "birthdate": "string",
+  "email": "string",
+  "email_verified": true,
+  "family_name": "string",
+  "gender": "string",
+  "given_name": "string",
+  "locale": "string",
+  "middle_name": "string",
+  "name": "string",
+  "nickname": "string",
+  "phone_number": "string",
+  "phone_number_verified": true,
+  "picture": "string",
+  "preferred_username": "string",
+  "profile": "string",
+  "sub": "string",
+  "updated_at": 0,
+  "website": "string",
+  "zoneinfo": "string"
+}
+```
 
 ## Exception handling
 
