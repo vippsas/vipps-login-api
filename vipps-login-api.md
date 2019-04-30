@@ -12,8 +12,14 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 * [Overview](#overview)
   * [Login](#login)
   * [Getting Started](#getting-started)
-    * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
+  * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
+    * [Authorization Code Grant](#authorization-code-grant)
 * [API endpoints](#api-endpoints)
+    * [JSON Web Keys Discovery](#json-web-keys-discovery)
+    * [OpenID Connect Discovery](#openid-connect-discovery)
+    * [OAuth 2.0 Authorize](#oauth-20-authorize)
+    * [OAuth 2.0 Token](#oauth-20-token)
+    * [OpenID Connect Userinfo](#openid-connect-userinfo)
 
 # Overview
 The Vipps Login API offers functionality for authenticating and authorizing end users founded on the OAuth2 and OpenId connect
@@ -29,8 +35,9 @@ as we move closer to a public release.
 
 TODO: Hvordan skal et brukersted få opprettet en client? Skal vi skrive en mailadresse her i første omgang?
 
-### Supported OpenId Connect Flows
-TODO: Hvilke flows støtter vi? Så langt har vi vel bare brukt authorization code flow?
+## Supported OpenId Connect Flows
+### Authorization Code Grant
+
 
 # Api endpoints
 This section contains complete HTTP `requests` and `responses` for each API endpoint
