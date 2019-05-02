@@ -21,7 +21,6 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 * [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
     * [Error handling](#error-handling)
-    * [Vipps callback handling](#vipps-callback-servers)
 * [Questions?](#questions)
     
 
@@ -374,24 +373,6 @@ Example:
 
      HTTP/1.1 302 Found
      Location: https://client.example.com/callback?error=access_denied&error_description=user%20cancelled%20the%20login?state={state}
-
-
-## Vipps callback servers
-The callbacks from Vipps are made from the following servers:
-
-**Production environment:**\
-callback-1.vipps.no\
-callback-2.vipps.no\
-callback-3.vipps.no\
-callback-4.vipps.no
-
-**Test environment:**\
-callback-mt-1.vipps.no\
-callback-mt-2.vipps.no\
-callback-mt-3.vipps.no\
-callback-mt-4.vipps.no
-
-**Note:** Vipps may change the IP addresses that we make callbacks from. To ensure that you are whitelisting the corrects IP addresses please use these hostnames.
 
 # Questions?
 We're always happy to help with code or other questions you might have!
