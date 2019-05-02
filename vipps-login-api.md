@@ -19,10 +19,10 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
     * [OAuth 2.0 Token](#oauth-20-token)
     * [OpenID Connect Userinfo](#openid-connect-userinfo)
 * [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)
-    *[Receive authentication result](#receive-authentication-result)
-    *[Error handling](#error-handling)
-    *[Vipps callback handling](#vipps-callback-servers)
-*[Questions?](#questions)
+    * [Receive authentication result](#receive-authentication-result)
+    * [Error handling](#error-handling)
+    * [Vipps callback handling](#vipps-callback-servers)
+* [Questions?](#questions)
     
 
 # Overview
