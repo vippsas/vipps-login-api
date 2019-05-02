@@ -151,8 +151,8 @@ Examples:
 This operation does not require authentication
 
 ## OpenID Connect Discovery
-The well known endpoint an be used to retrieve configuration information for OpenID Connect clients.  
-You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html)
+The OIDC connect discovery endpoint can be used to retrieve configuration information for OpenID Connect clients.  
+You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
 **Request**
 
@@ -280,12 +280,15 @@ The Client Credentials is a base 64 encoded string consisting of the Client id a
 
 [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
 
+**Response**
+
 | HTTP status             | Description                                             |
 | ----------------------- | ------------------------------------------------------- |
 | `200 OK`                | Request successful.                                     |
 | `401 Unauthorized`      | Invalid credentials.                                    |
 | `500 Server Error`      | An internal Vipps problem.                              |
 
+Examples:
 ```json
 {
   "access_token": "hel39XaKjGH5tkCvIENGPNbsSHz1DLKluOat4qP-A4.WyV61hCK1E2snVs1aOvjOWZOXOayZad0K-Qfo3lLzus",
@@ -294,8 +297,6 @@ The Client Credentials is a base 64 encoded string consisting of the Client id a
   "token_type": "bearer"
 }
 ```
-**Response**
-
 For more information see [RFC-6749 section 4.1.3-4.1.4](https://tools.ietf.org/html/rfc6749#section-4.1.3)
 
 ## OpenID Connect Userinfo
