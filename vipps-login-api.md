@@ -340,7 +340,7 @@ Examples
 ```
 
 # API endpoints required by Vipps from the merchant
-The following endpoints are to be implemented by merchants, in order for Vipps to make calls to them.
+The following endpoints are to be implemented by merchants, in order for Vipps to redirect the resource owner to them.
 
 ## Receive Authentication Result
 After a successful authentication, the user agent is redirected to this endpoint with the following parameters added to the query component.  
