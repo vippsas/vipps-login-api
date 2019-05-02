@@ -10,7 +10,6 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 # Table of contents
 
 * [Overview](#overview)
-    * [Getting Started](#getting-started)
     * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
         * [Authorization Code Grant](#authorization-code-grant)
 * [API endpoints](#api-endpoints)
@@ -19,12 +18,11 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
     * [OAuth 2.0 Authorize](#oauth-20-authorize)
     * [OAuth 2.0 Token](#oauth-20-token)
     * [OpenID Connect Userinfo](#openid-connect-userinfo)
-    * [Exception handling](#exception-handling)
-    * [Error groups](#error-groups)
-    * [Error codes](#error-codes)
 * [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)
-    * [Callback endpoints](#callback-endpoints)
-    * [Callback](#callback)
+    *[Receive authentication result](#receive-authentication-result)
+    *[Error handling](#error-handling)
+    *[Vipps callback handling](#vipps-callback-servers)
+*[Questions?](#questions)
     
 
 # Overview
@@ -36,19 +34,12 @@ app switching.
 This service is currently in a pre release version. This documentation will be expanded, and is likely to undergo changes 
 as we move closer to a public release.  
 
-## Getting Started
-
-* The first step towards using Vipps Login is creating a client.  
-
-TODO: Hvordan skal et brukersted få opprettet en client? Skal vi skrive en mailadresse her i første omgang?
-
 ## Supported OpenId Connect Flows
 ### Authorization Code Grant
 The authorization code grant type is used to obtain both access tokens and refresh tokens and is optimized for 
     confidential clients. Since this is a redirection-based flow, the client must be capable of interacting with the 
     resource owner's user-agent (typically a web browser) and capable of receiving incoming requests (via redirection) 
     from the authorization server.
-TODO: Add a better flow chart
 
      +----------+
      | Resource |
@@ -119,9 +110,9 @@ This section contains complete HTTP `requests` and `responses` for each API endp
 | ------------------------- | ------------------- | ----------------- |
 | [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
 | [OpenID Connect Discovery](#openid-connect-discovery) | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
-| [OAuth 2.0 Authorize](#OAuth-2.0-Authorize)           | Start an Oauth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth) |
-| [OAuth 2.0 Token](#OAuth-2.0-Token)                   | Get an Oauth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
-| [OpenID Connect Userinfo](#OpenID-Connect-Userinfo)   | Returns information the user have consented to give. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
+| [OAuth 2.0 Authorize](#OAuth-2.0-Authorize)           | Start an OAuth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth) |
+| [OAuth 2.0 Token](#OAuth-2.0-Token)                   | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
+| [OpenID Connect Userinfo](#OpenID-Connect-Userinfo)   | Returns information that the user has consented to share. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
 
 ## JSON Web Keys Discovery
 This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and, if enabled, 
@@ -140,9 +131,8 @@ Overview
 | `200 OK`                | Request successful.                                     |
 | `500 Server Error`      | An internal Vipps problem.                              |
 
-Examples
-
-200 response
+Examples:  
+*200 response*
 
 ```json
 {
@@ -180,7 +170,7 @@ Overview
 
 Examples
 
-200 response
+*200 response*
 
 ```json
 {
@@ -262,7 +252,11 @@ For example, the authorization server redirects the user-agent by
 
      HTTP/1.1 302 Found
      Location: https://client.example.com/callback?code={code}&state={state}
+     
+If the resource owner declines the access request or an error occurs, the authorization server following parameters to the query component of the redirection URI using the 
+                                                                         "application/x-www-form-urlencoded" format.
 
+See error handling for more information 
 For more information see [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1)
 
 ## OAuth 2.0 Token
@@ -347,16 +341,39 @@ Examples
 }
 ```
 
-## Exception handling
-
-TODO: Fill out
-
-## Error groups
-
-## Error codes
-
 # API endpoints required by Vipps from the merchant
 The following endpoints are to be implemented by merchants, in order for Vipps to make calls to them.
+
+## Receive Authentication Result
+After a successful authentication, the user agent is redirected to this endpoint with the following parameters added to the query component.  
+This URI needs to be pre-registered with Vipps and supplied as a query parameter on calls to the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize)  
+
+| Param             | Description                                                                                                                                                                                                   |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| code              | The authorization code generated by the authorization server. The client MUST NOT use the authorization code more than once. The authorization code is bound to the client identifier and redirection URI.    |
+| state             | The exact value received from the client during the authorization request.                                                                                                                                    |
+
+Example: 
+
+     HTTP/1.1 302 Found
+     Location: https://client.example.com/callback?code={code}&state={state}
+
+### Error Handling 
+If the user cancels the login or an error occurs, the user agent is redirected to the receive authentication result endpoint with 
+the following parameters added to the query component.
+
+| Param             | Description                                                                                                                                                                                                   |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| error             | Standard [OAuth2](https://tools.ietf.org/html/rfc6749#section-4.1.2.1) or [OIDC](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) error code. |
+| error_description | A short text providing additional information on the error that occurred.                                                                                     |
+| state             | The exact value received from the client during the authorization request.                                                                                    | 
+
+
+Example: 
+
+     HTTP/1.1 302 Found
+     Location: https://client.example.com/callback?error=access_denied&error_description=user%20cancelled%20the%20login?state={state}
+
 
 ## Vipps callback servers
 The callbacks from Vipps are made from the following servers:
@@ -375,20 +392,6 @@ callback-mt-4.vipps.no
 
 **Note:** Vipps may change the IP addresses that we make callbacks from. To ensure that you are whitelisting the corrects IP addresses please use these hostnames.
 
-## Receive Authentication Result
-After authenticating the user agent is redirected to this endpoint with the following parameters added to the query component.  
-This URI needs to be pre-registered with Vipps and supplied as a query parameter on calls to the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize)  
-
-| Param             | Description                                                                                                                                                                                                   |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| code              | The authorization code generated by the authorization server. The client MUST NOT use the authorization code more than once. The authorization code is bound to the client identifier and redirection URI.    |
-| state             | The exact value received from the client during the authorization request.                                                                                                                                    |
-
-
-Example: 
-```
-GET:https://client.example.com/callback?code={code}&state={state}
-```
 # Questions?
 We're always happy to help with code or other questions you might have!
 Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
