@@ -1,15 +1,8 @@
 # Vipps Log In API
-
-**Please note:** This API is not officially launched. 
-
 This repository contains developer resources for the Vipps Log In API.
 
-[Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): information about API keys, product activation, etc please see the guide.
-
-See the [Vipps Developers repository](https://github.com/vippsas/vipps-developers)
-for
-contact information,
-contribution guidelines,
-etc.
+**Please note:**  
+This service is currently open to to a limited number of pilot partners.   
+If you are interested in participating in the pilot please fill out this form. 
 
 You can peruse the API reference documentation here: https://vippsas.github.io/vipps-login-api/

@@ -21,12 +21,11 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 * [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
     * [Error handling](#error-handling)
-* [Questions?](#questions)
     
 
 # Overview
 The Vipps Login API offers functionality for authenticating end users and authorizing clients, founded on the OAuth2 and 
-OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS and Android using 
+OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS using 
 app switching. 
 
 **NB!**  
@@ -302,7 +301,6 @@ For more information see [RFC-6749 section 4.1.3-4.1.4](https://tools.ietf.org/h
 This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token. 
 You can learn more at the [OIDC Standard](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
 
-
 **Request**
 
 | Header            | Description                            |
@@ -373,9 +371,3 @@ Example:
 
      HTTP/1.1 302 Found
      Location: https://client.example.com/callback?error=access_denied&error_description=user%20cancelled%20the%20login?state={state}
-
-# Questions?
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
-a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
-or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
