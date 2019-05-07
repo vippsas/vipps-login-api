@@ -16,8 +16,7 @@ paths:
     get:
       description: |-
         This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and,
-        if enabled, OAuth 2.0 JWT Access Tokens. This endpoint can be used with client libraries like
-        [node-jwks-rsa](https://github.com/auth0/node-jwks-rsa) among others.
+        if enabled, OAuth 2.0 JWT Access Tokens.
       consumes:
         - application/json
       produces:
@@ -40,9 +39,8 @@ paths:
   /.well-known/openid-configuration:
     get:
       description: |-
-        The well known endpoint an be used to retrieve information for OpenID Connect clients. You should not write your
-         own OpenID Connect client, but use a tried and tested OpenID Connect client library instead.
-         You can learn more on this flow at https://openid.net/specs/openid-connect-discovery-1_0.html
+        The well known endpoint can be used to retrieve configuration information for OpenID Connect clients.
+        To learn more about this endpoint please refer to the specification at https://openid.net/specs/openid-connect-discovery-1_0.html
       produces:
         - application/json
       schemes:
@@ -67,10 +65,9 @@ paths:
   /oauth2/auth:
     get:
       description: |-
-        This endpoint is not documented here because you should never use your own implementation to perform OAuth2 flows.
-        OAuth2 is a very popular protocol and a library for your programming language exists.
-
-        To learn more about this flow please refer to the specification: https://tools.ietf.org/html/rfc6749
+        The resource owner (end user) is redirected to this endpoint at the beginning of the authentication process,
+        and it is used to obtain an authorization grant.
+        To learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.1
       consumes:
         - application/x-www-form-urlencoded
       schemes:
@@ -96,12 +93,8 @@ paths:
         - basic: []
         - oauth2: []
       description: |-
-        The client makes a request to the token endpoint by sending the
-        following parameters using the "application/x-www-form-urlencoded" HTTP
-        request entity-body.
-
-        > Do not implement a client for this endpoint yourself. Use a library. There are many libraries
-        > available for any programming language. You can find a list of libraries here: https://oauth.net/code/
+        The token endpoint is used by the client to obtain an access token by presenting its authorization grant or refresh token.
+        To learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.2
       consumes:
         - application/x-www-form-urlencoded
       produces:
@@ -145,7 +138,7 @@ paths:
         - oauth2: []
       description: |-
         This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token.
-        The endpoint implements http://openid.net/specs/openid-connect-core-1_0.html#UserInfo.
+        To learn more about this endpoint please refer to the specification at http://openid.net/specs/openid-connect-core-1_0.html#UserInfo.
       produces:
         - application/json
       schemes:
