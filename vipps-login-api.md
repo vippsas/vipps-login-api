@@ -10,8 +10,18 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 # Table of contents
 
 * [Overview](#overview)
-    * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
-        * [Authorization Code Grant](#authorization-code-grant)
+    * [General information](#supported-openid-connect-flows)
+* [Core Concepts](#core-concepts)
+    * [Glossary](#json-web-keys-discovery)
+    * [OAuth 2.0](#oauth-20)
+    * [Open ID Connect](#open-id-connect)
+        * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
+            * [Authentication Code Flow](#authorization-code-grant)
+    * [Tokens](#json-web-keys-discovery)
+        * [Access Token](#json-web-keys-discovery)
+        * [ID Token](#json-web-keys-discovery)
+    * [Scopes](#json-web-keys-discovery)
+* [General Implementation information](#general-implementation-information)
 * [API endpoints](#api-endpoints)
     * [JSON Web Keys Discovery](#json-web-keys-discovery)
     * [OpenID Connect Discovery](#openid-connect-discovery)
@@ -21,7 +31,6 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 * [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
     * [Error handling](#error-handling)
-    
 
 # Overview
 The Vipps Login API offers functionality for authenticating end users and authorizing clients, founded on the OAuth2 and 
@@ -32,8 +41,33 @@ app switching.
 This service is currently in a pre release version. This documentation will be expanded, and is likely to undergo changes 
 as we move closer to a public release.  
 
-## Supported OpenId Connect Flows
-### Authorization Code Grant
+# Core concepts
+
+## Glossary
+| OAuth 2.0 / OIDC Term              | Description                  |
+| -----------------------------| -----------------------------------|
+| Resource Owner               | The end user,                      |
+| The Authorization Server     | End user name                      |
+| Resource Server              | Norwegian National Identity number |
+| Client                       |                                    |
+| email                        | End users email                    |
+
+## OAuth 2.0
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749) is the industry-standard protocol for authorization. 
+Giving a proper introduction to the standard is out of scope of this documentation, but there are many excellent sources 
+on the web. If you are new to the subject we recommend this [talk](https://www.youtube.com/watch?v=996OiexHze0 ) by Nate Barbettini at Okta.
+We also recommend reading https://aaronparecki.com/oauth-2-simplified and having a look at the documentation on https://oauth.net/2/
+
+## Open Id Connect
+OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol.
+It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, 
+as well as to obtain basic profile information about the End-User in a REST-like manner.
+Some sources good sources to get you started is:   
+https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1  
+https://connect2id.com/learn/openid-connect  
+
+### Supported OpenId Connect Flows
+#### Authorization Code Grant
 The authorization code grant type is used to obtain both access tokens and refresh tokens and is optimized for 
     confidential clients. Since this is a redirection-based flow, the client must be capable of interacting with the 
     resource owner's user-agent (typically a web browser) and capable of receiving incoming requests (via redirection) 
@@ -100,6 +134,70 @@ Note: The lines illustrating steps (A), (B), and (C) are broken into two parts a
            an access token and, optionally, a refresh token.
 
 For more information see [RFC-6749 section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)
+
+## Scopes
+Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.  
+Valid scope identifiers are specified in RFC 6749.
+
+Vipps Login currently supports the following scopes:
+
+| Scopes           | Description                        | Required  |
+| -----------------| -----------------------------------|-----------|
+| openid           | Open Id Connect                    |   yes     |
+| name             | End user name                       |   no      |
+| nnin             | Norwegian National Identity number |   no      |
+| address          |                                    |   no      |
+| email            | End users email                    |   no      |
+
+### Access token
+Access tokens are issued by the token endpoint and can be used to  
+
+### Id Token
+The ID token is a signed information object representing the authenticated identity of the user. 
+As part of the OpenID Connect standard the ID token is encoded as a JWT, and signed using the JWS standard.
+An Id token will be issued by the token endpoint when the scope openid is used.
+
+https://jwt.io/#libraries-io
+
+
+For more information see [RFC-6749 section 4.1.3-4.1.4](https://tools.ietf.org/html/rfc6749#section-4.1.3)
+
+
+The Id token is a JWT that can be decoded for debugging purposes by tools such as jwt.io 
+
+Id token header
+```json
+{
+  "alg": "RS256",
+  "kid": "public:80f3c34a-9779-4e1e-b645-117f3b771af8",
+  "typ": "JWT"
+}
+```
+Id token 
+Examples:
+```json
+
+{
+  "at_hash": "tyFnH20TOmPZkgJU8e5iKw",
+  "aud": [
+    "vipps-integration"
+  ],
+  "auth_time": 1557319296,
+  "exp": 1557322938,
+  "iat": 1557319338,
+  "iss": "https://apitest.vipps.no/access-management-1.0/access/",
+  "jti": "62a85e56-3d45-4c7e-a055-46932093257a",
+  "nonce": "",
+  "rat": 1557319255,
+  "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944"
+}
+```
+
+
+## General implementation information
+Vipps Login adheres to the OAuth2 and OpenIdConnect standards. The easiest way to integrate with the service is therefore to 
+use a tried and trusted OAuth2.0/Open Id Connect Library for your programming language. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID foundation is a good starting point.
+
 
 # Api endpoints
 This section contains complete HTTP `requests` and `responses` for each API endpoint
@@ -286,16 +384,18 @@ The Client Credentials is a base 64 encoded string consisting of the Client id a
 | `401 Unauthorized`      | Invalid credentials.                                    |
 | `500 Server Error`      | An internal Vipps problem.                              |
 
+
 Examples:
 ```json
 {
   "access_token": "hel39XaKjGH5tkCvIENGPNbsSHz1DLKluOat4qP-A4.WyV61hCK1E2snVs1aOvjOWZOXOayZad0K-Qfo3lLzus",
-  "expires_in": 3600,
+  "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MGYzYzM0YS05Nzc5LTRlMWUtYjY0NS0xMTdmM2I3NzFhZjgiLCJ0eXAiOiJKV1QifQ.eyJhdF9oYXNoIjoidHlGbkgyMFRPbVBaa2dKVThlNWlLdyIsImF1ZCI6WyJ2aXBwcy1pbnRlZ3JhdGlvbiJdLCJhdXRoX3RpbWUiOjE1NTczMTkyOTYsImV4cCI6MTU1NzMyMjkzOCwiaWF0IjoxNTU3MzE5MzM4LCJpc3MiOiJodHRwczovL2FwaXRlc3QudmlwcHMubm8vYWNjZXNzLW1hbmFnZW1lbnQtMS4wL2FjY2Vzcy8iLCJqdGkiOiI2MmE4NWU1Ni0zZDQ1LTRjN2UtYTA1NS00NjkzMjA5MzI1N2EiLCJub25jZSI6IiIsInJhdCI6MTU1NzMxOTI1NSwic3ViIjoiYzA2YzRhZmUtZDllMS00YzVkLTkzOWEtMTc3ZDc1MmEwOTQ0In0.OljG0W_TCfxkrRntj_5He3U0PH94SDZvlK-dvUJe8H5jj8QSiSnqiv65kyzxdr8Bq1MwG7a6Mtlnn4MoL8AyxKUVe6s81CNaYmwaHsWLw2Z2JmiPn5_X4lEy1nHVDX3R7lFKDQqFLSGnGNPU9bACj-Si18LBR-qv060wEj3b1ShrVeUIZCL1Yhxb6cIGl_8RivRto9dBrzggyOlVTtmoPrm9TLYF7UGWjlbmHTqpBWsCQIOeQqgs7RmSBt5k3O9nmP7guVxo5MWv_2Z0XuCqobLDDXJ29Rk_W6d79y-lPzq_TedNb_lCdVJF7u9qDYFbIPuQwXp26CeIJcR-nc-t0qEoNmLru_x-9Z8dCjjzkZbWqyNsNedQU1zt0WFbHjRkodVoHNcRZVT5W5hCe54lmZ6lUqyKwHW0_3Rpd2CI6lPdCOhC-Tze5cUDfb8jT_0OZqCI_wAuWvb6_4VeHqhvUav6Mh6d7AxNJQYG6BAJo9TzyrG7ho4mSpb2wWMr8gmRi8pTQbqa40whPqptpiz_j4AHcsrRckjYONU0USKlnNcBGc24M4sprcLZ6vxFqDYmDoZwUDRdZWRpUbqm_nCmCKb20Z6l5O7h32KvOApopJe2NIeAynli3Nl05QVGOdoT1mZDLYXbtyb0b_4qhRflySr6gaczcf2ovUKAToKNs_4",
+  "expires_in": 3599,
   "scope": "openid",
   "token_type": "bearer"
 }
 ```
-For more information see [RFC-6749 section 4.1.3-4.1.4](https://tools.ietf.org/html/rfc6749#section-4.1.3)
+
 
 ## OpenID Connect Userinfo
 This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token. 
@@ -323,22 +423,13 @@ Overview
 Examples
 ```json
 {
-  "birthdate": "string",
-  "email": "string",
-  "email_verified": true,
-  "family_name": "string",
-  "gender": "string",
-  "given_name": "string",
-  "locale": "string",
-  "middle_name": "string",
-  "name": "string",
-  "phone_number": "string",
-  "profile": "string",
-  "sub": "string",
-  "updated_at": 0
+  "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944",
+  "name": "Ada Lovelace",
+  "nnin": "10121550047",
+  "email": "user@example.com",
+  "address": "Dronning Eufemias gate 42"
 }
 ```
-
 # API endpoints required by Vipps from the merchant
 The following endpoints are to be implemented by merchants, in order for Vipps to redirect the resource owner to them.
 
