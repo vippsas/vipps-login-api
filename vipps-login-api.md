@@ -10,27 +10,28 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 # Table of contents
 
 * [Overview](#overview)
-    * [General information](#supported-openid-connect-flows)
 * [Core Concepts](#core-concepts)
     * [OAuth 2.0](#oauth-20)
     * [Open ID Connect](#open-id-connect)
         * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
             * [Authentication Code Flow](#authorization-code-grant)
-    * [Tokens](#json-web-keys-discovery)
-        * [Access Token](#json-web-keys-discovery)
-        * [ID Token](#json-web-keys-discovery)
+    * [Tokens](#tokens)
+        * [Access Token](#access-token)
+        * [ID Token](#id-token)
+        * [Refresh Token](#refresh-token)
     * [Scopes](#json-web-keys-discovery)
-* [General Implementation information](#general-implementation-information)
-* [API endpoints](#api-endpoints)
-    * [JSON Web Keys Discovery](#json-web-keys-discovery)
-    * [OpenID Connect Discovery](#openid-connect-discovery)
-    * [OAuth 2.0 Authorize](#oauth-20-authorize)
-    * [OAuth 2.0 Token](#oauth-20-token)
-    * [OpenID Connect Userinfo](#openid-connect-userinfo)
-* [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)
-    * [Receive authentication result](#receive-authentication-result)
-    * [Error handling](#error-handling)
-
+* [Integrating with Vipps Login](#integrating-with-vipps-login)
+    * [Manual Integration](#manual-integration)
+        * [API endpoints](#api-endpoints)
+            * [JSON Web Keys Discovery](#json-web-keys-discovery)
+            * [OpenID Connect Discovery](#openid-connect-discovery)
+            * [OAuth 2.0 Authorize](#oauth-20-authorize)
+            * [OAuth 2.0 Token](#oauth-20-token)
+            * [OpenID Connect Userinfo](#openid-connect-userinfo)
+    * [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)
+      * [Receive authentication result](#receive-authentication-result)
+      * [Error handling](#error-handling)
+    
 # Overview
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and 
 OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS using 
@@ -53,7 +54,7 @@ It enables Clients to verify the identity of the End-User based on the authentic
 as well as to obtain basic profile information about the End-User in a REST-like manner.
 Some good sources to get you started are:   
 https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1  
-https://connect2id.com/learn/openid-connect  
+https://connect2id.com/learn/openid-connect 
 
 ### Supported OpenId Connect Flows
 
@@ -64,7 +65,7 @@ resource owner's user-agent (typically a web browser) and capable of receiving i
 from the authorization server.
 
 For more information see [RFC-6749 section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)
-
+## Tokens
 ### Access token
 Access tokens are randoms strings that represents the authorization of a specific application to access specific parts of a user’s data.
 The token itself does not provide any information, but it can  be used to fetch the data that that the end user has consented to sharing from the [userinfo endpoint](#openid-connect-userinfo).  
@@ -111,6 +112,9 @@ Body
 ```
 You can learn more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
 
+### Refresh token
+Vipps Login does not currently support refresh tokens.
+
 ## Scopes
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.  
 Vipps Login currently supports the following scopes:
@@ -123,15 +127,16 @@ Vipps Login currently supports the following scopes:
 | address          | End user address                   |   no      |
 | email            | End users email                    |   no      |
 
-# General implementation information
+
+# Integrating with Vipps Login
 Vipps Login adheres to the OAuth2 and OpenIdConnect standards. The easiest way to integrate with the service is therefore to 
 use a tried and trusted OAuth2.0/Open Id Connect Library for your programming language. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID foundation is a good starting point.
 
-By using a library you avoid many of t
-
-
-# Api endpoints
-This section contains complete HTTP `requests` and `responses` for each API endpoint
+## Manual Integration
+This section contains information necessary to manually integrate with Vipps Login.
+A manual integration should not be attempted without a solid knowledge of the OAuth and OIDC standards.
+    
+### Api endpoints
 
 | Operation                 | Description         | Endpoint          |
 | ------------------------- | ------------------- | ----------------- |
@@ -141,7 +146,7 @@ This section contains complete HTTP `requests` and `responses` for each API endp
 | [OAuth 2.0 Token](#OAuth-2.0-Token)                   | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
 | [OpenID Connect Userinfo](#OpenID-Connect-Userinfo)   | Returns information that the user has consented to share. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
 
-## JSON Web Keys Discovery
+### JSON Web Keys Discovery
 This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and, if enabled, 
 OAuth 2.0 JWT Access Tokens. 
 
@@ -177,7 +182,7 @@ Examples:
 ```
 This operation does not require authentication
 
-## OpenID Connect Discovery
+### OpenID Connect Discovery
 The OIDC connect discovery endpoint can be used to retrieve configuration information for OpenID Connect clients.  
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
@@ -240,7 +245,7 @@ Examples
 }
 ```
 
-## OAuth 2.0 Authorize
+### OAuth 2.0 Authorize
 
 The authorize endpoint is a standard OIDC endpoint used for starting an authorization. The client creates an request 
     URI and directs the resource owner to the constructed URI.
@@ -286,7 +291,7 @@ If the resource owner declines the access request or an error occurs, the author
 See error handling for more information 
 For more information see [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1)
 
-## OAuth 2.0 Token
+### OAuth 2.0 Token
 The token endpoint is a standard OIDC endpoint used for requesting Access and Id tokens.
 The client constructs the the request by adding the parameters described below to the HTTP body by using the "application/x-www-form-urlencoded" format.
 
@@ -328,7 +333,7 @@ Examples:
 ```
 
 
-## OpenID Connect Userinfo
+### OpenID Connect Userinfo
 This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token. 
 You can learn more at the [OIDC Standard](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
 
@@ -361,10 +366,10 @@ Examples
   "address": "Dronning Eufemias gate 42"
 }
 ```
-# API endpoints required by Vipps from the merchant
+## API endpoints required by Vipps from the merchant
 The following endpoints are to be implemented by merchants, in order for Vipps to redirect the resource owner to them.
 
-## Receive Authentication Result
+### Receive Authentication Result
 After a successful authentication, the user agent is redirected to this endpoint with the following parameters added to the query component.  
 This URI needs to be pre-registered with Vipps and supplied as a query parameter on calls to the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize)  
 
