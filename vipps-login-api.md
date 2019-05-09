@@ -12,7 +12,6 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 * [Overview](#overview)
     * [General information](#supported-openid-connect-flows)
 * [Core Concepts](#core-concepts)
-    * [Glossary](#json-web-keys-discovery)
     * [OAuth 2.0](#oauth-20)
     * [Open ID Connect](#open-id-connect)
         * [Supported OpenId Connect Flows](#supported-openid-connect-flows)
@@ -33,7 +32,7 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
     * [Error handling](#error-handling)
 
 # Overview
-The Vipps Login API offers functionality for authenticating end users and authorizing clients, founded on the OAuth2 and 
+The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and 
 OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS using 
 app switching. 
 
@@ -42,16 +41,6 @@ This service is currently in a pre release version. This documentation will be e
 as we move closer to a public release.  
 
 # Core concepts
-
-## Glossary
-| OAuth 2.0 / OIDC Term              | Description                  |
-| -----------------------------| -----------------------------------|
-| Resource Owner               | The end user,                      |
-| The Authorization Server     | End user name                      |
-| Resource Server              | Norwegian National Identity number |
-| Client                       |                                    |
-| email                        | End users email                    |
-
 ## OAuth 2.0
 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) is the industry-standard protocol for authorization. 
 Giving a proper introduction to the standard is out of scope of this documentation, but there are many excellent sources 
@@ -59,113 +48,42 @@ on the web. If you are new to the subject we recommend this [talk](https://www.y
 We also recommend reading https://aaronparecki.com/oauth-2-simplified and having a look at the documentation on https://oauth.net/2/
 
 ## Open Id Connect
-OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is a simple identity layer on top of the OAuth 2.0 protocol.
 It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, 
 as well as to obtain basic profile information about the End-User in a REST-like manner.
-Some sources good sources to get you started is:   
+Some good sources to get you started are:   
 https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1  
 https://connect2id.com/learn/openid-connect  
 
 ### Supported OpenId Connect Flows
+
 #### Authorization Code Grant
 The authorization code grant type is used to obtain both access tokens and refresh tokens and is optimized for 
-    confidential clients. Since this is a redirection-based flow, the client must be capable of interacting with the 
-    resource owner's user-agent (typically a web browser) and capable of receiving incoming requests (via redirection) 
-    from the authorization server.
-
-     +----------+
-     | Resource |
-     |   Owner  |
-     |          |
-     +----------+
-          ^
-          |
-         (B)
-     +----|-----+          Client Identifier      +---------------+
-     |         -+----(A)-- & Redirection URI ---->|               |
-     |  User-   |                                 | Authorization |
-     |  Agent  -+----(B)-- User authenticates --->|     Server    |
-     |          |                                 |               |
-     |         -+----(C)-- Authorization Code ---<|               |
-     +-|----|---+                                 +---------------+
-       |    |                                         ^      v
-      (A)  (C)                                        |      |
-       |    |                                         |      |
-       ^    v                                         |      |
-     +---------+                                      |      |
-     |         |>---(D)-- Authorization Code ---------'      |
-     |  Client |          & Redirection URI                  |
-     |         |                                             |
-     |         |<---(E)----- Access Token -------------------'
-     +---------+       (w/ Optional Refresh Token)
-
-Note: The lines illustrating steps (A), (B), and (C) are broken into two parts as they pass through the user-agent.
-   
-    The flow illustrated in the figure includes the following steps:
-    
-      (A)  The client initiates the flow by directing the resource owner's
-           user-agent to the authorization endpoint. The client includes
-           its client identifier, requested scope, local state, and a
-           redirection URI to which the authorization server will send the
-           user-agent back once access is granted (or denied).
-    
-      (B)  The authorization server authenticates the resource owner (via
-           the user-agent) and establishes whether the resource owner
-           grants or denies the client's access request.
-    
-      (C)  Assuming the resource owner grants access, the authorization
-           server redirects the user-agent back to the client using the
-           redirection URI provided earlier (in the request or during
-           client registration). The redirection URI includes an
-           authorization code and any local state provided by the client
-           earlier.
-    
-      (D)  The client requests an access token from the authorization
-           server's token endpoint by including the authorization code
-           received in the previous step. When making the request, the
-           client authenticates with the authorization server.  The client
-           includes the redirection URI used to obtain the authorization
-           code for verification.
-    
-      (E)  The authorization server authenticates the client, validates the
-           authorization code, and ensures that the redirection URI
-           received matches the URI used to redirect the client in
-           step (C).  If valid, the authorization server responds back with
-           an access token and, optionally, a refresh token.
+confidential clients. Since this is a redirection-based flow, the client must be capable of interacting with the 
+resource owner's user-agent (typically a web browser) and capable of receiving incoming requests (via redirection) 
+from the authorization server.
 
 For more information see [RFC-6749 section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)
 
-## Scopes
-Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.  
-Valid scope identifiers are specified in RFC 6749.
-
-Vipps Login currently supports the following scopes:
-
-| Scopes           | Description                        | Required  |
-| -----------------| -----------------------------------|-----------|
-| openid           | Open Id Connect                    |   yes     |
-| name             | End user name                       |   no      |
-| nnin             | Norwegian National Identity number |   no      |
-| address          |                                    |   no      |
-| email            | End users email                    |   no      |
-
 ### Access token
-Access tokens are issued by the token endpoint and can be used to  
+Access tokens are randoms strings that represents the authorization of a specific application to access specific parts of a user’s data.
+The token itself does not provide any information, but it can  be used to fetch the data that that the end user has consented to sharing from the [userinfo endpoint](#openid-connect-userinfo).  
+Access tokens MUST be kept confidential in transit and in storage. 
 
-### Id Token
-The ID token is a signed information object representing the authenticated identity of the user. 
-As part of the OpenID Connect standard the ID token is encoded as a JWT, and signed using the JWS standard.
-An Id token will be issued by the token endpoint when the scope openid is used.
-
-https://jwt.io/#libraries-io
-
-
+Example:
+```
+"hel39XaKjGH5tkCvIENGPNbsSHz1DLKluOat4qP-A4.WyV61hCK1E2snVs1aOvjOWZOXOayZad0K-Qfo3lLzus"
+```
 For more information see [RFC-6749 section 4.1.3-4.1.4](https://tools.ietf.org/html/rfc6749#section-4.1.3)
 
+### Id Token
+The ID token is a signed information object representing the authenticated identity of the user.   
+As part of the OpenID Connect standard the ID token is encoded as a JWT, and signed using the JWS standard.
+The Id token can decoded for debugging purposes by tools such as [jwt.io](https://jwt.io/)
 
-The Id token is a JWT that can be decoded for debugging purposes by tools such as jwt.io 
+Example
 
-Id token header
+Header
 ```json
 {
   "alg": "RS256",
@@ -173,8 +91,7 @@ Id token header
   "typ": "JWT"
 }
 ```
-Id token 
-Examples:
+Body
 ```json
 
 {
@@ -192,11 +109,25 @@ Examples:
   "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944"
 }
 ```
+You can learn more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
 
+## Scopes
+Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.  
+Vipps Login currently supports the following scopes:
 
-## General implementation information
+| Scopes           | Description                        | Required  |
+| -----------------| -----------------------------------|-----------|
+| openid           | Open Id Connect                    |   yes     |
+| name             | End user name                      |   no      |
+| nnin             | Norwegian National Identity number |   no      |
+| address          | End user address                   |   no      |
+| email            | End users email                    |   no      |
+
+# General implementation information
 Vipps Login adheres to the OAuth2 and OpenIdConnect standards. The easiest way to integrate with the service is therefore to 
 use a tried and trusted OAuth2.0/Open Id Connect Library for your programming language. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID foundation is a good starting point.
+
+By using a library you avoid many of t
 
 
 # Api endpoints
@@ -457,8 +388,9 @@ the following parameters added to the query component.
 | error_description | A short text providing additional information on the error that occurred.                                                                                     |
 | state             | The exact value received from the client during the authorization request.                                                                                    | 
 
-
 Example: 
 
      HTTP/1.1 302 Found
      Location: https://client.example.com/callback?error=access_denied&error_description=user%20cancelled%20the%20login?state={state}
+
+If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
