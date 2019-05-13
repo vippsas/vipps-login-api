@@ -248,7 +248,7 @@ Examples
 ### OAuth 2.0 Authorize
 
 The authorize endpoint is a standard OIDC endpoint used for starting an authorization. The client creates an request 
-    URI and directs the resource owner to the constructed URI.
+URI and directs the resource owner to the constructed URI.
 
 **Request**
 
@@ -260,7 +260,7 @@ The client constructs the request URI by adding the following parameters to the 
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | response_type     | Value MUST be set to "code".                                                                                                                                                              |
 | client_id         | The client identifier, issued by Vipps.                                                                                                                                                   |
-| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant)          |
+| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
 | scope             | Scope of the access request, space separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
 
@@ -308,7 +308,7 @@ The Client Credentials is a base 64 encoded string consisting of the Client id a
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | grant_type        | Value MUST be authorization_code. |
 | code              | The authorization code received from the authorization server. |
-| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-by-vipps-from-the-merchant).         |                                                                                                                                    |
+| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant).         |                                                                                                                                    |
 
 [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
 
