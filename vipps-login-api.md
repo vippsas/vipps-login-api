@@ -296,18 +296,21 @@ The client constructs the the request by adding the parameters described below t
 
 **Request**
 
+*Headers*
+
 | Header            | Description                            |
 | ----------------- | -------------------------------------  |
 | Content-Type      | "application/x-www-form-urlencoded"    |                                                                                                                                                 |
 | Authorization     | "Basic {Client Credentials}"           |                                                                                                                                                 |
-
 The Client Credentials is a base 64 encoded string consisting of the Client id and secret issued by Vipps joined by ":"
 
-| Query             | Description                                                                                                                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| grant_type        | Value MUST be authorization_code. |
-| code              | The authorization code received from the authorization server. |
-| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant).         |                                                                                                                                    |
+*Form content*
+
+| Key               | Description                                                                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| grant_type        | Value MUST be authorization_code.                                                                                                                                        |
+| code              | The authorization code received from the authorization server.                                                                                                           |
+| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant). |                                                                                                                                    |
 
 [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
 
