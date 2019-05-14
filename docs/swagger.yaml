@@ -471,5 +471,4 @@ securityDefinitions:
     authorizationUrl: /oauth2/auth
     tokenUrl: /oauth2/token
     scopes:
-      offline: A scope required when requesting refresh tokens
       openid: Request an OpenID Connect ID Token

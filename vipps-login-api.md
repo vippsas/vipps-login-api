@@ -38,7 +38,9 @@ app switching.
 
 **NB!**  
 This service is currently in a pre release version. This documentation will be expanded, and is likely to undergo changes 
-as we move closer to a public release.  
+as we move closer to a public release.   
+
+The service does at the moment only support devices running iOS, but Android support will be added before the public release.  
 
 # Core concepts
 ## OAuth 2.0
@@ -120,13 +122,9 @@ Vipps Login does not currently support refresh tokens.
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.  
 Vipps Login currently supports the following scopes:
 
-| Scopes           | Description                        | Required  |
-| -----------------| -----------------------------------|-----------|
-| openid           | Open ID Connect                    |   yes     |
-| name             | End user name                      |   no      |
-| nnin             | Norwegian National Identity number |   no      |
-| address          | End user address                   |   no      |
-| email            | End users email                    |   no      |
+| Scopes           | Description                                    | Required  |
+| -----------------| -----------------------------------------------|-----------|
+| openid           | Scope used to initiate an OIDC authentication  |   yes     |
 
 
 # Integrating with Vipps Login
