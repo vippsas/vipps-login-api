@@ -341,10 +341,13 @@ You can learn more at the [OIDC Standard](http://openid.net/specs/openid-connect
 
 **Request**
 
+*Headers*
+
 | Header            | Description                            |
 | ----------------- | -------------------------------------  |
-| Authorization     | "Basic {Client Credentials}"           |    
-The Client Credentials is a base 64 encoded string consisting of the Client id and secret issued by Vipps joined by ":" 
+| Authorization     | "Bearer {Access Token}"           |    
+
+The access token is received on a successful request to the [token endpoint](#oauth-20-token)
 
 [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo)
 
