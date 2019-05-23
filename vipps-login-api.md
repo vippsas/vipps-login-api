@@ -138,11 +138,10 @@ Vipps Login currently supports the following scopes:
 
 
 When requesting scopes that require user consent, a view listing these scopes will be displayed to the user with the option to
-allow or deny the consent request. This view is skipped if no scopes requiring consent is requested.
+allow or deny the consent request. This view is skipped if no scopes requiring consent are requested.
 The user can not make changes to the the list of requested scopes, and can therefore not accept for example name and deny address.
 
-
-We recommend asking for the minimal amount of scopes needed for you application to function. This is to minimize the 
+We recommend asking for the minimal amount of scopes needed for you application to work. This is to minimize the 
 number of users that deny the consent request.
 
 # Integrating with Vipps Login
