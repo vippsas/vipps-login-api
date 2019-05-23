@@ -104,6 +104,10 @@ Body
 ```
 You can learn more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
 
+It is important to validate the Id-token before using any data contained in it.
+See the Oidc-standard on [Id-token validation](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) for the specifics. 
+We recommend that you use a library for this. A good place to start is finding a library for your language at https://jwt.io/#libraries-io
+
 ### Access token
 Access tokens are randoms strings that represents the authorization of a specific application to access specific parts of a user’s data.
 The token itself does not provide any information, but it can  be used to fetch the data that that the end user has consented to sharing from the [userinfo endpoint](#openid-connect-userinfo).  
@@ -122,18 +126,33 @@ Vipps Login does not currently support refresh tokens.
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.  
 Vipps Login currently supports the following scopes:
 
-| Scopes           | Description                                    | Required  |
-| -----------------| -----------------------------------------------|-----------|
-| openid           | Scope used to initiate an OIDC authentication  |   yes     |
+| Scopes      | Description                                    | User consent required  |
+| ------------| -----------------------------------------------|-------- |
+| openid      | Scope used to request an Id-token              |   no    |
+| address     | User home address                              |   yes   |
+| birthDate   | User birth date                                |   yes   |
+| email       | User email                                     |   yes   |
+| name        | User first, middle and given name              |   yes   |
+| phoneNumber | Verified phone number                          |   yes   |
+| nnin        | Norwegian national identity number. NB, access to this scope needs to be pre approved by Vipps |   yes      |
 
+
+When requesting scopes that require user consent, a view listing these scopes will be displayed to the user with the option to
+allow or deny the consent request. This view is skipped if no scopes requiring consent is requested.
+The user can not make changes to the the list of requested scopes, and can therefore not accept for example name and deny address.
+
+
+We recommend asking for the minimal amount of scopes needed for you application to function. This is to minimize the 
+number of users that deny the consent request.
 
 # Integrating with Vipps Login
 Vipps Login adheres to the OAuth2 and OpenIDConnect standards. The easiest way to integrate with the service is therefore to 
-use a tried and trusted OAuth2.0/OpenID Connect Library for your programming language. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID foundation is a good starting point.
+use a well renowned OAuth2.0/OpenID Connect Library for your programming language.
+Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID foundation is a good starting point.
 
 ## Manual integration
-This section contains information necessary to manually integrate with Vipps Login.
-A manual integration should not be attempted without a solid knowledge of the OAuth and OIDC standards.
+This section contains information necessary to perform a manual integration with Vipps Login.
+This should not be attempted without a solid knowledge of the OAuth and OIDC standards.
     
 ### API endpoints
 
@@ -259,7 +278,7 @@ The client constructs the request URI by adding the following parameters to the 
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | response_type     | Value MUST be set to "code".                                                                                                                                                              |
 | client_id         | The client identifier, issued by Vipps.                                                                                                                                                   |
-| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
+| redirect_uri      | Redirect url which the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
 | scope             | Scope of the access request, space separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
 
@@ -345,7 +364,7 @@ You can learn more at the [OIDC Standard](http://openid.net/specs/openid-connect
 
 | Header            | Description                            |
 | ----------------- | -------------------------------------  |
-| Authorization     | "Bearer {Access Token}"           |    
+| Authorization     | "Bearer {Access Token}"                |    
 
 The access token is received on a successful request to the [token endpoint](#oauth-20-token)
 
