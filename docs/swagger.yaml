@@ -385,6 +385,9 @@ definitions:
       nickname:
         description: 'Casual name of the End-User that may or may not be the same as the given_name. For instance, a nickname value of Mike might be returned alongside a given_name value of Michael.'
         type: string
+      nnin:
+        description: 'Norwegian national identity number'
+        type: string
       phone_number:
         description: 'End-User''s preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400. If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the RFC 3966 [RFC3966] extension syntax, for example, +1 (604) 555-1234;ext=5678.'
         type: string
@@ -437,8 +440,7 @@ definitions:
         type: string
       scope:
         description: The scope of the access token
-        type: integer
-        format: int64
+        type: string
       token_type:
         description: The type of the token issued
         type: string
