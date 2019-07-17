@@ -318,9 +318,18 @@ The client constructs the the request by adding the parameters described below t
 
 | Header            | Description                            |
 | ----------------- | -------------------------------------  |
-| Content-Type      | "application/x-www-form-urlencoded"    |                                                                                                                                                 |
-| Authorization     | "Basic {Client Credentials}"           |                                                                                                                                                 |
+| Content-Type      | "application/x-www-form-urlencoded"    |                                                                                                                                                 
+| Authorization     | "Basic {Client Credentials}"           |                                                                                                                                                 
 The Client Credentials is a base 64 encoded string consisting of the Client id and secret issued by Vipps joined by ":"
+
+Example in JavaScript:
+```
+var client_id = 123456-test-4a3d-a47c-412136fd0871
+var client_secret = testdzlJbUZaM1lqODlnUUtrUHI=
+
+var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + ":" + client_secret);
+var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
+```
 
 *Form content*
 
