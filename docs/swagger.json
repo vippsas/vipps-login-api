@@ -30,7 +30,7 @@
           "https"
         ],
         "tags": [
-          "public"
+          "Oidc Endpoints"
         ],
         "summary": "JSON Web Keys Discovery",
         "operationId": "wellKnown",
@@ -52,7 +52,7 @@
     },
     "/.well-known/openid-configuration": {
       "get": {
-        "description": "The well known endpoint can be used to retrieve configuration information for OpenID Connect clients. To learn more about this endpoint please refer to the specification at https://openid.net/specs/openid-connect-discovery-1_0.html",
+        "description": "The well known endpoint can be used to retrieve configuration information for OpenID Connect clients.\nTo learn more about this endpoint please refer to the specification at https://openid.net/specs/openid-connect-discovery-1_0.html",
         "produces": [
           "application/json"
         ],
@@ -60,7 +60,7 @@
           "https"
         ],
         "tags": [
-          "public"
+          "Oidc Endpoints"
         ],
         "summary": "OpenID Connect Discovery",
         "operationId": "discoverOpenIDConfiguration",
@@ -88,7 +88,7 @@
     },
     "/oauth2/auth": {
       "get": {
-        "description": "TThe resource owner (end user) is redirected to this endpoint at the beginning of the authentication process\nand it is used to obtain an authorization grant.\nTo learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.1\n",
+        "description": "The resource owner (end user) is redirected to this endpoint at the beginning of the authentication process,\nand it is used to obtain an authorization grant.\nTo learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.1",
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
@@ -96,7 +96,7 @@
           "https"
         ],
         "tags": [
-          "public"
+          "Oidc Endpoints"
         ],
         "summary": "The OAuth 2.0 authorize endpoint",
         "operationId": "oauthAuth",
@@ -140,7 +140,7 @@
           "https"
         ],
         "tags": [
-          "public"
+          "Oidc Endpoints"
         ],
         "summary": "The OAuth 2.0 token endpoint",
         "operationId": "oauth2Token",
@@ -204,7 +204,7 @@
           "https"
         ],
         "tags": [
-          "public"
+          "Oidc Endpoints"
         ],
         "summary": "OpenID Connect Userinfo",
         "operationId": "userinfo",
@@ -347,87 +347,118 @@
       "properties": {
         "authorization_endpoint": {
           "description": "URL of the OP's OAuth 2.0 Authorization Endpoint.",
-          "type": "string"
+          "type": "string",
+          "example": "https://apitest.vipps.no/access-management-1.0/access/oauth2/auth"
         },
         "claims_parameter_supported": {
           "description": "Boolean value specifying whether the OP supports use of the claims parameter, with true indicating support.",
-          "type": "boolean"
+          "type": "boolean",
+          "example": false
         },
         "claims_supported": {
           "description": "JSON array containing a list of the Claim Names of the Claims that the OpenID Provider MAY be able to supply values for. Note that for privacy or other reasons, this might not be an exhaustive list.",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "example": [
+              "sub"
+            ]
           }
         },
         "grant_types_supported": {
           "description": "JSON array containing a list of the OAuth 2.0 Grant Type values that this OP supports.",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "example": [
+              "openid",
+              "name",
+              "phoneNumber",
+              "address",
+              "birthDate",
+              "email"
+            ]
           }
         },
         "id_token_signing_alg_values_supported": {
           "description": "JSON array containing a list of the JWS signing algorithms (alg values) supported by the OP for the ID Token to encode the Claims in a JWT.",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "example": [
+              "RS256"
+            ]
           }
         },
         "issuer": {
           "description": "URL using the https scheme with no query or fragment component that the OP asserts as its IssuerURL Identifier. If IssuerURL discovery is supported , this value MUST be identical to the issuer value returned by WebFinger. This also MUST be identical to the iss Claim value in ID Tokens issued from this IssuerURL.",
-          "type": "string"
+          "type": "string",
+          "example": "https://apitest.vipps.no/access-management-1.0/access/"
         },
         "jwks_uri": {
           "description": "URL of the OP's JSON Web Key Set [JWK] document. This contains the signing key(s) the RP uses to validate signatures from the OP. The JWK Set MAY also contain the Server's encryption key(s), which are used by RPs to encrypt requests to the Server. When both signing and encryption keys are made available, a use (Key Use) parameter value is REQUIRED for all keys in the referenced JWK Set to indicate each key's intended usage. Although some algorithms allow the same key to be used for both signatures and encryption, doing so is NOT RECOMMENDED, as it is less secure. The JWK x5c parameter MAY be used to provide X.509 representations of keys provided. When used, the bare key values MUST still be present and MUST match those in the certificate.",
-          "type": "string"
-        },
-        "registration_endpoint": {
-          "description": "URL of the OP's Dynamic Client Registration Endpoint.",
-          "type": "string"
+          "type": "string",
+          "example": "https://apitest.vipps.no/access-management-1.0/access/.well-known/jwks.json"
         },
         "request_parameter_supported": {
           "description": "Boolean value specifying whether the OP supports use of the request parameter, with true indicating support.",
-          "type": "boolean"
+          "type": "boolean",
+          "example": true
         },
         "request_uri_parameter_supported": {
           "description": "Boolean value specifying whether the OP supports use of the request_uri parameter, with true indicating support.",
-          "type": "boolean"
+          "type": "boolean",
+          "example": true
         },
         "require_request_uri_registration": {
           "description": "Boolean value specifying whether the OP requires any request_uri values used to be pre-registered using the request_uris registration parameter.",
-          "type": "boolean"
+          "type": "boolean",
+          "example": true
         },
         "response_modes_supported": {
           "description": "JSON array containing a list of the OAuth 2.0 response_mode values that this OP supports.",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "example": [
+              "query"
+            ]
           }
         },
         "response_types_supported": {
-          "description": "JSON array containing a list of the OAuth 2.0 response_type values that this OP supports. Dynamic OpenID Providers MUST support the code, id_token, and the token id_token Response Type values.",
+          "description": "JSON array containing a list of the OAuth 2.0 response_type values that this OP supports.",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "example": [
+              "code"
+            ]
           }
-        },
-        "revocation_endpoint": {
-          "description": "URL of the authorization server's OAuth 2.0 revocation endpoint.",
-          "type": "string"
         },
         "scopes_supported": {
           "description": "JSON array containing a list of the OAuth 2.0 [RFC6749] scope values that this server supports. The server MUST support the openid scope value. Servers MAY choose not to advertise some supported scope values even when this parameter is used.",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "example": [
+              "openid",
+              "address",
+              "name",
+              "email",
+              "phoneNumber",
+              "nnin",
+              "birthDate"
+            ]
           }
         },
         "subject_types_supported": {
           "description": "JSON array containing a list of the Subject Identifier types that this OP supports. Valid types include pairwise and public.",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "example": [
+              "pairwise"
+            ]
           }
         },
         "token_endpoint": {
@@ -438,18 +469,26 @@
           "description": "JSON array containing a list of Client Authentication methods supported by this Token Endpoint. The options are client_secret_post, client_secret_basic, client_secret_jwt, and private_key_jwt, as described in Section 9 of OpenID Connect Core 1.0",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "example": [
+              "client_secret_basic",
+              "client_secret_post"
+            ]
           }
         },
         "userinfo_endpoint": {
           "description": "URL of the OP's UserInfo Endpoint.",
-          "type": "string"
+          "type": "string",
+          "example": "https://apitest.vipps.no/access-management-1.0/access/userinfo"
         },
         "userinfo_signing_alg_values_supported": {
           "description": "JSON array containing a list of the JWS [JWS] signing algorithms (alg values) [JWA] supported by the UserInfo Endpoint to encode the Claims in a JWT [JWT].",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "example": [
+              "RS256"
+            ]
           }
         }
       }
@@ -459,86 +498,94 @@
       "type": "object",
       "properties": {
         "birthdate": {
-          "description": "End-User's birthday, represented as an ISO 8601:2004 [ISO8601‑2004] YYYY-MM-DD format. The year MAY be 0000, indicating that it is omitted. To represent only the year, YYYY format is allowed. Note that depending on the underlying platform's date related function, providing just year can result in varying month and day, so the implementers need to take this factor into account to correctly process the dates.",
+          "description": "End-User's birthday formatted as DD.MM.YYYY",
           "type": "string"
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
         },
         "email": {
-          "description": "End-User's preferred e-mail address. Its value MUST conform to the RFC 5322 [RFC5322] addr-spec syntax. The RP MUST NOT rely upon this value being unique, as discussed in Section 5.7.",
+          "description": "End-User's email address.",
           "type": "string"
-        },
-        "email_verified": {
-          "description": "True if the End-User's e-mail address has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this e-mail address was controlled by the End-User at the time the verification was performed. The means by which an e-mail address is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating.",
-          "type": "boolean"
         },
         "family_name": {
-          "description": "Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.",
-          "type": "string"
-        },
-        "gender": {
-          "description": "End-User's gender. Values defined by this specification are female and male. Other values MAY be used when neither of the defined values are applicable.",
+          "description": "Surname(s) or last name(s) of the End-User.",
           "type": "string"
         },
         "given_name": {
           "description": "Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.",
           "type": "string"
         },
-        "locale": {
-          "description": "End-User's locale, represented as a BCP47 [RFC5646] language tag. This is typically an ISO 639-1 Alpha-2 [ISO639‑1] language code in lowercase and an ISO 3166-1 Alpha-2 [ISO3166‑1] country code in uppercase, separated by a dash. For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well.",
-          "type": "string"
-        },
-        "middle_name": {
-          "description": "Middle name(s) of the End-User. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names are not used.",
-          "type": "string"
-        },
         "name": {
           "description": "End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.",
           "type": "string"
         },
-        "nickname": {
-          "description": "Casual name of the End-User that may or may not be the same as the given_name. For instance, a nickname value of Mike might be returned alongside a given_name value of Michael.",
-          "type": "string"
-        },
         "nnin": {
           "description": "Norwegian national identity number",
-          "type": "string",
+          "type": "string"
         },
         "phone_number": {
-          "description": "End-User's preferred telephone number. E.164 [E.164] is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400. If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the RFC 3966 [RFC3966] extension syntax, for example, +1 (604) 555-1234;ext=5678.",
-          "type": "string"
-        },
-        "phone_number_verified": {
-          "description": "True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. The means by which a phone number is verified is context-specific, and dependent upon the trust framework or contractual agreements within which the parties are operating. When true, the phone_number Claim MUST be in E.164 format and any extensions MUST be represented in RFC 3966 format.",
-          "type": "boolean"
-        },
-        "picture": {
-          "description": "URL of the End-User's profile picture. This URL MUST refer to an image file (for example, a PNG, JPEG, or GIF image file), rather than to a Web page containing an image. Note that this URL SHOULD specifically reference a profile photo of the End-User suitable for displaying when describing the End-User, rather than an arbitrary photo taken by the End-User.",
-          "type": "string"
-        },
-        "preferred_username": {
-          "description": "Non-unique shorthand name by which the End-User wishes to be referred to at the RP, such as janedoe or j.doe. This value MAY be any valid JSON string including special characters such as @, /, or whitespace.",
-          "type": "string"
-        },
-        "profile": {
-          "description": "URL of the End-User's profile page. The contents of this Web page SHOULD be about the End-User.",
-          "type": "string"
+          "description": "End-User's telephone number on format {d}8"
         },
         "sub": {
-          "description": "Subject - Identifier for the End-User at the IssuerURL.",
+          "description": "Subject - Identifier for the End-User",
           "type": "string"
         },
-        "updated_at": {
-          "description": "Time the End-User''s information was last updated. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.",
-          "type": "integer",
-          "format": "int64"
-        },
-        "website": {
-          "description": "URL of the End-User's Web page or blog. This Web page SHOULD contain information published by the End-User or an organization that the End-User is affiliated with.",
-          "type": "string"
-        },
-        "zoneinfo": {
-          "description": "String from zoneinfo [zoneinfo] time zone database representing the End-User''s time zone. For example, Europe/Paris or America/Los_Angeles.",
+        "sid": {
+          "description": "Session identifier - This represents a Session of a User Agent or device for a logged-in End-User at an RP. Currently not in use",
           "type": "string"
         }
+      },
+      "example": {
+        "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944",
+        "birthdate": "10.12.1815",
+        "email": "user@example.com",
+        "nnin": 10121550047,
+        "name": "Ada Lovelace",
+        "given_name": "Ada",
+        "family_name": "Lovelace",
+        "sid": "7d78a726-af92-499e-b857-de263ef9a969",
+        "phone_number": 4712345678,
+        "address": {
+          "street_address": "Test123\\nOk k\\n0145 oslo\\nNO",
+          "postal_code": 101,
+          "region": "oslo",
+          "country": "NO",
+          "formatted": "Test123\\nOk k\\n0145 oslo\\nNO"
+        }
+      }
+    },
+    "Address": {
+      "description": "End user address",
+      "type": "object",
+      "properties": {
+        "street_address": {
+          "description": "End user street address",
+          "type": "string"
+        },
+        "postal_code": {
+          "description": "Postal code",
+          "type": "string"
+        },
+        "region": {
+          "description": "End user region",
+          "type": "string"
+        },
+        "country": {
+          "description": "Two letter country code",
+          "type": "string"
+        },
+        "formatted": {
+          "description": "End user address as a formatted string",
+          "type": "string"
+        }
+      },
+      "example": {
+        "street_address": "Test123\\nOk k\\n0145 oslo\\nNO",
+        "postal_code": 101,
+        "region": "oslo",
+        "country": "NO",
+        "formatted": "Test123\\nOk k\\n0145 oslo\\nNO"
       }
     },
     "OauthTokenResponse": {
@@ -565,12 +612,19 @@
         },
         "scope": {
           "description": "The scope of the access token",
-          "type": "string",
+          "type": "string"
         },
         "token_type": {
           "description": "The type of the token issued",
           "type": "string"
         }
+      },
+      "example": {
+        "access_token": "shxuQPSLpKAiBrgD-HPbgDWc3RHzcXq3skcydKwRroo.Y5aH3PavJkZnSq5dffj8AmKVE-SdwRcbKhUKkmqimoQ",
+        "expires_in": 3599,
+        "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo2ZjIxMTlkZS03ZWY4LTQ0NDQtYjNkYy1lNDNiYWY2MDUwMGYiLCJ0eXAiOiJKV1QifQ.eyJhZGRyZXNzIjp7ImNvdW50cnkiOiJOTyIsImZvcm1hdHRlZCI6IlRlc3QxMjNcbk9rIGtcbjAxNDUgb3Nsb1xuTk8iLCJwb3N0YWxfY29kZSI6IjAxNDUiLCJyZWdpb24iOiJvc2xvIiwic3RyZWV0X2FkZHJlc3MiOiJUZXN0MTIzXG5PayBrIn0sImF0X2hhc2giOiJnUGpRUEpPbmp3Z09Uck96OWg1b0RRIiwiYXVkIjpbIm9pZGMtdGVzdGNsaWVudCJdLCJhdXRoX3RpbWUiOjE1NjMzNjA4ODYsImJpcnRoZGF0ZSI6IjAyLjA5LjE5NDciLCJlbWFpbCI6Imtpc2hvcnRlc3RAb3V0bG9vay5jb20iLCJleHAiOjE1NjMzNjQ0OTAsImZhbWlseV9uYW1lIjoiQ0hJTlRBTEEiLCJnaXZlbl9uYW1lIjoiS0lTSE9SIiwiaWF0IjoxNTYzMzYwODkwLCJpc3MiOiJodHRwczovL2xvZ2luLXVhdC52aXBwcy5pby9hY2Nlc3MtbWFuYWdlbWVudC0xLjAvYWNjZXNzLyIsImp0aSI6IjM3ZjE2MzEwLTU1MTEtNDhkZi1iYzVkLTE0OWJiNjJjYjE1OSIsIm5hbWUiOiJLSVNIT1IgQ0hJTlRBTEEiLCJubmluIjoiMDIwOTQ3MDAzODAiLCJub25jZSI6IjlhNmJlODg0LWQwZjktNDU5Zi04Mzg3LTQwN2EzYWQ1NWQwZCIsInBob25lX251bWJlciI6IjQ3OTM5OTkyNDMiLCJyYXQiOjE1NjMzNjA4NjgsInNpZCI6IjdkNzhhNzI2LWFmOTItNDk5ZS1iODU3LWRlMjYzZWY5YTk2OSIsInN1YiI6ImpaaUNCQnBSanB4eFptbVdNcUFCb3MifQ.Fq7cabcYYFRLKuROjowqwnJHghjNCe9cgJ4Zfx_3nTjRo7YJQsx1qcEFW2ak_7OEP0lAPPri0VTPtdWRDe39P4WLPQ3fkhu3y93WSzxPJ6nkzyp6yMeuJ6QC9GhyNvpDnlwXaeGP3AN3OQU6aHy1ujsyCtGapHB3yds1Uuf-8mC5qBa7KUTuHrh1QhsgQzqiXTTHtniJdz6mwwRvX_TT7J1yJHJAFbwLdm_H228Vq4jLOEeFx-v2vcC1mpSkEJQ4a6PwjnlIgEHeBl9aUPwQa92ulREsqWhZWpACY7FvtefQXM6llBnQiMInyidr_qRThaCF3uBMdLwccbBRv1cmUGGmiXHyu64-vnXj-5FwPmflur76tMN-Wp9cbpw7hWTAQb0B6yy8LhEolZydDQMri8rD1q4VaZbJY03NM70MWyIIR5T0ZqTuFBXtKAys47TJmGklFTvWfzYdebErogH3cD81myJz7rlnBKYBdIsdKtaGec8M53wx-zWHJXA6lvVASMWfDb_xxuBV43RxCbGY6gd8Wi2zDewCJiDoN2vINRZuvb4o3aq90NiAgOaPjvabRKFnVUL98rZeJaCo17PmS1D87OjgTuG289Il6ebmTSSV89gCyd-Kt70Xvta8Li616nhtGVQYlRikBoUP8ESuPq-6ezwaos0MaSsO6C1nwV0",
+        "token_type": "bearer",
+        "scope": "openid name phoneNumber address birthDate email"
       }
     },
     "ErrorResponse": {
@@ -593,11 +647,12 @@
         "error_debug": {
           "description": "Debug contains debug information. This is usually not available and has to be enabled.",
           "type": "string"
-        },
-        "error_hint": {
-          "description": "Hint contains further information on the nature of the error.",
-          "type": "string"
         }
+      },
+      "example": {
+        "error": "invalid_request",
+        "error_code": 400,
+        "error_debug": "The request is missing a required parameter, includes an invalid parameter or is otherwise malformed."
       }
     }
   },
@@ -608,8 +663,8 @@
     "oauth2": {
       "type": "oauth2",
       "flow": "accessCode",
-      "authorizationUrl": "/oauth2/auth",
-      "tokenUrl": "/oauth2/token",
+      "authorizationUrl": "https://base_url/oauth2/auth",
+      "tokenUrl": "https://base_url/oauth2/token",
       "scopes": {
         "openid": "Request an OpenID Connect ID Token"
       }
