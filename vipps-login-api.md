@@ -22,12 +22,12 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
 * [Integrating with Vipps Login](#integrating-with-vipps-login)
     * [Manual integration](#manual-integration)
         * [API endpoints](#api-endpoints)
-            * [JSON Web Keys Discovery](#json-web-keys-discovery)
-            * [OpenID Connect Discovery](#openid-connect-discovery)
             * [OAuth 2.0 Authorize](#oauth-20-authorize)
             * [OAuth 2.0 Token](#oauth-20-token)
             * [OpenID Connect Userinfo](#openid-connect-userinfo)
-        * [Automatic Recognition and](#automatic-recognition)
+            * [OpenID Connect Discovery](#openid-connect-discovery)
+            * [JSON Web Keys Discovery](#json-web-keys-discovery)
+        * [Automatic Recognition](#automatic-recognition)
     * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
       * [Receive authentication result](#receive-authentication-result)
       * [Error handling](#error-handling)
@@ -139,7 +139,7 @@ When requesting scopes that require user consent, a view listing these scopes wi
 allow or deny the consent request. This view is skipped if no scopes requiring consent are requested.
 The user can not make changes to the list of requested scopes, and can therefore not accept for example name and deny address.
 
-We recommend asking for the minimal amount of scopes needed for your application to work. This is to minimize the number of users that deny the consent request.
+We recommend asking for the minimal number of scopes needed for your usecase to minimize the number of users that deny the consent request.
 
 # Integrating with Vipps Login
 Vipps Login adheres to the OAuth2 and OpenIDConnect standards. The easiest way to integrate with the service is therefore to 
@@ -147,141 +147,19 @@ use a well renowned OAuth2.0/OpenID Connect Library for your programming languag
 Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
 
 ## Manual integration
-This section contains information necessary to perform a manual integration with Vipps Login.
-This should not be attempted without a solid knowledge of the OAuth and OIDC standards.
+This section contains information necessary to perform a manual integration with Vipps Login.  
+This should not be attempted without a solid grasp of the OAuth2 and Open ID Connect standards.
     
 ### API endpoints
 
 | Operation                 | Description         | Endpoint          |
 | ------------------------- | ------------------- | ----------------- |
-| [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
-| [OpenID Connect Discovery](#openid-connect-discovery) | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
 | [OAuth 2.0 Authorize](#oauth-20-authorize)           | Start an OAuth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth) |
 | [OAuth 2.0 Token](#oauth-20-token)                   | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
 | [OpenID Connect Userinfo](#openid-connect-userinfo)   | Returns information that the user has consented to share. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
+| [OpenID Connect Discovery](#openid-connect-discovery) | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
+| [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
 
-### JSON Web Keys Discovery
-This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and if enabled, 
-OAuth 2.0 JWT Access Tokens. 
-
-**Request**
-
-[`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown)
-
-**Response**
-
-Overview
-
-| HTTP status             | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| `200 OK`                | Request successful.                                     |
-| `500 Server Error`      | An internal Vipps problem.                              |
-
-Examples:  
-*200 response*
-
-```json
-{
-    "keys": [
-        {
-            "use": "sig",
-            "kty": "RSA",
-            "kid": "public:80f3c34a-9779-4e1e-b645-117f3b771af8",
-            "alg": "RS256",
-            "n": "n4kytA_ZeI3Znl96b-zteWmrSHjRmXnvLmACQ4W_BVRTtuhumuoLpOpavUcEOhajbLKqBrANC0dd7ABtL92gHRoVRp8VMSNBG6ykuD04gevxqgm2Gz1mGineWBrjINwY-WboPMqgyZLLKw-JjZ6EqHm67TnWxrKjk3135tGILWvrTJ6ykglGpfH0jpGtEOS6VUuSWeW5VitEGeOFDwWja4mYXZbfGICtKnD6LZOM8sFKyC9diBmDXuXZvxdwdBfVh9JvWMaZ5bJ_mv4iJ0qU0FM1yginRMLXY3MOxwLSLSQjmDPV8NZecUsK-UEfpJl7lvLdEFqKCdqQxkEEyLPMq_rM50F5QIbKa0BYoa973-OR9cJ-XQkLNCtF5i003Z3V-5c7N3xBNlpGYsp4CCvv--zFpxvRZ0k-axgu1Loj1eOZRuX1DL86iTQ6YXcBGPYlRkRNJOn7mkRV8wn8kp_DMlzJ7bgE-NFEA32wFrEimPCrGUfdNdjn6gMsWKcbiHiM4NlIDrCNPiD2CVPrHGuVex8R0cpKU0Cvxc8mXqvDc-VJbrqrRNPbZJh0Zoz4wfK9LESdYGAah9PhgHg5LDFHmhT0W3FPmy1Gmfk2ino4PryJ_rDXe0WT84IEGV9YEM631gDerS63D1dKvTP01YT5sd2Ymn9eptH9grvFeOhuvz0",
-            "e": "AQAB"
-        }
-    ]
-}
-```
-This operation does not require authentication
-
-### OpenID Connect Discovery
-The OIDC connect discovery endpoint can be used to retrieve configuration information for OpenID Connect clients.  
-You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
-
-**Request**
-
-[`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration)
-
-**Response**
-
-Overview
-
-| HTTP status             | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| `200 OK`                | Request successful.                                     |
-| `500 Server Error`      | An internal Vipps problem.                              |
-
-Example response from the merchant test environment:
-
-```json
-{
-  "issuer": "https://apitest.vipps.no/access-management-1.0/access/",
-  "authorization_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/auth",
-  "token_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/token",
-  "jwks_uri": "https://apitest.vipps.no/access-management-1.0/access/.well-known/jwks.json",
-  "subject_types_supported": [
-    "public",
-    "pairwise"
-  ],
-  "response_types_supported": [
-    "code",
-    "code id_token",
-    "id_token",
-    "token id_token",
-    "token",
-    "token id_token code"
-  ],
-  "claims_supported": [
-    "sub"
-  ],
-  "grant_types_supported": [
-    "authorization_code",
-    "implicit",
-    "client_credentials",
-    "refresh_token"
-  ],
-  "response_modes_supported": [
-    "query",
-    "fragment"
-  ],
-  "userinfo_endpoint": "https://apitest.vipps.no/access-management-1.0/access/userinfo",
-  "scopes_supported": [
-    "offline",
-    "openid",
-    "address",
-    "name",
-    "email",
-    "phoneNumber",
-    "nnin",
-    "birthDate"
-  ],
-  "token_endpoint_auth_methods_supported": [
-    "client_secret_post",
-    "client_secret_basic",
-    "private_key_jwt",
-    "none"
-  ],
-  "userinfo_signing_alg_values_supported": [
-    "none",
-    "RS256"
-  ],
-  "id_token_signing_alg_values_supported": [
-    "RS256"
-  ],
-  "request_parameter_supported": true,
-  "request_uri_parameter_supported": true,
-  "require_request_uri_registration": true,
-  "claims_parameter_supported": false,
-  "revocation_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/revoke",
-  "backchannel_logout_supported": true,
-  "backchannel_logout_session_supported": true,
-  "frontchannel_logout_supported": true,
-  "frontchannel_logout_session_supported": true,
-  "end_session_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/sessions/logout"
-}
-```
 
 ### OAuth 2.0 Authorize
 
@@ -429,6 +307,130 @@ Example respose:
   "sid" : "ec41669d-be3f-4a43-8556-c779c5676931"
 }
 ```
+
+
+### OpenID Connect Discovery
+The OIDC connect discovery endpoint can be used to retrieve configuration information for OpenID Connect clients.  
+You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
+
+**Request**
+
+[`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration)
+
+**Response**
+
+Overview
+
+| HTTP status             | Description                                             |
+| ----------------------- | ------------------------------------------------------- |
+| `200 OK`                | Request successful.                                     |
+| `500 Server Error`      | An internal Vipps problem.                              |
+
+Example response from the merchant test environment:
+
+```json
+{
+  "issuer": "https://apitest.vipps.no/access-management-1.0/access/",
+  "authorization_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/auth",
+  "token_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/token",
+  "jwks_uri": "https://apitest.vipps.no/access-management-1.0/access/.well-known/jwks.json",
+  "subject_types_supported": [
+    "public",
+    "pairwise"
+  ],
+  "response_types_supported": [
+    "code",
+    "code id_token",
+    "id_token",
+    "token id_token",
+    "token",
+    "token id_token code"
+  ],
+  "claims_supported": [
+    "sub"
+  ],
+  "grant_types_supported": [
+    "authorization_code",
+    "implicit",
+    "client_credentials",
+    "refresh_token"
+  ],
+  "response_modes_supported": [
+    "query",
+    "fragment"
+  ],
+  "userinfo_endpoint": "https://apitest.vipps.no/access-management-1.0/access/userinfo",
+  "scopes_supported": [
+    "offline",
+    "openid",
+    "address",
+    "name",
+    "email",
+    "phoneNumber",
+    "nnin",
+    "birthDate"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "client_secret_basic",
+    "private_key_jwt",
+    "none"
+  ],
+  "userinfo_signing_alg_values_supported": [
+    "none",
+    "RS256"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "request_parameter_supported": true,
+  "request_uri_parameter_supported": true,
+  "require_request_uri_registration": true,
+  "claims_parameter_supported": false,
+  "revocation_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/revoke",
+  "backchannel_logout_supported": true,
+  "backchannel_logout_session_supported": true,
+  "frontchannel_logout_supported": true,
+  "frontchannel_logout_session_supported": true,
+  "end_session_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/sessions/logout"
+}
+
+```
+### JSON Web Keys Discovery
+This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and if enabled, 
+OAuth 2.0 JWT Access Tokens. 
+
+**Request**
+
+[`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown)
+
+**Response**
+
+Overview
+
+| HTTP status             | Description                                             |
+| ----------------------- | ------------------------------------------------------- |
+| `200 OK`                | Request successful.                                     |
+| `500 Server Error`      | An internal Vipps problem.                              |
+
+Examples:  
+*200 response*
+
+```json
+{
+    "keys": [
+        {
+            "use": "sig",
+            "kty": "RSA",
+            "kid": "public:80f3c34a-9779-4e1e-b645-117f3b771af8",
+            "alg": "RS256",
+            "n": "n4kytA_ZeI3Znl96b-zteWmrSHjRmXnvLmACQ4W_BVRTtuhumuoLpOpavUcEOhajbLKqBrANC0dd7ABtL92gHRoVRp8VMSNBG6ykuD04gevxqgm2Gz1mGineWBrjINwY-WboPMqgyZLLKw-JjZ6EqHm67TnWxrKjk3135tGILWvrTJ6ykglGpfH0jpGtEOS6VUuSWeW5VitEGeOFDwWja4mYXZbfGICtKnD6LZOM8sFKyC9diBmDXuXZvxdwdBfVh9JvWMaZ5bJ_mv4iJ0qU0FM1yginRMLXY3MOxwLSLSQjmDPV8NZecUsK-UEfpJl7lvLdEFqKCdqQxkEEyLPMq_rM50F5QIbKa0BYoa973-OR9cJ-XQkLNCtF5i003Z3V-5c7N3xBNlpGYsp4CCvv--zFpxvRZ0k-axgu1Loj1eOZRuX1DL86iTQ6YXcBGPYlRkRNJOn7mkRV8wn8kp_DMlzJ7bgE-NFEA32wFrEimPCrGUfdNdjn6gMsWKcbiHiM4NlIDrCNPiD2CVPrHGuVex8R0cpKU0Cvxc8mXqvDc-VJbrqrRNPbZJh0Zoz4wfK9LESdYGAah9PhgHg5LDFHmhT0W3FPmy1Gmfk2ino4PryJ_rDXe0WT84IEGV9YEM631gDerS63D1dKvTP01YT5sd2Ymn9eptH9grvFeOhuvz0",
+            "e": "AQAB"
+        }
+    ]
+}
+```
+This operation does not require authentication
 
 ## Automatic Recognition
 Vipps Login will offer the option to authenticate end-users automatically when they return to a merchant's site. 
