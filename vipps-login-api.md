@@ -33,19 +33,16 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
     
 # Introduction
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and 
-OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS using 
-app switching. 
+OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS using app switching. 
 
 **NB!**  
-This service is currently in a pre release version. This documentation will be expanded, and is likely to undergo changes 
-as we move closer to a public release.   
+This service is currently in a pre-release version. This documentation will be expanded and is likely to change as we move closer to a public release.   
 
-The service does at the moment only support devices running iOS, but Android support will be added before the public release.  
 
 # Core concepts
 ## OAuth 2.0
 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) is the industry-standard protocol for authorization. 
-Giving a proper introduction to the standard is out of scope of this documentation, but there are many excellent sources 
+Giving a proper introduction to the standard is out of the scope of this documentation, but there are many excellent resources 
 on the web. If you are new to the subject we recommend this [talk](https://www.youtube.com/watch?v=996OiexHze0 ) by Nate Barbettini at Okta.
 We also recommend reading https://aaronparecki.com/oauth-2-simplified and having a look at the documentation on https://oauth.net/2/
 
@@ -71,8 +68,8 @@ For more information see [RFC-6749 section 4.1](https://tools.ietf.org/html/rfc6
 
 ### ID Token
 The ID token is a signed information object representing the authenticated identity of the user.   
-As part of the OpenID Connect standard the ID token is encoded as a JWT, and signed using the JWS standard.
-The ID Token can decoded for debugging purposes by tools such as [jwt.io](https://jwt.io/)
+As part of the OpenID Connect standard, the ID token is encoded as a JWT and signed using the JWS standard.
+The ID Token can be decoded for debugging purposes by tools such as [jwt.io](https://jwt.io/)
 
 Example
 
@@ -110,8 +107,8 @@ We recommend that you use a library for this. A good place to start is finding a
 
 ### Access token
 Access tokens are randoms strings that represents the authorization of a specific application to access specific parts of a user’s data.
-The token itself does not provide any information, but it can  be used to fetch the data that that the end user has consented to sharing from the [userinfo endpoint](#openid-connect-userinfo).  
-Access tokens MUST be kept confidential in transit and in storage. 
+The token itself does not provide any information, but it can be used to fetch the data that the end-user has consented to share from the [userinfo endpoint](#openid-connect-userinfo).  
+Access tokens MUST be kept confidential in transit and storage. 
 
 Example:
 ```
@@ -134,20 +131,19 @@ Vipps Login currently supports the following scopes:
 | email       | User email                                     |   yes   |
 | name        | User first, middle and given name              |   yes   |
 | phoneNumber | Verified phone number                          |   yes   |
-| nnin        | Norwegian national identity number. NB, access to this scope needs to be pre approved by Vipps |   yes      |
+| nnin        | Norwegian national identity number. NB, access to this scope needs to be pre-approved by Vipps |   yes      |
 
 
 When requesting scopes that require user consent, a view listing these scopes will be displayed to the user with the option to
 allow or deny the consent request. This view is skipped if no scopes requiring consent are requested.
-The user can not make changes to the the list of requested scopes, and can therefore not accept for example name and deny address.
+The user can not make changes to the list of requested scopes, and can therefore not accept for example name and deny address.
 
-We recommend asking for the minimal amount of scopes needed for you application to work. This is to minimize the 
-number of users that deny the consent request.
+We recommend asking for the minimal amount of scopes needed for your application to work. This is to minimize the number of users that deny the consent request.
 
 # Integrating with Vipps Login
 Vipps Login adheres to the OAuth2 and OpenIDConnect standards. The easiest way to integrate with the service is therefore to 
 use a well renowned OAuth2.0/OpenID Connect Library for your programming language.
-Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID foundation is a good starting point.
+Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
 
 ## Manual integration
 This section contains information necessary to perform a manual integration with Vipps Login.
@@ -164,7 +160,7 @@ This should not be attempted without a solid knowledge of the OAuth and OIDC sta
 | [OpenID Connect Userinfo](#openid-connect-userinfo)   | Returns information that the user has consented to share. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
 
 ### JSON Web Keys Discovery
-This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and, if enabled, 
+This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and if enabled, 
 OAuth 2.0 JWT Access Tokens. 
 
 **Request**
@@ -277,8 +273,8 @@ The client constructs the request URI by adding the following parameters to the 
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | response_type     | Value MUST be set to "code".                                                                                                                                                              |
 | client_id         | The client identifier, issued by Vipps.                                                                                                                                                   |
-| redirect_uri      | Redirect url which the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
-| scope             | Scope of the access request, space separated list.                                                                                                                                        |
+| redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
+| scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
 
 For example, the client directs the user-agent to make the following HTTP request:
@@ -310,7 +306,7 @@ For more information see [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/h
 
 ### OAuth 2.0 Token
 The token endpoint is a standard OIDC endpoint used for requesting Access and ID Tokens.
-The client constructs the the request by adding the parameters described below to the HTTP body by using the "application/x-www-form-urlencoded" format.
+The client constructs the request by adding the parameters described below to the HTTP body by using the "application/x-www-form-urlencoded" format.
 
 **Request**
 
@@ -337,7 +333,7 @@ var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | grant_type        | Value MUST be authorization_code.                                                                                                                                        |
 | code              | The authorization code received from the authorization server.                                                                                                           |
-| redirect_uri      | Redirect url the useragent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant). |                                                                                                                                    |
+| redirect_uri      | Redirect URL the user agent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant). |                                                                                                                                    |
 
 [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
 

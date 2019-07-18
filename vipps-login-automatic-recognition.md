@@ -1,7 +1,4 @@
-## Automatic authentication of end-user
-
-
-Vipps Login will offer the option to authenticate end-users automatically when they return to a merchant's site. This enables the merchant to provide custom content to the user directly without the need for manual authentication. A precondition is that the user has consented to use Vipps login at the merchant and opted into being remembered in the browser being used.
+Vipps Login will offer the option to authenticate end-users automatically when they return to a merchant's site. This gives merchants the opportunity to provide custom content to the user directly without the need for manual authentication. A precondition is that the user has consented to use Vipps login at the merchant's site, and has opted into being remembered in the browser being used.
 
 ### Automatic authentication in an iframe
 There are several ways of performing automatic authentications. For the best user experience, we recommend a silent authentication in an iframe.
@@ -33,7 +30,8 @@ document.addEventListener('message', receivePostMessage);
 
 #### Request
 **login_hint=unsolicited:nodialog**  
-In order to perform automatic authentication, the authentication must be initiated with `login_hint=unsolicited:nodialog. This will start a login session without any dialog.
+In order to perform automatic authentication, the authentication must be initiated with the query param`login_hint=unsolicited:nodialog.  
+This will initate a login session without any dialoges.
 
 Note: The only way to load Vipps Login successfully in an iframe is by using `login_hint=unsolicited:nodialog`!
 
@@ -49,7 +47,7 @@ A silent authentication will redirect back to the callback URI if an error occur
 * consent required
 * Other error situations
 
-Note: Under any circumstances where direct user interaction is needed, the automatic authentication will return an error, with these element as query parameters on the callback:
+Note: Under any circumstances where direct user interaction is needed, the automatic authentication will return an error, with these elements as query parameters on the callback:
 - `state=<state given on the auth call>`
 - `error=access_denied`
 - `error_description=User+cancelled+the+login`
