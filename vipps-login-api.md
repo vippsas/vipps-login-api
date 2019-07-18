@@ -1,11 +1,8 @@
 # Vipps Login API
-API version: 0.9
-
+API version: 0.9  
 Document version 0.9
 
-API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
-[swagger.yaml](https://raw.githubusercontent.com/vippsas/vipps-login-api/master/docs/swagger.yaml),
-[swagger.json](https://raw.githubusercontent.com/vippsas/vipps-login-api/master/docs/swagger.json).
+API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-api/#/) or [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html)
 
 # Table of contents
 * [Introduction](#introduction)

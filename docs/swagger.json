@@ -1,91 +1,14 @@
 {
-  "consumes": [
-    "application/json",
-    "application/x-www-form-urlencoded"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "schemes": [
-    "https"
-  ],
   "swagger": "2.0",
   "info": {
-    "description": "Welcome to the Vipps Login API documentation. You will find documentation for all HTTP APIs here.",
+    "description": "Welcome to the Vipps Log In API documentation. You will find documentation for all HTTP APIs here.\n",
     "title": "Vipps Login",
     "version": "0.9"
   },
-  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
   "paths": {
-    "/.well-known/jwks.json": {
-      "get": {
-        "description": "This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and,\nif enabled, OAuth 2.0 JWT Access Tokens.",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "Oidc Endpoints"
-        ],
-        "summary": "JSON Web Keys Discovery",
-        "operationId": "wellKnown",
-        "responses": {
-          "200": {
-            "description": "JSONWebKeySet",
-            "schema": {
-              "$ref": "#/definitions/JSONWebKeySet"
-            }
-          },
-          "500": {
-            "description": "genericError",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
-    "/.well-known/openid-configuration": {
-      "get": {
-        "description": "The well known endpoint can be used to retrieve configuration information for OpenID Connect clients.\nTo learn more about this endpoint please refer to the specification at https://openid.net/specs/openid-connect-discovery-1_0.html",
-        "produces": [
-          "application/json"
-        ],
-        "schemes": [
-          "https"
-        ],
-        "tags": [
-          "Oidc Endpoints"
-        ],
-        "summary": "OpenID Connect Discovery",
-        "operationId": "discoverOpenIDConfiguration",
-        "responses": {
-          "200": {
-            "description": "wellKnown",
-            "schema": {
-              "$ref": "#/definitions/WellKnown"
-            }
-          },
-          "401": {
-            "description": "genericError",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          },
-          "500": {
-            "description": "genericError",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        }
-      }
-    },
     "/oauth2/auth": {
       "get": {
         "description": "The resource owner (end user) is redirected to this endpoint at the beginning of the authentication process,\nand it is used to obtain an authorization grant.\nTo learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.1",
@@ -96,7 +19,7 @@
           "https"
         ],
         "tags": [
-          "Oidc Endpoints"
+          "Vipps Log In API"
         ],
         "summary": "The OAuth 2.0 authorize endpoint",
         "operationId": "oauthAuth",
@@ -124,12 +47,9 @@
         "security": [
           {
             "basic": []
-          },
-          {
-            "oauth2": []
           }
         ],
-        "description": "The token endpoint is used by the client to obtain an access token by presenting its authorization grant or refresh token.\nTo learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.2",
+        "description": "The token endpoint is used by the client to obtain an access token by presenting its authorization grant.\nTo learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.2",
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
@@ -140,7 +60,7 @@
           "https"
         ],
         "tags": [
-          "Oidc Endpoints"
+          "Vipps Log In API"
         ],
         "summary": "The OAuth 2.0 token endpoint",
         "operationId": "oauth2Token",
@@ -204,7 +124,7 @@
           "https"
         ],
         "tags": [
-          "Oidc Endpoints"
+          "Vipps Log In API"
         ],
         "summary": "OpenID Connect Userinfo",
         "operationId": "userinfo",
@@ -219,6 +139,75 @@
             "description": "genericError",
             "schema": {
               "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "genericError",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/openid-configuration": {
+      "get": {
+        "description": "The well known endpoint can be used to retrieve configuration information for OpenID Connect clients.\nTo learn more about this endpoint please refer to the specification at https://openid.net/specs/openid-connect-discovery-1_0.html",
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "https"
+        ],
+        "tags": [
+          "Vipps Log In API"
+        ],
+        "summary": "OpenID Connect Discovery",
+        "operationId": "discoverOpenIDConfiguration",
+        "responses": {
+          "200": {
+            "description": "wellKnown",
+            "schema": {
+              "$ref": "#/definitions/WellKnown"
+            }
+          },
+          "401": {
+            "description": "genericError",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "genericError",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/jwks.json": {
+      "get": {
+        "description": "This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and,\nif enabled, OAuth 2.0 JWT Access Tokens.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "https"
+        ],
+        "tags": [
+          "Vipps Log In API"
+        ],
+        "summary": "JSON Web Keys Discovery",
+        "operationId": "wellKnown",
+        "responses": {
+          "200": {
+            "description": "JSONWebKeySet",
+            "schema": {
+              "$ref": "#/definitions/JSONWebKeySet"
             }
           },
           "500": {
@@ -547,11 +536,11 @@
         "sid": "7d78a726-af92-499e-b857-de263ef9a969",
         "phone_number": 4712345678,
         "address": {
-          "street_address": "Test123\\nOk k\\n0145 oslo\\nNO",
+          "street_address": "Testgata 23",
           "postal_code": 101,
-          "region": "oslo",
+          "region": "OSLO",
           "country": "NO",
-          "formatted": "Test123\\nOk k\\n0145 oslo\\nNO"
+          "formatted": "Testgata 23\\n0653 OSLO\\nNO"
         }
       }
     },
@@ -581,11 +570,11 @@
         }
       },
       "example": {
-        "street_address": "Test123\\nOk k\\n0145 oslo\\nNO",
+        "street_address": "Testgata 23",
         "postal_code": 101,
-        "region": "oslo",
+        "region": "OSLO",
         "country": "NO",
-        "formatted": "Test123\\nOk k\\n0145 oslo\\nNO"
+        "formatted": "Testgata 23\\n0653 OSLO\\nNO"
       }
     },
     "OauthTokenResponse": {
