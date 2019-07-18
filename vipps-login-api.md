@@ -99,7 +99,7 @@ Body
   "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944"
 }
 ```
-You can learn more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
+You can read more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
 
 It is important to validate the Id-token before using any data contained in it.
 See the Oidc-standard on [Id-token validation](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation) for the specifics. 
@@ -386,12 +386,22 @@ Overview
 
 Examples
 ```json
+
+
 {
-  "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944",
-  "name": "Ada Lovelace",
-  "nnin": "10121550047",
-  "email": "user@example.com",
-  "address": "Dronning Eufemias gate 42"
+  "sub" : "c06c4afe-d9e1-4c5d-939a-177d752a0944",
+  "address" : {
+    "country" : "NO",
+    "street_address" : "Testgata 23",
+    "formatted" : "Testgata 23\n0653 OSLO\nNO",
+    "postal_code" : "0145",
+    "region" : "OSLO"
+  },
+  "name" : "Ada Lovelace",
+  "given_name" : "Ada",
+  "family_name" : "lovelace",
+  "email" : "ada@exampleEmail.com",
+  "sid" : "ec41669d-be3f-4a43-8556-c779c5676931"
 }
 ```
 ## API endpoints required from the merchant

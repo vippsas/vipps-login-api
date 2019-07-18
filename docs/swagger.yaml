@@ -431,11 +431,11 @@ definitions:
       sid: 7d78a726-af92-499e-b857-de263ef9a969
       phone_number: 4712345678
       address:
-        street_address: Test123\nOk k\n0145 oslo\nNO
+        street_address: Testgata 23
         postal_code: 0145
-        region: oslo
+        region: OSLO
         country: NO
-        formatted: Test123\nOk k\n0145 oslo\nNO
+        formatted: Testgata 23\n0653 OSLO\nNO
 
   Address:
     description: End user address
@@ -457,12 +457,11 @@ definitions:
         description: 'End user address as a formatted string'
         type: string
     example:
-      street_address: Test123\nOk k\n0145 oslo\nNO
+      street_address: Testgata 23
       postal_code: 0145
-      region: oslo
+      region: OSLO
       country: NO
-      formatted: Test123\nOk k\n0145 oslo\nNO
-
+      formatted: Testgata 23\n0653 OSLO\nNO
   OauthTokenResponse:
     description: The token response
     type: object
