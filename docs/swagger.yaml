@@ -1,67 +1,12 @@
-consumes:
-  - application/json
-  - application/x-www-form-urlencoded
-produces:
-  - application/json
-schemes:
-  - https
 swagger: '2.0'
 info:
-  description: Welcome to the Vipps Login API documentation. You will find documentation for all HTTP APIs here.
+  description: >
+    Welcome to the Vipps Log In API documentation. You will find documentation for all HTTP APIs here.
   title: Vipps Login
   version: '0.9'
-basePath: /
+schemes:
+  - https
 paths:
-  /.well-known/jwks.json:
-    get:
-      description: |-
-        This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and,
-        if enabled, OAuth 2.0 JWT Access Tokens.
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      schemes:
-        - https
-      tags:
-        - Oidc Endpoints
-      summary: JSON Web Keys Discovery
-      operationId: wellKnown
-      responses:
-        '200':
-          description: JSONWebKeySet
-          schema:
-            $ref: '#/definitions/JSONWebKeySet'
-        '500':
-          description: genericError
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-  /.well-known/openid-configuration:
-    get:
-      description: |-
-        The well known endpoint can be used to retrieve configuration information for OpenID Connect clients.
-        To learn more about this endpoint please refer to the specification at https://openid.net/specs/openid-connect-discovery-1_0.html
-      produces:
-        - application/json
-      schemes:
-        - https
-      tags:
-        - Oidc Endpoints
-      summary: OpenID Connect Discovery
-      operationId: discoverOpenIDConfiguration
-      responses:
-        '200':
-          description: wellKnown
-          schema:
-            $ref: '#/definitions/WellKnown'
-        '401':
-          description: genericError
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
-          description: genericError
-          schema:
-            $ref: '#/definitions/ErrorResponse'
   /oauth2/auth:
     get:
       description: |-
@@ -73,7 +18,7 @@ paths:
       schemes:
         - https
       tags:
-        - Oidc Endpoints
+        - Vipps Log In API
       summary: The OAuth 2.0 authorize endpoint
       operationId: oauthAuth
       responses:
@@ -102,7 +47,7 @@ paths:
       schemes:
         - https
       tags:
-        - Oidc Endpoints
+        - Vipps Log In API
       summary: The OAuth 2.0 token endpoint
       operationId: oauth2Token
       parameters:
@@ -144,7 +89,7 @@ paths:
       schemes:
         - https
       tags:
-        - Oidc Endpoints
+        - Vipps Log In API
       summary: OpenID Connect Userinfo
       operationId: userinfo
       responses:
@@ -161,6 +106,56 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
 
+  /.well-known/openid-configuration:
+    get:
+      description: |-
+        The well known endpoint can be used to retrieve configuration information for OpenID Connect clients.
+        To learn more about this endpoint please refer to the specification at https://openid.net/specs/openid-connect-discovery-1_0.html
+      produces:
+        - application/json
+      schemes:
+        - https
+      tags:
+        - Vipps Log In API
+      summary: OpenID Connect Discovery
+      operationId: discoverOpenIDConfiguration
+      responses:
+        '200':
+          description: wellKnown
+          schema:
+            $ref: '#/definitions/WellKnown'
+        '401':
+          description: genericError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: genericError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /.well-known/jwks.json:
+    get:
+      description: |-
+        This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and,
+        if enabled, OAuth 2.0 JWT Access Tokens.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      schemes:
+        - https
+      tags:
+        - Vipps Log In API
+      summary: JSON Web Keys Discovery
+      operationId: wellKnown
+      responses:
+        '200':
+          description: JSONWebKeySet
+          schema:
+            $ref: '#/definitions/JSONWebKeySet'
+        '500':
+          description: genericError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
 definitions:
 
   JSONWebKey:
@@ -497,7 +492,6 @@ definitions:
         eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo2ZjIxMTlkZS03ZWY4LTQ0NDQtYjNkYy1lNDNiYWY2MDUwMGYiLCJ0eXAiOiJKV1QifQ.eyJhZGRyZXNzIjp7ImNvdW50cnkiOiJOTyIsImZvcm1hdHRlZCI6IlRlc3QxMjNcbk9rIGtcbjAxNDUgb3Nsb1xuTk8iLCJwb3N0YWxfY29kZSI6IjAxNDUiLCJyZWdpb24iOiJvc2xvIiwic3RyZWV0X2FkZHJlc3MiOiJUZXN0MTIzXG5PayBrIn0sImF0X2hhc2giOiJnUGpRUEpPbmp3Z09Uck96OWg1b0RRIiwiYXVkIjpbIm9pZGMtdGVzdGNsaWVudCJdLCJhdXRoX3RpbWUiOjE1NjMzNjA4ODYsImJpcnRoZGF0ZSI6IjAyLjA5LjE5NDciLCJlbWFpbCI6Imtpc2hvcnRlc3RAb3V0bG9vay5jb20iLCJleHAiOjE1NjMzNjQ0OTAsImZhbWlseV9uYW1lIjoiQ0hJTlRBTEEiLCJnaXZlbl9uYW1lIjoiS0lTSE9SIiwiaWF0IjoxNTYzMzYwODkwLCJpc3MiOiJodHRwczovL2xvZ2luLXVhdC52aXBwcy5pby9hY2Nlc3MtbWFuYWdlbWVudC0xLjAvYWNjZXNzLyIsImp0aSI6IjM3ZjE2MzEwLTU1MTEtNDhkZi1iYzVkLTE0OWJiNjJjYjE1OSIsIm5hbWUiOiJLSVNIT1IgQ0hJTlRBTEEiLCJubmluIjoiMDIwOTQ3MDAzODAiLCJub25jZSI6IjlhNmJlODg0LWQwZjktNDU5Zi04Mzg3LTQwN2EzYWQ1NWQwZCIsInBob25lX251bWJlciI6IjQ3OTM5OTkyNDMiLCJyYXQiOjE1NjMzNjA4NjgsInNpZCI6IjdkNzhhNzI2LWFmOTItNDk5ZS1iODU3LWRlMjYzZWY5YTk2OSIsInN1YiI6ImpaaUNCQnBSanB4eFptbVdNcUFCb3MifQ.Fq7cabcYYFRLKuROjowqwnJHghjNCe9cgJ4Zfx_3nTjRo7YJQsx1qcEFW2ak_7OEP0lAPPri0VTPtdWRDe39P4WLPQ3fkhu3y93WSzxPJ6nkzyp6yMeuJ6QC9GhyNvpDnlwXaeGP3AN3OQU6aHy1ujsyCtGapHB3yds1Uuf-8mC5qBa7KUTuHrh1QhsgQzqiXTTHtniJdz6mwwRvX_TT7J1yJHJAFbwLdm_H228Vq4jLOEeFx-v2vcC1mpSkEJQ4a6PwjnlIgEHeBl9aUPwQa92ulREsqWhZWpACY7FvtefQXM6llBnQiMInyidr_qRThaCF3uBMdLwccbBRv1cmUGGmiXHyu64-vnXj-5FwPmflur76tMN-Wp9cbpw7hWTAQb0B6yy8LhEolZydDQMri8rD1q4VaZbJY03NM70MWyIIR5T0ZqTuFBXtKAys47TJmGklFTvWfzYdebErogH3cD81myJz7rlnBKYBdIsdKtaGec8M53wx-zWHJXA6lvVASMWfDb_xxuBV43RxCbGY6gd8Wi2zDewCJiDoN2vINRZuvb4o3aq90NiAgOaPjvabRKFnVUL98rZeJaCo17PmS1D87OjgTuG289Il6ebmTSSV89gCyd-Kt70Xvta8Li616nhtGVQYlRikBoUP8ESuPq-6ezwaos0MaSsO6C1nwV0
       token_type: bearer
       scope: openid name phoneNumber address birthDate email
-
   ErrorResponse:
     description: 'Error responses are sent when an error (e.g. unauthorized, bad request, ...) occurred.'
     type: object
@@ -519,7 +513,6 @@ definitions:
       error: invalid_request
       error_code: 400
       error_debug: The request is missing a required parameter, includes an invalid parameter or is otherwise malformed.
-
 securityDefinitions:
   basic:
     type: basic

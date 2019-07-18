@@ -32,38 +32,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.18.1/swagger-ui-bundle.js"> </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.18.1/swagger-ui-standalone-preset.js"> </script>
 <script>
-
-const DisableTryItOutPlugin = function() {
-  return {
-    statePlugins: {
-      spec: {
-        wrapSelectors: {
-          allowTryItOutFor: () => () => false
+  const DisableTryItOutPlugin = function() {
+    return {
+      statePlugins: {
+        spec: {
+          wrapSelectors: {
+            allowTryItOutFor: () => () => false
+          }
         }
       }
     }
   }
-}
-
-window.onload = function() {
-  // Build a system,
-  const ui = SwaggerUIBundle({
-    url: 'https://vippsas.github.io/vipps-login-api/swagger.yaml',
-    dom_id: '#swagger-ui',
-    deepLinking: true,
-    presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIStandalonePreset
-    ],
-    plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl,
-      DisableTryItOutPlugin
-    ],
-    layout: "StandaloneLayout"
-  })
-
-  window.ui = ui
-}
+  window.onload = function() {
+    // Build a system,
+    const ui = SwaggerUIBundle({
+      url: 'https://vippsas.github.io/vipps-login-api/swagger.yaml',
+      dom_id: '#swagger-ui',
+      deepLinking: true,
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIStandalonePreset
+      ],
+      plugins: [
+        SwaggerUIBundle.plugins.DownloadUrl,
+        DisableTryItOutPlugin
+      ],
+      layout: "StandaloneLayout"
+    })
+    window.ui = ui
+  }
 </script>
 </body>
 

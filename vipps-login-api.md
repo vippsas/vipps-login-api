@@ -27,6 +27,7 @@ API details: [Swagger UI](https://vippsas.github.io/vipps-login-api/#/),
             * [OAuth 2.0 Authorize](#oauth-20-authorize)
             * [OAuth 2.0 Token](#oauth-20-token)
             * [OpenID Connect Userinfo](#openid-connect-userinfo)
+        * [Automatic Recognition and](#automatic-recognition)
     * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
       * [Receive authentication result](#receive-authentication-result)
       * [Error handling](#error-handling)
@@ -210,51 +211,75 @@ Overview
 | HTTP status             | Description                                             |
 | ----------------------- | ------------------------------------------------------- |
 | `200 OK`                | Request successful.                                     |
-| `401 Unauthorized`      | Invalid credentials.                                    |
 | `500 Server Error`      | An internal Vipps problem.                              |
 
-Examples
-
-*200 response*
+Example response from the merchant test environment:
 
 ```json
 {
-    "issuer": "https://apitest.vipps.no/access-management-1.0/access/",
-    "authorization_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/auth",
-    "token_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/token",
-    "jwks_uri": "https://apitest.vipps.no/access-management-1.0/access/.well-known/jwks.json",
-    "subject_types_supported": [
-        "string"
-    ],
-    "response_types_supported": [
-        "string"
-    ],
-    "claims_supported": [
-        "string"
-    ],
-    "grant_types_supported": [
-        "string"
-    ],
-    "response_modes_supported": [
-        "string"
-    ],
-    "userinfo_endpoint": "https://apitest.vipps.no/access-management-1.0/access/userinfo",
-    "scopes_supported": [
-        "string"
-    ],
-    "token_endpoint_auth_methods_supported": [
-        "string"
-    ],
-    "userinfo_signing_alg_values_supported": [
-        "string"
-    ],
-    "id_token_signing_alg_values_supported": [
-        "string"
-    ],
-    "request_parameter_supported": true,
-    "request_uri_parameter_supported": true,
-    "require_request_uri_registration": true,
-    "claims_parameter_supported": false
+  "issuer": "https://apitest.vipps.no/access-management-1.0/access/",
+  "authorization_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/auth",
+  "token_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/token",
+  "jwks_uri": "https://apitest.vipps.no/access-management-1.0/access/.well-known/jwks.json",
+  "subject_types_supported": [
+    "public",
+    "pairwise"
+  ],
+  "response_types_supported": [
+    "code",
+    "code id_token",
+    "id_token",
+    "token id_token",
+    "token",
+    "token id_token code"
+  ],
+  "claims_supported": [
+    "sub"
+  ],
+  "grant_types_supported": [
+    "authorization_code",
+    "implicit",
+    "client_credentials",
+    "refresh_token"
+  ],
+  "response_modes_supported": [
+    "query",
+    "fragment"
+  ],
+  "userinfo_endpoint": "https://apitest.vipps.no/access-management-1.0/access/userinfo",
+  "scopes_supported": [
+    "offline",
+    "openid",
+    "address",
+    "name",
+    "email",
+    "phoneNumber",
+    "nnin",
+    "birthDate"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "client_secret_basic",
+    "private_key_jwt",
+    "none"
+  ],
+  "userinfo_signing_alg_values_supported": [
+    "none",
+    "RS256"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "request_parameter_supported": true,
+  "request_uri_parameter_supported": true,
+  "require_request_uri_registration": true,
+  "claims_parameter_supported": false,
+  "revocation_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/revoke",
+  "backchannel_logout_supported": true,
+  "backchannel_logout_session_supported": true,
+  "frontchannel_logout_supported": true,
+  "frontchannel_logout_session_supported": true,
+  "end_session_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/sessions/logout"
 }
 ```
 
@@ -346,7 +371,7 @@ var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 | `500 Server Error`      | An internal Vipps problem.                              |
 
 
-Examples:
+Example response:
 ```json
 {
   "access_token": "hel39XaKjGH5tkCvIENGPNbsSHz1DLKluOat4qP-A4.WyV61hCK1E2snVs1aOvjOWZOXOayZad0K-Qfo3lLzus",
@@ -384,7 +409,7 @@ Overview
 | `401 Unauthorized`      | Invalid credentials.                                    |
 | `500 Server Error`      | An internal Vipps problem.                              |
 
-Examples
+Example respose:
 ```json
 
 
@@ -404,6 +429,13 @@ Examples
   "sid" : "ec41669d-be3f-4a43-8556-c779c5676931"
 }
 ```
+
+## Automatic Recognition
+Vipps Login will offer the option to authenticate end-users automatically when they return to a merchant's site. 
+This gives merchants the opportunity to provide custom content to the user directly without the need for manual authentication. 
+A precondition is that the user has consented to use Vipps login at the merchant's site, and has opted into being remembered in the browser being used.  
+Read more about this feature at https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-automatic-recognition.md
+
 ## API endpoints required from the merchant
 The following endpoints are to be implemented by merchants, in order for Vipps to redirect the resource owner to them.
 
