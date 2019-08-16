@@ -492,7 +492,7 @@
         },
         "address": {
           "type": "array",
-          "description": "Contains an array with the end users's addresses. This list will always contain and address with the address_type home, but can also contain a work and/or other address if the user has registered them in the Vipps app",
+          "description": "Contains an array with the end users's addresses. This list will always contain an address with the address_type home, but can also contain a work and/or other address if the user has registered them in the Vipps app",
           "items": {
             "$ref": "#/definitions/Address"
           }
