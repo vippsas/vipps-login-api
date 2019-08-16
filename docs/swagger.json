@@ -3,7 +3,7 @@
   "info": {
     "description": "Welcome to the Vipps Log In API documentation. You will find documentation for all HTTP APIs here.\n",
     "title": "Vipps Login",
-    "version": "0.9"
+    "version": "1.0"
   },
   "schemes": [
     "https"
@@ -491,22 +491,26 @@
           "type": "string"
         },
         "address": {
-          "$ref": "#/definitions/Address"
+          "type": "array",
+          "description": "Contains an array with the end users's addresses. This list will always contain and address with the address_type home, but can also contain a work and/or other address if the user has registered them in the Vipps app",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
         },
         "email": {
-          "description": "End-User's email address.",
+          "description": "End user's email address.",
           "type": "string"
         },
         "family_name": {
-          "description": "Surname(s) or last name(s) of the End-User.",
+          "description": "Surname(s) or last name(s) of the end user.",
           "type": "string"
         },
         "given_name": {
-          "description": "Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.",
+          "description": "Given name(s) or first name(s) of the end user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.",
           "type": "string"
         },
         "name": {
-          "description": "End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.",
+          "description": "End user's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.",
           "type": "string"
         },
         "nnin": {
@@ -517,11 +521,11 @@
           "description": "End-User's telephone number on format {d}8"
         },
         "sub": {
-          "description": "Subject - Identifier for the End-User",
+          "description": "Subject - Identifier for the end user",
           "type": "string"
         },
         "sid": {
-          "description": "Session identifier - This represents a Session of a User Agent or device for a logged-in End-User at an RP. Currently not in use",
+          "description": "Session identifier - This represents a Session of a User Agent or device. Currently not in use",
           "type": "string"
         }
       },
@@ -535,13 +539,32 @@
         "family_name": "Lovelace",
         "sid": "7d78a726-af92-499e-b857-de263ef9a969",
         "phone_number": 4712345678,
-        "address": {
-          "street_address": "Testgata 23",
-          "postal_code": 101,
-          "region": "OSLO",
-          "country": "NO",
-          "formatted": "Testgata 23\\n0653 OSLO\\nNO"
-        }
+        "address": [
+          {
+            "street_address": "Suburbia 23",
+            "postal_code": 2101,
+            "region": "OSLO",
+            "country": "NO",
+            "formatted": "Suburbia 23\\n2101 OSLO\\nNO",
+            "address_type": "home"
+          },
+          {
+            "street_address": "Fancy Office Street 2",
+            "postal_code": "0218",
+            "region": "OSLO",
+            "country": "NO",
+            "formatted": "Fancy Office Street 2\\n0218 OSLO\\nNO",
+            "address_type": "work"
+          },
+          {
+            "street_address": "Summer House Lane 14",
+            "postal_code": 1452,
+            "region": "OSLO",
+            "country": "NO",
+            "formatted": "Summer House Lane 14\\n1452 OSLO\\nNO",
+            "address_type": "other"
+          }
+        ]
       }
     },
     "Address": {
@@ -567,6 +590,10 @@
         "formatted": {
           "description": "End user address as a formatted string",
           "type": "string"
+        },
+        "address_type": {
+          "description": "Address type is either home, work or other",
+          "type": "string"
         }
       },
       "example": {
@@ -574,7 +601,8 @@
         "postal_code": 101,
         "region": "OSLO",
         "country": "NO",
-        "formatted": "Testgata 23\\n0653 OSLO\\nNO"
+        "formatted": "Testgata 23\\n0653 OSLO\\nNO",
+        "addres_type": "home"
       }
     },
     "OauthTokenResponse": {
