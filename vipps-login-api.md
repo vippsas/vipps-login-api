@@ -215,7 +215,8 @@ The client constructs the request by adding the parameters described below to th
 | Header            | Description                            |
 | ----------------- | -------------------------------------  |
 | Content-Type      | "application/x-www-form-urlencoded"    |                                                                                                                                                 
-| Authorization     | "Basic {Client Credentials}"           |                                                                                                                                                 
+| Authorization     | "Basic {Client Credentials}"           |                                                                                                                                   
+
 The Client Credentials is a base 64 encoded string consisting of the Client id and secret issued by Vipps joined by ":"
 
 Example in JavaScript:
