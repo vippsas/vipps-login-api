@@ -291,13 +291,28 @@ Example respose:
 
 {
   "sub" : "c06c4afe-d9e1-4c5d-939a-177d752a0944",
-  "address" : {
-    "country" : "NO",
-    "street_address" : "Testgata 23",
-    "formatted" : "Testgata 23\n0653 OSLO\nNO",
-    "postal_code" : "0145",
-    "region" : "OSLO"
-  },
+ "address" : [ {
+     "country" : "NO",
+     "street_address" : "Testgata 23",
+     "address_type" : "home",
+     "formatted" : "Testgata 23\n01234\nOslo\nNO",
+     "postal_code" : "01234",
+     "Region" : "Oslo"
+   }, {
+     "country" : "NO",
+     "street_address" : "Robert Levins Gate 5",
+     "address_type" : "work",
+     "formatted" : "Robert Levins Gate 5\n0154\nOslo\nNO",
+     "postal_code" : "0154",
+     "region" : "Oslo"
+   }, {
+     "country" : "NO",
+     "street_address" : "Fjellhyttevegen 2",
+     "address_type" : "other",
+     "formatted" : "Fjellhyttevegen 2 2\n5700\nVoss\nNO",
+     "postal_code" : "5700",
+     "Region" : "Voss"
+   }],
   "name" : "Ada Lovelace",
   "given_name" : "Ada",
   "family_name" : "lovelace",
