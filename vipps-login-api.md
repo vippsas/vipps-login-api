@@ -31,7 +31,7 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
     
 # Introduction
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and 
-OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS using app switching. 
+OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS and Android using app switching. 
 
 **NB!**  
 This service is currently in a pre-release version. This documentation will be expanded and is likely to change as we move closer to a public release.   
@@ -124,7 +124,7 @@ Vipps Login currently supports the following scopes:
 | Scopes      | Description                                    | User consent required  |
 | ------------| -----------------------------------------------|-------- |
 | openid      | Scope used to request an Id-token              |   no    |
-| address     | User home address                              |   yes   |
+| address     | List containing the users addresses. Will always contain home, but can also include work and other.    |   yes   |
 | birthDate   | User birth date                                |   yes   |
 | email       | User email                                     |   yes   |
 | name        | User first, middle and given name              |   yes   |
