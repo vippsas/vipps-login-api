@@ -10,7 +10,7 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
     * [OAuth 2.0](#oauth-20)
     * [OpenID Connect](#open-id-connect)
         * [Supported OpenID Connect Flows](#supported-openid-connect-flows)
-            * [Authentication Code Flow](#authorization-code-grant)
+            * [Authorization Code Grant](#authorization-code-grant)
     * [Tokens](#tokens)
         * [ID Token](#id-token)
         * [Access Token](#access-token)
@@ -18,6 +18,7 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
     * [Scopes](#scopes)
 * [Integrating with Vipps Login](#integrating-with-vipps-login)
     * [Manual integration](#manual-integration)
+        * [Base URLs](#base-urls)
         * [API endpoints](#api-endpoints)
             * [OAuth 2.0 Authorize](#oauth-20-authorize)
             * [OAuth 2.0 Token](#oauth-20-token)
@@ -146,6 +147,13 @@ Vipps does not recommend a specific library, but the list of [OIDC Relying Party
 ## Manual integration
 This section contains information necessary to perform a manual integration with Vipps Login.  
 This should not be attempted without a solid grasp of the OAuth2 and Open ID Connect standards.
+
+###Base URLs
+
+| Environment | Base URL |
+|-------------|----------|
+| Test        |https://apitest.vipps.no/access-management-1.0/access |
+| Production  |https://api.vipps.no/access-management-1.0/access     |
     
 ### API endpoints
 
@@ -157,14 +165,7 @@ This should not be attempted without a solid grasp of the OAuth2 and Open ID Con
 | [OpenID Connect Discovery](#openid-connect-discovery) | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
 | [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
 
-### Base URLs:
-
-| Environment | Base URL |
-|-------------|----------|
-| Test        |https://apitest.vipps.no/access-management-1.0/access |
-| Production  |https://api.vipps.no/access-management-1.0/access     |
-
-### OAuth 2.0 Authorize
+#### OAuth 2.0 Authorize
 
 The authorize endpoint is a standard OIDC endpoint used for starting an authorization. The client creates an request 
 URI and directs the resource owner to the constructed URI.
@@ -210,7 +211,7 @@ If the resource owner declines the access request or an error occurs, the author
 See error handling for more information 
 For more information see [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1)
 
-### OAuth 2.0 Token
+#### OAuth 2.0 Token
 The token endpoint is a standard OIDC endpoint used for requesting Access and ID Tokens.
 The client constructs the request by adding the parameters described below to the HTTP body by using the "application/x-www-form-urlencoded" format.
 
@@ -265,7 +266,7 @@ Example response:
 ```
 
 
-### OpenID Connect Userinfo
+#### OpenID Connect Userinfo
 This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token. 
 You can learn more at the [OIDC Standard](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
 
@@ -328,7 +329,7 @@ Example respose:
 ```
 
 
-### OpenID Connect Discovery
+#### OpenID Connect Discovery
 The OIDC connect discovery endpoint can be used to retrieve configuration information for OpenID Connect clients.  
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
@@ -415,7 +416,7 @@ Example response from the merchant test environment:
 }
 
 ```
-### JSON Web Keys Discovery
+#### JSON Web Keys Discovery
 This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and if enabled, 
 OAuth 2.0 JWT Access Tokens. 
 
