@@ -157,6 +157,12 @@ This should not be attempted without a solid grasp of the OAuth2 and Open ID Con
 | [OpenID Connect Discovery](#openid-connect-discovery) | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
 | [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
 
+### Base URLs:
+
+| Environment | Base URL |
+|-------------|----------|
+| Test        |https://apitest.vipps.no/access-management-1.0/access |
+| Production  |https://api.vipps.no/access-management-1.0/access     |
 
 ### OAuth 2.0 Authorize
 
