@@ -148,7 +148,7 @@ Vipps does not recommend a specific library, but the list of [OIDC Relying Party
 This section contains information necessary to perform a manual integration with Vipps Login.  
 This should not be attempted without a solid grasp of the OAuth2 and Open ID Connect standards.
 
-###Base URLs
+### Base URLs
 
 | Environment | Base URL |
 |-------------|----------|
