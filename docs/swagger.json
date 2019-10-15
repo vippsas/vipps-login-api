@@ -533,12 +533,12 @@
         "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944",
         "birthdate": "10.12.1815",
         "email": "user@example.com",
-        "nnin": 10121550047,
+        "nnin": "10121550047",
         "name": "Ada Lovelace",
         "given_name": "Ada",
         "family_name": "Lovelace",
         "sid": "7d78a726-af92-499e-b857-de263ef9a969",
-        "phone_number": 4712345678,
+        "phone_number": "4712345678",
         "address": [
           {
             "street_address": "Suburbia 23",
