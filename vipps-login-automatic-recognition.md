@@ -1,3 +1,7 @@
+:warning: This feature is still under development, and not available at the time of writing.
+
+---
+
 Vipps Login will offer the option to authenticate end-users automatically when they return to a merchant's site. This gives merchants the opportunity to provide custom content to the user directly without the need for manual authentication. A precondition is that the user has consented to use Vipps login at the merchant's site, and has opted into being remembered in the browser being used.
 
 ### Automatic authentication in an iframe
