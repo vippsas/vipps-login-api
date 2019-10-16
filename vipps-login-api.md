@@ -456,7 +456,7 @@ This operation does not require authentication
 Vipps Login will offer the option to authenticate end-users automatically when they return to a merchant's site. 
 This gives merchants the opportunity to provide custom content to the user directly without the need for manual authentication. 
 A precondition is that the user has consented to use Vipps login at the merchant's site, and has opted into being remembered in the browser being used.  
-Read more about this feature at https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-automatic-recognition.md
+This feature is still under development. 
 
 ## API endpoints required from the merchant
 The following endpoints are to be implemented by merchants, in order for Vipps to redirect the resource owner to them.
