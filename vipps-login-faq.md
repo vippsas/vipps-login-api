@@ -8,7 +8,7 @@ guide for the Vipps Developer Portal.
 
 ## Questions and answers
 
-### GDPR  
+### Compliance  
 
 **Q**: How can our system dynamically "know/find out" if the user has revoked their concent for us to have access to his personal data in our system?  
 **A**: We are working on a system for notifying merchants when an end user revokes their consent. It will consist of an additional callback url that you register on the merchant portal which we will send a notification to when an end user removes their consent  
