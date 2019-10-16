@@ -16,7 +16,7 @@ guide for the Vipps Developer Portal.
 ### Technical
 
 **Q**: Can we have multiple URIs as landing pages?  
-**A**: You can register as many callback urls as you want; and then you specify which one you use in the request to /auth  
+**A**: You can register as many callback urls as you want; and then you specify which one you use in the request to [/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)  
 
 ### UX
 
