@@ -1,6 +1,6 @@
 # Vipps Login API
-API version: 0.9  
-Document version 0.9
+API version: 1.0  
+Document version 1.0
 
 API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-api/#/) or [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html)
 
@@ -32,10 +32,7 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
     
 # Introduction
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and 
-OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS and Android using app switching. 
-
-**NB!**  
-This service is currently in a pre-release version. This documentation will be expanded and is likely to change as we move closer to a public release.   
+OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS and Android using app switching.  
 
 
 # Core concepts
