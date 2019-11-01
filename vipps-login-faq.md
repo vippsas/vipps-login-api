@@ -8,7 +8,13 @@ guide for the Vipps Developer Portal.
 You can also find frequently asked questions on the product here [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn). 
 
 # Table of contents
-.....
+- [Where do I find the client ID and client secret?]()
+- [Why do I get “Error: invalid_client”?]()
+- [What are the requirements for Redirect URIs?]()
+- [Can I change my display name used with Vipps login?]()
+- [Which scopes can I use? Why do I get “Invalid_scope”?]()
+- []()
+- []()
 
 # Where do I find the client ID and client secret?
 You find more information on this here: https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys
