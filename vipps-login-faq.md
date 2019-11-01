@@ -8,17 +8,15 @@ guide for the Vipps Developer Portal.
 You can also find frequently asked questions on the product here [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn). 
 
 # Table of contents
-- [Where do I find the client ID and client secret?]()
-- [Why do I get “Error: invalid_client”?]()
-- [What are the requirements for Redirect URIs?]()
-- [Can I change my display name used with Vipps login?]()
-- [Which scopes can I use? Why do I get “Invalid_scope”?]()
-- []()
-- []()
+- [Where do I find the client ID and client secret?](#where-do-i-find-the-client-id-and-client-secret)
+- [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
+- [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
+- [Can I change my display name used with Vipps login?](#can-i-change-my-display-name-used-with-vipps-login)
+- [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
+
 
 # Where do I find the client ID and client secret?
 You find more information on this here: https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys
-
 
 If you cannot access VippsPortalen: do you have a user for the merchant? The person who were added as the contact person in the request is set as the administrator and can add new users. If you have added a new service to an existing merchant, you need to have the existing administrator add new users if required.
 
