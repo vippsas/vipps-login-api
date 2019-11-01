@@ -1,6 +1,8 @@
 # Vipps Login API
+
 API version: 1.0  
-Document version 1.0
+
+Document version 1.0.1.
 
 API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-api/#/) or [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html)
 
@@ -265,7 +267,7 @@ Example response:
 
 #### OpenID Connect Userinfo
 This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token. 
-You can learn more at the [OIDC Standard](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
+You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
 
 **Request**
 
