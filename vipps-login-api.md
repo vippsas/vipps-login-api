@@ -123,7 +123,7 @@ Vipps Login currently supports the following scopes:
 
 | Scopes      | Description                                    | User consent required  |
 | ------------| -----------------------------------------------|-------- |
-| openid      | Scope used to request an Id-token. Itnprovides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.              |   no    |
+| openid      | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.              |   no    |
 | address     | List containing the users addresses. Will always contain home, but can also include work and other.    |   yes   |
 | birthDate   | User birth date                                |   yes   |
 | email       | User email                                     |   yes   |
