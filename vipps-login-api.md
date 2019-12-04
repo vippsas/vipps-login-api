@@ -10,8 +10,8 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
 * [Introduction](#introduction)
     * [Remembered flow](#Remembered-flow)
     * [Phone number based flow - desktop](#Phone-number-based-flow---desktop)
-    * [Phone number based flow - mobile](#open-id-connect)
-    * [## App-switch based flow - browser on mobile](#open-id-connect)   
+    * [Phone number based flow - mobile](#Phone-number-based-flow---mobile)
+    * [App-switch based flow - browser on mobile](#App-switch-based-flow---browser-on-mobile)   
 * [Core concepts](#core-concepts)
     * [OAuth 2.0](#oauth-20)
     * [OpenID Connect](#open-id-connect)
@@ -65,7 +65,7 @@ If the user is on desktop, and not remembered in browser, then the user will fol
 ## Phone number based flow - mobile
 This is the fallback flow for mobile devices if it is not possible to use the app-switch base flow. Please note that the user in this flow need to manually navigate back to the browser where he/she inputed the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
-
+<Illustration will be added shortly>
 
 
 ## App-switch based flow - browser on mobile
