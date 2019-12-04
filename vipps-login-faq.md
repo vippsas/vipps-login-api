@@ -85,7 +85,8 @@ The scopes “openid” is required and does not require end user consent. It pr
 Some merchants can get access to NNIN. Merchants need to request this separately.
 
 # Who can get access to NNIN?
-Merchants with legal requirements or other objective needs to use Norwegian National Identity Number (NNIN) to achieve required user identification can get access to NNIN.  We correspond to the guidance from Datatilsynet (https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/fodselsnummer/) on this.
+
+Merchants with legal requirements or other objective needs to use Norwegian National Identity Number (NNIN) to achieve required user identification can get access to NNIN.  We correspond to [the guidance from Datatilsynet(https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/fodselsnummer/) on this.
 
 According to this NNIN can only be used when it is legally required or when there is a need for a secure identification of the person and the NNIN is required to achieve this. This applies e.g. when a company is required to report to the tax authorities or within healthcare and credit.
 
