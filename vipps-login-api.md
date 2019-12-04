@@ -8,6 +8,10 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
 
 # Table of contents
 * [Introduction](#introduction)
+    * [Remembered flow](#Remembered-flow)
+    * [Phone number based flow - desktop](#Phone-number-based-flow---desktop)
+    * [Phone number based flow - mobile](#open-id-connect)
+    * [## App-switch based flow - browser on mobile](#open-id-connect)   
 * [Core concepts](#core-concepts)
     * [OAuth 2.0](#oauth-20)
     * [OpenID Connect](#open-id-connect)
@@ -35,7 +39,42 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
 # Introduction
 
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and
-OpenID Connect specifications. It supports using web browsers on websites and in native apps for iOS and Android using app switching.  
+OpenID Connect specifications. Login with Vipps is the easiest way to sign in and create an account. Users don’t need to worry about forgetting usernames and passwords. All they need to sign in is their phone number. For an even smoother sign in experience, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
+
+We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magento) and [WordPress/wooCommerce](https://github.com/vippsas/vipps-login-wordpress).
+
+The Vipps login API authenticates the user in the web browser. The Vipps login API only supports redirect mode (iFrame is not supported and new window is not recommended). For optimal performance the API should be called in the browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
+
+Login with Vipps has three main user flows: Remembered, phone number based and app-switch based. 
+
+## Remembered flow
+If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly.  This applies to both desktop and mobile.
+
+If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on device and where the API is called:
+
+## Phone number based flow - desktop
+If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser the confirmation in app flow will be skipped.
+
+![Number input in desktop](images/Number_input_flow_desktop1.png)
+
+![Confirmation in app in phone number flow](images/Number_input_flow_app.png)
+
+![Consent in desktop](images/Number_input_flow_desktop2.png	)
+
+
+## Phone number based flow - mobile
+This is the fallback flow for mobile devices if it is not possible to use the app-switch base flow. Please note that the user in this flow need to manually navigate back to the browser where he/she inputed the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
+
+
+
+
+## App-switch based flow - browser on mobile
+![Mobile flow with app-switch](images/Mobile_flow_with_app-switch.png)
+
+The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can call the API in the browser from an app, but webview in app is not supported.  
+
+Buttons that to use for Vipps login can be found as part of our [design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons)
+
 
 # Core concepts
 
