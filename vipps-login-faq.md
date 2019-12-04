@@ -20,6 +20,8 @@ You can also find frequently asked questions on the product here [Product FAQ](h
 # Where do I find the client ID and client secret?
 You find more information on this here: https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys
 
+Be aware that you do NOT use the API-keys for Vipps login, just the client id and client secret.
+
 If you cannot access VippsPortalen: do you have a user for the merchant? The person who were added as the contact person in the request is set as the administrator and can add new users. If you have added a new service to an existing merchant, you need to have the existing administrator add new users if required.
 
 If you can login to VippsPortalen but cannot see the “developer” selection in the top-menu you need to have the administrator grant you developer access for the sales unit you need access to.
@@ -44,7 +46,7 @@ Then you can add the redirect URIs you need:
 
 
 # What are the requirements for Redirect URIs?
-We validate redirect URIs against a white list of pre-approved URIs. The URIs needs to be registered in VippsPortalen, and you can register as many as you want to.
+We validate redirect URIs against a white list of pre-approved URIs. The URIs need to be registered in VippsPortalen, and you can register as many as you want to.
 You specify the URI that will be used with the query parameter redirect_uri on the initial request to the authentication endpoint
 
 You can use localhost as part of the redirect URI.
