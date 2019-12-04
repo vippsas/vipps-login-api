@@ -15,7 +15,7 @@ You can also find frequently asked questions on the product here [Product FAQ](h
 - [Why do I get “Error: invalid_client”?](#why-do-i-get--error--invalid-client--)
 - [Can I change my display name used with Vipps login?](#can-i-change-my-display-name-used-with-vipps-login-)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use--why-do-i-get--invalid-scope--)
-- [Who can get access to NNIN?](#who-can-get-access-to-nnin-)
+- [Who can get access to NNIN?](#who-can-get-access-to-nnin--)
 
 # Where do I find the `client_id` and `client_secret`?
 
