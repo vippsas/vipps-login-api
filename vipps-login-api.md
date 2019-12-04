@@ -63,7 +63,7 @@ If the user is on desktop, and not remembered in browser, then the user will fol
 
 
 ## Phone number based flow - mobile
-This is the fallback flow for mobile devices if it is not possible to use the app-switch base flow. Please note that the user in this flow need to manually navigate back to the browser where he/she inputed the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
+This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. Please note that the user in this flow need to manually navigate back to the browser where he/she inputed the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
 Illustration will be added shortly
 
