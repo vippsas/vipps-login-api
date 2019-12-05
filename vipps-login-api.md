@@ -68,7 +68,7 @@ The user is then authenticated in browser and can provide consent if required. T
 ## Phone number based flow - mobile
 This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. This is the same flow as for desktop above but please note that the user in this flow need to manually navigate back to the browser where they entered the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
-Illustration will be added shortly
+![Phone number based flow - mobile](images/Mobile_flow_with_phone_number.png)
 
 
 ## App-switch based flow - browser on mobile
