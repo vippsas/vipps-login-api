@@ -53,7 +53,7 @@ If a user has chosen to be remembered in browser then the authentication can be 
 If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on the context where the user starts the login with Vipps (device, browser/app/wewbview):
 
 ## Phone number based flow - desktop
-If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser the confirmation in app flow will be skipped.
+If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
 
 The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
 ![Number input in desktop](images/Number_input_flow_desktop1.png)
