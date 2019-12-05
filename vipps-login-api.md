@@ -39,41 +39,47 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
 # Introduction
 
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and
-OpenID Connect specifications. Login with Vipps is the easiest way to sign in and create an account. Users don’t need to worry about forgetting usernames and passwords. All they need to sign in is their phone number. For an even smoother sign in experience, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
+OpenID Connect specifications. Login with Vipps is the easiest way to sign in and create an account. Users don’t need to worry about forgetting usernames and passwords. All they need to remember is their phone number. For an even smoother sign in experience, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
 
-We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magento) and [WordPress/wooCommerce](https://github.com/vippsas/vipps-login-wordpress).
+We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magento) and [WordPress/WooCommerce](https://github.com/vippsas/vipps-login-wordpress).
 
-The Vipps login API authenticates the user in the web browser. The Vipps login API only supports redirect mode (iFrame is not supported and new window is not recommended). For optimal performance the API should be called in the browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
+The Vipps login API authenticates the user in the web browser. The Vipps login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended). For optimal performance the API should be opened in the main browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
 
 Login with Vipps has three main user flows: Remembered, phone number based and app-switch based. 
 
 ## Remembered flow
 If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly.  This applies to both desktop and mobile.
 
-If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on device and where the API is called:
+If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on the context where the user starts the login with Vipps (device, browser/app/wewbview):
 
 ## Phone number based flow - desktop
 If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser the confirmation in app flow will be skipped.
 
+The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
 ![Number input in desktop](images/Number_input_flow_desktop1.png)
 
+The user goes to the Vipps app and confirms the login:
 ![Confirmation in app in phone number flow](images/Number_input_flow_app.png)
 
+The user is then authenticated in browser and can provide consent if required. Then the user is redirected back to the redirect URI provided by merchant:
 ![Consent in desktop](images/Number_input_flow_desktop2.png	)
 
 
 ## Phone number based flow - mobile
-This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. Please note that the user in this flow need to manually navigate back to the browser where he/she inputed the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
+This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. This is the same flow as for desktop above but please note that the user in this flow need to manually navigate back to the browser where they entered the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
 Illustration will be added shortly
 
 
 ## App-switch based flow - browser on mobile
+When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
+
 ![Mobile flow with app-switch](images/Mobile_flow_with_app-switch.png)
 
-The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can call the API in the browser from an app, but webview in app is not supported.  
+The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can open the API in the browser from an app, but webview in app is not supported.  
 
-Buttons that to use for Vipps login can be found as part of our [design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons)
+
+Buttons to use for Vipps login can be found as part of our [design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons)
 
 
 # Core concepts
@@ -192,7 +198,7 @@ Vipps Login currently supports the following scopes:
 | email       | User email                                     |   yes   |
 | name        | User first, middle and given name              |   yes   |
 | phoneNumber | Verified phone number                          |   yes   |
-| nnin        | Norwegian national identity number. NB, access to this scope needs to be pre-approved by Vipps |   yes      |
+| nnin        | Norwegian national identity number. NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin) For more information |   yes      |
 
 
 When requesting scopes that require user consent, a view listing these scopes
@@ -201,7 +207,7 @@ request. This view is skipped if no scopes requiring consent are requested.
 The user can not make changes to the list of requested scopes, and can
 therefore not accept for example name and deny address.
 
-We recommend asking for the minimal number of scopes needed for your usecase to
+We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
 
 # Integrating with Vipps Login
