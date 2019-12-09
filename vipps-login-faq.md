@@ -95,12 +95,12 @@ of supported scopes here:
 https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#scopes
 
 All merchants get access to these scopes:
-•	openid
-•	address
-•	birthdate
-•	email
-•	name
-•	phoneNumber
+* openid
+* address
+* birthdate
+* email
+* name
+* phoneNumber
 
 **Important:** You should not ask for more scopes than you need for your
 application. The user will need to consent to sharing the information with you
