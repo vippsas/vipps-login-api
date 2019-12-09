@@ -15,7 +15,7 @@ You can also find frequently asked questions on the product here [Product FAQ](h
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
 - [Can I change my display name used with Vipps login?](#can-i-change-my-display-name-used-with-vipps-login)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
-- [Who can get access to NNIN?](#who-can-get-access-to-nnin)
+- [Who can get access to NNIN and how?](#who-can-get-access-to-nnin-and-how)
 
 # Where do I find the `client_id` and `client_secret`?
 
@@ -112,7 +112,7 @@ particular merchant. Note: Different merchants will get different subs for the s
 
 Some merchants can get access to NNIN. Merchants need to request this separately.
 
-# Who can get access to NNIN?
+# Who can get access to NNIN and how?
 
 Merchants with legal requirements or other objective needs to use Norwegian
 National Identity Number (NNIN) to achieve required user identification can get
@@ -137,3 +137,5 @@ the customer in your own or external registers. This can be done as part of the
 processes to become a customer or to link login with Vipps to an existing user.
 If you need to store the NNIN for new users we recommend that you use an
 electronic ID, e.g  BankID.
+
+Merchants need to apply for access to NNIN separately by sending an email to [AccessUserInfo@vipps.no](mailto: AccessUserInfo@vipps.no). In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen] (https://portal.vipps.no). You also need to provide information on how you plan to use the NNIN, the legal requirement and/or the reason why you need to use NNIN to achieve required user identification.
