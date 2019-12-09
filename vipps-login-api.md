@@ -198,7 +198,7 @@ Vipps Login currently supports the following scopes:
 | email       | User email                                     |   yes   |
 | name        | User first, middle and given name              |   yes   |
 | phoneNumber | Verified phone number                          |   yes   |
-| nnin        | Norwegian national identity number. NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin) For more information |   yes      |
+| nnin        | Norwegian national identity number. NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
 
 
 When requesting scopes that require user consent, a view listing these scopes
