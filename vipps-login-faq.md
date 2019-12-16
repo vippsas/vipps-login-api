@@ -13,6 +13,7 @@ You can also find frequently asked questions on the product here [Product FAQ](h
 - [How can I activate and set up Vipps login?](#how-can-i-activate-and-set-up-vipps-login)
 - [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
+- [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Can I change my display name used with Vipps login?](#can-i-change-my-display-name-used-with-vipps-login)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 - [Who can get access to NNIN and how?](#who-can-get-access-to-nnin-and-how)
@@ -79,6 +80,13 @@ the environment above the table with sales units.
 
 Have you set up a redirect URI for login with Vipps in the environment in question?
 
+# Why do I get “Error: Could not get Vipps login token” in the Vipps app?
+You can get this error if you have both the Vipps test app and production app on the same phone.
+
+As stated in the [description ofr the test apps](https://github.com/vippsas/vipps-developers#vipps-test-apps):
+"Please note: App-switching on iOS uses the same URL pattern for both the production Vipps app (in App Store) and the MT test app (in TestFlight). This means that iOS may open either of the apps for a vipps:// URL, as iOS can not know which of the apps to open. Because of this, we recommend to only have one of the apps installed on the same device."
+
+
 # Can I change my display name used with Vipps login?
 
 The name which is displayed in login with Vipps and in the app is the name of
@@ -114,7 +122,7 @@ Some merchants can get access to NNIN. Merchants need to request this separately
 
 # Who can get access to NNIN and how?
 
-Merchants with legal requirements or other objective needs to use Norwegian
+Only merchants with legal requirements or other objective needs to use Norwegian
 National Identity Number (NNIN) to achieve required user identification can get
 access to NNIN.  We correspond to
 [the guidance from Datatilsynet](https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/fodselsnummer/) on this.
