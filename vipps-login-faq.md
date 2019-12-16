@@ -83,7 +83,7 @@ Have you set up a redirect URI for login with Vipps in the environment in questi
 # Why do I get “Error: Could not get Vipps login token” in the Vipps app?
 You can get this error if you have both the Vipps test app and production app on the same phone.
 
-As stated in the [description ofr the test apps](https://github.com/vippsas/vipps-developers#vipps-test-apps):
+As stated in the [description of the test apps](https://github.com/vippsas/vipps-developers#vipps-test-apps):
 "Please note: App-switching on iOS uses the same URL pattern for both the production Vipps app (in App Store) and the MT test app (in TestFlight). This means that iOS may open either of the apps for a vipps:// URL, as iOS can not know which of the apps to open. Because of this, we recommend to only have one of the apps installed on the same device."
 
 
