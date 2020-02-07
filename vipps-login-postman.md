@@ -11,6 +11,10 @@ endpoints, and see the full `request` and `response` for each call.
 
 #### Step 1: Import the Postman Collection
 
+Click the link underneath to get access to the eCommerce Postman collection.
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cd2476c0175210f62d4a)
+
+Alternatively, manually import the collection by following the steps below:
 1. Click `Import` in the upper left corner.
 2. Import the [vipps-login-api-postman-collection.json](https://raw.githubusercontent.com/vippsas/vipps-login-api/master/tools/vipps-login-api.postman_collection.json) file
 
