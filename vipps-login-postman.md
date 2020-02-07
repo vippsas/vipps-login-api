@@ -12,6 +12,7 @@ endpoints, and see the full `request` and `response` for each call.
 #### Step 1: Import the Postman Collection
 
 Click the link underneath to get access to the eCommerce Postman collection.
+
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cd2476c0175210f62d4a)
 
 Alternatively, manually import the collection by following the steps below:
