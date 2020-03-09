@@ -518,7 +518,7 @@
           "type": "string"
         },
         "phone_number": {
-          "description": "End-User's telephone number on format {d}8"
+          "description": "End-User's telephone number on format {d}10"
         },
         "sub": {
           "description": "Subject - Identifier for the end user",
