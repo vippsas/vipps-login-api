@@ -12,9 +12,9 @@ You can also find frequently asked questions on the product here [Product FAQ](h
 - [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-client_id-and-client_secret)
 - [How can I activate and set up Vipps login?](#how-can-i-activate-and-set-up-vipps-login)
 - [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
+- [How can I change the name and logo shown with Vipps login?](#How_can_I_change_the_name_and_logo_shown_with_Vipps_login?)
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
 - [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
-- [Can I change my display name used with Vipps login?](#can-i-change-my-display-name-used-with-vipps-login)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 - [Who can get access to NNIN and how?](#who-can-get-access-to-nnin-and-how)
 
@@ -69,6 +69,19 @@ You can use localhost as part of the redirect URI.
 
 You can use “Custom URL Scheme” in the redirect URIs to redirect back an app.
 
+# How can I change the name and logo shown with Vipps login?
+Vipps login will show the name of the sales unit you use in the different Vipps login user dialogues. This includes the confirm login screen, the give consent screen and in the overview of consents given.
+
+You can administer this name in [portal.vipps.no](https://portal.vipps.no). You go to the sales unit s("salgssteder") in the left menu and select the correct unit. From this page you can see the key information for this sales unit:
+![You can administer this name in [portal.vipps.no](https://portal.vipps.no). You go to the sales unit ("salgssted") and click the correct unit. From this page you can see the key information for this sales unit:](images/Sales_unit_see_info.png)
+
+
+By clicking "Rediger" next to the "Visning i appen" heading you will come to a screen where you both can update your name and ad your logo:
+![By clicking "Rediger" next to the "Visning i appen" heading you will come to a screen where you both can update your name and ad you logo:](images/Sales_unit_change_name_and_logo.png)
+
+
+Currently this logo is not use for Vipps login but soon it will be shown in the overview of consents given.
+
 # Why do I get “Error: invalid_client”?
 This means that the `client_id` and `client_secret` used is not valid for Vipps login.
 
@@ -85,15 +98,6 @@ You can get this error if you have both the Vipps test app and production app on
 
 As stated in the [description of the test apps](https://github.com/vippsas/vipps-developers#vipps-test-apps):
 "Please note: App-switching on iOS uses the same URL pattern for both the production Vipps app (in App Store) and the MT test app (in TestFlight). This means that iOS may open either of the apps for a vipps:// URL, as iOS can not know which of the apps to open. Because of this, we recommend to only have one of the apps installed on the same device."
-
-
-# Can I change my display name used with Vipps login?
-
-The name which is displayed in login with Vipps and in the app is the name of
-the Sale Unit. This can be changed on [portal.vipps.no](https://portal.vipps.no).
-
-Go to “Salgssteder”, press “rediger” under “salgsstedsinfo” and change to the
-desired name.
 
 # Which scopes can I use? Why do I get “Invalid_scope”?
 
