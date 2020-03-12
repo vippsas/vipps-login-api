@@ -70,7 +70,7 @@ You can use localhost as part of the redirect URI.
 You can use “Custom URL Scheme” in the redirect URIs to redirect back an app.
 
 # How can I change the name and logo shown with Vipps login?
-Vipps login will show the name of the sales unit you use in the different Vipps login user dialogues. This includes the confirm login screen, the give consent screen and in the overview of consents given.
+Vipps login will show the name of the sales unit you use in the different Vipps login user dialogues. This includes the confirm login screen, the give consent screen and the overview of consents given.
 
 You can administer this name in [portal.vipps.no](https://portal.vipps.no). You go to the sales unit s("salgssteder") in the left menu and select the correct unit. From this page you can see the key information for this sales unit:
 ![You can administer this name in [portal.vipps.no](https://portal.vipps.no). You go to the sales unit ("salgssted") and click the correct unit. From this page you can see the key information for this sales unit:](images/Sales_unit_see_info.png)
