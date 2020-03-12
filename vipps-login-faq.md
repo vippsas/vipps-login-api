@@ -12,7 +12,7 @@ You can also find frequently asked questions on the product here [Product FAQ](h
 - [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-client_id-and-client_secret)
 - [How can I activate and set up Vipps login?](#how-can-i-activate-and-set-up-vipps-login)
 - [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
-- [How can I change the name and logo shown with Vipps login?](#How_can_I_change_the_name_and_logo_shown_with_Vipps_login?)
+- [How can I change the name and logo shown with Vipps login?](#how-can-i-change-the-name-and-logo-shown-with-vipps-login)
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
 - [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
