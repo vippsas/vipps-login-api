@@ -382,7 +382,7 @@ Overview
 | `401 Unauthorized`      | Invalid credentials.                                    |
 | `500 Server Error`      | An internal Vipps problem.                              |
 
-Example respose:
+Example response:
 ```json
 
 
