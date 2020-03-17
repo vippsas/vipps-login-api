@@ -17,7 +17,7 @@ This api is currently in preview and improvements will be made in the coming wee
 {
   "sub":"c9d10444-d992-4850-ac60-9d3502095008",
   "event":"CONSENT_REVOKED",
-  "timestamp":"1584362177",
+  "timestamp": 1584362177,
   "signature":"oADevM9M8z69LzNVeJQaAP3pKquHLgNuvivp+2QfzNZrgt8eMZLFnT7pZz1Sryi39ZqmhBJFE0+T+/hZ3lGvVPm9FP/KuXb22P62VymnuswUD6m8om5G0Vx/ijcLeW1j/czjbGklQuse95NH7POMmxK/40ah1SfX1+tS+HDEHzsivxP8P/6glzepFNS/nDjzPBxoD213TvgjE+QrdlRPbrrhZTG5KTWN5gpw5Fb7Q+NGhYUpo8flmSQezZVpl+4aWV6YdujUQdCqwDQjn6jDKQ9XkvzoNTlBGTo/cF7ywD34sN1jN9oQOu2hhbmPlq0KSqKbrkkrUUCuu8wvgg3fNg=="
 }
 ```
