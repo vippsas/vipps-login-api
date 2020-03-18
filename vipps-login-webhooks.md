@@ -1,18 +1,17 @@
-# Webhooks (PREVIEW)
-This api is currently in preview and improvements will be made in the coming weeks.
+# Webhooks (Preview)
 
 ## Table of contents
 * [Consent](#Consent Webhooks)
  
- ##Consent Webhooks
+ ## Consent Webhooks
  ### Revoke
  When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user.
  The merchant should then use the sub to look up the user and remove any data which has been received from Vipps logg inn.
  
- *Verification*
- Before acting on the webhook, the timestamp field should be checked to ensure that it is not older than five minutes.  
+ **Verification**  
+ Before acting on the received webhook the timestamp field should be checked to ensure that it is not older than five minutes.  
   
-*Example response:*
+**Example response:**
 ```json
 {
   "sub":"c9d10444-d992-4850-ac60-9d3502095008",
