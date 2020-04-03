@@ -6,7 +6,7 @@ Document version 1.0.2.
 
 API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-api/#/) or [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html)
 
-# Table of contents
+## Table of contents
 * [Introduction](#introduction)
     * [Remembered flow](#Remembered-flow)
     * [Phone number based flow - desktop](#Phone-number-based-flow---desktop)
@@ -36,7 +36,7 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
       * [Receive authentication result](#receive-authentication-result)
       * [Error handling](#error-handling)
 
-# Introduction
+## Introduction
 
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and
 OpenID Connect specifications. Login with Vipps is the easiest way to sign in and create an account. Users don’t need to worry about forgetting usernames and passwords. All they need to remember is their phone number. For an even smoother sign in experience, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
@@ -82,7 +82,7 @@ The app-switch based flow is only supported when the Vipps login API is called i
 Buttons to use for Vipps login can be found as part of our [design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons)
 
 
-# Core concepts
+## Core concepts
 
 ## OAuth 2.0
 
@@ -210,7 +210,7 @@ therefore not accept for example name and deny address.
 We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
 
-# Integrating with Vipps Login
+## Integrating with Vipps Login
 
 Vipps Login adheres to the OAuth2 and OpenIDConnect standards. The easiest way
 to integrate with the service is therefore to use a well renowned
