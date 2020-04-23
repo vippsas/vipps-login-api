@@ -42,3 +42,12 @@ Alternatively, manually import the collection by following the steps below:
 1. Copy query param `code` from url the browser was redirected to after finishing Vipps login. Paste this code into key `code` in Postman environment `vipps-login-api`.
 1. Send request `Get token` to get access token and id token.
 1. Send request `Get user info` to get user info of logged in user.
+
+## Questions?
+
+We're always happy to help with code or other questions you might have!
+Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
+a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
+or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
+
+Sign up for our [Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters).

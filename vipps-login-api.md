@@ -45,7 +45,7 @@ We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magen
 
 The Vipps login API authenticates the user in the web browser. The Vipps login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended). For optimal performance the API should be opened in the main browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
 
-Login with Vipps has three main user flows: Remembered, phone number based and app-switch based. 
+Login with Vipps has three main user flows: Remembered, phone number based and app-switch based.
 
 ## Remembered flow
 If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly.  This applies to both desktop and mobile.
@@ -594,3 +594,12 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 ```
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
+
+## Questions?
+
+We're always happy to help with code or other questions you might have!
+Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
+a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
+or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
+
+Sign up for our [Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters).

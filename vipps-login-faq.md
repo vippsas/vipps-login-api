@@ -151,3 +151,12 @@ If you need to store the NNIN for new users we recommend that you use an
 electronic ID, e.g  BankID.
 
 Merchants need to apply for access to NNIN separately by sending an email to AccessUserInfo@vipps.no. In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). You also need to provide information on how you plan to use the NNIN, the legal requirement and/or the reason why you need to use NNIN to achieve required user identification.
+
+## Questions?
+
+We're always happy to help with code or other questions you might have!
+Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
+a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
+or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
+
+Sign up for our [Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters).
