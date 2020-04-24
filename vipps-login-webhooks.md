@@ -1,7 +1,7 @@
 # Webhooks (Preview)
 
 This feature is currently in preview and should only be used for testing.  
-It is likely that the implementation will change.
+It is likely the implementation will change.
 
 ## Table of contents
 * [Consent](#consent-webhooks)
