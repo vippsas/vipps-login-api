@@ -3,22 +3,22 @@
 Let your customers log in to your website or app without the need for user names and passwords.
 
 For technical documentation go to
-[Vipps login API](https://github.com/vippsas/vipps-login-api)
+[Vipps Login API](https://github.com/vippsas/vipps-login-api)
 
 ## The login process
 
 ![login process](images/vipps-login-process.svg)
 
 
-## First time using Vipps Login
+## The first time using Vipps Login
 
-## 1. Log in with Vipps
+### 1. Log in with Vipps
 
 A user chooses to log in with Vipps on a merchant’s site.
 
 ![Buy subscription with Vipps](images/vipps-login-step1.svg)
 
-## 2. The Vipps landing page
+### 2. The Vipps landing page
 
 If the login was started on a desktop device the user will be sent to the Vipps landing page. The user enters their phone number, and can choose to be remembered in the browser for a quicker login the next time. The user is prompted to log in to Vipps, and follow the instructions.
 
@@ -26,13 +26,13 @@ If the login was started from a mobile device, the user will be taken directly t
 
 ![Vipps landing page](images/vipps-login-step2.svg)
 
-## 3. E-mail verification (first time only)
+### 3. E-mail verification (first time only)
 
 If the merchant needs the user’s e-mail, the user have to verify their e-mail address in Vipps on the initial login. The user can also check and change their registered addresses. This is only neccessary to do once for every user. If e-mail is not requested from the merchant, this step is skipped.
 
 ![Accept agreement](images/vipps-login-step3.svg)
 
-## 4. Confirm login
+### 4. Confirm login
 
 The user confirms the login on the merchant’s page. 
 
@@ -42,13 +42,13 @@ If the login was started on desktop, the user confirms that the emoji matches th
 
 ![Confirmation of subscription](images/vipps-login-step4.svg)
 
-## 5. Give consent to share information
+### 5. Give consent to share information
 
 The user gives consent to share information with the merchant.
 
 ![Overview of agreements](images/vipps-login-step5.svg)
 
-## 6. Logged in
+### 6. Logged in
 
 The user is now logged in on the merchant’s page.
 
