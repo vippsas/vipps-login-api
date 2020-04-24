@@ -7,7 +7,7 @@ See also the
 guide for the Vipps Developer Portal.
 You can also find frequently asked questions on the product here [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-# Table of contents
+## Table of contents
 
 - [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-client_id-and-client_secret)
 - [How can I activate and set up Vipps login?](#how-can-i-activate-and-set-up-vipps-login)
@@ -18,7 +18,7 @@ You can also find frequently asked questions on the product here [Product FAQ](h
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 - [Who can get access to NNIN and how?](#who-can-get-access-to-nnin-and-how)
 
-# Where do I find the `client_id` and `client_secret`?
+## Where do I find the `client_id` and `client_secret`?
 
 You find more information in
 [Getting started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys).
@@ -36,7 +36,7 @@ If you can login to [portal.vipps.no](https://portal.vipps.no) but cannot see
 the “developer” selection in the top-menu you need to have the administrator
 grant you developer access for the sales unit you need access to.
 
-# How can I activate and set up Vipps login?
+## How can I activate and set up Vipps login?
 
 On [portal.vipps.no](https://portal.vipps.no), in the same place as the client
 ID and `client_secret` described above, you can activate Vipps login, and also
@@ -57,7 +57,7 @@ First you activate Vipps login:
 Then you can add the redirect URIs you need:
 ![Then you can add the redirect URIs you need](images/portal_direct_uris.jpeg)
 
-# What are the requirements for Redirect URIs?
+## What are the requirements for Redirect URIs?
 
 We validate redirect URIs against a white list of pre-approved URIs. The URIs
 need to be registered on [portal.vipps.no](https://portal.vipps.no), and you
@@ -69,7 +69,7 @@ You can use localhost as part of the redirect URI.
 
 You can use “Custom URL Scheme” in the redirect URIs to redirect back an app.
 
-# How can I change the name and logo shown with Vipps login?
+## How can I change the name and logo shown with Vipps login?
 Vipps login will show the name of the sales unit you use in the different Vipps login user dialogues. This includes the confirm login screen, the give consent screen and the overview of consents given.
 
 You can administer this name for `production` in [portal.vipps.no](https://portal.vipps.no). Unfortunatly you cannon change the name used for the test environment. To change your display name in production you go to sales units ("salgssteder") in the left menu and select the correct unit. From this page you can see the key information for this sales unit:
@@ -82,7 +82,7 @@ By clicking "Rediger" next to the "Visning i appen" heading you will come to a s
 
 Currently this logo is not use for Vipps login but soon it will be shown in the overview of consents given.
 
-# Why do I get “Error: invalid_client”?
+## Why do I get “Error: invalid_client”?
 This means that the `client_id` and `client_secret` used is not valid for Vipps login.
 
 Please check:
@@ -93,13 +93,13 @@ the environment above the table with sales units.
 
 Have you set up a redirect URI for login with Vipps in the environment in question?
 
-# Why do I get “Error: Could not get Vipps login token” in the Vipps app?
+## Why do I get “Error: Could not get Vipps login token” in the Vipps app?
 You can get this error if you have both the Vipps test app and production app on the same phone.
 
 As stated in the [description of the test apps](https://github.com/vippsas/vipps-developers#vipps-test-apps):
 "Please note: App-switching on iOS uses the same URL pattern for both the production Vipps app (in App Store) and the MT test app (in TestFlight). This means that iOS may open either of the apps for a vipps:// URL, as iOS can not know which of the apps to open. Because of this, we recommend to only have one of the apps installed on the same device."
 
-# Which scopes can I use? Why do I get “Invalid_scope”?
+## Which scopes can I use? Why do I get “Invalid_scope”?
 
 If you get “Invalid_scope” this means that you have included one or more scopes
 that you do not have access to or that is not supported. You will find the list
@@ -124,7 +124,7 @@ particular merchant. Note: Different merchants will get different subs for the s
 
 Some merchants can get access to NNIN. Merchants need to request this separately.
 
-# Who can get access to NNIN and how?
+## Who can get access to NNIN and how?
 
 Only merchants with legal requirements or other objective needs to use Norwegian
 National Identity Number (NNIN) to achieve required user identification can get
@@ -151,3 +151,12 @@ If you need to store the NNIN for new users we recommend that you use an
 electronic ID, e.g  BankID.
 
 Merchants need to apply for access to NNIN separately by sending an email to AccessUserInfo@vipps.no. In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). You also need to provide information on how you plan to use the NNIN, the legal requirement and/or the reason why you need to use NNIN to achieve required user identification.
+
+## Questions?
+
+We're always happy to help with code or other questions you might have!
+Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
+a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
+or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
+
+Sign up for our [Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters).
