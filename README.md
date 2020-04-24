@@ -2,6 +2,8 @@
 This repository contains developer resources for the Vipps Login API.
 For more information and to order the product go to our [Product page](https://www.vipps.no/produkter-og-tjenester/bedrift/innlogging-og-identifisering/logg-inn-med-vipps/). You can also find frequently asked questions about the product in the [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
+See [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md) to get an overview of how login with Vipps works.
+
 [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): Information about API keys, product activation etc.
 
 For API documentation and development guidelines see the [Vipps Login API guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md).
