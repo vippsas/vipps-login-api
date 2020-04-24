@@ -4,9 +4,11 @@ This feature is currently in preview and should only be used for testing.
 It is likely that the implementation will change.
 
 ## Table of contents
-* [Consent](#Consent Webhooks)
+* [Consent](#consent-webhooks)
+    * [Revoke](#revoke)
  
  ## Consent Webhooks
+
  ### Revoke
  When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user.
  The merchant should then use the sub to look up the user and remove any data which has been received from Vipps logg inn.
