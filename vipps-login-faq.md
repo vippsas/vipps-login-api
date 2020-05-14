@@ -7,7 +7,7 @@ See also the
 guide for the Vipps Developer Portal.
 You can also find frequently asked questions on the product here [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.0.0.
+Document version 2.0.1.
 
 ## Table of contents
 
@@ -159,6 +159,9 @@ Merchants need to apply for access to NNIN separately by sending an email to Acc
 
 Certain versions of Chrome gives the error `No+CSRF+value+available+in+the+session+cookie`.
 Upgrading to the latest version of Chrome should solve this.
+
+If the `redirect_url` is using a custom URL scheme, such as `myapp://`, a path
+is required: `myapp://path-to-something`.
 
 ## Questions?
 
