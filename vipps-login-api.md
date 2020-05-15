@@ -56,7 +56,7 @@ The Vipps login API authenticates the user in the web browser. The Vipps login A
 ## Activation
 
 See the FAQ:
-[How can I activate and set up Vipps login?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+[How can I activate and set up Vipps login?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login)
 
 ## Flows
 
