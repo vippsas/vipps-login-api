@@ -2,7 +2,7 @@
 
 API version: 1.0  
 
-Document version 2.0.1.
+Document version 2.0.2.
 
 See the
 [Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
@@ -55,9 +55,8 @@ The Vipps login API authenticates the user in the web browser. The Vipps login A
 
 ## Activation
 
-Vipps Login API is activated on
-[portal.vipps.no](https://portal.vipps.no).
-Log in with BankID and configure the required URLs there.
+See the FAQ:
+[How can I activate and set up Vipps login?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
 ## Flows
 
