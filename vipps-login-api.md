@@ -260,7 +260,7 @@ means available to it via the user-agent.
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | response_type     | Value MUST be set to "code".                                                                                                                                                              |
 | client_id         | The client identifier, issued by Vipps.                                                                                                                                                   |
-| redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If using a custom URL scheme, such as `myapp://` a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
+| redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
 | scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
 
@@ -331,7 +331,7 @@ var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | grant_type        | Value MUST be authorization_code.                                                                                                                                        |
 | code              | The authorization code received from the authorization server.                                                                                                           |
-| redirect_uri      | Redirect URL the user agent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant). |                                                                                                                                    |
+| redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant) . This field is required for OIDC flows, i.e. regular Vipps Login logins. |                                                                                                                                    |
 
 [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
 

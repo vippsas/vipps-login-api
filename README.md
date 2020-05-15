@@ -15,6 +15,7 @@ You can also find frequently asked questions about the product in the
 You can peruse the API reference documentation as:
 * [Swagger](https://vippsas.github.io/vipps-login-api/)
 * [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html)
+* [Shins](https://vippsas.github.io/vipps-login-api/shins/index.html)
 
 See the [Vipps Developers repository](https://github.com/vippsas/vipps-developers)
 for contact information, contribution guidelines, etc.
