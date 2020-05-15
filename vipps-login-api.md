@@ -2,7 +2,7 @@
 
 API version: 1.0  
 
-Document version 2.0.0.
+Document version 2.0.1.
 
 See the
 [Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
@@ -39,13 +39,15 @@ for all the details.
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
 * [Error handling](#error-handling)
+* [Questions and answers](#questions-and-answers)
+* [Questions](#questions)
 
 ## Introduction
 
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and
 OpenID Connect specifications. Login with Vipps is the easiest way to sign in and create an account. Users don’t need to worry about forgetting usernames and passwords. All they need to remember is their phone number. For an even smoother sign in experience, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits.
 
-Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
+Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nnin).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
 
 We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magento) and [WordPress/WooCommerce](https://github.com/vippsas/vipps-login-wordpress).
 
@@ -208,7 +210,7 @@ Vipps Login currently supports the following scopes:
 | email       | User email                                     |   yes   |
 | name        | User first, middle and given name              |   yes   |
 | phoneNumber | Verified phone number                          |   yes   |
-| nnin        | Norwegian national identity number. NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
+| nnin        | Norwegian national identity number. NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
@@ -604,6 +606,23 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 ```
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
+
+## Questions and answers
+
+### Compliance  
+
+**Q**: How can our system dynamically "know/find out" if the user has revoked their concent for us to have access to his personal data in our system?  
+**A**: We are working on a system for notifying merchants when an end user revokes their consent. It will consist of an additional callback url that you register on the merchant portal which we will send a notification to when an end user removes their consent  
+
+### Technical
+
+**Q**: Can we have multiple URIs as landing pages?  
+**A**: You can register as many callback urls as you want; and then you specify which one you use in the request to [/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)  
+
+### UX
+
+**Q**: Can we change the name that appears in customer's Vipps app under `Login and Access`?  
+**A**: The name which is displayed in the app is the name of the Sale Unit. You can do it yourself in the merchant portal, [https://portal.vipps.no/](https://portal.vipps.no/). Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.  
 
 ## Questions?
 
