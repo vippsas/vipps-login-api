@@ -4,21 +4,23 @@ API version: 1.0
 
 Document version 2.0.0.
 
-API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-api/#/) or [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html)
+See the
+[Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
+for all the details.
 
 ## Table of contents
 * [Introduction](#introduction)
   - [Activation](#activation)     
   - [Flows](#flows)
     * [Remembered flow](#remembered-flow)
-    * [Phone number based flow - desktop](#phone-number-based-flow-desktop)
-    * [Phone number based flow - mobile](#phone-number-based-flow-mobile)
-    * [App-switch based flow - browser on mobile](#ppp-switch-based-flow-browser-on-mobile)   
+    * [Phone number based flow - desktop](#phone-number-based-flow---desktop)
+    * [Phone number based flow - mobile](#phone-number-based-flow---mobile)
+    * [App-switch based flow - browser on mobile](#app-switch-based-flow---browser-on-mobile)   
 * [Core concepts](#core-concepts)
   - [OAuth 2.0](#oauth-20)
   - [OpenID Connect](#open-id-connect)
-      * [Supported OpenID Connect Flows](#supported-openid-connect-flows)
-          * [Authorization Code Grant](#authorization-code-grant)
+  - [Supported OpenID Connect Flows](#supported-openid-connect-flows)
+    - [Authorization Code Grant](#authorization-code-grant)
   - [Tokens](#tokens)
     * [ID Token](#id-token)
     * [Access Token](#access-token)
@@ -33,10 +35,10 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
             * [OpenID Connect Userinfo](#openid-connect-userinfo)
             * [OpenID Connect Discovery](#openid-connect-discovery)
             * [JSON Web Keys Discovery](#json-web-keys-discovery)
-        * [Automatic Recognition](#automatic-recognition)
-    * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
-      * [Receive authentication result](#receive-authentication-result)
-      * [Error handling](#error-handling)
+    * [Automatic Recognition](#automatic-recognition)
+  * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
+    * [Receive authentication result](#receive-authentication-result)
+* [Error handling](#error-handling)
 
 ## Introduction
 
@@ -79,7 +81,6 @@ This is the fallback flow for mobile devices if it is not possible to use the ap
 
 ![Phone number based flow - mobile](images/Mobile_flow_with_phone_number.png)
 
-
 ### App-switch based flow - browser on mobile
 When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
 
@@ -87,13 +88,12 @@ When the user starts to login with Vipps the browser automatically redirects the
 
 The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can open the API in the browser from an app, but webview in app is not supported.  
 
-
-Buttons to use for Vipps login can be found as part of our [design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons)
-
+Buttons to use for Vipps login can be found as part of our
+[design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons).
 
 ## Core concepts
 
-## OAuth 2.0
+### OAuth 2.0
 
 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) is the industry-standard
 protocol for authorization. Giving a proper introduction to the standard is
@@ -104,7 +104,7 @@ We also recommend reading
 [OAuth 2 Simplified](https://aaronparecki.com/oauth-2-simplified) and having a
 look at [the documentation](https://oauth.net/2/).
 
-## Open ID Connect
+### Open ID Connect
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is a
 simple identity layer on top of the OAuth 2.0 protocol. It enables Clients to
@@ -139,9 +139,8 @@ The ID token is a signed information object representing the authenticated ident
 As part of the OpenID Connect standard, the ID token is encoded as a JWT and signed using the JWS standard.
 The ID Token can be decoded for debugging purposes by tools such as [jwt.io](https://jwt.io/).
 
-Example
+Example header:
 
-Header
 ```json
 {
   "alg": "RS256",
@@ -149,9 +148,10 @@ Header
   "typ": "JWT"
 }
 ```
-Body
-```json
 
+Example body:
+
+```json
 {
   "at_hash": "tyFnH20TOmPZkgJU8e5iKw",
   "aud": [
@@ -167,6 +167,7 @@ Body
   "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944"
 }
 ```
+
 You can read more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
 
 It is important to validate the Id-token before using any data contained in it.
@@ -209,7 +210,6 @@ Vipps Login currently supports the following scopes:
 | phoneNumber | Verified phone number                          |   yes   |
 | nnin        | Norwegian national identity number. NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
 
-
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
 request. This view is skipped if no scopes requiring consent are requested.
@@ -228,20 +228,20 @@ Vipps does not recommend a specific library, but the list of
 [OIDC Relying Party libraries](https://openid.net/developers/certified/)
 certified by the OpenID Foundation is a good starting point.
 
-## Manual integration
+### Manual integration
 
 This section contains information necessary to perform a manual integration with
 Vipps Login. This should not be attempted without a solid grasp of the OAuth2
 and Open ID Connect standards.
 
-### Base URLs
+#### Base URLs
 
 | Environment | Base URL |
 |-------------|----------|
 | Test        |https://apitest.vipps.no/access-management-1.0/access |
 | Production  |https://api.vipps.no/access-management-1.0/access     |
 
-### API endpoints
+#### API endpoints
 
 | Operation                 | Description         | Endpoint          |
 | ------------------------- | ------------------- | ----------------- |
@@ -251,7 +251,7 @@ and Open ID Connect standards.
 | [OpenID Connect Discovery](#openid-connect-discovery) | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
 | [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
 
-#### OAuth 2.0 Authorize
+##### OAuth 2.0 Authorize
 
 The authorize endpoint is a standard OIDC endpoint used for starting an
 authorization. The client creates an request URI and directs the resource owner
@@ -307,7 +307,7 @@ See error handling for more information.
 For more information see
 [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1).
 
-#### OAuth 2.0 Token
+##### OAuth 2.0 Token
 
 The token endpoint is a standard OIDC endpoint used for requesting Access and
 ID Tokens. The client constructs the request by adding the parameters described
@@ -364,7 +364,7 @@ Example response:
 }
 ```
 
-#### OpenID Connect Userinfo
+#####  OpenID Connect Userinfo
 
 This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token.
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
@@ -427,7 +427,7 @@ Example response:
 }
 ```
 
-#### OpenID Connect Discovery
+#####  OpenID Connect Discovery
 
 The OIDC connect discovery endpoint can be used to retrieve configuration information for OpenID Connect clients.  
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
@@ -515,7 +515,8 @@ Example response from the merchant test environment:
 }
 
 ```
-#### JSON Web Keys Discovery
+
+#####  JSON Web Keys Discovery
 
 This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and if enabled,
 OAuth 2.0 JWT Access Tokens.
@@ -552,7 +553,7 @@ Examples:
 ```
 This operation does not require authentication
 
-## Automatic Recognition
+### Automatic Recognition
 
 Vipps Login will offer the option to authenticate end-users automatically when
 they return to a merchant's site. This gives merchants the opportunity to
@@ -584,7 +585,7 @@ HTTP/1.1 302 Found
 Location: https://client.example.com/callback?code={code}&state={state}
 ```
 
-### Error handling
+## Error handling
 
 If the user cancels the login or an error occurs, the user agent is redirected
 to the receive authentication result endpoint with the following parameters
