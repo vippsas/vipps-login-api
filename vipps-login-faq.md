@@ -70,7 +70,7 @@ endpoint.
 
 You can use localhost as part of the redirect URI.
 
-You can use “Custom URL Scheme” in the redirect URIs to redirect back an app.
+You can use “Custom URL Scheme” in the redirect URIs to redirect back an app. In this case a path is required: myapp://path-to-something.
 
 ## How can I change the name and logo shown with Vipps login?
 Vipps login will show the name of the sales unit you use in the different Vipps login user dialogues. This includes the confirm login screen, the give consent screen and the overview of consents given.
