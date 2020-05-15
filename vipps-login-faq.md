@@ -1,4 +1,4 @@
-# Frequently Asked Questions for Vipps Login API
+# Vipps Login API: Frequently Asked Questions
 
 See the [Vipps Login API](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md) for all the details.
 
@@ -7,7 +7,7 @@ See also the
 guide for the Vipps Developer Portal.
 You can also find frequently asked questions on the product here [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.0.1.
+Document version 2.0.2.
 
 ## Table of contents
 
