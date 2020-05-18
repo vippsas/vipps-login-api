@@ -205,11 +205,11 @@ Vipps Login currently supports the following scopes:
 | ------------| -----------------------------------------------|-------- |
 | openid      | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.              |   no    |
 | address     | List containing the users addresses. Will always contain home, but can also include work and other.    |   yes   |
-| birthDate   | User birth date                                |   yes   |
-| email       | User email                                     |   yes   |
-| name        | User first, middle and given name              |   yes   |
-| phoneNumber | Verified phone number                          |   yes   |
-| nnin        | Norwegian national identity number. NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
+| birthDate   | User birth date (BankID verified)                               |   yes   |
+| email       | User email (verified), the flag "email_verified : true" in the response can be used by merchant to confirm for each request that the email actually is verified                                   |   yes   |
+| name        | User first, middle and given name (verified with National Population Register)              |   yes   |
+| phoneNumber | Verified phone number (verfied - the number used with Vipps)                          |   yes   |
+| nnin        | Norwegian national identity number (verified with BankID). NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
