@@ -10,9 +10,12 @@ It is likely the implementation will change.
  ## Consent Webhooks
 
  ### Revoke
- When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user.
- The merchant should then use the sub to look up the user and remove any data which has been received from Vipps logg inn.
+Users can revoke their consent to share data with merchants. This is done in the profile section -> personal information in the app. If a user removes the consent to share data with a merchant, the practical consequences is that the user needs to give a consent the next time he/she would like to login with Vipps or share data as part of other Vipps services with the merchant.
  
+When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user to the webhook provided by the merchant.
+
+This service is optional for the merchant and can be used to trigger events on the merchant's side. I.e. the merchant can inform the user that they still have an account, can provide information on alternative login solutions or where the user should go if they would like to delete the data they have stored with the merchant. 
+  
  **Verification**  
  Before acting on the received webhook the timestamp field should be checked to ensure that it is not older than five minutes.  
   
