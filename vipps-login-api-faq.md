@@ -19,7 +19,7 @@ Document version 2.0.2.
 - [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 - [Who can get access to NNIN and how?](#who-can-get-access-to-nnin-and-how)
-- [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)??](#who-can-get-access-to-nnin-and-how)
+- [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)??](#is-it-possible-for-me-as-a-merchant-to-control-whether-the-user-can-log-in-through-being-remembered-in-browser-or-need-to-use-the-app-to-authenticate-two-factor-authentication)
 - [Common errors](#common-errors)
 
 ## Where do I find the `client_id` and `client_secret`?
