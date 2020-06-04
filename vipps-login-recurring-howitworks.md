@@ -1,69 +1,62 @@
-# Vipps Login API: How It Works
+# Vipps Login + Vipps Recurring: How It Works
 
-Let your customers log in to your website or app without the need for user names and passwords.
+Vipps Login and Vipps Recurring can be used together making registration and payment simple for your customers. 
 
-For technical documentation go to
-[Vipps Login API](https://github.com/vippsas/vipps-login-api)
+For the complete API documentation go to
+* [Vipps Login API](https://github.com/vippsas/vipps-login-api)
+* [Vipps Recurring API](https://github.com/vippsas/vipps-recurring-api)
 
-## The login process
+## The process
 
-![login process](images/vipps-login-process-v2.svg)
+![Login and recurring process](images/login-recurring-process.svg)
 
 
-## The first time using Vipps Login
+## 1. Buy a subscription
 
-### 1. Log in with Vipps
+A user wants to buy a subscription on a merchant’s website or app.
 
-A user chooses to log in with Vipps on a merchant’s site.
+![Buy subscription with Vipps](images/login-recurring-step1.svg)
 
-![Buy subscription with Vipps](images/vipps-login-step1.svg)
+## 2. Login with Vipps
 
-### 2. The Vipps landing page
+The user logs in with Vipps on the merchant’s site.
 
-If the login was started on a desktop device the user will be sent to the Vipps landing page. If the user is not remembered in browser from earlier, the user enters her phone number, and can choose to be remembered in the browser for a quicker login the next time. The "Remember me in browser" option applies to the browser, independent of merchants. This option is default off on desktop devices.
+![Login with Vipps](images/login-recurring-step2.svg)
 
-The user is then prompted to log in to Vipps, and follow the instructions in the app.
+## 3. Confirm login
 
-If the login was started from a mobile device and the user needs to authenticate in the app, the user will confirm to be taken  to the Vipps-app, without having to enter her phone number.
+The user confirms the login in Vipps. 
 
-![Vipps landing page](images/vipps-login-step2.svg)
+![Confirm login](images/login-recurring-step3.svg)
 
-### 3. E-mail verification (first time only)
-
-If the merchant has requested the user’s e-mail, the user have to verify their e-mail address in Vipps the first time they use Vipps login or if they change their e-mail at a later time. The user can also check and change their registered addresses. This is only necessary to do once. If the merchant has not requested the user's e-mail, this step is skipped.
-
-![Accept agreement](images/vipps-login-step3.svg)
-
-### 4. Confirm login
-
-The user confirms the login in the Vipps-app.
-
-If the login was started on a phone, the user can in this step choose to be remembered in the browser for a quicker registration or login the next time. The "Remember me in browser" option is default on for mobile devices.
-
-If the login was started on desktop, the user confirms that the emoji in Vipps matches the one on the landing page, and confirms the login.
-
-![Confirmation of subscription](images/vipps-login-step4.svg)
-
-### 5. Give consent to share information
+## 4. Give consent to share information
 
 The user gives consent to share information with the merchant.
-
 The user may click "See your information" to see the actual information that will be shared, but this is optional.
 
-![Overview of agreements](images/vipps-login-step5.svg)
+![Give consent to share information](images/login-recurring-step4.svg)
 
-### 6. Logged in
+## 5. Logged in and ready to checkout
 
-The user is now logged in on the merchant’s page.
+The user is now logged in on the merchant’s page, and can checkout the subscription. The information the user has shared with the merchant is automatically filled in, but the user can also edit the information if necessary.
 
-The user may be given the opportunity to edit the information, for instance
-to add additional details not present in the user's Vipps profile.
+![Checkout](images/login-recurring-step5.svg)
 
-![Overview of agreements](images/vipps-login-step6.svg)
+## 6. Accept agreement in Vipps
 
-## Great! Now you know how the Vipps Login process works.
+The user accept the agreement in Vipps. 
 
-Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md).
+![Agreement in Vipps](images/login-recurring-step6.svg)
+
+## 7. Subscription confirmed
+
+The user is sent back to the merchant’s web site or app, and the subscription is confirmed on the merchant’s site.
+
+![Confirmation page](images/login-recurring-step7.svg)
+
+## Great! Now you know how you can use Vipps Login and Vipps Recurring together.
+
+Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md), and the [Vipps Recurring API Guide](https://github.com/vippsas/vipps-recurring-api/blob/master/vipps-recurring-api.md)
 
 
 ## Questions?
