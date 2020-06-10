@@ -19,6 +19,7 @@ Document version 2.0.2.
 - [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 - [Who can get access to NNIN and how?](#who-can-get-access-to-nnin-and-how)
+- [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
 - [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)??](#is-it-possible-for-me-as-a-merchant-to-control-whether-the-user-can-log-in-through-being-remembered-in-browser-or-need-to-use-the-app-to-authenticate-two-factor-authentication)
 - [Common errors](#common-errors)
 
@@ -155,6 +156,9 @@ If you need to store the NNIN for new users we recommend that you use an
 electronic ID, e.g  BankID.
 
 Merchants need to apply for access to NNIN separately by sending an email to AccessUserInfo@vipps.no. In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). You also need to provide information on how you plan to use the NNIN, the legal requirement and/or the reason why you need to use NNIN to achieve required user identification.
+
+## Who can get access to account numbers and how?
+
 
 ## Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)?
 Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
