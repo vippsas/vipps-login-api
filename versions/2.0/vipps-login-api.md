@@ -1,8 +1,8 @@
 # Vipps Login API
 
-API version: 1.0  
+API version: 2.0  
 
-Document version 2.0.2.
+Document version 3.0.0.
 
 See the
 [Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
@@ -28,12 +28,11 @@ for all the details.
   - [Scopes](#scopes)
 * [Integrating with Vipps Login](#integrating-with-vipps-login)
     * [Manual integration](#manual-integration)
-        * [Base URLs](#base-urls)
-        * [API endpoints](#api-endpoints)
+        * [Openid connect discovery endpoint](#openid-connect-discovery-endpoint)
+        * [Openid connect discovery URLs](#openid-connect-discovery-urls)
             * [OAuth 2.0 Authorize](#oauth-20-authorize)
             * [OAuth 2.0 Token](#oauth-20-token)
-            * [OpenID Connect Userinfo](#openid-connect-userinfo)
-            * [OpenID Connect Discovery](#openid-connect-discovery)
+            * [Userinfo](#userinfo)
             * [JSON Web Keys Discovery](#json-web-keys-discovery)
     * [Automatic Recognition](#automatic-recognition)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
@@ -53,6 +52,9 @@ We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magen
 
 The Vipps login API authenticates the user in the web browser. The Vipps login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended). For optimal performance the API should be opened in the main browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
 
+## Versions
+[Api Version 1.0](../../vipps-login-api.md)
+
 ## Activation
 
 See the FAQ:
@@ -69,23 +71,23 @@ If the user is not remembered the user needs to confirm the login in the Vipps-a
 If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
 
 The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
-![Number input in desktop](../images/Number_input_flow_desktop1.png)
+![Number input in desktop](../../images/Number_input_flow_desktop1.png)
 
 The user goes to the Vipps app and confirms the login:
-![Confirmation in app in phone number flow](../images/Number_input_flow_app.png)
+![Confirmation in app in phone number flow](../../images/Number_input_flow_app.png)
 
 The user is then authenticated in browser and can provide consent if required. Then the user is redirected back to the redirect URI provided by merchant:
-![Consent in desktop](../images/Number_input_flow_desktop2.png	)
+![Consent in desktop](../../images/Number_input_flow_desktop2.png	)
 
 ### Phone number based flow - mobile
 This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. This is the same flow as for desktop above but please note that the user in this flow need to manually navigate back to the browser where they entered the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
-![Phone number based flow - mobile](../images/Mobile_flow_with_phone_number.png)
+![Phone number based flow - mobile](../../images/Mobile_flow_with_phone_number.png)
 
 ### App-switch based flow - browser on mobile
 When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
 
-![Mobile flow with app-switch](../images/Mobile_flow_with_app-switch.png)
+![Mobile flow with app-switch](../../images/Mobile_flow_with_app-switch.png)
 
 The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can open the API in the browser from an app, but webview in app is not supported.  
 
@@ -210,6 +212,7 @@ Vipps Login currently supports the following scopes:
 | name        | User first, middle and given name (verified with National Population Register)              |   yes   |
 | phoneNumber | Verified phone number (verfied - the number used with Vipps)                          |   yes   |
 | nnin        | Norwegian national identity number (verified with BankID). NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
+| accountNumbers | User bank account numbers. NB: merchants need to apply for access to accountNumbers. Go to [Who can get access to account numbers and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-accountnumbers-and-how) For more information |   yes      |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
@@ -233,23 +236,111 @@ certified by the OpenID Foundation is a good starting point.
 
 This section contains information necessary to perform a manual integration with
 Vipps Login. This should not be attempted without a solid grasp of the OAuth2
-and Open ID Connect standards.
+and Open ID Connect standards. All endpoints needed for integration can be found in our openid connect discovery endpoint. 
+These endpoints should be fetched dynamically by your application, since they are prone for change.
 
-#### Base URLs
+#### Openid connect discovery endpoint
 
 | Environment | Base URL |
 |-------------|----------|
-| Test        |https://apitest.vipps.no/access-management-1.0/access |
-| Production  |https://api.vipps.no/access-management-1.0/access     |
+| Test        |https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration |
+| Production  |https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration     |
 
-#### API endpoints
+The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients.  
+You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-| Operation                 | Description         | Endpoint          |
-| ------------------------- | ------------------- | ----------------- |
-| [OAuth 2.0 Authorize](#oauth-20-authorize)           | Start an OAuth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth) |
-| [OAuth 2.0 Token](#oauth-20-token)                   | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
-| [OpenID Connect Userinfo](#openid-connect-userinfo)   | Returns information that the user has consented to share. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
-| [OpenID Connect Discovery](#openid-connect-discovery) | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
+**Request**
+
+[`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration)
+
+**Response**
+
+Overview
+
+| HTTP status             | Description                                             |
+| ----------------------- | ------------------------------------------------------- |
+| `200 OK`                | Request successful.                                     |
+| `500 Server Error`      | An internal Vipps problem.                              |
+
+Example response from the merchant test environment:
+
+```json
+{
+  "issuer": "https://apitest.vipps.no/access-management-1.0/access/",
+  "authorization_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/auth",
+  "token_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/token",
+  "jwks_uri": "https://apitest.vipps.no/access-management-1.0/access/.well-known/jwks.json",
+  "subject_types_supported": [
+    "public",
+    "pairwise"
+  ],
+  "response_types_supported": [
+    "code",
+    "code id_token",
+    "id_token",
+    "token id_token",
+    "token",
+    "token id_token code"
+  ],
+  "claims_supported": [
+    "sub"
+  ],
+  "grant_types_supported": [
+    "authorization_code",
+    "implicit",
+    "client_credentials",
+    "refresh_token"
+  ],
+  "response_modes_supported": [
+    "query",
+    "fragment"
+  ],
+  "userinfo_endpoint": "https://apitest.vipps.no/vipps-userinfo-api/userinfo",
+  "scopes_supported": [
+    "offline",
+    "openid",
+    "address",
+    "name",
+    "email",
+    "phoneNumber",
+    "nin",
+    "birthDate",
+    "accountNumbers",
+    "api_version_2"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "client_secret_basic",
+    "private_key_jwt",
+    "none"
+  ],
+  "userinfo_signing_alg_values_supported": [
+    "none",
+    "RS256"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "request_parameter_supported": true,
+  "request_uri_parameter_supported": true,
+  "require_request_uri_registration": true,
+  "claims_parameter_supported": false,
+  "revocation_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/revoke",
+  "backchannel_logout_supported": true,
+  "backchannel_logout_session_supported": true,
+  "frontchannel_logout_supported": true,
+  "frontchannel_logout_session_supported": true,
+  "end_session_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/sessions/logout"
+}
+```
+
+#### Openid connect discovery URLs
+
+| Operation                 | Description         | Endpoints |
+| ------------------------- | ------------------- | ------------------ |
+| [OAuth 2.0 Authorize](#oauth-20-authorize)            | Start an OAuth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth) |
+| [OAuth 2.0 Token](#oauth-20-token)                    | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
+| [Userinfo](#userinfo)                                 | Returns information that the user has consented to share. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
 | [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
 
 ##### OAuth 2.0 Authorize
@@ -365,9 +456,10 @@ Example response:
 }
 ```
 
-#####  OpenID Connect Userinfo
+#####  Userinfo
 
-This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token.
+This endpoint returns the payload with the information that the user has consented to share, which is provided in 
+the OAuth 2.0 access token.
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
 
 **Request**
@@ -394,127 +486,51 @@ Overview
 
 Example response:
 ```json
-
-
 {
-  "sub" : "c06c4afe-d9e1-4c5d-939a-177d752a0944",
- "address" : [ {
-     "country" : "NO",
-     "street_address" : "Testgata 23",
-     "address_type" : "home",
-     "formatted" : "Testgata 23\n01234\nOslo\nNO",
-     "postal_code" : "01234",
-     "Region" : "Oslo"
-   }, {
-     "country" : "NO",
-     "street_address" : "Robert Levins Gate 5",
-     "address_type" : "work",
-     "formatted" : "Robert Levins Gate 5\n0154\nOslo\nNO",
-     "postal_code" : "0154",
-     "region" : "Oslo"
-   }, {
-     "country" : "NO",
-     "street_address" : "Fjellhyttevegen 2",
-     "address_type" : "other",
-     "formatted" : "Fjellhyttevegen 2 2\n5700\nVoss\nNO",
-     "postal_code" : "5700",
-     "Region" : "Voss"
-   }],
-  "name" : "Ada Lovelace",
-  "given_name" : "Ada",
-  "family_name" : "lovelace",
-  "email" : "ada@exampleEmail.com",
-  "sid" : "ec41669d-be3f-4a43-8556-c779c5676931"
+    "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944",
+    "birthdate": "1815-12-10",
+    "email": "user@example.com",
+    "email_verified": true,
+    "nin": "10121550047",
+    "name": "Ada Lovelace",
+    "given_name": "Ada",
+    "family_name": "Lovelace",
+    "sid": "7d78a726-af92-499e-b857-de263ef9a969",
+    "phone_number": "4712345678",
+    "address": {
+        "street_address": "Suburbia 23",
+        "postal_code": "2101",
+        "region": "OSLO",
+        "country": "NO",
+        "formatted": "Suburbia 23\\n2101 OSLO\\nNO",
+        "address_type": "home"
+    },
+    "other_address": [
+        {
+            "street_address": "Fancy Office Street 2",
+            "postal_code": "0218",
+            "region": "OSLO",
+            "country": "NO",
+            "formatted": "Fancy Office Street 2\\n0218 OSLO\\nNO",
+            "address_type": "work"
+        },
+        {
+            "street_address": "Summer House Lane 14",
+            "postal_code": "1452",
+            "region": "OSLO",
+            "country": "NO",
+            "formatted": "Summer House Lane 14\\n1452 OSLO\\nNO",
+            "address_type": "other"
+        }
+    ],
+    "accounts": [
+        {
+            "account_name": "My savings",
+            "account_number": "12064590675",
+            "bank_name": "My bank"
+        }
+    ]
 }
-```
-
-#####  OpenID Connect Discovery
-
-The OIDC connect discovery endpoint can be used to retrieve configuration information for OpenID Connect clients.  
-You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
-
-**Request**
-
-[`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration)
-
-**Response**
-
-Overview
-
-| HTTP status             | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| `200 OK`                | Request successful.                                     |
-| `500 Server Error`      | An internal Vipps problem.                              |
-
-Example response from the merchant test environment:
-
-```json
-{
-  "issuer": "https://apitest.vipps.no/access-management-1.0/access/",
-  "authorization_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/auth",
-  "token_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/token",
-  "jwks_uri": "https://apitest.vipps.no/access-management-1.0/access/.well-known/jwks.json",
-  "subject_types_supported": [
-    "public",
-    "pairwise"
-  ],
-  "response_types_supported": [
-    "code",
-    "code id_token",
-    "id_token",
-    "token id_token",
-    "token",
-    "token id_token code"
-  ],
-  "claims_supported": [
-    "sub"
-  ],
-  "grant_types_supported": [
-    "authorization_code",
-    "implicit",
-    "client_credentials",
-    "refresh_token"
-  ],
-  "response_modes_supported": [
-    "query",
-    "fragment"
-  ],
-  "userinfo_endpoint": "https://apitest.vipps.no/access-management-1.0/access/userinfo",
-  "scopes_supported": [
-    "offline",
-    "openid",
-    "address",
-    "name",
-    "email",
-    "phoneNumber",
-    "nnin",
-    "birthDate"
-  ],
-  "token_endpoint_auth_methods_supported": [
-    "client_secret_post",
-    "client_secret_basic",
-    "private_key_jwt",
-    "none"
-  ],
-  "userinfo_signing_alg_values_supported": [
-    "none",
-    "RS256"
-  ],
-  "id_token_signing_alg_values_supported": [
-    "RS256"
-  ],
-  "request_parameter_supported": true,
-  "request_uri_parameter_supported": true,
-  "require_request_uri_registration": true,
-  "claims_parameter_supported": false,
-  "revocation_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/revoke",
-  "backchannel_logout_supported": true,
-  "backchannel_logout_session_supported": true,
-  "frontchannel_logout_supported": true,
-  "frontchannel_logout_session_supported": true,
-  "end_session_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/sessions/logout"
-}
-
 ```
 
 #####  JSON Web Keys Discovery
