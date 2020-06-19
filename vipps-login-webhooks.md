@@ -1,7 +1,4 @@
-# Webhooks (Preview)
-
-This feature is currently in preview and should only be used for testing.  
-It is likely the implementation will change.
+# Webhooks
 
 ## Table of contents
 * [Consent](#consent-webhooks)
@@ -10,19 +7,31 @@ It is likely the implementation will change.
  ## Consent Webhooks
 
  ### Revoke
- When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user.
- The merchant should then use the sub to look up the user and remove any data which has been received from Vipps logg inn.
- 
- **Verification**  
- Before acting on the received webhook the timestamp field should be checked to ensure that it is not older than five minutes.  
+ When a user revokes their consent, Vipps will issue an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user.
   
-**Example response:**
-```json
+  **Content**  
+ The webhook is sent as a `POST` with a `text/plain` body containing a Jason Web Token (JWT).  
+ 
+ The JWT format was chosen to have the opportunity to add signing at a later stage if deemed necessary.
+ As of now the jwt is delivered with the algorithm set to none and is therefore no more secure than a regular json and should be handled as such.
+
+**Example request:**
+```text
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTI1NDg3NTIsInN1YiI6ImM5ZDEwNDQ0LWQ5OTItNDg1MC1hYzYwLTlkMzUwMjA5NTAwOCIsImV2ZW50IjoiQ09OU0VOVF9SRVZPS0VEIn0.EZNPsigVS5IWi0NvRgQaOcnvuJ9APgi7q4mePIJaNJA
+```
+
+*Decoded JWT*
+```
+Header
 {
-  "sub":"c9d10444-d992-4850-ac60-9d3502095008",
-  "event":"CONSENT_REVOKED",
-  "timestamp": 1584362177,
-  "signature":"oADevM9M8z69LzNVeJQaAP3pKquHLgNuvivp+2QfzNZrgt8eMZLFnT7pZz1Sryi39ZqmhBJFE0+T+/hZ3lGvVPm9FP/KuXb22P62VymnuswUD6m8om5G0Vx/ijcLeW1j/czjbGklQuse95NH7POMmxK/40ah1SfX1+tS+HDEHzsivxP8P/6glzepFNS/nDjzPBxoD213TvgjE+QrdlRPbrrhZTG5KTWN5gpw5Fb7Q+NGhYUpo8flmSQezZVpl+4aWV6YdujUQdCqwDQjn6jDKQ9XkvzoNTlBGTo/cF7ywD34sN1jN9oQOu2hhbmPlq0KSqKbrkkrUUCuu8wvgg3fNg=="
+  "alg": "none",
+  "typ": "JWT"
+}
+Payload
+{
+  "exp": 1592548752,
+  "sub": "c9d10444-d992-4850-ac60-9d3502095008",
+  "event": "CONSENT_REVOKED"
 }
 ```
 
