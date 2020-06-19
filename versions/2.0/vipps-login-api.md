@@ -185,7 +185,7 @@ Access tokens are randoms strings that represents the authorization of a
 specific application to access specific parts of a user’s data.
 The token itself does not provide any information, but it can be used to
 fetch the data that the end-user has consented to share from the
-[userinfo endpoint](#openid-connect-userinfo).  
+[userinfo endpoint](#userinfo).  
 Access tokens _must_ be kept confidential in transit and storage.
 
 Example:
