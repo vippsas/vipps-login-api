@@ -26,6 +26,7 @@ for all the details.
     * [Access Token](#access-token)
     * [Refresh Token](#refresh-token)
   - [Scopes](#scopes)
+* [Recommendations](#recommendations)
 * [Integrating with Vipps Login](#integrating-with-vipps-login)
     * [Manual integration](#manual-integration)
         * [Base URLs](#base-urls)
