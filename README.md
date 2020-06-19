@@ -1,18 +1,25 @@
 # Vipps Login API
+
 This repository contains developer resources for the Vipps Login API.
-For more information and to order the product go to our [Product page](https://www.vipps.no/produkter-og-tjenester/bedrift/innlogging-og-identifisering/logg-inn-med-vipps/). You can also find frequently asked questions about the product in the [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-See [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md) to get an overview of how login with Vipps works.
+For more information and to order the product go to our
+[Product page](https://www.vipps.no/produkter-og-tjenester/bedrift/innlogging-og-identifisering/logg-inn-med-vipps/).
+You can also find frequently asked questions about the product in the
+[Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-[Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): Information about API keys, product activation etc.
+* [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md): An overview of how the Login API works.
+* [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): Information about API keys, product activation.
+* [Vipps Login API guide](vipps-login-api.md): Developer guide for Vipps Login API.
+* [Frequently Asked Questions](vipps-login-api-faq.md): Questions and answers.
+* [Vipps Login + Vipps Recurring](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-recurring-howitworks.md): Learn how you can use Login and Recurring together.
 
-For API documentation and development guidelines see the [Vipps Login API guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md).
+You can peruse the API reference documentation as:
+* [Swagger](https://vippsas.github.io/vipps-login-api/)
+* [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html)
+* [Shins](https://vippsas.github.io/vipps-login-api/shins/index.html)
 
-[Frequently Asked Questions](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md): Questions and answers.
-
-See the [Vipps Developers](https://github.com/vippsas/vipps-developers) repository for contact information, contribution guidelines, etc.
-
-You can peruse the API reference documentation as [Swagger](https://vippsas.github.io/vipps-login-api/) or [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html).
+See the [Vipps Developers repository](https://github.com/vippsas/vipps-developers)
+for contact information, contribution guidelines, etc.
 
 ## Questions?
 

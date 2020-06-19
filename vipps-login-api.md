@@ -2,26 +2,31 @@
 
 API version: 1.0  
 
-Document version 1.0.2.
+Document version 3.0.0.
 
-API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-api/#/) or [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html)
+See the
+[Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
+for all the details.
 
 ## Table of contents
 * [Introduction](#introduction)
-    * [Remembered flow](#Remembered-flow)
-    * [Phone number based flow - desktop](#Phone-number-based-flow---desktop)
-    * [Phone number based flow - mobile](#Phone-number-based-flow---mobile)
-    * [App-switch based flow - browser on mobile](#App-switch-based-flow---browser-on-mobile)   
+  - [Activation](#activation)     
+  - [Flows](#flows)
+    * [Remembered flow](#remembered-flow)
+    * [Phone number based flow - desktop](#phone-number-based-flow---desktop)
+    * [Phone number based flow - mobile](#phone-number-based-flow---mobile)
+    * [App-switch based flow - browser on mobile](#app-switch-based-flow---browser-on-mobile)   
 * [Core concepts](#core-concepts)
-    * [OAuth 2.0](#oauth-20)
-    * [OpenID Connect](#open-id-connect)
-        * [Supported OpenID Connect Flows](#supported-openid-connect-flows)
-            * [Authorization Code Grant](#authorization-code-grant)
-    * [Tokens](#tokens)
-        * [ID Token](#id-token)
-        * [Access Token](#access-token)
-        * [Refresh Token](#refresh-token)
-    * [Scopes](#scopes)
+  - [OAuth 2.0](#oauth-20)
+  - [OpenID Connect](#open-id-connect)
+  - [Supported OpenID Connect Flows](#supported-openid-connect-flows)
+    - [Authorization Code Grant](#authorization-code-grant)
+  - [Tokens](#tokens)
+    * [ID Token](#id-token)
+    * [Access Token](#access-token)
+    * [Refresh Token](#refresh-token)
+  - [Scopes](#scopes)
+* [Recommendations](#recommendations)
 * [Integrating with Vipps Login](#integrating-with-vipps-login)
     * [Manual integration](#manual-integration)
         * [Base URLs](#base-urls)
@@ -31,28 +36,37 @@ API details can be found at [Swagger UI](https://vippsas.github.io/vipps-login-a
             * [OpenID Connect Userinfo](#openid-connect-userinfo)
             * [OpenID Connect Discovery](#openid-connect-discovery)
             * [JSON Web Keys Discovery](#json-web-keys-discovery)
-        * [Automatic Recognition](#automatic-recognition)
-    * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
-      * [Receive authentication result](#receive-authentication-result)
-      * [Error handling](#error-handling)
+    * [Automatic Recognition](#automatic-recognition)
+  * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
+    * [Receive authentication result](#receive-authentication-result)
+* [Error handling](#error-handling)
+* [Questions and answers](#questions-and-answers)
+* [Questions](#questions)
 
 ## Introduction
 
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and
-OpenID Connect specifications. Login with Vipps is the easiest way to sign in and create an account. Users don’t need to worry about forgetting usernames and passwords. All they need to remember is their phone number. For an even smoother sign in experience, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
+OpenID Connect specifications. Login with Vipps is the easiest way to sign in and create an account. Users don’t need to worry about forgetting usernames and passwords. All they need to remember is their phone number. For an even smoother sign in experience, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits.
+
+Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nnin).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
 
 We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magento) and [WordPress/WooCommerce](https://github.com/vippsas/vipps-login-wordpress).
 
 The Vipps login API authenticates the user in the web browser. The Vipps login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended). For optimal performance the API should be opened in the main browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
 
-Login with Vipps has three main user flows: Remembered, phone number based and app-switch based.
+## Activation
 
-## Remembered flow
+See the FAQ:
+[How can I activate and set up Vipps login?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login)
+
+## Flows
+
+### Remembered flow
 If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly.  This applies to both desktop and mobile.
 
 If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on the context where the user starts the login with Vipps (device, browser/app/wewbview):
 
-## Phone number based flow - desktop
+### Phone number based flow - desktop
 If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
 
 The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
@@ -64,27 +78,24 @@ The user goes to the Vipps app and confirms the login:
 The user is then authenticated in browser and can provide consent if required. Then the user is redirected back to the redirect URI provided by merchant:
 ![Consent in desktop](images/Number_input_flow_desktop2.png	)
 
-
-## Phone number based flow - mobile
+### Phone number based flow - mobile
 This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. This is the same flow as for desktop above but please note that the user in this flow need to manually navigate back to the browser where they entered the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
 ![Phone number based flow - mobile](images/Mobile_flow_with_phone_number.png)
 
-
-## App-switch based flow - browser on mobile
+### App-switch based flow - browser on mobile
 When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
 
 ![Mobile flow with app-switch](images/Mobile_flow_with_app-switch.png)
 
 The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can open the API in the browser from an app, but webview in app is not supported.  
 
-
-Buttons to use for Vipps login can be found as part of our [design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons)
-
+Buttons to use for Vipps login can be found as part of our
+[design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons).
 
 ## Core concepts
 
-## OAuth 2.0
+### OAuth 2.0
 
 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) is the industry-standard
 protocol for authorization. Giving a proper introduction to the standard is
@@ -95,7 +106,7 @@ We also recommend reading
 [OAuth 2 Simplified](https://aaronparecki.com/oauth-2-simplified) and having a
 look at [the documentation](https://oauth.net/2/).
 
-## Open ID Connect
+### Open ID Connect
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is a
 simple identity layer on top of the OAuth 2.0 protocol. It enables Clients to
@@ -130,9 +141,8 @@ The ID token is a signed information object representing the authenticated ident
 As part of the OpenID Connect standard, the ID token is encoded as a JWT and signed using the JWS standard.
 The ID Token can be decoded for debugging purposes by tools such as [jwt.io](https://jwt.io/).
 
-Example
+Example header:
 
-Header
 ```json
 {
   "alg": "RS256",
@@ -140,9 +150,10 @@ Header
   "typ": "JWT"
 }
 ```
-Body
-```json
 
+Example body:
+
+```json
 {
   "at_hash": "tyFnH20TOmPZkgJU8e5iKw",
   "aud": [
@@ -158,6 +169,7 @@ Body
   "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944"
 }
 ```
+
 You can read more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
 
 It is important to validate the Id-token before using any data contained in it.
@@ -194,12 +206,11 @@ Vipps Login currently supports the following scopes:
 | ------------| -----------------------------------------------|-------- |
 | openid      | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.              |   no    |
 | address     | List containing the users addresses. Will always contain home, but can also include work and other.    |   yes   |
-| birthDate   | User birth date                                |   yes   |
-| email       | User email                                     |   yes   |
-| name        | User first, middle and given name              |   yes   |
-| phoneNumber | Verified phone number                          |   yes   |
-| nnin        | Norwegian national identity number. NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
-
+| birthDate   | User birth date (BankID verified)                               |   yes   |
+| email       | User email (verified), the flag "email_verified : true" in the response can be used by merchant to confirm for each request that the email actually is verified                                   |   yes   |
+| name        | User first, middle and given name (verified with National Population Register)              |   yes   |
+| phoneNumber | Verified phone number (verfied - the number used with Vipps)                          |   yes   |
+| nnin        | Norwegian national identity number (verified with BankID). NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
@@ -210,6 +221,36 @@ therefore not accept for example name and deny address.
 We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
 
+## Recommendations
+
+To ensure the best user experience, we recommend to perform the following checks
+related to login/registration:
+
+First check if you already have the unique user identifier for Vipps ("ID" from
+now on, and called `sub` in the response from our API) stored on one of your
+accounts. If you have it, this means that the user has used Vipps on your site
+earlier and have an explicit link to the account. In this case use the ID to log
+the user into her account.
+
+If you have not already stored the ID: check if the user already have an account
+based on phone number and e-mail address. If this gives a match on one (and
+only one) account, then you can use this to log the user into that account since
+both phone number and e-mail address is verified in Vipps.
+
+Before completing the link it is an advantage to do a "sanity check" on the name
+of the Vipps user to the name in the existing account to make sure that the
+account is not an old account where the user has abandoned  the phone number or
+e-mail address an this has been picked up by someone else at a later time.
+
+If you get a match on multiple accounts you can provide information on this and
+offer the user the possibility to log in to her existing account (using the old
+login method) and then link the account to Vipps.
+
+It is also recommended on "my page" or similar in the website to provide the
+option for logged in users that has not yet linked their profile to Vipps to do
+so, for an easier login the next time. This just means to provide the "login
+with Vipps"-button and linking the ID from Vipps with this account.
+
 ## Integrating with Vipps Login
 
 Vipps Login adheres to the OAuth2 and OpenIDConnect standards. The easiest way
@@ -219,20 +260,20 @@ Vipps does not recommend a specific library, but the list of
 [OIDC Relying Party libraries](https://openid.net/developers/certified/)
 certified by the OpenID Foundation is a good starting point.
 
-## Manual integration
+### Manual integration
 
 This section contains information necessary to perform a manual integration with
 Vipps Login. This should not be attempted without a solid grasp of the OAuth2
 and Open ID Connect standards.
 
-### Base URLs
+#### Base URLs
 
 | Environment | Base URL |
 |-------------|----------|
 | Test        |https://apitest.vipps.no/access-management-1.0/access |
 | Production  |https://api.vipps.no/access-management-1.0/access     |
 
-### API endpoints
+#### API endpoints
 
 | Operation                 | Description         | Endpoint          |
 | ------------------------- | ------------------- | ----------------- |
@@ -242,7 +283,7 @@ and Open ID Connect standards.
 | [OpenID Connect Discovery](#openid-connect-discovery) | Retrieve information for OpenID Connect clients. | [`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration) |
 | [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
 
-#### OAuth 2.0 Authorize
+##### OAuth 2.0 Authorize
 
 The authorize endpoint is a standard OIDC endpoint used for starting an
 authorization. The client creates an request URI and directs the resource owner
@@ -260,7 +301,7 @@ means available to it via the user-agent.
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | response_type     | Value MUST be set to "code".                                                                                                                                                              |
 | client_id         | The client identifier, issued by Vipps.                                                                                                                                                   |
-| redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
+| redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
 | scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
 
@@ -298,7 +339,7 @@ See error handling for more information.
 For more information see
 [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1).
 
-#### OAuth 2.0 Token
+##### OAuth 2.0 Token
 
 The token endpoint is a standard OIDC endpoint used for requesting Access and
 ID Tokens. The client constructs the request by adding the parameters described
@@ -331,7 +372,7 @@ var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | grant_type        | Value MUST be authorization_code.                                                                                                                                        |
 | code              | The authorization code received from the authorization server.                                                                                                           |
-| redirect_uri      | Redirect URL the user agent is redirected to after finishing a login. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant). |                                                                                                                                    |
+| redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant) . This field is required for OIDC flows, i.e. regular Vipps Login logins. |                                                                                                                                    |
 
 [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
 
@@ -355,7 +396,7 @@ Example response:
 }
 ```
 
-#### OpenID Connect Userinfo
+#####  OpenID Connect Userinfo
 
 This endpoint returns the payload of the ID Token, including the idTokenExtra values, of the provided OAuth 2.0 access token.
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
@@ -418,7 +459,7 @@ Example response:
 }
 ```
 
-#### OpenID Connect Discovery
+#####  OpenID Connect Discovery
 
 The OIDC connect discovery endpoint can be used to retrieve configuration information for OpenID Connect clients.  
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
@@ -506,7 +547,8 @@ Example response from the merchant test environment:
 }
 
 ```
-#### JSON Web Keys Discovery
+
+#####  JSON Web Keys Discovery
 
 This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and if enabled,
 OAuth 2.0 JWT Access Tokens.
@@ -543,7 +585,7 @@ Examples:
 ```
 This operation does not require authentication
 
-## Automatic Recognition
+### Automatic Recognition
 
 Vipps Login will offer the option to authenticate end-users automatically when
 they return to a merchant's site. This gives merchants the opportunity to
@@ -575,7 +617,7 @@ HTTP/1.1 302 Found
 Location: https://client.example.com/callback?code={code}&state={state}
 ```
 
-### Error handling
+## Error handling
 
 If the user cancels the login or an error occurs, the user agent is redirected
 to the receive authentication result endpoint with the following parameters
@@ -594,6 +636,23 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 ```
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
+
+## Questions and answers
+
+### Compliance  
+
+**Q**: How can our system dynamically "know/find out" if the user has revoked their concent for us to have access to his personal data in our system?  
+**A**: We are working on a system for notifying merchants when an end user revokes their consent. It will consist of an additional callback url that you register on the merchant portal which we will send a notification to when an end user removes their consent  
+
+### Technical
+
+**Q**: Can we have multiple URIs as landing pages?  
+**A**: You can register as many callback urls as you want; and then you specify which one you use in the request to [/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)  
+
+### UX
+
+**Q**: Can we change the name that appears in customer's Vipps app under `Login and Access`?  
+**A**: The name which is displayed in the app is the name of the Sale Unit. You can do it yourself in the merchant portal, [https://portal.vipps.no/](https://portal.vipps.no/). Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.  
 
 ## Questions?
 
