@@ -2,7 +2,7 @@
 
 API version: 1.0  
 
-Document version 2.0.3.
+Document version 3.0.1.
 
 See the
 [Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
@@ -26,6 +26,7 @@ for all the details.
     * [Access Token](#access-token)
     * [Refresh Token](#refresh-token)
   - [Scopes](#scopes)
+* [Recommendations](#recommendations)
 * [Integrating with Vipps Login](#integrating-with-vipps-login)
     * [Manual integration](#manual-integration)
         * [Openid connect discovery endpoint](#openid-connect-discovery-endpoint)
@@ -72,23 +73,23 @@ If the user is not remembered the user needs to confirm the login in the Vipps-a
 If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
 
 The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
-![Number input in desktop](../../images/Number_input_flow_desktop1.png)
+![Number input in desktop](images/Number_input_flow_desktop1.png)
 
 The user goes to the Vipps app and confirms the login:
-![Confirmation in app in phone number flow](../../images/Number_input_flow_app.png)
+![Confirmation in app in phone number flow](images/Number_input_flow_app.png)
 
 The user is then authenticated in browser and can provide consent if required. Then the user is redirected back to the redirect URI provided by merchant:
-![Consent in desktop](../../images/Number_input_flow_desktop2.png	)
+![Consent in desktop](images/Number_input_flow_desktop2.png	)
 
 ### Phone number based flow - mobile
 This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. This is the same flow as for desktop above but please note that the user in this flow need to manually navigate back to the browser where they entered the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
-![Phone number based flow - mobile](../../images/Mobile_flow_with_phone_number.png)
+![Phone number based flow - mobile](images/Mobile_flow_with_phone_number.png)
 
 ### App-switch based flow - browser on mobile
 When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
 
-![Mobile flow with app-switch](../../images/Mobile_flow_with_app-switch.png)
+![Mobile flow with app-switch](images/Mobile_flow_with_app-switch.png)
 
 The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can open the API in the browser from an app, but webview in app is not supported.  
 
@@ -223,6 +224,36 @@ therefore not accept for example name and deny address.
 
 We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
+
+## Recommendations
+
+To ensure the best user experience, we recommend to perform the following checks
+related to login/registration:
+
+First check if you already have the unique user identifier for Vipps ("ID" from
+now on, and called `sub` in the response from our API) stored on one of your
+accounts. If you have it, this means that the user has used Vipps on your site
+earlier and have an explicit link to the account. In this case use the ID to log
+the user into her account.
+
+If you have not already stored the ID: check if the user already have an account
+based on phone number and e-mail address. If this gives a match on one (and
+only one) account, then you can use this to log the user into that account since
+both phone number and e-mail address is verified in Vipps.
+
+Before completing the link it is an advantage to do a "sanity check" on the name
+of the Vipps user to the name in the existing account to make sure that the
+account is not an old account where the user has abandoned  the phone number or
+e-mail address an this has been picked up by someone else at a later time.
+
+If you get a match on multiple accounts you can provide information on this and
+offer the user the possibility to log in to her existing account (using the old
+login method) and then link the account to Vipps.
+
+It is also recommended on "my page" or similar in the website to provide the
+option for logged in users that has not yet linked their profile to Vipps to do
+so, for an easier login the next time. This just means to provide the "login
+with Vipps"-button and linking the ID from Vipps with this account.
 
 ## Integrating with Vipps Login
 
