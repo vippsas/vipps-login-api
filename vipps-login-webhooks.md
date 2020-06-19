@@ -4,20 +4,19 @@
 * [Consent](#consent-webhooks)
     * [Revoke](#revoke)
  
- ## Consent Webhooks
+## Consent Webhooks
 
- ### Revoke
- When a user revokes their consent, Vipps will issue an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user.
+### Revoke
+When a user revokes their consent, Vipps will issue an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user.
   
-  **Content**  
- The webhook is sent as a `POST` with a `text/plain` body containing a Jason Web Token (JWT).  
+**Content**  
+The webhook is sent as a `POST` with a `text/plain` body containing an unsigned Jason Web Token ([JWT](https://jwt.io/)).  
  
- The JWT format was chosen to have the opportunity to add signing at a later stage if deemed necessary.
- As of now the jwt is delivered with the algorithm set to none and is therefore no more secure than a regular json and should be handled as such.
+The JWT format was choosen to open up for the possibility to add signing on a later state, but as of now the JWT  is delivered unsigned with the algorithm set to none and is therefore no more secure than a regular json and should be handled as such.
 
 **Example request:**
 ```text
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTI1NDg3NTIsInN1YiI6ImM5ZDEwNDQ0LWQ5OTItNDg1MC1hYzYwLTlkMzUwMjA5NTAwOCIsImV2ZW50IjoiQ09OU0VOVF9SRVZPS0VEIn0.EZNPsigVS5IWi0NvRgQaOcnvuJ9APgi7q4mePIJaNJA
+eyJhbGciOiJub25lIiwidHlwIjogIkpXVCJ9Cg.eyJleHAiOjE1OTI1NzE3ODgsImlhdCI6MTU5MjU3MTQ4OCwibmJmIjoxNTkyNTcxNDg4LCJzdWIiOiJjOWQxMDQ0NC1kOTkyLTQ4NTAtYWM2MC05ZDM1MDIwOTUwMDgiLCJldmVudCI6IkNPTlNFTlRfUkVWT0tFRCJ9
 ```
 
 *Decoded JWT*
@@ -29,7 +28,9 @@ Header
 }
 Payload
 {
-  "exp": 1592548752,
+  "exp": 1592571788,
+  "iat": 1592571488,
+  "nbf": 1592571488,
   "sub": "c9d10444-d992-4850-ac60-9d3502095008",
   "event": "CONSENT_REVOKED"
 }
