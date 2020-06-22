@@ -528,6 +528,7 @@ components:
       type: object
       properties:
         accounts:
+          description: 'Contains an array with the end user''s accounts registered in the Vipps app'
           type: array
           items:
             $ref: '#/components/schemas/AccountInfoApi'
@@ -561,15 +562,16 @@ components:
           description: 'End-User''s telephone number on format {d}10'
           type: string
         sid:
-          description: 'Subject - Identifier for the end user'
+          description: 'Session identifier - This represents a Session of a User Agent or device. Currently not in use'
           type: string
         sub:
-          description: 'Session identifier - This represents a Session of a User Agent or device. Currently not in use'
+          description: 'Subject - Identifier for the end user'
           type: string
     UserinfoApiV2:
       type: object
       properties:
         accounts:
+          description: 'Contains an array with the end user''s accounts registered in the Vipps app'
           type: array
           items:
             $ref: '#/components/schemas/AccountInfoApi'
@@ -577,7 +579,7 @@ components:
           description: 'Contains the end user''s preferred addresses.'
           $ref: '#/components/schemas/AddressApi'
         other_addresses:
-          description: 'Contains an array with the end user''s none default addresses. This list will contain an address with the address_type home, work, and other, if the user has registered them in the Vipps app'
+          description: 'Contains an array with the end user''s none default addresses, if any. This list can contain an address with the address_type home, work, and/or other, if the user has registered them in the Vipps app'
           type: array
           items:
             $ref: '#/components/schemas/AddressApi'
@@ -606,10 +608,10 @@ components:
           description: 'End-User''s telephone number on format {d}10'
           type: string
         sid:
-          description: 'Subject - Identifier for the end user'
+          description: 'Session identifier - This represents a Session of a User Agent or device. Currently not in use'
           type: string
         sub:
-          description: 'Session identifier - This represents a Session of a User Agent or device. Currently not in use'
+          description: 'Subject - Identifier for the end user'
           type: string
     AccountInfoApi:
       type: object
