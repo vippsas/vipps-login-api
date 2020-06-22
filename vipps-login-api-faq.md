@@ -131,6 +131,7 @@ Some merchants can get access to NNIN. Merchants need to request this separately
 
 ## Who can get access to NNIN and how?
 
+Access to NNIN is a payed service.
 Only merchants with legal requirements or other objective needs to use Norwegian
 National Identity Number (NNIN) to achieve required user identification can get
 access to NNIN.  We correspond to
@@ -158,7 +159,10 @@ electronic ID, e.g  BankID.
 Merchants need to apply for access to NNIN separately by sending an email to AccessUserInfo@vipps.no. In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). You also need to provide information on how you plan to use the NNIN, the legal requirement and/or the reason why you need to use NNIN to achieve required user identification.
 
 ## Who can get access to account numbers and how?
-
+Access to account numbers is a payed service. 
+Merchants need to order access to account numbers separately by sending an email to *AccessUserInfo@vipps.no*. 
+In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). 
+You also need to provide information on how you plan to use the account number.
 
 ## Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)?
 Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
