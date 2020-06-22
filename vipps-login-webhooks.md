@@ -1,31 +1,42 @@
-# Webhooks (Preview)
-
-This feature is currently in preview and should only be used for testing.  
-It is likely the implementation will change.
+# Webhooks
 
 ## Table of contents
 * [Consent](#consent-webhooks)
     * [Revoke](#revoke)
  
- ## Consent Webhooks
+## Consent Webhooks
 
- ### Revoke
+### Revoke
 Users can revoke their consent to share data with merchants. This is done in the profile section -> personal information in the app. If a user removes the consent to share data with a merchant, the practical consequences is that the user needs to give a consent the next time he/she would like to login with Vipps or share data as part of other Vipps services with the merchant.
  
 When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user to the webhook provided by the merchant.
 
 This service is optional for the merchant and can be used to trigger events on the merchant's side. I.e. the merchant can inform the user that they still have an account, can provide information on alternative login solutions or where the user should go if they would like to delete the data they have stored with the merchant. 
   
- **Verification**  
- Before acting on the received webhook the timestamp field should be checked to ensure that it is not older than five minutes.  
   
-**Example response:**
-```json
+**Content**  
+The webhook is sent as a `POST` with a `text/plain` body containing an unsigned Jason Web Token ([JWT](https://jwt.io/)).  
+The JWT format was choosen to allow for the possibility to add signing on a later state, but as of now the JWT  is delivered unsigned with the algorithm set to none and is therefore no more secure than a regular json and should be handled as such.
+
+**Example request:**
+```text
+eyJhbGciOiJub25lIiwidHlwIjogIkpXVCJ9Cg.eyJleHAiOjE1OTI1NzE3ODgsImlhdCI6MTU5MjU3MTQ4OCwibmJmIjoxNTkyNTcxNDg4LCJzdWIiOiJjOWQxMDQ0NC1kOTkyLTQ4NTAtYWM2MC05ZDM1MDIwOTUwMDgiLCJldmVudCI6IkNPTlNFTlRfUkVWT0tFRCJ9
+```
+
+*Decoded JWT*
+```
+Header
 {
-  "sub":"c9d10444-d992-4850-ac60-9d3502095008",
-  "event":"CONSENT_REVOKED",
-  "timestamp": 1584362177,
-  "signature":"oADevM9M8z69LzNVeJQaAP3pKquHLgNuvivp+2QfzNZrgt8eMZLFnT7pZz1Sryi39ZqmhBJFE0+T+/hZ3lGvVPm9FP/KuXb22P62VymnuswUD6m8om5G0Vx/ijcLeW1j/czjbGklQuse95NH7POMmxK/40ah1SfX1+tS+HDEHzsivxP8P/6glzepFNS/nDjzPBxoD213TvgjE+QrdlRPbrrhZTG5KTWN5gpw5Fb7Q+NGhYUpo8flmSQezZVpl+4aWV6YdujUQdCqwDQjn6jDKQ9XkvzoNTlBGTo/cF7ywD34sN1jN9oQOu2hhbmPlq0KSqKbrkkrUUCuu8wvgg3fNg=="
+  "alg": "none",
+  "typ": "JWT"
+}
+Payload
+{
+  "exp": 1592571788,
+  "iat": 1592571488,
+  "nbf": 1592571488,
+  "sub": "c9d10444-d992-4850-ac60-9d3502095008",
+  "event": "CONSENT_REVOKED"
 }
 ```
 
