@@ -53,10 +53,6 @@ We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magen
 
 The Vipps login API authenticates the user in the web browser. The Vipps login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended). For optimal performance the API should be opened in the main browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
 
-## Versions
-### Preliminary
-[Api Version 2.0](/versions/2.0/vipps-login-api.md)
-
 ## Activation
 
 See the FAQ:
