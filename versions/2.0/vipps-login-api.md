@@ -1,8 +1,8 @@
 # Vipps Login API
 
-API version: 1.0  
+API version: 2.0  
 
-Document version 3.0.1.
+Document version 3.0.0.
 
 See the
 [Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
@@ -54,8 +54,7 @@ We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magen
 The Vipps login API authenticates the user in the web browser. The Vipps login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended). For optimal performance the API should be opened in the main browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
 
 ## Versions
-### Preliminary
-[Api Version 2.0](/versions/2.0/vipps-login-api.md)
+[Api Version 1.0](../../vipps-login-api.md)
 
 ## Activation
 
@@ -73,23 +72,23 @@ If the user is not remembered the user needs to confirm the login in the Vipps-a
 If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
 
 The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
-![Number input in desktop](images/Number_input_flow_desktop1.png)
+![Number input in desktop](../../images/Number_input_flow_desktop1.png)
 
 The user goes to the Vipps app and confirms the login:
-![Confirmation in app in phone number flow](images/Number_input_flow_app.png)
+![Confirmation in app in phone number flow](../../images/Number_input_flow_app.png)
 
 The user is then authenticated in browser and can provide consent if required. Then the user is redirected back to the redirect URI provided by merchant:
-![Consent in desktop](images/Number_input_flow_desktop2.png	)
+![Consent in desktop](../../images/Number_input_flow_desktop2.png	)
 
 ### Phone number based flow - mobile
 This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. This is the same flow as for desktop above but please note that the user in this flow need to manually navigate back to the browser where they entered the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
-![Phone number based flow - mobile](images/Mobile_flow_with_phone_number.png)
+![Phone number based flow - mobile](../../images/Mobile_flow_with_phone_number.png)
 
 ### App-switch based flow - browser on mobile
 When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
 
-![Mobile flow with app-switch](images/Mobile_flow_with_app-switch.png)
+![Mobile flow with app-switch](../../images/Mobile_flow_with_app-switch.png)
 
 The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can open the API in the browser from an app, but webview in app is not supported.  
 
@@ -187,7 +186,7 @@ Access tokens are randoms strings that represents the authorization of a
 specific application to access specific parts of a user’s data.
 The token itself does not provide any information, but it can be used to
 fetch the data that the end-user has consented to share from the
-[userinfo endpoint](#openid-connect-userinfo).  
+[userinfo endpoint](#userinfo).  
 Access tokens _must_ be kept confidential in transit and storage.
 
 Example:
@@ -335,9 +334,10 @@ Example response from the merchant test environment:
     "name",
     "email",
     "phoneNumber",
-    "nnin",
+    "nin",
     "birthDate",
-    "accountNumbers"
+    "accountNumbers",
+    "api_version_2"
   ],
   "token_endpoint_auth_methods_supported": [
     "client_secret_post",
@@ -519,33 +519,31 @@ Example response:
 ```json
 {
     "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944",
-    "birthdate": "10.12.1815",
+    "birthdate": "1815-12-10",
     "email": "user@example.com",
     "email_verified": true,
-    "nnin": "10121550047",
+    "nin": "10121550047",
     "name": "Ada Lovelace",
     "given_name": "Ada",
     "family_name": "Lovelace",
     "sid": "7d78a726-af92-499e-b857-de263ef9a969",
     "phone_number": "4712345678",
-    "address": [
-        {
-            "street_address": "Suburbia 23",
-            "postal_code": "2101",
-            "region": "OSLO",
-            "country": "NO",
-            "formatted": "Suburbia 23\\n2101 OSLO\\nNO",
-            "address_type": "home",
-            "default": true
-        },
+    "address": {
+        "street_address": "Suburbia 23",
+        "postal_code": "2101",
+        "region": "OSLO",
+        "country": "NO",
+        "formatted": "Suburbia 23\\n2101 OSLO\\nNO",
+        "address_type": "home"
+    },
+    "other_address": [
         {
             "street_address": "Fancy Office Street 2",
             "postal_code": "0218",
             "region": "OSLO",
             "country": "NO",
             "formatted": "Fancy Office Street 2\\n0218 OSLO\\nNO",
-            "address_type": "work",
-            "default": false
+            "address_type": "work"
         },
         {
             "street_address": "Summer House Lane 14",
@@ -553,8 +551,7 @@ Example response:
             "region": "OSLO",
             "country": "NO",
             "formatted": "Summer House Lane 14\\n1452 OSLO\\nNO",
-            "address_type": "other",
-            "default": false
+            "address_type": "other"
         }
     ],
     "accounts": [
