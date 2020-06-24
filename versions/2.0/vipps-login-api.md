@@ -2,7 +2,7 @@
 
 API version: 2.0  
 
-Document version 3.0.0.
+Document version 4.0.0.
 
 See the
 [Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
