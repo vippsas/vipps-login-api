@@ -4,10 +4,6 @@ API version: 1.0
 
 Document version 3.0.1.
 
-See the
-[Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
-for all the details.
-
 ## Table of contents
 * [Introduction](#introduction)
   - [Activation](#activation)     
