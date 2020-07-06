@@ -219,7 +219,7 @@ minimize the number of users that deny the consent request.
 
 ## Recommendations
 
-To ensure the best user experience, we recommend to perform the following checks
+To ensure the best user experience, we recommend performimng the following checks
 related to login/registration:
 
 First check if you already have the unique user identifier for Vipps ("ID" from
@@ -228,17 +228,17 @@ accounts. If you have it, this means that the user has used Vipps on your site
 earlier and have an explicit link to the account. In this case use the ID to log
 the user into her account.
 
-If you have not already stored the ID: check if the user already have an account
+If you have not already stored the ID: check if the user already has an account
 based on phone number and e-mail address. If this gives a match on one (and
 only one) account, then you can use this to log the user into that account since
-both phone number and e-mail address is verified in Vipps.
+both phone number and e-mail address are verified in Vipps. Before linking an account based on e-mail, ensure that the flag "email_verified : true" in the response. If this for some reason is "false" the matching should be aborted, or the user should be prompted to login to the original account or confirm the account linking by having a confirmation link sent to the email address.  
 
-Before completing the link it is an advantage to do a "sanity check" on the name
+Before completing the linking, it is an advantage to do a "sanity check" on the name
 of the Vipps user to the name in the existing account to make sure that the
-account is not an old account where the user has abandoned  the phone number or
-e-mail address an this has been picked up by someone else at a later time.
+account is not an old account where the user has abandoned the phone number or
+e-mail address and this has been picked up by someone else at a later time.
 
-If you get a match on multiple accounts you can provide information on this and
+If you get a match on multiple accounts, you can provide information on this and
 offer the user the possibility to log in to her existing account (using the old
 login method) and then link the account to Vipps.
 
