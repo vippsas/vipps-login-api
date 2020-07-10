@@ -15,9 +15,8 @@ for all the details.
   - [Migration](#migration)
   - [Flows](#flows)
     * [Remembered flow](#remembered-flow)
-    * [Phone number based flow - desktop](#phone-number-based-flow---desktop)
-    * [Phone number based flow - mobile](#phone-number-based-flow---mobile)
-    * [App-switch based flow - browser on mobile](#app-switch-based-flow---browser-on-mobile)  
+    * [Desktop flow - phone number based push flow](#desktop-flow---phone-number-based-push-flow)
+    * [Mobile flow - app switch based flow](#Mobile-flow---app-switch-based-flow)  
   - [Design guidelines and buttons](#Design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
   - [OAuth 2.0](#oauth-20)
@@ -72,9 +71,9 @@ See the FAQ:
 #### Remembered flow
 If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly.  This applies to both desktop and mobile.
 
-If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on the context where the user starts the login with Vipps (device, browser/app/wewbview):
+If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on whether the user is on desktop or mobile:
 
-#### Phone number based flow - desktop
+#### Desktop flow - phone number based push flow
 If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
 
 The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
@@ -86,17 +85,13 @@ The user goes to the Vipps app and confirms the login:
 The user is then authenticated in browser and can provide consent if required. Then the user is redirected back to the redirect URI provided by merchant:
 ![Consent in desktop](images/Number_input_flow_desktop2.png	)
 
-#### Phone number based flow - mobile
-This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. This is the same flow as for desktop above but please note that the user in this flow need to manually navigate back to the browser where they entered the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
-![Phone number based flow - mobile](images/Mobile_flow_with_phone_number.png)
+#### Mobile flow - app switch based flow
+If the user is on a moobile device, the Vipps landing page in the browser will automatically trigger an app switch to the Vipps-app if the user is not rememberd in browsere. The user will not be prompted to enter the phone number. In the Vipps-app the user confirms the login and can choose whether to be rememberd in the browser for later logins. After confirming in app the user needs to switch back to the Vipps page in the initiating browser/app using the built in features in the operating systems. On the Vipps landing page the user will finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
 
-#### App-switch based flow - browser on mobile
-When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
+![Mobile flow with app-switch](images/Mobile_flow_with_partial-app_switch.png)
 
-![Mobile flow with app-switch](images/Mobile_flow_with_app-switch.png)
-
-The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can open the API in the browser from an app, but webview in app is not supported.  
+We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs is prefered as these webviews are able to utilise cookies stored in the user's browser.
 
 
 ### Design guidelines and buttons
