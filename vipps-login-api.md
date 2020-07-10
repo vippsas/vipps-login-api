@@ -10,12 +10,15 @@ for all the details.
 
 ## Table of contents
 * [Introduction](#introduction)
-  - [Activation](#activation)     
+  - [Activation](#activation)
+  - [Versions](#versions)
+  - [Migration](#migration)
   - [Flows](#flows)
     * [Remembered flow](#remembered-flow)
     * [Phone number based flow - desktop](#phone-number-based-flow---desktop)
     * [Phone number based flow - mobile](#phone-number-based-flow---mobile)
-    * [App-switch based flow - browser on mobile](#app-switch-based-flow---browser-on-mobile)   
+    * [App-switch based flow - browser on mobile](#app-switch-based-flow---browser-on-mobile)  
+  - [Design guidelines and buttons](#Design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
   - [OAuth 2.0](#oauth-20)
   - [OpenID Connect](#open-id-connect)
@@ -53,25 +56,25 @@ We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magen
 
 The Vipps login API authenticates the user in the web browser. The Vipps login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended). For optimal performance the API should be opened in the main browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
 
-## Versions
+### Versions
 [Api Version 1.0](https://github.com/vippsas/vipps-login-api/blob/master/versions/1.0/vipps-login-api.md)
 
-## Migration
+### Migration
 [Api 1.0 to 2.0](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md)
 
-## Activation
+### Activation
 
 See the FAQ:
 [How can I activate and set up Vipps login?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login)
 
-## Flows
+### Flows
 
-### Remembered flow
+#### Remembered flow
 If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly.  This applies to both desktop and mobile.
 
 If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on the context where the user starts the login with Vipps (device, browser/app/wewbview):
 
-### Phone number based flow - desktop
+#### Phone number based flow - desktop
 If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
 
 The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
@@ -83,18 +86,20 @@ The user goes to the Vipps app and confirms the login:
 The user is then authenticated in browser and can provide consent if required. Then the user is redirected back to the redirect URI provided by merchant:
 ![Consent in desktop](images/Number_input_flow_desktop2.png	)
 
-### Phone number based flow - mobile
+#### Phone number based flow - mobile
 This is the fallback flow for mobile devices if it is not possible to use the app-switch based flow. This is the same flow as for desktop above but please note that the user in this flow need to manually navigate back to the browser where they entered the phone number. If the user is remembered in browser the confirmation in app flow will be skipped.
 
 ![Phone number based flow - mobile](images/Mobile_flow_with_phone_number.png)
 
-### App-switch based flow - browser on mobile
+#### App-switch based flow - browser on mobile
 When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
 
 ![Mobile flow with app-switch](images/Mobile_flow_with_app-switch.png)
 
 The app-switch based flow is only supported when the Vipps login API is called in a browser (on iOS only Safari is supported). You can open the API in the browser from an app, but webview in app is not supported.  
 
+
+### Design guidelines and buttons
 Buttons to use for Vipps login can be found as part of our
 [design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons).
 
