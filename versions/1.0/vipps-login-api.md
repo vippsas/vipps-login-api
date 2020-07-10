@@ -1,12 +1,8 @@
 # Vipps Login API
 
-API version: 2.0  
+API version: 1.0  
 
-Document version 4.0.0.
-
-See the
-[Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
-for all the details.
+Document version 3.0.1.
 
 ## Table of contents
 * [Introduction](#introduction)
@@ -52,9 +48,6 @@ Users can create a new account through sharing high-quality data from the userâ€
 We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magento) and [WordPress/WooCommerce](https://github.com/vippsas/vipps-login-wordpress).
 
 The Vipps login API authenticates the user in the web browser. The Vipps login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended). For optimal performance the API should be opened in the main browser, also if you are integrating from an app. Some webviews in app will work functionally, but others (e.g Safari ViewController) will not work.
-
-## Versions
-[Api Version 1.0](../../vipps-login-api.md)
 
 ## Activation
 
@@ -186,7 +179,7 @@ Access tokens are randoms strings that represents the authorization of a
 specific application to access specific parts of a userâ€™s data.
 The token itself does not provide any information, but it can be used to
 fetch the data that the end-user has consented to share from the
-[userinfo endpoint](#userinfo).  
+[userinfo endpoint](#openid-connect-userinfo).  
 Access tokens _must_ be kept confidential in transit and storage.
 
 Example:
@@ -334,10 +327,9 @@ Example response from the merchant test environment:
     "name",
     "email",
     "phoneNumber",
-    "nin",
+    "nnin",
     "birthDate",
-    "accountNumbers",
-    "api_version_2"
+    "accountNumbers"
   ],
   "token_endpoint_auth_methods_supported": [
     "client_secret_post",
@@ -519,31 +511,33 @@ Example response:
 ```json
 {
     "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944",
-    "birthdate": "1815-12-10",
+    "birthdate": "10.12.1815",
     "email": "user@example.com",
     "email_verified": true,
-    "nin": "10121550047",
+    "nnin": "10121550047",
     "name": "Ada Lovelace",
     "given_name": "Ada",
     "family_name": "Lovelace",
     "sid": "7d78a726-af92-499e-b857-de263ef9a969",
     "phone_number": "4712345678",
-    "address": {
-        "street_address": "Suburbia 23",
-        "postal_code": "2101",
-        "region": "OSLO",
-        "country": "NO",
-        "formatted": "Suburbia 23\\n2101 OSLO\\nNO",
-        "address_type": "home"
-    },
-    "other_address": [
+    "address": [
+        {
+            "street_address": "Suburbia 23",
+            "postal_code": "2101",
+            "region": "OSLO",
+            "country": "NO",
+            "formatted": "Suburbia 23\\n2101 OSLO\\nNO",
+            "address_type": "home",
+            "default": true
+        },
         {
             "street_address": "Fancy Office Street 2",
             "postal_code": "0218",
             "region": "OSLO",
             "country": "NO",
             "formatted": "Fancy Office Street 2\\n0218 OSLO\\nNO",
-            "address_type": "work"
+            "address_type": "work",
+            "default": false
         },
         {
             "street_address": "Summer House Lane 14",
@@ -551,7 +545,8 @@ Example response:
             "region": "OSLO",
             "country": "NO",
             "formatted": "Summer House Lane 14\\n1452 OSLO\\nNO",
-            "address_type": "other"
+            "address_type": "other",
+            "default": false
         }
     ],
     "accounts": [
