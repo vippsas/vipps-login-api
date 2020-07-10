@@ -87,11 +87,11 @@ The user is then authenticated in browser and can provide consent if required. T
 
 
 #### Mobile flow - app switch based flow
-If the user is on a moobile device, the Vipps landing page in the browser will automatically trigger an app switch to the Vipps-app if the user is not rememberd in browsere. The user will not be prompted to enter the phone number. In the Vipps-app the user confirms the login and can choose whether to be rememberd in the browser for later logins. After confirming in app the user needs to switch back to the Vipps page in the initiating browser/app using the built in features in the operating systems. On the Vipps landing page the user will finalise the autentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
+If the user is on a mobile device, the Vipps landing page in the browser will automatically trigger an app switch to the Vipps-app if the user is not rememberd in browsere. The user will not be prompted to enter the phone number. In the Vipps-app the user confirms the login and can choose whether to be rememberd in the browser for later logins. After confirming in the app the user needs to switch back to the Vipps page in the browser/app. On the Vipps landing page the user will finalise the autentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
 
 ![Mobile flow with app-switch](images/Mobile_flow_with_partial-app_switch.png)
 
-We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs is prefered as these webviews are able to utilise cookies stored in the user's browser.
+We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred as these webviews are able to utilize cookies stored in the user's browser.
 
 
 ### Design guidelines and buttons
