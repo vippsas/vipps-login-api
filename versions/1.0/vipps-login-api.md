@@ -1,6 +1,7 @@
 # Vipps Login API
 
-API version: 1.0  
+API version: 1.0
+THIS IS AN OLD VERSION OF THE API YOU CAN FIND THE LATESTE VERSION [HERE](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md)
 
 Document version 3.0.1.
 
