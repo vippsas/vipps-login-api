@@ -7,7 +7,7 @@ For technical documentation go to
 
 ## The login process
 
-![login process](images/vipps-login-process-v2.svg)
+![login process](images/vipps-login-process-v3.svg)
 
 
 ## The first time using Vipps Login
