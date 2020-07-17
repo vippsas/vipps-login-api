@@ -18,7 +18,7 @@ Document version 2.0.2.
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
 - [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
-- [Who can get access to NNIN and how?](#who-can-get-access-to-nnin-and-how)
+- [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
 - [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)??](#is-it-possible-for-me-as-a-merchant-to-control-whether-the-user-can-log-in-through-being-remembered-in-browser-or-need-to-use-the-app-to-authenticate-two-factor-authentication)
 - [Common errors](#common-errors)
@@ -127,18 +127,18 @@ The scopes “openid” is required and does not require end user consent. It
 provides the claim “sub” which is a unique id for the end user at that
 particular merchant. Note: Different merchants will get different subs for the same end user.
 
-Some merchants can get access to NNIN. Merchants need to request this separately.
+Some merchants can get access to NIN. Merchants need to request this separately.
 
-## Who can get access to NNIN and how?
+## Who can get access to NIN and how?
 
-Access to NNIN is a payed service.
+Access to NIN is a payed service.
 Only merchants with legal requirements or other objective needs to use Norwegian
-National Identity Number (NNIN) to achieve required user identification can get
-access to NNIN.  We correspond to
+National Identity Number (NIN) to achieve required user identification can get
+access to NIN.  We correspond to
 [the guidance from Datatilsynet](https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/fodselsnummer/) on this.
 
-According to this NNIN can only be used when it is legally required or when
-there is a need for a secure identification of the person and the NNIN is
+According to this NIN can only be used when it is legally required or when
+there is a need for a secure identification of the person and the NIN is
 required to achieve this. This applies e.g. when a company is required to
 report to the tax authorities or within healthcare and credit.
 
@@ -149,14 +149,14 @@ the claim "sub" that is delivered based on the "openid" scope. This unique
 identifier will allow you to keep a consistent user profile even if the user
 changes contact information.
 
-Beware that login with Vipps it not an electronic ID. Thus the NNIN can only be
+Beware that login with Vipps it not an electronic ID. Thus the NIN can only be
 used to simplify the customers processes by removing manual input or to lookup
 the customer in your own or external registers. This can be done as part of the
 processes to become a customer or to link login with Vipps to an existing user.
-If you need to store the NNIN for new users we recommend that you use an
+If you need to store the NIN for new users we recommend that you use an
 electronic ID, e.g  BankID.
 
-Merchants need to apply for access to NNIN separately by sending an email to AccessUserInfo@vipps.no. In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). You also need to provide information on how you plan to use the NNIN, the legal requirement and/or the reason why you need to use NNIN to achieve required user identification.
+Merchants need to apply for access to NIN separately by sending an email to AccessUserInfo@vipps.no. In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). You also need to provide information on how you plan to use the NIN, the legal requirement and/or the reason why you need to use NIN to achieve required user identification.
 
 ## Who can get access to account numbers and how?
 Access to account numbers is a payed service. 
