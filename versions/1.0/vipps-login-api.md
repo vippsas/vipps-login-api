@@ -207,7 +207,7 @@ Vipps Login currently supports the following scopes:
 | email       | User email (verified), the flag "email_verified : true" in the response can be used by merchant to confirm for each request that the email actually is verified                                   |   yes   |
 | name        | User first, middle and given name (verified with National Population Register)              |   yes   |
 | phoneNumber | Verified phone number (verfied - the number used with Vipps)                          |   yes   |
-| nnin        | Norwegian national identity number (verified with BankID). NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nnin-and-how) For more information |   yes      |
+| nnin        | Norwegian national identity number (verified with BankID). NB: merchants need to apply for access to NNIN. Go to [Who can get access to NNIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information |   yes      |
 | accountNumbers | User bank account numbers. NB: merchants need to apply for access to accountNumbers. Go to [Who can get access to account numbers and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-accountnumbers-and-how) For more information |   yes      |
 
 When requesting scopes that require user consent, a view listing these scopes
