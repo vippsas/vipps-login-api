@@ -3,7 +3,7 @@
 Document version 1.0.0.
 
 Reference:\
-[vipps-login-api-version-1.0](../../vipps-login-api)\
+[vipps-login-api-version-1.0](versions/1.0/vipps-login-api.md)\
 [vipps-login-api-version-2.0](vipps-login-api.md)
 
 ## Table of contents
