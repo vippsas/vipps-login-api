@@ -22,6 +22,7 @@ Vipps Login will be the first service to integrate with this new endpoint.
 This is done to comply with the OIDC-standard which expect address to be a json object.
 * User information is no longer served on the 'id_token'. Therefore, the 'id_token' will only contain user ids. 
 This is done since the data in the id token should be used to lookup the authenticated user, while the userinfo endpoint should be used to fetch and store user information.   
+* Updated URL to userinfo can be found under [discovery endpoints](vipps-login-api.md#openid-connect-discovery-endpoint), we recommend to fetch these dynamically.
 
 ## Convert to Vipps Login api version 2.0
 To control which response to serve we need the merchant to send inn scope 'api_version_2'.
