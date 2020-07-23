@@ -95,13 +95,17 @@ If the user is on a mobile device, the Vipps landing page in the browser will au
 We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred as these webviews are able to utilize cookies stored in the user's browser.
 
 #### No dialog flow - check if the user is logged in
-This flow allows merchants to check if the a user is already logged in and have given the necessary consents.
+This flow enables checking if a user is logged in and have given the necessary consents. The request will be rejected if any interaction is required from the user.
 
 # The user will be logged in:
 * If the user is recognized in the browser and no consent is needed
 * If the user is recognized in the browser and consent has previously been given
 
 Otherwise the user will be returned to the merchant with an error.
+
+# Useage
+
+Simply add the query parameter `login_hint=unsolicited:nodialog` to the [Authorization request] (#OAuth-2.0-Authorize)
 
 ### Design guidelines and buttons
 Buttons to use for Vipps login can be found as part of our
@@ -407,6 +411,7 @@ means available to it via the user-agent.
 | redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
 | scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
+| login_hint        | Optional. Setting this to `unsolicited:nodialog` enables #No-dialog-flow
 
 For example, the client directs the user-agent to make the following HTTP request:
 
