@@ -16,7 +16,8 @@ for all the details.
   - [Flows](#flows)
     * [Remembered flow](#remembered-flow)
     * [Desktop flow - phone number based push flow](#desktop-flow---phone-number-based-push-flow)
-    * [Mobile flow - app switch based flow](#Mobile-flow---app-switch-based-flow)  
+    * [Mobile flow - app switch based flow](#Mobile-flow---app-switch-based-flow)
+    * [No dialog flow - check if the user is logged in] (#No-dialog-flow---check-if-the-user-is-logged-in)
   - [Design guidelines and buttons](#Design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
   - [OAuth 2.0](#oauth-20)
@@ -93,6 +94,14 @@ If the user is on a mobile device, the Vipps landing page in the browser will au
 
 We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred as these webviews are able to utilize cookies stored in the user's browser.
 
+#### No dialog flow - check if the user is logged in
+This flow allows merchants to check if the a user is already logged in and have given the necessary consents.
+
+# The user will be logged in:
+* If the user is recognized in the browser and no consent is needed
+* If the user is recognized in the browser and consent has previously been given
+
+Otherwise the user will be returned to the merchant with an error.
 
 ### Design guidelines and buttons
 Buttons to use for Vipps login can be found as part of our
