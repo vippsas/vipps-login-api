@@ -620,7 +620,7 @@ Simply add the query parameter `login_hint=unsolicited:nodialog` to the [Authori
 
 The user will always be returned to the `redirect_uri`.
 
-If the user logged in they will be returned to the `redirect_uri` with a code that can be used to complete the login. Just like in a regular [Authorization code](#authorization-code-grant) login.
+If the user completes the login they will be returned to the `redirect_uri` with a code that can be used to complete the login. Just like in a regular [Authorization code](#authorization-code-grant) login.
 
 `https://client.example.com/callback?code=12adsa938721987321asd9873&state=123987218dh`
 
