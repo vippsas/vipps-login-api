@@ -618,7 +618,6 @@ This operation does not require authentication
 ### Using the no dialog flow
 To attempt a no dialog login add the query parameter `login_hint=unsolicited:nodialog` to the [Authorization request](#OAuth-2.0-Authorize) uri.
 
-The user will always be returned to the `redirect_uri`.
 
 If the user completes the login they will be returned to the `redirect_uri` with a code that can be used to complete the login. Just like in a regular [Authorization code](#authorization-code-grant) login.
 
