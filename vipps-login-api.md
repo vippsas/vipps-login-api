@@ -96,7 +96,7 @@ If the user is on a mobile device, the Vipps landing page in the browser will au
 We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred as these webviews are able to utilize cookies stored in the user's browser.
 
 #### No dialog flow - check if the user is logged in
-This flow enables attempting a login with no interaction required by the user. This can be used to check if the user is already logged in. The user will always be returned to the `redirect_uri`.
+This flow can be used as a method to check for existing authentication and/or consent. No interaction will be asked from the user in this flow.
 
 The user will be logged in with this flow if:
 * they are recognized in the browser and no consent is required
