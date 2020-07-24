@@ -98,7 +98,7 @@ We recommend that apps initiate Vipps login in a webview. SafariViewController a
 #### No dialog flow - check if the user is logged in
 This flow enables attempting a login with no interaction required by the user. This can be used to check if the user is already logged in. The user will always be returned to the `redirect_uri`.
 
-The user will be logged in with this flow if
+The user will be logged in with this flow if:
 * they are recognized in the browser and no consent is required
 * they are recognized in the browser and consent has previously been given
 
