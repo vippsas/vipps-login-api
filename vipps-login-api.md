@@ -16,7 +16,8 @@ for all the details.
   - [Flows](#flows)
     * [Remembered flow](#remembered-flow)
     * [Desktop flow - phone number based push flow](#desktop-flow---phone-number-based-push-flow)
-    * [Mobile flow - app switch based flow](#Mobile-flow---app-switch-based-flow)  
+    * [Mobile flow - app switch based flow](#Mobile-flow---app-switch-based-flow)
+    * [No dialog flow - check if the user is logged in](#no-dialog-flow---check-if-the-user-is-logged-in)
   - [Design guidelines and buttons](#Design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
   - [OAuth 2.0](#oauth-20)
@@ -38,6 +39,7 @@ for all the details.
             * [Userinfo](#userinfo)
             * [JSON Web Keys Discovery](#json-web-keys-discovery)
     * [Automatic Recognition](#automatic-recognition)
+    * [No dialog flow](#using-the-no-dialog-flow)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
 * [Error handling](#error-handling)
@@ -93,6 +95,14 @@ If the user is on a mobile device, the Vipps landing page in the browser will au
 
 We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred as these webviews are able to utilize cookies stored in the user's browser.
 
+#### No dialog flow - check if the user is logged in
+This flow can be used as a method to check for existing authentication and/or consent. No interaction will be asked from the user in this flow.
+
+The user will be logged in with this flow if:
+* they are recognized in the browser and no consent is required
+* they are recognized in the browser and consent has previously been given
+
+See [how to implement](#using-the-no-dialog-flow).
 
 ### Design guidelines and buttons
 Buttons to use for Vipps login can be found as part of our
@@ -398,6 +408,7 @@ means available to it via the user-agent.
 | redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
 | scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
+| login_hint        | Optional. Setting this to `unsolicited:nodialog` enables #No-dialog-flow
 
 For example, the client directs the user-agent to make the following HTTP request:
 
@@ -603,6 +614,23 @@ Examples:
 }
 ```
 This operation does not require authentication
+
+### Using the no dialog flow
+To attempt a no dialog login add the query parameter `login_hint=unsolicited:nodialog` to the [Authorization request](#OAuth-2.0-Authorize) uri.
+
+
+If the user completes the login they will be returned to the `redirect_uri` with a code that can be used to complete the login. Just like in a regular [Authorization code](#authorization-code-grant) login.
+
+`https://client.example.com/callback?code=12adsa938721987321asd9873&state=123987218dh`
+
+If the user is not logged in they will be returned with an error. Some possible errors are `interaction_required`, `login_required` or `server_error`. 
+
+Not logged in return uri example: `https://client.example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
+
+In all cases a new login can be started by removing the parameter `login_hint=unsolicited:nodialog` and initiating a new login for the user.
+
+
+
 
 ### Automatic Recognition
 
