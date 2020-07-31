@@ -16,7 +16,7 @@ For technical documentation go to
 
 A user chooses to log in with Vipps on a merchant’s site.
 
-![Buy subscription with Vipps](images/vipps-login-step1.svg)
+![Buy subscription with Vipps](images/vipps-login-step1-2.svg)
 
 ### 2. The Vipps landing page
 
@@ -32,7 +32,7 @@ If the login was started from a mobile device and the user needs to authenticate
 
 If the merchant has requested the user’s e-mail, the user have to verify their e-mail address in Vipps the first time they use Vipps login or if they change their e-mail at a later time. The user can also check and change their registered addresses. This is only necessary to do once. If the merchant has not requested the user's e-mail, this step is skipped.
 
-![Accept agreement](images/vipps-login-step3.svg)
+![Accept agreement](images/vipps-login-step3-2.svg)
 
 ### 4. Confirm login
 
@@ -42,7 +42,7 @@ If the login was started on a phone, the user can in this step choose to be reme
 
 If the login was started on desktop, the user confirms that the emoji in Vipps matches the one on the landing page, and confirms the login.
 
-![Confirmation of subscription](images/vipps-login-step4.svg)
+![Confirmation of subscription](images/vipps-login-step4-2.svg)
 
 ### 5. Give consent to share information
 
@@ -59,7 +59,7 @@ The user is now logged in on the merchant’s page.
 The user may be given the opportunity to edit the information, for instance
 to add additional details not present in the user's Vipps profile.
 
-![Overview of agreements](images/vipps-login-step6.svg)
+![Overview of agreements](images/vipps-login-step6-2.svg)
 
 ## Great! Now you know how the Vipps Login process works.
 
