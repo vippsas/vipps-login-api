@@ -41,13 +41,13 @@ The user may click "See your information" to see the actual information that wil
 
 This step is controlled and designed by the individual merchant. Typically the user will now be logged in on the merchant’s page, and can proceed to set up the payment for the subscription. The information the user has shared with the merchant is automatically filled in. The merchant can also provide the user with the possibility to edit or add information if necessary.
 
-![Checkout](images/login-recurring-step5-v2.svg)
+![Checkout](images/login-recurring-step5-v3.svg)
 
 ## 6. Accept agreement in Vipps
 
 The user accept the agreement in Vipps. 
 
-![Agreement in Vipps](images/login-recurring-step6.svg)
+![Agreement in Vipps](images/login-recurring-step6-v2.svg)
 
 ## 7. Subscription confirmed
 
