@@ -29,7 +29,7 @@ for all the details.
     * [Access Token](#access-token)
     * [Refresh Token](#refresh-token)
   - [Scopes](#scopes)
-* [Recommendations](#recommendations)
+* [Recommendations on linking to user account](#Recommendations-on-linking-to-user-account)
 * [Integrating with Vipps Login](#integrating-with-vipps-login)
     * [Manual integration](#manual-integration)
         * [Openid connect discovery endpoint](#openid-connect-discovery-endpoint)
@@ -51,7 +51,7 @@ for all the details.
 The Vipps Login API offers functionality for authenticating end users and authorizing clients founded on the OAuth2 and
 OpenID Connect specifications. Login with Vipps is the easiest way to sign in and create an account. Users don’t need to worry about forgetting usernames and passwords. All they need to remember is their phone number. For an even smoother sign in experience, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits.
 
-Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nnin).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
+Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. Norwegian national identity number is also available to [some merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nin-and-how).  The identity of all Vipps users is verified using BankID, Norway’s leading electronic ID, so rest assured that these are real people with correct name and information.
 
 We offer free plugins for [Magento](https://github.com/vippsas/vipps-login-magento) and [WordPress/WooCommerce](https://github.com/vippsas/vipps-login-wordpress).
 
@@ -237,7 +237,7 @@ therefore not accept for example name and deny address.
 We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
 
-## Recommendations
+## Recommendations on linking to user account
 
 To ensure the best user experience, we recommend performimng the following checks
 related to login/registration:
