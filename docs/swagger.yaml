@@ -155,7 +155,7 @@ paths:
                           country: 'NO'
                           formatted: 'Suburbia 23\n2101 OSLO\nNO'
                           address_type: 'home'
-                        other_address:
+                        other_addresses:
                           - street_address: 'Fancy Office Street 2'
                             postal_code: '0218'
                             region: 'OSLO'

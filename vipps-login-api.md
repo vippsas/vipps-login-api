@@ -220,7 +220,7 @@ Vipps Login currently supports the following scopes:
 | Scopes      | Description                                    | User consent required  |
 | ------------| -----------------------------------------------|-------- |
 | openid      | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.              |   no    |
-| address     | User can have up to three addresses in Vipps: home, work and other. Users' addresses are given as claims 'address' and 'other_address'. The claim 'address' returns the address set as 'default' for the Vipps user. And the claim 'other_address' returns all other addresses of the end user, if any.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context |   yes   |
+| address     | User can have up to three addresses in Vipps: home, work and other. Users' addresses are given as claims 'address' and 'other_addresses'. The claim 'address' returns the address set as 'default' for the Vipps user. And the claim 'other_addresses' returns all other addresses of the end user, if any.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context |   yes   |
 | birthDate   | User birth date (BankID verified)                               |   yes   |
 | email       | User email (verified), the flag "email_verified : true" in the response can be used by merchant to confirm for each request that the email actually is verified                                   |   yes   |
 | name        | User first, middle and given name (verified with National Population Register)              |   yes   |
@@ -550,7 +550,7 @@ Example response:
         "formatted": "Suburbia 23\\n2101 OSLO\\nNO",
         "address_type": "home"
     },
-    "other_address": [
+    "other_addresses": [
         {
             "street_address": "Fancy Office Street 2",
             "postal_code": "0218",
