@@ -17,7 +17,7 @@ for all the details.
     * [Remembered flow](#remembered-flow)
     * [Desktop flow - phone number based push flow](#desktop-flow---phone-number-based-push-flow)
     * [Mobile flow - app switch based flow](#Mobile-flow---app-switch-based-flow)
-    * [No dialog flow - check if the user is logged in](#no-dialog-flow---check-if-the-user-is-logged-in)
+    * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
   - [Design guidelines and buttons](#Design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
   - [OAuth 2.0](#oauth-20)
