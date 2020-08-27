@@ -96,17 +96,19 @@ If the user is on a mobile device, the Vipps landing page in the browser will au
 We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred as these webviews are able to utilize cookies stored in the user's browser.
 
 #### No dialog flow - log the user in directly when possible
-This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place then the Vipps login process will be stopped and no interaction will be asked from the user in this flow. This flow will trigger the Vipps login service (normaly through redirect) and then show a spinner while we try to log the user in). Once the process is completed the user will be returned to the merchant as in the ordinary Vipps login flow.  
+This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps login process will be stopped and no interaction will be asked from the user in this flow. This flow will trigger the Vipps login service (normally through redirect) and then show a spinner while we try to log the user in). Once the process is completed the user will be returned to the merchant as in the ordinary Vipps login flow.  
 
 The user will be logged in with this flow if:
-* they are recognized in the browser and no consent is required
-* they are recognized in the browser and consent has previously been given
+* they are remembered in the browser and no consent is required
+* they are remembered in the browser and consent has previously been given
 
-Possible usecases includes:
-* When the user is going to a section of your site/service that requires the user to be logged in, e.g. my page or a peronalised chatbot.
+Possible use cases includes:
+* When the user is going to a section of your site/service that requires the user to be logged in, e.g. my page or a personalized chatbot. This could be directly on the webpage or if the user is being linked directly to her My page from an email/newsletter.
 * When a user clicks on your login option it is possible to try to log the user in with Vipps first. 
 
-If the user cannot be logged in directly the user is taken to your ordinary login screen
+In such scenarios the users that can be logged in directly will get an even better login experience and quickly come to the information and services that are relevant for them
+
+If the user cannot be logged in directly you can take to user to the page that you would prefer, typically your ordinary login screen. On the login screen Vipps will be an option and users that is not remembered in browser or has not yet given consent can actively login with Vipps from here.
 
 ![No dialog flow](images/No_dialog_flow.png)
 
