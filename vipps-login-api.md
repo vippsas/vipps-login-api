@@ -103,7 +103,10 @@ The user will be logged in with this flow if:
 * they are remembered in the browser and consent has previously been given
 
 
+Illustration of how the flow can look when the user clicks "Logg inn" on the front page:
+
 ![No dialog flow](images/No_dialog_flow.png)
+
 
 
 Possible use cases includes:
