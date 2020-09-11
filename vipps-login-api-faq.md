@@ -7,7 +7,7 @@ See also the
 guide for the Vipps Developer Portal.
 You can also find frequently asked questions on the product here [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.0.2.
+Document version 2.0.3.
 
 ## Table of contents
 
@@ -18,6 +18,7 @@ Document version 2.0.2.
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
 - [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
+- [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
 - [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
 - [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)??](#is-it-possible-for-me-as-a-merchant-to-control-whether-the-user-can-log-in-through-being-remembered-in-browser-or-need-to-use-the-app-to-authenticate-two-factor-authentication)
@@ -75,19 +76,19 @@ You can use localhost as part of the redirect URI.
 You can use “Custom URL Scheme” in the redirect URIs to redirect back an app. In this case a path is required: myapp://path-to-something.
 
 ## How can I change the name and logo shown with Vipps login?
+
 Vipps login will show the name of the sales unit you use in the different Vipps login user dialogues. This includes the confirm login screen, the give consent screen and the overview of consents given.
 
 You can administer this name for `production` in [portal.vipps.no](https://portal.vipps.no). Unfortunatly you cannon change the name used for the test environment. To change your display name in production you go to sales units ("salgssteder") in the left menu and select the correct unit. From this page you can see the key information for this sales unit:
 ![You can administer this name in [portal.vipps.no](https://portal.vipps.no). You go to the sales unit ("salgssted") and click the correct unit. From this page you can see the key information for this sales unit:](images/Sales_unit_see_info.png)
 
-
 By clicking "Rediger" next to the "Visning i appen" heading you will come to a screen where you both can update your name and ad your logo:
 ![By clicking "Rediger" next to the "Visning i appen" heading you will come to a screen where you both can update your name and ad you logo:](images/Sales_unit_change_name_and_logo.png)
-
 
 Currently this logo is not use for Vipps login but soon it will be shown in the overview of consents given.
 
 ## Why do I get “Error: invalid_client”?
+
 This means that the `client_id` and `client_secret` used is not valid for Vipps login.
 
 Please check:
@@ -99,6 +100,7 @@ the environment above the table with sales units.
 Have you set up a redirect URI for login with Vipps in the environment in question?
 
 ## Why do I get “Error: Could not get Vipps login token” in the Vipps app?
+
 You can get this error if you have both the Vipps test app and production app on the same phone.
 
 As stated in the [description of the test apps](https://github.com/vippsas/vipps-developers#vipps-test-apps):
@@ -128,6 +130,10 @@ provides the claim “sub” which is a unique id for the end user at that
 particular merchant. Note: Different merchants will get different subs for the same end user.
 
 Some merchants can get access to NIN. Merchants need to request this separately.
+
+## If a user changes phone numbers, is the `sub` still the same?
+
+Yes, it's connected to the national identity number (nin).
 
 ## Who can get access to NIN and how?
 
@@ -159,12 +165,14 @@ electronic ID, e.g  BankID.
 Merchants need to apply for access to NIN separately by sending an email to AccessUserInfo@vipps.no. In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). You also need to provide information on how you plan to use the NIN, the legal requirement and/or the reason why you need to use NIN to achieve required user identification.
 
 ## Who can get access to account numbers and how?
-Access to account numbers is a payed service. 
-Merchants need to order access to account numbers separately by sending an email to *AccessUserInfo@vipps.no*. 
-In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). 
+
+Access to account numbers is a payed service.
+Merchants need to order access to account numbers separately by sending an email to *AccessUserInfo@vipps.no*.
+In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no).
 You also need to provide information on how you plan to use the account number.
 
 ## Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)?
+
 Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
 
 ## Common errors
