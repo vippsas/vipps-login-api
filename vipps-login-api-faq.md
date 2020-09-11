@@ -21,6 +21,7 @@ Document version 2.0.3.
 - [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
 - [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
+- [What's the purpose of the state parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)??](#is-it-possible-for-me-as-a-merchant-to-control-whether-the-user-can-log-in-through-being-remembered-in-browser-or-need-to-use-the-app-to-authenticate-two-factor-authentication)
 - [Common errors](#common-errors)
 
@@ -170,6 +171,12 @@ Access to account numbers is a payed service.
 Merchants need to order access to account numbers separately by sending an email to *AccessUserInfo@vipps.no*.
 In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no).
 You also need to provide information on how you plan to use the account number.
+
+
+
+## What's the purpose of the state parameter?
+
+The state parameter is a nonce value sent from the client (you) to Vipps when initializing a login attempt. It is later returned from Vipps to the client as a query parameter on the redirect URL. The state can be used by the client to link the initialization of the login attempt to the successful login. Clients can use this to link the login attempt with the completed login and take appropriate action (i.e. redirect the user to the correct page internally)  
 
 ## Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)?
 
