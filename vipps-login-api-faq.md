@@ -175,8 +175,9 @@ You also need to provide information on how you plan to use the account number.
 
 
 ## What's the purpose of the state parameter?
+The state parameter is an opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. The parameter should be used for preventing cross-site request forgery.
 
-The state parameter is a nonce value sent from the client to Vipps when initializing a login attempt. It is later returned from Vipps to the client as a query parameter on the redirect URL. The state can be used by the client to link the initialization of the login attempt to the successful login and take appropriate action (i.e. redirect the user to the correct page internally)  
+Since the state links the initialization of the login attempt to the successful login it can also be used by the client to take appropriate action upon the callback based on the context of where the login was initialized (i.e. redirect the user to the correct page internally)  
 
 ## Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)?
 
