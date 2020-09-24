@@ -3,7 +3,7 @@
   "info": {
     "description": "Welcome to the Vipps Login API documentation. You will find documentation for all HTTP APIs here.\n",
     "title": "Vipps Login",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "paths": {
     "/oauth2/auth": {
@@ -152,7 +152,7 @@
                           "given_name": "Ada",
                           "family_name": "Lovelace",
                           "sid": "7d78a726-af92-499e-b857-de263ef9a969",
-                          "phone_number": "4712345678",
+                          "phone_number": "47912345678",
                           "address": [
                             {
                               "street_address": "Suburbia 23",
@@ -202,7 +202,7 @@
                           "given_name": "Ada",
                           "family_name": "Lovelace",
                           "sid": "7d78a726-af92-499e-b857-de263ef9a969",
-                          "phone_number": "4712345678",
+                          "phone_number": "47912345678",
                           "address": {
                             "street_address": "Suburbia 23",
                             "postal_code": "2101",
@@ -622,7 +622,8 @@
           },
           "birthdate": {
             "description": "End-User's birthday formatted as DD.MM.YYYY",
-            "type": "string"
+            "type": "string",
+            "example": "31.12.2000"
           },
           "email": {
             "description": "End user's email address.",
@@ -646,19 +647,25 @@
           },
           "nnin": {
             "description": "Norwegian national identity number",
-            "type": "string"
+            "type": "string",
+            "example": "09057517287",
+            "pattern": "^\\d{11}$"
           },
           "phone_number": {
-            "description": "End-User's telephone number on format {d}10",
-            "type": "string"
+            "description": "End-User's telephone number on MSISDN format, up to 15 digits.",
+            "type": "string",
+            "example": "´47912345678'",
+            "pattern": "^\\d{15}$"
           },
           "sid": {
             "description": "Session identifier - This represents a Session of a User Agent or device. Currently not in use",
-            "type": "string"
+            "type": "string",
+            "example": "7d78a726-af92-499e-b857-de263ef9a969"
           },
           "sub": {
             "description": "Subject - Identifier for the end user",
-            "type": "string"
+            "type": "string",
+            "example": "c06c4afe-d9e1-4c5d-939a-177d752a0944"
           }
         }
       },
@@ -709,11 +716,15 @@
           },
           "nin": {
             "description": "National identity number",
-            "type": "string"
+            "type": "string",
+            "example": "09057517287",
+            "pattern": "^\\d{11}$"
           },
           "phone_number": {
             "description": "End-User's telephone number on format {d}10",
-            "type": "string"
+            "type": "string",
+            "example": "47912345678",
+            "pattern": "^\\d{15}$"
           },
           "sid": {
             "description": "Session identifier - This represents a Session of a User Agent or device. Currently not in use",
