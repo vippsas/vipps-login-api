@@ -42,6 +42,7 @@ for all the details.
     * [No dialog flow](#using-the-no-dialog-flow)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
+* [App integration](#app-integration-experimental-feature)
 * [Error handling](#error-handling)
 * [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
