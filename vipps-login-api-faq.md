@@ -183,6 +183,10 @@ Since the state links the initialization of the login attempt to the successful 
 
 Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
 
+## How can I get userinfo version 2 response
+
+Include scope 'api_version_2' to the initial request towards the authorization endpoint, see [OAuth 2.0 Authorize](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#oauth-20-Authorize)
+
 ## Common errors
 
 Certain versions of Chrome gives the error `No+CSRF+value+available+in+the+session+cookie`.

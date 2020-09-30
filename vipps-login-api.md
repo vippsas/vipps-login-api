@@ -242,6 +242,7 @@ Vipps Login currently supports the following scopes:
 | phoneNumber | Verified phone number (verfied - the number used with Vipps)                          |   yes   |
 | nin        | Norwegian national identity number (verified with BankID). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information |   yes      |
 | accountNumbers | User bank account numbers. NB: merchants need to apply for access to accountNumbers. Go to [Who can get access to account numbers and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-accountnumbers-and-how) For more information |   yes      |
+| api_version_2 | Current userinfo response format. NB: Will switch to this format permanently. Go to [Vipps Login Api 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md) For more information about migration |   no      |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
@@ -428,6 +429,10 @@ means available to it via the user-agent.
 For example, the client directs the user-agent to make the following HTTP request:
 
 [`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth)
+
+*NB*
+
+To get our current format of userinfo response scope 'api_version_2' needs to be included in the request.
 
 **Response**
 
