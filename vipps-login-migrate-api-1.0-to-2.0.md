@@ -1,4 +1,4 @@
-# Vipps Login Api 2.0 migration
+# Vipps Login API 2.0 migration
 
 Document version 1.0.0.
 
