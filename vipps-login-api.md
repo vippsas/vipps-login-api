@@ -450,14 +450,17 @@ HTTP/1.1 302 Found
 Location: https://client.example.com/callback?code={code}&state={state}&scope={scopes}
 ```
 
-If the resource owner declines the access request or an error occurs, the
+If the resource owner declines the access request, or an error occurs, the
 authorization server following parameters to the query component of the
-redirection URI using the `application/x-www-form-urlencoded` format.
+redirection URI using the `application/x-www-form-urlencoded` format. More details in [Error handling](#error-handling)
+.
 
-See error handling for more information.
+For more general information see the standard specifications
 
-For more information see
+[OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html#AuthResponse) and 
 [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1).
+
+It can be important to be aware of some [tricky response scenarios](#tricky-response-scenarios) especially if the integration implemented through a verified OIDC library.
 
 ##### OAuth 2.0 Token
 
@@ -698,6 +701,36 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 ```
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
+
+
+## Tricky response scenarios
+Merchants highly recommended to use certified libraries to handle the integration, including the callback endpoint.
+
+### Session fixation
+In some situations it can be tempting to use the `state` parameter to carry a session 
+without requiring a cookie/local storage based session in addition. In these cases it's important to 
+remember that the `state` parameter is available to the user. 
+The user can setup a `state` parameter and the trick other users to complete logins using this parameter.
+
+For general information see 
+[OWASP session fixation](https://owasp.org/www-community/attacks/Session_fixation)
+
+### Different users in the same login flow
+Users might have multiple browsers with separate active sessions towards the same merchant.
+
+Example:
+
+```
+On the same device
+BrowserA: User1 has no session
+BrowserB: User2 is logged in at merchant
+```
+`User1` starts a login in `BrowserA`. The login is completed in `BrowserB` for whatever reason.
+
+Merchant will receive a callback containing `User1`'s callback parameters `state` etc. 
+At the same time as they will send valid cookies from `User2`.
+
+Careless handling of the callback endpoint could then end up injecting data from `User1` into `User2`'s session.
 
 ## Questions and answers
 
