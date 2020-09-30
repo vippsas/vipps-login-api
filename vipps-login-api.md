@@ -42,7 +42,7 @@ for all the details.
     * [No dialog flow](#using-the-no-dialog-flow)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
-* [App integration](#app-integration-experimental-feature)
+* [App integration](#app-integration)
 * [Error handling](#error-handling)
 * [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
@@ -702,7 +702,8 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
 
-## App integration: experimental feature
+## App integration
+_This feature is new and might need modifications to support all merchant app needs._
 
 It is possible to enable automatic switch of users back to the merchant app, from the Vipps app.
 
