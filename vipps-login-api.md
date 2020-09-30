@@ -423,7 +423,9 @@ means available to it via the user-agent.
 | redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
 | scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
-| login_hint        | Optional. Setting this to `unsolicited:nodialog` enables #No-dialog-flow
+| login_hint        | Optional. Setting this to `unsolicited:nodialog` enables #No-dialog-flow                                                                                                                  |
+| is_app            | Optional. Setting this to `true` enables an automatic switch to merchant app from the Vipps app. Also requires `app_callback_uri` to be set                                               |
+| app_callback_uri  | Optional. The target uri for automatic switch back to merchant app. Requires `is_app=true`. Example `merchant-app://callback`                                                             |
 
 For example, the client directs the user-agent to make the following HTTP request:
 
@@ -698,6 +700,38 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 ```
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
+
+## App integration: experimental feature
+
+It is possible to enable automatic switch of users back to the merchant app, from the Vipps app.
+
+Expected flow:
+```
+Merchant app -> webview -> Vipps app -> webview -> merchant app
+```
+The merchant app must ensure that the webview will continue after the return from the Vipps app to complete the login.
+
+This can be enabled per login request by adding the `is_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
+The `is_app` must be set to `true` and the `app_callback_uri` must be a URI that will trigger the merchant app.
+
+Example:
+```
+...&is_app=true&app_callback_uri=merchant-app://callback...
+```
+
+Parameters `state` and possibly `error` will be passed as query parameters to the `app_callback_uri`. The `state` parameter has the same value as the `state` parameter passed to the [Authorize](#oauth-20-authorize) request.
+
+Example success callback:
+```
+merchant-app://callback?state=218gz18yveu1ybajwh2g1h3g
+```
+
+Example error callback:
+```
+merchant-app://callback?state=218gz18yveu1ybajwh2g1h3g?error=unknown_error
+```
+
+The `app_callback_uri` should not be confused with the `redirect_uri`. The `app_callback_uri` only moves the user back to the merchant app. The `redirect_uri` is used for the actual completion of the login.
 
 ## Questions and answers
 
