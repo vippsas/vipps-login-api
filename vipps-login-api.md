@@ -2,7 +2,7 @@
 
 API version: 2.0  
 
-Document version 4.0.0.
+Document version 4.0.1
 
 See the
 [Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
@@ -243,6 +243,7 @@ Vipps Login currently supports the following scopes:
 | phoneNumber | Verified phone number (verfied - the number used with Vipps)                          |   yes   |
 | nin        | Norwegian national identity number (verified with BankID). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information |   yes      |
 | accountNumbers | User bank account numbers. NB: merchants need to apply for access to accountNumbers. Go to [Who can get access to account numbers and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-accountnumbers-and-how) For more information |   yes      |
+| api_version_2 | Needs to be added to use the latest version of Vipps Login. All merchants need to add this. Go to [Vipps Login API 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md) For more information about migrating from version 1 |   no      |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
@@ -252,6 +253,10 @@ therefore not accept for example name and deny address.
 
 We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
+
+All merchants on Vipps Login need to include scope 'api_version_2'.
+The scope decides the information delivered as part of the ID token as well as the API response from userinfo.
+Version 1 (the version you will get if 'api_version_2'is omitted) will be discontinued.
 
 ## Recommendations on linking to user account
 
