@@ -755,7 +755,7 @@ merchant-app://callback?state=218gz18yveu1ybajwh2g1h3g?error=unknown_error
 The `app_callback_uri` should not be confused with the `redirect_uri`. The `app_callback_uri` only moves the user back to the merchant app. The `redirect_uri` is used for the actual completion of the login.
 
 ## Tricky response scenarios
-Merchants highly recommended to use certified libraries to handle the integration, including the callback endpoint.
+Merchants are highly recommended to use certified libraries to handle the integration, including the callback endpoint.
 
 ### Session fixation
 In some situations it can be tempting to use the `state` parameter to carry a session 
