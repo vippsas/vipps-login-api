@@ -430,7 +430,7 @@ means available to it via the user-agent.
 | scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
 | login_hint        | Optional. Setting this to `unsolicited:nodialog` enables #No-dialog-flow                                                                                                                  |
-| requested-flow            | Optional. Request a specific flow for the user. See [App integration](#app-integration) and [Automatic return from Vipps app](#automatic-return-from-vipps-app)                                             |
+| requested_flow            | Optional. Request a specific flow for the user. See [App integration](#app-integration) and [Automatic return from Vipps app](#automatic-return-from-vipps-app)                                             |
 | app_callback_uri  | Optional. The target uri for automatic switch back to merchant app. Requires `requested_flow=app_to_app`. Example `merchant-app://callback`                                                             |
 
 For example, the client directs the user-agent to make the following HTTP request:
@@ -725,10 +725,10 @@ Expected flow:
 ```
 Merchant app -> webview -> Vipps app -> webview -> merchant app
 ```
-The merchant app must ensure that the webview will continue after the return from the Vipps app to complete the login.
+The merchant app must ensure that the webview must still be present after the return from the Vipps app to complete the login.
 
-This can be enabled per login request by adding the `requested_flow` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
-The `requested_flow` must be set to `app_to_app` and the `app_callback_uri` must be a URI that will trigger the merchant app.
+This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
+The `app_callback_uri` must be a URI that will trigger the merchant app.
 
 Example:
 ```
