@@ -430,8 +430,8 @@ means available to it via the user-agent.
 | scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
 | login_hint        | Optional. Setting this to `unsolicited:nodialog` enables #No-dialog-flow                                                                                                                  |
-| is_app            | Optional. Setting this to `true` enables an automatic switch to merchant app from the Vipps app. Also requires `app_callback_uri` to be set                                               |
-| app_callback_uri  | Optional. The target uri for automatic switch back to merchant app. Requires `is_app=true`. Example `merchant-app://callback`                                                             |
+| requested-flow            | Optional. Request a specific flow for the user. See [App integration](#app-integration) and [Automatic return from Vipps app](#automatic-return-from-vipps-app)                                             |
+| app_callback_uri  | Optional. The target uri for automatic switch back to merchant app. Requires `requested_flow=app_to_app`. Example `merchant-app://callback`                                                             |
 
 For example, the client directs the user-agent to make the following HTTP request:
 
@@ -458,14 +458,13 @@ HTTP/1.1 302 Found
 Location: https://client.example.com/callback?code={code}&state={state}&scope={scopes}
 ```
 
-If the resource owner declines the access request or an error occurs, the
-authorization server following parameters to the query component of the
-redirection URI using the `application/x-www-form-urlencoded` format.
+If the resource owner declines the access request, or an error occurs, the authorization server adds the following parameters to the query component of the
+redirection URI using the `application/x-www-form-urlencoded` format. More details in [Error handling](#error-handling)
 
-See error handling for more information.
+For more general information see the standard specifications
+[OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html#AuthResponse) and [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1).
 
-For more information see
-[RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1).
+It can be important to be aware of some [tricky response scenarios](#tricky-response-scenarios) especially if not integrating via a verified OIDC library.
 
 ##### OAuth 2.0 Token
 
@@ -479,7 +478,7 @@ below to the HTTP body by using the `application/x-www-form-urlencoded` format.
 
 | Header            | Description                            |
 | ----------------- | -------------------------------------  |
-| Content-Type      | "application/x-www-form-urlencoded"    |                                                                                                                                                 
+| Content-Type      | "application/x-www-form-urlencoded"    |                             
 | Authorization     | "Basic {Client Credentials}"           |                                                                                                                                   
 
 The Client Credentials is a base 64 encoded string consisting of the Client id
@@ -707,6 +706,16 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
 
+## Automatic return from Vipps app
+
+When enabled this flow will automatically take the user back to the browser when they accept the login from the Vipps app.
+
+This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](#oauth-20-authorize) request.
+
+### Limitations
+In some cases users will return in a different browser, with no user agent based session. Merchants must be able to handle these returns.
+It can be especially important to be aware of the [tricky response scenarios](#tricky-response-scenarios) when using this flow.
+
 ## App integration
 _This feature is new and might need modifications to support all merchant app needs._
 
@@ -718,12 +727,12 @@ Merchant app -> webview -> Vipps app -> webview -> merchant app
 ```
 The merchant app must ensure that the webview will continue after the return from the Vipps app to complete the login.
 
-This can be enabled per login request by adding the `is_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
-The `is_app` must be set to `true` and the `app_callback_uri` must be a URI that will trigger the merchant app.
+This can be enabled per login request by adding the `requested_flow` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
+The `requested_flow` must be set to `app_to_app` and the `app_callback_uri` must be a URI that will trigger the merchant app.
 
 Example:
 ```
-...&is_app=true&app_callback_uri=merchant-app://callback...
+...&requested_flow=app_to_app&app_callback_uri=merchant-app://callback...
 ```
 
 Parameters `state` and possibly `error` will be passed as query parameters to the `app_callback_uri`. The `state` parameter has the same value as the `state` parameter passed to the [Authorize](#oauth-20-authorize) request.
@@ -739,6 +748,35 @@ merchant-app://callback?state=218gz18yveu1ybajwh2g1h3g?error=unknown_error
 ```
 
 The `app_callback_uri` should not be confused with the `redirect_uri`. The `app_callback_uri` only moves the user back to the merchant app. The `redirect_uri` is used for the actual completion of the login.
+
+## Tricky response scenarios
+Merchants highly recommended to use certified libraries to handle the integration, including the callback endpoint.
+
+### Session fixation
+In some situations it can be tempting to use the `state` parameter to carry a session 
+without requiring a cookie/local storage based session in addition. In these cases it's important to 
+remember that the `state` parameter is available to the user. 
+The user can setup a `state` parameter and the trick other users to complete logins using this parameter.
+
+For general information see 
+[OWASP session fixation](https://owasp.org/www-community/attacks/Session_fixation)
+
+### Different users in the same login flow
+Users might have multiple browsers with separate active sessions towards the same merchant.
+
+Example:
+
+```
+On the same device
+BrowserA: User1 has no session
+BrowserB: User2 is logged in at merchant
+```
+`User1` starts a login in `BrowserA`. The login is completed in `BrowserB` for whatever reason.
+
+Merchant will receive a callback containing `User1`'s callback parameters `state` etc. 
+At the same time as they will send valid cookies from `User2`.
+
+Careless handling of the callback endpoint could then end up injecting data from `User1` into `User2`'s session.
 
 ## Questions and answers
 
