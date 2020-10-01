@@ -42,8 +42,10 @@ for all the details.
     * [No dialog flow](#using-the-no-dialog-flow)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
+* [Automatic return from Vipps app](#automatic-return-from-vipps-app)
 * [App integration](#app-integration)
 * [Error handling](#error-handling)
+* [Trick response scenarios](#tricky-response-scenarios)
 * [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
 
