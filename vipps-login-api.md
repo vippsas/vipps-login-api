@@ -761,7 +761,7 @@ Merchants are highly recommended to use certified libraries to handle the integr
 In some situations it can be tempting to use the `state` parameter to carry a session 
 without requiring a cookie/local storage based session in addition. In these cases it's important to 
 remember that the `state` parameter is available to the user. 
-The user can setup a `state` parameter and the trick other users to complete logins using this parameter.
+A user may set up a `state` parameter, fixating the session, and then trick other users to complete logins using this parameter. This could for example cause unintended actions to be performed on behalf of the victim.
 
 For general information see 
 [OWASP session fixation](https://owasp.org/www-community/attacks/Session_fixation)
