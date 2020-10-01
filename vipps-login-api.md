@@ -42,8 +42,9 @@ for all the details.
     * [No dialog flow](#using-the-no-dialog-flow)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
-* [Automatic return from Vipps app](#automatic-return-from-vipps-app)
-* [App integration](#app-integration)
+* [Special flows](#special-flows)
+    * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
+    * [App integration](#app-integration)
 * [Error handling](#error-handling)
 * [Trick response scenarios](#tricky-response-scenarios)
 * [Questions and answers](#questions-and-answers)
@@ -708,17 +709,19 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
 
-## Automatic return from Vipps app
+## Special flows
+
+### Automatic return from Vipps app
 
 When enabled this flow will automatically take the user back to the browser when they accept the login from the Vipps app.
 
 This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](#oauth-20-authorize) request.
 
-### Limitations
+#### Limitations
 In some cases users will return in a different browser, with no user agent based session. Merchants must be able to handle these returns.
 It can be especially important to be aware of the [tricky response scenarios](#tricky-response-scenarios) when using this flow.
 
-## App integration
+### App integration
 _This feature is new and might need modifications to support all merchant app needs._
 
 It is possible to enable automatic switch of users back to the merchant app, from the Vipps app.
