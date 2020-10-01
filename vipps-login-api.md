@@ -725,7 +725,7 @@ Expected flow:
 ```
 Merchant app -> webview -> Vipps app -> webview -> merchant app
 ```
-The merchant app must ensure that the webview must still be present after the return from the Vipps app to complete the login.
+The merchant app must ensure that the webview is still present after returning from the Vipps app, so that the login can complete.
 
 This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
 The `app_callback_uri` must be a URI that will trigger the merchant app.
