@@ -93,11 +93,25 @@ The user is then authenticated in browser and can provide consent if required. T
 
 
 #### Mobile flow - app switch based flow
-If the user is on a mobile device, the Vipps landing page in the browser will automatically trigger an app switch to the Vipps-app if the user is not rememberd in browsere. The user will not be prompted to enter the phone number. In the Vipps-app the user confirms the login and can choose whether to be rememberd in the browser for later logins. After confirming in the app the user needs to switch back to the Vipps page in the browser/app. On the Vipps landing page the user will finalise the autentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
+If the user is on a mobile device, the Vipps landing page in the browser will automatically trigger an app switch to the Vipps app if the user is not rememberd in browsere. The user will not be prompted to enter the phone number. In the Vipps app the user confirms the login and can choose whether to be rememberd in the browser for later logins. The standard flow after is that after confirming in the app the user needs to switch back to the Vipps page in the browser/app. On the Vipps landing page the user will finalise the autentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
 
 ![Mobile flow with app-switch](images/Mobile_flow_with_partial-app_switch.png)
 
 We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred as these webviews are able to utilize cookies stored in the user's browser.
+
+There are two specialised flows that merchants can utilise to enable that the end user is automatically switched back from the Vipps-app to the browser/app once the user has confirmed the login in the app. From the illustration above this means that the page "Gå tilbake til butikken" will be skipped and that the "manuall app switch" will be changed with an automatic app-switch. These flows represent a better user experience than the standard flow, but requires the merchant to handle some more aspects as part of their integrations.
+
+The two flows are:
+
+##### App to app flow
+This flow is designed to be used with apps. This flow requires that the app initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred as these webviews are able to utilize cookies stored in the user's browser. In this flow the merchant need to specify the app URI where the user will be retunred after completing the confirmation in the Vipps app.
+
+You find infomation on how to technically use the app to app flow [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#app-integration).
+
+##### Automatic return from Vipps app (requires the merchant to handle user session cross browsers)
+This flow is designed for web-pages that would like to have the user automatically returned to the browser after completing the confirmation in the Vipps app. Due to how the different operating systems handle app-switch to browser users can in this flow be returned to a different browser than where they started. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confimring in the Vipps app. With this flow Vipps login will be able to complete the login process in Safari however the merchant need to have a solution in place to 1) complete the login on your side and 2) ensure that the user is able to continue the process / session that was started in the original browser in the new browser. This can be done using the [state parameter] (https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter). When considering this flow you should ensure you consider the [tricky response scenarios] (https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#tricky-response-scenarios)
+
+You find infomation on how to technically use the automatick return from the Vipps app flow [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#app-integration).
 
 #### No dialog flow - log the user in directly when possible
 This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps login process will be stopped and no interaction will be asked from the user in this flow. When using this flow a spinner will be shown while Vipps login try to log the user in. Once the process is completed the user will be returned to the merchant as in the ordinary Vipps login flow. As with the other Vipps login flow it is recommended to run Vipps login in a redirect mode and iFrame is not supported. 
