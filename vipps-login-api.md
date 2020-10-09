@@ -17,13 +17,15 @@ for all the details.
     * [Remembered flow](#remembered-flow)
     * [Desktop flow - phone number based push flow](#desktop-flow---phone-number-based-push-flow)
     * [Mobile flow - app switch based flow](#Mobile-flow---app-switch-based-flow)
+        * [App to app flow](#app-to-app-flow)
+        * [Automatic return from Vipps app](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers)
     * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
   - [Design guidelines and buttons](#Design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
   - [OAuth 2.0](#oauth-20)
   - [OpenID Connect](#open-id-connect)
   - [Supported OpenID Connect Flows](#supported-openid-connect-flows)
-    - [Authorization Code Grant](#authorization-code-grant)
+    * [Authorization Code Grant](#authorization-code-grant)
   - [Tokens](#tokens)
     * [ID Token](#id-token)
     * [Access Token](#access-token)
@@ -38,15 +40,13 @@ for all the details.
             * [OAuth 2.0 Token](#oauth-20-token)
             * [Userinfo](#userinfo)
             * [JSON Web Keys Discovery](#json-web-keys-discovery)
-    * [Automatic Recognition](#automatic-recognition)
-    * [No dialog flow](#using-the-no-dialog-flow)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
-* [Special flows](#special-flows)
+* [Using the special flows](#using-the-special-flows)
     * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
     * [App integration](#app-integration)
+    * [No dialog flow](#No-dialog-flow)
 * [Error handling](#error-handling)
-* [Trick response scenarios](#tricky-response-scenarios)
 * [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
 
@@ -93,11 +93,31 @@ The user is then authenticated in browser and can provide consent if required. T
 
 
 #### Mobile flow - app switch based flow
-If the user is on a mobile device, the Vipps landing page in the browser will automatically trigger an app switch to the Vipps-app if the user is not rememberd in browsere. The user will not be prompted to enter the phone number. In the Vipps-app the user confirms the login and can choose whether to be rememberd in the browser for later logins. After confirming in the app the user needs to switch back to the Vipps page in the browser/app. On the Vipps landing page the user will finalise the autentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
+If the user is on a mobile device, the Vipps landing page in the browser will automatically trigger an app switch to the Vipps app if the user is not remembered in browsere. The user will not be prompted to enter the phone number. In the Vipps app the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app the user needs to switch back to the Vipps page in the browser/app. On the Vipps landing page the user will finalise the autentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
 
 ![Mobile flow with app-switch](images/Mobile_flow_with_partial-app_switch.png)
 
-We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred as these webviews are able to utilize cookies stored in the user's browser.
+We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred implementations as these are able to access cookies stored in the user's browser and they are known to support required app switch to the Vipps app.
+
+There are two specialised flows that merchants can use to automatically switch the user back from the Vipps-app to the originating browser/app upon login confirmation. From the illustration above this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch" will be replaced by an automatic app-switch. These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
+
+Which of the flows to use is controlled with the initiation of the individual login session. The merchant can thus use all available login flows on the same client_id and adapt to the different use-cases and login scenarios.
+
+The two flows are:
+
+##### App to app flow
+This flow is designed to be used with apps. It requires that the app initiate Vipps login in a webview (SafariViewController and Chrome Custom Tabs are preferred). In this flow the merchant need to specify the app URI where the user will be returned after completing the confirmation in the Vipps app.
+
+See [how to implement](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#app-integration).
+
+##### Automatic return from Vipps app (requires the merchant to handle user session cross browsers)
+This flow is designed for web-pages that would like to have the user automatically returned to a browser after completing the confirmation in the Vipps app. Note that there are security implications by using this flow. **It is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable**.
+
+Due to how the different mobile operating systems handle app-switch to browser, the user can be returned to a different browser than the one he/she started in. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confirming in the Vipps app. This means that the merchant site cannot rely on cookies beeing present in the browser the user is returned to. 
+
+By using this flow Vipps login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
+
+See [how to implement](#automatic-return-from-vipps-app), including more informattion on the security considerations.
 
 #### No dialog flow - log the user in directly when possible
 This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps login process will be stopped and no interaction will be asked from the user in this flow. When using this flow a spinner will be shown while Vipps login try to log the user in. Once the process is completed the user will be returned to the merchant as in the ordinary Vipps login flow. As with the other Vipps login flow it is recommended to run Vipps login in a redirect mode and iFrame is not supported. 
@@ -121,7 +141,7 @@ In such scenarios the users that can be logged in directly will get an even bett
 
 If the user cannot be logged in directly you can e.g show them your ordinary login screen. On the login screen Vipps will be an option and users that is not remembered in browser or has not yet given consent can actively login with Vipps from here.
 
-See [how to implement](#using-the-no-dialog-flow).
+See [how to implement](#no-dialog-flow).
 
 ### Design guidelines and buttons
 Buttons to use for Vipps login can be found as part of our
@@ -467,8 +487,6 @@ redirection URI using the `application/x-www-form-urlencoded` format. More detai
 For more general information see the standard specifications
 [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html#AuthResponse) and [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1).
 
-It can be important to be aware of some [tricky response scenarios](#tricky-response-scenarios) especially if not integrating via a verified OIDC library.
-
 ##### OAuth 2.0 Token
 
 The token endpoint is a standard OIDC endpoint used for requesting Access and
@@ -640,31 +658,6 @@ Examples:
 ```
 This operation does not require authentication
 
-### Using the no dialog flow
-To attempt a no dialog login add the query parameter `login_hint=unsolicited:nodialog` to the [Authorization request](#OAuth-2.0-Authorize) uri.
-
-
-If the user completes the login they will be returned to the `redirect_uri` with a code that can be used to complete the login. Just like in a regular [Authorization code](#authorization-code-grant) login.
-
-`https://client.example.com/callback?code=12adsa938721987321asd9873&state=123987218dh`
-
-If the user is not logged in they will be returned with an error. Some possible errors are `interaction_required`, `login_required` or `server_error`. 
-
-Not logged in return uri example: `https://client.example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
-
-In all cases a new login can be started by removing the parameter `login_hint=unsolicited:nodialog` and initiating a new login for the user.
-
-
-
-
-### Automatic Recognition
-
-Vipps Login will offer the option to authenticate end-users automatically when
-they return to a merchant's site. This gives merchants the opportunity to
-provide custom content to the user directly without the need for manual
-authentication. A precondition is that the user has consented to use Vipps
-login at the merchant's site, and has opted into being remembered in the browser
-being used. This feature is still under development.
 
 ## API endpoints required from the merchant
 
@@ -709,22 +702,38 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
 
-## Special flows
+## Using the special flows
 
 ### Automatic return from Vipps app
 
-When enabled this flow will automatically take the user back to the browser when they accept the login from the Vipps app.
+When enabled this flow will automatically take the user back to a browser when they accept the login in the Vipps app. It is not suitable for every scenario please see [the detailed description](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers) and be aware of the security implications mentioned there.
 
 This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](#oauth-20-authorize) request.
 
-#### Limitations
-In some cases users will return in a different browser, with no user agent based session. Merchants must be able to handle these returns.
-It can be especially important to be aware of the [tricky response scenarios](#tricky-response-scenarios) when using this flow.
+#### Implementation suggestions
+
+**It is not possible to give a single description that ensures secure use of this flow for all scenarios. The suggestions given here may not apply to every scenario and must be considered in relation to the specifics of the implementation.**
+
+##### Session information
+
+The [state parameter](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback. 
+The state parameter cannot be thought of as a direct replacement of a user agent bound session.
+
+Some relevant considerations:
+* Always use [PKCE](https://oauth.net/2/pkce/)
+* Avoid logging the callback URI
+* [Session fixation](https://owasp.org/www-community/attacks/Session_fixation). Be aware of what is possible to set up before a login is started.
+* [Login CSRF](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#login-csrf). Be aware if it's possible to input sensitive information after a login.
+* [The state parameter and CSRF](https://tools.ietf.org/html/rfc6749#section-10.12). Be aware of the recommendations of the OIDC/OAuth standards.
+
+##### Verification
+It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser. 
+
 
 ### App integration
 _This feature is new and might need modifications to support all merchant app needs._
 
-It is possible to enable automatic switch of users back to the merchant app, from the Vipps app.
+It is possible to enable automatic switch of users back to the merchant app, from the Vipps app. This flow is described [here](https://github.com/vippsas/vipps-login-api/blob/VidarHolm-patch-6/vipps-login-api.md#app-to-app-flow).
 
 Expected flow:
 ```
@@ -752,43 +761,28 @@ Example error callback:
 merchant-app://callback?state=218gz18yveu1ybajwh2g1h3g?error=unknown_error
 ```
 
-The `app_callback_uri` should not be confused with the `redirect_uri`. The `app_callback_uri` only moves the user back to the merchant app. The `redirect_uri` is used for the actual completion of the login.
+The `app_callback_uri` should not be confused with the `redirect_uri`. The `app_callback_uri` only moves the user back to the merchant app. The `redirect_uri` is used for the actual completion of the login. When using this flow the merchant need to provide both.
 
-## Tricky response scenarios
-Merchants are highly recommended to use certified libraries to handle the integration, including the callback endpoint.
+### No dialog flow
+This flow is described [here](#no-dialog-flow---log-the-user-in-directly-when-possible). To attempt a no dialog login add the query parameter `login_hint=unsolicited:nodialog` to the [Authorization request](#OAuth-2.0-Authorize) uri.
 
-### Session fixation
-In some situations it can be tempting to use the `state` parameter to carry a session 
-without requiring a cookie/local storage based session in addition. In these cases it's important to 
-remember that the `state` parameter is available to the user. 
-A user may set up a `state` parameter, fixating the session, and then trick other users to complete logins using this parameter. This could for example cause unintended actions to be performed on behalf of the victim.
 
-For general information see 
-[OWASP session fixation](https://owasp.org/www-community/attacks/Session_fixation)
+If the user completes the login they will be returned to the `redirect_uri` with a code that can be used to complete the login. Just like in a regular [Authorization code](#authorization-code-grant) login.
 
-### Different users in the same login flow
-Users might have multiple browsers with separate active sessions towards the same merchant.
+`https://client.example.com/callback?code=12adsa938721987321asd9873&state=123987218dh`
 
-Example:
+If the user is not logged in they will be returned with an error. Some possible errors are `interaction_required`, `login_required` or `server_error`. 
 
-```
-On the same device
-BrowserA: User1 has no session
-BrowserB: User2 is logged in at merchant
-```
-`User1` starts a login in `BrowserA`. The login is completed in `BrowserB` for whatever reason.
+Not logged in return uri example: `https://client.example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
 
-Merchant will receive a callback containing `User1`'s callback parameters `state` etc. 
-At the same time as they will send valid cookies from `User2`.
-
-Careless handling of the callback endpoint could then end up injecting data from `User1` into `User2`'s session.
+In all cases a new login can be started by removing the parameter `login_hint=unsolicited:nodialog` and initiating a new login for the user.
 
 ## Questions and answers
 
 ### Compliance  
 
 **Q**: How can our system dynamically "know/find out" if the user has revoked their concent for us to have access to his personal data in our system?  
-**A**: We are working on a system for notifying merchants when an end user revokes their consent. It will consist of an additional callback url that you register on the merchant portal which we will send a notification to when an end user removes their consent  
+**A**: We have a system for notifying merchants when an end-users revoke their consents. You find information in this webhook [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-webhooks.md)
 
 ### Technical
 
