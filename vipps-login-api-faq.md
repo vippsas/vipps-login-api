@@ -177,13 +177,6 @@ You also need to provide information on how you plan to use the account number.
 ## What's the purpose of the state parameter?
 The state parameter is an opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. The parameter should be used for preventing cross-site request forgery.
 
-In the state parameter you can add most kind of values. It can be encrypted or not. 
-
-Since the state links the initialization of the login attempt to the successful login it can also be used by the client to take appropriate action upon the callback based on the context of where the login was initialized (i.e. redirect the user to the correct page internally). 
-
-The state parameter can also be used to restore users' seesions when using the [Automatic return from Vipps app flow](https://github.com/vippsas/vipps-login-api/blob/VidarHolm-patch-6/vipps-login-api.md#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers).  You can generate an id for the users session, store it and provide this as (or as part of) the state parameter. Once the user is returned to your site after completing Vipps login you will get this state parameter as part of our response. You then fetch the information from your backend and recreate the process/state.
-You do this by adding a stat parameter to the URL like this:  https://api.vipps.no/access-management-1.0/access/oauth2/auth?response_type=code&client_id=3f362aa5-a92d-41ae?state=STATE_VALUE  
-
 ## Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)?
 
 Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
