@@ -111,32 +111,13 @@ This flow is designed to be used with apps. This flow requires that the app init
 See [how to implement](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#app-integration).
 
 ##### Automatic return from Vipps app (requires the merchant to handle user session cross browsers)
-This flow is designed for web-pages that would like to have the user automatically returned to the browser after completing the confirmation in the Vipps app. Note that there are security implications by using this flow. **It is not suited for every scenario.** Merchants must make their own considerations to ensure that it is only used where suitable.
+This flow is designed for web-pages that would like to have the user automatically returned to the browser after completing the confirmation in the Vipps app. Note that there are security implications by using this flow. **It is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable**.
 
 Due to how the different mobile operating systems handle app-switch to browser, users can in this flow be returned to a different browser than where they started in. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confirming in the Vipps app. 
 
 By using this flow Vipps login will be able to complete the login process even if the user ends up in a different browser. However, the merchant must also ensure that logins can complete, even without session information like cookies.
 
-###### Implementation suggestions
-
-**It is not possible to give a single description that ensures secure use of this flow for all scenarios. The suggestions given here may not apply to every scenario and must be considered in relation to the specifics of the implementation.**
-
-###### Session information
-
-The [state parameter](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback. 
-The state parameter cannot be thought of as a direct replacement of a user agent bound session.
-
-Some relevant considerations:
-* Always use [PKCE](https://oauth.net/2/pkce/)
-* Avoid logging the callback URI
-* [Session fixation](https://owasp.org/www-community/attacks/Session_fixation). Be aware of what is possible to set up before a login is started.
-* [Login CSRF](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#login-csrf). Be aware if it's possible to input sensitive information after a login.
-* [The state parameter and CSRF](https://tools.ietf.org/html/rfc6749#section-10.12). Be aware of the recommendations of the OIDC/OAuth standards.
-
-###### Verification
-It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser. 
-
-See [how to implement](#automatic-return-from-vipps-app)
+See [how to implement](#automatic-return-from-vipps-app), including more informattion on the security considerations.
 
 #### No dialog flow - log the user in directly when possible
 This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps login process will be stopped and no interaction will be asked from the user in this flow. When using this flow a spinner will be shown while Vipps login try to log the user in. Once the process is completed the user will be returned to the merchant as in the ordinary Vipps login flow. As with the other Vipps login flow it is recommended to run Vipps login in a redirect mode and iFrame is not supported. 
@@ -728,6 +709,26 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 When enabled this flow will automatically take the user back to the browser when they accept the login in the Vipps app. It is not suitable for every scenario please see [the detailed description](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers) and be aware of the security implications mentioned there.
 
 This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](#oauth-20-authorize) request.
+
+#### Implementation suggestions
+
+**It is not possible to give a single description that ensures secure use of this flow for all scenarios. The suggestions given here may not apply to every scenario and must be considered in relation to the specifics of the implementation.**
+
+##### Session information
+
+The [state parameter](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback. 
+The state parameter cannot be thought of as a direct replacement of a user agent bound session.
+
+Some relevant considerations:
+* Always use [PKCE](https://oauth.net/2/pkce/)
+* Avoid logging the callback URI
+* [Session fixation](https://owasp.org/www-community/attacks/Session_fixation). Be aware of what is possible to set up before a login is started.
+* [Login CSRF](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#login-csrf). Be aware if it's possible to input sensitive information after a login.
+* [The state parameter and CSRF](https://tools.ietf.org/html/rfc6749#section-10.12). Be aware of the recommendations of the OIDC/OAuth standards.
+
+##### Verification
+It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser. 
+
 
 ### App integration
 _This feature is new and might need modifications to support all merchant app needs._
