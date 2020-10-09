@@ -704,36 +704,10 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 
 ## Using the special flows
 
-### Automatic return from Vipps app
-
-When enabled this flow will automatically take the user back to a browser when they accept the login in the Vipps app. It is not suitable for every scenario please see [the detailed description](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers) and be aware of the security implications mentioned there.
-
-This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](#oauth-20-authorize) request.
-
-#### Implementation suggestions
-
-**It is not possible to give a single description that ensures secure use of this flow for all scenarios. The suggestions given here may not apply to every scenario and must be considered in relation to the specifics of the implementation.**
-
-##### Session information
-
-The [state parameter](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback. 
-The state parameter cannot be thought of as a direct replacement of a user agent bound session.
-
-Some relevant considerations:
-* Always use [PKCE](https://oauth.net/2/pkce/)
-* Avoid logging the callback URI
-* [Session fixation](https://owasp.org/www-community/attacks/Session_fixation). Be aware of what is possible to set up before a login is started.
-* [Login CSRF](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#login-csrf). Be aware if it's possible to input sensitive information after a login.
-* [The state parameter and CSRF](https://tools.ietf.org/html/rfc6749#section-10.12). Be aware of the recommendations of the OIDC/OAuth standards.
-
-##### Verification
-It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser. 
-
-
 ### App integration
 _This feature is new and might need modifications to support all merchant app needs._
 
-It is possible to enable automatic switch of users back to the merchant app, from the Vipps app. This flow is described [here](https://github.com/vippsas/vipps-login-api/blob/VidarHolm-patch-6/vipps-login-api.md#app-to-app-flow).
+It is possible to enable automatic switch of users back to the merchant app, from the Vipps app. This flow is described [here](#app-to-app-flow).
 
 Expected flow:
 ```
@@ -762,6 +736,33 @@ merchant-app://callback?state=218gz18yveu1ybajwh2g1h3g?error=unknown_error
 ```
 
 The `app_callback_uri` should not be confused with the `redirect_uri`. The `app_callback_uri` only moves the user back to the merchant app. The `redirect_uri` is used for the actual completion of the login. When using this flow the merchant need to provide both.
+
+
+### Automatic return from Vipps app
+
+When enabled this flow will automatically take the user back to a browser when they accept the login in the Vipps app. It is not suitable for every scenario please see [the detailed description](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers) and be aware of the security implications mentioned there.
+
+This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](#oauth-20-authorize) request.
+
+#### Implementation suggestions
+
+**It is not possible to give a single description that ensures secure use of this flow for all scenarios. The suggestions given here may not apply to every scenario and must be considered in relation to the specifics of the implementation.**
+
+##### Session information
+
+The [state parameter](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback. 
+The state parameter cannot be thought of as a direct replacement of a user agent bound session.
+
+Some relevant considerations:
+* Always use [PKCE](https://oauth.net/2/pkce/)
+* Avoid logging the callback URI
+* [Session fixation](https://owasp.org/www-community/attacks/Session_fixation). Be aware of what is possible to set up before a login is started.
+* [Login CSRF](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#login-csrf). Be aware if it's possible to input sensitive information after a login.
+* [The state parameter and CSRF](https://tools.ietf.org/html/rfc6749#section-10.12). Be aware of the recommendations of the OIDC/OAuth standards.
+
+##### Verification
+It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser. 
+
 
 ### No dialog flow
 This flow is described [here](#no-dialog-flow---log-the-user-in-directly-when-possible). To attempt a no dialog login add the query parameter `login_hint=unsolicited:nodialog` to the [Authorization request](#OAuth-2.0-Authorize) uri.
