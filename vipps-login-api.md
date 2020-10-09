@@ -112,7 +112,30 @@ This flow is designed to be used with apps. This flow requires that the app init
 See [how to implement](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#app-integration).
 
 ##### Automatic return from Vipps app (requires the merchant to handle user session cross browsers)
-This flow is designed for web-pages that would like to have the user automatically returned to the browser after completing the confirmation in the Vipps app. Due to how the different mobile operating systems handle app-switch to browser, users can in this flow be returned to a different browser than where they started in. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confirming in the Vipps app. With this flow Vipps login will be able to complete the login process in Safari, however the merchant needs to 1) be able to complete the login on the merchant's side and 2) ensure that the user is able to continue the process / session that was started in the original browser in the new browser. This can be done using the [state parameter] (https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter). When considering this flow you should pay attention to the [tricky response scenarios] (https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#tricky-response-scenarios). It is important that the merchant verify that users returning to a different browser than where the login started is handled as expected. Testing to start the login in private/incognito mode is also recommended as this will have similar effects as being returned to a different browser. 
+This flow is designed for web-pages that would like to have the user automatically returned to the browser after completing the confirmation in the Vipps app. Note that there are security implications by using this flow. **It is not suited for every scenario.** Merchants must make their own considerations to ensure that it is only used where suitable.
+
+Due to how the different mobile operating systems handle app-switch to browser, users can in this flow be returned to a different browser than where they started in. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confirming in the Vipps app. 
+
+By using this flow Vipps login will be able to complete the login process even if the user ends up in a different browser. However, the merchant must also ensure that logins can complete, even without session information like cookies.
+
+###### Implementation suggestions
+
+**It is not possible to give a single description that ensures secure use of this flow for all scenarios. The suggestions given here may not apply to every scenario and must be considered in relation to the specifics of the implementation.**
+
+###### Session information
+
+The [state parameter] (https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback. 
+The state parameter cannot be thought of as a direct replacement of a user agent bound session.
+
+Some relevant considerations:
+* Always use [PKCE](https://oauth.net/2/pkce/)
+* Avoid logging the callback URI
+* [Session fixation](https://owasp.org/www-community/attacks/Session_fixation). Be aware of what is possible to set up before a login is started.
+* [Login CSRF](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#login-csrf). Be aware if it's possible to input sensitive information after a login.
+* [The state parameter and CSRF](https://tools.ietf.org/html/rfc6749#section-10.12). Be aware of the recommendations of the OIDC/OAuth standards.
+
+###### Verification
+It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser. 
 
 See [how to implement](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#app-integration).
 
