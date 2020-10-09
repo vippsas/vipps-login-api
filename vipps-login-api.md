@@ -47,7 +47,6 @@ for all the details.
     * [App integration](#app-integration)
     * [No dialog flow](#No-dialog-flow)
 * [Error handling](#error-handling)
-* [Trick response scenarios](#tricky-response-scenarios)
 * [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
 
@@ -507,8 +506,6 @@ redirection URI using the `application/x-www-form-urlencoded` format. More detai
 For more general information see the standard specifications
 [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html#AuthResponse) and [RFC-6749 section 4.1.1-4.1.2](https://tools.ietf.org/html/rfc6749#section-4.1.1).
 
-It can be important to be aware of some [tricky response scenarios](#tricky-response-scenarios) especially if not integrating via a verified OIDC library.
-
 ##### OAuth 2.0 Token
 
 The token endpoint is a standard OIDC endpoint used for requesting Access and
@@ -728,13 +725,9 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 
 ### Automatic return from Vipps app
 
-When enabled this flow will automatically take the user back to the browser when they accept the login in the Vipps app. This flow is described [here](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers).
+When enabled this flow will automatically take the user back to the browser when they accept the login in the Vipps app. It is not suitable for every scenario please see [the detailed description](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers) and be aware of the security implications mentioned there.
 
 This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](#oauth-20-authorize) request.
-
-#### Limitations
-In some cases users will return in a different browser, with no user agent based session. Merchants must be able to handle these returns.
-It can be especially important to be aware of the [tricky response scenarios](#tricky-response-scenarios) when using this flow.
 
 ### App integration
 _This feature is new and might need modifications to support all merchant app needs._
@@ -782,36 +775,6 @@ If the user is not logged in they will be returned with an error. Some possible 
 Not logged in return uri example: `https://client.example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
 
 In all cases a new login can be started by removing the parameter `login_hint=unsolicited:nodialog` and initiating a new login for the user.
-
-
-## Tricky response scenarios
-Merchants are highly recommended to use certified libraries to handle the integration, including the callback endpoint.
-
-### Session fixation
-In some situations it can be required to use the `state` parameter to carry a session 
-without requiring a cookie/local storage based session in addition. This is the case if the merchant is using the [Automatic return from Vipps app flow](#automatic-return-from-vipps-app). In these cases it's important to 
-remember that the `state` parameter is available to the user. 
-A user may set up a `state` parameter, fixating the session, and then trick other users to complete logins using this parameter. This could for example cause unintended actions to be performed on behalf of the victim.
-
-For general information see 
-[OWASP session fixation](https://owasp.org/www-community/attacks/Session_fixation)
-
-### Different users in the same login flow
-Users might have multiple browsers with separate active sessions towards the same merchant.
-
-Example:
-
-```
-On the same device
-BrowserA: User1 has no session
-BrowserB: User2 is logged in at merchant
-```
-`User1` starts a login in `BrowserA`. The login is completed in `BrowserB` for whatever reason.
-
-Merchant will receive a callback containing `User1`'s callback parameters `state` etc. 
-At the same time as they will send valid cookies from `User2`.
-
-Careless handling of the callback endpoint could then end up injecting data from `User1` into `User2`'s session.
 
 ## Questions and answers
 
