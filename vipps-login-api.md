@@ -716,7 +716,7 @@ Merchant app -> webview -> Vipps app -> webview -> merchant app
 The merchant app must ensure that the webview is still present after returning from the Vipps app, so that the login can complete.
 
 This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
-The `app_callback_uri` must be a URI that will trigger the merchant app. The `app_callback_uri` must be added as an redirect URI in VippsPortalen, you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+The `app_callback_uri` must be a URI that will trigger the merchant app. The `app_callback_uri` must be added as an redirect URI in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
 Example:
 ```
