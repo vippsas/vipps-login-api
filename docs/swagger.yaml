@@ -4,7 +4,7 @@ info:
     Welcome to the Vipps Login API documentation. You will find documentation
     for all HTTP APIs here.
   title: Vipps Login
-  version: 1.0.0
+  version: 1.0.1
 paths:
   /oauth2/auth:
     get:
@@ -110,7 +110,7 @@ paths:
                         given_name: 'Ada'
                         family_name: 'Lovelace'
                         sid: '7d78a726-af92-499e-b857-de263ef9a969'
-                        phone_number: '4712345678'
+                        phone_number: '47912345678'
                         address:
                           - street_address: 'Suburbia 23'
                             postal_code: '2101'
@@ -147,7 +147,7 @@ paths:
                         given_name: 'Ada'
                         family_name: 'Lovelace'
                         sid: '7d78a726-af92-499e-b857-de263ef9a969'
-                        phone_number: '4712345678'
+                        phone_number: '47912345678'
                         address:
                           street_address: 'Suburbia 23'
                           postal_code: '2101'
@@ -540,6 +540,7 @@ components:
         birthdate:
           description: 'End-User''s birthday formatted as DD.MM.YYYY'
           type: string
+          example: '31.12.2000'
         email:
           description: 'End user''s email address.'
           type: string
@@ -558,15 +559,21 @@ components:
         nnin:
           description: 'Norwegian national identity number'
           type: string
+          example: '09057517287'
+          pattern: '^\d{11}$'
         phone_number:
-          description: 'End-User''s telephone number on format {d}10'
+          description: 'End-User''s telephone number on MSISDN format, up to 15 digits.'
           type: string
+          example: ´47912345678'
+          pattern: '^\d{15}$'
         sid:
           description: 'Session identifier - This represents a Session of a User Agent or device. Currently not in use'
           type: string
+          example: '7d78a726-af92-499e-b857-de263ef9a969'
         sub:
           description: 'Subject - Identifier for the end user'
           type: string
+          example: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
     UserinfoApiV2:
       type: object
       properties:
@@ -586,6 +593,7 @@ components:
         birthdate:
           description: 'End-User''s birthday formatted as YYYY-MM-DD'
           type: string
+          example: '2000-12-31'
         email:
           description: 'End user''s email address.'
           type: string
@@ -604,15 +612,21 @@ components:
         nin:
           description: 'National identity number'
           type: string
+          example: '09057517287'
+          pattern: '^\d{11}$'
         phone_number:
-          description: 'End-User''s telephone number on format {d}10'
+          description: 'End-User''s telephone number on MSISDN format, up to 15 digits.'
           type: string
+          example: '47912345678'
+          pattern: '^\d{15}$'
         sid:
           description: 'Session identifier - This represents a Session of a User Agent or device. Currently not in use'
           type: string
+          example: '7d78a726-af92-499e-b857-de263ef9a969'
         sub:
           description: 'Subject - Identifier for the end user'
           type: string
+          example: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
     AccountInfoApi:
       type: object
       properties:
