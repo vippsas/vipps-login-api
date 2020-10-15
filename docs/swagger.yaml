@@ -593,7 +593,7 @@ components:
         birthdate:
           description: 'End-User''s birthday formatted as YYYY-MM-DD'
           type: string
-          example: '2000--12-31'
+          example: '2000-12-31'
         email:
           description: 'End user''s email address.'
           type: string
