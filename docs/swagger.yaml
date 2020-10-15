@@ -593,6 +593,7 @@ components:
         birthdate:
           description: 'End-User''s birthday formatted as YYYY-MM-DD'
           type: string
+          example: '2000--12-31'
         email:
           description: 'End user''s email address.'
           type: string
@@ -614,16 +615,18 @@ components:
           example: '09057517287'
           pattern: '^\d{11}$'
         phone_number:
-          description: 'End-User''s telephone number on format {d}10'
+          description: 'End-User''s telephone number on MSISDN format, up to 15 digits.'
           type: string
           example: '47912345678'
           pattern: '^\d{15}$'
         sid:
           description: 'Session identifier - This represents a Session of a User Agent or device. Currently not in use'
           type: string
+          example: '7d78a726-af92-499e-b857-de263ef9a969'
         sub:
           description: 'Subject - Identifier for the end user'
           type: string
+          example: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
     AccountInfoApi:
       type: object
       properties:
