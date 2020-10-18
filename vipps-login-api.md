@@ -277,7 +277,7 @@ therefore not accept for example name and deny address.
 We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
 
-All merchants on Vipps Login need to include scope 'api_version_2'.
+**All merchants on Vipps Login need to include scope 'api_version_2'.**
 The scope decides the information delivered as part of the ID token as well as the API response from userinfo.
 Version 1 (the version you will get if 'api_version_2'is omitted) will be discontinued.
 
