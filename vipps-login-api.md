@@ -2,6 +2,9 @@
 
 API version: 2.0  
 
+Please note that **all merchants on Vipps Login need to include scope 'api_version_2'.** 
+Version 1 (the version you will get if 'api_version_2'is omitted) will be discontinued.
+
 Document version 4.0.1
 
 See the
