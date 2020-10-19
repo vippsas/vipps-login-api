@@ -2,6 +2,8 @@
 
 Document version 1.0.0.
 
+Version 1 of the Vipps login API will have end of life on February 28th 2021.
+
 Reference:\
 [vipps-login-api-version-1.0](versions/1.0/vipps-login-api.md)\
 [vipps-login-api-version-2.0](vipps-login-api.md)
