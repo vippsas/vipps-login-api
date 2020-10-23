@@ -4,10 +4,12 @@ See the [Vipps Login API](https://github.com/vippsas/vipps-login-api/blob/master
 
 See also the
 [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md)
-guide for the Vipps Developer Portal.
-You can also find frequently asked questions on the product here [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
+guide for
+[portal.vipps.no](https://portal.vipps.no).
+You can also find frequently asked questions in the
+[Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.0.3.
+Document version 2.0.4.
 
 ## Table of contents
 
@@ -138,11 +140,12 @@ Yes, it's connected to the national identity number (nin).
 
 ## Who can get access to NIN and how?
 
-Access to NIN is a payed service.
+Access to NIN is a paid service.
 Only merchants with legal requirements or other objective needs to use Norwegian
 National Identity Number (NIN) to achieve required user identification can get
 access to NIN.  We correspond to
-[the guidance from Datatilsynet](https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/fodselsnummer/) on this.
+[the guidance from Datatilsynet](https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/fodselsnummer/)
+on this.
 
 According to this NIN can only be used when it is legally required or when
 there is a need for a secure identification of the person and the NIN is
@@ -163,16 +166,24 @@ processes to become a customer or to link login with Vipps to an existing user.
 If you need to store the NIN for new users we recommend that you use an
 electronic ID, e.g  BankID.
 
-Merchants need to apply for access to NIN separately by sending an email to AccessUserInfo@vipps.no. In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no). You also need to provide information on how you plan to use the NIN, the legal requirement and/or the reason why you need to use NIN to achieve required user identification.
+Merchants need to apply for access to NIN separately by sending an email to
+accessuserinfo@vipps.no. In the email you should specify:
+* Merchant name
+* Organization number
+* Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
+* Information on how you plan to use the NIN
+* The legal requirement and/or the reason why you need to use NIN to achieve
+  required user identification.
 
 ## Who can get access to account numbers and how?
 
-Access to account numbers is a payed service.
-Merchants need to order access to account numbers separately by sending an email to *AccessUserInfo@vipps.no*.
-In the email you should specify merchant name and organization number and name of sales unit from [VippsPortalen](https://portal.vipps.no).
-You also need to provide information on how you plan to use the account number.
-
-
+Access to account numbers is a paid service.
+Merchants need to order access to account numbers separately by sending an email
+to accessuserinfo@vipps.no. In the email you should specify:
+* Merchant name
+* Organization number
+* Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
+* Information on how you plan to use the account numbers
 
 ## What's the purpose of the state parameter?
 The state parameter is an opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. The parameter should be used for preventing cross-site request forgery.
