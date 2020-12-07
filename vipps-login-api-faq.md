@@ -25,6 +25,7 @@ Document version 2.0.4.
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
 - [What's the purpose of the state parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)??](#is-it-possible-for-me-as-a-merchant-to-control-whether-the-user-can-log-in-through-being-remembered-in-browser-or-need-to-use-the-app-to-authenticate-two-factor-authentication)
+- [How can I use client_secret_post for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 - [Common errors](#common-errors)
 
 ## Where do I find the `client_id` and `client_secret`?
@@ -191,6 +192,10 @@ The state parameter is an opaque value used by the client to maintain state betw
 ## Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)?
 
 Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
+
+## How can I use client_secret_post for authentication?
+
+To switch from `client_secret_basic` (default) to `client_secret_post` or vice versa, you need to [contact Integration](https://github.com/vippsas/vipps-developers/blob/master/contact.md) to have us change it for you.
 
 ## Common errors
 
