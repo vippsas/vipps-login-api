@@ -86,9 +86,20 @@ paths:
     get:
       security:
         - oauth2: []
+      description: >-
+  This endpoint returns the payload with the information that the user has consented to share. There are currently different response types on this endpoint for version 1 and version 2. See below for documentation on these response types. All new clients should use version 2 response since version 1 will be discontinued February 28th 2021. Version 2 is currently triggered by adding  scope `api_version_2` when initalizing the login (inital redirect to the `/oauth2/auth` endpoint. After February 28th 2021 it will be the default response. Find more info on the `/userinfo` endpoint at the OIDC Standard https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
       tags:
         - Userinfo API
       operationId: userinfoAuthorizationCode
+      parameters:
+        - in: header
+        name: Authorization
+        description: >-
+          The access token is required to authorize the userinfo request. It should be sent as a Bearer token. The access token is received on a successful request to the token endpoint `POST:/oauth2/token`. In Vipps Login the access token is valid for 1 hour.
+        required: true
+        schema:
+          type: string
+        example: "Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT..."
       responses:
         "200":
           description: OK
