@@ -2501,18 +2501,19 @@ if enabled, OAuth 2.0 JWT Access Tokens.</p>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
 curl -X GET /userinfo \
   -H <span class="hljs-string">&#x27;Accept: application/json&#x27;</span> \
-  -H <span class="hljs-string">&#x27;Authorization: Bearer {access-token}&#x27;</span>
+  -H <span class="hljs-string">&#x27;Authorization: Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT...&#x27;</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/userinfo</span> HTTP/1.1
 
 <span class="http"><span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT...
 
 </span></code></pre>
 <pre class="highlight tab tab-javascript"><code>
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">&#x27;Accept&#x27;</span>:<span class="hljs-string">&#x27;application/json&#x27;</span>,
-  <span class="hljs-string">&#x27;Authorization&#x27;</span>:<span class="hljs-string">&#x27;Bearer {access-token}&#x27;</span>
+  <span class="hljs-string">&#x27;Authorization&#x27;</span>:<span class="hljs-string">&#x27;Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT...&#x27;</span>
 };
 
 fetch(<span class="hljs-string">&#x27;/userinfo&#x27;</span>,
@@ -2533,7 +2534,7 @@ fetch(<span class="hljs-string">&#x27;/userinfo&#x27;</span>,
 
 headers = {
   <span class="hljs-string">&#x27;Accept&#x27;</span> =&gt; <span class="hljs-string">&#x27;application/json&#x27;</span>,
-  <span class="hljs-string">&#x27;Authorization&#x27;</span> =&gt; <span class="hljs-string">&#x27;Bearer {access-token}&#x27;</span>
+  <span class="hljs-string">&#x27;Authorization&#x27;</span> =&gt; <span class="hljs-string">&#x27;Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT...&#x27;</span>
 }
 
 result = RestClient.get <span class="hljs-string">&#x27;/userinfo&#x27;</span>,
@@ -2546,7 +2547,7 @@ p JSON.parse(result)
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
   <span class="hljs-string">&#x27;Accept&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>,
-  <span class="hljs-string">&#x27;Authorization&#x27;</span>: <span class="hljs-string">&#x27;Bearer {access-token}&#x27;</span>
+  <span class="hljs-string">&#x27;Authorization&#x27;</span>: <span class="hljs-string">&#x27;Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT...&#x27;</span>
 }
 
 r = requests.get(<span class="hljs-string">&#x27;/userinfo&#x27;</span>, headers = headers)
@@ -2555,7 +2556,7 @@ print(r.json())
 
 </code></pre>
 <pre class="highlight tab tab-php"><code> <span class="hljs-string">&#x27;application/json&#x27;</span>,
-    <span class="hljs-string">&#x27;Authorization&#x27;</span> =&gt; <span class="hljs-string">&#x27;Bearer {access-token}&#x27;</span>,
+    <span class="hljs-string">&#x27;Authorization&#x27;</span> =&gt; <span class="hljs-string">&#x27;Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT...&#x27;</span>,
 );
 
 $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
@@ -2605,7 +2606,7 @@ System.out.println(response.toString());
 
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">&quot;Accept&quot;</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;application/json&quot;</span>},
-        <span class="hljs-string">&quot;Authorization&quot;</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;Bearer {access-token}&quot;</span>},
+        <span class="hljs-string">&quot;Authorization&quot;</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT...&quot;</span>},
     }
 
     data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
@@ -2619,6 +2620,28 @@ System.out.println(response.toString());
 
 </code></pre>
 <p><code>GET /userinfo</code></p>
+<p>This endpoint returns the payload with the information that the user has consented to share. There are currently different response types on this endpoint for version 1 and version 2. See below for documentation on these response types. All new clients should use version 2 response since version 1 will be discontinued February 28th 2021. Version 2 is currently triggered by adding  scope <code>api_version_2</code> when initalizing the login (inital redirect to the <code>/oauth2/auth</code> endpoint. After February 28th 2021 it will be the default response. Find more info on the <code>/userinfo</code> endpoint at the OIDC Standard <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfo">https://openid.net/specs/openid-connect-core-1_0.html#UserInfo</a></p>
+<h3 id="userinfoauthorizationcode-parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authorization</td>
+<td>header</td>
+<td>string</td>
+<td>true</td>
+<td>The access token is required to authorize the userinfo request. It should be sent as a Bearer token. The access token is received on a successful request to the token endpoint <code>POST:/oauth2/token</code>. In Vipps Login the access token is valid for 1 hour.</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
@@ -3326,15 +3349,17 @@ System.out.println(response.toString());
       <span class="hljs-attr">&quot;bank_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   ],
-  <span class="hljs-attr">&quot;address&quot;</span>: {
-    <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;default&quot;</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-  },
+  <span class="hljs-attr">&quot;address&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;default&quot;</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+    }
+  ],
   <span class="hljs-attr">&quot;other_addresses&quot;</span>: [
     {
       <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -3380,7 +3405,7 @@ System.out.println(response.toString());
 </tr>
 <tr>
 <td>address</td>
-<td><a href="#schemaaddressapi">AddressApi</a></td>
+<td>array</td>
 <td>false</td>
 <td>none</td>
 <td>Contains the end user's preferred addresses.</td>
