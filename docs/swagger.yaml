@@ -4,7 +4,7 @@ info:
     Welcome to the Vipps Login API documentation. You will find documentation
     for all HTTP APIs here.
   title: Vipps Login
-  version: 1.0.3
+  version: 1.0.2
 servers:
   - url: https://apitest.vipps.no
   - url: https://api.vipps.no
