@@ -151,6 +151,10 @@ Buttons to use for Vipps login can be found as part of our
 [design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons).
 
 ## Core concepts
+Vipps Login adheres to the OAuth2 and OpenIDConnect standards. The core concepts releated to these are presented below. The next chapter goes into the actual implementation.
+
+There are **Vipps login plugins** available for several platforms. You find the complete list on our [plugins page](https://github.com/vippsas/vipps-plugins).
+If a plugin is not available, the easiest - and **strongly recommended - way to integrate with the service is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language**. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
 
 ### OAuth 2.0
 
@@ -316,9 +320,9 @@ with Vipps"-button and linking the ID from Vipps with this account.
 
 ## Integrating with Vipps Login
 
-Vipps Login adheres to the OAuth2 and OpenIDConnect standards. The easiest way
+Vipps Login adheres to the OAuth2 and OpenIDConnect standards. The easiest - and **strongly recommended - way
 to integrate with the service is therefore to use a well renowned
-OAuth2.0/OpenID Connect Library for your programming language.
+OAuth2.0/OpenID Connect Library for your programming language**.
 Vipps does not recommend a specific library, but the list of
 [OIDC Relying Party libraries](https://openid.net/developers/certified/)
 certified by the OpenID Foundation is a good starting point.
@@ -326,8 +330,8 @@ certified by the OpenID Foundation is a good starting point.
 ### Manual integration
 
 This section contains information necessary to perform a manual integration with
-Vipps Login. This should not be attempted without a solid grasp of the OAuth2
-and Open ID Connect standards. All endpoints needed for integration can be found in our openid connect discovery endpoint. 
+Vipps Login. This **should not be attempted without a solid grasp of the OAuth2
+and Open ID Connect standards**. All endpoints needed for integration can be found in our openid connect discovery endpoint. 
 These endpoints should be fetched dynamically by your application, since they are prone for change.
 
 #### Openid connect discovery endpoint
