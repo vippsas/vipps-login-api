@@ -19,7 +19,7 @@ Vipps Login will be the first service to integrate with this new endpoint.
 
 ## Api changes
 * Scope `nnin` is changed to `nin`.
-* Format of claim `birthdate` is changed from **dd.mm.yyyy** to **yyyy-mm-dd**, to comply with the ISO 8601 format.
+* Format of claim `birthdate` is changed from `DD.MM.YYYY` to `YYYY-MM-DD`, to comply with the ISO 8601 format.
 * Claim address have been converted from a list of all address to an object of the default address. All other addresses are served under `other_addresses` as a list. 
 This is done to comply with the OIDC-standard which expect address to be a JSON object.
 * User information is no longer served on the `id_token`. Therefore, the `id_token` will only contain user ids. 
@@ -36,7 +36,7 @@ In the new API the claim `address` is now the preferred address (default) for th
 This new object will contain the same fields, except for field `default`, which is implied.
 The other addresses, if any, of the user are now served under claim `other_addresses` as a list.
 
-The format for claim `birthdate` has been updated from dd.mm.yyyy to yyyy-mm-dd.
+The format for claim `birthdate` has been updated from `DD.MM.YYYY` to `YYYY-MM-DD`.
 
 See here for an example of the [userinfo response](https://vippsas.github.io/vipps-login-api/#/public/userinfo).
 If the integration to Vipps Login are using the 'id_token' for fetching user information, then this has to be converted to fetch these from the '/userinfo' endpoint.
