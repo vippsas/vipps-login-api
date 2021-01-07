@@ -1,6 +1,6 @@
 # Vipps Login API 2.0 migration
 
-Document version 1.0.0.
+Document version 1.0.1.
 
 Version 1 of the Vipps login API will have end of life on February 28th 2021.
 
@@ -27,12 +27,17 @@ This is done since the data in the id token should be used to lookup the authent
 * Updated URL to userinfo can be found under [discovery endpoints](vipps-login-api.md#openid-connect-discovery-endpoint), we recommend to fetch these dynamically.
 
 ## Convert to Vipps Login api version 2.0
-To control which response to serve we need the merchant to send inn scope 'api_version_2'.
-Once starting to use Vipps Login api version 2.0 if the scope 'nnin' is being requested it has to be converted to 'nin'.
-In the new api the claim 'address' is now the preferred address (default) for the Vipps user and no longer a list of all addresses.
-This new object will contain the same fields, except for field 'default', which is implied.
-The other addresses, if any, of the user are now served under claim 'other_addresses' as a list.
-The format for claim 'birthdate' has been updated from dd.mm.yyyy to yyyy-mm-dd.
+
+To control which response to serve we need the merchant to send inn scope `api_version_2`.
+
+Once starting to use Vipps Login API version 2.0 if the scope `nnin` is being requested it has to be converted to `nin.
+
+In the new API the claim `address` is now the preferred address (default) for the Vipps user and no longer a list of all addresses.
+This new object will contain the same fields, except for field `default`, which is implied.
+The other addresses, if any, of the user are now served under claim `other_addresses` as a list.
+
+The format for claim `birthdate` has been updated from dd.mm.yyyy to yyyy-mm-dd.
+
 See here for an example of the [userinfo response](https://vippsas.github.io/vipps-login-api/#/public/userinfo).
 If the integration to Vipps Login are using the 'id_token' for fetching user information, then this has to be converted to fetch these from the '/userinfo' endpoint.
 
