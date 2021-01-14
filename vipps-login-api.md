@@ -457,8 +457,7 @@ means available to it via the user-agent.
 | redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
 | scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
-| login_hint        | Optional. Setting this to `unsolicited:nodialog` enables #No-dialog-flow                                                                                                                  |
-| requested_flow            | Optional. Request a specific flow for the user. See [App integration](#app-integration) and [Automatic return from Vipps app](#automatic-return-from-vipps-app)                                             |
+| requested_flow            | Optional. Request a specific flow for the user. See [App integration](#app-integration), [Automatic return from Vipps app](#automatic-return-from-vipps-app) and [No dialog flow](#no-dialog-flow)                                            |
 | app_callback_uri  | Optional. The target uri for automatic switch back to merchant app. Requires `requested_flow=app_to_app`. Example `merchant-app://callback`                                                             |
 
 For example, the client directs the user-agent to make the following HTTP request:
@@ -770,7 +769,7 @@ It is important merchants verify that users returning to a different browser tha
 
 
 ### No dialog flow
-This flow is described [here](#no-dialog-flow---log-the-user-in-directly-when-possible). To attempt a no dialog login add the query parameter `login_hint=unsolicited:nodialog` to the [Authorization request](#OAuth-2.0-Authorize) uri.
+This flow is described [here](#no-dialog-flow---log-the-user-in-directly-when-possible). To attempt a no dialog login add the query parameter `requested_flow=no_dialog` to the [Authorization request](#OAuth-2.0-Authorize) uri.
 
 
 If the user completes the login they will be returned to the `redirect_uri` with a code that can be used to complete the login. Just like in a regular [Authorization code](#authorization-code-grant) login.
@@ -781,7 +780,7 @@ If the user is not logged in they will be returned with an error. Some possible 
 
 Not logged in return uri example: `https://client.example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
 
-In all cases a new login can be started by removing the parameter `login_hint=unsolicited:nodialog` and initiating a new login for the user.
+In all cases a new login can be started by removing the parameter `requested_flow=no_dialog` and initiating a new login for the user.
 
 ## Questions and answers
 
