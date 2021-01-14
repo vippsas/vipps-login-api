@@ -65,6 +65,8 @@ If a plugin is not available, the easiest - and **strongly recommended - way to 
 
 The Vipps login API authenticates the user in the web browser. The Vipps login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended).
 
+See our [developer section](https://github.com/vippsas/vipps-developers/blob/master/vipps-test-environment.md#vipps-test-apps) for information about our test environment, test apps and test users.
+
 ### Versions
 [Api Version 1.0](https://github.com/vippsas/vipps-login-api/blob/master/versions/1.0/vipps-login-api.md)
 
@@ -717,14 +719,26 @@ Expected flow:
 ```
 Merchant app -> webview -> Vipps app -> webview -> merchant app
 ```
-The merchant app must ensure that the webview is still present after returning from the Vipps app, so that the login can complete.
 
-This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
-The `app_callback_uri` must be a URI that will trigger the merchant app. The `app_callback_uri` must be added as an redirect URI in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request. This flow uses both `app_callback_url` and `redirect_uri`:
+The `app_callback_url` will be used to trigger the merchant app. The `app_callback_url` only moves the user back to the merchant app. 
+The `redirect_uri` is used for the actual completion of the login.
+
+The `app_callback_uri` must be a URI that will trigger the merchant app. 
+The `app_callback_uri` must be added as an redirect URI in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+
+A typical flow/implementation should look like this:
+  1. Open a webview (SafariViewController and Chrome Custom Tabs are preferred) in your app and initiate the call to Vipps login
+  2. If required, Vipps login will app switch the user to the Vipps app (if the user is remembered in browser and you use a webview with access to these cookies the user will be authenticated directly in your webview - the user will then be on step 5 below)
+  3. When the user has approved the login in the Vipps app the user will be returned to the `app_callback_url`
+  4. The user will then be returned to the merchant app. The merchant app must ensure that the webview is still present after returning from the Vipps app, so that the login can complete.
+  5. Vipps login will finalise the authentication of the user and acquire consent to share information if needed. When this is finished the user will be redirected to the `redirect_uri`. The Vipps login process has now finished and the merchant's page controls the remaining process.
+  6. The merchant captures and handles the data received from Vipps and closes the webview.
+
 
 Example:
 ```
-...&requested_flow=app_to_app&app_callback_uri=merchant-app://callback...
+...&requested_flow=app_to_app&app_callback_uri=merchant-app://callback&redirect_uri={redirect_uri}...
 ```
 
 Parameters `state` and possibly `error` will be passed as query parameters to the `app_callback_uri`. The `state` parameter has the same value as the `state` parameter passed to the [Authorize](#oauth-20-authorize) request.
@@ -738,8 +752,6 @@ Example error callback:
 ```
 merchant-app://callback?state=218gz18yveu1ybajwh2g1h3g?error=unknown_error
 ```
-
-The `app_callback_uri` should not be confused with the `redirect_uri`. The `app_callback_uri` only moves the user back to the merchant app. The `redirect_uri` is used for the actual completion of the login. When using this flow the merchant need to provide both.
 
 
 ### Automatic return from Vipps app
