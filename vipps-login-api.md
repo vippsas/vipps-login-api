@@ -720,21 +720,17 @@ Expected flow:
 Merchant app -> webview -> Vipps app -> webview -> merchant app
 ```
 
-This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request. This flow uses both `app_callback_url` and `redirect_uri`:
-The `app_callback_url` will be used to trigger the merchant app. The `app_callback_url` only moves the user back to the merchant app. 
-The `redirect_uri` is used for the actual completion of the login.
+This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
 
-The `app_callback_uri` must be a URI that will trigger the merchant app. 
-The `app_callback_uri` must be added as an redirect URI in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+This flow requires both the `app_callback_url` and `redirect_uri` parameters: The `app_callback_url` should be a URI that will trigger the merchant's app and is used in the middle of the flow while the `redirect_uri` is used to complete the login. <b>Both</b> URIs must be added as a redirect URI in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
-A typical flow/implementation should look like this:
-  1. Open a webview (SafariViewController and Chrome Custom Tabs are preferred) in your app and initiate the call to Vipps login
-  2. If required, Vipps login will app switch the user to the Vipps app (if the user is remembered in browser and you use a webview with access to these cookies the user will be authenticated directly in your webview - the user will then be on step 5 below)
-  3. When the user has approved the login in the Vipps app the user will be returned to the `app_callback_url`
-  4. The user will then be returned to the merchant app. The merchant app must ensure that the webview is still present after returning from the Vipps app, so that the login can complete.
-  5. Vipps login will finalise the authentication of the user and acquire consent to share information if needed. When this is finished the user will be redirected to the `redirect_uri`. The Vipps login process has now finished and the merchant's page controls the remaining process.
-  6. The merchant captures and handles the data received from Vipps and closes the webview.
-
+A typical flow/implementation might look like this:
+1. An OpenID authentication flow is initiated towards Vipps login in a webview in the merchant's app, preferably through a library like https://appauth.io/. SafariViewController and Chrome Custom Tabs are preferred browsers.
+2. If required, Vipps login will app switch the user to the Vipps app (if the user is remembered in browser and you use a webview with access to these cookies the user will be authenticated directly in your webview - the user will then be on step 5 below)
+3. When the user has approved the login in the Vipps app the `app_callback_url` is triggered.
+4. The `app_callback_url` will return the user to the merchant app. The merchant app must ensure that the webview is still present after returning from the Vipps app, so that the login can complete.
+5. Vipps login will finalise the authentication of the user and acquire consent to share information if needed. When this is finished the user will be redirected to the `redirect_uri`. The Vipps login process has now finished and the merchant controls the remaining process.
+6. The merchant captures and handles the data received from Vipps. The webview can be abandoned.
 
 Example:
 ```
