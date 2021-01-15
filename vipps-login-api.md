@@ -724,9 +724,7 @@ This flow can be enabled per login request by adding the `requested_flow=app_to_
 
 This flow requires both the `app_callback_url` and `redirect_uri` parameters: The `app_callback_url` should be a URI that will trigger the merchant's app and is used in the middle of the flow while the `redirect_uri` is used to complete the login. <b>Both</b> URIs must be added as a redirect URI in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
-The `redirect_uri` can either redirect the user to a page in the browser or to the app: 
-* If `redirect_uri` returns to browser (https://merchant.com/callback...): This means that information from Vipps login will be handleded by the merchant backend. The merchant backend have to securely communicate this with the app.
-* If `redirect_uri` returns to app (merchant-app://callback...): This means that the information need to be sent from the app to the backend, or the information and login needs to be handled by the app.
+The `redirect_uri` can either redirect the user to a page in the browser or to the app. In either case it is important to avoid using static client secrets in the app for completing the login. (For more information see https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous and https://tools.ietf.org/html/rfc8252#section-8.5).
 
 A typical flow/implementation might look like this:
 1. An OpenID authentication flow is initiated towards Vipps login in a webview in the merchant's app, preferably through a library like https://appauth.io/. SafariViewController and Chrome Custom Tabs are preferred browsers.
