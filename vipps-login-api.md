@@ -724,6 +724,10 @@ This flow can be enabled per login request by adding the `requested_flow=app_to_
 
 This flow requires both the `app_callback_url` and `redirect_uri` parameters: The `app_callback_url` should be a URI that will trigger the merchant's app and is used in the middle of the flow while the `redirect_uri` is used to complete the login. <b>Both</b> URIs must be added as a redirect URI in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
+The `redirect_uri` can either redirect the user to a page in the browser or to the app: 
+* If `redirect_uri` returns to browser (https://merchant.com/callback...): This means that information from Vipps login will be handleded by the merchant backend. The merchant backend have to securely communicate this with the app.
+* If `redirect_uri` returns to app (merchant-app://callback...): This means that the information need to be sent from the app to the backend, or the information and login needs to be handled by the app.
+
 A typical flow/implementation might look like this:
 1. An OpenID authentication flow is initiated towards Vipps login in a webview in the merchant's app, preferably through a library like https://appauth.io/. SafariViewController and Chrome Custom Tabs are preferred browsers.
 2. If required, Vipps login will app switch the user to the Vipps app (if the user is remembered in browser and you use a webview with access to these cookies the user will be authenticated directly in your webview - the user will then be on step 5 below)
@@ -732,9 +736,10 @@ A typical flow/implementation might look like this:
 5. Vipps login will finalise the authentication of the user and acquire consent to share information if needed. When this is finished the user will be redirected to the `redirect_uri`. The Vipps login process has now finished and the merchant controls the remaining process.
 6. The merchant captures and handles the data received from Vipps. The webview can be abandoned.
 
-Example:
+Examples:
 ```
-...&requested_flow=app_to_app&app_callback_uri=merchant-app://callback&redirect_uri={redirect_uri}...
+...&requested_flow=app_to_app&app_callback_uri=merchant-app://trigger&redirect_uri=merchant-app://callback...
+...&requested_flow=app_to_app&app_callback_uri=merchant-app://trigger&redirect_uri=https://merchant.com/callback...
 ```
 
 Parameters `state` and possibly `error` will be passed as query parameters to the `app_callback_uri`. The `state` parameter has the same value as the `state` parameter passed to the [Authorize](#oauth-20-authorize) request.
