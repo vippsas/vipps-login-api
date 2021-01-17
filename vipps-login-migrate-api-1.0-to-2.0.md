@@ -1,6 +1,6 @@
 # Vipps Login API 2.0 migration
 
-Document version 1.0.1.
+Document version 1.0.2.
 
 Version 1 of the Vipps login API will have end of life on February 28th 2021.
 
@@ -17,16 +17,17 @@ Reference:\
 To have a unified way of serving a merchant user information between our applications in Vipps we have implemented a new service handling this responsibility.
 Vipps Login will be the first service to integrate with this new endpoint.
 
-## Api changes
-* Scope `nnin` is changed to `nin`.
-* Format of claim `birthdate` is changed from `DD.MM.YYYY` to `YYYY-MM-DD`, to comply with the ISO 8601 format.
-* Claim address have been converted from a list of all address to an object of the default address. All other addresses are served under `other_addresses` as a list. 
-This is done to comply with the OIDC-standard which expect address to be a JSON object.
-* User information is no longer served on the `id_token`. Therefore, the `id_token` will only contain user ids. 
-This is done since the data in the id token should be used to _look up_ the authenticated user, while the userinfo endpoint should be used to _fetch and store_ user information.   
-* The updated URL to userinfo can be found under [discovery endpoints](vipps-login-api.md#openid-connect-discovery-endpoint), we recommend to fetch these dynamically.
+## API changes
 
-## Convert to Vipps Login api version 2.0
+# Scope `nnin` is changed to `nin`.
+# Format of claim `birthdate` is changed from `DD.MM.YYYY` to `YYYY-MM-DD`, to comply with the ISO 8601 format.
+# Claim address have been converted from a list of all address to an object of the default address. All other addresses are served under `other_addresses` as a list. 
+This is done to comply with the OIDC-standard which expect address to be a JSON object.
+# User information is no longer served on the `id_token`. Therefore, the `id_token` will only contain user ids. 
+This is done since the data in the id token should be used to _look up_ the authenticated user, while the userinfo endpoint should be used to _fetch and store_ user information.   
+# The updated URL to userinfo can be found under [discovery endpoints](vipps-login-api.md#openid-connect-discovery-endpoint), we recommend to fetch these dynamically.
+
+## Convert to Vipps Login API version 2.0
 
 To control which response to serve we need the merchant to send inn scope `api_version_2`.
 
