@@ -91,6 +91,14 @@ By clicking "Rediger" next to the "Visning i appen" heading you will come to a s
 
 Currently this logo is not use for Vipps login but soon it will be shown in the overview of consents given.
 
+## How can I use client_secret_post for authentication?
+It is possible to change the token endpoint authentication method on [portal.vipps.no](https://portal.vipps.no).
+
+Under the “Developer” section you will find the Setup Vipps login option for your sale units.
+
+Here you have the option to change the token endpoint authentication method, and see which method is currently active:
+![Token endpoint authentication method choice in the portal](images/portal_token_endpoint_authentication_method.png)
+
 ## Why do I get “Error: invalid_client”?
 
 This means that the `client_id` and `client_secret` used is not valid for Vipps login.
@@ -125,6 +133,7 @@ All merchants get access to these scopes:
 * name
 * phoneNumber
 
+
 **Important:** You should not ask for more scopes than you need for your
 application. The user will need to consent to sharing the information with you
 so adding more scopes increases the chance that they will decline.
@@ -133,7 +142,9 @@ The scopes “openid” is required and does not require end user consent. It
 provides the claim “sub” which is a unique id for the end user at that
 particular merchant. Note: Different merchants will get different subs for the same end user.
 
-Some merchants can get access to NIN. Merchants need to request this separately.
+Some merchants can get access to NIN. Merchants need to request this separately. 
+
+You can find the liste of scopes that your individual sales units have access to in [portal.vipps.no](https://portal.vipps.no) under the “Developer” section and the Setup Vipps login option.
 
 ## If a user changes phone numbers, is the `sub` still the same?
 
@@ -193,15 +204,6 @@ The state parameter is an opaque value used by the client to maintain state betw
 
 Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
 
-## How can I use client_secret_post for authentication?
-It is possible to change the token endpoint authentication method on [portal.vipps.no](https://portal.vipps.no).
-
-Under the “Developer” section you will find the Setup Vipps login option for your sale units:
-![Vipps “Developer” section with Setup Vipps login option](images/portal_setup_login.png)
-
-
-Here you have the option to change the token endpoint authentication method, and see which method is currently active:
-![Token endpoint authentication method choice in the portal](images/portal_token_endpoint_authentication_method.png)
 ## Common errors
 
 Certain versions of Chrome gives the error `No+CSRF+value+available+in+the+session+cookie`.
