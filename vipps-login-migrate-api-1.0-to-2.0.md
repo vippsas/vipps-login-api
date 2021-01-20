@@ -18,7 +18,8 @@ To have a unified way of serving a merchant user information between our applica
 Vipps Login will be the first service to integrate with this new endpoint.
 
 ## API changes
-User information will no longer be available as part of the 'id_token'. The 'id_token' will return the ID for the user ('sub'), this needs to be used to get the additional user information from the '/userinfo' endpoint. See here for an example of the [userinfo response](https://vippsas.github.io/vipps-login-api/#/public/userinfo).
+User information will no longer be available as part of the 'id_token'. The 'id_token' will return the ID for the user ('sub'). To get the additional user information a request has to be sent to the '/userinfo' endpoint using this 'sub'. See here for an example of the [userinfo response](https://vippsas.github.io/vipps-login-api/#/public/userinfo).
+
 
 The following changes apply to the respons from the '/userinfo' endpoint:
 1. Scope `nnin` is changed to `nin`.
