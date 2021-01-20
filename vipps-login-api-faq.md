@@ -196,11 +196,11 @@ Vipps login do not currently support merchants specifying that the user needs to
 ## How can I use client_secret_post for authentication?
 It is possible to change the token endpoint authentication method on [portal.vipps.no](https://portal.vipps.no).
 
-Under the “Developer” section you will find the Setup Vipps login option for your sale units.
+Under the “Developer” section you will find the Setup Vipps login option for your sale units:
 ![Vipps “Developer” section with Setup Vipps login option](images/portal_setup_login.png)
 
 
-You have the option to change the token endpoint authentication method, and see which method is currently active:
+Here you have the option to change the token endpoint authentication method, and see which method is currently active:
 ![Token endpoint authentication method choice in the portal](images/portal_token_endpoint_authentication_method.png)
 ## Common errors
 
