@@ -194,9 +194,14 @@ The state parameter is an opaque value used by the client to maintain state betw
 Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
 
 ## How can I use client_secret_post for authentication?
+It is possible to change token endpoint authentication method on [portal.vipps.no](https://portal.vipps.no).
 
-To switch from `client_secret_basic` (default) to `client_secret_post` or vice versa, you need to [contact Integration](https://github.com/vippsas/vipps-developers/blob/master/contact.md) to have us change it for you.
+Under the “Developer” section you will find the Setup Vipps login option for your sale units.
+![Vipps “Developer” section with Setup Vipps login option](images/portal_setup_login.png)
 
+
+You have the option to change the token endpoint authentication method, and see which method is currently active:
+![Token endpoint authentication method choice in the portal](images/portal_token_endpoint_authentication_method.png)
 ## Common errors
 
 Certain versions of Chrome gives the error `No+CSRF+value+available+in+the+session+cookie`.
