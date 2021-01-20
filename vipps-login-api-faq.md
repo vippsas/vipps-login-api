@@ -17,6 +17,7 @@ Document version 2.0.4.
 - [How can I activate and set up Vipps login?](#how-can-i-activate-and-set-up-vipps-login)
 - [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
 - [How can I change the name and logo shown with Vipps login?](#how-can-i-change-the-name-and-logo-shown-with-vipps-login)
+- [How can I use client_secret_post for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
 - [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
@@ -25,7 +26,6 @@ Document version 2.0.4.
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
 - [What's the purpose of the state parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)??](#is-it-possible-for-me-as-a-merchant-to-control-whether-the-user-can-log-in-through-being-remembered-in-browser-or-need-to-use-the-app-to-authenticate-two-factor-authentication)
-- [How can I use client_secret_post for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 - [Common errors](#common-errors)
 
 ## Where do I find the `client_id` and `client_secret`?
