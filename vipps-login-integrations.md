@@ -1,8 +1,10 @@
 # Vipps Login integrations
 
-#Auth0
+## Auth0
 
-Add a new Enterprise Connection: Open ID Connect
+First add a new Enterprise Connection of type "Open ID Connect".
+
+The configuration required is as following:
 
 Issuer URL can be found as the "issuer" field in the openid-configuration. See https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#openid-connect-discovery-endpoint.
 
