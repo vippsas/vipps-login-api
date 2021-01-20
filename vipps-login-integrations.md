@@ -2,7 +2,7 @@
 
 ## Auth0
 
-First add a new Enterprise Connection of type "Open ID Connect".
+On the Auth0 dashboard add a new Enterprise Connection of type "Open ID Connect".
 
 The configuration required is as following:
 
