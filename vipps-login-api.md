@@ -717,7 +717,7 @@ It is possible to enable automatic switch of users back to the merchant app, fro
 
 Expected flow:
 ```
-Merchant app -> webview -> Vipps app -> webview -> merchant app
+Merchant app -> Merchant app controlled browser -> Vipps app -> Merchant app controlled browser -> Merchant app
 ```
 
 This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
