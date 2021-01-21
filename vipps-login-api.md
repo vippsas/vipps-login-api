@@ -33,6 +33,7 @@ for all the details.
     * [ID Token](#id-token)
     * [Access Token](#access-token)
     * [Refresh Token](#refresh-token)
+    * [Token endpoint authentication method](#token-endpoint-authentication-method)
   - [Scopes](#scopes)
 * [Recommendations on linking to user account](#Recommendations-on-linking-to-user-account)
 * [Integrating with Vipps Login](#integrating-with-vipps-login)
@@ -266,6 +267,7 @@ It is possible to change the authentication method in the Vipps portal.
 Go to [How can I use client_secret_post for authentication?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication) for more information on how to change the authentication method.
 
 For more information on the token endpoint see [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint) and [RFC-6749 section 3.2](https://tools.ietf.org/html/rfc6749#section-3.2)
+
 ## Scopes
 
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.  
