@@ -92,7 +92,7 @@ By clicking "Rediger" next to the "Visning i appen" heading you will come to a s
 Currently this logo is not use for Vipps login but soon it will be shown in the overview of consents given.
 
 ## How can I use client_secret_post for authentication?
-It is possible to change the token endpoint authentication method on [portal.vipps.no](https://portal.vipps.no).
+It is possible to change the token endpoint authentication method on [portal.vipps.no](https://portal.vipps.no). This setting will then apply to all login transactions on this sales unit.
 
 Under the “Developer” section you will find the Setup Vipps login option for your sale units.
 
