@@ -258,6 +258,13 @@ For more information see [RFC-6749 section 4.1.3-4.1.4](https://tools.ietf.org/h
 
 Vipps Login does not currently support refresh tokens.
 
+
+### Token endpoint authentication method
+
+The default token endpoint authentication method is `client_secret_basic`.
+It is possible to change the token endpoint authentication method in the Vipps portal.
+Go to [How can I use client_secret_post for authentication?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication) for more information on how to change the authentication method.
+
 ## Scopes
 
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.  
