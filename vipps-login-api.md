@@ -1,8 +1,8 @@
 # Vipps Login API
 
-API version: 2.0  
+API version: 2.0
 
-Please note that **all merchants on Vipps Login need to include scope 'api_version_2'.** 
+Please note that **all merchants on Vipps Login need to include scope 'api_version_2'.**
 Version 1 (the version you will get if 'api_version_2'is omitted) will be discontinued February 28th 2021.
 
 Document version 4.0.1
@@ -19,7 +19,7 @@ for all the details.
   - [Flows](#flows)
     * [Remembered flow](#remembered-flow)
     * [Desktop flow - phone number based push flow](#desktop-flow---phone-number-based-push-flow)
-    * [Mobile flow - app switch based flow](#Mobile-flow---app-switch-based-flow)
+    * [Mobile flow - deeplink based flow](#Mobile-flow---app-switch-based-flow)
         * [App to app flow](#app-to-app-flow)
         * [Automatic return from Vipps app](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers)
     * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
@@ -99,14 +99,14 @@ The user is then authenticated in browser and can provide consent if required. T
 ![Consent in desktop](images/Number_input_flow_desktop2.png	)
 
 
-#### Mobile flow - app switch based flow
-If the user is on a mobile device, the Vipps landing page in the browser will automatically trigger an app switch to the Vipps app if the user is not remembered in browsere. The user will not be prompted to enter the phone number. In the Vipps app the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app the user needs to switch back to the Vipps page in the browser/app. On the Vipps landing page the user will finalise the autentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
+#### Mobile flow - deeplink based flow
+If the user is on a mobile device, the Vipps landing page in the browser will automatically trigger a deeplink to the Vipps app if the user is not remembered in the browser. The user will not be prompted to enter the phone number. In the Vipps app the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app the user needs to switch back to the Vipps page in the browser/app. On the Vipps landing page the user will finalise the autentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
 
 ![Mobile flow with app-switch](images/Mobile_flow_with_partial-app_switch.png)
 
-We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred implementations as these are able to access cookies stored in the user's browser and they are known to support required app switch to the Vipps app.
+We recommend that apps initiate Vipps login in a webview. SafariViewController and Chrome Custom Tabs are preferred implementations as these are able to access cookies stored in the user's browser and they are known to support deeplinking to the Vipps app.
 
-There are two specialised flows that merchants can use to automatically switch the user back from the Vipps-app to the originating browser/app upon login confirmation. From the illustration above this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch" will be replaced by an automatic app-switch. These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
+There are two specialised flows that merchants can use to automatically switch the user back from the Vipps-app to the originating browser/app upon login confirmation. From the illustration above this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch"  will be replaced by an automatic app-switch (eg. deeplink). These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
 
 Which of the flows to use is controlled with the initiation of the individual login session. The merchant can thus use all available login flows on the same client_id and adapt to the different use-cases and login scenarios.
 
@@ -120,14 +120,14 @@ See [how to implement](https://github.com/vippsas/vipps-login-api/blob/master/vi
 ##### Automatic return from Vipps app (requires the merchant to handle user session cross browsers)
 This flow is designed for web-pages that would like to have the user automatically returned to a browser after completing the confirmation in the Vipps app. Note that there are security implications by using this flow. **It is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable**.
 
-Due to how the different mobile operating systems handle app-switch to browser, the user can be returned to a different browser than the one he/she started in. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confirming in the Vipps app. This means that the merchant site cannot rely on cookies beeing present in the browser the user is returned to. 
+Due to how the different mobile operating systems handle app-switch to browser, the user can be returned to a different browser than the one he/she started in. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confirming in the Vipps app. This means that the merchant site cannot rely on cookies beeing present in the browser the user is returned to.
 
 By using this flow Vipps login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
 
 See [how to implement](#automatic-return-from-vipps-app), including more informattion on the security considerations.
 
 #### No dialog flow - log the user in directly when possible
-This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps login process will be stopped and no interaction will be asked from the user in this flow. When using this flow a spinner will be shown while Vipps login try to log the user in. Once the process is completed the user will be returned to the merchant as in the ordinary Vipps login flow. As with the other Vipps login flow it is recommended to run Vipps login in a redirect mode and iFrame is not supported. 
+This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps login process will be stopped and no interaction will be asked from the user in this flow. When using this flow a spinner will be shown while Vipps login try to log the user in. Once the process is completed the user will be returned to the merchant as in the ordinary Vipps login flow. As with the other Vipps login flow it is recommended to run Vipps login in a redirect mode and iFrame is not supported.
 
 The user will be logged in with this flow if:
 * they are remembered in the browser and no consent is required
@@ -142,7 +142,7 @@ Illustration of how the flow can look when the user clicks "Logg inn" on the fro
 
 Possible use cases includes:
 * When the user is going to a section of your site/service that requires the user to be logged in, e.g. my page or a personalized chatbot. This might be when the user is already on the webpage, or if the user is being linked directly to her My page from an email/newsletter.
-* When a user clicks on your login option it is possible to try to log the user in with Vipps first. 
+* When a user clicks on your login option it is possible to try to log the user in with Vipps first.
 
 In such scenarios the users that can be logged in directly will get an even better login experience and quickly come to the information and services that are relevant for them
 
@@ -176,9 +176,9 @@ verify the identity of the End-User based on the authentication performed by an
 Authorization Server, as well as to obtain basic profile information about the
 End-User in a REST-like manner.
 
-Some good sources to get you started are:   
+Some good sources to get you started are:
 [Identity, Claims, & Tokens – An OpenID Connect Primer](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1)
-and  
+and
 [OpenID Connect explained](https://connect2id.com/learn/openid-connect).
 
 ### Supported OpenID Connect Flows
@@ -199,7 +199,7 @@ For more information see
 
 ### ID Token
 
-The ID token is a signed information object representing the authenticated identity of the user.   
+The ID token is a signed information object representing the authenticated identity of the user.
 As part of the OpenID Connect standard, the ID token is encoded as a JWT and signed using the JWS standard.
 The ID Token can be decoded for debugging purposes by tools such as [jwt.io](https://jwt.io/).
 
@@ -246,7 +246,7 @@ Access tokens are randoms strings that represents the authorization of a
 specific application to access specific parts of a user’s data.
 The token itself does not provide any information, but it can be used to
 fetch the data that the end-user has consented to share from the
-[userinfo endpoint](#userinfo).  
+[userinfo endpoint](#userinfo).
 Access tokens _must_ be kept confidential in transit and storage.
 
 Example:
@@ -270,7 +270,7 @@ For more information on the token endpoint see [OpenID Connect Core 1.0](https:/
 
 ## Scopes
 
-Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.  
+Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.
 Vipps Login currently supports the following scopes:
 
 | Scopes      | Description                                    | User consent required  |
@@ -312,7 +312,7 @@ the user into her account.
 If you have not already stored the ID: check if the user already has an account
 based on phone number and e-mail address. If this gives a match on one (and
 only one) account, then you can use this to log the user into that account since
-both phone number and e-mail address are verified in Vipps. Before linking an account based on e-mail, ensure that the flag "email_verified : true" in the response. If this for some reason is "false" the matching should be aborted, or the user should be prompted to login to the original account or confirm the account linking by having a confirmation link sent to the email address.  
+both phone number and e-mail address are verified in Vipps. Before linking an account based on e-mail, ensure that the flag "email_verified : true" in the response. If this for some reason is "false" the matching should be aborted, or the user should be prompted to login to the original account or confirm the account linking by having a confirmation link sent to the email address.
 
 Before completing the linking, it is an advantage to do a "sanity check" on the name
 of the Vipps user to the name in the existing account to make sure that the
@@ -341,7 +341,7 @@ certified by the OpenID Foundation is a good starting point.
 
 This section contains information necessary to perform a manual integration with
 Vipps Login. This **should not be attempted without a solid grasp of the OAuth2
-and Open ID Connect standards**. All endpoints needed for integration can be found in our openid connect discovery endpoint. 
+and Open ID Connect standards**. All endpoints needed for integration can be found in our openid connect discovery endpoint.
 These endpoints should be fetched dynamically by your application, since they are prone for change.
 
 #### Openid connect discovery endpoint
@@ -351,7 +351,7 @@ These endpoints should be fetched dynamically by your application, since they ar
 | Test        |https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration |
 | Production  |https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration     |
 
-The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients.  
+The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients.
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
 **Request**
@@ -515,8 +515,8 @@ below to the HTTP body by using the `application/x-www-form-urlencoded` format.
 
 | Header            | Description                            |
 | ----------------- | -------------------------------------  |
-| Content-Type      | "application/x-www-form-urlencoded"    |                             
-| Authorization     | "Basic {Client Credentials}"           |                                                                                                                                   
+| Content-Type      | "application/x-www-form-urlencoded"    |
+| Authorization     | "Basic {Client Credentials}"           |
 
 The Client Credentials is a base 64 encoded string consisting of the Client id
 and secret issued by Vipps joined by ":"
@@ -562,7 +562,7 @@ Example response:
 
 #####  Userinfo
 
-This endpoint returns the payload with the information that the user has consented to share, which is provided in 
+This endpoint returns the payload with the information that the user has consented to share, which is provided in
 the OAuth 2.0 access token.
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
 
@@ -572,7 +572,7 @@ You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connec
 
 | Header            | Description                            |
 | ----------------- | -------------------------------------  |
-| Authorization     | "Bearer {Access Token}"                |    
+| Authorization     | "Bearer {Access Token}"                |
 
 The access token is received on a successful request to the [token endpoint](#oauth-20-token)
 
@@ -655,7 +655,7 @@ Overview
 | `200 OK`                | Request successful.                                     |
 | `500 Server Error`      | An internal Vipps problem.                              |
 
-Examples:  
+Examples:
 *200 response*
 
 ```json
@@ -685,7 +685,7 @@ to redirect the resource owner to them.
 After a successful authentication, the user agent is redirected to this endpoint
 with the following parameters added to the query component. This URI needs to
 be pre-registered with Vipps and supplied as a query parameter on calls to the
-[OAuth2 authorize endpoint](#OAuth-2.0-Authorize).  
+[OAuth2 authorize endpoint](#OAuth-2.0-Authorize).
 
 | Param             | Description                                                                                                                                                                                                   |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -732,13 +732,17 @@ Merchant app -> Merchant app controlled browser -> Vipps app -> Merchant app con
 
 This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_url` parameters to the [Authorize](#oauth-20-authorize) request.
 
-This flow requires both the `app_callback_url` and `redirect_uri` parameters: The `app_callback_url` should be a URI that will trigger the merchant's app and is used in the middle of the flow while the `redirect_uri` is used to complete the login. <b>Both</b> URIs must be added as a redirect URI in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+This flow requires both the `app_callback_url` and `redirect_uri` parameters.
 
-The `redirect_uri` can either redirect the user to a page in the browser or to the app. In either case it is important to avoid using static client secrets in the app for completing the login. (For more information see https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous and https://tools.ietf.org/html/rfc8252#section-8.5).
+The `app_callback_url` should be a URI that makes the device switch back to the merchant's app again after the Vipps app portion of the flow is done (example: "merchant-app://callback")
+
+The `redirect_uri` is opened in the webview once the vipps login flow is completed there. This url can either redirect the user to a page in the webview, or be handled/intercepted by the merchant app. In either case it is important to avoid using static client secrets in the app for completing the login. (For more information see https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous and https://tools.ietf.org/html/rfc8252#section-8.5).
+
+<b>Both</b> URIs must be added in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
 A typical flow/implementation might look like this:
 1. An OpenID authentication flow is initiated towards Vipps login in a webview in the merchant's app, preferably through a library like https://appauth.io/. SafariViewController and Chrome Custom Tabs are preferred browsers.
-2. If required, Vipps login will app switch the user to the Vipps app (if the user is remembered in browser and you use a webview with access to these cookies the user will be authenticated directly in your webview - the user will then be on step 5 below)
+2. If required, Vipps login will deeplink the user over to the Vipps app (if the user is remembered in browser and you use a webview with access to these cookies the user will be authenticated directly in your webview - the user will then be on step 5 below)
 3. When the user has approved the login in the Vipps app the `app_callback_url` is triggered.
 4. The `app_callback_url` will return the user to the merchant app. The merchant app must ensure that the webview is still present after returning from the Vipps app, so that the login can complete.
 5. Vipps login will finalise the authentication of the user and acquire consent to share information if needed. When this is finished the user will be redirected to the `redirect_uri`. The Vipps login process has now finished and the merchant controls the remaining process.
@@ -775,7 +779,7 @@ This flow can be enabled per login by adding the parameter `requested_flow=autom
 
 ##### Session information
 
-The [state parameter](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback. 
+The [state parameter](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback.
 The state parameter cannot be thought of as a direct replacement of a user agent bound session.
 
 Some relevant considerations:
@@ -786,7 +790,7 @@ Some relevant considerations:
 * [The state parameter and CSRF](https://tools.ietf.org/html/rfc6749#section-10.12). Be aware of the recommendations of the OIDC/OAuth standards.
 
 ##### Verification
-It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser. 
+It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser.
 
 
 ### No dialog flow
@@ -797,7 +801,7 @@ If the user completes the login they will be returned to the `redirect_uri` with
 
 `https://client.example.com/callback?code=12adsa938721987321asd9873&state=123987218dh`
 
-If the user is not logged in they will be returned with an error. Some possible errors are `interaction_required`, `login_required` or `server_error`. 
+If the user is not logged in they will be returned with an error. Some possible errors are `interaction_required`, `login_required` or `server_error`.
 
 Not logged in return uri example: `https://client.example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
 
@@ -805,20 +809,20 @@ In all cases a new login can be started by removing the parameter `requested_flo
 
 ## Questions and answers
 
-### Compliance  
+### Compliance
 
-**Q**: How can our system dynamically "know/find out" if the user has revoked their concent for us to have access to his personal data in our system?  
+**Q**: How can our system dynamically "know/find out" if the user has revoked their concent for us to have access to his personal data in our system?
 **A**: We have a system for notifying merchants when an end-users revoke their consents. You find information in this webhook [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-webhooks.md)
 
 ### Technical
 
-**Q**: Can we have multiple URIs as landing pages?  
-**A**: You can register as many callback urls as you want; and then you specify which one you use in the request to [/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)  
+**Q**: Can we have multiple URIs as landing pages?
+**A**: You can register as many callback urls as you want; and then you specify which one you use in the request to [/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)
 
 ### UX
 
-**Q**: Can we change the name that appears in customer's Vipps app under `Login and Access`?  
-**A**: The name which is displayed in the app is the name of the Sale Unit. You can do it yourself in the merchant portal, [https://portal.vipps.no/](https://portal.vipps.no/). Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.  
+**Q**: Can we change the name that appears in customer's Vipps app under `Login and Access`?
+**A**: The name which is displayed in the app is the name of the Sale Unit. You can do it yourself in the merchant portal, [https://portal.vipps.no/](https://portal.vipps.no/). Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.
 
 ## Questions?
 
