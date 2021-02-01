@@ -2,10 +2,10 @@
 
 API version: 2.0
 
-Please note that **all merchants on Vipps Login need to include scope 'api_version_2'.**
-Version 1 (the version you will get if 'api_version_2'is omitted) will be discontinued February 28th 2021.
+Please note that **all merchants on Vipps Login need to include scope `api_version_2.**
+Version 1 (the version you will get if `api_version_2` is omitted) will be discontinued February 28th 2021.
 
-Document version 4.0.1
+Document version 4.0.2.
 
 See the
 [Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
