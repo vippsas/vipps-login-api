@@ -9,7 +9,7 @@ guide for
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.0.5.
+Document version 2.0.6.
 
 ## Table of contents
 
@@ -153,7 +153,10 @@ Yes, it's connected to the national identity number (nin).
 
 ## Why can I get userinfo after the user has revoked consent?
 
-During a login or a payment session the user consent to share information if it's requested by the merchant. This information is accessible for the merchant for the next 168 hours, even though the user revokes the consents in this period. Revoking consents will only affect future login- and payment-sessions.
+During a login or a payment session the user consent to share information if it's requested by the merchant. 
+This information is accessible for the merchant for the next 168 hours, even though the user revokes the consents in this period. 
+Revoking consents will only affect future login- and payment-sessions.
+
 
 ## Who can get access to NIN and how?
 
