@@ -9,7 +9,7 @@ guide for
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.0.4.
+Document version 2.0.5.
 
 ## Table of contents
 
@@ -22,6 +22,7 @@ Document version 2.0.4.
 - [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 - [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
+- [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
 - [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
 - [What's the purpose of the state parameter?](#whats-the-purpose-of-the-state-parameter)
@@ -142,13 +143,30 @@ The scopes “openid” is required and does not require end user consent. It
 provides the claim “sub” which is a unique id for the end user at that
 particular merchant. Note: Different merchants will get different subs for the same end user.
 
-Some merchants can get access to NIN. Merchants need to request this separately. 
+Some merchants can get access to NIN. Merchants need to request this separately.
 
 You can find the liste of scopes that your individual sales units have access to in [portal.vipps.no](https://portal.vipps.no) under the “Developer” section and the Setup Vipps login option.
 
 ## If a user changes phone numbers, is the `sub` still the same?
 
 Yes, it's connected to the national identity number (nin).
+
+## Why can I get userinfo after the user has revoked consent?
+
+As userinfo is setup at the moment both login-flow and payment-flow in userinfo
+get which scopes it can share with the merchant from either ecom (preapproved
+endpoint) or login (part of the access token). In these flows userinfo do not
+check anything extra since we can trust the places we get the scopes from.
+
+The idea behind this is that the user shares his information in the moment they
+pay or login, and we only store the information for the merchant until the time
+they can fetch it.
+
+The reason we do it like this is because, the user in theory can revoke the
+consent both during the payment-flow and login-flow which can case problems for
+some merchant, and some merchants needs up till 72 hours to fetch userinfo.
+
+See:
 
 ## Who can get access to NIN and how?
 
