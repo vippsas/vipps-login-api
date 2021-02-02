@@ -153,11 +153,10 @@ Yes, it's connected to the national identity number (nin).
 
 ## Why can I get userinfo after the user has revoked consent?
 
-The reason we do it like this is because, the user can revoke the
-consent both during the payment flow and the login flow.
-This can cause problems for some merchants, as some merchants needs up to
-72 hours to fetch userinfo, so we allow for fetching userinfo
-_for the first time_ even if the consent has been revoked "mid flight".
+During a login or a payment session the user consent to share information if it's requested by the merchant. 
+This information is accessible for the merchant for the next 168 hours, even though the user revokes the consents in this period. 
+Revoking consents will only affect future login- and payment-sessions.
+
 
 ## Who can get access to NIN and how?
 
