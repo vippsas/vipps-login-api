@@ -10,6 +10,7 @@ You can also find frequently asked questions about the product in the
 * [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md): An overview of how the Login API works.
 * [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): Information about API keys, product activation.
 * [Vipps Login API guide](vipps-login-api.md): Developer guide for Vipps Login API.
+* Postman: See [tools](tools/).
 * [Frequently Asked Questions](vipps-login-api-faq.md): Questions and answers.
 * [Vipps Login + Vipps Recurring](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-recurring-howitworks.md): Learn how you can use Login and Recurring together.
 
