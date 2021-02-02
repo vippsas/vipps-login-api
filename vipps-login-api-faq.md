@@ -153,20 +153,7 @@ Yes, it's connected to the national identity number (nin).
 
 ## Why can I get userinfo after the user has revoked consent?
 
-As userinfo is setup at the moment both login-flow and payment-flow in userinfo
-get which scopes it can share with the merchant from either ecom (preapproved
-endpoint) or login (part of the access token). In these flows userinfo do not
-check anything extra since we can trust the places we get the scopes from.
-
-The idea behind this is that the user shares his information in the moment they
-pay or login, and we only store the information for the merchant until the time
-they can fetch it.
-
-The reason we do it like this is because, the user in theory can revoke the
-consent both during the payment-flow and login-flow which can case problems for
-some merchant, and some merchants needs up till 72 hours to fetch userinfo.
-
-See:
+During a login or a payment session the user consent to share information if it's requested by the merchant. This information is accessible for the merchant for the next 168 hours, even though the user revokes the consents in this period. Revoking consents will only affect future login- and payment-sessions.
 
 ## Who can get access to NIN and how?
 
