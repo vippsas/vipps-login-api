@@ -9,7 +9,7 @@ guide for
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.0.5.
+Document version 2.0.6.
 
 ## Table of contents
 
@@ -153,20 +153,11 @@ Yes, it's connected to the national identity number (nin).
 
 ## Why can I get userinfo after the user has revoked consent?
 
-As userinfo is setup at the moment both login-flow and payment-flow in userinfo
-get which scopes it can share with the merchant from either ecom (preapproved
-endpoint) or login (part of the access token). In these flows userinfo do not
-check anything extra since we can trust the places we get the scopes from.
-
-The idea behind this is that the user shares his information in the moment they
-pay or login, and we only store the information for the merchant until the time
-they can fetch it.
-
-The reason we do it like this is because, the user in theory can revoke the
-consent both during the payment-flow and login-flow which can case problems for
-some merchant, and some merchants needs up till 72 hours to fetch userinfo.
-
-See:
+The reason we do it like this is because, the user can revoke the
+consent both during the payment flow and the login flow.
+This can cause problems for some merchants, as some merchants needs up to
+72 hours to fetch userinfo, so we allow for fetching userinfo
+_for the first time_ even if the consent has been revoked "mid flight".
 
 ## Who can get access to NIN and how?
 
