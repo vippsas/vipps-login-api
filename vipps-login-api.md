@@ -740,7 +740,7 @@ The `redirect_uri` is opened in the webview once the vipps login flow is complet
 
 <b>Both</b> URIs must be added in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
-The Vipps app will return some data with the return to the `app_callback_uri`. It contains two query parameters `state` and `resume_uri`. `State` is the OIDC `state` parameter passed at the start of a login which can be used to identify the specific login if needed. The `resume_uri`parameter is an URI that is opotional and can be used to resume the login after returning from the Vipps app.
+The Vipps app will return some data with the return to the `app_callback_uri`. It contains two query parameters `state` and `resume_uri`. `State` is the OIDC `state` parameter passed at the start of a login which can be used to identify the specific login if needed. The `resume_uri`parameter is an URI that is optional and can be used to resume the login after returning from the Vipps app.
 
 Example `app_callback_uri` request
 ``` 
