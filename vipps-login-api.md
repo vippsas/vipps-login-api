@@ -744,7 +744,7 @@ The Vipps app will return some data with the return to the `app_callback_uri`. I
 
 Example `app_callback_uri` request
 ``` 
-no.vipps.apptestclient://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resume_uri=https%3A%2F%2Fapi.vipps.no%2Fvipps-login-idp%2Findex.html%3FtabId%3D7607f7f0-7ae2-49b7-9cb5-102143dac4ea"
+no.vipps.apptestclient://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resume_uri=https%3A%2F%2Fapi.vipps.no%2Fvipps-login-idp%2Findex.html%3FtabId%3D7607f7f0-7ae2-49b7-9cb5-102143dac4ea
 ```
 
 A typical flow/implementation might look like this:
