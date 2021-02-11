@@ -734,11 +734,13 @@ This flow can be enabled per login request by adding the `requested_flow=app_to_
 
 This flow requires both the `app_callback_uri` and `redirect_uri` parameters.
 
-The `app_callback_uri` should be a URI that makes the device switch back to the merchant's app again after the Vipps app portion of the flow is done (example: "merchant-app://callback")
+The `app_callback_uri` should be a URI that makes the device switch back to the merchant's app again after the Vipps app portion of the flow is done (example: "merchant-app://callback"). 
 
 The `redirect_uri` is opened in the webview once the vipps login flow is completed there. This url can either redirect the user to a page in the webview, or be handled/intercepted by the merchant app. In either case it is important to avoid using static client secrets in the app for completing the login. (For more information see https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous and https://tools.ietf.org/html/rfc8252#section-8.5).
 
 <b>Both</b> URIs must be added in the [merchant portal](https://portal.vipps.no/), you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+
+The Vipps app will return some data with the return to the `app_callback_uri`. It contains two query parameters `state` and `resume_uri`. `State` is the OIDC `state` parameter passed at the start of a login which can be used to identify the specific login if needed. The `resume_uri`parameter is an URI that can be used to resume the login after returning from the Vipps app (example: "no.vipps.apptestclient://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resume_uri=https%3A%2F%2Fece46ec4-6f9c-489b-8fe5-146a89e11635.tech-02.net%2Fvipps-login-idp%2Findex.html%3FtabId%3D7607f7f0-7ae2-49b7-9cb5-102143dac4ea" )
 
 A typical flow/implementation might look like this:
 1. An OpenID authentication flow authorization URI is generated on the merchant backend. The URI is communicated to the merchant app and is used to initiate Vipps login in a browser. SafariViewController and Chrome Custom Tabs are preferred browsers.
