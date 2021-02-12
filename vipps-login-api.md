@@ -724,6 +724,7 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 Web-views should not be used when using Vipps Login in a native application. Instead, the user should be redirected using an external user-agent.
 
 Android: Use [Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) or fallback to open external browser on user's device
+
 iOS: Use [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession), [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) (support vary based on iOS version)
 
 
