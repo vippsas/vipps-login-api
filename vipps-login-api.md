@@ -721,7 +721,7 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 
 ### Using Vipps Login in native applications
 
-Web-views should not be used when using Vipps Login in a native application. Instead, the user should be redirected using an external user-agent.
+Web-views should not be used when using Vipps Login in a native application. Instead, the user should be redirected using an external browser openend by the app.
 
 Android: Use [Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) or fallback to open external browser on user's device
 
