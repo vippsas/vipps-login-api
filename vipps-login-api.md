@@ -19,7 +19,7 @@ for all the details.
   - [Flows](#flows)
     * [Remembered flow](#remembered-flow)
     * [Desktop flow - phone number based push flow](#desktop-flow---phone-number-based-push-flow)
-    * [Mobile flow - deeplink based flow](#Mobile-flow---app-switch-based-flow)
+    * [Mobile flow - deeplink based flow](#mobile-flow---deeplink-based-flow)
         * [App to app flow](#app-to-app-flow)
         * [Automatic return from Vipps app](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers)
     * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
