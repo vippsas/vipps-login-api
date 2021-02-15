@@ -114,7 +114,7 @@ Which of the flows to use is controlled with the initiation of the individual lo
 The two flows are:
 
 ##### App to app flow
-This flow is designed to be used with apps. It requires that the app initiate Vipps login in a browser, see [specification](#using-vipps-login-in-native-applications). In this flow the merchant need to specify the app URI where the user will be returned after completing the confirmation in the Vipps app.
+This flow is designed to be used with apps. It requires that the app initiate Vipps login in an external browser that is opened within the app, see [specification](#using-vipps-login-in-native-applications). In this flow the merchant need to specify the app URI where the user will be returned after completing the confirmation in the Vipps app.
 
 See [how to implement](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#app-integration).
 
@@ -721,11 +721,11 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 
 ### Using Vipps Login in native applications
 
-Web-views should not be used when using Vipps Login in a native application. Instead, the user should be redirected using an external browser openend by the app.
+Web-views should not be used when using Vipps Login in a native application. Instead, the user should be redirected using an external browser openend by/within the app.
 
 Android: Use [Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) or fallback to open external browser on user's device
 
-iOS: Use [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession), [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) (support vary based on iOS version)
+iOS: Use [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) or [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) (support vary based on iOS version)
 
 
 ## Using the special flows
@@ -740,7 +740,7 @@ Expected flow:
 Merchant app -> Merchant app controlled browser -> Vipps app -> Merchant app controlled browser -> Merchant app
 ```
 
-Note that [web-views should not be used](#using-vipps-login-in-native-applications).
+Note that you should use an [external browser that is opened within the app, and not web-views](#using-vipps-login-in-native-applications).
 
 This flow can be enabled per login request by adding the `requested_flow=app_to_app` and `app_callback_uri` parameters to the [Authorize](#oauth-20-authorize) request.
 
@@ -762,7 +762,7 @@ merchant-app://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resum
 ```
 
 A typical flow/implementation might look like this:
-1. An OpenID authentication flow authorization URI is generated on the merchant backend. The URI is communicated to the merchant app and is used to initiate Vipps login in a browser. SafariViewController and Chrome Custom Tabs are preferred browsers.
+1. An OpenID authentication flow authorization URI is generated on the merchant backend. The URI is communicated to the merchant app and is used to initiate Vipps login in an external browser that is opened within the app, see [specification](#using-vipps-login-in-native-applications)for details.
 2. If required, Vipps login will deeplink the user over to the Vipps app (if the user is remembered in the browser the user will be authenticated directly - the user will then be on step 5 below)
 3. When the user has approved the login in the Vipps app the `app_callback_uri` is triggered.
 4. The `app_callback_uri` will return the user to the merchant app. The app now has 2 separate choices.
