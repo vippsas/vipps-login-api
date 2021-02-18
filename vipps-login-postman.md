@@ -19,12 +19,12 @@ Click the link underneath to get access to the Login Postman collection.
 
 Alternatively, manually import the collection by following the steps below:
 1. Click `Import` in the upper left corner.
-2. Import the [vipps-login-api-postman-collection.json](https://raw.githubusercontent.com/vippsas/vipps-login-api/master/tools/vipps-login-api-postman-collection.json) file
+2. Import the [vipps-login-api-postman-collection.json](https://raw.githubusercontent.com/vippsas/vipps-login-api/master/tools/vipps-login-api.postman_collection.json) file
 
 ### Step 2: Import the Postman Environment
 
 1. Click `Import` in the upper left corner.
-2. Import the [vipps-login-api-postman-enviroment.json](https://raw.githubusercontent.com/vippsas/vipps-login-api/master/tools/vipps-login-api-postman-enviroment.json) file
+2. Import the [vipps-login-api-postman-enviroment.json](https://raw.githubusercontent.com/vippsas/vipps-login-api/master/tools/vipps-login-api.postman_environment.json) file
 
 ### Step 3: Setup Postman Environment
 
