@@ -7,10 +7,6 @@ Version 1 (the version you will get if `api_version_2` is omitted) will be disco
 
 Document version 4.0.2.
 
-See the
-[Vipps Login API](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md)
-for all the details.
-
 ## Table of contents
 * [Introduction](#introduction)
   - [Activation](#activation)
