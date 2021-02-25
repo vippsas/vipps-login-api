@@ -1,0 +1,26 @@
+@startuml component
+actor merchantApp
+actor merchantBackend
+actor merchantAppControlledBrowser
+actor vippsApp
+actor vippsBackend
+
+merchantApp -> merchantBackend : Initiate login
+merchantBackend -> merchantApp: 1: initiate login url
+merchantApp -> merchantAppControlledBrowser : 2: open initiate login url
+merchantAppControlledBrowser --> vippsApp : 3: User opens Vipps app in login client
+...User accepts login in the app...
+vippsApp --> merchantApp : 4: App opens redirect uri, which should be a deeplink or universal link to the app
+merchantApp -> merchantAppControlledBrowser : 5: either show the browser that is already open,\n\
+ or open a new browser at the resume_uri
+...User consents in browser...
+merchantAppControlledBrowser --> merchantApp : 6: Login client redirects to app_callback_uri\n\
+which should be picked up by the merchantApp\n\
+This sends a code to be used to get userinfo and auth token
+merchantApp -> merchantBackend : 7: Finish login (code, state)
+merchantBackend -> vippsBackend : 8: Get userinfo and auth token using code
+vippsBackend --> merchantBackend : Userinfo / Auth token
+merchantBackend -> merchantApp : Userinfo / Auth token
+...Finished login...
+
+@enduml
