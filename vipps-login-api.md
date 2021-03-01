@@ -778,22 +778,22 @@ merchant-app://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resum
 
 #### A typical flow/implementation might look like this:
 ![](images/app2appsuggestion.png)
-1. An [OpenID authentication flow authorization URI](#oauth-20-authorize) is generated on the merchant backend. 
+1. Merchant backend generates an [OpenID authentication flow authorization URI](#oauth-20-authorize). 
    The URI is communicated to the merchant app
-2. and is used to initiate Vipps login in an external browser that is opened within the app, 
-   see [specification](#using-vipps-login-in-native-applications) for details.
-3. If required, Vipps login will deeplink the user over to the Vipps app 
+2. Merchant app uses the URI to initiate Vipps login in an external browser that is opened within the app, 
+   see the [specification](#using-vipps-login-in-native-applications) for details.
+3. Vipps login will open the Vipps app if required.
    (if the user is remembered in the browser the user will be authenticated directly 
     - the user will then be on step 6 below)
-4. When the user has approved the login in the Vipps app redirects the user to the `app_callback_uri`.
-5. The `app_callback_uri` should return the user to the merchant app. The app now has 2 separate choices.
+4. Vipps app opens the deep link `app_callback_uri` parameter when the user approves the login.
+5.  Merchant app receives the user. The app now has 2 separate choices.
    * Display the same browser instance that was created in 1.
    * Open a browser again using the `resume_uri`-query parameter that is returned with the request to the `app_callback_uri`.
-6. Vipps login will finalise the authentication of the user and acquire consent to share information if needed. 
+6. Vipps login finalizes the authentication of the user and acquires consent to share information if needed. 
    When this is finished the user will be redirected to the `redirect_uri`. 
    The Vipps login process has now finished and the merchant controls the remaining process.
-7. The merchant app sends the `code` and `state`parameters received in the callback to the merchant backend
-8. The merchant backend fetches the access tokens and user information
+7. Merchant app sends the `code` and `state`parameters received in the callback to the merchant backend
+8. Merchant backend fetches the access tokens and user information
 
 Example authorize request url:
 ```
