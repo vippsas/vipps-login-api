@@ -789,7 +789,7 @@ while the filled lines need to be implemented by the merchant.
    (if the user is remembered in the browser the user will be authenticated directly 
     - the user will then be on step 6 below)
 4. Vipps app opens the deep link `app_callback_uri` parameter after the user has approved the login.
-5. Merchant app handles the link. The app now has 2 separate choices.
+5. Merchant app handles the link in one of two ways:
    * Display the same browser instance that was created in 1.
    * Open a browser again using the `resume_uri`-query parameter that is returned with the request to the `app_callback_uri`.
 6. Vipps login finalizes the authentication of the user and obtains consent to share information if needed. 
