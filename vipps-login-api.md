@@ -778,6 +778,7 @@ merchant-app://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resum
 
 #### A typical flow/implementation might look like this:
 ![](images/app2appsuggestion.png)
+
 The dotted lines in this diagram are handled by Vipps (or the user), 
 while the filled lines need to be implemented by the merchant. 
 1. Merchant backend generates an [OpenID authentication flow authorization URI](#oauth-20-authorize). 
