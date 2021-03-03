@@ -5,11 +5,11 @@ merchantBackend -> merchantApp: 1: Authorize request
 merchantApp -> merchantAppControlledBrowser : 2: Open authorize request url
 merchantAppControlledBrowser --> vippsApp : 3: User opens Vipps app in login client
 vippsApp --> vippsApp: User accepts the login
-vippsApp --> merchantApp : 4: Open `app_callback_uri`
+vippsApp --> merchantApp : 4: Open app_callback_uri
 merchantApp -> merchantAppControlledBrowser : 5: Either show the browser that is already open,\n\
  or open a new browser at the resume_uri
 merchantAppControlledBrowser --> merchantAppControlledBrowser: User consents
-merchantAppControlledBrowser --> merchantApp : 6: Open `redirect_uri`, includes `code` and `state`
+merchantAppControlledBrowser --> merchantApp : 6: Open redirect_uri, includes code and state
 merchantApp -> merchantBackend : 7: Finish login (code, state)
 merchantBackend -> vippsBackend : 8: Get userinfo and auth token using code
 vippsBackend --> merchantBackend : Userinfo / Auth token
