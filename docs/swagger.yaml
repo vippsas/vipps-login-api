@@ -9,7 +9,7 @@ servers:
   - url: https://apitest.vipps.no
   - url: https://api.vipps.no
 paths:
-  /oauth2/auth:
+  /access-management-1.0/access/oauth2/auth:
     get:
       description: >-
         The resource owner (end user) is redirected to this endpoint at the
@@ -37,7 +37,7 @@ paths:
             "*/*":
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-  /oauth2/token:
+  /access-management-1.0/access/oauth2/token:
     post:
       security:
         - basic: []
@@ -85,7 +85,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-  /userinfo:
+  /vipps-userinfo-api/userinfo:
     get:
       security:
         - oauth2: []
@@ -185,7 +185,7 @@ paths:
                             account_number: "12064590675"
                             bank_name: "My bank"
 
-  /.well-known/openid-configuration:
+  /access-management-1.0/access/.well-known/openid-configuration:
     get:
       description: >-
         The well known endpoint can be used to retrieve configuration
@@ -215,7 +215,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-  /.well-known/jwks.json:
+  /access-management-1.0/access/.well-known/jwks.json:
     get:
       description: >-
         This endpoint returns JSON Web Keys to be used as public keys for
