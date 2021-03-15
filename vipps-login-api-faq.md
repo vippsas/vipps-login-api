@@ -27,7 +27,7 @@ Document version 2.0.6.
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
 - [What's the purpose of the state parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)??](#is-it-possible-for-me-as-a-merchant-to-control-whether-the-user-can-log-in-through-being-remembered-in-browser-or-need-to-use-the-app-to-authenticate-two-factor-authentication)
-- [What should I as a merchant consider from a GDPR/data processing perspective?](#What-should-I-as-a-merchant-consider-from-a-GDPR/data-processing-perspective?)
+- [What should I as a merchant consider from a GDPR/data processing perspective?](#What-should-I-as-a-merchant-consider-from-a-GDPR-data-processing-perspective?)
 - [Common errors](#common-errors)
 
 ## Where do I find the `client_id` and `client_secret`?
