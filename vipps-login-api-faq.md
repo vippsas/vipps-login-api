@@ -9,7 +9,7 @@ guide for
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.0.6.
+Document version 2.1.0.
 
 ## Table of contents
 
@@ -32,11 +32,11 @@ Document version 2.0.6.
 
 ## Where do I find the `client_id` and `client_secret`?
 
-You find more information in
+See:
 [Getting started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys).
 
-Be aware that you do _not_ use the API-keys for Vipps login, just the `client_id`
-and `client_secret`.
+Be aware that you do _only_ use the `client_id` and `client_secret`, not the
+subscription key.
 
 If you cannot access [portal.vipps.no](https://portal.vipps.no): do you have a
 user for the merchant? The person who were added as the contact person in the
@@ -48,17 +48,16 @@ If you can login to [portal.vipps.no](https://portal.vipps.no) but cannot see
 the “developer” selection in the top-menu you need to have the administrator
 grant you developer access for the sales unit you need access to.
 
-## How can I activate and set up Vipps login?
+## How can I activate Vipps login?
 
 On [portal.vipps.no](https://portal.vipps.no), in the same place as the client
 ID and `client_secret` described above, you can activate Vipps login, and also
 add the redirect URIs needed for the service to work. This is the URL/URI of
-the page which the user is redirected to after finishing a login. See more on
-this in the
-[documentation](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#api-endpoints)
+the page which the user is redirected to after finishing a login. See:
+[API endpoints](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#api-endpoints)
 as well as requirements for the URIs below.
 
-You will find the Setup Vipps login option in the same place as you find your
+You will find the "Setup Vipps login" option in the same place as you find your
 `client_id` and `client_secret` (click "setup login" to get started):
 
 ![You will find the Setup Vipps login option in the same place as you find your `client_id` and `client_secret`](images/portal_setup_login.png)
@@ -81,7 +80,7 @@ You can use localhost as part of the redirect URI.
 
 You can use “Custom URL Scheme” in the redirect URIs to redirect back an app. In this case a path is required: myapp://path-to-something.
 
-## How can I change the name and logo shown with Vipps login?
+## How can I change my name and logo?
 
 Vipps login will show the name of the sales unit you use in the different Vipps login user dialogues. This includes the confirm login screen, the give consent screen and the overview of consents given.
 
@@ -93,8 +92,11 @@ By clicking "Rediger" next to the "Visning i appen" heading you will come to a s
 
 Currently this logo is not use for Vipps login but soon it will be shown in the overview of consents given.
 
-## How can I use client_secret_post for authentication?
-It is possible to change the token endpoint authentication method on [portal.vipps.no](https://portal.vipps.no). This setting will then apply to all login transactions on this sales unit.
+## How can I use `client_secret_post` for authentication?
+
+It is possible to change the token endpoint authentication method on
+[portal.vipps.no](https://portal.vipps.no).
+This setting will then apply to all login transactions on this sales unit.
 
 Under the “Developer” section you will find the Setup Vipps login option for your sale units.
 
@@ -111,9 +113,9 @@ There are separate keys for test and production. Both available on
 [portal.vipps.no](https://portal.vipps.no) under “Developer”. You can choose
 the environment above the table with sales units.
 
-Have you set up a redirect URI for login with Vipps in the environment in question?
+Have you set up a redirect URI for Vipps Login in the environment in question?
 
-## Why do I get “Error: Could not get Vipps login token” in the Vipps app?
+## Why do I get “Error: Could not get Vipps login token” in Vipps?
 
 You can get this error if you have both the Vipps test app and production app on the same phone.
 
@@ -135,7 +137,6 @@ All merchants get access to these scopes:
 * name
 * phoneNumber
 
-
 **Important:** You should not ask for more scopes than you need for your
 application. The user will need to consent to sharing the information with you
 so adding more scopes increases the chance that they will decline.
@@ -150,18 +151,18 @@ You can find the liste of scopes that your individual sales units have access to
 
 ## If a user changes phone numbers, is the `sub` still the same?
 
-Yes, it's connected to the national identity number (nin).
+Yes, it's connected to the national identity number (NIN).
 
 ## Why can I get userinfo after the user has revoked consent?
 
-During a login or a payment session the user consent to share information if it's requested by the merchant. 
-This information is accessible for the merchant for the next 168 hours, even though the user revokes the consents in this period. 
+During a login or a payment session the user consent to share information if it's requested by the merchant.
+This information is accessible for the merchant for the next 168 hours, even though the user revokes the consents in this period.
 Revoking consents will only affect future login- and payment-sessions.
-
 
 ## Who can get access to NIN and how?
 
 Access to NIN is a paid service.
+
 Only merchants with legal requirements or other objective needs to use Norwegian
 National Identity Number (NIN) to achieve required user identification can get
 access to NIN.  We correspond to
@@ -189,6 +190,7 @@ electronic ID, e.g  BankID.
 
 Merchants need to apply for access to NIN separately by sending an email to
 accessuserinfo@vipps.no. In the email you should specify:
+
 * Merchant name
 * Organization number
 * Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
@@ -201,19 +203,22 @@ accessuserinfo@vipps.no. In the email you should specify:
 Access to account numbers is a paid service.
 Merchants need to order access to account numbers separately by sending an email
 to accessuserinfo@vipps.no. In the email you should specify:
+
 * Merchant name
 * Organization number
 * Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
 * Information on how you plan to use the account numbers
 
-## What's the purpose of the state parameter?
-The state parameter is an opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. The parameter should be used for preventing cross-site request forgery.
+## What's the purpose of the `state` parameter?
 
-## Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)?
+The `state` parameter is an opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. The parameter should be used for preventing cross-site request forgery.
+
+## How can I control if a user is remembered in the browser?
 
 Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
 
-## What should I as a merchant consider from a GDPR/data processing perspective?
+## What do I need to do to be GDPR compliant?
+
 With regard to the processing of personal data and GDPR, the following applies to Vipps Login:
 
 1. Vipps Login gives a merchant the opportunity to ask a Vipps end user to share a selection of data from their profile in Vipps. This can e.g. be name, phone number, email, addresses and date of birth. The merchant controls which of these data they request. The user must consent to the sharing of data for this to be done. The consent is the legal basis for Vipps AS' transfer of this information to the merchant.
@@ -228,8 +233,11 @@ With regard to the processing of personal data and GDPR, the following applies t
 
 6. Vipps AS does not receive any information from the merchant about Vipps end user.
 
-See more information in our end user [terms and condition](https://www.vipps.no/vilkar/vilkar-privat/), [privacy policy](https://www.vipps.no/vilkar/cookie-og-personvern/) and [merchant agreeement](https://www.vipps.no/vilkar/vilkar-bedrift/)
-
+See more information in our end user
+[terms and condition](https://www.vipps.no/vilkar/vilkar-privat/),
+[privacy policy](https://www.vipps.no/vilkar/cookie-og-personvern/)
+and
+[merchant agreeement](https://www.vipps.no/vilkar/vilkar-bedrift/)
 
 ## Common errors
 
