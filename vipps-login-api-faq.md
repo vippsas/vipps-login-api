@@ -2,10 +2,9 @@
 
 See the [Vipps Login API](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md) for all the details.
 
-See also the
-[Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md)
-guide for
-[portal.vipps.no](https://portal.vipps.no).
+See also:
+[Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md).
+
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
