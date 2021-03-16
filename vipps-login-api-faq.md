@@ -15,8 +15,8 @@ Document version 2.1.0.
 - [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-client_id-and-client_secret)
 - [How can I activate and set up Vipps Login?](#how-can-i-activate-and-set-up-vipps-login)
 - [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
-- [How can I change the name and logo shown with Vipps Login?](#how-can-i-change-the-name-and-logo-shown-with-vipps-login)
-- [How can I use client_secret_post for authentication?](#how-can-i-use-client_secret_post-for-authentication)
+- [How can I change my name and logo?](#how-can-i-change-my-name-and-logo)
+- [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
 - [Why do I get “Error: Could not get Vipps Login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
@@ -24,9 +24,9 @@ Document version 2.1.0.
 - [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
 - [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
-- [What's the purpose of the state parameter?](#whats-the-purpose-of-the-state-parameter)
-- [Is it possible for me as a merchant to control whether the user can log in through being remembered in browser or need to use the app to authenticate (two factor authentication)?](#is-it-possible-for-me-as-a-merchant-to-control-whether-the-user-can-log-in-through-being-remembered-in-browser-or-need-to-use-the-app-to-authenticate-two-factor-authentication)
-- [What should I as a merchant consider from a GDPR/data processing perspective?](#what-should-i-as-a-merchant-consider-from-a-gdprdata-processing-perspective)
+- [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
+- [How can I control if a user is remembered in the browser?](#how-can-i-control-if-a-user-is-remembered-in-the-browser)
+- [What do I need to do to be GDPR compliant?](#what-do-i-need-to-do-to-be-gdpr-compliant)
 - [Common errors](#common-errors)
 
 ## Where do I find the `client_id` and `client_secret`?
