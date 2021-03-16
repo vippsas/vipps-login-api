@@ -14,12 +14,12 @@ Document version 2.1.0.
 ## Table of contents
 
 - [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-client_id-and-client_secret)
-- [How can I activate and set up Vipps login?](#how-can-i-activate-and-set-up-vipps-login)
+- [How can I activate and set up Vipps Login?](#how-can-i-activate-and-set-up-vipps-login)
 - [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
-- [How can I change the name and logo shown with Vipps login?](#how-can-i-change-the-name-and-logo-shown-with-vipps-login)
+- [How can I change the name and logo shown with Vipps Login?](#how-can-i-change-the-name-and-logo-shown-with-vipps-login)
 - [How can I use client_secret_post for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
-- [Why do I get “Error: Could not get Vipps login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
+- [Why do I get “Error: Could not get Vipps Login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 - [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
 - [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
@@ -48,22 +48,22 @@ If you can login to [portal.vipps.no](https://portal.vipps.no) but cannot see
 the “developer” selection in the top-menu you need to have the administrator
 grant you developer access for the sales unit you need access to.
 
-## How can I activate Vipps login?
+## How can I activate and set up Vipps Login?
 
 On [portal.vipps.no](https://portal.vipps.no), in the same place as the client
-ID and `client_secret` described above, you can activate Vipps login, and also
+ID and `client_secret` described above, you can activate Vipps Login, and also
 add the redirect URIs needed for the service to work. This is the URL/URI of
 the page which the user is redirected to after finishing a login. See:
 [API endpoints](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#api-endpoints)
 as well as requirements for the URIs below.
 
-You will find the "Setup Vipps login" option in the same place as you find your
+You will find the "Setup Vipps Login" option in the same place as you find your
 `client_id` and `client_secret` (click "setup login" to get started):
 
-![You will find the Setup Vipps login option in the same place as you find your `client_id` and `client_secret`](images/portal_setup_login.png)
+![You will find the Setup Vipps Login option in the same place as you find your `client_id` and `client_secret`](images/portal_setup_login.png)
 
-First you activate Vipps login:
-![First you activate Vipps login](images/portal_setup.jpeg)
+First you activate Vipps Login:
+![First you activate Vipps Login](images/portal_setup.jpeg)
 
 Then you can add the redirect URIs you need:
 ![Then you can add the redirect URIs you need](images/portal_direct_uris.jpeg)
@@ -82,7 +82,7 @@ You can use “Custom URL Scheme” in the redirect URIs to redirect back an app
 
 ## How can I change my name and logo?
 
-Vipps login will show the name of the sales unit you use in the different Vipps login user dialogues. This includes the confirm login screen, the give consent screen and the overview of consents given.
+Vipps Login will show the name of the sales unit you use in the different Vipps Login user dialogues. This includes the confirm login screen, the give consent screen and the overview of consents given.
 
 You can administer this name for `production` in [portal.vipps.no](https://portal.vipps.no). Unfortunatly you cannon change the name used for the test environment. To change your display name in production you go to sales units ("salgssteder") in the left menu and select the correct unit. From this page you can see the key information for this sales unit:
 ![You can administer this name in [portal.vipps.no](https://portal.vipps.no). You go to the sales unit ("salgssted") and click the correct unit. From this page you can see the key information for this sales unit:](images/Sales_unit_see_info.png)
@@ -90,7 +90,7 @@ You can administer this name for `production` in [portal.vipps.no](https://porta
 By clicking "Rediger" next to the "Visning i appen" heading you will come to a screen where you both can update your name and ad your logo:
 ![By clicking "Rediger" next to the "Visning i appen" heading you will come to a screen where you both can update your name and ad you logo:](images/Sales_unit_change_name_and_logo.png)
 
-Currently this logo is not use for Vipps login but soon it will be shown in the overview of consents given.
+Currently this logo is not use for Vipps Login but soon it will be shown in the overview of consents given.
 
 ## How can I use `client_secret_post` for authentication?
 
@@ -98,14 +98,14 @@ It is possible to change the token endpoint authentication method on
 [portal.vipps.no](https://portal.vipps.no).
 This setting will then apply to all login transactions on this sales unit.
 
-Under the “Developer” section you will find the Setup Vipps login option for your sale units.
+Under the “Developer” section you will find the Setup Vipps Login option for your sale units.
 
 Here you have the option to change the token endpoint authentication method, and see which method is currently active:
 ![Token endpoint authentication method choice in the portal](images/portal_token_endpoint_authentication_method.png)
 
 ## Why do I get “Error: invalid_client”?
 
-This means that the `client_id` and `client_secret` used is not valid for Vipps login.
+This means that the `client_id` and `client_secret` used is not valid for Vipps Login.
 
 Please check:
 Are you using the `client_id` and `client_secret` for the correct environment?
@@ -115,7 +115,7 @@ the environment above the table with sales units.
 
 Have you set up a redirect URI for Vipps Login in the environment in question?
 
-## Why do I get “Error: Could not get Vipps login token” in Vipps?
+## Why do I get “Error: Could not get Vipps Login token” in Vipps?
 
 You can get this error if you have both the Vipps test app and production app on the same phone.
 
@@ -147,7 +147,7 @@ particular merchant. Note: Different merchants will get different subs for the s
 
 Some merchants can get access to NIN. Merchants need to request this separately.
 
-You can find the liste of scopes that your individual sales units have access to in [portal.vipps.no](https://portal.vipps.no) under the “Developer” section and the Setup Vipps login option.
+You can find the liste of scopes that your individual sales units have access to in [portal.vipps.no](https://portal.vipps.no) under the “Developer” section and the Setup Vipps Login option.
 
 ## If a user changes phone numbers, is the `sub` still the same?
 
@@ -215,7 +215,7 @@ The `state` parameter is an opaque value used by the client to maintain state be
 
 ## How can I control if a user is remembered in the browser?
 
-Vipps login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
+Vipps Login do not currently support merchants specifying that the user needs to use the app to authenticate (two factor authentication). The end-user chooses whether he would like to be remembered in browser or not.  
 
 ## What do I need to do to be GDPR compliant?
 
