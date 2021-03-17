@@ -25,8 +25,8 @@ Document version 2.1.0.
 - [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
-- [How can I control if a user is remembered in the browser?](#how-can-i-control-if-a-user-is-remembered-in-the-browser)
-- [What do I need to do to be GDPR compliant?](#what-do-i-need-to-do-to-be-gdpr-compliant)
+- [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser)
+- [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
 - [Common errors](#common-errors)
 
 ## Where do I find the `client_id` and `client_secret`?
@@ -34,7 +34,7 @@ Document version 2.1.0.
 See:
 [Getting started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys).
 
-Be aware that you do _only_ use the `client_id` and `client_secret`, not the
+Be aware that you _only_ use the `client_id` and `client_secret`, not the
 subscription key.
 
 If you cannot access [portal.vipps.no](https://portal.vipps.no): do you have a
@@ -49,8 +49,7 @@ grant you developer access for the sales unit you need access to.
 
 ## How can I activate and set up Vipps Login?
 
-On [portal.vipps.no](https://portal.vipps.no), in the same place as the client
-ID and `client_secret` described above, you can activate Vipps Login, and also
+On [portal.vipps.no](https://portal.vipps.no), in the same place as the `client_id` and `client_secret` described above, you can activate Vipps Login, and also
 add the redirect URIs needed for the service to work. This is the URL/URI of
 the page which the user is redirected to after finishing a login. See:
 [API endpoints](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#api-endpoints)
@@ -173,10 +172,7 @@ Yes, it's connected to the national identity number (NIN).
 
 ## Why can I get userinfo after the user has revoked consent?
 
-During a login or a payment session the user consent to share information if
-it's requested by the merchant. This information is accessible for the merchant
-for the next 168 hours, even though the user revokes the consents in this period.
-Revoking consents will only affect future login and payment sessions.
+During a login or a payment session the user consent to share information if it's requested by the merchant. The users information is then available for the merchant from the user info endpoint. For login sessions user information is available for the ongoing login session. To better support merchants that do not handle online fetching and processing of the user info as part of a payment session we keep this information accessible for the merchant for the next 168 hours, even though the user revokes the consent in this period. Revoking consents will immediately affect future login and payment sessions.
 
 ## Who can get access to NIN and how?
 
@@ -235,13 +231,13 @@ between the request and callback. The authorization server includes this value
 when redirecting the user-agent back to the client. The parameter should be
 used for preventing cross-site request forgery.
 
-## How can I control if a user is remembered in the browser?
+## Can I control if a user is remembered in the browser?
 
 Vipps Login do not currently support merchants specifying that the user needs
 to use the app to authenticate (two factor authentication). The end-user chooses
 whether he would like to be remembered in browser or not.  
 
-## What do I need to do to be GDPR compliant?
+## How is GDPR handled with Vipps Login?
 
 With regard to the processing of personal data and GDPR, the following applies
 to Vipps Login:
