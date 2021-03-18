@@ -349,6 +349,10 @@ These endpoints should be fetched dynamically by your application, since they ar
 | Production  |https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration     |
 
 The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients.
+
+The response from this endpoint very rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. A cache timeout for 24 hours should be unproblematic. Another approach could be to read it once on client application startup as long as you are able to restart the client application if necessary.
+
+
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
 **Request**
