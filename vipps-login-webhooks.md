@@ -15,7 +15,7 @@ This service is optional for the merchant and can be used to trigger events on t
   
   
 **Content**  
-The webhook is sent as a `POST` with a `text/plain` body containing an unsigned Jason Web Token ([JWT](https://jwt.io/)).  
+The webhook is sent as a `POST` with a `text/plain` body containing an unsigned Json Web Token ([JWT](https://jwt.io/)).  
 The JWT format was choosen to allow for the possibility to add signing on a later state, but as of now the JWT  is delivered unsigned with the algorithm set to none and is therefore no more secure than a regular json and should be handled as such.
 
 **Example request:**
