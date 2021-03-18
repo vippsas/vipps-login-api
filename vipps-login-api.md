@@ -2,8 +2,8 @@
 
 API version: 2.0
 
-Please note that **all merchants on Vipps Login need to include scope `api_version_2`.**
-Version 1 (the version you will get if `api_version_2` is omitted) will be discontinued February 28th 2021.
+Please note that **all merchants on Vipps Login need to include the scope `api_version_2`.**
+If this is omitted you will in effect use a version that is no longer supported. 
 
 Document version 4.0.2.
 
@@ -291,9 +291,9 @@ therefore not accept for example name and deny address.
 We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
 
-**All merchants on Vipps Login need to include scope 'api_version_2'.**
+**All merchants on Vipps Login need to include the scope 'api_version_2'.**
 The scope decides the information delivered as part of the ID token as well as the API response from userinfo.
-Version 1 (the version you will get if 'api_version_2'is omitted) will be discontinued.
+Version 1 (the version you will get if 'api_version_2'is omitted) is discontinued.
 
 ## Recommendations on linking to user account
 
@@ -348,9 +348,7 @@ These endpoints should be fetched dynamically by your application, since they ar
 | Test        |https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration |
 | Production  |https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration     |
 
-The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients.
-
-The response from this endpoint very rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. A cache timeout for 24 hours should be unproblematic. Another approach could be to read it once on client application startup as long as you are able to restart the client application if necessary.
+The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients. We recommend to fetch these dynamically, however the response from this endpoint rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. A cache timeout for 24 hours should be unproblematic. Another approach could be to read it once on client application startup as long as you are able to restart the client application if necessary.
 
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
