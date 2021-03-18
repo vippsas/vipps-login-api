@@ -352,7 +352,6 @@ The openid connect discovery endpoint can be used to retrieve configuration info
 
 The response from this endpoint very rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. A cache timeout for 24 hours should be unproblematic. Another approach could be to read it once on client application startup as long as you are able to restart the client application if necessary.
 
-
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
 **Request**
