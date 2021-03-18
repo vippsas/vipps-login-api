@@ -2,7 +2,7 @@
 
 API version: 2.0  
 
-Please note that **all merchants on Vipps Login need to include scope 'api_version_2'.** 
+Please note that **all merchants on Vipps Login need to include scope 'api_version_2'.**
 Version 1 (the version you will get if 'api_version_2'is omitted) will be discontinued February 28th 2021.
 
 Document version 4.0.1
@@ -117,14 +117,14 @@ See [how to implement](https://github.com/vippsas/vipps-login-api/blob/master/vi
 ##### Automatic return from Vipps app (requires the merchant to handle user session cross browsers)
 This flow is designed for web-pages that would like to have the user automatically returned to a browser after completing the confirmation in the Vipps app. Note that there are security implications by using this flow. **It is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable**.
 
-Due to how the different mobile operating systems handle app-switch to browser, the user can be returned to a different browser than the one he/she started in. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confirming in the Vipps app. This means that the merchant site cannot rely on cookies beeing present in the browser the user is returned to. 
+Due to how the different mobile operating systems handle app-switch to browser, the user can be returned to a different browser than the one he/she started in. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confirming in the Vipps app. This means that the merchant site cannot rely on cookies beeing present in the browser the user is returned to.
 
 By using this flow Vipps login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
 
 See [how to implement](#automatic-return-from-vipps-app), including more informattion on the security considerations.
 
 #### No dialog flow - log the user in directly when possible
-This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps login process will be stopped and no interaction will be asked from the user in this flow. When using this flow a spinner will be shown while Vipps login try to log the user in. Once the process is completed the user will be returned to the merchant as in the ordinary Vipps login flow. As with the other Vipps login flow it is recommended to run Vipps login in a redirect mode and iFrame is not supported. 
+This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps login process will be stopped and no interaction will be asked from the user in this flow. When using this flow a spinner will be shown while Vipps login try to log the user in. Once the process is completed the user will be returned to the merchant as in the ordinary Vipps login flow. As with the other Vipps login flow it is recommended to run Vipps login in a redirect mode and iFrame is not supported.
 
 The user will be logged in with this flow if:
 * they are remembered in the browser and no consent is required
@@ -139,7 +139,7 @@ Illustration of how the flow can look when the user clicks "Logg inn" on the fro
 
 Possible use cases includes:
 * When the user is going to a section of your site/service that requires the user to be logged in, e.g. my page or a personalized chatbot. This might be when the user is already on the webpage, or if the user is being linked directly to her My page from an email/newsletter.
-* When a user clicks on your login option it is possible to try to log the user in with Vipps first. 
+* When a user clicks on your login option it is possible to try to log the user in with Vipps first.
 
 In such scenarios the users that can be logged in directly will get an even better login experience and quickly come to the information and services that are relevant for them
 
@@ -329,7 +329,7 @@ certified by the OpenID Foundation is a good starting point.
 
 This section contains information necessary to perform a manual integration with
 Vipps Login. This **should not be attempted without a solid grasp of the OAuth2
-and Open ID Connect standards**. All endpoints needed for integration can be found in our openid connect discovery endpoint. 
+and Open ID Connect standards**. All endpoints needed for integration can be found in our openid connect discovery endpoint.
 These endpoints should be fetched dynamically by your application, since they are prone for change.
 
 #### Openid connect discovery endpoint
@@ -339,7 +339,8 @@ These endpoints should be fetched dynamically by your application, since they ar
 | Test        |https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration |
 | Production  |https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration     |
 
-The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients.  
+The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients.
+The response from this endpoint very rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. A cache timeout for 24 hours should be unproblematic. Another approach could be to read it once on client application startup as long as you are able to restart the client application if necessary.        
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
 **Request**
@@ -551,7 +552,7 @@ Example response:
 
 #####  Userinfo
 
-This endpoint returns the payload with the information that the user has consented to share, which is provided in 
+This endpoint returns the payload with the information that the user has consented to share, which is provided in
 the OAuth 2.0 access token.
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
 
@@ -755,7 +756,7 @@ This flow can be enabled per login by adding the parameter `requested_flow=autom
 
 ##### Session information
 
-The [state parameter](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback. 
+The [state parameter](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](#OAuth-2.0-Authorize) request can carry some information from the start of a login until the callback.
 The state parameter cannot be thought of as a direct replacement of a user agent bound session.
 
 Some relevant considerations:
@@ -766,7 +767,7 @@ Some relevant considerations:
 * [The state parameter and CSRF](https://tools.ietf.org/html/rfc6749#section-10.12). Be aware of the recommendations of the OIDC/OAuth standards.
 
 ##### Verification
-It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser. 
+It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser.
 
 
 ### No dialog flow
@@ -777,7 +778,7 @@ If the user completes the login they will be returned to the `redirect_uri` with
 
 `https://client.example.com/callback?code=12adsa938721987321asd9873&state=123987218dh`
 
-If the user is not logged in they will be returned with an error. Some possible errors are `interaction_required`, `login_required` or `server_error`. 
+If the user is not logged in they will be returned with an error. Some possible errors are `interaction_required`, `login_required` or `server_error`.
 
 Not logged in return uri example: `https://client.example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
 
