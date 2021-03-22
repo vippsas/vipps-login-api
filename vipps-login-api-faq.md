@@ -74,6 +74,8 @@ can register as many as you want to. You specify the URI that will be used with
 the query parameter `redirect_uri` on the initial request to the authentication
 endpoint.
 
+The redirect URI cannot contain "#".
+
 You can use localhost as part of the redirect URI.
 
 You can use “Custom URL Scheme” in the redirect URIs to redirect back an app.
