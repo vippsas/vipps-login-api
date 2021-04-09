@@ -429,10 +429,10 @@ Example response from the merchant test environment:
   "require_request_uri_registration": true,
   "claims_parameter_supported": false,
   "revocation_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/revoke",
-  "backchannel_logout_supported": true,
-  "backchannel_logout_session_supported": true,
-  "frontchannel_logout_supported": true,
-  "frontchannel_logout_session_supported": true,
+  "backchannel_logout_supported": false,
+  "backchannel_logout_session_supported": false,
+  "frontchannel_logout_supported": false,
+  "frontchannel_logout_session_supported": false,
   "end_session_endpoint": "https://apitest.vipps.no/access-management-1.0/access/oauth2/sessions/logout"
 }
 ```
