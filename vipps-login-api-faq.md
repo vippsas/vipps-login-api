@@ -27,7 +27,7 @@ Document version 2.1.0.
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser)
 - [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
-- [Can we control the language displayed to the user?][#can-we-control-the-language-displayed-the-user]
+- [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-the-user)
 - [Common errors](#common-errors)
 
 ## Where do I find the `client_id` and `client_secret`?
