@@ -27,6 +27,7 @@ Document version 2.1.0.
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser)
 - [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
+- [Can we control the language displayed to the user?][#can-we-control-the-language-displayed-the-user]
 - [Common errors](#common-errors)
 
 ## Where do I find the `client_id` and `client_secret`?
@@ -281,6 +282,12 @@ See more information in our end user
 [privacy policy](https://www.vipps.no/vilkar/cookie-og-personvern/)
 and
 [merchant agreeement](https://www.vipps.no/vilkar/vilkar-bedrift/)
+
+## Can we control the language displayed to the user?
+No. The language is controlled by the browser.  
+Specifically `window.navigator.language`, however it gets more complicated as there are fallbacks.  
+Refer to documentation for your browsers.  
+
 
 ## Common errors
 
