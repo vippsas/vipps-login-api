@@ -302,6 +302,11 @@ Azure B2C uses `client_secret_post` as `token_endpoint_auth_method` and the defa
 `client_secret_basic`, so you'll need to change this in the VippsPortalen.
 See [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 
+Vipps login doesn't allow return user information in the `id_token`, but provides a 
+userinfo endpoint for this use case. See [the user info endpoint documentation](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#userinfo).
+Azure B2C's User Flows doesn't use the userinfo endpoint and you will therefore need
+to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
+
 
 ## Common errors
 
