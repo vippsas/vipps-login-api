@@ -28,6 +28,7 @@ Document version 2.1.0.
 - [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser)
 - [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
 - [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-the-user)
+- [Which configuration should I have when integrating using Azure B2C?](#which-configuration-should-i-have-when-integrating-using-azure-b2c)
 - [Common errors](#common-errors)
 
 ## Where do I find the `client_id` and `client_secret`?
@@ -287,6 +288,24 @@ and
 No. The language is controlled by the browser.  
 Specifically `window.navigator.language`, however it gets more complicated as there are fallbacks.  
 Refer to documentation for your browsers.  
+
+
+## Which configuration should I have when integrating using Azure B2C?
+
+Azure B2C overrides the `redirect_uri`-parameter to redirect to Azure B2C first, then to your redirect URI. 
+You will need to look at your call to `https://apitest.vipps.no/access-management-1.0/access/oauth2/auth`
+and find the `redirect_uri` query parameter. This will need to be whitelisted in VippsPortalen.
+See [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
+
+
+Azure B2C uses `client_secret_post` as `token_endpoint_auth_method` and the default value is
+`client_secret_basic`, so you'll need to change this in the VippsPortalen.
+See [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
+
+Vipps login does not return user information in the `id_token`, but provides a 
+userinfo endpoint for this use case. See [the user info endpoint documentation](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#userinfo).
+Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
+to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
 
 
 ## Common errors
