@@ -25,6 +25,7 @@ Document version 2.1.0.
 - [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 - [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
+- [Can I use partner keys for Vipps login?](#Can-I-use-partner-keys-for-Vipps-login)
 - [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser)
 - [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
 - [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-the-user)
@@ -234,6 +235,11 @@ The `state` parameter is an opaque value used by the client to maintain state
 between the request and callback. The authorization server includes this value
 when redirecting the user-agent back to the client. The parameter should be
 used for preventing cross-site request forgery.
+
+## Can I use partner keys for Vipps login?
+No, Vipps login do not support partner keys. Each merchant has it own individual 'client id' and 'client secret' and need to share this with the partner if required.
+
+We support some scenarios where a merchant can be used for registration and login to other sites/merchants. Specific terms and conditions related to UX/branding, consent, terms and privacy statement apply to such scenarios. These can be found in section 8.4 in our [Terms and Conditions for merchants](https://www.vipps.no/vilkar/vilkar-bedrift/)
 
 ## Can I control if a user is remembered in the browser?
 
