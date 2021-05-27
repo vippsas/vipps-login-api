@@ -31,6 +31,9 @@ Document version 2.1.0.
 - [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-the-user)
 - [Which configuration should I have when integrating using Azure B2C?](#which-configuration-should-i-have-when-integrating-using-azure-b2c)
 - [Common errors](#common-errors)
+  - [No CSRF value available in the session cookie](#no-csrf-value-available-in-the-session-cookie)   
+  - [Custom URL scheme](#custom-url-scheme)
+  - [502 Bad Gateway](#502-bad-gateway)
 
 ## Where do I find the `client_id` and `client_secret`?
 
@@ -315,12 +318,16 @@ to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory
 
 
 ## Common errors
-
+### No CSRF value available in the session cookie
 Certain versions of Chrome gives the error `No+CSRF+value+available+in+the+session+cookie`.
 Upgrading to the latest version of Chrome should solve this.
 
+### Custom URL scheme
 If the `redirect_url` is using a custom URL scheme, such as `myapp://`, a path
 is required: `myapp://path-to-something`.
+
+### 502 Bad Gateway
+Some merchants have experienced a 502 Bad gateway response from api.vipps.no. This typically occurs in situations in which the `state` or `nonce` parameter is 1000+ characters. We've seen this issue when any of the requests in the redirect sequence are too long (i.e 2000+ characters). Therefore, try to keep these parameters at sane lengths. If there is a need to encode some payload in the `state` (i.e a jwt), it would be a better option to cache this at the client server and use the key as `state`    
 
 ## Questions?
 
