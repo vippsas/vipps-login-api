@@ -8,7 +8,7 @@ See also:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.1.0.
+Document version 2.1.1.
 
 ## Table of contents
 
@@ -134,11 +134,11 @@ This means that the `client_id` and `client_secret` used is not valid for Vipps 
 
 Please check:
 
+* Have you activated Vipps Login and set up a redirect URI? See:
+  [How can I activate and set up Vipps Login?]((#how-can-i-activate-and-set-up-vipps-login))
 * Are you using the `client_id` and `client_secret` for the correct environment?
-  There are separate keys for test and production. Both available on
-  [portal.vipps.no](https://portal.vipps.no) under “Developer”. You can choose
-  the environment above the table with sales units.
-* Have you set up a redirect URI for Vipps Login in the environment in question?
+  There are separate API keys for test and production. See:
+  [Getting Started: Getting the API keys](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys).
 
 ## Why do I get “Error: Could not get Vipps Login token” in Vipps?
 
@@ -301,7 +301,7 @@ Refer to documentation for your browsers.
 
 ## Which configuration should I have when integrating using Azure B2C?
 
-Azure B2C overrides the `redirect_uri`-parameter to redirect to Azure B2C first, then to your redirect URI. 
+Azure B2C overrides the `redirect_uri`-parameter to redirect to Azure B2C first, then to your redirect URI.
 You will need to look at your call to `https://apitest.vipps.no/access-management-1.0/access/oauth2/auth`
 and find the `redirect_uri` query parameter. This will need to be whitelisted in VippsPortalen.
 See [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
@@ -311,7 +311,7 @@ Azure B2C uses `client_secret_post` as `token_endpoint_auth_method` and the defa
 `client_secret_basic`, so you'll need to change this in the VippsPortalen.
 See [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 
-Vipps login does not return user information in the `id_token`, but provides a 
+Vipps login does not return user information in the `id_token`, but provides a
 userinfo endpoint for this use case. See [the user info endpoint documentation](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#userinfo).
 Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
