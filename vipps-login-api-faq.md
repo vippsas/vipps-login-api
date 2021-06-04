@@ -8,7 +8,7 @@ See also:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.1.1.
+Document version 2.1.2.
 
 ## Table of contents
 
@@ -136,6 +136,9 @@ Please check:
 
 * Have you activated Vipps Login and set up a redirect URI? See:
   [How can I activate and set up Vipps Login?]((#how-can-i-activate-and-set-up-vipps-login))
+* Have you double checked that the `redirect_uri` used in the API call is
+  _exactly_ the same as the one specified on [portal.vipps.no](https://portal.vipps.no)?
+  Be extra careful with trailing `/` and URL-encoded entities.
 * Are you using the `client_id` and `client_secret` for the correct environment?
   There are separate API keys for test and production. See:
   [Getting Started: Getting the API keys](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys).
