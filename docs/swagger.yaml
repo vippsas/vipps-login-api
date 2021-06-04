@@ -4,7 +4,7 @@ info:
     Welcome to the Vipps Login API documentation. You will find documentation
     for all HTTP APIs here.
   title: Vipps Login
-  version: 1.0.2
+  version: 1.0.3
 servers:
   - url: https://apitest.vipps.no
   - url: https://api.vipps.no
@@ -58,10 +58,17 @@ paths:
               properties:
                 grant_type:
                   type: string
+                  example: 
                 code:
                   type: string
                 redirect_uri:
                   type: string
+                  example: 'https://example.com/vipps-login-result-page'
+                  description: >-
+                    The redirect URL which the user agent is redirected to after finishing a login.
+                    If the URL is using a custom URL scheme, such as myapp://, a path is required: myapp://path-to-something.
+                    The URL must be exactly the same as the one specified on portal.vipps.no.
+                    Be extra careful with trailing slashed and URL-encoded entoities.
                 client_id:
                   type: string
               required:

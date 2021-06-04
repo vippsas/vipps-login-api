@@ -3,9 +3,9 @@
 API version: 2.0
 
 Please note that **all merchants on Vipps Login need to include the scope `api_version_2`.**
-If this is omitted you will in effect use a version that is no longer supported. 
+If this is omitted you will in effect use a version that is no longer supported.
 
-Document version 4.0.2.
+Document version 4.0.3.
 
 ## Table of contents
 * [Introduction](#introduction)
@@ -348,7 +348,7 @@ These endpoints should be fetched dynamically by your application, since they ar
 | Test        |https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration |
 | Production  |https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration     |
 
-The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients. We recommend to fetch these dynamically, however the response from this endpoint rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. The endpoint responds with a `Cache-Control: max-age=3600` header. 
+The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients. We recommend to fetch these dynamically, however the response from this endpoint rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. The endpoint responds with a `Cache-Control: max-age=3600` header.
 
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
@@ -473,6 +473,13 @@ means available to it via the user-agent.
 For example, the client directs the user-agent to make the following HTTP request:
 
 [`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth)
+
+**Please note:** URIs specified on [portal.vipps.no](https://portal.vipps.no/)
+must be _exactly_ the same as used in the API calls. Be extra careful with
+trailing `/` and URL-encoded entities. If the URIs are not identical you will get
+this error:
+
+>The provided authorization grant (e.g., authorization code, resource owner credentials) or refresh token is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client
 
 **Response**
 
@@ -730,7 +737,7 @@ iOS: Use [SFAuthenticationSession](https://developer.apple.com/documentation/saf
 ### App integration
 _This feature is new and might need modifications to support all merchant app needs._
 
-It is possible to enable automatic switch of users back to the merchant app, 
+It is possible to enable automatic switch of users back to the merchant app,
 from the Vipps app. This flow is described [here](#app-to-app-flow).
 
 Expected flow:
@@ -738,64 +745,71 @@ Expected flow:
 Merchant app -> Merchant app controlled browser -> Vipps app -> Merchant app controlled browser -> Merchant app
 ```
 
-Note that you should use an 
+Note that you should use an
 [external browser that is opened within the app, and not web-views](#using-vipps-login-in-native-applications).
 
-This flow can be enabled per login request by adding the `requested_flow=app_to_app` 
+This flow can be enabled per login request by adding the `requested_flow=app_to_app`
 and `app_callback_uri` parameters to the [Authorize](#oauth-20-authorize) request.
 
 This flow requires both the `app_callback_uri` and `redirect_uri` parameters.
 
-The `app_callback_uri` should be a URI that makes the device switch back to the merchant's 
-app again after the Vipps app portion of the flow is done (example: "merchant-app://callback"). 
+The `app_callback_uri` should be a URI that makes the device switch back to the merchant's
+app again after the Vipps app portion of the flow is done (example: "merchant-app://callback").
 
-The `redirect_uri` is opened in the browser once the Vipps login flow is completed there. 
-This url can either redirect the user to a page in the browser, or be handled/intercepted by the merchant app. 
-In either case it is important to avoid using static client secrets in the app for completing the login. 
+The `redirect_uri` is opened in the browser once the Vipps login flow is completed there.
+This URL can either redirect the user to a page in the browser, or be handled/intercepted by the merchant app.
+In either case it is important to avoid using static client secrets in the app for completing the login.
 (For more information see https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous and https://tools.ietf.org/html/rfc8252#section-8.5).
 
-<b>Both</b> URIs must be added in the [merchant portal](https://portal.vipps.no/), 
+*Both* URIs must be added in the [portal.vipps.no](https://portal.vipps.no/),
 you find more information on how to do this [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
-The Vipps app will return some data with the return to the `app_callback_uri`. 
-It contains two query parameters `state` and `resume_uri`. 
-`State` is the OIDC `state` parameter passed at the start of a login which can be used to identify the specific login if needed. 
+**Please note:** URIs specified on [portal.vipps.no](https://portal.vipps.no/)
+must be _exactly_ the same as used in the API calls. Be extra careful with
+trailing `/` and URL-encoded entities. If the URIs are not identical you will get
+this error:
 
-The `resume_uri`parameter is generated by Vipps 
-and can optionally be used to resume the login when the user returns from the Vipps app. 
-If the merchant app manages to keep the initial browser window open it is not required to use the `resume_uri`. 
-To use the `resume_uri` it must be opened in the same browser used in the initial phase 
-(such as ASWebAuthenticationSession or Chrome Custom Tabs). It is required that the browser contains the cookies 
+>The provided authorization grant (e.g., authorization code, resource owner credentials) or refresh token is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client
+
+The Vipps app will return some data with the return to the `app_callback_uri`.
+It contains two query parameters `state` and `resume_uri`.
+`State` is the OIDC `state` parameter passed at the start of a login which can be used to identify the specific login if needed.
+
+The `resume_uri` parameter is generated by Vipps
+and can optionally be used to resume the login when the user returns from the Vipps app.
+If the merchant app manages to keep the initial browser window open it is not required to use the `resume_uri`.
+To use the `resume_uri` it must be opened in the same browser used in the initial phase
+(such as ASWebAuthenticationSession or Chrome Custom Tabs). It is required that the browser contains the cookies
 from the interaction that happens before the user is sent to the Vipps app.
 
 Example `app_callback_uri` request
-``` 
+```
 merchant-app://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resume_uri=https%3A%2F%2Fapi.vipps.no%2Fvipps-login-idp%2Findex.html%3FtabId%3D7607f7f0-7ae2-49b7-9cb5-102143dac4ea
 ```
 
 #### A typical flow/implementation might look like this:
 ![](images/app2appsuggestion.png)
 
-The dotted lines in this diagram are handled by Vipps (or the user), 
-while the filled lines need to be implemented by the merchant. 
-1. Merchant backend generates an [OpenID authentication flow authorization URI](#oauth-20-authorize). 
+The dotted lines in this diagram are handled by Vipps (or the user),
+while the filled lines need to be implemented by the merchant.
+1. Merchant backend generates an [OpenID authentication flow authorization URI](#oauth-20-authorize).
    The URI is communicated to the merchant app
-2. Merchant app uses the URI to initiate Vipps login in an external browser that is opened within the app, 
+2. Merchant app uses the URI to initiate Vipps login in an external browser that is opened within the app,
    see the [specification](#using-vipps-login-in-native-applications) for details.
 3. Vipps login will open the Vipps app if required.
-   (if the user is remembered in the browser the user will be authenticated directly 
+   (if the user is remembered in the browser the user will be authenticated directly
     - the user will then be on step 6 below)
 4. Vipps app opens the deep link `app_callback_uri` parameter after the user has approved the login.
 5. Merchant app handles the link in one of two ways:
    * Display the same browser instance that was created in 1.
    * Open a browser again using the `resume_uri`-query parameter that is returned with the request to the `app_callback_uri`.
-6. Vipps login finalizes the authentication of the user and obtains consent to share information if needed. 
-   When this is finished the user will be redirected to the `redirect_uri`. 
+6. Vipps login finalizes the authentication of the user and obtains consent to share information if needed.
+   When this is finished the user will be redirected to the `redirect_uri`.
    The Vipps login process has now finished and the merchant controls the remaining process.
 7. Merchant app sends the `code` and `state`parameters received in the callback to the merchant backend
 8. Merchant backend fetches the access tokens and user information
 
-Example authorize request url:
+Example authorize request URL:
 ```
 .../oauth2/auth?app_callback_uri=https://example.com/app-callback&requested_flow=app_to_app&scope=<scopes>&response_type=code&redirect_uri=merchantapp://callback&code_challenge_method=S256&state=<state>&nonce=<nonce>&client_id=<clientid>&code_challenge=<challenge>
 ```
@@ -843,12 +857,12 @@ Some relevant considerations:
 * [The state parameter and CSRF](https://tools.ietf.org/html/rfc6749#section-10.12). Be aware of the recommendations of the OIDC/OAuth standards.
 
 ##### Verification
+
 It is important merchants verify that users returning to a different browser than where the login started is handled as expected. It is also recommended testing starting the login in private/incognito mode as this will have similar effects as being returned to a different browser.
 
-
 ### No dialog flow
-This flow is described [here](#no-dialog-flow---log-the-user-in-directly-when-possible). To attempt a no dialog login add the query parameter `requested_flow=no_dialog` to the [Authorization request](#OAuth-2.0-Authorize) uri.
 
+This flow is described [here](#no-dialog-flow---log-the-user-in-directly-when-possible). To attempt a no dialog login add the query parameter `requested_flow=no_dialog` to the [Authorization request](#OAuth-2.0-Authorize) uri.
 
 If the user completes the login they will be returned to the `redirect_uri` with a code that can be used to complete the login. Just like in a regular [Authorization code](#authorization-code-grant) login.
 
@@ -864,7 +878,7 @@ In all cases a new login can be started by removing the parameter `requested_flo
 
 ### Compliance
 
-**Q**: How can our system dynamically "know/find out" if the user has revoked their concent for us to have access to his personal data in our system?
+**Q**: How can our system dynamically "know/find out" if the user has revoked the consent for us to have access to his/her personal data in our system?
 **A**: We have a system for notifying merchants when an end-users revoke their consents. You find information in this webhook [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-webhooks.md)
 
 ### Technical
