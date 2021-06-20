@@ -255,7 +255,7 @@ to use the app to authenticate (two factor authentication). The end-user chooses
 whether he would like to be remembered in browser or not.  
 
 ## Can I see statistics on Vipps Login usage?
-Yes, statistics on successful logins with Vipps is available on [portal.vipps.no](https://portal.vipps.no). You find this information in the "Utvikler" section. You first click "Utvikle" and then API-dashboard on the top of the page. Choose the sale unit with Vipps Login that you would like to see, the time period you wouold like to have covered and click "Fetch data". Then scroll down untill you find the panel named "Successful logins". 
+Yes, statistics on successful logins with Vipps in production is available on [portal.vipps.no](https://portal.vipps.no). You find this information in the "Utvikler" section. You first click "Utvikle" and then API-dashboard on the top of the page. The statistics are only available for the production environment. Choose the sale unit with Vipps Login that you would like to see, the time period you wouold like to have covered and click "Fetch data". Then scroll down untill you find the panel named "Successful logins". 
 
 ![The dashboard lookes like this:](images/API_Dashboard_Vipps_login.png)
 
