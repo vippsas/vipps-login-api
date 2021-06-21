@@ -255,11 +255,12 @@ to use the app to authenticate (two factor authentication). The end-user chooses
 whether he would like to be remembered in browser or not.  
 
 ## Can I see statistics on Vipps Login usage?
-Yes, statistics on successful logins with Vipps in production is available on [portal.vipps.no](https://portal.vipps.no). You find this information in the "Utvikler" section. You first click "Utvikle" and then API-dashboard on the top of the page. The statistics are only available for the production environment. Choose the sale unit with Vipps Login that you would like to see, the time period you wouold like to have covered and click "Fetch data". Then scroll down untill you find the panel named "Successful logins". 
+Yes, statistics on successful logins with Vipps in production is available on [portal.vipps.no](https://portal.vipps.no). You find this information in the "Utvikler" section. You first click "Utvikler" and then API-dashboard on the top of the page. The statistics are only available for the production environment. Choose the sales unit with Vipps Login that you would like to see, the time period you would like to have covered and click "Fetch data". Then scroll down until you find the panel named "Successful logins". 
+
 
 ![The dashboard lookes like this:](images/API_Dashboard_Vipps_login.png)
 
-If you have access to request national identity number (nin) and/or account numbers you will be able to see the number of logins with and without these scopes. If you click "Show details" under the graph you can see total logins for the periode and number of unique users in the selected period.
+If you have access to request national identity number (nin) and/or account numbers you will be able to see the number of logins with and without these scopes. If you click "Show details" under the graph you can see total logins for the period and number of unique users in the selected period. Keep in mind that there is a 10 minute delay from a login occurs, until it appears on the dashboard. 
 
 ## How is GDPR handled with Vipps Login?
 
