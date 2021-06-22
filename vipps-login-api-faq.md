@@ -18,17 +18,18 @@ Document version 2.1.2.
 - [How can I change my name and logo?](#how-can-i-change-my-name-and-logo)
 - [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 - [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
-- [Why do I get “Error: Could not get Vipps Login token” in the Vipps app?](#Why-do-I-get-Error-Could-not-get-Vipps-login-token-in-the-Vipps-app)
+- [Why do I get “Error: Could not get Vipps Login token” in Vipps?](#why-do-i-get-error-could-not-get-vipps-login-token-in-vipps)
 - [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 - [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
 - [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
 - [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
-- [Who can get access to account numbers and how?](#who-can-get-access-to-accountnumbers-and-how)
+- [Who can get access to account numbers and how?](#who-can-get-access-to-account-numbers-and-how)
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Can I use partner keys for Vipps login?](#Can-I-use-partner-keys-for-Vipps-login)
 - [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser)
+- [Can I see statistics on Vipps Login usage?](#can-I-see-statistics-on-Vipps-Login-usage)
 - [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
-- [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-the-user)
+- [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-to-the-user)
 - [Which configuration should I have when integrating using Azure B2C?](#which-configuration-should-i-have-when-integrating-using-azure-b2c)
 - [Common errors](#common-errors)
   - [No CSRF value available in the session cookie](#no-csrf-value-available-in-the-session-cookie)   
@@ -252,6 +253,14 @@ We support some scenarios where a merchant can be used for registration and logi
 Vipps Login do not currently support merchants specifying that the user needs
 to use the app to authenticate (two factor authentication). The end-user chooses
 whether he would like to be remembered in browser or not.  
+
+## Can I see statistics on Vipps Login usage?
+Yes, statistics on successful logins with Vipps in production is available on [portal.vipps.no](https://portal.vipps.no). You find this information in the "Utvikler" section. You first click "Utvikler" and then API-dashboard on the top of the page. The statistics are only available for the production environment. Choose the sales unit with Vipps Login that you would like to see, the time period you would like to have covered and click "Fetch data". Then scroll down until you find the panel named "Successful logins". 
+
+
+![The dashboard lookes like this:](images/API_Dashboard_Vipps_login.png)
+
+If you have access to request national identity number (nin) and/or account numbers you will be able to see the number of logins with and without these scopes. If you click "Show details" under the graph you can see total logins for the period and number of unique users in the selected period. Keep in mind that there is a 10 minute delay from a login occurs, until it appears on the dashboard. 
 
 ## How is GDPR handled with Vipps Login?
 
