@@ -723,6 +723,38 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
 
+### Call by call
+
+A very basic case, from a user clicks "Log in with Vipps" until the merchant receives login token
+and the users name and address, is shown below:
+0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint
+   and cached it.
+   
+   See [.well-known](#json-web-keys-discovery)
+   
+1. The merchant initiates a login by calling the `authorization_endpoint` from .well-known.
+   `GET {authorization_endpoint}?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`
+2. This will bring the user to the Vipps Login-screen, where they will consent to sharing
+   information with the merchant. After consenting, the browser is redirected to the 
+   `redirect_uri` supplied by the merchant.
+   `{redirect_uri}?code={code}&state={state}&scope={scopes}`
+   
+    See [Authorization endpoint](#oauth-20-authorize)
+   
+3. The merchant uses the `code`-parameter to obtain the login token.
+    `POST {token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and 
+   `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded`-body.
+   This returns (amongst others) an `access_token` that can be used to fetch userinfo.
+   
+    See [Token endpoint](#oauth-20-token)
+   
+4. To obtain userinfo, the merchant must do a GET to the `userinfo_endpoint` with the header: 
+    `Authorization: Bearer {access_token}`. This returns the information the user consented to sharing.
+
+    See [Userinfo](#userinfo)
+
+
+
 ### Using Vipps Login in native applications
 
 Web-views should not be used when using Vipps Login in a native application. Instead, the user should be redirected using an external browser openend by/within the app.
