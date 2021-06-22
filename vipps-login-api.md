@@ -755,8 +755,6 @@ and the users name and address, is shown below:
 
     See [Userinfo](#userinfo)
 
-
-
 ### Using Vipps Login in native applications
 
 Web-views should not be used when using Vipps Login in a native application. Instead, the user should be redirected using an external browser openend by/within the app.
