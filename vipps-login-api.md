@@ -918,7 +918,7 @@ In addition to the responses defined by the standard these responses might be re
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 
-#### Successful response (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)
+##### Successful response (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)
 
 * We do retrun a `interval` parameter which indicating the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
 
