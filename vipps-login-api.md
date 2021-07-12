@@ -898,7 +898,7 @@ Supported login hints:
 
 ##### Scopes
 
-* We support the scopes listed at (Scopes)[#scopes]
+* We support the scopes listed at [Scopes](#scopes)
 * The `api_version_2` is not required
 * The legacy `nnin` scope is not supported, use `nin` instead.
 
