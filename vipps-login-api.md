@@ -47,6 +47,7 @@ Document version 4.0.3.
     * [App integration](#app-integration)
     * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
     * [No dialog flow](#No-dialog-flow)
+    * [Client initiated backchannel authentication flows (CIBA)](#client-initiated-backchannel-authentication-flows-(ciba))
 * [Error handling](#error-handling)
 * [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
