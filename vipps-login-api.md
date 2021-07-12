@@ -528,11 +528,10 @@ and secret issued by Vipps joined by ":"
 
 Example in JavaScript:
 ```
-var client_id = 123456-test-4a3d-a47c-412136fd0871
-var client_secret = testdzlJbUZaM1lqODlnUUtrUHI=
+var client_id = "123456-test-4a3d-a47c-412136fd0871";
+var client_secret = "testdzlJbUZaM1lqODlnUUtrUHI=";
 
-var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + ":" + client_secret);
-var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
+var client_authorization = Buffer.from(client_id + ":" + client_secret).toString('base64');
 ```
 
 *Form content*
