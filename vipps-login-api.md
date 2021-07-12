@@ -47,6 +47,7 @@ Document version 4.0.3.
     * [App integration](#app-integration)
     * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
     * [No dialog flow](#No-dialog-flow)
+    * [Client initiated backchannel authentication flows (CIBA)](#client-initiated-backchannel-authentication-flows-ciba)
 * [Error handling](#error-handling)
 * [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
@@ -872,6 +873,61 @@ If the user is not logged in they will be returned with an error. Some possible 
 Not logged in return uri example: `https://client.example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
 
 In all cases a new login can be started by removing the parameter `requested_flow=no_dialog` and initiating a new login for the user.
+
+### Client initiated backchannel authentication flows (CIBA)
+
+TODO: How to enable
+
+This flow is described TODO it is an implementation of the CIBA OIDC standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html.
+
+#### Overview
+Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate the authentication of an end-user through out-of-band mechanisms.
+
+1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
+2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
+3) The Client will receive the ID Token, Access Token by polling the token endpoint to get a response with the tokens.
+
+#### Authentication Request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)
+
+The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration.
+
+##### Authentication
+Only Basic authentication is currently supported.
+
+##### The `login_hint` parameter
+Supported login hints:
+
+* Norwegian mobile phone numbers can be targeted by passing login hint's on the format `urn:mobilenumber:{8 digit norwegian mobile number}` e.g. `...&login_hint=urn:mobilenumber:12345678&...`.
+
+##### Scopes
+
+* We support the scopes listed at [Scopes](#scopes)
+* The `api_version_2` is not required
+* The legacy `nnin` scope is not supported, use `nin` instead.
+
+##### Binding message (optional)
+A human-readable identifier or message intended to be displayed on both the consumption device and the authentication device to interlock them together for the transaction by way of a visual cue for the end-user.
+
+Read more about it in the standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request
+
+Note: "the binding_message value SHOULD be relatively short and use a limited set of plain text characters"
+
+##### Error responses
+In addition to the responses defined by the standard these responses might be returned:
+
+* `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
+
+##### Successful responses (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)
+
+Responses according to the standard. Note we do retrun a `interval` parameter which indicating the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
+
+#### Token request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)
+
+Responses according to the standard.
+* Note the required `grant_type`: `urn:openid:params:grant-type:ciba`.
+* Long polling is currently not supported
+* Remember not to poll more often than indicated by the `interval` parameter returned from the authentication request.
+* The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
 
 ## Questions and answers
 
