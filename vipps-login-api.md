@@ -896,9 +896,18 @@ Supported login hints:
 
 * Norwegian mobile phone numbers can be targeted by passing login hint's on the format `urn:mobilenumber:{8 digit norwegian mobile number}` e.g. `...&login_hint=urn:mobilenumber:12345678&...`.
 
-#### Scopes
+##### Scopes
 
+* We support the scopes listed at (Scopes)[scopes]
 * The `api_version_2` is not required
+* The legacy `nnin` scope is not supported, use `nin` instead.
+
+##### Binding message (optional)
+A human-readable identifier or message intended to be displayed on both the consumption device and the authentication device to interlock them together for the transaction by way of a visual cue for the end-user.
+
+Read more about it in the standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request
+
+Note: "the binding_message value SHOULD be relatively short and use a limited set of plain text characters"
 
 ##### Error responses
 In addition to the responses defined by the standard these responses might be returned:
