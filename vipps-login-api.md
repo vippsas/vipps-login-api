@@ -874,6 +874,37 @@ Not logged in return uri example: `https://client.example.com/callback?error=int
 
 In all cases a new login can be started by removing the parameter `requested_flow=no_dialog` and initiating a new login for the user.
 
+### Client initiated backchannel authentication flows (CIBA)
+
+TODO: How to enable
+
+This flow is described TODO it is an implementation of the CIBA OIDC standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html.
+
+#### Overview
+Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate the authentication of an end-user through out-of-band mechanisms.
+
+1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
+2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
+3) The Client will receive the ID Token, Access Token by polling the token endpoint to get a response with the tokens.
+
+#### Authentication Request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)
+
+The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration.
+
+##### The `login_hint` parameter
+Supported login hints:
+
+* Norwegian mobile phone numbers can be targeted by passing login hint's on the format `urn:mobilenumber:{8 digit norwegian mobile number}` e.g. `...&login_hint=urn:mobilenumber:12345678&...`.
+
+#### Scopes
+
+* The `api_version_2` is not required
+
+##### Error responses
+In addition to the responses defined by the standard these responses might be returned:
+
+* `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
+
 ## Questions and answers
 
 ### Compliance
