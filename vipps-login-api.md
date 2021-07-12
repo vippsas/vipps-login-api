@@ -918,15 +918,17 @@ In addition to the responses defined by the standard these responses might be re
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 
-##### Successful response (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)
+##### Successful responses (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)
 
-* We do retrun a `interval` parameter which indicating the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
+Responses according to the standard. Note we do retrun a `interval` parameter which indicating the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
 
 #### Token request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)
 
+Responses according to the standard.
 * Note the required `grant_type`: `urn:openid:params:grant-type:ciba`.
 * Long polling is currently not supported
 * Remember not to poll more often than indicated by the `interval` parameter returned from the authentication request.
+* The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
 
 ## Questions and answers
 
