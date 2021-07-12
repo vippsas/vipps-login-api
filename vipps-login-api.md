@@ -526,7 +526,7 @@ below to the HTTP body by using the `application/x-www-form-urlencoded` format.
 The Client Credentials is a base 64 encoded string consisting of the Client id
 and secret issued by Vipps joined by ":"
 
-Example in JavaScript:
+Example in Node.js:
 ```
 var client_id = "123456-test-4a3d-a47c-412136fd0871";
 var client_secret = "testdzlJbUZaM1lqODlnUUtrUHI=";
