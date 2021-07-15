@@ -468,7 +468,7 @@ means available to it via the user-agent.
 | scope             | Scope of the access request, space-separated list.                                                                                                                                        |
 | state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
 | requested_flow            | Optional. Request a specific flow for the user. See [App integration](#app-integration), [Automatic return from Vipps app](#automatic-return-from-vipps-app) and [No dialog flow](#no-dialog-flow)                                            |
-| app_callback_uri  | Optional. The target uri for automatic switch back to merchant app. Requires `requested_flow=app_to_app`. Example `merchant-app://callback` | final_redirect_is_app | Optional. Either `true` or `false`. If this is `true` we will enable some compatibility features to make sure the flow works                                                             |
+| app_callback_uri  | Optional. The target uri for automatic switch back to merchant app. Requires `requested_flow=app_to_app`. Example `merchant-app://callback` | final_redirect_is_app | Optional. Either `true` or `false`. If this is `true` we will enable some compatibility features to make sure the user is returned to the app.                                                             |
 
 For example, the client directs the user-agent to make the following HTTP request:
 
