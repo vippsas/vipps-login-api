@@ -156,7 +156,7 @@ The CIBA flows have been developed to support use-cases where authentication/reg
 
 The CIBA flows are reserved for such special cases and needs to be specially enabled by Vipps for eligible sale units (TODO: Add link). A sale unit can be set up with both ordinary Vipps login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
 
-A CIBA flow is initiated using the users mobile number. This triggers a push message from the user's Vipps app. By clicking the push message the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant such consent will be required.
+A CIBA flow is initiated using the users mobile number. This triggers a push message from the user's Vipps app. By clicking the push message the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant such consent will be required. If the user has not enabled push from Vipps the user needs to manually open the Vipps app and possibly pull the home screen down for a refresh to recieve the authentication request.
 
 The merchant can choose whether the user flow should end with a confirmation in the Vipps app, or if the end user should be taken to the merchant's web page for the confirmation. The marchant's page can in this scenario be used to gather relevant consents or give relevant information to the user.
 
