@@ -341,6 +341,8 @@ Vipps Login. This **should not be attempted without a solid grasp of the OAuth2
 and Open ID Connect standards**. All endpoints needed for integration can be found in our openid connect discovery endpoint.
 These endpoints should be fetched dynamically by your application, since they are prone for change.
 
+For a call-by-call example of a simple flow, see [call-by-call](#call-by-call).
+
 #### Openid connect discovery endpoint
 
 | Environment | Base URL |
@@ -731,7 +733,7 @@ and the users name and address, is shown below:
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint
    and cached it.
    
-   See [.well-known](#json-web-keys-discovery)
+   See [.well-known](#openid-connect-discovery-endpoint)
    
 1. The merchant initiates a login by calling the `authorization_endpoint` from .well-known.
    `GET {authorization_endpoint}?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`
