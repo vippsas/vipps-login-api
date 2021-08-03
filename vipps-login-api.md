@@ -729,7 +729,7 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 ### Call by call
 
 A very basic case, from a user clicks "Log in with Vipps" until the merchant receives login token
-and the users name and address, is shown below:
+and the users information, is shown below:
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint
    and cached it.
