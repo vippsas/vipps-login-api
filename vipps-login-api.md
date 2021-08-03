@@ -47,8 +47,8 @@ Document version 4.0.3.
     * [App integration](#app-integration)
     * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
     * [No dialog flow](#No-dialog-flow)
-* [Call by call](#call-by-call)
 * [Error handling](#error-handling)
+* [Call by call](#call-by-call)
 * [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
 
