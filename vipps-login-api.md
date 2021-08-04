@@ -48,6 +48,7 @@ Document version 4.0.3.
     * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
     * [No dialog flow](#No-dialog-flow)
 * [Error handling](#error-handling)
+* [Call by call](#call-by-call)
 * [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
 
@@ -340,6 +341,8 @@ This section contains information necessary to perform a manual integration with
 Vipps Login. This **should not be attempted without a solid grasp of the OAuth2
 and Open ID Connect standards**. All endpoints needed for integration can be found in our openid connect discovery endpoint.
 These endpoints should be fetched dynamically by your application, since they are prone for change.
+
+For a call-by-call example of a simple flow, see [call-by-call](#call-by-call).
 
 #### Openid connect discovery endpoint
 
@@ -721,6 +724,38 @@ Location: https://client.example.com/callback?error=access_denied&error_descript
 ```
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
+
+### Call by call
+
+A very basic case, from a user clicks "Log in with Vipps" until the merchant receives login token
+and the users information, is shown below:
+
+0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint
+   and cached it.
+   
+   See [.well-known](#openid-connect-discovery-endpoint)
+   
+1. The merchant initiates a login by calling the `authorization_endpoint` from .well-known.
+   `GET {authorization_endpoint}?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`
+
+   See [Authorization endpoint](#oauth-20-authorize)
+   
+2. This will bring the user to the Vipps Login-screen, where they will consent to sharing
+   information with the merchant. After consenting, the browser is redirected to the 
+   `redirect_uri` supplied by the merchant.
+   `{redirect_uri}?code={code}&state={state}&scope={scopes}`
+   
+3. The merchant uses the `code`-parameter to obtain the login token.
+    `POST {token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and 
+   `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded`-body.
+   This returns (amongst others) an `access_token` that can be used to fetch userinfo.
+   
+    See [Token endpoint](#oauth-20-token)
+   
+4. To obtain userinfo, the merchant must do a GET to the `userinfo_endpoint` with the header: 
+    `Authorization: Bearer {access_token}`. This returns the information the user consented to sharing.
+
+    See [Userinfo](#userinfo)
 
 ### Using Vipps Login in native applications
 
