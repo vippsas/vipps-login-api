@@ -921,7 +921,10 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration.
 
 ##### Authentication
-Only Basic authentication is currently supported.
+The following authentication methods are currently supported:
+* client_secret_basic
+* client_secret_post
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal.
 
 ##### The `login_hint` parameter
 Supported login hints:
