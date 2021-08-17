@@ -286,6 +286,7 @@ Vipps Login does not currently support refresh tokens.
 ### Token endpoint authentication method
 The token endpoint is a standard OIDC endpoint used for requesting Access and ID Tokens.
 The default token endpoint authentication method is `client_secret_basic`.
+
 It is possible to change the authentication method to `client_secret_post` in the Vipps portal. This setting will then apply to all login transactions on this sales unit.
 Go to [How can I use client_secret_post for authentication?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication) for more information on how to change the authentication method.
 
