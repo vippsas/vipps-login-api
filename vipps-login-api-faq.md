@@ -24,6 +24,7 @@ Document version 2.1.2.
 - [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
 - [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 - [Who can get access to account numbers and how?](#who-can-get-access-to-account-numbers-and-how)
+- [Who can get access to CIBA flows and how?](#who-can-get-access-to-ciba-flows-and-how)
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Can I use partner keys for Vipps login?](#Can-I-use-partner-keys-for-Vipps-login)
 - [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser)
@@ -224,6 +225,17 @@ accessuserinfo@vipps.no. In the email you should specify:
 * Information on how you plan to use the NIN
 * The legal requirement and/or the reason why you need to use NIN to achieve
   required user identification.
+
+## Who can get access to CIBA flows and how?
+The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. This means that it is the merchant/merchant’s systems that trigger the authentication/registration and thus login cannot be done in the user’s browser. The CIBA flows are reserved for such special cases and needs to be specially enabled by Vipps for eligible sale units.
+
+Merchants need to apply for access to CIBA flows separately by sending an email to accessuserinfo@vipps.no. 
+In the email you should specify:
+
+* Merchant name
+* Organization number
+* Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
+* Information on how you plan to use the CIBA flow
 
 ## Who can get access to account numbers and how?
 
