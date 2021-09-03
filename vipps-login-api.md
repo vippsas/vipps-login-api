@@ -1116,6 +1116,9 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 **Q**: Can we have multiple URIs as landing pages?
 **A**: You can register as many callback urls as you want; and then you specify which one you use in the request to [/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)
 
+**Q**: Why do I get a CORS error?
+**A**: We do not currently support any flows that requires requests being done from browsers.
+
 ### UX
 
 **Q**: Can we change the name that appears in customer's Vipps app under `Login and Access`?
