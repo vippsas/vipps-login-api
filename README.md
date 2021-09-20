@@ -1,4 +1,4 @@
-# Vipps Login API
+# Vipps Login API TEST
 
 This repository contains developer resources for the Vipps Login API.
 
