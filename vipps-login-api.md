@@ -1135,11 +1135,11 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 See [CIBA login flows](#ciba-login-flows)
 
 #### Overview
-Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate the authentication of an end-user through out-of-band mechanisms.
+This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user being logged in to the client's website at the end of the login.
 
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
 2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
-3) The user, via their browser, will be redirected to the merchant's `redirect_uri` which enabels the login to be completed.
+3) The user, via their browser, will be redirected to the Client's `redirect_uri` which enabels the login to be completed.
 
 #### Call by call
 
@@ -1148,7 +1148,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
 1.  The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
 
-    For details see [Authentication Request](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request)
+    For details see [Authentication Request With Redirect](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request)
     
     Example request:
     ```
@@ -1156,7 +1156,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
     Authorization: Basic asdkjhasdjhsad=
     Content-Type: application/x-www-form-urlencoded
       
-    scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
+    scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23&requested_flow=login_to_webpage&nonce=qwhjewqkheqkwhkqhweqhwekjwh21u3h21he13ew2&code_challenge_method=S256&code_challenge=21je21je2o1j3o21joedj21do1j321e2oi1
     ```
     
     Example response:
