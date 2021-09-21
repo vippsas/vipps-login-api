@@ -227,7 +227,7 @@ accessuserinfo@vipps.no. In the email you should specify:
   required user identification.
 
 ## Who can get access to CIBA flows and how?
-The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. This means that it is the merchant/merchant’s systems that trigger the authentication/registration and thus login cannot be done in the user’s browser. The CIBA flows are reserved for such special cases and needs to be specially enabled by Vipps for eligible sale units.
+The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. This means that it is the merchant/merchant’s systems that trigger the authentication/registration and thus login cannot be done in the user’s browser. The CIBA flows are reserved for such special cases and needs to be specially enabled by Vipps for eligible sale units. If a merchant uses the CIBA flows on webpages or in apps used by end-users, access to the CIBA flows can be withdrawn.
 
 Merchants need to apply for access to CIBA flows separately by sending an email to accessuserinfo@vipps.no. 
 In the email you should specify:
