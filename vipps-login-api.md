@@ -1204,7 +1204,7 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
     }
     ```
 
-#### Authentication Request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)
+#### Authentication Request With Redirect (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)
 
 The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration.
 
@@ -1214,6 +1214,13 @@ The following authentication methods are currently supported:
 * client_secret_post
 
 The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal.
+
+Required parameters: `login_hint`, `scope`, `redirect_uri`, `code_challenge`, `code_challenge_method`, `requested_flow`
+
+##### The `requested_flow` parameter (required)
+Must equal to be `login_to_webpage`.
+
+Example: `...&requested_flow=login_to_webpage&...`
 
 ##### The `login_hint` parameter (required)
 Supported login hints:
@@ -1238,6 +1245,24 @@ Read more about it in the standard https://openid.net/specs/openid-client-initia
 Note: "the binding_message value SHOULD be relatively short and use a limited set of plain text characters"
 
 Example: `....&binding_message=4MZ-CQ3&...`
+
+##### The `redirect_uri` parameter (required)
+Redirect URL which the user agent is redirected to after finishing a login. Must be `https` in the production environment.
+
+Example: `...&redirect_uri=https://merchant.com/callback&...`
+
+##### The `nonce` parameter (required)
+As described in the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the nonce values used to prevent attackers from guessing values.
+
+##### The `code_challenge` and `code_challenge_method` parameter (required)
+These parameters enables support for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636).
+The `code_verifier` parameter generated here must be supplied in the later [token request]()
+
+###### `code_challenge_method`
+Recommended value is `S256`, default value is `plain`.
+
+###### `code_challenge`
+
 
 ##### Error responses
 In addition to the responses defined by the standard these responses might be returned:
