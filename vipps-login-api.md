@@ -48,8 +48,8 @@ Document version 4.0.3.
     * [App integration](#app-integration)
     * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
     * [No dialog flow](#No-dialog-flow)
-    * [CIBA - complete login in Vipps App](#ciba-complete-login-in-vipps-app)
-    * [CIBA - complete login on merchant web page](#client-initiated-backchannel-authentication-flows-ciba)
+    * [CIBA - complete login in Vipps App](#ciba---complete-login-in-the-vipps-app)
+    * [CIBA - complete logged into the merchant's web page](#ciba---complete-logged-in-into-the-merchants-web-page)
 * [Error handling](#error-handling)
 * [Call by call](#call-by-call)
 * [Questions and answers](#questions-and-answers)
@@ -950,12 +950,19 @@ Not logged in return uri example: `https://client.example.com/callback?error=int
 
 In all cases a new login can be started by removing the parameter `requested_flow=no_dialog` and initiating a new login for the user.
 
-### CIBA - complete login in the Vipps app
+### CIBA login flows
 The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. These flows are described [here](#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app). They are based on the CIBA OIDC standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html.
 
 The CIBA flows are reserved for special cases and needs to be specially enabled by Vipps for eligible sale units, instructions can be found at [Who can get access to CIBA flows and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-ciba-flows-and-how). A sale unit can be set up with both ordinary Vipps Login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
 
+### CIBA - complete login in the Vipps app
+
+#### Activation
+
+See [CIBA login flows](#ciba-login-flows)
+
 #### Overview
+
 Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate the authentication of an end-user through out-of-band mechanisms.
 
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
@@ -1121,17 +1128,18 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 * `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
 * `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
 
-### CIBA - complete login on the merchant's web page
-The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. These flows are described [here](#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app). They are based on the CIBA OIDC standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html.
+### CIBA - complete logged in into the merchant's web page
 
-The CIBA flows are reserved for special cases and needs to be specially enabled by Vipps for eligible sale units, instructions can be found at [Who can get access to CIBA flows and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-ciba-flows-and-how). A sale unit can be set up with both ordinary Vipps Login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
+#### Activation
+
+See [CIBA login flows](#ciba-login-flows)
 
 #### Overview
 Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate the authentication of an end-user through out-of-band mechanisms.
 
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
 2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
-3) The Client will receive the ID Token and Access Token by polling the token endpoint to get a response with the tokens.
+3) The user, via their browser, will be redirected to the merchant's `redirect_uri` which enabels the login to be completed.
 
 #### Call by call
 
@@ -1160,45 +1168,25 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
       "interval": 5
     }
     ```
+3. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request (1). The redirect will contain `code` and `state` parameters: `{redirect_uri}?code={code}&state={state}&scope={scopes}`.
 
-2.  The merchant starts polling the `token` endpoint listed in the openid configuration fetched in step 0.
-
-    Polling in this context means doing repeated http requests with a delay between them.
-
-    [Information about polling](#polling). Note that the polling interval should adhere to the `interval` response parameter (in seconds) returned in step 1.
-
-    For other details about the request see [Token request](#token-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlrfcsection101).
-
+4. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded-body`. This returns (amongst others) an `access_token` that can be used to fetch userinfo.
+    
+    For details see [token endpoint](#oauth-20-token).
+    
     Example request:
     ```
-    POST https://api.vipps.no/access-management-1.0/access/oauth2/token
-    Authorization: Basic asdkjhasdjhsad=
+    POST https://api.vipps.no
+    Authorization: Basic sadlksadkjasjdaksd
     Content-Type: application/x-www-form-urlencoded
-
-    grant_type=urn%3Aopenid%3Aparams%3Agrant-type%3Aciba&auth_req_id=VYGaaAMRkI6SyAm_uIywhxsN2K0
+    
+    code=some-valid-code&grant_type=authorization_code&redirect_uri=the-same-redirect-uri-used-initially
+         
     ```
 
-    Example pending response (Other possible error responses can be found in the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11)):
-    ```
-    HTTP/1.1 400 Bad Request
-    Content-Type: application/json;charset=UTF-8
-    {
-      "error": "authorization_pending",
-      "error_description": "The authorization request is still pending"
-    }
-    ```
-    The merchant should keep polling when it receives `authorization_pending` in the error response. After the user completes the login in the app, the `token` endpoint will give a successful response similar to the following example:
-    ```
-    HTTP/1.1 200 OK
-     Content-Type: application/json;charset=UTF-8
 
-    {
-      "access_token": "ciba.W_IfBcSr-askdjhsakjhd",
-      "token_type": "Bearer",
-      "expires_in": 300,
-      "id_token": "eyaksjdhksajhdjkashdjksadjnn91283hedhn.eyasdkjhaskjdhskajhdkjhasdkjhaskjhdwqiuh"
-    }
-    ```
+6) To obtain userinfo, the merchant must do a GET to the `userinfo_endpoint` with the header: `Authorization: Bearer {access_token}`. This returns the information the user consented to sharing. [See userinfo](#userinfo).
+
 
 3. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
    
