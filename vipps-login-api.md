@@ -934,7 +934,7 @@ Not logged in return uri example: `https://client.example.com/callback?error=int
 
 In all cases a new login can be started by removing the parameter `requested_flow=no_dialog` and initiating a new login for the user.
 
-### CIBA login flows
+### CIBA login flows information and activation
 The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. These flows are described [here](#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app). They are based on the CIBA OIDC standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html.
 
 The CIBA flows are reserved for special cases and needs to be specially enabled by Vipps for eligible sale units, instructions can be found at [Who can get access to CIBA flows and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-ciba-flows-and-how). A sale unit can be set up with both ordinary Vipps Login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
@@ -943,7 +943,7 @@ The CIBA flows are reserved for special cases and needs to be specially enabled 
 
 #### Activation
 
-See [CIBA login flows](#ciba-login-flows)
+See [CIBA login flows](#ciba-login-flows-information-and-activation)
 
 #### Overview
 
@@ -1116,14 +1116,13 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 
 #### Activation
 
-See [CIBA login flows](#ciba-login-flows)
+See [CIBA login flows](#ciba-login-flows-information-and-activation)
 
 #### Overview
 This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user being logged in to the client's website at the end of the login.
 
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
-2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
-3) The user, via their browser, will be redirected to the Client's `redirect_uri` which enabels the login to be completed.
+2) The user, via their browser, will be redirected to the Client's `redirect_uri` which enabels the login to be completed.
 
 #### Call by call
 
@@ -1143,7 +1142,7 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
     scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23&requested_flow=login_to_webpage&nonce=qwhjewqkheqkwhkqhweqhwekjwh21u3h21he13ew2&code_challenge_method=S256&code_challenge=21je21je2o1j3o21joedj21do1j321e2oi1
     ```
     
-    Example response:
+    Example response, the response values are typically not used for anything in this flow: 
     ```
     200 application/json
     {
@@ -1256,12 +1255,20 @@ As described in the [OIDC standard](https://openid.net/specs/openid-connect-core
 
 ##### The `code_challenge` and `code_challenge_method` parameter (required)
 These parameters enables support for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636).
-The `code_verifier` parameter generated here must be supplied in the later [token request]()
 
 ###### `code_challenge_method`
 Recommended value is `S256`, default value is `plain`.
 
 ###### `code_challenge`
+Creating a valid value for this parameter can be a bit tricky and we recommend that you use an library like [Nimbus for Java](https://connect2id.com/products/nimbus-oauth-openid-connect-sdk)
+
+```java
+import com.nimbusds.oauth2.sdk.pkce.*;
+
+var codeVerifier = new CodeVerifier(); //The `code_verifier` parameter generated here must be stored and later supplied in the [token request]()
+var codeChallenge = CodeChallenge.compute(S256, codeVerifier);
+```
+
 
 
 ##### Error responses
