@@ -1154,7 +1154,7 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
       "interval": 5
     }
     ```
-2. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request (1). The redirect will contain `code` and `state` parameters: `{redirect_uri}?code={code}&state={state}&scope={scopes}`.
+2. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request 1. The redirect will contain `code` and `state` parameters: `{redirect_uri}?code={code}&state={state}&scope={scopes}`.
 
 3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded-body`. This returns (amongst others) an `access_token` that can be used to fetch userinfo.
 
@@ -1224,7 +1224,7 @@ The following authentication methods are currently supported:
 
 The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal.
 
-Required parameters: `login_hint`, `scope`, `redirect_uri`, `code_challenge`, `code_challenge_method`, `requested_flow`
+Required parameters: `login_hint`, `scope`, `redirect_uri`, `nonce`, `code_challenge`, `requested_flow`
 
 ##### The `requested_flow` parameter (required)
 Must equal to be `login_to_webpage`.
