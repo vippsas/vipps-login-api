@@ -1140,7 +1140,7 @@ See [CIBA login flows](#ciba-login-flows-information-and-activation)
 This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user being logged in to the client's website at the end of the login.
 
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
-2) The user, via their browser, will be redirected to the Client's `redirect_uri` which enabels the login to be completed.
+2) The user, via their browser, will be redirected to the Client's `redirect_uri` which enables the login to be completed.
 
 #### Call by call
 
