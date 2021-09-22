@@ -1142,6 +1142,9 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
 2) The user, via their browser, will be redirected to the Client's `redirect_uri` which enables the login to be completed.
 
+![image](https://user-images.githubusercontent.com/1453728/134330475-d6910cbd-c216-4c64-bef9-e0f84cb0a7fd.png)
+
+
 #### Call by call
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
