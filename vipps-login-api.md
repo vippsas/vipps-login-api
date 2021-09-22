@@ -1171,7 +1171,7 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
 
 3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded-body`. This returns (amongst others) an `access_token` that can be used to fetch userinfo.
 
-    The `code_verifier` used must correspond to the `code_challenge` used in step 1. For details see [token endpoint](#oauth-20-token) and [code_challenge]()
+    The `code_verifier` used must correspond to the `code_challenge` used in step 1. For details see [token endpoint](#oauth-20-token) and [code_challenge](#the-code_challenge-parameter-required)
     
     Example request:
     ```
@@ -1201,7 +1201,7 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
     Example request:
     ```
     GET https://api.vipps.no/vipps-userinfo-api/userinfo
-    Authorization: Bearer ciba.W_IfBcSr-askdjhsakjhd
+    Authorization: Bearer W_IfBcSr-askdjhsakjhdasdfgg
     ```
 
     Example response:
@@ -1278,17 +1278,17 @@ As described in the [OIDC standard](https://openid.net/specs/openid-connect-core
 
 ##### The `code_challenge_method` parameter
 Recommended value is `S256`, default value is `plain`.
-This is connected with the [code_challenge parameter](#code_challenge-parameter)
+This is connected with the [code_challenge parameter](#the-code_challenge-parameter-required)
 
 ##### The `code_challenge` parameter (required)
 The `code_challenge` and `code_challenge_method` parameters enables support for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636).
 Creating a valid value for this parameter can be a bit tricky and we recommend that you use an library like [Nimbus for Java](https://connect2id.com/products/nimbus-oauth-openid-connect-sdk)
 
-Java example
+Java example, the `code_verifier` parameter generated here must be stored and later supplied in the [token request](#oauth-20-token).
 ```java
 import com.nimbusds.oauth2.sdk.pkce.*;
 
-var codeVerifier = new CodeVerifier(); //The `code_verifier` parameter generated here must be stored and later supplied in the [token request]()
+var codeVerifier = new CodeVerifier();
 var codeChallenge = CodeChallenge.compute(S256, codeVerifier).getValue();
 ```
 
@@ -1296,26 +1296,6 @@ var codeChallenge = CodeChallenge.compute(S256, codeVerifier).getValue();
 In addition to the responses defined by the standard these responses might be returned:
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
-
-##### Successful responses (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)
-
-Responses according to the standard. Note we do retrun a `interval` parameter which indicating the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
-
-#### Token request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)
-
-The responses from this endpoint is according to the standard.
-* Note the required `grant_type`: `urn:openid:params:grant-type:ciba`.
-* The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
-
-##### Polling
-* Long polling is currently not supported
-* Remember not to poll more often than indicated by the `interval` parameter returned from the [authentication request](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request).
-
-#### Error responses
-In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
-
-* `error_code=outdated_app_version`: The user's Vipps app is outdated and does not support this login flow.
-* `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
 
 ## Questions and answers
 
