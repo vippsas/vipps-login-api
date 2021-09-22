@@ -1276,11 +1276,11 @@ Example: `...&redirect_uri=https://merchant.com/callback&...`
 ##### The `nonce` parameter (required)
 As described in the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the nonce values used to prevent attackers from guessing values.
 
-##### `code_challenge_method`
+##### The `code_challenge_method` parameter
 Recommended value is `S256`, default value is `plain`.
-This is connected with the [code_challenge parameter]()
+This is connected with the [code_challenge parameter](#code_challenge-parameter)
 
-##### `code_challenge`
+##### The `code_challenge` parameter (required)
 The `code_challenge` and `code_challenge_method` parameters enables support for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636).
 Creating a valid value for this parameter can be a bit tricky and we recommend that you use an library like [Nimbus for Java](https://connect2id.com/products/nimbus-oauth-openid-connect-sdk)
 
