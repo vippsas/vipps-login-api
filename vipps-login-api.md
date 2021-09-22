@@ -1167,11 +1167,11 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
       "interval": 5
     }
     ```
-3. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request (1). The redirect will contain `code` and `state` parameters: `{redirect_uri}?code={code}&state={state}&scope={scopes}`.
+2. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request (1). The redirect will contain `code` and `state` parameters: `{redirect_uri}?code={code}&state={state}&scope={scopes}`.
 
-4. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded-body`. This returns (amongst others) an `access_token` that can be used to fetch userinfo.
-    
-    For details see [token endpoint](#oauth-20-token).
+3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded-body`. This returns (amongst others) an `access_token` that can be used to fetch userinfo.
+
+    The `code_verifier` used must correspond to the `code_challenge` used in step 1. For details see [token endpoint](#oauth-20-token) and [code_challenge]()
     
     Example request:
     ```
@@ -1179,15 +1179,22 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
     Authorization: Basic sadlksadkjasjdaksd
     Content-Type: application/x-www-form-urlencoded
     
-    code=some-valid-code&grant_type=authorization_code&redirect_uri=the-same-redirect-uri-used-initially
+    code=some-valid-code&grant_type=authorization_code&redirect_uri=the-same-redirect-uri-used-initially&code_verifier=wqjhei2u1h3iu2h1iueh21
          
     ```
 
+    Example response:
+    ```
+    {
+      "access_token": "hel39XaKjGH5tkCvIENGPNbsSHz1DLKluOat4qP-A4.WyV61hCK1E2snVs1aOvjOWZOXOayZad0K-Qfo3lLzus",
+      "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MGYzYzM0YS05Nzc5LTRlMWUtYjY0NS0xMTdmM2I3NzFhZjgiLCJ0eXAiOiJKV1QifQ.eyJhdF9oYXNoIjoidHlGbkgyMFRPbVBaa2dKVThlNWlLdyIsImF1ZCI6WyJ2aXBwcy1pbnRlZ3JhdGlvbiJdLCJhdXRoX3RpbWUiOjE1NTczMTkyOTYsImV4cCI6MTU1NzMyMjkzOCwiaWF0IjoxNTU3MzE5MzM4LCJpc3MiOiJodHRwczovL2FwaXRlc3QudmlwcHMubm8vYWNjZXNzLW1hbmFnZW1lbnQtMS4wL2FjY2Vzcy8iLCJqdGkiOiI2MmE4NWU1Ni0zZDQ1LTRjN2UtYTA1NS00NjkzMjA5MzI1N2EiLCJub25jZSI6IiIsInJhdCI6MTU1NzMxOTI1NSwic3ViIjoiYzA2YzRhZmUtZDllMS00YzVkLTkzOWEtMTc3ZDc1MmEwOTQ0In0.OljG0W_TCfxkrRntj_5He3U0PH94SDZvlK-dvUJe8H5jj8QSiSnqiv65kyzxdr8Bq1MwG7a6Mtlnn4MoL8AyxKUVe6s81CNaYmwaHsWLw2Z2JmiPn5_X4lEy1nHVDX3R7lFKDQqFLSGnGNPU9bACj-Si18LBR-qv060wEj3b1ShrVeUIZCL1Yhxb6cIGl_8RivRto9dBrzggyOlVTtmoPrm9TLYF7UGWjlbmHTqpBWsCQIOeQqgs7RmSBt5k3O9nmP7guVxo5MWv_2Z0XuCqobLDDXJ29Rk_W6d79y-lPzq_TedNb_lCdVJF7u9qDYFbIPuQwXp26CeIJcR-nc-t0qEoNmLru_x-9Z8dCjjzkZbWqyNsNedQU1zt0WFbHjRkodVoHNcRZVT5W5hCe54lmZ6lUqyKwHW0_3Rpd2CI6lPdCOhC-Tze5cUDfb8jT_0OZqCI_wAuWvb6_4VeHqhvUav6Mh6d7AxNJQYG6BAJo9TzyrG7ho4mSpb2wWMr8gmRi8pTQbqa40whPqptpiz_j4AHcsrRckjYONU0USKlnNcBGc24M4sprcLZ6vxFqDYmDoZwUDRdZWRpUbqm_nCmCKb20Z6l5O7h32KvOApopJe2NIeAynli3Nl05QVGOdoT1mZDLYXbtyb0b_4qhRflySr6gaczcf2ovUKAToKNs_4",
+      "expires_in": 3599,
+      "scope": "openid",
+      "token_type": "bearer"
+    }
+    ```
 
-6) To obtain userinfo, the merchant must do a GET to the `userinfo_endpoint` with the header: `Authorization: Bearer {access_token}`. This returns the information the user consented to sharing. [See userinfo](#userinfo).
-
-
-3. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
+4. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 3.
    
     For details see [Userinfo request](#userinfo).
 
@@ -1269,23 +1276,23 @@ Example: `...&redirect_uri=https://merchant.com/callback&...`
 ##### The `nonce` parameter (required)
 As described in the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. Sufficient entropy MUST be present in the nonce values used to prevent attackers from guessing values.
 
-##### The `code_challenge` and `code_challenge_method` parameter (required)
-These parameters enables support for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636).
-
-###### `code_challenge_method`
+##### `code_challenge_method`
 Recommended value is `S256`, default value is `plain`.
+This is connected with the [code_challenge parameter]()
+
+##### The `code_challenge` and `code_challenge_method` parameters (required)
 
 ###### `code_challenge`
+The `code_challenge` and `code_challenge_method` parameters enables support for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636).
 Creating a valid value for this parameter can be a bit tricky and we recommend that you use an library like [Nimbus for Java](https://connect2id.com/products/nimbus-oauth-openid-connect-sdk)
 
+Java example
 ```java
 import com.nimbusds.oauth2.sdk.pkce.*;
 
 var codeVerifier = new CodeVerifier(); //The `code_verifier` parameter generated here must be stored and later supplied in the [token request]()
-var codeChallenge = CodeChallenge.compute(S256, codeVerifier);
+var codeChallenge = CodeChallenge.compute(S256, codeVerifier).getValue();
 ```
-
-
 
 ##### Error responses
 In addition to the responses defined by the standard these responses might be returned:
