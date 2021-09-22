@@ -1264,9 +1264,7 @@ As described in the [OIDC standard](https://openid.net/specs/openid-connect-core
 Recommended value is `S256`, default value is `plain`.
 This is connected with the [code_challenge parameter]()
 
-##### The `code_challenge` and `code_challenge_method` parameters (required)
-
-###### `code_challenge`
+##### `code_challenge`
 The `code_challenge` and `code_challenge_method` parameters enables support for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636).
 Creating a valid value for this parameter can be a bit tricky and we recommend that you use an library like [Nimbus for Java](https://connect2id.com/products/nimbus-oauth-openid-connect-sdk)
 
