@@ -497,6 +497,8 @@ means available to it via the user-agent.
 | requested_flow            | Optional. Request a specific flow for the user. See [App integration](#app-integration), [Automatic return from Vipps app](#automatic-return-from-vipps-app) and [No dialog flow](#no-dialog-flow)                                            |
 | app_callback_uri  | Optional. The target uri for automatic switch back to merchant app. Requires `requested_flow=app_to_app`. Example `merchant-app://callback`
 | final_redirect_is_app | Optional. Either `true` or `false`. If this is `true` we will enable some compatibility features to make sure the user is returned to the app.                                                             |
+| code_challenge_method | Optional. Used for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636), either `S256` or `plain`. Default value is `plain` |
+| code_challenge | Optional. Used for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636). The value must be calculated based on the `code_verifier` later used towards the [token endpoint](#oauth-20-token)
 
 For example, the client directs the user-agent to make the following HTTP request:
 
