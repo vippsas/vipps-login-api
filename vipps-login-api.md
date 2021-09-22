@@ -1136,7 +1136,7 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
 
     For details see [Authentication Request With Redirect](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request)
     
-    Example request:
+    Example request (the real payload will likely look different because of encoding):
     ```
     POST https://api.vipps.no/vipps-login-ciba/api/backchannel/authentication
     Authorization: Basic asdkjhasdjhsad=
@@ -1160,7 +1160,7 @@ This CIBA-related flow enables a Client to initiate the authentication of an end
 
     The `code_verifier` used must correspond to the `code_challenge` used in step 1. For details see [token endpoint](#oauth-20-token) and [code_challenge](#the-code_challenge-parameter-required)
     
-    Example request:
+    Example request (the real payload will likely look different because of encoding):
     ```
     POST https://api.vipps.no
     Authorization: Basic sadlksadkjasjdaksd
