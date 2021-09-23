@@ -1130,7 +1130,7 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 * `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
 * `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
 
-### CIBA - complete logged in into the merchant's web page
+### CIBA - complete login in the Vipps app with redirect to the merchant's web page
 
 #### Activation
 
