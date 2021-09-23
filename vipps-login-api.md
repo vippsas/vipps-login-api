@@ -49,7 +49,7 @@ Document version 4.0.3.
     * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
     * [No dialog flow](#No-dialog-flow)
     * [CIBA - complete login in Vipps App](#ciba---complete-login-in-the-vipps-app)
-    * [CIBA - complete logged into the merchant's web page](#ciba---complete-logged-in-into-the-merchants-web-page)
+    * [CIBA - complete logged into the merchant's web page](#ciba---complete-login-in-the-vipps-app-with-redirect-to-the-merchants-web-page)
 * [Error handling](#error-handling)
 * [Call by call](#call-by-call)
 * [Questions and answers](#questions-and-answers)
