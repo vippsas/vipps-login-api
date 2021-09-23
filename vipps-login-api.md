@@ -745,8 +745,8 @@ added to the query component.
 #### Custom error codes
 In addition to the standard errors defined in [OAuth2](https://tools.ietf.org/html/rfc6749#section-4.1.2.1) and [OIDC](https://openid.net/specs/openid-connect-core-1_0.html#AuthError), Vipps Login also has some custom error codes that you might see on the redirect: 
 
-| error_code                        | Description                                                       |
-| --------------------------------- | ----------------------------------------------------------------- |
+| error_code                           | Description                                                       |
+| ------------------------------------ | ----------------------------------------------------------------- |
 | `access_denied`                      | User cancelled the login                                          |
 | `server_error`                       | Something went wrong, please try again                            |
 | `login_required`                     | User must login with interaction                                  |
@@ -1117,7 +1117,7 @@ The responses from this endpoint is according to the standard.
 #### Error responses
 In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
 
-* `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
+* `error_code=outdated_app`: The user's Vipps app is outdated and does not support this login flow.
 * `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
 
 ## Questions and answers
