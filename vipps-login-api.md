@@ -1230,7 +1230,7 @@ The default token endpoint authentication method is `client_secret_basic`. It is
 Required parameters: `login_hint`, `scope`, `redirect_uri`, `nonce`, `code_challenge`, `requested_flow`
 
 ##### The `requested_flow` parameter (required)
-Must equal to be `login_to_webpage`.
+Must be `login_to_webpage`.
 
 Example: `...&requested_flow=login_to_webpage&...`
 
