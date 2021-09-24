@@ -1124,7 +1124,7 @@ The responses from this endpoint is according to the standard.
 * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
 
 ##### Polling
-* Long polling is currently not supported
+* Long polling as described in [the CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#token_request) is currently not supported
 * Remember not to poll more often than indicated by the `interval` parameter returned from the [authentication request](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request).
 
 #### Error responses
