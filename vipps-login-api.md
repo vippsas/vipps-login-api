@@ -158,7 +158,7 @@ The CIBA flows have been developed to support use-cases where authentication/reg
 
 The CIBA flows are reserved for such special cases and needs to be specially enabled by Vipps for eligible sale units. [Description on how to order the CIBA flows can be found here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-ciba-flows-and-how). A sale unit can be set up with both ordinary Vipps Login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
 
-A CIBA flow is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant such consent will be required. If the user has not enabled push from Vipps the user needs to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request.
+A CIBA flow is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant such consent will be required. If the user has not enabled push from Vipps the user needs to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request. The merchant controls whether the user should get the confirmation of completion in the Vipps app or if the user should be taken to the merchant's web page to finalise the flow. The merchant can e.g. take the user to their web page to enable input of more information, accept terms and condition, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase.
 
 Illustration of how the flow will look like when the user end the flow and get the confirmation of completion in the Vipps app:
 
@@ -169,6 +169,9 @@ Illustration of how the flow will look like if the user is taken to the merchant
 
 ![Take user to merchant's web page](images/CIBA_flow_take_to_merchant.png)
 
+The merchant has the option to show a confirmation code (`binding_message`) to the user in the app for added security:
+
+![Optional confirmation code (`binding_message`)](images/CIBA_Confirmation_code.png)
 
 See [how to implement](#client-initiated-backchannel-authentication-flows-ciba).
 
@@ -940,7 +943,7 @@ In all cases a new login can be started by removing the parameter `requested_flo
 ### CIBA login flows information and activation
 The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. These flows are described [here](#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app). They are based on the CIBA OIDC standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html.
 
-The CIBA flows are reserved for special cases and needs to be specially enabled by Vipps for eligible sale units, instructions can be found at [Who can get access to CIBA flows and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-ciba-flows-and-how). A sale unit can be set up with both ordinary Vipps Login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
+The CIBA flows are reserved for special cases and needs to be specially enabled by Vipps for eligible sale units, instructions can be found at [Who can get access to CIBA flows and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-ciba-flows-and-how). A sale unit can be set up with both ordinary Vipps Login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios. To ensure a consisten user experience on webpages and in apps it is not allowed to use the CIBA flows for such usecases.
 
 ### CIBA - complete login in the Vipps app
 
@@ -1064,7 +1067,7 @@ The following authentication methods are currently supported:
 * client_secret_basic
 * client_secret_post
 
-The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal.
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
 
 ##### The `login_hint` parameter (required)
 Supported login hints:
@@ -1097,7 +1100,7 @@ In addition to the responses defined by the standard these responses might be re
 
 ##### Successful responses (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)
 
-Responses according to the standard. Note we do retrun a `interval` parameter which indicating the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
+Responses according to the standard. Note we do return an `interval` parameter which indicates the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
 
 #### Token request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)
 
@@ -1122,7 +1125,9 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 See [CIBA login flows](#ciba-login-flows-information-and-activation)
 
 #### Overview
-This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user being logged in to the client's website at the end of the login.
+This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user 
+to be taken to the client's web page to finalise the flow.
+
 
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
 2) The user, via their browser, will be redirected to the Client's `redirect_uri` which enables the login to be completed.
@@ -1225,7 +1230,7 @@ The following authentication methods are currently supported:
 * client_secret_basic
 * client_secret_post
 
-The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal.
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
 
 Required parameters: `login_hint`, `scope`, `redirect_uri`, `nonce`, `code_challenge`, `requested_flow`
 
