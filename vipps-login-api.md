@@ -742,6 +742,22 @@ added to the query component.
 | error_description | A short text providing additional information on the error that occurred.                                                                                     |
 | state             | The exact value received from the client during the authorization request.                                                                                    |
 
+#### Custom error codes
+In addition to the standard errors defined in [OAuth2](https://tools.ietf.org/html/rfc6749#section-4.1.2.1) and [OIDC](https://openid.net/specs/openid-connect-core-1_0.html#AuthError), Vipps Login also has some custom error codes that you might see on the redirect: 
+
+| error_code                           | Description                                                       |
+| ------------------------------------ | ----------------------------------------------------------------- |
+| `access_denied`                      | User cancelled the login                                          |
+| `server_error`                       | Something went wrong, please try again                            |
+| `login_required`                     | User must login with interaction                                  |
+| `invalid_app_callback_uri`           | The app callback uri is not on a valid format                     |
+| `app_callback_uri_not_registered`    | The app callback uri is not registered as a redirect uri          |
+| `outdated_app_version`               | The user's Vipps app version is too old and needs to be updated   |
+| `wrong_challenge`                    | The user selected the wrong challenge                             |
+| `unknown_reject_reason`              | Something went wrong. Reject reason is unknown.                   |
+
+There may be other errors, so integrators must be able to handle undocumented errors gracefully.
+
 Example:
 ```
 HTTP/1.1 302 Found
@@ -1101,7 +1117,7 @@ The responses from this endpoint is according to the standard.
 #### Error responses
 In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
 
-* `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
+* `error_code=outdated_app_version`: The user's Vipps app is outdated and does not support this login flow.
 * `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
 
 ## Questions and answers
