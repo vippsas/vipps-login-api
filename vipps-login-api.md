@@ -1287,7 +1287,7 @@ This is connected with the [code_challenge parameter](#the-code_challenge-parame
 
 ##### The `code_challenge` parameter (required)
 The `code_challenge` and `code_challenge_method` parameters enables support for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636).
-Creating a valid value for this parameter can be a bit tricky and we recommend that you use an library like [Nimbus for Java](https://connect2id.com/products/nimbus-oauth-openid-connect-sdk)
+Creating a valid value for the `code_challenge` can be a bit tricky and we recommend that you use a library like [Nimbus for Java](https://connect2id.com/products/nimbus-oauth-openid-connect-sdk)
 
 Java example, the `code_verifier` parameter generated here must be stored and later supplied in the [token request](#oauth-20-token).
 ```java
