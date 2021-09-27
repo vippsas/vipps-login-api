@@ -1,4 +1,4 @@
-g# Vipps Login API
+# Vipps Login API
 
 API version: 2.0
 
