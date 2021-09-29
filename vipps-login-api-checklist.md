@@ -8,7 +8,7 @@
 - [ ] You handle cancelled logins or error situations on your redirect endpoint (redirects with a `error` query parameter)  
 - [ ] Whitelisted redirect URIs:
     - [ ] Not http. Either https or app deep links
-    - [ ] Matches the exact uri sent on `/auth` request (no query parameters, no additional trailing ``/)
+    - [ ] Matches the exact uri sent on `/auth` request (no query parameters, no additional trailing `/`)
     - [ ] You've added all `redirect_uri`s your integration is using to the merchant portal white list
 - [ ] You're not requesting more scopes than is actually needed
 - [ ] Native app integrations should use the app-to-app flow
