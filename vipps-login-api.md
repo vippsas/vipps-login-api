@@ -5,7 +5,7 @@ API version: 2.0
 Please note that **all merchants on Vipps Login need to include the scope `api_version_2`.**
 If this is omitted you will in effect use a version that is no longer supported.
 
-Document version 4.0.3.
+Document version 4.0.4.
 
 ## Table of contents
 * [Introduction](#introduction)
@@ -52,7 +52,6 @@ Document version 4.0.3.
     * [CIBA - complete logged into the merchant's web page](#ciba---complete-login-in-the-vipps-app-with-redirect-to-the-merchants-web-page)
 * [Error handling](#error-handling)
 * [Call by call](#call-by-call)
-* [Questions and answers](#questions-and-answers)
 * [Questions](#questions)
 
 ## Introduction
@@ -65,8 +64,8 @@ Users can create a new account through sharing high-quality data from the userâ€
 There are **Vipps Login plugins** available for several platforms. You find the complete list on our [plugins page](https://github.com/vippsas/vipps-plugins).
 If a plugin is not available, the easiest - and **strongly recommended - way to integrate with the service is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language**. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
 
-The Vipps Login API authenticates the user in the web browser. The Vipps Login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended). 
-The [Client initiated backchannel authentication flows (CIBA)](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app) have been developed to support use-cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser. 
+The Vipps Login API authenticates the user in the web browser. The Vipps Login API should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended).
+The [Client initiated backchannel authentication flows (CIBA)](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app) have been developed to support use-cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser.
 
 See our [developer section](https://github.com/vippsas/vipps-developers/blob/master/vipps-test-environment.md#vipps-test-apps) for information about our test environment, test apps and test users.
 
@@ -156,7 +155,7 @@ See [how to implement](#no-dialog-flow).
 #### Client initiated backchannel authentication flows (CIBA) - special cases where login does not start in browser or app
 The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. This means that it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser. This could typically be physical contexts e.g point of sales solutions, on the phone e.g call-center solutions or devices/terminals e.g TV-boxes. To ensure a consisten user experience on webpages and in apps it is not allowed to use the CIBA flows for such usecases.
 
-The CIBA flows are reserved for such special cases and needs to be specially enabled by Vipps for eligible sale units. [Description on how to order the CIBA flows can be found here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-ciba-flows-and-how). A sale unit can be set up with both ordinary Vipps Login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios. 
+The CIBA flows are reserved for such special cases and needs to be specially enabled by Vipps for eligible sale units. [Description on how to order the CIBA flows can be found here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-ciba-flows-and-how). A sale unit can be set up with both ordinary Vipps Login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
 
 A CIBA flow is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant such consent will be required. If the user has not enabled push from Vipps the user needs to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request. The merchant controls whether the user should get the confirmation of completion in the Vipps app or if the user should be taken to the merchant's web page to finalise the flow. The merchant can e.g. take the user to their web page to enable input of more information, accept terms and condition, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase.
 
@@ -749,7 +748,7 @@ added to the query component.
 | state             | The exact value received from the client during the authorization request.                                                                                    |
 
 #### Custom error codes
-In addition to the standard errors defined in [OAuth2](https://tools.ietf.org/html/rfc6749#section-4.1.2.1) and [OIDC](https://openid.net/specs/openid-connect-core-1_0.html#AuthError), Vipps Login also has some custom error codes that you might see on the redirect: 
+In addition to the standard errors defined in [OAuth2](https://tools.ietf.org/html/rfc6749#section-4.1.2.1) and [OIDC](https://openid.net/specs/openid-connect-core-1_0.html#AuthError), Vipps Login also has some custom error codes that you might see on the redirect:
 
 | error_code                           | Description                                                       |
 | ------------------------------------ | ----------------------------------------------------------------- |
@@ -779,27 +778,27 @@ and the users information, is shown below:
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint
    and cached it.
-   
+
    See [.well-known](#openid-connect-discovery-endpoint)
-   
+
 1. The merchant initiates a login by calling the `authorization_endpoint` from .well-known.
    `GET {authorization_endpoint}?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`
 
    See [Authorization endpoint](#oauth-20-authorize)
-   
+
 2. This will bring the user to the Vipps Login-screen, where they will consent to sharing
-   information with the merchant. After consenting, the browser is redirected to the 
+   information with the merchant. After consenting, the browser is redirected to the
    `redirect_uri` supplied by the merchant.
    `{redirect_uri}?code={code}&state={state}&scope={scopes}`
-   
+
 3. The merchant uses the `code`-parameter to obtain the login token.
-    `POST {token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and 
+    `POST {token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and
    `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded`-body.
    This returns (amongst others) an `access_token` that can be used to fetch userinfo.
-   
+
     See [Token endpoint](#oauth-20-token)
-   
-4. To obtain userinfo, the merchant must do a GET to the `userinfo_endpoint` with the header: 
+
+4. To obtain userinfo, the merchant must do a GET to the `userinfo_endpoint` with the header:
     `Authorization: Bearer {access_token}`. This returns the information the user consented to sharing.
 
     See [Userinfo](#userinfo)
@@ -982,16 +981,16 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 1.  The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
 
     For details see [Authentication Request](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request)
-    
+
     Example request:
     ```
     POST https://api.vipps.no/vipps-login-ciba/api/backchannel/authentication
     Authorization: Basic asdkjhasdjhsad=
     Content-Type: application/x-www-form-urlencoded
-      
+
     scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
     ```
-    
+
     Example response:
     ```
     200 application/json
@@ -1042,7 +1041,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
     ```
 
 3. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
-   
+
     For details see [Userinfo request](#userinfo).
 
     Example request:
@@ -1140,7 +1139,7 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 See [CIBA login flows](#ciba-login-flows-information-and-activation)
 
 #### Overview
-This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user 
+This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user
 to be taken to the client's web page to finalise the flow.
 
 
@@ -1158,17 +1157,17 @@ to be taken to the client's web page to finalise the flow.
 1.  The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
 
     For details see [Authentication Request With Redirect](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request). Note the `redirect_uri` must first be [added to the merchant portal](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
-    
+
     Example request (the real payload will likely look different because of encoding):
     ```
     POST https://api.vipps.no/vipps-login-ciba/api/backchannel/authentication
     Authorization: Basic asdkjhasdjhsad=
     Content-Type: application/x-www-form-urlencoded
-      
+
     scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23&requested_flow=login_to_webpage&nonce=qwhjewqkheqkwhkqhweqhwekjwh21u3h21he13ew2&code_challenge_method=S256&code_challenge=21je21je2o1j3o21joedj21do1j321e2oi1&redirect_uri=https://merchantwebpage.com/callback
     ```
-    
-    Example response, the response values are typically not used for anything in this flow: 
+
+    Example response, the response values are typically not used for anything in this flow:
     ```
     200 application/json
     {
@@ -1182,15 +1181,15 @@ to be taken to the client's web page to finalise the flow.
 3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=authorization_code`, and `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded-body`. This returns (amongst others) an `access_token` that can be used to fetch userinfo.
 
     The `code_verifier` used must correspond to the `code_challenge` used in step 1. For details see [token endpoint](#oauth-20-token) and [code_challenge](#the-code_challenge-parameter-required)
-    
+
     Example request (the real payload will likely look different because of encoding):
     ```
     POST https://api.vipps.no
     Authorization: Basic sadlksadkjasjdaksd
     Content-Type: application/x-www-form-urlencoded
-    
+
     code=some-valid-code&grant_type=authorization_code&redirect_uri=the-same-redirect-uri-used-initially&code_verifier=wqjhei2u1h3iu2h1iueh21
-         
+
     ```
 
     Example response:
@@ -1205,7 +1204,7 @@ to be taken to the client's web page to finalise the flow.
     ```
 
 4. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 3.
-   
+
     For details see [Userinfo request](#userinfo).
 
     Example request:
@@ -1279,7 +1278,7 @@ Note: "the binding_message value SHOULD be relatively short and use a limited se
 Example: `....&binding_message=4MZ-CQ3&...`
 
 ##### The `redirect_uri` parameter (required)
-Redirect URL which the user agent is redirected to after finishing a login. Must be `https` in the production environment. You can add new `redirect_uri`'s  [in the merchant portal](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login). 
+Redirect URL which the user agent is redirected to after finishing a login. Must be `https` in the production environment. You can add new `redirect_uri`'s  [in the merchant portal](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
 Example: `...&redirect_uri=https://merchant.com/callback&...`
 
@@ -1307,26 +1306,6 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 * Most of the [general error codes](https://github.com/vippsas/vipps-login-api/blob/4c17be6998852154197fdfc0c118d05495e3b167/vipps-login-api.md#error-handling)
-
-## Questions and answers
-
-### Compliance
-
-**Q**: How can our system dynamically "know/find out" if the user has revoked the consent for us to have access to his/her personal data in our system?
-**A**: We have a system for notifying merchants when an end-users revoke their consents. You find information in this webhook [here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-webhooks.md)
-
-### Technical
-
-**Q**: Can we have multiple URIs as landing pages?
-**A**: You can register as many callback urls as you want; and then you specify which one you use in the request to [/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)
-
-**Q**: Why do I get a CORS error?
-**A**: We do not currently support any flows that requires requests being done from browsers.
-
-### UX
-
-**Q**: Can we change the name that appears in customer's Vipps app under `Login and Access`?
-**A**: The name which is displayed in the app is the name of the Sale Unit. You can do it yourself in the merchant portal, [https://portal.vipps.no/](https://portal.vipps.no/). Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.
 
 ## Questions?
 
