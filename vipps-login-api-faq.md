@@ -8,34 +8,38 @@ See also:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.1.2.
+Document version 2.2.0.
 
 ## Table of contents
 
-- [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-client_id-and-client_secret)
-- [How can I activate and set up Vipps Login?](#how-can-i-activate-and-set-up-vipps-login)
-- [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
-- [How can I change my name and logo?](#how-can-i-change-my-name-and-logo)
-- [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
-- [Why do I get “Error: invalid_client”?](#why-do-i-get-error-invalid_client)
-- [Why do I get “Error: Could not get Vipps Login token” in Vipps?](#why-do-i-get-error-could-not-get-vipps-login-token-in-vipps)
-- [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
-- [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
-- [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
-- [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
-- [Who can get access to account numbers and how?](#who-can-get-access-to-account-numbers-and-how)
-- [Who can get access to CIBA flows and how?](#who-can-get-access-to-ciba-flows-and-how)
-- [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
-- [Can I use partner keys for Vipps login?](#Can-I-use-partner-keys-for-Vipps-login)
-- [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser)
-- [Can I see statistics on Vipps Login usage?](#can-I-see-statistics-on-Vipps-Login-usage)
-- [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
-- [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-to-the-user)
-- [Which configuration should I have when integrating using Azure B2C?](#which-configuration-should-i-have-when-integrating-using-azure-b2c)
-- [Common errors](#common-errors)
-  - [No CSRF value available in the session cookie](#no-csrf-value-available-in-the-session-cookie)   
-  - [Custom URL scheme](#custom-url-scheme)
-  - [502 Bad Gateway](#502-bad-gateway)
+* [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the--client-id--and--client-secret--)
+* [How can I activate and set up Vipps Login?](#how-can-i-activate-and-set-up-vipps-login-)
+* [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris-)
+* [How can I change my name and logo?](#how-can-i-change-my-name-and-logo-)
+* [How can I use `client_secret_post` for authentication?](#how-can-i-use--client-secret-post--for-authentication-)
+* [Why do I get “Error: invalid_client”?](#why-do-i-get--error--invalid-client--)
+* [Why do I get “Error: Could not get Vipps Login token” in Vipps?](#why-do-i-get--error--could-not-get-vipps-login-token--in-vipps-)
+* [Which scopes can I use? Why do I get “Invalid_scope”?](#which-scopes-can-i-use--why-do-i-get--invalid-scope--)
+* [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers--is-the--sub--still-the-same-)
+* [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent-)
+* [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how-)
+* [Who can get access to CIBA flows and how?](#who-can-get-access-to-ciba-flows-and-how-)
+* [Who can get access to account numbers and how?](#who-can-get-access-to-account-numbers-and-how-)
+* [What's the purpose of the `state` parameter?](#what-s-the-purpose-of-the--state--parameter-)
+* [Can I use partner keys for Vipps login?](#can-i-use-partner-keys-for-vipps-login-)
+* [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser-)
+* [Can I see statistics on Vipps Login usage?](#can-i-see-statistics-on-vipps-login-usage-)
+* [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login-)
+* [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-to-the-user-)
+* [Which configuration should I have when integrating using Azure B2C?](#which-configuration-should-i-have-when-integrating-using-azure-b2c-)
+* [How can we detect users' consent removal?](#how-can-we-detect-users--consent-removal-)
+* [Can we have multiple URIs as landing pages?](#can-we-have-multiple-uris-as-landing-pages-)
+* [Why do I get a CORS error?](#why-do-i-get-a-cors-error-)
+* [Can we change the name that appears in customer's Vipps app under `Login and Access`?](#can-we-change-the-name-that-appears-in-customer-s-vipps-app-under--login-and-access--)
+* [Why do I get `No CSRF value available in the session cookie`?](#why-do-i-get--no-csrf-value-available-in-the-session-cookie--)
+* [Can I use a custom URL scheme for the `redirect_url`?](#can-i-use-a-custom-url-scheme-for-the--redirect-url--)
+* [Why do I get `HTTP 502 Bad Gateway`?](#why-do-i-get--http-502-bad-gateway--)
+* [Questions?](#questions-)
 
 ## Where do I find the `client_id` and `client_secret`?
 
@@ -229,7 +233,7 @@ accessuserinfo@vipps.no. In the email you should specify:
 ## Who can get access to CIBA flows and how?
 The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. This means that it is the merchant/merchant’s systems that trigger the authentication/registration and thus login cannot be done in the user’s browser. The CIBA flows are reserved for such special cases and needs to be specially enabled by Vipps for eligible sale units. If a merchant uses the CIBA flows on webpages or in apps used by end-users, access to the CIBA flows can be withdrawn.
 
-Merchants need to apply for access to CIBA flows separately by sending an email to accessuserinfo@vipps.no. 
+Merchants need to apply for access to CIBA flows separately by sending an email to accessuserinfo@vipps.no.
 In the email you should specify:
 
 * Merchant name
@@ -267,12 +271,12 @@ to use the app to authenticate (two factor authentication). The end-user chooses
 whether he would like to be remembered in browser or not.  
 
 ## Can I see statistics on Vipps Login usage?
-Yes, statistics on successful logins with Vipps in production is available on [portal.vipps.no](https://portal.vipps.no). You find this information in the "Utvikler" section. You first click "Utvikler" and then API-dashboard on the top of the page. The statistics are only available for the production environment. Choose the sales unit with Vipps Login that you would like to see, the time period you would like to have covered and click "Fetch data". Then scroll down until you find the panel named "Successful logins". 
+Yes, statistics on successful logins with Vipps in production is available on [portal.vipps.no](https://portal.vipps.no). You find this information in the "Utvikler" section. You first click "Utvikler" and then API-dashboard on the top of the page. The statistics are only available for the production environment. Choose the sales unit with Vipps Login that you would like to see, the time period you would like to have covered and click "Fetch data". Then scroll down until you find the panel named "Successful logins".
 
 
 ![The dashboard lookes like this:](images/API_Dashboard_Vipps_login.png)
 
-If you have access to request national identity number (nin) and/or account numbers you will be able to see the number of logins with and without these scopes. If you click "Show details" under the graph you can see total logins for the period and number of unique users in the selected period. Keep in mind that there is a 10 minute delay from a login occurs, until it appears on the dashboard. 
+If you have access to request national identity number (nin) and/or account numbers you will be able to see the number of logins with and without these scopes. If you click "Show details" under the graph you can see total logins for the period and number of unique users in the selected period. Keep in mind that there is a 10 minute delay from a login occurs, until it appears on the dashboard.
 
 ## How is GDPR handled with Vipps Login?
 
@@ -340,17 +344,44 @@ userinfo endpoint for this use case. See [the user info endpoint documentation](
 Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
 
+## How can we detect users' consent removal?
 
-## Common errors
-### No CSRF value available in the session cookie
+Or: How can our system dynamically "know/find out" if the user has revoked the consent
+for us to have access to his/her personal data in our system?
+
+We have a system for notifying merchants when an end-users revoke their consents.
+You find information in this webhook
+[here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-webhooks.md).
+
+## Can we have multiple URIs as landing pages?
+
+You can register as many callback urls as you want; and then you specify which
+one you use in the request to
+[/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)
+
+## Why do I get a CORS error?
+
+We do not currently support any flows that requires requests being done from browsers.
+
+## Can we change the name that appears in customer's Vipps app under `Login and Access`?
+
+The name which is displayed in the app is the name of the sale unit.
+You can do it yourself on
+[portal.vipps.no](https://portal.vipps.no/).
+Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.
+
+## Why do I get `No CSRF value available in the session cookie`?
+
 Certain versions of Chrome gives the error `No+CSRF+value+available+in+the+session+cookie`.
 Upgrading to the latest version of Chrome should solve this.
 
-### Custom URL scheme
+## Can I use a custom URL scheme for the `redirect_url`?
+
 If the `redirect_url` is using a custom URL scheme, such as `myapp://`, a path
 is required: `myapp://path-to-something`.
 
-### 502 Bad Gateway
+## Why do I get `HTTP 502 Bad Gateway`?
+
 Some merchants have experienced a 502 Bad gateway response from api.vipps.no. This typically occurs in situations in which the `state` or `nonce` parameter is 1000+ characters. We've seen this issue when any of the requests in the redirect sequence are too long (i.e 2000+ characters). Therefore, try to keep these parameters at sane lengths. If there is a need to encode some payload in the `state` (i.e a jwt), it would be a better option to cache this at the client server and use the key as `state`    
 
 ## Questions?
