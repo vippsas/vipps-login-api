@@ -2,9 +2,6 @@
 
 API version: 2.0
 
-Please note that **all merchants on Vipps Login need to include the scope `api_version_2`.**
-If this is omitted you will in effect use a version that is no longer supported.
-
 Document version 4.0.4.
 
 ## Table of contents
@@ -71,9 +68,6 @@ See our [developer section](https://github.com/vippsas/vipps-developers/blob/mas
 
 ### Versions
 [Api Version 1.0](https://github.com/vippsas/vipps-login-api/blob/master/versions/1.0/vipps-login-api.md)
-
-### Migration
-[Api 1.0 to 2.0](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md)
 
 ### Activation
 
@@ -309,7 +303,6 @@ Vipps Login currently supports the following scopes:
 | phoneNumber | Verified phone number (verified - the number used with Vipps)                          |   yes   |
 | nin        | Norwegian national identity number (verified with BankID). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information |   yes      |
 | accountNumbers | User bank account numbers. NB: merchants need to apply for access to accountNumbers. Go to [Who can get access to account numbers and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-accountnumbers-and-how) For more information |   yes      |
-| api_version_2 | Needs to be added to use the latest version of Vipps Login. All merchants need to add this. Go to [Vipps Login API 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md) For more information about migrating from version 1 |   no      |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
@@ -319,10 +312,6 @@ therefore not accept for example name and deny address.
 
 We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
-
-**All merchants on Vipps Login need to include the scope 'api_version_2'.**
-The scope decides the information delivered as part of the ID token as well as the API response from userinfo.
-Version 1 (the version you will get if 'api_version_2'is omitted) is discontinued.
 
 ## Recommendations on linking to user account
 
@@ -910,8 +899,8 @@ merchantapp://app-callback?state=218gz18yveu1ybajwh2g1h3g?error=unknown_error
 
 Example success callback from browser (step 6):
 ```
-https://example.com/redirect-uri?state=218gz18yveu1ybajwh2g1h3g&code=<code>&scope=openid+api_version_2
-merchantapp://redirect-uri?state=218gz18yveu1ybajwh2g1h3g&code=<code>&scope=openid+api_version_2
+https://example.com/redirect-uri?state=218gz18yveu1ybajwh2g1h3g&code=<code>&scope=openid
+merchantapp://redirect-uri?state=218gz18yveu1ybajwh2g1h3g&code=<code>&scope=openid
 ```
 
 ### Automatic return from Vipps app
@@ -1093,7 +1082,6 @@ Example: `...&login_hint=urn:mobilenumber:12345678&...`.
 ##### The `scope` parameter (required)
 
 * We support the scopes listed at [Scopes](#scopes)
-* The `api_version_2` is not required
 * The legacy `nnin` scope is not supported, use `nin` instead.
 
 Example: `...&scope=name address birthDate nin&...`
@@ -1263,7 +1251,6 @@ Example: `...&login_hint=urn:mobilenumber:12345678&...`.
 ##### The `scope` parameter (required)
 
 * We support the scopes listed at [Scopes](#scopes)
-* The `api_version_2` is not required
 * The legacy `nnin` scope is not supported, use `nin` instead.
 
 Example: `...&scope=name address birthDate nin&...`
