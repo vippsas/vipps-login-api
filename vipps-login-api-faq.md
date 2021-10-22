@@ -35,7 +35,7 @@ Document version 2.2.1.
 * [How can we detect users' consent removal?](#how-can-we-detect-users--consent-removal)
 * [Can we have multiple URIs as landing pages?](#can-we-have-multiple-uris-as-landing-pages)
 * [Can I use a custom URL scheme for the `redirect_url`?](#can-i-use-a-custom-url-scheme-for-the--redirect-url-)
-- [Can we change the name that appears in customer's Vipps app under `Login and Access`?](#can-we-change-the-name-that-appears-in-customer-s-vipps-app-under--login-and-access-)
+* [Can we change the name that appears in customer's Vipps app under `Login and Access`?](#can-we-change-the-name-that-appears-in-customer-s-vipps-app-under--login-and-access-)
 * [Common errors](#common-errors)
   + [Why do I get a CORS error?](#why-do-i-get-a-cors-error)
   + [Why do I get "No CSRF value available in the session cookie"?](#why-do-i-get--no-csrf-value-available-in-the-session-cookie-)
