@@ -8,7 +8,7 @@ See also:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.2.0.
+Document version 2.2.1.
 
 ## Table of contents
 
@@ -365,7 +365,7 @@ one you use in the request to
 If the `redirect_url` is using a custom URL scheme, such as `myapp://`, a path
 is required: `myapp://path-to-something`.
 
-# Can we change the name that appears in customer's Vipps app under `Login and Access`?
+## Can we change the name that appears in customer's Vipps app under `Login and Access`?
 
 The name which is displayed in the app is the name of the sale unit.
 You can do it yourself on
