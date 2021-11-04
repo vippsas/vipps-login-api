@@ -38,6 +38,10 @@ Document version 2.3.0.
 - [Can I use a custom URL scheme for the `redirect_url`?](#can-i-use-a-custom-url-scheme-for-the-redirect_url)
 - [Can we change the name that appears in customer's Vipps app under `Login and Access`?](#can-we-change-the-name-that-appears-in-customers-vipps-app-under-login-and-access)
 - [Common errors](#common-errors)
+  - [Why do I get `The client or its related sale unit or merchant does not exist or is not active`?](#why-do-i-get-the-client-or-its-related-sale-unit-or-merchant-does-not-exist-or-is-not-active)
+  - [Why do I get a CORS error?](#why-do-i-get-a-cors-error)
+  - [Why do I get `No CSRF value available in the session cookie`?](#why-do-i-get-no-csrf-value-available-in-the-session-cookie)
+  - [Why do I get `HTTP 502 Bad Gateway`?](#why-do-i-get-http-502-bad-gateway)
 - [Questions?](#questions)
 
 ## Where do I find the `client_id` and `client_secret`?
