@@ -4,8 +4,10 @@ API version: 2.0
 
 Please note that **all merchants on Vipps Login need to include the scope `api_version_2`.**
 If this is omitted you will in effect use a version that is no longer supported.
+See also:
+[Vipps Login API 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md).
 
-Document version 4.0.4.
+Document version 4.0.5.
 
 ## Table of contents
 * [Introduction](#introduction)
