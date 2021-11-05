@@ -112,10 +112,9 @@ screen where you both can update your name and ad your logo:
 
 ![By clicking "Rediger" next to the "Visning i appen" heading you will come to a screen where you both can update your name and ad you logo:](images/Sales_unit_change_name_and_logo.png)
 
-Currently this logo is not use for Vipps Login but soon it will be shown in the
-overview of consents given.
+The logo are not part of the Vipps Login dialogues, but will be shown in the overview of consents given. 
 
-Unfortunately you can not change the name used for the test environment.
+Unfortunately you can not change the name or logo used for the test environment.
 
 ## How can I use `client_secret_post` for authentication?
 
@@ -153,7 +152,7 @@ on the same phone.
 
 ## Which scopes can I use? Why do I get `Invalid_scope`?
 
-If you get “Invalid_scope” this means that you have included one or more scopes
+If you get `Invalid_scope` this means that you have included one or more scopes
 that you do not have access to or that is not supported. You will find the list
 of supported scopes here:
 https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#scopes
