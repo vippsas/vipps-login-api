@@ -28,7 +28,7 @@ Document version 2.3.0.
 - [Who can get access to CIBA flows and how?](#who-can-get-access-to-ciba-flows-and-how)
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Can I use partner keys for Vipps login?](#can-i-use-partner-keys-for-vipps-login)
-- [Can I control if a user is remembered in the browser?](#can-i-control-if-a-user-is-remembered-in-the-browser)
+- [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2FA)
 - [Can I see statistics on Vipps Login usage?](#can-i-see-statistics-on-vipps-login-usage)
 - [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
 - [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-to-the-user)
@@ -284,11 +284,11 @@ UX/branding, consent, terms and privacy statement apply to such scenarios.
 These can be found in section 8.4 in our
 [Terms and Conditions for merchants](https://www.vipps.no/vilkar/vilkar-bedrift/)
 
-## Can I control if a user is remembered in the browser?
+## Can I control if a user is remembered in the browser (set up as 2FA)?
 
-No. Vipps Login do not currently support merchants specifying that the user needs
-to use the app to authenticate (two factor authentication). The end-user chooses
-whether he would like to be remembered in browser or not.  
+No. Vipps Login do not support merchants specifying that the user needs
+to use the app to authenticate (two factor authentication - 2FA). The end-user chooses
+whether he would like to be remembered in browser or not. This is seen as a key feture of the service. Since users can be remembered in browser Vipps Login is seen as level of assurance low.
 
 ## Can I see statistics on Vipps Login usage?
 
