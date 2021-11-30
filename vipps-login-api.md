@@ -174,7 +174,7 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 
 ![Optional confirmation code (`binding_message`)](images/CIBA_Confirmation_code.png)
 
-See [how to implement](#client-initiated-backchannel-authentication-flows-ciba).
+See [how to implement](#ciba---complete-login-in-the-vipps-app-with-redirect-to-the-merchants-web-page).
 
 
 ### Design guidelines and buttons
