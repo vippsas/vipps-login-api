@@ -324,7 +324,7 @@ to Vipps Login:
    end users and the personal information generated using the Vipps services.
    For the Vipps Login service, the merchant will be responsible for the
    processing of the profile information received, starting when the merchant
-   receives the profile information from Vipps end user.
+   receives the profile information from Vipps end user. The merchant will thus be an independed data processor for this data, and there is no need for a data processing agreement between Vipps and the merchant.
 
 3. The merchant must therefore obtain a valid basis for further processing of
    the personal data (e.g agreement, terms or consent), to e.g. register the
