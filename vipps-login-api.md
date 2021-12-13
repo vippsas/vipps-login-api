@@ -356,6 +356,9 @@ option for logged in users that has not yet linked their profile to Vipps to do
 so, for an easier login the next time. This just means to provide the "login
 with Vipps"-button and linking the ID from Vipps with this account.
 
+If the user does not have an existing account, but this is required for some reason, e.g. because you have a separate sign-up process or the users need to be an existing member/customer, you should provide the user with a message explaining the situation after Vipps Login has finished. If relevant you should provide links or directions on how to create the required account.
+
+
 ## Integrating with Vipps Login
 
 Vipps Login adheres to the OAuth2 and OpenID Connect standards. The easiest - and **strongly recommended - way
