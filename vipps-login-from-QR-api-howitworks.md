@@ -1,4 +1,4 @@
-# Vipps Login from QR-coe API: How It Works
+# Vipps Login from QR-code API: How It Works
 
 Let your customers register or login based on scanning a QR-code.
 
