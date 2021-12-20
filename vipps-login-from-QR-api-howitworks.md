@@ -33,9 +33,9 @@ The merchant controls what happens after the user has  confirmed the login/shari
 
 ![User gets confirmation in Vipps or is taken to browser](images/vipps-login-confirmation.png)
 
-## Great! Now you know how Vipps Login from phone number works!
+## Great! Now you know how Vipps Login from QR-code works!
 
-Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app).
+Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md).
 
 
 ## Questions?
