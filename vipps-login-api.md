@@ -193,7 +193,7 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 
 ![Optional confirmation code (`binding_message`)](images/CIBA_Confirmation_code.png)
 
-See [how to implement](#ciba---complete-login-in-the-vipps-app).
+See [how to implement](#integrating-with-vipps-login-from-phone-number).
 
 ### Vipps Login from QR-code
 More information on the support for QR-codes will be added shortly.
