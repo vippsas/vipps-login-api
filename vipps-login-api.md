@@ -48,7 +48,7 @@ Document version 4.0.5.
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
   * [Using Vipps Login in native applications](#using-vipps-login-in-native-applications)
-* [Using the special flows](#using-the-special-flows)
+  * [Using the special flows](#using-the-special-flows)
     * [App integration](#app-integration)
     * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
     * [No dialog flow](#No-dialog-flow)
@@ -981,17 +981,17 @@ Not logged in return uri example: `https://client.example.com/callback?error=int
 
 In all cases a new login can be started by removing the parameter `requested_flow=no_dialog` and initiating a new login for the user.
 
-## Integrating with Vipps Login in from phone number
-### Activation
-The CIBA flows have been developed to support use-cases where authentication/registration does not start in a browser or an app. These flows are described [here](#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app). They are based on the CIBA OIDC standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html.
+## Integrating with Vipps Login from phone number
+### Activating Vipps Login from phone number
+Vipps Login from phone number (CIBA flows) have been developed to support use-cases where authentication/registration does not start in a browser or an app. These flows are described [here](#vipps-login-from-phone-number). They are based on the CIBA OIDC standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html.
 
-The CIBA flows are reserved for special cases and needs to be specially enabled by Vipps for eligible sale units, instructions can be found at [Who can get access to CIBA flows and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-ciba-flows-and-how). A sale unit can be set up with both ordinary Vipps Login and CIBA flows enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios. To ensure a consisten user experience on webpages and in apps it is not allowed to use the CIBA flows for such usecases.
+Vipps Login from phone number is reserved for special cases and needs to be specially enabled by Vipps for eligible sale units, instructions can be found at [Who can get access to Vipps Login from phone number and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). A sale unit can be set up with both Vipps Login in browser and phone number (and QR-code) enabled, and it is required to use the same sale unit for all use-cases to ensure that you as a merchant get the same user id ('sub') on the user across different scenarios. To ensure a consistent user experience on webpages and in apps it is not allowed to use Vipps Login from phone number for such usecases.
 
 ### Complete login in the Vipps app
 
 #### Activation
 
-See [CIBA login flows](#ciba-login-flows-information-and-activation)
+See [Activating Vipps Login from phone number](#activating-vipps-login-from-phone-number)
 
 #### Overview
 
@@ -1166,7 +1166,7 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 
 #### Activation
 
-See [CIBA login flows](#ciba-login-flows-information-and-activation)
+See [Activating Vipps Login from phone number](#activating-vipps-login-from-phone-number)
 
 #### Overview
 This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user
