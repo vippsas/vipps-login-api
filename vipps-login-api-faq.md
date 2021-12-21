@@ -24,9 +24,9 @@ Document version 2.3.1.
 - [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
 - [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 - [Who can get access to account numbers and how?](#who-can-get-access-to-account-numbers-and-how)
-- [Who can get access to CIBA flows and how?](#who-can-get-access-to-ciba-flows-and-how)
+- [Who can get access to Vipps Login from phone number and how?](#who-can-get-access-to-vipps-login-from-phone-number-and-how)
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
-- [Can I use partner keys for Vipps login?](#can-i-use-partner-keys-for-vipps-login)
+- [Can I use partner keys for Vipps Login?](#can-i-use-partner-keys-for-vipps-login)
 - [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2FA)
 - [Can I see statistics on Vipps Login usage?](#can-i-see-statistics-on-vipps-login-usage)
 - [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
@@ -246,23 +246,23 @@ to accessuserinfo@vipps.no. In the email you should specify:
 * Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
 * Information on how you plan to use the account numbers
 
-## Who can get access to CIBA flows and how?
+## Who can get access to Vipps Login from phone number and how?
 
-The CIBA flows have been developed to support use-cases where
+Vipps Login from phone number has been developed to support use-cases where
 authentication/registration does not start in a browser or an app. This means
 that it is the merchant/merchant’s systems that trigger the
 authentication/registration and thus login cannot be done in the user’s browser.
-The CIBA flows are reserved for such special cases and needs to be specially
-enabled by Vipps for eligible sale units. If a merchant uses the CIBA flows on
-webpages or in apps used by end-users, access to the CIBA flows can be withdrawn.
+Vipps Login from phone number are reserved for such special cases and needs to be specially
+enabled by Vipps for eligible sale units. If a merchant uses Vipps Login from phone number on
+webpages or in apps used by end-users (on their own device), access to the feature can be withdrawn.
 
-Merchants need to apply for access to CIBA flows separately by sending an email
+Merchants need to apply for access to Vipps Login from phone number separately by sending an email
 to accessuserinfo@vipps.no. In the email you should specify:
 
 * Merchant name
 * Organization number
 * Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
-* Information on how you plan to use the CIBA flow
+* Information on how you plan to use Vipps Login from phone number
 
 ## What's the purpose of the `state` parameter?
 
