@@ -3,7 +3,7 @@
 Let your customers share their information or confirm who they are based on their phone number.
 
 For technical documentation go to
-[Vipps Login API](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app)
+[Vipps Login API - login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number)
 
 ## The login from phone number process
 You can choose between two different processes/user experiences 
@@ -35,7 +35,7 @@ The merchant controls what happens after the user has  confirmed the login/shari
 
 ## Great! Now you know how Vipps Login from phone number works!
 
-Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app).
+Take a look at the technical documentation in the [Vipps Login API - login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number).
 
 
 ## Questions?
