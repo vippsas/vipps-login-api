@@ -176,7 +176,7 @@ See [how to implement](#no-dialog-flow).
 
 Vipps Login from phone number is based on the Client initiated backchannel authentication (CIBA) standard and built to support special cases where login does not start in browser or app. This means that it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser. This could typically be physical contexts e.g point of sales solutions, on the phone e.g call-center solutions or devices/terminals e.g TV-boxes. To ensure a consisten user experience on webpages and in apps it is not allowed to use Vipps Login from phone number for such usecases.
 
-Since Vipps Login from phone number are reserved for such special cases it needs to be specially enabled by Vipps for eligible sale units. [Description on how to order the CIBA flows can be found here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). A sale unit can be set up with both Vipps Login in browser and from phone number (and QR) enabled and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
+Since Vipps Login from phone number are reserved for such special cases it needs to be specially enabled by Vipps for eligible sale units. [Description on how to order Vipps Login from phone numbber can be found here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). A sale unit can be set up with both Vipps Login in browser and from phone number (and QR-code) enabled, and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
 
 Vipps Login from phone number is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant such consent will be required. If the user has not enabled push from Vipps the user needs to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request. The merchant controls whether the user should get the confirmation of completion in the Vipps app or if the user should be taken to the merchant's web page to finalise the flow. The merchant can e.g. take the user to their web page to enable input of more information, accept terms and condition, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-phone-number-api-howitworks.md).
 
@@ -187,7 +187,7 @@ Illustration of how the flow will look like when the user end the flow and get t
 
 Illustration of how the flow will look like if the user is taken to the merchant's web page:
 
-![Take user to merchant's web page](images/CIBA_flow_take_to_merchant.png)
+![Rediirect to browser](images/CIBA_flow_take_to_merchant.png)
 
 The merchant has the option to show a confirmation code (`binding_message`) to the user in the app for added security:
 
