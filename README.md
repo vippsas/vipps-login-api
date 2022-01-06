@@ -7,9 +7,9 @@ For more information and to order the product go to our
 You can also find frequently asked questions about the product in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-* [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md): An overview of how the Login API works.
-* [How It Works: Vipps Login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-phone-number-api-howitworks.md)
-* [How It Works: Vipps Login from QR-code](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md)
+* [How It Works: Vipps Login in browser ](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md): An overview of how Vipps Login in browser works.
+* [How It Works: Vipps Login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-phone-number-api-howitworks.md): An overview of how Vipps Login from phone number works.
+* [How It Works: Vipps Login from QR-code](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md): An overview of how Vipps Login from QR-code works.
 * [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): Information about API keys, product activation.
 * [Vipps Login API guide](vipps-login-api.md): Developer guide for Vipps Login API.
 * [Vipps Login Frequently Asked Questions](vipps-login-api-faq.md): Questions and answers.
