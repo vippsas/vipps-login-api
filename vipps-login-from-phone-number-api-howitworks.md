@@ -5,6 +5,8 @@ Let your customers share their information or confirm who they are based on thei
 For technical documentation go to
 [Vipps Login API - login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number)
 
+We also have _How it works_ for [Vipps Login in browser](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md) and [Vipps Login from QR-code](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md). 
+
 ## The login from phone number process
 You can choose between two different processes/user experiences 
 
