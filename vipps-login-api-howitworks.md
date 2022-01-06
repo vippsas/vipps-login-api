@@ -1,9 +1,12 @@
-# Vipps Login API: How It Works
+# Vipps Login in browser: How It Works
 
 Let your customers log in to your website or app without the need for user names and passwords.
 
 For technical documentation go to
 [Vipps Login API](https://github.com/vippsas/vipps-login-api)
+
+We also have _How it works_ for [Vipps Login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-phone-number-api-howitworks.md) and [Vipps Login from QR-code](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md)
+
 
 ## The login process
 
