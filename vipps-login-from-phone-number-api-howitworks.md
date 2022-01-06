@@ -1,4 +1,4 @@
-# Vipps Login from phone number API: How It Works
+# Vipps Login from phone number: How It Works
 
 Let your customers share their information or confirm who they are based on their phone number.
 
