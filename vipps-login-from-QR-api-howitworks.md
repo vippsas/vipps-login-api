@@ -1,9 +1,11 @@
-# Vipps Login from QR-code API: How It Works
+# Vipps Login from QR-code: How It Works
 
 Let your customers register or login based on scanning a QR-code.
 
 For technical documentation go to
 [Vipps Login API](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md)
+
+We also have _How it works_ for [Vipps Login in browser](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md) and [Vipps Login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-phone-number-api-howitworks.md). 
 
 ## The login from QR-code process
 You can choose between two different processes/user experiences 

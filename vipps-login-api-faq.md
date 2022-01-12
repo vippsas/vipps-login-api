@@ -223,7 +223,7 @@ used to simplify the customers processes by removing manual input or to lookup
 the customer in your own or external registers. This can be done as part of the
 processes to become a customer or to link login with Vipps to an existing user.
 If you need to store the NIN for new users we recommend that you use an
-electronic ID, e.g  BankID.
+electronic ID.
 
 Merchants need to apply for access to NIN separately by sending an email to
 accessuserinfo@vipps.no. In the email you should specify:
@@ -287,7 +287,7 @@ These can be found in section 8.4 in our
 
 No. Vipps Login do not support merchants specifying that the user needs
 to use the app to authenticate (two factor authentication - 2FA). The end-user chooses
-whether he would like to be remembered in browser or not. This is seen as a key feture of the service. Since users can be remembered in browser Vipps Login is seen as level of assurance low.
+whether he would like to be remembered in browser or not. This is seen as a key feture of the service. 
 
 ## Can I see statistics on Vipps Login usage?
 

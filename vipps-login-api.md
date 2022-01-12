@@ -73,7 +73,7 @@ Users can create a new account through sharing high-quality data from the user�
 
 When Vipps Login is used in the browser, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. The possibility for the user to be remembered in browser is a key feature of the service and cannot be controlled (turned off) by individual merchants. This means that it is not possible to set up Vipps Login is a 2 factor authentication (2FA).
 
-Vipps Login is _not_ an electronic identification or sertified eID. IF this is what you are looking for you should use [BankID](https://www.vipps.no/produkter-og-tjenester/bedrift/innlogging-og-identifisering/identifisering-med-bankid/).
+Vipps Login is _not_ an electronic identification or sertified eID.
 
 
 For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](https://github.com/vippsas/vipps-plugins).
@@ -327,11 +327,11 @@ Vipps Login currently supports the following scopes:
 | ------------| -----------------------------------------------|-------- |
 | openid      | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.              |   no    |
 | address     | User can have up to three addresses in Vipps: home, work and other. Users' addresses are given as claims 'address' and 'other_addresses'. The claim 'address' returns the address set as 'default' for the Vipps user. And the claim 'other_addresses' returns all other addresses of the end user, if any.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context. Some users will not have any registered address, in these situations the claim 'address' will be delivered, but the sub claims in address will be empty strings, e.i. "address" : {"country" : "", "street_address" : "", "address_type" : "", "formatted" : "", "postal_code" : "", "region" : "" } . If a user has information in the «Unit, floor or other details» field this will be included in the "street_address" respons. The «Street address» will then be presented first before "\n" and then the contents from «Unit, floor or other details», e.g: "Suburbia 23"\nUnit B5"|   yes   |
-| birthDate   | User birth date (BankID verified)                               |   yes   |
+| birthDate   | User birth date (verified with National Population Register)                               |   yes   |
 | email       | User email (verified), the flag "email_verified : true" in the response can be used by merchant to confirm for each request that the email actually is verified                                   |   yes   |
 | name        | User first, middle and given name (verified with National Population Register)              |   yes   |
 | phoneNumber | Verified phone number (verified - the number used with Vipps)                          |   yes   |
-| nin        | Norwegian national identity number (verified with BankID). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information |   yes      |
+| nin        | Norwegian national identity number (verified with National Population Register). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information |   yes      |
 | accountNumbers | User bank account numbers. NB: merchants need to apply for access to accountNumbers. Go to [Who can get access to account numbers and how?](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-accountnumbers-and-how) For more information |   yes      |
 | api_version_2 | Needs to be added to use the latest version of Vipps Login. All merchants need to add this. Go to [Vipps Login API 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md) For more information about migrating from version 1 |   no      |
 
