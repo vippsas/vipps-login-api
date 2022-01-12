@@ -7,7 +7,7 @@ If this is omitted you will in effect use a version that is no longer supported.
 See also:
 [Vipps Login API 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md).
 
-Document version 4.0.5.
+Document version 4.0.6.
 
 ## Table of contents
 * [Introduction](#introduction)
@@ -284,7 +284,7 @@ Example body:
 You can read more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
 
 It is important to validate the Id-token before using any data contained in it.
-See the Oidc-standard on
+See the OIDC standard on
 [Id-token validation](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)
 for the specifics. We recommend that you use a library for this. A good place
 to start is finding a library for your language at [jwt.io](https://jwt.io/#libraries-io).
@@ -358,6 +358,9 @@ now on, and called `sub` in the response from our API) stored on one of your
 accounts. If you have it, this means that the user has used Vipps on your site
 earlier and have an explicit link to the account. In this case use the ID to log
 the user into her account.
+
+The `sub` is based on the user's national identity number ("fødselsnummer"
+in Norway), and does not change (except in very special cases).
 
 If you have not already stored the ID: check if the user already has an account
 based on phone number and e-mail address. If this gives a match on one (and
