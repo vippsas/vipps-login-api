@@ -36,6 +36,7 @@ Document version 2.3.1.
 - [Can we have multiple URIs as landing pages?](#can-we-have-multiple-uris-as-landing-pages)
 - [Can I use a custom URL scheme for the `redirect_url`?](#can-i-use-a-custom-url-scheme-for-the-redirect_url)
 - [Can we change the name that appears in customer's Vipps app under `Login and Access`?](#can-we-change-the-name-that-appears-in-customers-vipps-app-under-login-and-access)
+- [How can I log out a user?](#how-can-i-log-out-a-user)
 - [Common errors](#common-errors)
   - [Why do I get `The client or its related sale unit or merchant does not exist or is not active`?](#why-do-i-get-the-client-or-its-related-sale-unit-or-merchant-does-not-exist-or-is-not-active)
   - [Why do I get a CORS error?](#why-do-i-get-a-cors-error)
@@ -403,6 +404,13 @@ The name which is displayed in the app is the name of the sale unit.
 You can do it yourself on
 [portal.vipps.no](https://portal.vipps.no/).
 Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.
+
+## How can I log out a user?
+
+ _Vipps Login_ does not support merchant initiated logout in the browser as this would effectively log the user out of Vipps Login (meaning that the user will no longer be remembered in the browser across sites that use Vipps Login). You are of course free to log the user out of your service (by disabling your own session). 
+
+If a user wants to log out of a specific browser remembered in Vipps Login, they need to do this in the Vipps app by navigating to:  
+`Profile->Personal Information->Browsers that remember you`, select a browser and press the logout button.
 
 ## Common errors
 
