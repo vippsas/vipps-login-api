@@ -407,11 +407,10 @@ Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name
 
 ## How can I log out a user?
 
-The answer here is twofold; _Vipps Login_ doesn't support logout from the browser, but you are free to log the user out of your service.  
-The reason for not allowing logout in the browser is because this would lead to a poor user experience due to the user also being logged out everywhere else.
+ _Vipps Login_ does not support merchant initiated logout in the browser as this would effectively log the user out of Vipps Login (meaning that the user will no longer be remembered in the browser across sites that use Vipps Login). You are of course free to log the user out of your service (by disabling your own session). 
 
-If the users wishes to log out of a specific browser, they need to do use in the Vipps app by going to:  
-`Profile->Personal Information->Browsers that remember you`, choose a browser and press the logout button.
+If a user wants to log out of a specific browser remembered in Vipps Login, they need to do this in the Vipps app by navigating to:  
+`Profile->Personal Information->Browsers that remember you`, select a browser and press the logout button.
 
 ## Common errors
 
