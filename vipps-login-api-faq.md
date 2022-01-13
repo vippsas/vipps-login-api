@@ -405,10 +405,10 @@ You can do it yourself on
 [portal.vipps.no](https://portal.vipps.no/).
 Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.
 
-## How can I logout a user?
+## How can I log out a user?
 
 The answer here is twofold; _Vipps Login_ doesn't support logout from the browser, but you are free to log the user out of your service.  
-You can't log the user out of the current browser because it would lead to a poor end user experience.  
+The reason for not allowing logout in the browser is because this would lead to a poor user experience due to the user also being logged out everywhere else.
 
 If the users wishes to log out of a specific browser, they need to do use in the Vipps app by going to:  
 `Profile->Personal Information->Browsers that remember you`, choose a browser and press the logout button.
