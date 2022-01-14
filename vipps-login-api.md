@@ -23,7 +23,7 @@ Document version 4.0.6.
         * [Automatic return from Vipps app](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers)
     * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
   - [Vipps Login from phone number](#vipps-login-from-phone-number)
-  - [Vipps Login from QR-code](#vipps-login-from-QR---code)
+  - [Vipps Login from QR-code](#vipps-login-from-qr-code)
 * [Design guidelines and buttons](#Design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
   - [OAuth 2.0](#oauth-20)
