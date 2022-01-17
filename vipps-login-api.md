@@ -1209,7 +1209,7 @@ to be taken to the client's web page to finalise the flow.
       "interval": 5
     }
     ```
-2. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request 1. The redirect will contain `code` and `state` parameters: `{redirect_uri}?code={code}`.
+2. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request 1. The redirect will contain a `code`: `{redirect_uri}?code={code}`.
 
 3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:gran-type:ciba-redirect`, and `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded-body`. This returns (amongst others) an `access_token` that can be used to fetch userinfo.
 
