@@ -8,7 +8,9 @@ Document version 2.0.0.
 
 - [ ] Integration with the Vipps Login API is redirect based (i.e no embedded iframe)
 - [ ] Native app integrations use the [app-to-app flow](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#app-to-app-flow)
-- [ ] [CIBA flows](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#client-initiated-backchannel-authentication-flows-ciba---special-cases-where-login-does-not-start-in-browser-or-app)
+- [ ] Ensure that your solution is verified to work if the user start in a "non-default" browser on mobile, e.g. start Vipps Login from Chrome browser on iOS.
+- [ ] If you as a merchant will act on behalf of others (share data you have gotten from Vipps with other merchants) ensure that you comply with our terms and conditions to do this. This is shown in section 8.4 in our [terms and conditions for merchants](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number)
+- [ ] [Vipps Login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number)
       must _not_ be used for web based login
 - [ ] Vipps-buttons and Vipps branding on your website follow the
       [Vipps design guidelines](https://github.com/vippsas/vipps-design-guidelines).
