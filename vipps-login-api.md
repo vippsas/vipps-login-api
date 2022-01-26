@@ -1197,10 +1197,10 @@ to be taken to the client's web page to finalise the flow.
     Authorization: Basic asdkjhasdjhsad=
     Content-Type: application/x-www-form-urlencoded
 
-    scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23&redirect_uri=https://merchantwebpage.com/callback
+    requested_flow=login_to_webpage&scope=openid name address&login_hint=urn:mobilenumber:{mobileNumber}&redirect_uri=https://merchantwebpage.com/callback
     ```
 
-    Example response, the response values are typically not used for anything in this flow:
+    Example response, the `auth_req_id` can later be used to connect this login to a token response since the ID token should contain the same `auth_req_id` value.
     ```
     200 application/json
     {
@@ -1211,7 +1211,7 @@ to be taken to the client's web page to finalise the flow.
     ```
 2. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request 1. The redirect will contain a `code`: `{redirect_uri}?code={code}`.
 
-3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:gran-type:ciba-redirect`, and `redirect_uri={redirect_uri}` in the `application/x-www-form-urlencoded-body`. This returns (amongst others) an `access_token` that can be used to fetch userinfo.
+3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:gran-type:ciba-redirect` in the `application/x-www-form-urlencoded-body`. This returns a ID token and an access token that can be used to fetch userinfo. The ID token is an JWS that must be validated, see https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#id-token. The merchant **must validate** that it contains a `auth_req_id` they have previously received from step 2.
 
     Example request (the real payload will likely look different because of encoding):
     ```
@@ -1219,7 +1219,7 @@ to be taken to the client's web page to finalise the flow.
     Authorization: Basic sadlksadkjasjdaksd
     Content-Type: application/x-www-form-urlencoded
 
-    code=some-valid-code&grant_type=urn:vipps:params:gran-type:ciba-redirect&redirect_uri=the-same-redirect-uri-used-initially
+    code=some-valid-code&grant_type=urn:vipps:params:gran-type:ciba-redirect
 
     ```
 
@@ -1227,14 +1227,28 @@ to be taken to the client's web page to finalise the flow.
     ```
     {
       "access_token": "hel39XaKjGH5tkCvIENGPNbsSHz1DLKluOat4qP-A4.WyV61hCK1E2snVs1aOvjOWZOXOayZad0K-Qfo3lLzus",
-      "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo4MGYzYzM0YS05Nzc5LTRlMWUtYjY0NS0xMTdmM2I3NzFhZjgiLCJ0eXAiOiJKV1QifQ.eyJhdF9oYXNoIjoidHlGbkgyMFRPbVBaa2dKVThlNWlLdyIsImF1ZCI6WyJ2aXBwcy1pbnRlZ3JhdGlvbiJdLCJhdXRoX3RpbWUiOjE1NTczMTkyOTYsImV4cCI6MTU1NzMyMjkzOCwiaWF0IjoxNTU3MzE5MzM4LCJpc3MiOiJodHRwczovL2FwaXRlc3QudmlwcHMubm8vYWNjZXNzLW1hbmFnZW1lbnQtMS4wL2FjY2Vzcy8iLCJqdGkiOiI2MmE4NWU1Ni0zZDQ1LTRjN2UtYTA1NS00NjkzMjA5MzI1N2EiLCJub25jZSI6IiIsInJhdCI6MTU1NzMxOTI1NSwic3ViIjoiYzA2YzRhZmUtZDllMS00YzVkLTkzOWEtMTc3ZDc1MmEwOTQ0In0.OljG0W_TCfxkrRntj_5He3U0PH94SDZvlK-dvUJe8H5jj8QSiSnqiv65kyzxdr8Bq1MwG7a6Mtlnn4MoL8AyxKUVe6s81CNaYmwaHsWLw2Z2JmiPn5_X4lEy1nHVDX3R7lFKDQqFLSGnGNPU9bACj-Si18LBR-qv060wEj3b1ShrVeUIZCL1Yhxb6cIGl_8RivRto9dBrzggyOlVTtmoPrm9TLYF7UGWjlbmHTqpBWsCQIOeQqgs7RmSBt5k3O9nmP7guVxo5MWv_2Z0XuCqobLDDXJ29Rk_W6d79y-lPzq_TedNb_lCdVJF7u9qDYFbIPuQwXp26CeIJcR-nc-t0qEoNmLru_x-9Z8dCjjzkZbWqyNsNedQU1zt0WFbHjRkodVoHNcRZVT5W5hCe54lmZ6lUqyKwHW0_3Rpd2CI6lPdCOhC-Tze5cUDfb8jT_0OZqCI_wAuWvb6_4VeHqhvUav6Mh6d7AxNJQYG6BAJo9TzyrG7ho4mSpb2wWMr8gmRi8pTQbqa40whPqptpiz_j4AHcsrRckjYONU0USKlnNcBGc24M4sprcLZ6vxFqDYmDoZwUDRdZWRpUbqm_nCmCKb20Z6l5O7h32KvOApopJe2NIeAynli3Nl05QVGOdoT1mZDLYXbtyb0b_4qhRflySr6gaczcf2ovUKAToKNs_4",
+      "id_token": "eyJraWQiOiJwdWJsaWM6ZWUzNmQzZjUtMzkzNC00MDI5LTkyNmYtNzdmYTY1YmYwYjRiIiwiYWxnIjoiRVMyNTYifQ.eyJhdWQiOiJlZGRkYjMyZi01MDI4LTQzOTctYjBhYi1lOGVjZjIxOGZkYzIiLCJzdWIiOiI1MTY4ZWUwNi04NzFlLTQ2ZTYtOTQxZS0wMTAzYjk1NzA0OGUiLCJhdXRoUmVxSWQiOiI3QnpBWS1TYlZRSjM4Vi1VMEM3WjZrMjNfQ1kiLCJpc3MiOiJodHRwczpcL1wvZWNlNDZlYzQtNmY5Yy00ODliLThmZTUtMTQ2YTg5ZTExNjM1LnRlY2gtMDIubmV0XC9hY2Nlc3MtbWFuYWdlbWVudC0xLjBcL2FjY2Vzc1wvIiwiZXhwIjoxNjQzMTc5ODM3LCJpYXQiOjE2NDMxNzkyMzd9.iFvmdtRQVliAe91dBu_CZDfBD5I7WCbDTiDQxu4sOTApXFPb5EsSuEBEVfK_-14E7xjcfQLSMa6ZO06YvhRHAA",
       "expires_in": 3599,
       "scope": "openid",
       "token_type": "bearer",
-      "auth_req_id": "same-auth-req-id-received-on-auth"
     }
     ```
-
+   
+    Decoded ID token JWS example:
+    ```
+    {
+      "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
+      "alg": "ES256"
+    }.{
+      "aud": "edddb32f-5028-4397-b0ab-e8ecf218fdc2",
+      "sub": "5168ee06-871e-46e6-941e-0103b957048e",
+      "authReqId": "7BzAY-SbVQJ38V-U0C7Z6k23_CY",
+      "iss": "https://ece46ec4-6f9c-489b-8fe5-146a89e11635.tech-02.net/access-management-1.0/access/",
+      "exp": 1643179837,
+      "iat": 1643179237
+    }.[Signature]
+    ```
+    
 4. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 3.
 
     For details see [Userinfo request](#userinfo).
@@ -1292,8 +1306,9 @@ Example: `...&login_hint=urn:mobilenumber:12345678&...`.
 * We support the scopes listed at [Scopes](#scopes)
 * The `api_version_2` is not required
 * The legacy `nnin` scope is not supported, use `nin` instead.
+* The `openid` scope is required
 
-Example: `...&scope=name address birthDate nin&...`
+Example: `...&scope=openid name address birthDate nin&...`
 
 ##### The `binding_message` parameter (optional)
 A human-readable identifier or message intended to be displayed on both the consumption device and the authentication device to interlock them together for the transaction by way of a visual cue for the end-user.
@@ -1305,7 +1320,7 @@ Note: "the binding_message value SHOULD be relatively short and use a limited se
 Example: `....&binding_message=4MZ-CQ3&...`
 
 ##### The `redirect_uri` parameter (required)
-Redirect URL which the user agent is redirected to after finishing a login. Must be `https` in the production environment. You can add new `redirect_uri`'s  [in the merchant portal](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+Redirect URL which the user agent is redirected to after finishing a login. Must be `https` in the production environment. You can add new redirect URIs  [in the merchant portal](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
 Example: `...&redirect_uri=https://merchant.com/callback&...`
 
