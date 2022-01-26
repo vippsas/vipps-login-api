@@ -1292,7 +1292,7 @@ The following authentication methods are currently supported:
 
 The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
 
-Required parameters: `login_hint`, `scope`, `redirect_uri`
+Required parameters: `requested_flow`, `login_hint`, `scope`, `redirect_uri`
 
 ##### The `login_hint` parameter (required)
 Supported login hints:
