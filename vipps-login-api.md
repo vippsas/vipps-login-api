@@ -1200,7 +1200,7 @@ to be taken to the client's web page to finalise the flow.
     requested_flow=login_to_webpage&scope=openid name address&login_hint=urn:mobilenumber:{mobileNumber}&redirect_uri=https://merchantwebpage.com/callback
     ```
 
-    Example response, the `auth_req_id` can later be used to connect this login to a token response since the ID token should contain the same `auth_req_id` value.
+    Example response, the `auth_req_id` should be used to connect this login to a token response since the ID token should contain the same `auth_req_id` value.
     ```
     200 application/json
     {
