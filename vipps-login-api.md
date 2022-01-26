@@ -1242,7 +1242,7 @@ to be taken to the client's web page to finalise the flow.
     }.{
       "aud": "edddb32f-5028-4397-b0ab-e8ecf218fdc2",
       "sub": "5168ee06-871e-46e6-941e-0103b957048e",
-      "authReqId": "7BzAY-SbVQJ38V-U0C7Z6k23_CY",
+      "auth_req_id": "7BzAY-SbVQJ38V-U0C7Z6k23_CY",
       "iss": "https://ece46ec4-6f9c-489b-8fe5-146a89e11635.tech-02.net/access-management-1.0/access/",
       "exp": 1643179837,
       "iat": 1643179237
