@@ -1215,7 +1215,7 @@ to be taken to the client's web page to finalise the flow.
 
     Example request (the real payload will likely look different because of encoding):
     ```
-    POST https://api.vipps.no
+    POST https://api.vipps.no/access-management-1.0/access/oauth2/token
     Authorization: Basic sadlksadkjasjdaksd
     Content-Type: application/x-www-form-urlencoded
 
