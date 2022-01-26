@@ -1211,7 +1211,7 @@ to be taken to the client's web page to finalise the flow.
     ```
 2. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request 1. The redirect will contain a `code`: `{redirect_uri}?code={code}`.
 
-3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:gran-type:ciba-redirect` in the `application/x-www-form-urlencoded-body`. This returns a ID token and an access token that can be used to fetch userinfo. The ID token is an JWS that must be validated, see https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#id-token. The merchant **must validate** that it contains a `auth_req_id` they have previously received from step 2.
+3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:grant-type:ciba-redirect` in the `application/x-www-form-urlencoded-body`. This returns an ID token and an access token that can be used to fetch userinfo. The ID token is a JWS that must be validated, see https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#id-token. The merchant **must validate** that it contains the `auth_req_id` they have previously received from step 2.
 
     Example request (the real payload will likely look different because of encoding):
     ```
