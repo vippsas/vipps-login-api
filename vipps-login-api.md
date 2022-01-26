@@ -1219,7 +1219,7 @@ to be taken to the client's web page to finalise the flow.
     Authorization: Basic sadlksadkjasjdaksd
     Content-Type: application/x-www-form-urlencoded
 
-    code=some-valid-code&grant_type=urn:vipps:params:gran-type:ciba-redirect
+    code=some-valid-code&grant_type=urn:vipps:params:grant-type:ciba-redirect
 
     ```
 
