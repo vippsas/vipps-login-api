@@ -1330,6 +1330,124 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 * Most of the [general error codes](https://github.com/vippsas/vipps-login-api/blob/4c17be6998852154197fdfc0c118d05495e3b167/vipps-login-api.md#error-handling)
 
+## Integrating with Vipps Login from qr code
+### Activating Vipps Login from qr code
+These flows are described [here](#vipps-login-from-qr-code).
+
+ToDo: Fill in how to enable qr code
+
+### Initiate login from QR code
+
+#### Overview
+[Vipps login from QR api how it works](#vipps-login-from-QR-api-howitworks)
+
+#### Call by call
+
+Prerequisite:
+* Client needs to preregister a QR code along with a webhook in our system.
+
+* This QR code has to be made available for the users to scan, either with Vipps app or third party QR scanner app.
+
+* The client has fetched the openid configuration from the well-known endpoint and cached it.
+   See [.well-known](#openid-connect-discovery-endpoint)
+
+Client calls:
+1) User scan QR code and confirms login in Vipps app.
+
+2) The client will receive a jwt on the preregistered webhook.
+
+3) The client needs to validate this jwt using the keyset found in 'jwks_uri' under [.well-known](#openid-connect-discovery-endpoint).
+
+   Decoded jwt payload example
+   ```
+   {
+       "aud": "acae94b4-7b30-4615-9806-10c3b42079a3",
+       "sub": "6tw7GmfPQRcWuydzlAwrUakpEEw",
+       "iss": "https://api.vipps.no/access-management-1.0/access/",
+       "exp": 1643981298,
+       "iat": 1643980998,
+       "vipps-qr-code-id": "hfSFihZh"
+   }
+   ```
+
+4) Use `sub` defined in the jwt as `auth_request_id` to call `token` endpoint defined [.well-known](#openid-connect-discovery-endpoint).
+    * Note the required `grant_type`: `urn:vipps:params:grant-type:qr`.
+    * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
+
+    Example request:
+    ```
+    POST https://api.vipps.no/access-management-1.0/access/oauth2/token
+    Authorization: Basic asdkjhasdjhsad=
+    Content-Type: application/x-www-form-urlencoded
+
+    grant_type=urn%3Avipps%3Aparams%3Agrant-type%3Aqr&auth_req_id=6tw7GmfPQRcWuydzlAwrUakpEEw
+    ```
+
+    Example response:
+    ```
+    HTTP/1.1 200 OK
+     Content-Type: application/json;charset=UTF-8
+
+    {
+      "access_token": "ciba.W_IfBcSr-askdjhsakjhd",
+      "token_type": "Bearer",
+      "expires_in": 300,
+      "id_token": "eyaksjdhksajhdjkashdjksadjnn91283hedhn.eyasdkjhaskjdhskajhdkjhasdkjhaskjhdwqiuh"
+    }
+    ```
+
+6) The client must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 4.
+
+   For details see [Userinfo request](#userinfo).
+
+   Example request:
+    ```
+    GET https://api.vipps.no/vipps-userinfo-api/userinfo
+    Authorization: Bearer ciba.W_IfBcSr-askdjhsakjhd
+    ```
+
+   Example response:
+    ```
+    HTTP/1.1 200 OK
+
+    {
+      "address": {
+        "address_type": "home",
+        "country": "NO",
+        "formatted": "jghj khhjhhkjh\n0603\nOSLO\nNO",
+        "postal_code": "0603",
+        "region": "OSLO",
+        "street_address": "jghj khhjhhkjh"
+      },
+      "family_name": "Heyerdahl",
+      "given_name": "Tor Fos",
+      "name": "Tor Fos Heyerdahl",
+      "other_addresses": [],
+      "sid": "qwieuhwqiuhdiuwqh",
+      "sub": "f350ef33-22e2-47d0-9f47-12345667"
+    }
+    ```
+
+##### Authentication
+The following authentication methods are currently supported:
+* client_secret_basic
+* client_secret_post
+
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
+
+#### Error responses
+In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
+
+* `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
+* `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
+
+
+### Initiate login from QR code with redirect to browser
+
+#### Activation
+
+#### Overview
+
 ## Questions?
 
 We're always happy to help with code or other questions you might have!
