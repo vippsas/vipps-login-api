@@ -55,8 +55,9 @@ Document version 4.0.6.
 * [Integrating with Vipps Login in from phone number](#integrating-with-vipps-login-from-phone-number)
     * [Complete login in Vipps App](#complete-login-in-the-vipps-app)
     * [Redirect to browser](#redirect-to-browser)
-* [Error handling](#error-handling)
-* [Call by call](#call-by-call)
+* [Integrating with Vipps Login from qr code](#integrating-with-vipps-login-from-qr-code)
+    * [Initiate login from QR code](#initiate-login-from-qr-code)
+    * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
 * [Questions](#questions)
 
 ## Introduction
