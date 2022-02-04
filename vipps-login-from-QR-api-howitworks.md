@@ -31,7 +31,7 @@ After confirming the login / sharing of information the user will be asked for t
 ![User confirm in Vipps](images/vipps-login-confirm.png)
 
 ### 3. Confirmation, possibility to continue process
-The merchant controls what happens after the user has  confirmed the login/sharing of information. The merchant can end the process in Vipps giving confirmation of successfull completion in Vipps, or the merchant can have the user taken to a page in the browser on the phone. If the user is taken to a page in the browser the merchant has an identified user, can control the information given and ask the user to do further actions to continue the process if relevant. This can e.g. be used to welcome a user to the customer club and ask for more information or consent to marketing. This can also be used to present terms of condition for a subscription/purchase and allow the user to pay with Vipps.
+The merchant controls what happens after the user has  confirmed the login/sharing of information. The merchant can end the process in Vipps giving confirmation of successful completion in Vipps, or the merchant can have the user taken to a page in the browser on the phone. If the user is taken to a page in the browser the merchant has an identified user, can control the information given and ask the user to do further actions to continue the process if relevant. This can e.g. be used to welcome a user to the customer club and ask for more information or consent to marketing. This can also be used to present terms of condition for a subscription/purchase and allow the user to pay with Vipps.
 
 ![User gets confirmation in Vipps or is taken to browser](images/vipps-login-confirmation.png)
 
