@@ -1351,7 +1351,7 @@ Prerequisite:
 
 Steps:
 
-0. The client has fetched the openid configuration from the [.well-known endpoint](#openid-connect-discovery-endpoint) and cached it.
+0. The client has fetched the OpenID configuration from the [.well-known endpoint](#openid-connect-discovery-endpoint) and cached it.
    
 1. The user scans the QR code and then confirms the login in the Vipps app.
 
@@ -1439,7 +1439,7 @@ Prerequisite:
 
 Steps:
 
-0. The client has fetched the openid configuration from the [.well-known endpoint](#openid-connect-discovery-endpoint) and cached it.
+0. The client has fetched the OpenID configuration from the [.well-known endpoint](#openid-connect-discovery-endpoint) and cached it.
 
 1. The user scans the QR code and then confirms the login in the Vipps app. The user is then redirected to the preregistered `redirect_uri`. The redirect will contain the query parameter `code`: `{redirect_uri}?code={code}`.
 
