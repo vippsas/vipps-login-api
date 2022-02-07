@@ -1371,8 +1371,12 @@ Steps:
 
 4. The `auth_req_id` claim must be used in the call to the `token` endpoint defined in [.well-known](#openid-connect-discovery-endpoint).
     * Note the required `grant_type`: `urn:vipps:params:grant-type:qr`.
-    * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
     * Required authentication method: [Token endpoint authentication methods](#token-endpoint-authentication-method)
+    
+    This returns an ID token and an access token that can be used to fetch userinfo.
+    * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
+    * The ID token is a JWS that must be validated, see ID Token.
+    * The claim `qr_id` can be used by the client to identify the specific QR code that the user scanned.
     * Error responses as defined by the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11).
 
     Example request:
@@ -1395,6 +1399,22 @@ Steps:
       "expires_in": 300,
       "id_token": "eyaksjdhksajhdjkashdjksadjnn91283hedhn.eyasdkjhaskjdhskajhdkjhasdkjhaskjhdwqiuh"
     }
+    ```
+
+    Decoded ID token JWS example:
+    ```
+    {
+      "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
+      "alg": "ES256"
+      }.{
+      "aud": "8de3f38f-4a79-4eb3-930f-1e595d460a57",
+      "sub": "d6614352-ca55-4d89-8f82-d2facde311a4",
+      "iss": "https://api.vipps.no/access-management-1.0/access/",
+      "exp": 1643984388,
+      "iat": 1643983788,
+      "qr_id": "oKAz7q1O",
+      "qr_description": "description of QR code"
+      }.[Signature]
     ```
 
 5. The client must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 4.
