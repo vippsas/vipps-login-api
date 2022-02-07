@@ -1373,6 +1373,7 @@ Steps:
     * Note the required `grant_type`: `urn:vipps:params:grant-type:qr`.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
     * Required authentication method: [Token endpoint authentication methods](#token-endpoint-authentication-method)
+    * Error responses as defined by the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11).
 
     Example request:
     ```
@@ -1444,9 +1445,10 @@ Steps:
 1. The user scans the QR code and then confirms the login in the Vipps app. The user is then redirected to the preregistered `redirect_uri`. The redirect will contain the query parameter `code`: `{redirect_uri}?code={code}`.
 
 2. The client exchanges the `code` for login tokens by passing it to the `{token_endpoint}`. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `code={code}` and `grant_type=urn:vipps:params:grant-type:qr-redirect` parameters in the body.
-This returns an ID token and an access token that can be used to fetch userinfo.
-The ID token is a JWS that must be validated, see [ID Token](#id-token).
-The claim `qr_id` can be used by the client to identify the specific QR code that the user scanned.
+    * This returns an ID token and an access token that can be used to fetch userinfo.
+    * The ID token is a JWS that must be validated, see [ID Token](#id-token).
+    * The claim `qr_id` can be used by the client to identify the specific QR code that the user scanned.
+    * Error responses as defined by the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11).
 
     Example request (the real payload will likely look different because of encoding):
     
@@ -1517,13 +1519,6 @@ The claim `qr_id` can be used by the client to identify the specific QR code tha
       "sub": "f350ef33-22e2-47d0-9f47-12345667"
     }
     ```
-
-#### Error responses
-In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
-
-* `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
-* `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
-
 
 ## Questions?
 
