@@ -1370,7 +1370,7 @@ Steps:
    }
    ```
 
-4. The `auth_req_id` claim must be used in the call to the `token` endpoint defined in .[.well-known](#openid-connect-discovery-endpoint).
+4. The `auth_req_id` claim must be used in the call to the `token` endpoint defined in [.well-known](#openid-connect-discovery-endpoint).
     * Note the required `grant_type`: `urn:vipps:params:grant-type:qr`.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
     * Required authentication method: [Token endpoint authentication methods](#token-endpoint-authentication-method)
