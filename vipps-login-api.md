@@ -1350,6 +1350,7 @@ Prerequisite:
 * Client needs to register a QR code along with a webhook in our system. Todo: Figure out how this will be done
 
 Steps:
+
 0. The client has fetched the openid configuration from the well-known endpoint and cached it.
    See [.well-known](#openid-connect-discovery-endpoint)
    
@@ -1438,6 +1439,7 @@ Prerequisite:
 * Client needs to register a QR code along with a redirect uri in our system. Todo: Fix
 
 Steps:
+
 0. The client has fetched the openid configuration from the well-known endpoint and cached it.
   See [.well-known](#openid-connect-discovery-endpoint)
 
