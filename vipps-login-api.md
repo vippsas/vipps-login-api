@@ -1151,7 +1151,7 @@ Responses according to the standard. Note we do return an `interval` parameter w
 #### Token request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)
 
 The responses from this endpoint is according to the standard.
-* Note the required `grant_type`: `urn:openid:params:grant-type:ciba`.
+* Note the required `grant_type`: `urn:openid:params:grant-type:ciba`
 * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
 
 ##### Polling
