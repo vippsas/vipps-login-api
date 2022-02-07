@@ -1356,10 +1356,10 @@ Steps:
    
 1. The user scans the QR code and then confirms the login in the Vipps app.
 
-2. The client will receive a jwt on the preregistered webhook.
+2. The client will receive a JWT on the preregistered webhook.
 
-3. The client needs to validate this jwt using the keyset found in 'jwks_uri' under [.well-known](#openid-connect-discovery-endpoint).
-   Decoded jwt payload example
+3. The client needs to validate this JWT using the keyset found in 'jwks_uri' under [.well-known](#openid-connect-discovery-endpoint).
+   Decoded JWT payload example
    ```
    {
        "aud": "acae94b4-7b30-4615-9806-10c3b42079a3",
