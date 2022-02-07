@@ -408,7 +408,7 @@ These endpoints should be fetched dynamically by your application, since they ar
 | Test        |https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration |
 | Production  |https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration     |
 
-The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients. We recommend to fetch these dynamically, however the response from this endpoint rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. The endpoint responds with a `Cache-Control: max-age=3600` header.
+The OpenID connect discovery endpoint can be used to retrieve configuration information for openid connect clients. We recommend to fetch these dynamically, however the response from this endpoint rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. The endpoint responds with a `Cache-Control: max-age=3600` header.
 
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
@@ -1151,7 +1151,7 @@ Responses according to the standard. Note we do return an `interval` parameter w
 #### Token request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)
 
 The responses from this endpoint is according to the standard.
-* Note the required `grant_type`: `urn:openid:params:grant-type:ciba`.
+* Note the required `grant_type`: `urn:openid:params:grant-type:ciba`
 * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
 
 ##### Polling
@@ -1333,8 +1333,8 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 * Most of the [general error codes](https://github.com/vippsas/vipps-login-api/blob/4c17be6998852154197fdfc0c118d05495e3b167/vipps-login-api.md#error-handling)
 
-## Integrating with Vipps Login from qr code
-### Activating Vipps Login from qr code
+## Integrating with Vipps Login from QR code
+### Activating Vipps Login from QR code
 These flows are described [here](#vipps-login-from-qr-code).
 
 ToDo: Fill in how to enable qr code
@@ -1347,36 +1347,35 @@ ToDo: Fill in how to enable qr code
 #### Call by call
 
 Prerequisite:
-* Client needs to preregister a QR code along with a webhook in our system.
+* Client needs to register a QR code along with a webhook in our system. Todo: Figure out how this will be done
 
-* This QR code has to be made available for the users to scan, either with Vipps app or third party QR scanner app.
+Steps:
 
-* The client has fetched the openid configuration from the well-known endpoint and cached it.
-   See [.well-known](#openid-connect-discovery-endpoint)
+0. The client has fetched the OpenID configuration from the [.well-known endpoint](#openid-connect-discovery-endpoint) and cached it.
+   
+1. The user scans the QR code and then confirms the login in the Vipps app.
 
-Client calls:
-1. User scan QR code and confirms login in Vipps app.
+2. The client will receive a JWS on the preregistered webhook.
 
-2. The client will receive a jwt on the preregistered webhook.
-
-3. The client needs to validate this jwt using the keyset found in 'jwks_uri' under [.well-known](#openid-connect-discovery-endpoint).
-   The claim `vipps-qr-code-id` can be used by the client to identify the specific QR code that the user scanned.
-   Decoded jwt payload example
+3. The client needs to validate this JWS using the keyset found in 'jwks_uri' under [.well-known](#openid-connect-discovery-endpoint).
+   Decoded JWS payload example
    ```
    {
        "aud": "acae94b4-7b30-4615-9806-10c3b42079a3",
-       "sub": "6tw7GmfPQRcWuydzlAwrUakpEEw",
+       "auth_req_id": "6tw7GmfPQRcWuydzlAwrUakpEEw",
        "iss": "https://api.vipps.no/access-management-1.0/access/",
        "exp": 1643981298,
        "iat": 1643980998,
-       "vipps-qr-code-id": "hfSFihZh"
    }
    ```
 
-4. Use `sub` defined in the jwt as `auth_request_id` to call `token` endpoint defined [.well-known](#openid-connect-discovery-endpoint).
-    * Note the required `grant_type`: `urn:vipps:params:grant-type:qr`.
+4. The client exchanges the `auth_req_id` for login tokens by passing it to the {token_endpoint}. Perform a POST request, with content_type=application/x-www-form-urlencoded, and include the auth_req_id={auth_req_id} and grant_type=urn:vipps:params:grant-type:qr parameters in the body.
+    
+    This returns an ID token and an access token that can be used to fetch userinfo.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
-    * Required authentication method: [Token endpoint authentication methods](#token-endpoint-authentication-method)
+    * The ID token is a JWS that must be validated, see ID Token.
+    * The claim `qr_id` can be used by the client to identify the specific QR code that the user scanned.
+    * Error responses as defined by the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11).
 
     Example request:
     ```
@@ -1400,7 +1399,23 @@ Client calls:
     }
     ```
 
-5. The client must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 4.
+    Decoded ID token JWS example:
+    ```
+    {
+      "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
+      "alg": "ES256"
+      }.{
+      "aud": "8de3f38f-4a79-4eb3-930f-1e595d460a57",
+      "sub": "d6614352-ca55-4d89-8f82-d2facde311a4",
+      "iss": "https://api.vipps.no/access-management-1.0/access/",
+      "exp": 1643984388,
+      "iat": 1643983788,
+      "qr_id": "oKAz7q1O",
+      "qr_description": "description of QR code"
+      }.[Signature]
+    ```
+
+5. The client must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 4.
 
    For details see [Userinfo request](#userinfo).
 
@@ -1431,13 +1446,7 @@ Client calls:
       "sub": "f350ef33-22e2-47d0-9f47-12345667"
     }
     ```
-
-#### Error responses
-In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
-
-* `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
-* `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
-
+    
 ### Initiate login from QR code with redirect to browser
 
 #### Overview
@@ -1445,19 +1454,21 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 
 #### Call by call
 Prerequisite:
-* Client needs to preregister a QR code along with a redirect uri in our system.
+* Client needs to register a QR code along with a redirect uri in our system. Todo: Fix
 
-* This QR code has to be made available for the users to scan, either with Vipps app or third party QR scanner app.
+Steps:
 
-* The client has fetched the openid configuration from the well-known endpoint and cached it.
-  See [.well-known](#openid-connect-discovery-endpoint)
+0. The client has fetched the OpenID configuration from the [.well-known endpoint](#openid-connect-discovery-endpoint) and cached it.
 
-Client calls:
-1. User scan QR code and confirms login in Vipps app. User is then redirected to the preregistered `redirect_uri`. The redirect will contain a `code`: `{redirect_uri}?code={code}`.
-2. The client uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:grant-type:qr-redirect` in the `application/x-www-form-urlencoded-body`.
-This returns an ID token and an access token that can be used to fetch userinfo.
-The ID token is a JWS that must be validated, see [ID Token](#id-token).
-The claim `qr_id` can be used by the client to identify the specific QR code that the user scanned.
+1. The user scans the QR code and then confirms the login in the Vipps app. The user is then redirected to the preregistered `redirect_uri`. The redirect will contain the query parameter `code`: `{redirect_uri}?code={code}`.
+
+2. The client exchanges the code for login tokens by passing it to the {token_endpoint}. Perform a POST request, with content_type=application/x-www-form-urlencoded, and include the code={code} and grant_type=urn:vipps:params:grant-type:qr-redirect parameters in the body.
+    
+    This returns an ID token and an access token that can be used to fetch userinfo.
+    * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
+    * The ID token is a JWS that must be validated, see ID Token.
+    * The claim `qr_id` can be used by the client to identify the specific QR code that the user scanned.
+    * Error responses as defined by the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11).
 
     Example request (the real payload will likely look different because of encoding):
     
@@ -1497,7 +1508,7 @@ The claim `qr_id` can be used by the client to identify the specific QR code tha
     }.[Signature]
     ```
 
-3. The client must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 3.
+3. The client must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 3.
 
    For details see [Userinfo request](#userinfo).
 
@@ -1528,13 +1539,6 @@ The claim `qr_id` can be used by the client to identify the specific QR code tha
       "sub": "f350ef33-22e2-47d0-9f47-12345667"
     }
     ```
-
-#### Error responses
-In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
-
-* `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
-* `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
-
 
 ## Questions?
 
