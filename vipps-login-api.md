@@ -1465,7 +1465,7 @@ Steps:
 1. The user scans the QR code and then confirms the login in the Vipps app. The user is then redirected to the preregistered `redirect_uri`. The redirect will contain the query parameter `code`: `{redirect_uri}?code={code}`.
 
 2. The `code` must be used in the call to the `token` endpoint defined in [.well-known](#openid-connect-discovery-endpoint).
-    * Note the required `grant_type`: `urn:vipps:params:grant-type:qr`.
+    * Note the required `grant_type`: `urn:vipps:params:grant-type:qr-redirect`.
     * Required authentication method: [Token endpoint authentication methods](#token-endpoint-authentication-method)
     
     This returns an ID token and an access token that can be used to fetch userinfo.
