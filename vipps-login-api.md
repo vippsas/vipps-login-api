@@ -1333,8 +1333,8 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 * Most of the [general error codes](https://github.com/vippsas/vipps-login-api/blob/4c17be6998852154197fdfc0c118d05495e3b167/vipps-login-api.md#error-handling)
 
-## Integrating with Vipps Login from qr code
-### Activating Vipps Login from qr code
+## Integrating with Vipps Login from QR code
+### Activating Vipps Login from QR code
 These flows are described [here](#vipps-login-from-qr-code).
 
 ToDo: Fill in how to enable qr code
