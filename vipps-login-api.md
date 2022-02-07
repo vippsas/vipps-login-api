@@ -1334,10 +1334,23 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 * Most of the [general error codes](https://github.com/vippsas/vipps-login-api/blob/4c17be6998852154197fdfc0c118d05495e3b167/vipps-login-api.md#error-handling)
 
 ## Integrating with Vipps Login from QR code
-### Activating Vipps Login from QR code
 These flows are described [here](#vipps-login-from-qr-code).
 
-ToDo: Fill in how to enable qr code
+Note: Vipps Login from QR code is not supported in our merchant test environment at the moment. The full flow can only be completed in the production environment
+
+### Activating Vipps Login from QR code
+
+To use Vipps Login from QR Code you first need to [activate Vipps Login](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login) in the Merchant portal. Since Vipps Login From QR code is a billed service, it is not enabled by default. To use Vipps Login from QR Code you therefore need to submit a request to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) containing your organisation's invoicing details such as:
+- Invoice address of company/organisation
+- Name of invoice recipient/approver
+- E-mail address we can send the invoice to if necessary
+
+
+We currently don't have self service on QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
+- Should the QR code redirect the user back to your website? In that case you need to send us a `redirect uri` we can redirect the users back to after they have authenticated and consented in the Vipps app.
+- Should the QR code flow end in the Vipps app? In that case you need to send us a `callback uri` that we can ping your backend service on when the user has authenticated and consented in the Vipps app.
+
+With this in place we can issue a Vipps Login QR code.
 
 ### Initiate login from QR code
 
