@@ -408,7 +408,7 @@ These endpoints should be fetched dynamically by your application, since they ar
 | Test        |https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration |
 | Production  |https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration     |
 
-The openid connect discovery endpoint can be used to retrieve configuration information for openid connect clients. We recommend to fetch these dynamically, however the response from this endpoint rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. The endpoint responds with a `Cache-Control: max-age=3600` header.
+The OpenID connect discovery endpoint can be used to retrieve configuration information for openid connect clients. We recommend to fetch these dynamically, however the response from this endpoint rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. The endpoint responds with a `Cache-Control: max-age=3600` header.
 
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
