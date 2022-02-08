@@ -105,14 +105,14 @@ See the FAQ:
 The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md). This also explains how the login in browser flow adapts to different preconditions in regards to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sale unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
 
 #### Remembered flow
-If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly.  This applies to both desktop and mobile.
+If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly. This applies to both desktop and mobile.
 
 If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on whether the user is on desktop or mobile:
 
 #### Desktop flow - phone number based push flow
-If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
+If the user is on desktop, and not remembered in browser, then the user will follow this flow. If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
 
-The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
+The user initiates the login by inputing the phone number and selecting whether to be remembered in browser:
 ![Number input in desktop](images/Number_input_flow_desktop1.png)
 
 The user goes to the Vipps app and confirms the login:
@@ -129,7 +129,7 @@ If the user is on a mobile device, the Vipps landing page in the browser will au
 
 Apps should follow the [recommendations](#using-vipps-login-in-native-applications) to use correct browser types for their platform.
 
-There are two specialised flows that merchants can use to automatically switch the user back from the Vipps-app to the originating browser/app upon login confirmation. From the illustration above this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch"  will be replaced by an automatic app-switch (eg. deeplink). These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
+There are two specialised flows that merchants can use to automatically switch the user back from the Vipps-app to the originating browser/app upon login confirmation. From the illustration above this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch" will be replaced by an automatic app-switch (eg. deeplink). These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
 
 Which of the flows to use is controlled with the initiation of the individual login session. The merchant can thus use all available login flows on the same client_id and adapt to the different use-cases and login scenarios.
 
@@ -1072,7 +1072,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
     }
     ```
 
-3. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
+3. The merchant must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
 
     For details see [Userinfo request](#userinfo).
 
@@ -1428,7 +1428,7 @@ Steps:
       }.[Signature]
     ```
 
-5. The client must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 4.
+5. The client must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 4.
 
    For details see [Userinfo request](#userinfo).
 
