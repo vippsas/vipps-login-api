@@ -201,7 +201,7 @@ With Vipps Login from QR code you can retrieve userdata and log users in through
 
 For an illustration of the flows that will be supported see [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md).
 
-Integration details and developer documentation can be [found here]((#integrating-with-vipps-login-from-qr-code))
+Integration details and developer documentation can be [found here](#integrating-with-vipps-login-from-qr-code)
 
 ## Design guidelines and buttons
 Buttons to use for Vipps Login can be found as part of our
