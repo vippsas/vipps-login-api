@@ -1382,7 +1382,7 @@ Steps:
    }
    ```
 
-4. The client exchanges the `auth_req_id` for login tokens by passing it to the {token_endpoint}. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `auth_req_id={auth_req_id}` and `grant_type=urn:vipps:params:grant-type:qr` parameters in the body.
+4. The client exchanges the `auth_req_id` for login tokens by passing it to the `{token_endpoint}`. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `auth_req_id={auth_req_id}` and `grant_type=urn:vipps:params:grant-type:qr` parameters in the body.
     
     This returns an ID token and an access token that can be used to fetch userinfo.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
