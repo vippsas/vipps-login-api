@@ -1346,9 +1346,9 @@ To use Vipps Login from QR Code you first need to [activate Vipps Login](https:/
 - E-mail address we can send the invoice to if necessary
 
 
-We currently don't have self-service on QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
+We currently don't have self-service of QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
 - Should the QR code redirect the user back to your website? In that case you need to send us a `redirect uri` we can redirect the users back to after they have authenticated and consented in the Vipps app.
-- Should the QR code flow end in the Vipps app? In that case you need to send us a `callback uri` that we can ping your backend service on when the user has authenticated and consented in the Vipps app.
+- Should the QR code flow end in the Vipps app? In that case you need to send us a `callback uri` that we can use to ping your backend service when the user has authenticated and consented in the Vipps app.
 
 With this in place we can issue a Vipps Login QR code.
 
@@ -1382,7 +1382,7 @@ Steps:
    }
    ```
 
-4. The client exchanges the `auth_req_id` for login tokens by passing it to the {token_endpoint}. Perform a POST request, with content_type=application/x-www-form-urlencoded, and include the auth_req_id={auth_req_id} and grant_type=urn:vipps:params:grant-type:qr parameters in the body.
+4. The client exchanges the `auth_req_id` for login tokens by passing it to the {token_endpoint}. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `auth_req_id={auth_req_id}` and `grant_type=urn:vipps:params:grant-type:qr` parameters in the body.
     
     This returns an ID token and an access token that can be used to fetch userinfo.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
@@ -1475,7 +1475,7 @@ Steps:
 
 1. The user scans the QR code and then confirms the login in the Vipps app. The user is then redirected to the preregistered `redirect_uri`. The redirect will contain the query parameter `code`: `{redirect_uri}?code={code}`.
 
-2. The client exchanges the code for login tokens by passing it to the {token_endpoint}. Perform a POST request, with content_type=application/x-www-form-urlencoded, and include the code={code} and grant_type=urn:vipps:params:grant-type:qr-redirect parameters in the body.
+2. The client exchanges the code for login tokens by passing it to the `{token_endpoint}`. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `code={code}` and `grant_type=urn:vipps:params:grant-type:qr-redirect` parameters in the body.
     
     This returns an ID token and an access token that can be used to fetch userinfo.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
