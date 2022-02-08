@@ -147,7 +147,7 @@ Due to how the different mobile operating systems handle app-switch to browser, 
 
 By using this flow Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
 
-See [how to implement](#automatic-return-from-vipps-app), including more informattion on the security considerations.
+See [how to implement](#automatic-return-from-vipps-app), including more information on the security considerations.
 
 #### No dialog flow - log the user in directly when possible
 This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps Login process will be stopped and no interaction will be asked from the user in this flow. When using this flow a spinner will be shown while Vipps Login try to log the user in. Once the process is completed the user will be returned to the merchant as in the ordinary Vipps Login flow. As with the other Vipps Login flow it is recommended to run Vipps Login in a redirect mode and iFrame is not supported.
@@ -1346,7 +1346,7 @@ To use Vipps Login from QR Code you first need to [activate Vipps Login](https:/
 - E-mail address we can send the invoice to if necessary
 
 
-We currently don't have self service on QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
+We currently don't have self-service on QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
 - Should the QR code redirect the user back to your website? In that case you need to send us a `redirect uri` we can redirect the users back to after they have authenticated and consented in the Vipps app.
 - Should the QR code flow end in the Vipps app? In that case you need to send us a `callback uri` that we can ping your backend service on when the user has authenticated and consented in the Vipps app.
 
@@ -1360,7 +1360,7 @@ With this in place we can issue a Vipps Login QR code.
 #### Call by call
 
 Prerequisite:
-* Client needs to register a QR code along with a webhook in our system. Todo: Figure out how this will be done
+* Client needs to register a QR code along with a webhook in our system. See [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
 
 Steps:
 
@@ -1467,7 +1467,7 @@ Steps:
 
 #### Call by call
 Prerequisite:
-* Client needs to register a QR code along with a redirect uri in our system. Todo: Fix
+* Client needs to register a QR code along with a redirect uri in our system. See [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
 
 Steps:
 
