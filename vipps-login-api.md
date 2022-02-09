@@ -1356,9 +1356,6 @@ With this in place we can issue a Vipps Login QR code.
 
 ### Initiate login from QR code
 
-#### Overview
-
-
 #### Call by call
 
 Prerequisite:
