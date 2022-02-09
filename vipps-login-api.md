@@ -8,6 +8,8 @@ Document version 4.0.6.
 * [Introduction](#introduction)
   - [Activation](#activation)
   - [Versions](#versions)
+  - [Migration](#migration)
+
 * [Flows](#flows)
   - [Vipps Login in browser](#vipps-login-in-browser)
     * [Remembered flow](#remembered-flow)
@@ -78,7 +80,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 [**Vipps Login from phone number**](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number) is based on the Client initiated backchannel authentication (CIBA) standard and have been developed to support use-cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser.
 
-[**Vipps Login from QR-code**](#vipps-login-from-qr-code) is a new flow that we will gradually roll out for. Our [How It Works page](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md) shows the flow.
+[**Vipps Login from QR-code**](#vipps-login-from-qr-code) is a new flow that we will gradually roll out support for. Our [How It Works page](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md) shows the flow.
 
 
 See our [developer section](https://github.com/vippsas/vipps-developers/blob/master/vipps-test-environment.md#vipps-test-apps) for information about our test environment, test apps and test users.
