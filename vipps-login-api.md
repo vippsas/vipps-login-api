@@ -2,18 +2,12 @@
 
 API version: 2.0
 
-Please note that **all merchants on Vipps Login need to include the scope `api_version_2`.**
-If this is omitted you will in effect use a version that is no longer supported.
-See also:
-[Vipps Login API 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md).
-
 Document version 4.0.6.
 
 ## Table of contents
 * [Introduction](#introduction)
   - [Activation](#activation)
   - [Versions](#versions)
-  - [Migration](#migration)
 * [Flows](#flows)
   - [Vipps Login in browser](#vipps-login-in-browser)
     * [Remembered flow](#remembered-flow)
@@ -74,7 +68,7 @@ Users can create a new account through sharing high-quality data from the userâ€
 
 When Vipps Login is used in the browser, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. The possibility for the user to be remembered in browser is a key feature of the service and cannot be controlled (turned off) by individual merchants. This means that it is not possible to set up Vipps Login is a 2 factor authentication (2FA).
 
-Vipps Login is _not_ an electronic identification or sertified eID.
+Vipps Login is _not_ an electronic identification or certified eID.
 
 
 For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](https://github.com/vippsas/vipps-plugins).
@@ -84,7 +78,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 [**Vipps Login from phone number**](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number) is based on the Client initiated backchannel authentication (CIBA) standard and have been developed to support use-cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser.
 
-**Vipps Login from QR-code** is a new flow that we will gradually roll out improved support for. Our [How It Works page](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md) shows the flow.
+[**Vipps Login from QR-code**](#vipps-login-from-qr-code) is a new flow that we will gradually roll out for. Our [How It Works page](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md) shows the flow.
 
 
 See our [developer section](https://github.com/vippsas/vipps-developers/blob/master/vipps-test-environment.md#vipps-test-apps) for information about our test environment, test apps and test users.
@@ -102,6 +96,13 @@ See the FAQ:
 
 ## Flows
 ### Vipps Login in browser
+
+Please note that **all merchants using Vipps Login in browser must include the scope `api_version_2`.**
+See also:
+
+[Vipps Login API 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md).
+
+
 The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md). This also explains how the login in browser flow adapts to different preconditions in regards to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sale unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
 
 #### Remembered flow
