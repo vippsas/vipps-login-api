@@ -106,14 +106,14 @@ See also:
 The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md). This also explains how the login in browser flow adapts to different preconditions in regards to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sale unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
 
 #### Remembered flow
-If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly.  This applies to both desktop and mobile.
+If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly. This applies to both desktop and mobile.
 
 If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on whether the user is on desktop or mobile:
 
 #### Desktop flow - phone number based push flow
-If the user is on desktop, and not remembered in browser, then the user will follow this flow.  If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
+If the user is on desktop, and not remembered in browser, then the user will follow this flow. If the user is remembered in browser then only the consent flow at the bottom will be completed. If the user already has provided consent then this step will be skipped also, allowing a direct login experience.
 
-The user initiates the login by inputing the phone number and selecting whether to  be remembered in browser:
+The user initiates the login by inputing the phone number and selecting whether to be remembered in browser:
 ![Number input in desktop](images/Number_input_flow_desktop1.png)
 
 The user goes to the Vipps app and confirms the login:
@@ -130,7 +130,7 @@ If the user is on a mobile device, the Vipps landing page in the browser will au
 
 Apps should follow the [recommendations](#using-vipps-login-in-native-applications) to use correct browser types for their platform.
 
-There are two specialised flows that merchants can use to automatically switch the user back from the Vipps-app to the originating browser/app upon login confirmation. From the illustration above this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch"  will be replaced by an automatic app-switch (eg. deeplink). These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
+There are two specialised flows that merchants can use to automatically switch the user back from the Vipps-app to the originating browser/app upon login confirmation. From the illustration above this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch" will be replaced by an automatic app-switch (eg. deeplink). These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
 
 Which of the flows to use is controlled with the initiation of the individual login session. The merchant can thus use all available login flows on the same client_id and adapt to the different use-cases and login scenarios.
 
@@ -148,7 +148,7 @@ Due to how the different mobile operating systems handle app-switch to browser, 
 
 By using this flow Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
 
-See [how to implement](#automatic-return-from-vipps-app), including more informattion on the security considerations.
+See [how to implement](#automatic-return-from-vipps-app), including more information on the security considerations.
 
 #### No dialog flow - log the user in directly when possible
 This flow can be used to log the user in directly if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps Login process will be stopped and no interaction will be asked from the user in this flow. When using this flow a spinner will be shown while Vipps Login try to log the user in. Once the process is completed the user will be returned to the merchant as in the ordinary Vipps Login flow. As with the other Vipps Login flow it is recommended to run Vipps Login in a redirect mode and iFrame is not supported.
@@ -1076,7 +1076,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
     }
     ```
 
-3. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
+3. The merchant must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
 
     For details see [Userinfo request](#userinfo).
 
@@ -1216,7 +1216,7 @@ to be taken to the client's web page to finalise the flow.
     ```
 2. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request 1. The redirect will contain a `code`: `{redirect_uri}?code={code}`.
 
-3. The merchant uses the code-parameter to obtain the login token. POST `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:grant-type:ciba-redirect` in the `application/x-www-form-urlencoded-body`. 
+3. The merchant uses the code-parameter to obtain the login token. Perform a POST request towards the `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:grant-type:ciba-redirect` in the `application/x-www-form-urlencoded-body`. 
 This returns an ID token and an access token that can be used to fetch userinfo. 
 The ID token is a JWS that must be validated, see [ID Token](#id-token). The merchant **must validate** that it contains the `auth_req_id` they have previously received from step 2.
 
@@ -1351,7 +1351,7 @@ To use Vipps Login from QR Code you first need to [activate Vipps Login](https:/
 
 We currently don't have any self service functionality on QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
 - Should the QR code redirect the user back to your website? In that case you need to send us a `redirect uri` we can redirect the users back to after they have authenticated and consented in the Vipps app.
-- Should the QR code flow end in the Vipps app? In that case you need to send us a `callback uri` that we can ping your backend service on when the user has authenticated and consented in the Vipps app.
+- Should the QR code flow end in the Vipps app? In that case you need to send us a `callback uri` that we can use to ping your backend service when the user has authenticated and consented in the Vipps app.
 
 With this in place we can issue a Vipps Login QR code.
 
@@ -1360,7 +1360,7 @@ With this in place we can issue a Vipps Login QR code.
 #### Call by call
 
 Prerequisite:
-* Client needs to register a QR code along with a webhook in our system. Todo: Figure out how this will be done
+* Client needs to register a QR code along with a webhook in our system. See [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
 
 Steps:
 
@@ -1382,7 +1382,7 @@ Steps:
    }
    ```
 
-4. The client exchanges the `auth_req_id` for login tokens by passing it to the {token_endpoint}. Perform a POST request, with content_type=application/x-www-form-urlencoded, and include the auth_req_id={auth_req_id} and grant_type=urn:vipps:params:grant-type:qr parameters in the body.
+4. The client exchanges the `auth_req_id` for login tokens by passing it to the `{token_endpoint}`. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `auth_req_id={auth_req_id}` and `grant_type=urn:vipps:params:grant-type:qr` parameters in the body.
     
     This returns an ID token and an access token that can be used to fetch userinfo.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
@@ -1428,7 +1428,7 @@ Steps:
       }.[Signature]
     ```
 
-5. The client must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 4.
+5. The client must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 4.
 
    For details see [Userinfo request](#userinfo).
 
@@ -1467,7 +1467,7 @@ Steps:
 
 #### Call by call
 Prerequisite:
-* Client needs to register a QR code along with a redirect uri in our system. Todo: Fix
+* Client needs to register a QR code along with a redirect uri in our system. See [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
 
 Steps:
 
@@ -1475,7 +1475,7 @@ Steps:
 
 1. The user scans the QR code and then confirms the login in the Vipps app. The user is then redirected to the preregistered `redirect_uri`. The redirect will contain the query parameter `code`: `{redirect_uri}?code={code}`.
 
-2. The client exchanges the code for login tokens by passing it to the {token_endpoint}. Perform a POST request, with content_type=application/x-www-form-urlencoded, and include the code={code} and grant_type=urn:vipps:params:grant-type:qr-redirect parameters in the body.
+2. The client exchanges the code for login tokens by passing it to the `{token_endpoint}`. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `code={code}` and `grant_type=urn:vipps:params:grant-type:qr-redirect` parameters in the body.
     
     This returns an ID token and an access token that can be used to fetch userinfo.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
