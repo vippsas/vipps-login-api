@@ -2,11 +2,6 @@
 
 API version: 2.0
 
-Please note that **all merchants on Vipps Login need to include the scope `api_version_2`.**
-If this is omitted you will in effect use a version that is no longer supported.
-See also:
-[Vipps Login API 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md).
-
 Document version 4.0.6.
 
 ## Table of contents
@@ -14,6 +9,7 @@ Document version 4.0.6.
   - [Activation](#activation)
   - [Versions](#versions)
   - [Migration](#migration)
+
 * [Flows](#flows)
   - [Vipps Login in browser](#vipps-login-in-browser)
     * [Remembered flow](#remembered-flow)
@@ -74,7 +70,7 @@ Users can create a new account through sharing high-quality data from the userâ€
 
 When Vipps Login is used in the browser, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. The possibility for the user to be remembered in browser is a key feature of the service and cannot be controlled (turned off) by individual merchants. This means that it is not possible to set up Vipps Login is a 2 factor authentication (2FA).
 
-Vipps Login is _not_ an electronic identification or sertified eID.
+Vipps Login is _not_ an electronic identification or certified eID.
 
 
 For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](https://github.com/vippsas/vipps-plugins).
@@ -84,7 +80,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 [**Vipps Login from phone number**](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number) is based on the Client initiated backchannel authentication (CIBA) standard and have been developed to support use-cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser.
 
-**Vipps Login from QR-code** is a new flow that we will gradually roll out improved support for. Our [How It Works page](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md) shows the flow.
+[**Vipps Login from QR-code**](#vipps-login-from-qr-code) is a new flow that we will gradually roll out support for. Our [How It Works page](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md) shows the flow.
 
 
 See our [developer section](https://github.com/vippsas/vipps-developers/blob/master/vipps-test-environment.md#vipps-test-apps) for information about our test environment, test apps and test users.
@@ -102,6 +98,13 @@ See the FAQ:
 
 ## Flows
 ### Vipps Login in browser
+
+Please note that **all merchants using Vipps Login in browser must include the scope `api_version_2`.**
+See also:
+
+[Vipps Login API 2.0 migration](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-migrate-api-1.0-to-2.0.md).
+
+
 The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md). This also explains how the login in browser flow adapts to different preconditions in regards to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sale unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
 
 #### Remembered flow
@@ -177,7 +180,7 @@ See [how to implement](#no-dialog-flow).
 
 Vipps Login from phone number is based on the Client initiated backchannel authentication (CIBA) standard and built to support special cases where login does not start in browser or app. This means that it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser. This could typically be physical contexts e.g point of sales solutions, on the phone e.g call-center solutions or devices/terminals e.g TV-boxes. To ensure a consisten user experience on webpages and in apps it is not allowed to use Vipps Login from phone number for such usecases.
 
-Since Vipps Login from phone number are reserved for such special cases it needs to be specially enabled by Vipps for eligible sale units. [Description on how to order Vipps Login from phone numbber can be found here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). A sale unit can be set up with both Vipps Login in browser and from phone number (and QR-code) enabled, and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
+Since Vipps Login from phone number are reserved for such special cases it needs to be specially enabled by Vipps for eligible sale units. [Description on how to order Vipps Login from phone number can be found here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). A sale unit can be set up with both Vipps Login in browser and from phone number (and QR-code) enabled, and it is required to use the same sale unit for all use-cases to ensure you as a merchant get the same user id ('sub') on the user across different scenarios.
 
 Vipps Login from phone number is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant such consent will be required. If the user has not enabled push from Vipps the user needs to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request. The merchant controls whether the user should get the confirmation of completion in the Vipps app or if the user should be taken to the merchant's web page to finalise the flow. The merchant can e.g. take the user to their web page to enable input of more information, accept terms and condition, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-phone-number-api-howitworks.md).
 
@@ -188,7 +191,7 @@ Illustration of how the flow will look like when the user end the flow and get t
 
 Illustration of how the flow will look like if the user is taken to the merchant's web page:
 
-![Rediirect to browser](images/CIBA_flow_take_to_merchant.png)
+![Redirect to browser](images/CIBA_flow_take_to_merchant.png)
 
 The merchant has the option to show a confirmation code (`binding_message`) to the user in the app for added security:
 
@@ -197,8 +200,11 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 See [how to implement](#integrating-with-vipps-login-from-phone-number).
 
 ### Vipps Login from QR-code
-More information on the support for QR-codes will be added shortly.
+With Vipps Login from QR code you can retrieve userdata and log users in through a QR code. 
+
 For an illustration of the flows that will be supported see [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md).
+
+Integration details and developer documentation can be [found here](#integrating-with-vipps-login-from-qr-code)
 
 ## Design guidelines and buttons
 Buttons to use for Vipps Login can be found as part of our
@@ -1334,7 +1340,7 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 * Most of the [general error codes](https://github.com/vippsas/vipps-login-api/blob/4c17be6998852154197fdfc0c118d05495e3b167/vipps-login-api.md#error-handling)
 
 ## Integrating with Vipps Login from QR code
-These flows are described [here](#vipps-login-from-qr-code).
+[Vipps login from QR api how it works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md)
 
 Note: Vipps Login from QR code is not supported in our merchant test environment at the moment. The full flow can only be completed in the production environment
 
@@ -1345,17 +1351,13 @@ To use Vipps Login from QR Code you first need to [activate Vipps Login](https:/
 - Name of invoice recipient/approver
 - E-mail address we can send the invoice to if necessary
 
-
-We currently don't have self-service of QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
+We currently don't have any self service functionality on QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
 - Should the QR code redirect the user back to your website? In that case you need to send us a `redirect uri` we can redirect the users back to after they have authenticated and consented in the Vipps app.
 - Should the QR code flow end in the Vipps app? In that case you need to send us a `callback uri` that we can use to ping your backend service when the user has authenticated and consented in the Vipps app.
 
 With this in place we can issue a Vipps Login QR code.
 
 ### Initiate login from QR code
-
-#### Overview
-[Vipps login from QR api how it works](#vipps-login-from-QR-api-howitworks)
 
 #### Call by call
 
