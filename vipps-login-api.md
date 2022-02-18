@@ -1139,6 +1139,9 @@ Example: `...&scope=name address birthDate nin&...`
 ##### The `binding_message` parameter (optional)
 A human-readable identifier or message intended to be displayed on both the consumption device and the authentication device to interlock them together for the transaction by way of a visual cue for the end-user.
 
+##### Format
+The format possible for this field is limited to capital characters 'A-Z', numbers '0-9' and the character '-'. It must also be bewteen 5 and 8 characters long. Regex: ```^[A-Z0-9\\-]{5,8}$```
+
 Read more about it in the standard https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request
 
 Note: "the binding_message value SHOULD be relatively short and use a limited set of plain text characters"
