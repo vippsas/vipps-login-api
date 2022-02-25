@@ -1197,7 +1197,7 @@ to be taken to the client's web page to finalise the flow.
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
 
-    For details see [Authentication Request With Redirect](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#authentication-request-with-redirect-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request). Note the `redirect_uri` must first be [added to the merchant portal](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+    For details see [Authentication Request With Redirect](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#authentication-request-with-redirect-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request).
 
     Example request (the real payload will likely look different because of encoding):
     ```
@@ -1330,7 +1330,7 @@ Note: "the binding_message value SHOULD be relatively short and use a limited se
 Example: `....&binding_message=4MZ-CQ3&...`
 
 ##### The `redirect_uri` parameter (required)
-Redirect URL which the user agent is redirected to after finishing a login. Must be `https` in the production environment. You can add new redirect URIs  [in the merchant portal](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+Redirect URL which the user agent is redirected to after finishing a login. Must be `https` in the production environment.
 
 Example: `...&redirect_uri=https://merchant.com/callback&...`
 
