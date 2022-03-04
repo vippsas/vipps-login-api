@@ -2,59 +2,95 @@
 
 API version: 2.0
 
-Document version 4.0.6.
+Document version 4.0.7.
 
 ## Table of contents
-* [Introduction](#introduction)
-  - [Activation](#activation)
-  - [Versions](#versions)
-  - [Migration](#migration)
 
+* [Introduction](#introduction)
+  * [Versions](#versions)
+  * [Migration](#migration)
+  * [Activation](#activation)
 * [Flows](#flows)
-  - [Vipps Login in browser](#vipps-login-in-browser)
+  * [Vipps Login in browser](#vipps-login-in-browser)
     * [Remembered flow](#remembered-flow)
     * [Desktop flow - phone number based push flow](#desktop-flow---phone-number-based-push-flow)
     * [Mobile flow - deeplink based flow](#mobile-flow---deeplink-based-flow)
-        * [App to app flow](#app-to-app-flow)
-        * [Automatic return from Vipps app](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers)
+      * [App to app flow](#app-to-app-flow)
+      * [Automatic return from Vipps app (requires the merchant to handle user session cross browsers)](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers)
     * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
-  - [Vipps Login from phone number](#vipps-login-from-phone-number)
-  - [Vipps Login from QR-code](#vipps-login-from-qr-code)
-* [Design guidelines and buttons](#Design-guidelines-and-buttons)
+  * [Vipps Login from phone number](#vipps-login-from-phone-number)
+  * [Vipps Login from QR-code](#vipps-login-from-qr-code)
+* [Design guidelines and buttons](#design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
-  - [OAuth 2.0](#oauth-20)
-  - [OpenID Connect](#open-id-connect)
-  - [Supported OpenID Connect Flows](#supported-openid-connect-flows)
+  * [OAuth 2.0](#oauth-20)
+  * [Open ID Connect](#open-id-connect)
+  * [Supported OpenID Connect Flows](#supported-openid-connect-flows)
     * [Authorization Code Grant](#authorization-code-grant)
-  - [Tokens](#tokens)
-    * [ID Token](#id-token)
-    * [Access Token](#access-token)
-    * [Refresh Token](#refresh-token)
-    * [Token endpoint authentication method](#token-endpoint-authentication-method)
-  - [Scopes](#scopes)
-* [Recommendations on linking to user account](#Recommendations-on-linking-to-user-account)
-* [Integrating with Vipps Login in browser](#integrating-with-vipps-login-in-browser)
-    * [Manual integration](#manual-integration)
-        * [Openid connect discovery endpoint](#openid-connect-discovery-endpoint)
-        * [Openid connect discovery URLs](#openid-connect-discovery-urls)
-            * [OAuth 2.0 Authorize](#oauth-20-authorize)
-            * [OAuth 2.0 Token](#oauth-20-token)
-            * [Userinfo](#userinfo)
-            * [JSON Web Keys Discovery](#json-web-keys-discovery)
+* [Tokens](#tokens)
+  * [ID Token](#id-token)
+  * [Access token](#access-token)
+  * [Refresh token](#refresh-token)
+  * [Token endpoint authentication method](#token-endpoint-authentication-method)
+* [Scopes](#scopes)
+* [Recommendations on linking to user account](#recommendations-on-linking-to-user-account)
+* [Integrating with Vipps Login](#integrating-with-vipps-login)
+  * [Manual integration](#manual-integration)
+    * [Openid connect discovery endpoint](#openid-connect-discovery-endpoint)
+    * [Openid connect discovery URLs](#openid-connect-discovery-urls)
+      * [OAuth 2.0 Authorize](#oauth-20-authorize)
+      * [OAuth 2.0 Token](#oauth-20-token)
+      * [Userinfo](#userinfo)
+      * [JSON Web Keys Discovery](#json-web-keys-discovery)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
+  * [Error handling](#error-handling)
+    * [Custom error codes](#custom-error-codes)
+  * [Call by call](#call-by-call)
   * [Using Vipps Login in native applications](#using-vipps-login-in-native-applications)
-  * [Using the special flows](#using-the-special-flows)
-    * [App integration](#app-integration)
-    * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
-    * [No dialog flow](#No-dialog-flow)
-* [Integrating with Vipps Login in from phone number](#integrating-with-vipps-login-from-phone-number)
-    * [Complete login in Vipps App](#complete-login-in-the-vipps-app)
-    * [Redirect to browser](#redirect-to-browser)
-* [Integrating with Vipps Login from qr code](#integrating-with-vipps-login-from-qr-code)
-    * [Initiate login from QR code](#initiate-login-from-qr-code)
-    * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
-* [Questions](#questions)
+* [Using the special flows](#using-the-special-flows)
+  * [App integration](#app-integration)
+    * [A typical flow/implementation might look like this:](#a-typical-flowimplementation-might-look-like-this)
+  * [Automatic return from Vipps app](#automatic-return-from-vipps-app)
+    * [Implementation suggestions](#implementation-suggestions)
+      * [Session information](#session-information)
+      * [Verification](#verification)
+  * [No dialog flow](#no-dialog-flow)
+* [Integrating with Vipps Login from phone number](#integrating-with-vipps-login-from-phone-number)
+  * [Activating Vipps Login from phone number](#activating-vipps-login-from-phone-number)
+  * [Complete login in the Vipps app](#complete-login-in-the-vipps-app)
+    * [Activation](#activation)
+    * [Overview](#overview)
+    * [Call by call](#call-by-call)
+    * [Authentication Request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlauthrequest)
+      * [Authentication](#authentication)
+      * [The `login_hint` parameter (required)](#the-loginhint-parameter-required)
+      * [The `scope` parameter (required)](#the-scope-parameter-required)
+      * [The `binding_message` parameter (optional)](#the-bindingmessage-parameter-optional)
+      * [Format](#format)
+      * [Error responses](#error-responses)
+      * [Successful responses (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)](#successful-responses-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlsuccessfulauthenticationrequestacknowdlegment)
+    * [Token request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)](#token-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlrfcsection101)
+      * [Polling](#polling)
+    * [Error responses](#error-responses)
+  * [Redirect to browser](#redirect-to-browser)
+    * [Activation](#activation)
+    * [Overview](#overview)
+    * [Call by call](#call-by-call)
+    * [Authentication Request With Redirect (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)](#authentication-request-with-redirect-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlauthrequest)
+      * [Authentication](#authentication)
+      * [The `login_hint` parameter (required)](#the-loginhint-parameter-required)
+      * [The `scope` parameter (required)](#the-scope-parameter-required)
+      * [The `binding_message` parameter (optional)](#the-bindingmessage-parameter-optional)
+      * [The `redirect_uri` parameter (required)](#the-redirecturi-parameter-required)
+      * [Error responses](#error-responses)
+* [Integrating with Vipps Login from QR code](#integrating-with-vipps-login-from-qr-code)
+  * [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
+  * [Initiate login from QR code](#initiate-login-from-qr-code)
+    * [Call by call](#call-by-call)
+  * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
+    * [Overview](#overview)
+    * [Call by call](#call-by-call)
+* [Questions?](#questions)
 
 ## Introduction
 
@@ -200,7 +236,7 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 See [how to implement](#integrating-with-vipps-login-from-phone-number).
 
 ### Vipps Login from QR-code
-With Vipps Login from QR code you can retrieve userdata and log users in through a QR code. 
+With Vipps Login from QR code you can retrieve userdata and log users in through a QR code.
 
 For an illustration of the flows that will be supported see [How It Works](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md).
 
@@ -1219,8 +1255,8 @@ to be taken to the client's web page to finalise the flow.
     ```
 2. The user confirms the login and is then redirected to the `redirect_uri` passed in the initial request 1. The redirect will contain a `code`: `{redirect_uri}?code={code}`.
 
-3. The merchant uses the code-parameter to obtain the login token. Perform a POST request towards the `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:grant-type:ciba-redirect` in the `application/x-www-form-urlencoded-body`. 
-This returns an ID token and an access token that can be used to fetch userinfo. 
+3. The merchant uses the code-parameter to obtain the login token. Perform a POST request towards the `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:grant-type:ciba-redirect` in the `application/x-www-form-urlencoded-body`.
+This returns an ID token and an access token that can be used to fetch userinfo.
 The ID token is a JWS that must be validated, see [ID Token](#id-token). The merchant **must validate** that it contains the `auth_req_id` they have previously received from step 2.
 
     Example request (the real payload will likely look different because of encoding):
@@ -1243,7 +1279,7 @@ The ID token is a JWS that must be validated, see [ID Token](#id-token). The mer
       "token_type": "bearer",
     }
     ```
-   
+
     Decoded ID token JWS example:
     ```
     {
@@ -1258,7 +1294,7 @@ The ID token is a JWS that must be validated, see [ID Token](#id-token). The mer
       "iat": 1643179237
     }.[Signature]
     ```
-    
+
 4. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 3.
 
     For details see [Userinfo request](#userinfo).
@@ -1368,7 +1404,7 @@ Prerequisite:
 Steps:
 
 0. The client has fetched the OpenID configuration from the [.well-known endpoint](#openid-connect-discovery-endpoint) and cached it.
-   
+
 1. The user scans the QR code and then confirms the login in the Vipps app.
 
 2. The client will receive a JWS on the preregistered webhook.
@@ -1386,7 +1422,7 @@ Steps:
    ```
 
 4. The client exchanges the `auth_req_id` for login tokens by passing it to the `{token_endpoint}`. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `auth_req_id={auth_req_id}` and `grant_type=urn:vipps:params:grant-type:qr` parameters in the body.
-    
+
     This returns an ID token and an access token that can be used to fetch userinfo.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
     * The ID token is a JWS that must be validated, see ID Token.
@@ -1462,7 +1498,7 @@ Steps:
       "sub": "f350ef33-22e2-47d0-9f47-12345667"
     }
     ```
-    
+
 ### Initiate login from QR code with redirect to browser
 
 #### Overview
@@ -1479,7 +1515,7 @@ Steps:
 1. The user scans the QR code and then confirms the login in the Vipps app. The user is then redirected to the preregistered `redirect_uri`. The redirect will contain the query parameter `code`: `{redirect_uri}?code={code}`.
 
 2. The client exchanges the code for login tokens by passing it to the `{token_endpoint}`. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `code={code}` and `grant_type=urn:vipps:params:grant-type:qr-redirect` parameters in the body.
-    
+
     This returns an ID token and an access token that can be used to fetch userinfo.
     * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
     * The ID token is a JWS that must be validated, see ID Token.
@@ -1487,16 +1523,16 @@ Steps:
     * Error responses as defined by the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11).
 
     Example request (the real payload will likely look different because of encoding):
-    
+
     ```
     POST https://api.vipps.no/access-management-1.0/access/oauth2/token
     Authorization: Basic sadlksadkjasjdaksd
     Content-Type: application/x-www-form-urlencoded
-    
+
     code=some-valid-code&grant_type=urn:vipps:params:grant-type:qr-redirect
-    
+
     ```
-    
+
     Example response:
     ```
     {
@@ -1507,7 +1543,7 @@ Steps:
          "token_type": "bearer",
     }
     ```
-    
+
     Decoded ID token JWS example:
     ```
     {
