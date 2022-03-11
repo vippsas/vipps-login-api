@@ -8,7 +8,7 @@ See also:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.3.1.
+Document version 2.3.3.
 
 ## Table of contents
 
