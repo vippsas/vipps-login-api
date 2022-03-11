@@ -8,13 +8,12 @@ See also:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.3.2.
+Document version 2.3.3.
 
 ## Table of contents
 
 - [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-client_id-and-client_secret)
 - [How can I activate and set up Vipps Login?](#how-can-i-activate-and-set-up-vipps-login)
-- [Why do I get an error about an old version of the API?](#why-do-i-get-an-error-about-an-old-version-of-the-api)
 - [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
 - [How can I change my name and logo?](#how-can-i-change-my-name-and-logo)
 - [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
@@ -72,11 +71,6 @@ First you activate Vipps Login:
 
 Then you can add the redirect URIs you need:
 ![Then you can add the redirect URIs you need](images/portal_direct_uris.jpeg)
-
-## Why do I get an error about an old version of the API?
-
-You are probably not sending `api-version_2`. See:
-[Vipps Login in browser](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-in-browser).
 
 ## What are the requirements for Redirect URIs?
 
@@ -294,7 +288,7 @@ These can be found in section 8.4 in our
 
 No. Vipps Login do not support merchants specifying that the user needs
 to use the app to authenticate (two factor authentication - 2FA). The end-user chooses
-whether he would like to be remembered in browser or not. This is seen as a key feture of the service.
+whether he would like to be remembered in browser or not. This is seen as a key feture of the service. 
 
 ## Can I see statistics on Vipps Login usage?
 
@@ -413,7 +407,7 @@ Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name
 
 ## How can I log out a user?
 
- _Vipps Login_ does not support merchant initiated logout in the browser as this would effectively log the user out of Vipps Login (meaning that the user will no longer be remembered in the browser across sites that use Vipps Login). You are of course free to log the user out of your service (by disabling your own session).
+ _Vipps Login_ does not support merchant initiated logout in the browser as this would effectively log the user out of Vipps Login (meaning that the user will no longer be remembered in the browser across sites that use Vipps Login). You are of course free to log the user out of your service (by disabling your own session). 
 
 If a user wants to log out of a specific browser remembered in Vipps Login, they need to do this in the Vipps app by navigating to:  
 `Profile->Personal Information->Browsers that remember you`, select a browser and press the logout button.
