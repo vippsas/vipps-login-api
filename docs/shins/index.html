@@ -2629,7 +2629,7 @@ System.out.println(response.toString());
 
 </code></pre>
 <p><code>GET /vipps-userinfo-api/userinfo</code></p>
-<p>This endpoint returns the payload with the information that the user has consented to share. There are currently different response types on this endpoint for version 1 and version 2. See below for documentation on these response types. All new clients should use version 2 response since version 1 will be discontinued February 28th 2021. Version 2 is currently triggered by adding  scope <code>api_version_2</code> when initalizing the login (inital redirect to the <code>/oauth2/auth</code> endpoint. After February 28th 2021 it will be the default response. Find more info on the <code>/userinfo</code> endpoint at the OIDC Standard <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfo">https://openid.net/specs/openid-connect-core-1_0.html#UserInfo</a></p>
+<p>This endpoint returns the payload with the information that the user has consented to share. Find more info on the <code>/userinfo</code> endpoint at the OIDC Standard <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfo">https://openid.net/specs/openid-connect-core-1_0.html#UserInfo</a></p>
 <h3 id="userinfoauthorizationcode-parameters">Parameters</h3>
 <table>
 <thead>
