@@ -23,11 +23,11 @@ Document version 2.0.0.
       shared information with, is set. See
       [how to change logo](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-change-my-name-and-logo)
 - [ ] Whitelist redirect URIs:
-    - [ ] All `redirect_uri`s for your integration has been added using to the
+  - [ ] All `redirect_uri`s for your integration has been added using to the
           merchant portal white list, see the
       [FAQ](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login) for how to do this
-    - [ ] All URLs use HTTPS or native URL schemes (like `vipps://`), not HTTP.
-    - [ ] ALL URLs matche the exact URI sent on `/auth` request. No query parameters, no additional trailing `/`.
+  - [ ] All URLs use HTTPS or native URL schemes (like `vipps://`), not HTTP.
+  - [ ] ALL URLs matche the exact URI sent on `/auth` request. No query parameters, no additional trailing `/`.
 - [ ] The scopes requested are only the scopes required, no "nice to have" scopes.
 - [ ] If using national identity number and/or account number scopes: You have been granted access to request these scopes.
       [Apply here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-faq.md#who-can-get-access-to-nin-and-how)
@@ -47,7 +47,7 @@ Document version 2.0.0.
   - [ ] `Vipps-System-Plugin-Name`
   - [ ] `Vipps-System-Plugin-Version`
 
-# Questions?
+## Questions?
 
 We're always happy to help with code or other questions you might have!
 Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),

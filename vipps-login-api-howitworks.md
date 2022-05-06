@@ -7,11 +7,9 @@ For technical documentation go to
 
 We also have _How it works_ for [Vipps Login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-phone-number-api-howitworks.md) and [Vipps Login from QR-code](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md)
 
-
 ## The login process
 
 ![login process](images/vipps-login-process-v3.svg)
-
 
 ## The first time using Vipps Login
 
@@ -64,10 +62,9 @@ to add additional details not present in the user's Vipps profile.
 
 ![Overview of agreements](images/vipps-login-step6-2.svg)
 
-## Great! Now you know how the Vipps Login process works.
+## Great! Now you know how the Vipps Login process works
 
 Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md).
-
 
 ## Questions?
 

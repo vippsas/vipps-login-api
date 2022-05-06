@@ -1,15 +1,15 @@
 # Vipps Login + Vipps Recurring: How It Works
 
-Vipps Login and Vipps Recurring can be used together making registration and payment simple for your customers. 
+Vipps Login and Vipps Recurring can be used together making registration and payment simple for your customers.
 
 For the complete API documentation go to
+
 * [Vipps Login API](https://github.com/vippsas/vipps-login-api)
 * [Vipps Recurring API](https://github.com/vippsas/vipps-recurring-api)
 
 ## The process
 
 ![Login and recurring process](images/login-recurring-process-v2.svg)
-
 
 ## 1. Buy a subscription
 
@@ -19,14 +19,14 @@ A user wants to buy a subscription on a merchant’s website or app.
 
 ## 2. Login with Vipps
 
-The user logs in with Vipps on the merchant’s site. 
+The user logs in with Vipps on the merchant’s site.
 If the user is remembered in browser the login will be completed directly in the browser. If not the user will be taken to the app to authenticate.
 
 ![Login with Vipps](images/login-recurring-step2-v2.svg)
 
 ## 3. Confirm login
 
-If the user needs to authenticate in the app, the user will be taken to Vipps to confirm the login. 
+If the user needs to authenticate in the app, the user will be taken to Vipps to confirm the login.
 
 ![Confirm login](images/login-recurring-step3.svg)
 
@@ -45,7 +45,7 @@ This step is controlled and designed by the individual merchant. Typically the u
 
 ## 6. Accept agreement in Vipps
 
-The user accept the agreement in Vipps. 
+The user accept the agreement in Vipps.
 
 ![Agreement in Vipps](images/login-recurring-step6-v2.svg)
 
@@ -55,10 +55,9 @@ The user is sent back to the merchant’s web site or app, and the subscription 
 
 ![Confirmation page](images/login-recurring-step7.svg)
 
-## Great! Now you know how you can use Vipps Login and Vipps Recurring together.
+## Great! Now you know how you can use Vipps Login and Vipps Recurring together
 
 Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md), and the [Vipps Recurring API Guide](https://github.com/vippsas/vipps-recurring-api/blob/master/vipps-recurring-api.md)
-
 
 ## Questions?
 

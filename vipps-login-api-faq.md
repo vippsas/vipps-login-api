@@ -288,7 +288,7 @@ These can be found in section 8.4 in our
 
 No. Vipps Login do not support merchants specifying that the user needs
 to use the app to authenticate (two factor authentication - 2FA). The end-user chooses
-whether he would like to be remembered in browser or not. This is seen as a key feture of the service. 
+whether he would like to be remembered in browser or not. This is seen as a key feature of the service.
 
 ## Can I see statistics on Vipps Login usage?
 
@@ -350,7 +350,7 @@ See more information in our end user
 [terms and condition](https://www.vipps.no/vilkar/vilkar-privat/),
 [privacy policy](https://www.vipps.no/vilkar/cookie-og-personvern/)
 and
-[merchant agreeement](https://www.vipps.no/vilkar/vilkar-bedrift/)
+[merchant agreement](https://www.vipps.no/vilkar/vilkar-bedrift/)
 
 ## Can we control the language displayed to the user?
 
@@ -407,7 +407,7 @@ Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name
 
 ## How can I log out a user?
 
- _Vipps Login_ does not support merchant initiated logout in the browser as this would effectively log the user out of Vipps Login (meaning that the user will no longer be remembered in the browser across sites that use Vipps Login). You are of course free to log the user out of your service (by disabling your own session). 
+ _Vipps Login_ does not support merchant initiated logout in the browser as this would effectively log the user out of Vipps Login (meaning that the user will no longer be remembered in the browser across sites that use Vipps Login). You are of course free to log the user out of your service (by disabling your own session).
 
 If a user wants to log out of a specific browser remembered in Vipps Login, they need to do this in the Vipps app by navigating to:  
 `Profile->Personal Information->Browsers that remember you`, select a browser and press the logout button.
@@ -437,7 +437,7 @@ is 1000+ characters. We've seen this issue when any of the requests in the
 redirect sequence are too long (i.e 2000+ characters). Therefore, try to keep
 these parameters at sane lengths. If there is a need to encode some payload in
 the `state` (i.e a JWT), it would be a better option to cache this at the
-client server and use the key as `state`.    
+client server and use the key as `state`.
 
 ## Questions?
 
