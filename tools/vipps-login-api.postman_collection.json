@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2c5a9dc9-4731-45d0-8149-6a1d9394b9d5",
+		"_postman_id": "2714b76b-706e-4693-b52c-a0b8bde7e5df",
 		"name": "vipps-login-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "01c35a25-46a3-4a4f-8867-9a715fe4fdb8",
 						"exec": [
 							"var uuid = require('uuid');",
 							"var url = require('url');",
@@ -40,11 +39,28 @@
 			],
 			"request": {
 				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
+				"header": [
+					{
+						"key": "Vipps-System-Name",
+						"value": "{{vipps_system_name}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Version",
+						"value": "{{vipps_system_version}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Plugin-Name",
+						"value": "{{vipps_system_plugin_name}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Plugin-Version",
+						"value": "{{vipps_system_plugin_version}}",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{well-known_uri}}",
 					"host": [
@@ -60,7 +76,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "3b9d97a4-e7dd-4677-94b7-40e449bf788d",
 						"exec": [
 							"var client_id = pm.environment.get(\"client_id\");",
 							"var client_secret = pm.environment.get(\"client_secret\");",
@@ -76,7 +91,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1847b02f-8988-4823-a04e-c1f8e9fce19a",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -106,6 +120,26 @@
 						"key": "Authorization",
 						"value": "Basic {{client_authorization}}",
 						"type": "text"
+					},
+					{
+						"key": "Vipps-System-Name",
+						"value": "{{vipps_system_name}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Version",
+						"value": "{{vipps_system_version}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Plugin-Name",
+						"value": "{{vipps_system_plugin_name}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Plugin-Version",
+						"value": "{{vipps_system_plugin_version}}",
+						"type": "default"
 					}
 				],
 				"body": {
@@ -143,7 +177,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "163013c5-f205-4709-aec2-7ab1758e86dd",
 						"exec": [
 							""
 						],
@@ -158,12 +191,28 @@
 						"key": "Authorization",
 						"value": "Bearer {{access_token}}",
 						"type": "text"
+					},
+					{
+						"key": "Vipps-System-Name",
+						"value": "{{vipps_system_name}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Version",
+						"value": "{{vipps_system_version}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Plugin-Name",
+						"value": "{{vipps_system_plugin_name}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Plugin-Version",
+						"value": "{{vipps_system_plugin_version}}",
+						"type": "default"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{userinfo_endpoint}}",
 					"host": [
