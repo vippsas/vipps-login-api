@@ -41,6 +41,11 @@
 				"method": "GET",
 				"header": [
 					{
+						"key": "Merchant-Serial-Number",
+						"value": "{{merchantSerialNumber}}",
+						"type": "default"
+					},
+					{
 						"key": "Vipps-System-Name",
 						"value": "{{vipps_system_name}}",
 						"type": "default"
@@ -122,6 +127,11 @@
 						"type": "text"
 					},
 					{
+						"key": "Merchant-Serial-Number",
+						"value": "{{merchantSerialNumber}}",
+						"type": "default"
+					},
+					{
 						"key": "Vipps-System-Name",
 						"value": "{{vipps_system_name}}",
 						"type": "default"
@@ -191,6 +201,11 @@
 						"key": "Authorization",
 						"value": "Bearer {{access_token}}",
 						"type": "text"
+					},
+					{
+						"key": "Merchant-Serial-Number",
+						"value": "{{merchantSerialNumber}}",
+						"type": "default"
 					},
 					{
 						"key": "Vipps-System-Name",
