@@ -20,7 +20,7 @@ Document version 4.0.8.
     * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
   * [Vipps Login from phone number](#vipps-login-from-phone-number)
   * [Vipps Login from QR-code](#vipps-login-from-qr-code)
-  *[Vipps Login + Vipps Recurring](#vipps-login--vipps-recurring)
+  * [Vipps Login + Vipps Recurring](#vipps-login--vipps-recurring)
 * [Design guidelines and buttons](#design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
   * [OAuth 2.0](#oauth-20)
