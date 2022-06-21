@@ -2,7 +2,7 @@
 
 API version: 2.0
 
-Document version 4.0.7.
+Document version 4.0.8.
 
 ## Table of contents
 
@@ -20,6 +20,7 @@ Document version 4.0.7.
     * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
   * [Vipps Login from phone number](#vipps-login-from-phone-number)
   * [Vipps Login from QR-code](#vipps-login-from-qr-code)
+  * [Vipps Login + Vipps Recurring](#vipps-login--vipps-recurring)
 * [Design guidelines and buttons](#design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
   * [OAuth 2.0](#oauth-20)
@@ -98,7 +99,7 @@ Vipps Login is the easiest way to sign in and create an account in both digital 
 
 Vipps Login is available for several use-cases:
 
-* On webpages and in apps - Vipps Login is used in the browser
+* On web pages and in apps - Vipps Login is used in the browser
 * Directly from merchant systems (e.g. point of sales systems or call-center solutions) based on phone number
 * Directly from machines and vending machines based on phone number
 * Directly from QR-codes on screens, posters etc
@@ -137,7 +138,7 @@ The generic steps in the Vipps Login in browser flow are shown in our [How it wo
 
 #### Remembered flow
 
-If a user has chosen to be remembered in browser then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly. This applies to both desktop and mobile.
+If a user has chosen to be remembered in browser, then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly. This applies to both desktop and mobile.
 
 If the user is not remembered the user needs to confirm the login in the Vipps-app. The flow associated with this will differ depending on whether the user is on desktop or mobile:
 
@@ -238,6 +239,10 @@ For an illustration of the flows that will be supported see [How It Works](https
 
 Integration details and developer documentation can be [found here](#integrating-with-vipps-login-from-qr-code)
 
+### Vipps Login + Vipps Recurring
+
+* [Vipps Login + Vipps Recurring](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-recurring-howitworks.md): Learn how you can use Login and Recurring together.
+
 ## Design guidelines and buttons
 
 Buttons to use for Vipps Login can be found as part of our
@@ -322,7 +327,7 @@ Example body:
 }
 ```
 
-You can read more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)
+You can read more at the [OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
 
 It is important to validate the Id-token before using any data contained in it.
 See the OIDC standard on
@@ -332,7 +337,7 @@ to start is finding a library for your language at [jwt.io](https://jwt.io/#libr
 
 ### Access token
 
-Access tokens are random strings that represents the authorization of a
+Access tokens are random strings that represent the authorization of a
 specific application to access specific parts of a user’s data.
 The token itself does not provide any information, but it can be used to
 fetch the data that the end-user has consented to share from the
@@ -572,6 +577,9 @@ means available to it via the user-agent.
 For example, the client directs the user-agent to make the following HTTP request:
 
 [`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth)
+
+You can test this by entering the url into any browser. This will initiate the log in sequence.
+For more information about testing this with the Postman collection, see the step-by-step instructions in the [Postman guide](vipps-login-postman.md)
 
 **Please note:** URIs specified on [portal.vipps.no](https://portal.vipps.no/)
 must be _exactly_ the same as used in the API calls. Be extra careful with
@@ -1644,6 +1652,15 @@ Steps:
     ```
 
 ## Questions?
+
+For more information and to order the product go to:
+
+* [Frequently Asked Questions](vipps-login-api-faq.md)
+
+* [Product information in Norwegian](https://www.vipps.no/produkter-og-tjenester/bedrift/innlogging-og-identifisering/logg-inn-med-vipps/)
+
+* [Product FAQ in Norwegian](https://vipps.no/hjelp/vipps/vipps-logg-inn)
+
 
 We're always happy to help with code or other questions you might have!
 Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),

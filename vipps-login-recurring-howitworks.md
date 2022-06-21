@@ -20,7 +20,7 @@ A user wants to buy a subscription on a merchant’s website or app.
 ## 2. Login with Vipps
 
 The user logs in with Vipps on the merchant’s site.
-If the user is remembered in browser the login will be completed directly in the browser. If not the user will be taken to the app to authenticate.
+If the user is remembered in browser, the login will be completed directly in the browser. If not, the user will be taken to the app to authenticate.
 
 ![Login with Vipps](images/login-recurring-step2-v2.svg)
 
@@ -45,19 +45,19 @@ This step is controlled and designed by the individual merchant. Typically the u
 
 ## 6. Accept agreement in Vipps
 
-The user accept the agreement in Vipps.
+The user accepts the agreement in Vipps.
 
 ![Agreement in Vipps](images/login-recurring-step6-v2.svg)
 
 ## 7. Subscription confirmed
 
-The user is sent back to the merchant’s web site or app, and the subscription is confirmed on the merchant’s site.
+The user is returned to the merchant's web site or app, and the subscription is confirmed on the merchant's site.
 
 ![Confirmation page](images/login-recurring-step7.svg)
 
 ## Great! Now you know how you can use Vipps Login and Vipps Recurring together
 
-Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md), and the [Vipps Recurring API Guide](https://github.com/vippsas/vipps-recurring-api/blob/master/vipps-recurring-api.md)
+Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md) and the [Vipps Recurring API Guide](https://github.com/vippsas/vipps-recurring-api/blob/master/vipps-recurring-api.md).
 
 ## Questions?
 
