@@ -337,7 +337,7 @@ to start is finding a library for your language at [jwt.io](https://jwt.io/#libr
 
 ### Access token
 
-Access tokens are random strings that represents the authorization of a
+Access tokens are random strings that represent the authorization of a
 specific application to access specific parts of a user’s data.
 The token itself does not provide any information, but it can be used to
 fetch the data that the end-user has consented to share from the
@@ -577,6 +577,9 @@ means available to it via the user-agent.
 For example, the client directs the user-agent to make the following HTTP request:
 
 [`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth)
+
+You can test this by entering the url into any browser. This will initiate the log in sequence.
+For more information about testing this with the Postman collection, see the step-by-step instructions in the [Postman guide](vipps-login-postman.md)
 
 **Please note:** URIs specified on [portal.vipps.no](https://portal.vipps.no/)
 must be _exactly_ the same as used in the API calls. Be extra careful with
