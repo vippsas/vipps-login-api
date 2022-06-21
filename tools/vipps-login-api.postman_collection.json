@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2714b76b-706e-4693-b52c-a0b8bde7e5df",
+		"_postman_id": "beb79c97-7f01-4908-ba32-89bcbce8d7ec",
 		"name": "vipps-login-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -40,6 +40,11 @@
 			"request": {
 				"method": "GET",
 				"header": [
+					{
+						"key": "Merchant-Serial-Number",
+						"value": "{{merchantSerialNumber}}",
+						"type": "default"
+					},
 					{
 						"key": "Vipps-System-Name",
 						"value": "{{vipps_system_name}}",
@@ -122,6 +127,11 @@
 						"type": "text"
 					},
 					{
+						"key": "Merchant-Serial-Number",
+						"value": "{{merchantSerialNumber}}",
+						"type": "default"
+					},
+					{
 						"key": "Vipps-System-Name",
 						"value": "{{vipps_system_name}}",
 						"type": "default"
@@ -191,6 +201,11 @@
 						"key": "Authorization",
 						"value": "Bearer {{access_token}}",
 						"type": "text"
+					},
+					{
+						"key": "Merchant-Serial-Number",
+						"value": "{{merchantSerialNumber}}",
+						"type": "default"
 					},
 					{
 						"key": "Vipps-System-Name",
