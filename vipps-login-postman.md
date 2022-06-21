@@ -15,19 +15,19 @@ We also have a short [getting started guide to Postman](https://github.com/vipps
 
 Import the collection by following the steps below:
 
-1. Click `Import` in the upper left corner.
+1. Click `Import` in the upper-left corner.
 2. Import the [vipps-login-api-postman-collection.json](https://raw.githubusercontent.com/vippsas/vipps-login-api/master/tools/vipps-login-api.postman_collection.json) file.
 
 ### Step 2: Import the Postman Environment
 
-1. Click `Import` in the upper left corner.
+1. Click `Import` in the upper-left corner.
 2. Import the [vipps-login-api.postman_environment.json](https://raw.githubusercontent.com/vippsas/vipps-login-api/master/tools/vipps-login-api.postman_environment.json) file.
 
 ### Step 3: Setup Postman Environment
 
-1. Click the "eye" icon in the top right corner.
-2. In the dropdown window, click `Edit` in the top right corner.
-3. Fill in the `Current Value` for the following fields to get started.
+1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
+1. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
+1. Fill in the `Current Value` for the following fields to get started.
    - `well-known_uri`
    - `client_id`
    - `client_secret`
