@@ -1520,7 +1520,6 @@ Darkula color scheme from the JetBrains family of IDEs
 <!-- backwards compatibility -->
 <!-- backwards compatibility -->
 <!-- backwards compatibility -->
-<!-- backwards compatibility -->
   </head>
 
   <body data-languages="[&quot;shell&quot;,&quot;http&quot;,&quot;javascript&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;php&quot;,&quot;java&quot;,&quot;go&quot;]">
@@ -1638,11 +1637,6 @@ Darkula color scheme from the JetBrains family of IDEs
                 
                   <li>
                     <a href="#tocs_wellknown" class="toc-h2 toc-link" data-title="">WellKnown</a>
-                    
-                  </li>
-                
-                  <li>
-                    <a href="#tocs_userinfoapiv1" class="toc-h2 toc-link" data-title="">UserinfoApiV1</a>
                     
                   </li>
                 
@@ -2658,103 +2652,47 @@ System.out.println(response.toString());
 <p>200 Response</p>
 </blockquote>
 <pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">&quot;oneof&quot;</span>: [
+  <span class="hljs-attr">&quot;sub&quot;</span>: <span class="hljs-string">&quot;c06c4afe-d9e1-4c5d-939a-177d752a0944&quot;</span>,
+  <span class="hljs-attr">&quot;birthdate&quot;</span>: <span class="hljs-string">&quot;1815-12-10&quot;</span>,
+  <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;user@example.com&quot;</span>,
+  <span class="hljs-attr">&quot;email_verified&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;nin&quot;</span>: <span class="hljs-string">&quot;10121550047&quot;</span>,
+  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Ada Lovelace&quot;</span>,
+  <span class="hljs-attr">&quot;given_name&quot;</span>: <span class="hljs-string">&quot;Ada&quot;</span>,
+  <span class="hljs-attr">&quot;family_name&quot;</span>: <span class="hljs-string">&quot;Lovelace&quot;</span>,
+  <span class="hljs-attr">&quot;sid&quot;</span>: <span class="hljs-string">&quot;7d78a726-af92-499e-b857-de263ef9a969&quot;</span>,
+  <span class="hljs-attr">&quot;phone_number&quot;</span>: <span class="hljs-string">&quot;47912345678&quot;</span>,
+  <span class="hljs-attr">&quot;address&quot;</span>: {
+    <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;Suburbia 23&quot;</span>,
+    <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;2101&quot;</span>,
+    <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;OSLO&quot;</span>,
+    <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;NO&quot;</span>,
+    <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Suburbia 23\\n2101 OSLO\\nNO&quot;</span>,
+    <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;home&quot;</span>
+  },
+  <span class="hljs-attr">&quot;other_addresses&quot;</span>: [
     {
-      <span class="hljs-attr">&quot;UserinfoApiV1&quot;</span>: {
-        <span class="hljs-attr">&quot;sub&quot;</span>: <span class="hljs-string">&quot;c06c4afe-d9e1-4c5d-939a-177d752a0944&quot;</span>,
-        <span class="hljs-attr">&quot;birthdate&quot;</span>: <span class="hljs-string">&quot;10.12.1815&quot;</span>,
-        <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;user@example.com&quot;</span>,
-        <span class="hljs-attr">&quot;email_verified&quot;</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">&quot;nnin&quot;</span>: <span class="hljs-string">&quot;10121550047&quot;</span>,
-        <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Ada Lovelace&quot;</span>,
-        <span class="hljs-attr">&quot;given_name&quot;</span>: <span class="hljs-string">&quot;Ada&quot;</span>,
-        <span class="hljs-attr">&quot;family_name&quot;</span>: <span class="hljs-string">&quot;Lovelace&quot;</span>,
-        <span class="hljs-attr">&quot;sid&quot;</span>: <span class="hljs-string">&quot;7d78a726-af92-499e-b857-de263ef9a969&quot;</span>,
-        <span class="hljs-attr">&quot;phone_number&quot;</span>: <span class="hljs-string">&quot;47912345678&quot;</span>,
-        <span class="hljs-attr">&quot;address&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;Suburbia 23&quot;</span>,
-            <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;2101&quot;</span>,
-            <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;OSLO&quot;</span>,
-            <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;NO&quot;</span>,
-            <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Suburbia 23\\n2101 OSLO\\nNO&quot;</span>,
-            <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;home&quot;</span>,
-            <span class="hljs-attr">&quot;default&quot;</span>: <span class="hljs-literal">true</span>
-          },
-          {
-            <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;Fancy Office Street 2&quot;</span>,
-            <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;0218&quot;</span>,
-            <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;OSLO&quot;</span>,
-            <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;NO&quot;</span>,
-            <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Fancy Office Street 2\\n0218 OSLO\\nNO&quot;</span>,
-            <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;work&quot;</span>,
-            <span class="hljs-attr">&quot;default&quot;</span>: <span class="hljs-literal">false</span>
-          },
-          {
-            <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;Summer House Lane 14&quot;</span>,
-            <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;1452&quot;</span>,
-            <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;OSLO&quot;</span>,
-            <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;NO&quot;</span>,
-            <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Summer House Lane 14\\n1452 OSLO\\nNO&quot;</span>,
-            <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;other&quot;</span>,
-            <span class="hljs-attr">&quot;default&quot;</span>: <span class="hljs-literal">false</span>
-          }
-        ],
-        <span class="hljs-attr">&quot;accounts&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;account_name&quot;</span>: <span class="hljs-string">&quot;My savings&quot;</span>,
-            <span class="hljs-attr">&quot;account_number&quot;</span>: <span class="hljs-string">&quot;12064590675&quot;</span>,
-            <span class="hljs-attr">&quot;bank_name&quot;</span>: <span class="hljs-string">&quot;My bank&quot;</span>
-          }
-        ]
-      }
+      <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;Fancy Office Street 2&quot;</span>,
+      <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;0218&quot;</span>,
+      <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;OSLO&quot;</span>,
+      <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;NO&quot;</span>,
+      <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Fancy Office Street 2\\n0218 OSLO\\nNO&quot;</span>,
+      <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;work&quot;</span>
     },
     {
-      <span class="hljs-attr">&quot;UserinfoApiV2&quot;</span>: {
-        <span class="hljs-attr">&quot;sub&quot;</span>: <span class="hljs-string">&quot;c06c4afe-d9e1-4c5d-939a-177d752a0944&quot;</span>,
-        <span class="hljs-attr">&quot;birthdate&quot;</span>: <span class="hljs-string">&quot;1815-12-10&quot;</span>,
-        <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;user@example.com&quot;</span>,
-        <span class="hljs-attr">&quot;email_verified&quot;</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">&quot;nin&quot;</span>: <span class="hljs-string">&quot;10121550047&quot;</span>,
-        <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Ada Lovelace&quot;</span>,
-        <span class="hljs-attr">&quot;given_name&quot;</span>: <span class="hljs-string">&quot;Ada&quot;</span>,
-        <span class="hljs-attr">&quot;family_name&quot;</span>: <span class="hljs-string">&quot;Lovelace&quot;</span>,
-        <span class="hljs-attr">&quot;sid&quot;</span>: <span class="hljs-string">&quot;7d78a726-af92-499e-b857-de263ef9a969&quot;</span>,
-        <span class="hljs-attr">&quot;phone_number&quot;</span>: <span class="hljs-string">&quot;47912345678&quot;</span>,
-        <span class="hljs-attr">&quot;address&quot;</span>: {
-          <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;Suburbia 23&quot;</span>,
-          <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;2101&quot;</span>,
-          <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;OSLO&quot;</span>,
-          <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;NO&quot;</span>,
-          <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Suburbia 23\\n2101 OSLO\\nNO&quot;</span>,
-          <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;home&quot;</span>
-        },
-        <span class="hljs-attr">&quot;other_addresses&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;Fancy Office Street 2&quot;</span>,
-            <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;0218&quot;</span>,
-            <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;OSLO&quot;</span>,
-            <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;NO&quot;</span>,
-            <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Fancy Office Street 2\\n0218 OSLO\\nNO&quot;</span>,
-            <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;work&quot;</span>
-          },
-          {
-            <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;Summer House Lane 14&quot;</span>,
-            <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;1452&quot;</span>,
-            <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;OSLO&quot;</span>,
-            <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;NO&quot;</span>,
-            <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Summer House Lane 14\\n1452 OSLO\\nNO&quot;</span>,
-            <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;other&quot;</span>
-          }
-        ],
-        <span class="hljs-attr">&quot;accounts&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;account_name&quot;</span>: <span class="hljs-string">&quot;My savings&quot;</span>,
-            <span class="hljs-attr">&quot;account_number&quot;</span>: <span class="hljs-string">&quot;12064590675&quot;</span>,
-            <span class="hljs-attr">&quot;bank_name&quot;</span>: <span class="hljs-string">&quot;My bank&quot;</span>
-          }
-        ]
-      }
+      <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;Summer House Lane 14&quot;</span>,
+      <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;1452&quot;</span>,
+      <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;OSLO&quot;</span>,
+      <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;NO&quot;</span>,
+      <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Summer House Lane 14\\n1452 OSLO\\nNO&quot;</span>,
+      <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;other&quot;</span>
+    }
+  ],
+  <span class="hljs-attr">&quot;accounts&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;account_name&quot;</span>: <span class="hljs-string">&quot;My savings&quot;</span>,
+      <span class="hljs-attr">&quot;account_number&quot;</span>: <span class="hljs-string">&quot;12064590675&quot;</span>,
+      <span class="hljs-attr">&quot;bank_name&quot;</span>: <span class="hljs-string">&quot;My bank&quot;</span>
     }
   ]
 }
@@ -2774,11 +2712,10 @@ System.out.println(response.toString());
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
 <td>OK</td>
-<td>Inline</td>
+<td><a href="#schemauserinfoapiv2">UserinfoApiV2</a></td>
 </tr>
 </tbody>
 </table>
-<h3 id="userinfoauthorizationcode-responseschema">Response Schema</h3>
 <h1 id="schemas">Schemas</h1>
 <h2 id="tocs_jsonwebkey">JSONWebKey</h2>
 <p><a id="schemajsonwebkey"></a>
@@ -3210,141 +3147,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h2 id="tocs_userinfoapiv1">UserinfoApiV1</h2>
-<p><a id="schemauserinfoapiv1"></a>
-<a id="schema_UserinfoApiV1"></a>
-<a id="tocSuserinfoapiv1"></a>
-<a id="tocsuserinfoapiv1"></a></p>
-<pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">&quot;accounts&quot;</span>: [
-    {
-      <span class="hljs-attr">&quot;account_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-      <span class="hljs-attr">&quot;account_number&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-      <span class="hljs-attr">&quot;bank_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-    }
-  ],
-  <span class="hljs-attr">&quot;address&quot;</span>: [
-    {
-      <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-      <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-      <span class="hljs-attr">&quot;default&quot;</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-      <span class="hljs-attr">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-      <span class="hljs-attr">&quot;region&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-      <span class="hljs-attr">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-    }
-  ],
-  <span class="hljs-attr">&quot;birthdate&quot;</span>: <span class="hljs-string">&quot;31.12.2000&quot;</span>,
-  <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;email_verified&quot;</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">&quot;family_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;given_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;nnin&quot;</span>: <span class="hljs-string">&quot;09057517287&quot;</span>,
-  <span class="hljs-attr">&quot;phone_number&quot;</span>: <span class="hljs-string">&quot;´47912345678&#x27;&quot;</span>,
-  <span class="hljs-attr">&quot;sid&quot;</span>: <span class="hljs-string">&quot;7d78a726-af92-499e-b857-de263ef9a969&quot;</span>,
-  <span class="hljs-attr">&quot;sub&quot;</span>: <span class="hljs-string">&quot;c06c4afe-d9e1-4c5d-939a-177d752a0944&quot;</span>
-}
-
-</code></pre>
-<h3 id="properties-4">Properties</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>accounts</td>
-<td>[<a href="#schemaaccountinfoapi">AccountInfoApi</a>]</td>
-<td>false</td>
-<td>none</td>
-<td>Contains an array with the end user's accounts registered in the Vipps app</td>
-</tr>
-<tr>
-<td>address</td>
-<td>[<a href="#schemaaddressapi">AddressApi</a>]</td>
-<td>false</td>
-<td>none</td>
-<td>Contains an array with the end users addresses. This list will always contain an address with the address_type home, but can also contain a work and/or other address if the user has registered them in the Vipps app</td>
-</tr>
-<tr>
-<td>birthdate</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>End-User's birthday formatted as DD.MM.YYYY</td>
-</tr>
-<tr>
-<td>email</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>End user's email address.</td>
-</tr>
-<tr>
-<td>email_verified</td>
-<td>boolean</td>
-<td>false</td>
-<td>none</td>
-<td>Boolean value if the End user's email address is verified.</td>
-</tr>
-<tr>
-<td>family_name</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>Surname(s) or last name(s) of the end user.</td>
-</tr>
-<tr>
-<td>given_name</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>Given name(s) or first name(s) of the end user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>End user's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.</td>
-</tr>
-<tr>
-<td>nnin</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>Norwegian national identity number</td>
-</tr>
-<tr>
-<td>phone_number</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>End-User's telephone number on MSISDN format, up to 15 digits.</td>
-</tr>
-<tr>
-<td>sid</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>Session identifier - This represents a Session of a User Agent or device. Currently not in use</td>
-</tr>
-<tr>
-<td>sub</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>Subject - Identifier for the end user</td>
-</tr>
-</tbody>
-</table>
 <h2 id="tocs_userinfoapiv2">UserinfoApiV2</h2>
 <p><a id="schemauserinfoapiv2"></a>
 <a id="schema_UserinfoApiV2"></a>
@@ -3393,7 +3195,7 @@ System.out.println(response.toString());
 }
 
 </code></pre>
-<h3 id="properties-5">Properties</h3>
+<h3 id="properties-4">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -3510,7 +3312,7 @@ System.out.println(response.toString());
 }
 
 </code></pre>
-<h3 id="properties-6">Properties</h3>
+<h3 id="properties-5">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -3561,7 +3363,7 @@ System.out.println(response.toString());
 }
 
 </code></pre>
-<h3 id="properties-7">Properties</h3>
+<h3 id="properties-6">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -3639,7 +3441,7 @@ System.out.println(response.toString());
 
 </code></pre>
 <p>The token response</p>
-<h3 id="properties-8">Properties</h3>
+<h3 id="properties-7">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -3708,7 +3510,7 @@ System.out.println(response.toString());
 
 </code></pre>
 <p>ErrorResponse</p>
-<h3 id="properties-9">Properties</h3>
+<h3 id="properties-8">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -3745,7 +3547,6 @@ System.out.println(response.toString());
 </table>
 <!-- Renderer: Shins v2.6.0 -->
 <!-- Generator: Widdershins v4.0.1 -->
-<!-- backwards compatibility -->
 <!-- backwards compatibility -->
 <!-- backwards compatibility -->
 <!-- backwards compatibility -->
