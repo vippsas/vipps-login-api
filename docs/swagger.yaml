@@ -114,83 +114,42 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/UserinfoApiV1'
-                  - $ref: '#/components/schemas/UserinfoApiV2'
-                example:
-                  oneof:
-                    - UserinfoApiV1:
-                        sub: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
-                        birthdate: '10.12.1815'
-                        email: 'user@example.com'
-                        email_verified: true
-                        nnin: '10121550047'
-                        name: 'Ada Lovelace'
-                        given_name: 'Ada'
-                        family_name: 'Lovelace'
-                        sid: '7d78a726-af92-499e-b857-de263ef9a969'
-                        phone_number: '47912345678'
-                        address:
-                          - street_address: 'Suburbia 23'
-                            postal_code: '2101'
-                            region: 'OSLO'
-                            country: 'NO'
-                            formatted: 'Suburbia 23\n2101 OSLO\nNO'
-                            address_type: 'home'
-                            default: true
-                          - street_address: 'Fancy Office Street 2'
-                            postal_code: '0218'
-                            region: 'OSLO'
-                            country: 'NO'
-                            formatted: 'Fancy Office Street 2\n0218 OSLO\nNO'
-                            address_type: 'work'
-                            default: false
-                          - street_address: 'Summer House Lane 14'
-                            postal_code: '1452'
-                            region: 'OSLO'
-                            country: 'NO'
-                            formatted: 'Summer House Lane 14\n1452 OSLO\nNO'
-                            address_type: 'other'
-                            default: false
-                        accounts:
-                          - account_name: "My savings"
-                            account_number: "12064590675"
-                            bank_name: "My bank"
-                    - UserinfoApiV2:
-                        sub: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
-                        birthdate: '1815-12-10'
-                        email: 'user@example.com'
-                        email_verified: true
-                        nin: '10121550047'
-                        name: 'Ada Lovelace'
-                        given_name: 'Ada'
-                        family_name: 'Lovelace'
-                        sid: '7d78a726-af92-499e-b857-de263ef9a969'
-                        phone_number: '47912345678'
-                        address:
-                          street_address: 'Suburbia 23'
-                          postal_code: '2101'
-                          region: 'OSLO'
-                          country: 'NO'
-                          formatted: 'Suburbia 23\n2101 OSLO\nNO'
-                          address_type: 'home'
-                        other_addresses:
-                          - street_address: 'Fancy Office Street 2'
-                            postal_code: '0218'
-                            region: 'OSLO'
-                            country: 'NO'
-                            formatted: 'Fancy Office Street 2\n0218 OSLO\nNO'
-                            address_type: 'work'
-                          - street_address: 'Summer House Lane 14'
-                            postal_code: '1452'
-                            region: 'OSLO'
-                            country: 'NO'
-                            formatted: 'Summer House Lane 14\n1452 OSLO\nNO'
-                            address_type: 'other'
-                        accounts:
-                          - account_name: "My savings"
-                            account_number: "12064590675"
-                            bank_name: "My bank"
+                $ref: '#/components/schemas/UserinfoApiV2'
+              example:
+                sub: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
+                birthdate: '1815-12-10'
+                email: 'user@example.com'
+                email_verified: true
+                nin: '10121550047'
+                name: 'Ada Lovelace'
+                given_name: 'Ada'
+                family_name: 'Lovelace'
+                sid: '7d78a726-af92-499e-b857-de263ef9a969'
+                phone_number: '47912345678'
+                address:
+                  street_address: 'Suburbia 23'
+                  postal_code: '2101'
+                  region: 'OSLO'
+                  country: 'NO'
+                  formatted: 'Suburbia 23\n2101 OSLO\nNO'
+                  address_type: 'home'
+                other_addresses:
+                  - street_address: 'Fancy Office Street 2'
+                    postal_code: '0218'
+                    region: 'OSLO'
+                    country: 'NO'
+                    formatted: 'Fancy Office Street 2\n0218 OSLO\nNO'
+                    address_type: 'work'
+                  - street_address: 'Summer House Lane 14'
+                    postal_code: '1452'
+                    region: 'OSLO'
+                    country: 'NO'
+                    formatted: 'Summer House Lane 14\n1452 OSLO\nNO'
+                    address_type: 'other'
+                accounts:
+                  - account_name: "My savings"
+                    account_number: "12064590675"
+                    bank_name: "My bank"
 
   /access-management-1.0/access/.well-known/openid-configuration:
     get:
@@ -543,56 +502,6 @@ components:
             type: string
             example:
               - RS256
-    UserinfoApiV1:
-      type: object
-      properties:
-        accounts:
-          description: 'Contains an array with the end user''s accounts registered in the Vipps app'
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountInfoApi'
-        address:
-          description: 'Contains an array with the end users addresses. This list will always contain an address with the address_type home, but can also contain a work and/or other address if the user has registered them in the Vipps app'
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressApi'
-        birthdate:
-          description: 'End-User''s birthday formatted as DD.MM.YYYY'
-          type: string
-          example: '31.12.2000'
-        email:
-          description: 'End user''s email address.'
-          type: string
-        email_verified:
-          description: 'Boolean value if the End user''s email address is verified.'
-          type: boolean
-        family_name:
-          description: 'Surname(s) or last name(s) of the end user.'
-          type: string
-        given_name:
-          description: 'Given name(s) or first name(s) of the end user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.'
-          type: string
-        name:
-          description: 'End user''s full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User''s locale and preferences.'
-          type: string
-        nnin:
-          description: 'Norwegian national identity number'
-          type: string
-          example: '09057517287'
-          pattern: '^\d{11}$'
-        phone_number:
-          description: 'End-User''s telephone number on MSISDN format, up to 15 digits.'
-          type: string
-          example: ´47912345678'
-          pattern: '^\d{15}$'
-        sid:
-          description: 'Session identifier - This represents a Session of a User Agent or device. Currently not in use'
-          type: string
-          example: '7d78a726-af92-499e-b857-de263ef9a969'
-        sub:
-          description: 'Subject - Identifier for the end user'
-          type: string
-          example: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
     UserinfoApiV2:
       type: object
       properties:
