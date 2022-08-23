@@ -8,8 +8,6 @@ Review the [Getting Started](https://github.com/vippsas/vipps-developers/blob/ma
 
 * [Vipps Login API guide](vipps-login-api.md): In-depth guide to the Login API.
 * [Swagger](https://vippsas.github.io/vipps-login-api/),  [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html), or  [Shins](https://vippsas.github.io/vipps-login-api/shins/index.html): API reference documentation.
-
-
 * [Postman guide](vipps-login-postman.md): Guide for using our Postman collection.
 
 ## Questions
