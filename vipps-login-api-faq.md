@@ -383,9 +383,9 @@ to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory
 Or: How can our system dynamically "know/find out" if the user has revoked the consent
 for us to have access to his/her personal data in our system?
 
-We have a system for notifying merchants when an end-users revoke their consents.
-You find information in this webhook
-[here](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-webhooks.md).
+We have a system for notifying merchants when an end user revokes their consent.
+See the
+[Consent Webhooks](vipps-login-api.md#consent-webhooks section for more information.
 
 ## Can we have multiple URIs as landing pages?
 
