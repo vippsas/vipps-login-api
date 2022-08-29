@@ -8,7 +8,7 @@ See also:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.3.3.
+Document version 2.3.4.
 
 ## Table of contents
 
@@ -385,13 +385,13 @@ for us to have access to his/her personal data in our system?
 
 We have a system for notifying merchants when an end user revokes their consent.
 See the
-[Consent Webhooks](vipps-login-api.md#consent-webhooks section for more information.
+[Consent Webhooks](vipps-login-api.md#consent-webhooks) section for more information.
 
 ## Can we have multiple URIs as landing pages?
 
 Yes. You can register as many callback URLs as you want; and then you specify which
 one you use in the request to
-[/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)
+[/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth).
 
 ## Can I use a custom URL scheme for the `redirect_url`?
 
