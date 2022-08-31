@@ -19,7 +19,7 @@ The user can opt in/out to receiving benefits from the merchant, either way the 
   }
 ```
 
-Note: Access to the `promotions` scope is configured on a per sales unit level. If you want to experiment with benefits in Vipps, please send an email to accessuserinfo@vipps.no and we will get in touch to set it up for you. 
+**Note:** Access to the `promotions` scope is configured on a per sales unit level. If you want to experiment with benefits in Vipps, please send an email to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) and we will get in touch to set it up for you. 
 
 ## Enabling benefits
 WIP - more will come later, suffice to say that this is currently a quite manual process where we define the benefit together with the merchant. 
