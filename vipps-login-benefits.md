@@ -1,4 +1,4 @@
-### Benefits in Vipps through Vipps Login
+# Benefits in Vipps through Vipps Login
 
 Note: *This is currently work in progress and not part of the official documentation for Vipps Login*
 
