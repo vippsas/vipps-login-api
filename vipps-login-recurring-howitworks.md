@@ -1,3 +1,10 @@
+<!-- START_METADATA
+---
+title: How it works with Vipps Recurring
+sidebar_position: 16
+---
+END_METADATA -->
+
 # Vipps Login + Vipps Recurring: How It Works
 
 Vipps Login and Vipps Recurring can be used together making registration and payment simple for your customers.

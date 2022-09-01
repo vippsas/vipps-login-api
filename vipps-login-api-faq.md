@@ -1,3 +1,10 @@
+<!-- START_METADATA
+---
+title: FAQ
+sidebar_position: 50
+---
+END_METADATA -->
+
 # Vipps Login API: Frequently Asked Questions
 
 See the [Vipps Login API](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md) for all the details.
@@ -9,6 +16,8 @@ You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
 Document version 2.3.4.
+
+<!-- START_TOC -->
 
 ## Table of contents
 
@@ -43,6 +52,8 @@ Document version 2.3.4.
   - [Why do I get `No CSRF value available in the session cookie`?](#why-do-i-get-no-csrf-value-available-in-the-session-cookie)
   - [Why do I get `HTTP 502 Bad Gateway`?](#why-do-i-get-http-502-bad-gateway)
 - [Questions?](#questions)
+
+<!-- END_TOC -->
 
 ## Where do I find the `client_id` and `client_secret`?
 
