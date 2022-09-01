@@ -1,3 +1,10 @@
+<!-- START_METADATA
+---
+title: How it works in browser
+sidebar_position: 13
+---
+END_METADATA -->
+
 # Vipps Login in browser: How It Works
 
 Let your customers log in to your website or app without the need for user names and passwords.

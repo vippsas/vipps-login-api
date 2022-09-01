@@ -1,3 +1,10 @@
+<!-- START_METADATA
+---
+title: How it works from mobile
+sidebar_position: 14
+---
+END_METADATA -->
+
 # Vipps Login from phone number: How It Works
 
 Let your customers share their information or confirm who they are based on their phone number.

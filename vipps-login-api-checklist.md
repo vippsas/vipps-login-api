@@ -1,3 +1,10 @@
+<!-- START_METADATA
+---
+title: Checklist
+sidebar_position: 40
+---
+END_METADATA -->
+
 # Vipps Login API Checklist
 
 API version: 2.0.

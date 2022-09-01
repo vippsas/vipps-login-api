@@ -1,3 +1,10 @@
+<!-- START_METADATA
+---
+title: How it works with QR
+sidebar_position: 15
+---
+END_METADATA -->
+
 # Vipps Login from QR-code: How It Works
 
 Let your customers register or log in based on scanning a QR-code.

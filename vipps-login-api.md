@@ -1,8 +1,16 @@
+<!-- START_METADATA
+---
+title: API Guide
+sidebar_position: 30
+---
+END_METADATA -->
+
 # Vipps Login API
 
 API version: 2.0
 
 Document version 4.0.9.
+<!-- START_TOC -->
 
 ## Table of contents
 
@@ -94,6 +102,9 @@ Document version 4.0.9.
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
 * [Questions?](#questions)
+
+<!-- END_TOC -->
+
 
 ## Introduction
 
