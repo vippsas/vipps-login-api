@@ -1437,7 +1437,7 @@ Example: `...&redirect_uri=https://merchant.com/callback&...`
 In addition to the responses defined by [the standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.13) these responses might also be returned:
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
-* Most of the [general error codes](https://github.com/vippsas/vipps-login-api/blob/4c17be6998852154197fdfc0c118d05495e3b167/vipps-login-api.md#error-handling)
+* Most of the [general error codes](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#error-handling)
 
 ## Integrating with Vipps Login from QR code
 
