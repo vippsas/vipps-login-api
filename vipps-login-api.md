@@ -134,9 +134,6 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 See our [developer section](https://github.com/vippsas/vipps-developers/blob/master/vipps-test-environment.md#vipps-test-apps) for information about our test environment, test apps and test users.
 
-### Versions
-
-[Api Version 1.0](https://github.com/vippsas/vipps-login-api/blob/master/versions/1.0/vipps-login-api.md)
 
 ### Activation
 
