@@ -909,8 +909,6 @@ iOS: Use [SFAuthenticationSession](https://developer.apple.com/documentation/saf
 
 ### App integration
 
-_This feature is new and might need modifications to support all merchant app needs._
-
 It is possible to enable automatic switch of users back to the merchant app,
 from the Vipps app. This flow is described [here](#app-to-app-flow).
 
