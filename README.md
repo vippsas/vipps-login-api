@@ -11,10 +11,17 @@ END_METADATA -->
 
 Review the [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md) pages for information about API keys, product activation, contact information, etc.
 
+<!-- START_COMMENT -->
+
+💥 Preview the new documentation pages here: <https://vippsas.github.io/vipps-developer-docs/>.
+See the disclaimer: <https://vippsas.github.io/vipps-developer-docs/docs/examples/>.
+
+<!-- END_COMMENT -->
+
 ## Developer guide
 
 * [Vipps Login API guide](vipps-login-api.md): In-depth guide to the Login API.
-* [Swagger](https://vippsas.github.io/vipps-login-api/),  [ReDoc](https://vippsas.github.io/vipps-login-api/redoc.html), or  [Shins](https://vippsas.github.io/vipps-login-api/shins/index.html): API reference documentation.
+* [Swagger](https://vippsas.github.io/vipps-login-api/) or [ReDoc](https://vippsas.github.io/vipps-developer-docs/api/login): OpenAPI reference documentation.
 * [Postman guide](vipps-login-postman.md): Guide for using our Postman collection.
 
 ## Questions
