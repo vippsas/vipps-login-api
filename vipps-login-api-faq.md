@@ -7,7 +7,7 @@ END_METADATA -->
 
 # Vipps Login API: Frequently Asked Questions
 
-See the [Vipps Login API](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md) for all the details.
+See the [Vipps Login API](vipps-login-api.md) for all the details.
 
 See also:
 [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md).
@@ -15,7 +15,7 @@ See also:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.3.4.
+Document version 2.3.5.
 
 <!-- START_TOC -->
 
@@ -36,7 +36,7 @@ Document version 2.3.4.
 - [Who can get access to Vipps Login from phone number and how?](#who-can-get-access-to-vipps-login-from-phone-number-and-how)
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Can I use partner keys for Vipps Login?](#can-i-use-partner-keys-for-vipps-login)
-- [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2FA)
+- [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2fa)
 - [Can I see statistics on Vipps Login usage?](#can-i-see-statistics-on-vipps-login-usage)
 - [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
 - [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-to-the-user)
@@ -69,7 +69,7 @@ On [portal.vipps.no](https://portal.vipps.no), in the same place as the
 `client_id` and `client_secret` described above, you can activate Vipps Login,
 and also add the redirect URIs needed for the service to work. This is the URL/URI of
 the page which the user is redirected to after finishing a login. See:
-[API endpoints](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#api-endpoints)
+[API endpoints](vipps-login-api.md#api-endpoints)
 as well as requirements for the URIs below.
 
 You will find the "Setup Vipps Login" option in the same place as you find your
@@ -93,6 +93,7 @@ the query parameter `redirect_uri` on the initial request to the authentication
 endpoint.
 
 **Please note:**
+
 * The redirect URI cannot contain `#`.
 * You can use `localhost` as part of the redirect URI.
 * You can use “Custom URL Scheme” in the redirect URIs to redirect back an app.
@@ -165,11 +166,11 @@ on the same phone.
 ## Which scopes can I use? Why do I get `Invalid_scope`?
 
 If you get “Invalid_scope” this means that you have included one or more scopes
-that you do not have access to or that is not supported. You will find the list
-of supported scopes here:
-https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#scopes
+that you do not have access to or that is not supported. You will find the (list
+of supported scopes)[vipps-login-api.md#scopes].
 
 All merchants get access to these scopes:
+
 * openid
 * address
 * birthdate
@@ -187,7 +188,7 @@ particular merchant. Note: Different merchants will get different subs for the s
 
 Some merchants can get access to NIN. Merchants need to request this separately.
 
-You can find the liste of scopes that your individual sales units have access to in
+You can find the list of scopes that your individual sales units have access to in
 [portal.vipps.no](https://portal.vipps.no)
 under the "Utvikler" section and the "Setup Vipps Login" panel.
 
@@ -385,7 +386,7 @@ See [How can I use `client_secret_post` for authentication?](#how-can-i-use-clie
 
 Vipps login does not return user information in the `id_token`, but provides a
 userinfo endpoint for this use case. See
-[the user info endpoint documentation](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#userinfo).
+[the user info endpoint documentation](vipps-login-api.md#userinfo).
 Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
 

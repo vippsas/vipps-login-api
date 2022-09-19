@@ -12,7 +12,7 @@ Let your customers log in to your website or app without the need for user names
 For technical documentation go to
 [Vipps Login API](https://github.com/vippsas/vipps-login-api).
 
-We also have _How it works_ for [Vipps Login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-phone-number-api-howitworks.md) and [Vipps Login from QR-code](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md)
+We also have _How it works_ for [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md) and [Vipps Login from QR-code](vipps-login-from-QR-api-howitworks.md)
 
 ## The login process
 
@@ -73,7 +73,7 @@ to add additional details not present in the user's Vipps profile.
 
 ## Great! Now you know how the Vipps Login process works.
 
-Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md).
+Take a look at the technical documentation in the [Vipps Login API Guide](vipps-login-api.md).
 
 ## Questions?
 

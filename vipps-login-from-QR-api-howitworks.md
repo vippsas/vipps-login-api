@@ -10,9 +10,9 @@ END_METADATA -->
 Let your customers register or log in based on scanning a QR-code.
 
 For technical documentation, go to
-[Vipps Login API](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md).
+[Vipps Login API](vipps-login-api.md).
 
-We also have _How it works_ for [Vipps Login in browser](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md) and [Vipps Login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-phone-number-api-howitworks.md).
+We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md) and [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md).
 
 ## The login from QR-code process
 
@@ -50,7 +50,7 @@ If the user is taken to a page in the browser, the merchant has an identified us
 
 ## Great! Now you know how Vipps Login from QR-code works!
 
-Take a look at the technical documentation in the [Vipps Login API Guide](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md).
+Take a look at the technical documentation in the [Vipps Login API Guide](vipps-login-api.md).
 
 ## Questions?
 
