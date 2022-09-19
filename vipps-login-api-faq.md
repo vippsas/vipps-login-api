@@ -403,7 +403,7 @@ See the
 
 Yes. You can register as many callback URLs as you want; and then you specify which
 one you use in the request to
-[/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth).
+[/auth](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauthAuth).
 
 ## Can I use a custom URL scheme for the `redirect_url`?
 
