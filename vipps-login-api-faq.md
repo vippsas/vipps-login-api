@@ -36,7 +36,7 @@ Document version 2.3.5.
 - [Who can get access to Vipps Login from phone number and how?](#who-can-get-access-to-vipps-login-from-phone-number-and-how)
 - [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 - [Can I use partner keys for Vipps Login?](#can-i-use-partner-keys-for-vipps-login)
-- [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2FA)
+- [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2fa)
 - [Can I see statistics on Vipps Login usage?](#can-i-see-statistics-on-vipps-login-usage)
 - [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
 - [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-to-the-user)
@@ -93,6 +93,7 @@ the query parameter `redirect_uri` on the initial request to the authentication
 endpoint.
 
 **Please note:**
+
 * The redirect URI cannot contain `#`.
 * You can use `localhost` as part of the redirect URI.
 * You can use “Custom URL Scheme” in the redirect URIs to redirect back an app.
@@ -169,6 +170,7 @@ that you do not have access to or that is not supported. You will find the (list
 of supported scopes)[vipps-login-api.md#scopes].
 
 All merchants get access to these scopes:
+
 * openid
 * address
 * birthdate
