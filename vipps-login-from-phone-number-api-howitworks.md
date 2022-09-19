@@ -10,9 +10,9 @@ END_METADATA -->
 Let your customers share their information or confirm who they are based on their phone number.
 
 For technical documentation go to
-[Vipps Login API - login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number).
+[Vipps Login API - login from phone number](vipps-login-api.md#vipps-login-from-phone-number).
 
-We also have _How it works_ for [Vipps Login in browser](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api-howitworks.md) and [Vipps Login from QR-code](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-from-QR-api-howitworks.md).
+We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md) and [Vipps Login from QR-code](vipps-login-from-QR-api-howitworks.md).
 
 ## The login from phone number process
 
@@ -50,7 +50,7 @@ If the user is taken to a page in the browser, the merchant has an identified us
 
 ## Great! Now you know how Vipps Login from phone number works!
 
-Take a look at the technical documentation in the [Vipps Login API - login from phone number](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#vipps-login-from-phone-number).
+Take a look at the technical documentation in the [Vipps Login API - login from phone number](vipps-login-api.md#vipps-login-from-phone-number).
 
 ## Questions?
 

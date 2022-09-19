@@ -21,7 +21,7 @@ See the disclaimer: <https://vippsas.github.io/vipps-developer-docs/docs/example
 ## Developer guide
 
 * [Vipps Login API guide](vipps-login-api.md): In-depth guide to the Login API.
-* [Swagger](https://vippsas.github.io/vipps-login-api/) or [ReDoc](https://vippsas.github.io/vipps-developer-docs/api/login): OpenAPI reference documentation.
+* [API Reference](https://vippsas.github.io/vipps-developer-docs/api/login): Login API reference documentation.
 * [Postman guide](vipps-login-postman.md): Guide for using our Postman collection.
 
 ## Questions

@@ -7,7 +7,7 @@ END_METADATA -->
 
 # Vipps Login API: Frequently Asked Questions
 
-See the [Vipps Login API](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md) for all the details.
+See the [Vipps Login API](vipps-login-api.md) for all the details.
 
 See also:
 [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md).
@@ -15,7 +15,7 @@ See also:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.3.4.
+Document version 2.3.5.
 
 <!-- START_TOC -->
 
@@ -69,7 +69,7 @@ On [portal.vipps.no](https://portal.vipps.no), in the same place as the
 `client_id` and `client_secret` described above, you can activate Vipps Login,
 and also add the redirect URIs needed for the service to work. This is the URL/URI of
 the page which the user is redirected to after finishing a login. See:
-[API endpoints](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#api-endpoints)
+[API endpoints](vipps-login-api.md#api-endpoints)
 as well as requirements for the URIs below.
 
 You will find the "Setup Vipps Login" option in the same place as you find your
@@ -165,9 +165,8 @@ on the same phone.
 ## Which scopes can I use? Why do I get `Invalid_scope`?
 
 If you get “Invalid_scope” this means that you have included one or more scopes
-that you do not have access to or that is not supported. You will find the list
-of supported scopes here:
-https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#scopes
+that you do not have access to or that is not supported. You will find the (list
+of supported scopes)[vipps-login-api.md#scopes].
 
 All merchants get access to these scopes:
 * openid
@@ -187,7 +186,7 @@ particular merchant. Note: Different merchants will get different subs for the s
 
 Some merchants can get access to NIN. Merchants need to request this separately.
 
-You can find the liste of scopes that your individual sales units have access to in
+You can find the list of scopes that your individual sales units have access to in
 [portal.vipps.no](https://portal.vipps.no)
 under the "Utvikler" section and the "Setup Vipps Login" panel.
 
@@ -385,7 +384,7 @@ See [How can I use `client_secret_post` for authentication?](#how-can-i-use-clie
 
 Vipps login does not return user information in the `id_token`, but provides a
 userinfo endpoint for this use case. See
-[the user info endpoint documentation](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#userinfo).
+[the user info endpoint documentation](vipps-login-api.md#userinfo).
 Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
 
