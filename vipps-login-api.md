@@ -465,7 +465,7 @@ You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connec
 
 **Request**
 
-[`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration)
+[`GET:/.well-known/openid-configuration`][login-discoveropenid-endpoint]
 
 **Response**
 
@@ -552,10 +552,10 @@ Example response from the merchant test environment:
 
 | Operation                 | Description         | Endpoints |
 | ------------------------- | ------------------- | ------------------ |
-| [OAuth 2.0 Authorize](#oauth-20-authorize)            | Start an OAuth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth) |
-| [OAuth 2.0 Token](#oauth-20-token)                    | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
-| [Userinfo](#userinfo)                                 | Returns information that the user has consented to share. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
-| [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
+| [OAuth 2.0 Authorize](#oauth-20-authorize)            | Start an OAuth 2.0 authorization. | [`GET:/oauth2/auth`][access-auth-endpoint] |
+| [OAuth 2.0 Token](#oauth-20-token)                    | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`][access-token-endpoint] |
+| [Userinfo](#userinfo)                                 | Returns information that the user has consented to share. | [`GET:/vipps-userinfo-api/userinfo`][userinfo-endpoint] |
+| [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`][login-wellknown-endpoint] |
 
 ##### OAuth 2.0 Authorize
 
@@ -586,7 +586,7 @@ means available to it via the user-agent.
 
 For example, the client directs the user-agent to make the following HTTP request:
 
-[`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth)
+[`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`][access-auth-endpoint]
 
 You can test this by entering the url into any browser. This will initiate the log in sequence.
 For more information about testing this with the Postman collection, see the step-by-step instructions in the [Postman guide](vipps-login-postman.md).
@@ -661,7 +661,7 @@ _Form content_
 | code              | The authorization code received from the authorization server.                                                                                                           |
 | redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant) . This field is required for OIDC flows, i.e. regular Vipps Login logins. |                                                                                                                                    |
 
-[`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
+[`POST:/oauth2/token`][access-token-endpoint]
 
 **Response**
 
@@ -699,7 +699,7 @@ _Headers_
 
 The access token is received on a successful request to the [token endpoint](#oauth-20-token).
 
-[`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo)
+[`GET:/vipps-userinfo-api/userinfo`][userinfo-endpoint]
 
 **Response**
 
@@ -768,7 +768,7 @@ OAuth 2.0 JWT Access Tokens.
 
 **Request**
 
-[`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown)
+[`GET:/.well-known/jwks.json`][login-wellknown-endpoint]
 
 **Response**
 
@@ -1717,3 +1717,10 @@ a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
 or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
 
 Sign up for our [Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters).
+
+
+[login-wellknown-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/wellKnown
+[login-discoveropenid-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration
+[userinfo-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Userinfo-API/operation/userinfoAuthorizationCode
+[access-auth-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauthAuth
+[access-token-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauth2Token
