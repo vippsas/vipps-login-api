@@ -2,9 +2,9 @@ openapi: 3.0.0
 info:
   description: >
     Welcome to the Vipps Login API documentation. You will find documentation
-    for all HTTP APIs here.
+    for all HTTP APIs here. See the [API Guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api) for more information.
   title: Vipps Login
-  version: 1.0.3
+  version: 1.0.4
 servers:
   - url: https://apitest.vipps.no
   - url: https://api.vipps.no
