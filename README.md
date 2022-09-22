@@ -22,7 +22,7 @@ See the disclaimer: <https://vippsas.github.io/vipps-developer-docs/docs/example
 
 * [Vipps Login API guide](vipps-login-api.md): In-depth guide to the Login API.
 * [API Reference](https://vippsas.github.io/vipps-developer-docs/api/login): Login API reference documentation.
-* [Postman guide](vipps-login-postman.md): Guide for using our Postman collection.
+* [Postman guide](vipps-login-api-quick-start.md): Guide for using our Postman collection.
 
 ## Questions
 
