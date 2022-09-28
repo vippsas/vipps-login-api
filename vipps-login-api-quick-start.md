@@ -50,13 +50,13 @@ Save the following files to your computer:
    * `client_id` - Merchant key is required for getting the access token.
    * `client_secret` - Merchant key is required for getting the access token.
    * `well-known_uri` - URL to well-known endpoint for used environment. In the test environment, you can use `https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration`. See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
-   * `redirect_uri` - Redirect URL which the user agent is redirected to after finishing a login. The URL must be exactly the same as the one specified on portal.vipps.no. This URI needs to be pre-registered with Vipps and supplied as a query parameter on calls to the OAuth2 authorize endpoint.
+   * `redirect_uri` - The URL where the user is sent after finishing a login. The URL must be exactly the same as the one specified on <portal.vipps.no> in the "Setup login" section for your sale unit. For testing, you could, for example, use <http://localhost> in both places.
 
 ## Make API calls
 
 1. Send request `Get OIDC well-known`.
 1. In your active Postman environment, "vipps-login-api", copy the value of key `start_login_uri`, and use this URL in any browser.
-1. Finish Vipps login.
+1. Finish Vipps login. This request includes a scope parameter that requests access to user information, so you may see an extra screen during login.
 1. Copy the query param `code` from the URL that the browser was redirected to after finishing Vipps Login. Paste this code into the key `code` in the active Postman environment.
 1. Send request `Get token` to get the access token and id token.
 1. Send request `Get user info` to get user info of the logged-in user.
