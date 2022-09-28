@@ -7,8 +7,9 @@ END_METADATA -->
 
 # Quick start
 
-<!-- START_TOC -->
+Use the Login API to confirm your identity through the log-in process.
 
+<!-- START_TOC -->
 ## Table of Contents
 
 * [Postman](#postman)
@@ -17,7 +18,6 @@ END_METADATA -->
   * [Step 2: Import the Vipps Postman files](#step-2-import-the-vipps-postman-files)
   * [Step 3: Set up Postman environment](#step-3-set-up-postman-environment)
 * [Make API calls](#make-api-calls)
-
 <!-- END_TOC -->
 
 Document version 1.0.4.
@@ -47,19 +47,19 @@ Save the following files to your computer:
 1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
 1. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
 1. Fill in the `Current Value` for the following fields to get started.
-   * `well-known_uri`
-   * `client_id`
-   * `client_secret`
-   * `redirect_uri`
+   * `client_id` - Merchant key is required for getting the access token.
+   * `client_secret` - Merchant key is required for getting the access token.
+   * `well-known_uri` - URL to well-known endpoint for used environment. In the test environment, you can use `https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration`. See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
+   * `redirect_uri` - Redirect URL which the user agent is redirected to after finishing a login. The URL must be exactly the same as the one specified on portal.vipps.no. This URI needs to be pre-registered with Vipps and supplied as a query parameter on calls to the OAuth2 authorize endpoint.
 
 ## Make API calls
 
 1. Send request `Get OIDC well-known`.
-1. In Postman environment "vipps-login-api" copy value of key `start_login_uri`, and use this url in any browser.
+1. In your active Postman environment, "vipps-login-api", copy the value of key `start_login_uri`, and use this URL in any browser.
 1. Finish Vipps login.
-1. Copy query param `code` from url the browser was redirected to after finishing Vipps login. Paste this code into key `code` in Postman environment `vipps-login-api`.
-1. Send request `Get token` to get access token and id token.
-1. Send request `Get user info` to get user info of logged in user.
+1. Copy the query param `code` from the URL that the browser was redirected to after finishing Vipps Login. Paste this code into the key `code` in the active Postman environment.
+1. Send request `Get token` to get the access token and id token.
+1. Send request `Get user info` to get user info of the logged-in user.
 
 See the
 [API reference](https://vippsas.github.io/vipps-developer-docs/api/login)
