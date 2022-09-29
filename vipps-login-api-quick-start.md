@@ -56,7 +56,7 @@ Save the following files to your computer:
 
 1. Send request `Get OIDC well-known`.
 1. In your active Postman environment, "vipps-login-api", copy the value of key `start_login_uri`, and use this URL in any browser.
-1. Finish Vipps login. This request includes a scope parameter that requests access to user information, so you may see an extra screen during login.
+1. Finish Vipps login. This request includes a scope parameter that requests access to user information. This means that if you have not yet consented to sharing your user information, a distinct screen asking for your consent will appear the first time.
 1. Copy the query param `code` from the URL that the browser was redirected to after finishing Vipps Login. Paste this code into the key `code` in the active Postman environment.
 1. Send request `Get token` to get the access token and id token.
 1. Send request `Get user info` to get user info of the logged-in user.
