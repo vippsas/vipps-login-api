@@ -49,7 +49,7 @@ Save the following files to your computer:
 1. Fill in the `Current Value` for the following fields to get started.
    * `client_id` - Merchant key is required for getting the access token.
    * `client_secret` - Merchant key is required for getting the access token.
-   * `well-known_uri` - URL to well-known endpoint for used environment. In the test environment, you can use `https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration`. See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
+   * `well-known_uri` - URL to well-known endpoint for used environment. In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>. See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
    * `redirect_uri` - The URL where the user is sent after finishing a login. The URL must be exactly the same as the one specified on <portal.vipps.no> in the "Setup login" section for your sale unit. For testing, you could, for example, use <http://localhost> in both places.
 
 ## Make API calls
