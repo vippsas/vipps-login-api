@@ -7,62 +7,59 @@ END_METADATA -->
 
 # Quick start
 
-<!-- START_TOC -->
+Use the Login API to confirm your identity through the log-in process.
 
+<!-- START_TOC -->
 ## Table of Contents
 
 * [Postman](#postman)
   * [Prerequisites](#prerequisites)
-  * [Step 1: Get the Postman collection](#step-1-get-the-postman-collection)
-  * [Step 2: Import the Postman environment](#step-2-import-the-postman-environment)
+  * [Step 1: Get the Vipps Postman collection and environment](#step-1-get-the-vipps-postman-collection-and-environment)
+  * [Step 2: Import the Vipps Postman files](#step-2-import-the-vipps-postman-files)
   * [Step 3: Set up Postman environment](#step-3-set-up-postman-environment)
 * [Make API calls](#make-api-calls)
-
 <!-- END_TOC -->
 
-Document version 1.0.3.
+Document version 1.0.4.
 
 ## Postman
 
 ### Prerequisites
 
-* If you are not familiar with Postman, review
-[Getting started with Postman](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-quick-start-guides#getting-started-with-postman).
+Review
+[Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-quick-start-guides) for information about getting your test environment set up.
 
-* You will need a merchant test account.
-If you haven't already set this up, see
-[Test Merchants](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-test-environment#test-merchants).
+### Step 1: Get the Vipps Postman collection and environment
 
-### Step 1: Get the Postman collection
+Save the following files to your computer:
 
-Import the collection by following the steps below:
+* [Vipps Login API Postman collection](tools/vipps-login-api.postman_collection.json)
+* [Vipps Login API Postman environment](tools/vipps-login-api.postman_environment.json)
 
-1. Click `Import` in the upper-left corner.
-2. Import the [vipps-login-api-postman-collection.json](tools/vipps-login-api.postman_collection.json) file.
+### Step 2: Import the Vipps Postman files
 
-### Step 2: Import the Postman environment
-
-1. Click `Import` in the upper-left corner.
-2. Import the [vipps-login-api.postman_environment.json](tools/vipps-login-api.postman_environment.json) file.
+1. In Postman, click *Import* in the upper-left corner.
+1. In the dialog that opens, with *File* selected, click *Upload Files*.
+1. Select the two files you have just downloaded and click *Import*.
 
 ### Step 3: Set up Postman environment
 
 1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
 1. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
 1. Fill in the `Current Value` for the following fields to get started.
-   - `well-known_uri`
-   - `client_id`
-   - `client_secret`
-   - `redirect_uri`
+   * `client_id` - Merchant key is required for getting the access token.
+   * `client_secret` - Merchant key is required for getting the access token.
+   * `well-known_uri` - URL to well-known endpoint for used environment. In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>. See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
+   * `redirect_uri` - The URL where the user is sent after finishing a login. The URL must be exactly the same as the one specified on <portal.vipps.no> in the "Setup login" section for your sale unit. For testing, you could, for example, use <http://localhost> in both places.
 
 ## Make API calls
 
 1. Send request `Get OIDC well-known`.
-1. In Postman environment "vipps-login-api" copy value of key `start_login_uri`, and use this url in any browser.
-1. Finish Vipps login.
-1. Copy query param `code` from url the browser was redirected to after finishing Vipps login. Paste this code into key `code` in Postman environment `vipps-login-api`.
-1. Send request `Get token` to get access token and id token.
-1. Send request `Get user info` to get user info of logged in user.
+1. In your active Postman environment, "vipps-login-api", copy the value of key `start_login_uri`, and use this URL in any browser.
+1. Finish Vipps login. This request includes a scope parameter that requests access to user information. This means that if you have not yet consented to sharing your user information, a distinct screen asking for your consent will appear the first time.
+1. Copy the query param `code` from the URL that the browser was redirected to after finishing Vipps Login. Paste this code into the key `code` in the active Postman environment.
+1. Send request `Get token` to get the access token and id token.
+1. Send request `Get user info` to get user info of the logged-in user.
 
 See the
 [API reference](https://vippsas.github.io/vipps-developer-docs/api/login)
