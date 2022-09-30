@@ -27,14 +27,15 @@ Document version 1.0.4.
 ### Prerequisites
 
 Review
-[Vipps quick start guides](https://github.com/vippsas/vipps-developers/blob/master/vipps-quick-start-guides.md) for information about getting your test environment set up.
+[Vipps quick start guides](https://github.com/vippsas/vipps-developers/blob/master/vipps-quick-start-guides.md)
+for information about getting your test environment set up.
 
 ### Step 1: Get the Vipps Postman collection and environment
 
 Save the following files to your computer:
 
 * [Vipps Login API Postman collection](tools/vipps-login-api.postman_collection.json)
-* [Vipps Login API Postman environment](tools/vipps-login-api.postman_environment.json)
+* [Vipps API Global Postman environment](https://github.com/vippsas/vipps-developers/blob/master/tools/vipps-api-global-postman-environment.json)
 
 ### Step 2: Import the Vipps Postman files
 
