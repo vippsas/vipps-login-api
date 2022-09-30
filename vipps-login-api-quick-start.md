@@ -20,7 +20,7 @@ Use the Login API to confirm your identity through the log-in process.
 * [Make API calls](#make-api-calls)
 <!-- END_TOC -->
 
-Document version 1.0.4.
+Document version 1.1.0
 
 ## Postman
 
