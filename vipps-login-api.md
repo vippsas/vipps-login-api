@@ -1725,26 +1725,9 @@ If you are a Vipps partner managing agreements on behalf of Vipps merchants, you
 
 * The target client must be configured with `client_secret_basic` authentication.
 
-### Access token
-
-https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#get-an-access-token
-
-### Where can it be used?
-
-The request could be one of the following endpoints:
-
-* [Authentication request without redirect](#authentication-request) 
-* [Authentication request with redirect](#authentication-request-with-redirect).
-* [Token request](#token-request)
-
-The flows otherwise follows the guides as normal:
-
-* [Login without redirect](#integrating-with-vipps-login-from-phone-number)
-* [Login with redirect](#redirect-to-browser)
-
 ### Call guide
 
-1) Fetch `access_token`
+1) Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
 2) Use the access token in the `Authorization` header `Bearer access_token`
 3) Add the `Merchant-Serial-Number` header with the target merchant serial number
 
@@ -1758,6 +1741,19 @@ Merchant-Serial-Number: 12345
 
 scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
 ```
+
+### Where can it be used?
+
+The request could be one of the following endpoints:
+
+* [Authentication request without redirect](#authentication-request) 
+* [Authentication request with redirect](#authentication-request-with-redirect).
+* [Token request](#token-request)
+
+The flows otherwise follows the guides as normal:
+
+* [Login without redirect](#integrating-with-vipps-login-from-phone-number)
+* [Login with redirect](#redirect-to-browser)
 
 ### Merchant Serial Number (MSN)
 
