@@ -99,6 +99,7 @@ Document version 4.0.10.
     * [Call by call](#call-by-call)
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
+* [Partner keys] (#partner-keys)
 * [Questions?](#questions)
 
 <!-- END_TOC -->
@@ -1701,6 +1702,20 @@ Payload
   "event": "CONSENT_REVOKED"
 }
 ```
+
+## Partner keys
+
+Partner keys are currently only available for the Vipps Login from phone number flows:
+[Regular](ttps://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#integrating-with-vipps-login-from-phone-number)
+[Redirect to browser](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#redirect-to-browser)
+
+In addition to the normal Authentication, we offer partner keys which let a partner make API calls on behalf of a merchant.
+
+If you are a Vipps partner managing agreements on behalf of Vipps merchants, you can use your own API credentials to authenticate, and then send the `Merchant-Serial-Number` header to identify which of your merchants you are acting on behalf of. The `Merchant-Serial-Number` must be sent in the header of all API requests.
+
+ Partners must fetch an access token to use as authentication.
+ 
+ ### 
 
 ## Questions?
 
