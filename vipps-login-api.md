@@ -1745,7 +1745,7 @@ The flows otherwise follows the guides as normal:
 ### Call guide
 
 1) Fetch `access_token`
-2) Use the access token in the `Authorization`header `Bearer access_token`
+2) Use the access token in the `Authorization` header `Bearer access_token`
 3) Add the `Merchant-Serial-Number` header with the target merchant serial number
 
 ### Example request
