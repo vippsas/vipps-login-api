@@ -1711,7 +1711,7 @@ Payload
 
 ## Partner keys
 
-In addition to the normal Authentication, we offer partner keys which let a partner make API calls on behalf of a merchant.
+In addition to the normal Authentication, we offer partner keys which lets a partner make API calls on behalf of a merchant.
 
 Partner keys are currently only available for the Vipps Login from phone number flows:
 * [Regular](#integrating-with-vipps-login-from-phone-number)
