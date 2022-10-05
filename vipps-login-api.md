@@ -68,7 +68,7 @@ Document version 4.0.10.
     * [Activation](#activation)
     * [Overview](#overview)
     * [Call by call](#call-by-call)
-    * [Authentication Request (#authentication-request)
+    * [Authentication Request](#authentication-request)
       * [Authentication](#authentication)
       * [The `login_hint` parameter (required)](#the-loginhint-parameter-required)
       * [The `scope` parameter (required)](#the-scope-parameter-required)
@@ -83,7 +83,7 @@ Document version 4.0.10.
     * [Activation](#activation)
     * [Overview](#overview)
     * [Call by call](#call-by-call)
-    * [Authentication Request With Redirect (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)](#authentication-request-with-redirect-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlauthrequest)
+    * [Authentication Request With Redirect](#authentication-request-with-redirect)
       * [Authentication](#authentication-1)
       * [The `login_hint` parameter (required)](#the-loginhint-parameter-required-1)
       * [The `scope` parameter (required)](#the-scope-parameter-required)
@@ -1084,7 +1084,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
 
-    For details see [Authentication Request](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request).
+    For details see [Authentication Request](#authentication-request).
 
     Example request:
 
@@ -1380,7 +1380,7 @@ The ID token is a JWS that must be validated, see [ID Token](#id-token). The mer
     }
     ```
 
-#### Authentication Request With Redirect (<https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>)
+#### Authentication Request With Redirect
 
 The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
 
@@ -1717,7 +1717,12 @@ If you are a Vipps partner managing agreements on behalf of Vipps merchants, you
 
  Partners must fetch an access token to use as authentication.
  
- ### 
+### Prerequisites
+
+* The target client must be configured for `client_secret_basic`. Only this authentication method is supported.
+
+### Authentication request
+
 
 ## Questions?
 
