@@ -1185,7 +1185,8 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
     ```
 
 #### Authentication Request
-(<https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>)
+
+Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>
 
 The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
 
