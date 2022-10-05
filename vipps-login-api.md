@@ -1712,8 +1712,8 @@ Payload
 ## Partner keys
 
 Partner keys are currently only available for the Vipps Login from phone number flows:
-[Regular](ttps://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#integrating-with-vipps-login-from-phone-number)
-[Redirect to browser](https://github.com/vippsas/vipps-login-api/blob/master/vipps-login-api.md#redirect-to-browser)
+* [Regular](#integrating-with-vipps-login-from-phone-number)
+* [Redirect to browser](#redirect-to-browser)
 
 In addition to the normal Authentication, we offer partner keys which let a partner make API calls on behalf of a merchant.
 
