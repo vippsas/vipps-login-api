@@ -1721,10 +1721,6 @@ If you are a Vipps partner managing agreements on behalf of Vipps merchants, you
 
  Partners must fetch an access token to use as authentication.
  
-### Prerequisites
-
-* The target client must be configured with `client_secret_basic` authentication.
-
 ### Call guide
 
 1) Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
@@ -1741,6 +1737,10 @@ Merchant-Serial-Number: 12345
 
 scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
 ```
+
+### Requirements
+
+* The target client must be configured with `client_secret_basic` authentication.
 
 ### Where can it be used?
 
