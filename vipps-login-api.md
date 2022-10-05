@@ -1729,7 +1729,7 @@ If you are a Vipps partner managing agreements on behalf of Vipps merchants, you
 
 https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#get-an-access-token
 
-### Valid targets
+### Where can it be used?
 
 The request could be one of the following endpoints:
 
@@ -1745,8 +1745,8 @@ The flows otherwise follows the guides as normal:
 ### Call guide
 
 1) Fetch `access_token`
-2) Use the access token in Authorization header `Bearer access_token`.
-3) Add the `Merchant-Serial-Number` header with the target MSN
+2) Use the access token in the `Authorization`header `Bearer access_token`
+3) Add the `Merchant-Serial-Number` header with the target merchant serial number
 
 ### Example request
 
@@ -1758,6 +1758,10 @@ Merchant-Serial-Number: 12345
 
 scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
 ```
+
+### Merchant Serial Number (MSN)
+
+This is a unique id for the sale unit. This is a required parameter if you are a Vipps partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
 
 ### Userinfo
 
