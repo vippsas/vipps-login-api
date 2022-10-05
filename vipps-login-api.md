@@ -68,7 +68,7 @@ Document version 4.0.10.
     * [Activation](#activation)
     * [Overview](#overview)
     * [Call by call](#call-by-call)
-    * [Authentication Request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlauthrequest)
+    * [Authentication Request (#authentication-request)
       * [Authentication](#authentication)
       * [The `login_hint` parameter (required)](#the-loginhint-parameter-required)
       * [The `scope` parameter (required)](#the-scope-parameter-required)
