@@ -75,8 +75,8 @@ Document version 4.0.10.
       * [The `binding_message` parameter (optional)](#the-bindingmessage-parameter-optional)
       * [Format](#format)
       * [Error responses](#error-responses)
-      * [Successful responses (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)](#successful-responses-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlsuccessfulauthenticationrequestacknowdlegment)
-    * [Token request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)](#token-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlrfcsection101)
+      * [Successful responses](#successful-responses)
+    * [Token request](#token-request)
       * [Polling](#polling)
     * [Error responses](#error-responses)
   * [Redirect to browser](#redirect-to-browser)
@@ -99,7 +99,7 @@ Document version 4.0.10.
     * [Call by call](#call-by-call)
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
-* [Partner keys] (#partner-keys)
+* [Partner keys](#partner-keys)
 * [Questions?](#questions)
 
 <!-- END_TOC -->
@@ -1232,11 +1232,15 @@ In addition to the responses defined by the standard these responses might be re
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 
-##### Successful responses (<https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment>)
+##### Successful responses
+
+Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment>
 
 Responses according to the standard. Note we do return an `interval` parameter which indicates the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
 
-#### Token request (<https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1>)
+#### Token request
+
+Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1>
 
 The responses from this endpoint is according to the standard.
 
@@ -1719,10 +1723,45 @@ If you are a Vipps partner managing agreements on behalf of Vipps merchants, you
  
 ### Prerequisites
 
-* The target client must be configured for `client_secret_basic`. Only this authentication method is supported.
+* The target client must be configured with `client_secret_basic` authentication.
 
-### Authentication request
+### Access token
 
+https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#get-an-access-token
+
+### Valid targets
+
+The request could be one of the following endpoints:
+
+* [Authentication request without redirect](#authentication-request) 
+* [Authentication request with redirect](#authentication-request-with-redirect).
+* [Token request](#token-request)
+
+The flows otherwise follows the guides as normal:
+
+* [Login without redirect](#integrating-with-vipps-login-from-phone-number)
+* [Login with redirect](#redirect-to-browser)
+
+### Call guide
+
+1) Fetch `access_token`
+2) Use the access token in Authorization header `Bearer access_token`.
+3) Add the `Merchant-Serial-Number` header with the target MSN
+
+### Example request
+
+```http request
+POST https://api.vipps.no/vipps-login-ciba/api/backchannel/authentication
+Authorization: Bearer askdjhasdkjashjkdhaskjdh
+Content-Type: application/x-www-form-urlencoded
+Merchant-Serial-Number: 12345
+
+scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
+```
+
+### Userinfo
+
+For fetching userinfo the token received during the login flow must be used.
 
 ## Questions?
 
