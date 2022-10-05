@@ -68,22 +68,22 @@ Document version 4.0.10.
     * [Activation](#activation)
     * [Overview](#overview)
     * [Call by call](#call-by-call)
-    * [Authentication Request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlauthrequest)
+    * [Authentication Request](#authentication-request)
       * [Authentication](#authentication)
       * [The `login_hint` parameter (required)](#the-loginhint-parameter-required)
       * [The `scope` parameter (required)](#the-scope-parameter-required)
       * [The `binding_message` parameter (optional)](#the-bindingmessage-parameter-optional)
       * [Format](#format)
       * [Error responses](#error-responses)
-      * [Successful responses (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)](#successful-responses-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlsuccessfulauthenticationrequestacknowdlegment)
-    * [Token request (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)](#token-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlrfcsection101)
+      * [Successful responses](#successful-responses)
+    * [Token request](#token-request)
       * [Polling](#polling)
     * [Error responses](#error-responses)
   * [Redirect to browser](#redirect-to-browser)
     * [Activation](#activation)
     * [Overview](#overview)
     * [Call by call](#call-by-call)
-    * [Authentication Request With Redirect (https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)](#authentication-request-with-redirect-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-10htmlauthrequest)
+    * [Authentication Request With Redirect](#authentication-request-with-redirect)
       * [Authentication](#authentication-1)
       * [The `login_hint` parameter (required)](#the-loginhint-parameter-required-1)
       * [The `scope` parameter (required)](#the-scope-parameter-required)
@@ -99,6 +99,7 @@ Document version 4.0.10.
     * [Call by call](#call-by-call)
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
+* [Partner keys](#partner-keys)
 * [Questions?](#questions)
 
 <!-- END_TOC -->
@@ -1083,7 +1084,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
 
-    For details see [Authentication Request](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request).
+    For details see [Authentication Request](#authentication-request).
 
     Example request:
 
@@ -1183,7 +1184,9 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
     }
     ```
 
-#### Authentication Request (<https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>)
+#### Authentication Request
+
+Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>
 
 The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
 
@@ -1229,11 +1232,15 @@ In addition to the responses defined by the standard these responses might be re
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 
-##### Successful responses (<https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment>)
+##### Successful responses
+
+Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment>
 
 Responses according to the standard. Note we do return an `interval` parameter which indicates the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
 
-#### Token request (<https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1>)
+#### Token request
+
+Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1>
 
 The responses from this endpoint is according to the standard.
 
@@ -1377,7 +1384,7 @@ The ID token is a JWS that must be validated, see [ID Token](#id-token). The mer
     }
     ```
 
-#### Authentication Request With Redirect (<https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>)
+#### Authentication Request With Redirect
 
 The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
 
@@ -1701,6 +1708,60 @@ Payload
   "event": "CONSENT_REVOKED"
 }
 ```
+
+## Partner keys
+
+In addition to the normal Authentication, we offer partner keys which lets a partner make API calls on behalf of a merchant.
+
+Partner keys are currently only available for the Vipps Login from phone number flows:
+* [Regular](#integrating-with-vipps-login-from-phone-number)
+* [Redirect to browser](#redirect-to-browser)
+
+If you are a Vipps partner managing agreements on behalf of Vipps merchants, you can use your own API credentials to authenticate, and then send the `Merchant-Serial-Number` header to identify which of your merchants you are acting on behalf of. The `Merchant-Serial-Number` must be sent in the header of all API requests.
+
+ Partners must fetch an access token to use as authentication.
+ 
+### Call guide
+
+1) Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
+2) Use the access token in the `Authorization` header `Bearer access_token`
+3) Add the `Merchant-Serial-Number` header with the target merchant serial number
+
+### Example request
+
+```http request
+POST https://api.vipps.no/vipps-login-ciba/api/backchannel/authentication
+Authorization: Bearer askdjhasdkjashjkdhaskjdh
+Content-Type: application/x-www-form-urlencoded
+Merchant-Serial-Number: 12345
+
+scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
+```
+
+### Requirements
+
+* The target client must be configured with `client_secret_basic` authentication.
+
+### Where can it be used?
+
+The request could be one of the following endpoints:
+
+* [Authentication request without redirect](#authentication-request) 
+* [Authentication request with redirect](#authentication-request-with-redirect).
+* [Token request](#token-request)
+
+The flows otherwise follows the guides as normal:
+
+* [Login without redirect](#integrating-with-vipps-login-from-phone-number)
+* [Login with redirect](#redirect-to-browser)
+
+### Merchant Serial Number (MSN)
+
+This is a unique id for the sale unit. This is a required parameter if you are a Vipps partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
+
+### Userinfo
+
+For fetching userinfo the token received during the login flow must be used.
 
 ## Questions?
 
