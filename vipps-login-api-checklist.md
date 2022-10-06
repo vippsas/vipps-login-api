@@ -7,6 +7,13 @@ END_METADATA -->
 
 # Vipps Login API Checklist
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
+
 API version: 2.0.
 
 Document version 2.0.1.

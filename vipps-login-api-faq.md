@@ -7,6 +7,13 @@ END_METADATA -->
 
 # Vipps Login API: Frequently Asked Questions
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
+
 See the [Vipps Login API](vipps-login-api.md) for all the details.
 
 See also:

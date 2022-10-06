@@ -7,6 +7,13 @@ END_METADATA -->
 
 # Quick start
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
+
 Use the Login API to confirm your identity through the log-in process.
 
 <!-- START_TOC -->

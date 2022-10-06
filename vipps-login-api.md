@@ -7,6 +7,13 @@ END_METADATA -->
 
 # Vipps Login API
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
+
 API version: 2.0
 
 Document version 4.0.10.
@@ -1059,7 +1066,7 @@ In all cases, a new login can be started by removing the parameter `requested_fl
 
 Vipps Login from phone number (CIBA flows) has been developed to support use cases where authentication/registration does not start in a browser or an app. These flows are described [here](#vipps-login-from-phone-number). They are based on the CIBA OIDC standard <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html>.
 
-Vipps Login from phone number is reserved for special cases and needs to be specially enabled by Vipps for eligible sale units. Instructions can be found at [Who can get access to Vipps Login from phone number and how](vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). 
+Vipps Login from phone number is reserved for special cases and needs to be specially enabled by Vipps for eligible sale units. Instructions can be found at [Who can get access to Vipps Login from phone number and how](vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how).
 
 A sale unit can be set up with both Vipps Login in browser and phone number (and QR-code) enabled, and it is required to use the same sale unit for all use cases to ensure that you, as a merchant, get the same user id ('sub') on the user across different scenarios. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
 
@@ -1680,7 +1687,7 @@ Users can revoke their consent to share data with merchants. This is done in the
 When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user to the webhook provided by the merchant.
 
 This service is optional for the merchant and can be used to trigger events on the merchant's side. I.e. the merchant can inform the user that they still have an account, can provide information on alternative login solutions or where the user should go if they would like to delete the data they have stored with the merchant.
-  
+
 **Content**  
 The webhook is sent as a `POST` with a `text/plain` body containing an unsigned Json Web Token ([JWT](https://jwt.io/)).  
 The JWT format was chosen to allow for the possibility to add signing on a later state, but as of now the JWT  is delivered unsigned with the algorithm set to none and is therefore no more secure than a regular json and should be handled as such.
@@ -1720,7 +1727,7 @@ Partner keys are currently only available for the Vipps Login from phone number 
 If you are a Vipps partner managing agreements on behalf of Vipps merchants, you can use your own API credentials to authenticate, and then send the `Merchant-Serial-Number` header to identify which of your merchants you are acting on behalf of. The `Merchant-Serial-Number` must be sent in the header of all API requests.
 
  Partners must fetch an access token to use as authentication.
- 
+
 ### Call guide
 
 1) Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
@@ -1746,7 +1753,7 @@ scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821
 
 The request could be one of the following endpoints:
 
-* [Authentication request without redirect](#authentication-request) 
+* [Authentication request without redirect](#authentication-request)
 * [Authentication request with redirect](#authentication-request-with-redirect).
 * [Token request](#token-request)
 

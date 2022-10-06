@@ -10,17 +10,17 @@ END_METADATA -->
 
 # Vipps Login API
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
+
 For information and to order the product go to:
 
 * [Product information in Norwegian](https://www.vipps.no/produkter-og-tjenester/bedrift/innlogging-og-identifisering/logg-inn-med-vipps/)
 * [Product FAQ in Norwegian](https://vipps.no/hjelp/vipps/vipps-logg-inn)
-
-<!-- START_COMMENT -->
-
-💥 Preview the new documentation pages here: <https://vippsas.github.io/vipps-developer-docs/>.
-See the disclaimer: <https://vippsas.github.io/vipps-developer-docs/docs/examples/>.
-
-<!-- END_COMMENT -->
 
 ## How it works
 

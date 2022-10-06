@@ -7,6 +7,13 @@ END_METADATA -->
 
 # Vipps Login in browser: How It Works
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
+
 Let your customers log in to your website or app without the need for user names and passwords.
 
 For technical documentation go to
