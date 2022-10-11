@@ -31,9 +31,9 @@ For information and to order the product go to:
 
 ## Getting started
 
-Review the
+See
 [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md)
-pages for information about API keys, product activation, contact information, etc.
+for information about API keys, product activation, how to make API calls, etc.
 
 
 ## Developer guide
