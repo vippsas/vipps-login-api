@@ -1,12 +1,48 @@
 {
 	"info": {
-		"_postman_id": "d04aa280-d7f8-444a-afc3-29a340065dcc",
+		"_postman_id": "f4e3418f-2d7c-4472-8458-41ecb4806bd0",
 		"name": "CIBA API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Init Auth",
+			"name": "Get OIDC well-known",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "780abb2d-0add-4105-b793-23292fd7c0ee",
+						"exec": [
+							"var uuid = require('uuid');",
+							"var url = require('url');",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"init_ciba_endpoint\", jsonData.backchannel_authentication_endpoint);",
+							"pm.environment.set(\"token_endpoint\", jsonData.token_endpoint);",
+							"pm.environment.set(\"userinfo_endpoint\", jsonData.userinfo_endpoint);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{well-known_uri}}",
+					"host": [
+						"{{well-known_uri}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Init CIBA Authentication",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -69,7 +105,7 @@
 						},
 						{
 							"key": "login_hint",
-							"value": "urn:mobilenumber:{{mobile_number}}",
+							"value": "urn:mobilenumber:{{mobileNumber}}",
 							"type": "text"
 						},
 						{
