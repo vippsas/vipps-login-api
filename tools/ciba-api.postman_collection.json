@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1e4d5008-8258-4e4f-aee4-95e4157f2ed3",
+		"_postman_id": "d04aa280-d7f8-444a-afc3-29a340065dcc",
 		"name": "CIBA API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -64,7 +64,7 @@
 					"urlencoded": [
 						{
 							"key": "scope",
-							"value": "name address openid phoneNumber birthDate nin",
+							"value": "name address openid phoneNumber birthDate",
 							"type": "text"
 						},
 						{
@@ -74,7 +74,7 @@
 						},
 						{
 							"key": "state",
-							"value": "dfsgdsfglkdgoieagndføsgdgldajsgøldksajglksadjklsga",
+							"value": "some-state-long-enough-to-ensure-sufficient-entropy",
 							"type": "text"
 						}
 					]
@@ -155,11 +155,6 @@
 							"key": "grant_type",
 							"value": "urn:openid:params:grant-type:ciba",
 							"type": "text"
-						},
-						{
-							"key": "Authorization",
-							"value": "Basic {{client_authorization}}",
-							"type": "text"
 						}
 					]
 				},
@@ -188,37 +183,15 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
 						"type": "text",
 						"value": "Bearer {{access_token}}"
-					},
-					{
-						"key": "Merchant-Serial-Number",
-						"type": "default",
-						"value": "{{merchantSerialNumber}}"
-					},
-					{
-						"key": "Vipps-System-Name",
-						"type": "default",
-						"value": "{{vipps_system_name}}"
-					},
-					{
-						"key": "Vipps-System-Version",
-						"type": "default",
-						"value": "{{vipps_system_version}}"
-					},
-					{
-						"key": "Vipps-System-Plugin-Name",
-						"type": "default",
-						"value": "{{vipps_system_plugin_name}}"
-					},
-					{
-						"key": "Vipps-System-Plugin-Version",
-						"type": "default",
-						"value": "{{vipps_system_plugin_version}}"
 					}
 				],
 				"url": {
