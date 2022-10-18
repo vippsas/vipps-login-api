@@ -1730,9 +1730,9 @@ If you are a Vipps partner managing agreements on behalf of Vipps merchants, you
 
 ### Call guide
 
-1) Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
-2) Use the access token in the `Authorization` header `Bearer access_token`
-3) Add the `Merchant-Serial-Number` header with the target merchant serial number
+1. Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
+2. Use the access token in the `Authorization` header `Bearer access_token`
+3. Add the `Merchant-Serial-Number` header with the target merchant serial number
 
 ### Example request
 
