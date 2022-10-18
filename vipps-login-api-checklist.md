@@ -16,7 +16,7 @@ END_METADATA -->
 
 API version: 2.0.
 
-Document version 2.0.1.
+Document version 2.0.2.
 
 ## Checklist
 
@@ -54,7 +54,8 @@ Document version 2.0.1.
 - [ ] Proper linking of the Vipps user to your own user registry is implemented.
       This login must be based on either phone number or e-mail address. See
       [recommendations on linking to user account](vipps-login-api.md#Recommendations-on-linking-to-user-account)
-- [ ] All API requests include the Vipps HTTP headers:
+- [ ] Send the [Vipps HTTP headers](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#vipps-http-headers)
+      in all API requests for better tracking and troubleshooting:
   - [ ] `Merchant-Serial-Number`
   - [ ] `Vipps-System-Name`
   - [ ] `Vipps-System-Version`
