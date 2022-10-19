@@ -25,9 +25,12 @@ Use the Login API to confirm your identity through the log-in process.
   * [Step 2: Import the Vipps Postman files](#step-2-import-the-vipps-postman-files)
   * [Step 3: Set up Postman environment](#step-3-set-up-postman-environment)
 * [Make API calls](#make-api-calls)
+  * [Make API calls for Vipps Login in Browser](#make-api-calls-for-vipps-login-in-browser)
+  * [Make API calls for Vipps Login from phone number (without redirect)](#make-api-calls-for-vipps-login-from-phone-number-without-redirect)
+  * [Make API calls for Vipps Login from phone number (with redirect)](#make-api-calls-for-vipps-login-from-phone-number-with-redirect)
 <!-- END_TOC -->
 
-Document version 1.1.1.
+Document version 2.0.0.
 
 ## Postman
 
@@ -59,37 +62,43 @@ Save the following files to your computer:
    * `client_id` - Merchant key is required for getting the access token.
    * `client_secret` - Merchant key is required for getting the access token.
    * `well-known_uri` - URL to well-known endpoint for used environment. In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>. See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
+
 #### Environment for Vipps Login in Browser
-   * `redirect_uri` - The URL where the user is sent after finishing a login. The URL must be exactly the same as the one specified on <https://portal.vipps.no> in the "Setup login" section for your sale unit. For testing, you could, for example, use <http://localhost> in both places.
+
+* `redirect_uri` - The URL where the user is sent after finishing a login. The URL must be exactly the same as the one specified on <https://portal.vipps.no> in the "Setup login" section for your sale unit. For testing, you could, for example, use <http://localhost> in both places.
 
 #### Environment for Vipps Login from phone number (CIBA)
-   * `mobileNumber` - Your 8 digit mobile number for your test version of Vipps
 
-## Make API calls for Vipps Login in Browser
+* `mobileNumber` - Your 8 digit mobile number for your test version of Vipps.
+
+## Make API calls
+
+### Make API calls for Vipps Login in Browser
 
 1. Send request `Get OIDC well-known`.
-1. In your active Postman environment, "vipps-login-api", copy the value of key `start_login_uri`, and use this URL in any browser.
+1. In your active Postman environment, copy the value of key `start_login_uri`, and use this URL in any browser.
 1. Finish Vipps login. This request includes a scope parameter that requests access to user information. This means that if you have not yet consented to sharing your user information, a distinct screen asking for your consent will appear the first time.
 1. Copy the query param `code` from the URL that the browser was redirected to after finishing Vipps Login. Paste this code into the key `code` in the active Postman environment.
 1. Send request `Get token` to get the access token and id token.
 1. Send request `Get user info` to get user info of the logged-in user.
 
-## Make API calls for Vipps Login from phone number (without redirect)
-1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests
-2. Send request to `Init CIBA no-redirect`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request
-3. Authenticate in Vipps app and approve login request.
-4. Send request to `Token no-redirect` endpoint. This will populate the environment variable `access_token` used for the subsequent request. 
-5. Send request to `Get user info`. This will use the token from (4) to obtain the userinfo of the logged-in user
+### Make API calls for Vipps Login from phone number (without redirect)
 
-## Make API calls for Vipps Login from phone number (with redirect)
+1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests.
+2. Send request to `Init CIBA no-redirect`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
+3. Authenticate in Vipps app and approve the login request.
+4. Send request to `Token no-redirect` endpoint. This will populate the environment variable `access_token` used for the subsequent request.
+5. Send request to `Get user info`. This will use the token from (4) to obtain the userinfo of the logged-in user.
+
+### Make API calls for Vipps Login from phone number (with redirect)
+
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests
-1. Submit the `Init CIBA redirect`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment. 
-1. Authenticate in Vipps app and approve login request. You will now be redirected back to the `redirect_uri`, (default http://localhost) with a `code` query parameter after successful authentication
+1. Submit the `Init CIBA redirect`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment.
+1. Authenticate in Vipps app and approve login request. You will now be redirected back to the `redirect_uri`, (default <http://localhost>) with a `code` query parameter after successful authentication
 1. Copy/take note of the `code` parameter in the query string on the redirect_uri that you were returned to in the above step. This code has 300s time-to-live in test environment and 30s time-to-live in production environment.
-1. Set the value of the `code` parameter in the body of the `Token redirect` request to the code you obtained in step 5
+1. Set the value of the `code` parameter in the body of the `Token redirect` request to the code you obtained in step 5.
 1. Submit the  `Token redirect` request. This will populate the environment variable `access_token` used for the subsequent request.
-1. Send request to `Get user info`. This will use the token from (6) to obtain the userinfo of the logged-in user
-
+1. Send request to `Get user info`. This will use the token from (6) to obtain the user info of the logged-in user.
 
 See the
 [API reference](https://vippsas.github.io/vipps-developer-docs/api/login)
