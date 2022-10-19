@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "f4e3418f-2d7c-4472-8458-41ecb4806bd0",
 		"name": "CIBA API",
+		"description": "This collection contains requests for the flow Vipps Login from phone number aka CIBA (client initiated backchannel authentication)\n\nThe Init and Token requests comes in two flavours: \n\n- With redirect: Use this flow if you want to fetch user's information without redirecting to a webpage where the user can be logged in \n\n- Without redirect: Use this flow if you want to redirect the user to your website website to complete registration",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -42,7 +43,7 @@
 			"response": []
 		},
 		{
-			"name": "Init CIBA Authentication",
+			"name": "Init CIBA no-redirect",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -85,14 +86,14 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Basic {{client_authorization}}",
-						"type": "text"
+						"type": "text",
+						"value": "Basic {{client_authorization}}"
 					},
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
 					}
 				],
 				"body": {
@@ -112,6 +113,11 @@
 							"key": "state",
 							"value": "some-state-long-enough-to-ensure-sufficient-entropy",
 							"type": "text"
+						},
+						{
+							"key": "binding_message",
+							"value": "XYZ-123",
+							"type": "text"
 						}
 					]
 				},
@@ -120,12 +126,13 @@
 					"host": [
 						"{{init_ciba_endpoint}}"
 					]
-				}
+				},
+				"description": "Use this request to initate a Vipps Login from phone number aka CIBA login without redirect. In this flow the token endpoint needs to be polled with the auth_req_id from the merchant's backend system"
 			},
 			"response": []
 		},
 		{
-			"name": "Token",
+			"name": "Token no-redirect",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -200,6 +207,190 @@
 						"{{token_endpoint}}"
 					]
 				},
+				"description": "Fetch the access token after the user has authenticated. Use this request to initate a Vipps Login from phone number aka CIBA login without redirect. "
+			},
+			"response": []
+		},
+		{
+			"name": "Init CIBA redirect",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "aaf2f294-450b-4f19-a846-1448a127b6fd",
+						"exec": [
+							"var client_id = pm.environment.get(\"client_id\");",
+							"var client_secret = pm.environment.get(\"client_secret\");",
+							"",
+							"var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + \":\" + client_secret);",
+							"var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);",
+							"",
+							"pm.environment.set(\"client_authorization\", client_authorization);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b51f048f-f3eb-4a8f-b8ad-2b1985756022",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var auth_req_id = pm.response.json().auth_req_id;",
+							"",
+							"pm.environment.set(\"auth_req_id\", auth_req_id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{client_authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "name address openid phoneNumber birthDate",
+							"type": "text"
+						},
+						{
+							"key": "login_hint",
+							"value": "urn:mobilenumber:{{mobileNumber}}",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "some-state-long-enough-to-ensure-sufficient-entropy",
+							"type": "text"
+						},
+						{
+							"key": "binding_message",
+							"value": "XYZ-123",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost",
+							"type": "text"
+						},
+						{
+							"key": "requested_flow",
+							"value": "login_to_webpage",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{init_ciba_endpoint}}",
+					"host": [
+						"{{init_ciba_endpoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token redirect",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c81696a6-4f98-4766-972e-7c15bcbe2973",
+						"exec": [
+							"var client_id = pm.environment.get(\"client_id\");",
+							"var client_secret = pm.environment.get(\"client_secret\");",
+							"",
+							"var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + \":\" + client_secret);",
+							"var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);",
+							"",
+							"pm.environment.set(\"client_authorization\", client_authorization);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "921af772-ea70-4245-9f56-b322495dcf80",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var access_token = pm.response.json().access_token;",
+							"",
+							"pm.environment.set(\"access_token\", access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic {{client_authorization}}",
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman."
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "auth_req_id",
+							"value": "{{auth_req_id}}",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "urn:vipps:params:grant-type:ciba-redirect",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "",
+							"description": "Copy the code parameter from the redirect here",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{token_endpoint}}",
+					"host": [
+						"{{token_endpoint}}"
+					]
+				},
 				"description": "Fetch the access token after the user has authenticated"
 			},
 			"response": []
@@ -238,6 +429,28 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "96867c46-6fc3-4606-876b-04f61a477c51",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "db9175c0-056e-46d4-acb8-349d4325c249",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}
