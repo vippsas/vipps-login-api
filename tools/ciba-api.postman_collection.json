@@ -368,11 +368,6 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "auth_req_id",
-							"value": "{{auth_req_id}}",
-							"type": "text"
-						},
-						{
 							"key": "grant_type",
 							"value": "urn:vipps:params:grant-type:ciba-redirect",
 							"type": "text"
