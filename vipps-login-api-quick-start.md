@@ -88,7 +88,7 @@ Save the following files to your computer:
 1. Copy/take note of the `code` parameter in the query string on the redirect_uri that you were returned to in the above step. This code has 300s time-to-live in test environment and 30s time-to-live in production environment.
 1. Set the value of the `code` parameter in the body of the `Token redirect` request to the code you obtained in step 5
 1. Submit the  `Token redirect` request. This will populate the environment variable `access_token` used for the subsequent request.
-1. Send request to `Get user info`. This will use the token from (4) to obtain the userinfo of the logged-in user
+1. Send request to `Get user info`. This will use the token from (6) to obtain the userinfo of the logged-in user
 
 
 See the
