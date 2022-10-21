@@ -390,7 +390,7 @@
 								"{{init_ciba_endpoint}}"
 							]
 						},
-						"description": "Use this request to initate a Vipps Login from phone number aka CIBA login without redirect. In this flow the token endpoint needs to be polled with the auth_req_id from the merchant's backend system"
+						"description": "Use this request to initiate a Vipps Login from phone number aka CIBA login without redirect. In this flow the token endpoint needs to be polled with the auth_req_id from the merchant's backend system"
 					},
 					"response": []
 				},
@@ -470,7 +470,7 @@
 								"{{token_endpoint}}"
 							]
 						},
-						"description": "Fetch the access token after the user has authenticated. Use this request to initate a Vipps Login from phone number aka CIBA login without redirect. "
+						"description": "Fetch the access token after the user has authenticated. Use this request to initiate a Vipps Login from phone number aka CIBA login without redirect. "
 					},
 					"response": []
 				}
