@@ -494,6 +494,7 @@
 							"var jsonData = pm.response.json();",
 							"pm.environment.set(\"token_endpoint\", jsonData.token_endpoint);",
 							"pm.environment.set(\"userinfo_endpoint\", jsonData.userinfo_endpoint);",
+							"pm.environment.set(\"init_ciba_endpoint\", jsonData.backchannel_authentication_endpoint);",
 							"",
 							"var start_login_uri = ",
 							"    jsonData.authorization_endpoint ",
