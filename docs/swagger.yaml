@@ -58,9 +58,13 @@ paths:
               properties:
                 grant_type:
                   type: string
-                  example: 
+                  example: authorization_code
+                  description: Value MUST be authorization_code.
                 code:
                   type: string
+                  example: RkVyljMpecv-2Yxc2dzAh8lEtXvkhJAcHNfbkf8CEh4.pt5pTqDgWk8lik-LHuAE2yQGBganPsSa04JkNnSbsaN
+                  description: >-
+                    The authorization code received from the authorization server as a query param on the redirect_uri.
                 redirect_uri:
                   type: string
                   example: 'https://example.com/vipps-login-result-page'
