@@ -1869,8 +1869,8 @@ curl -X POST https://apitest.vipps.no/access-management-1.0/access/oauth2/token 
 
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">&#x27;{
-  &quot;grant_type&quot;: null,
-  &quot;code&quot;: &quot;string&quot;,
+  &quot;grant_type&quot;: &quot;authorization_code&quot;,
+  &quot;code&quot;: &quot;RkVyljMpecv-2Yxc2dzAh8lEtXvkhJAcHNfbkf8CEh4.pt5pTqDgWk8lik-LHuAE2yQGBganPsSa04JkNnSbsaN&quot;,
   &quot;redirect_uri&quot;: &quot;https://example.com/vipps-login-result-page&quot;,
   &quot;client_id&quot;: &quot;string&quot;
 }&#x27;</span>;
@@ -1988,8 +1988,8 @@ To learn more about this endpoint please refer to the specification at <a href="
 <blockquote>
 <p>Body parameter</p>
 </blockquote>
-<pre class="highlight tab tab-yaml"><code><span class="hljs-attr">grant_type:</span> <span class="hljs-literal">null</span>
-<span class="hljs-attr">code:</span> <span class="hljs-string">string</span>
+<pre class="highlight tab tab-yaml"><code><span class="hljs-attr">grant_type:</span> <span class="hljs-string">authorization_code</span>
+<span class="hljs-attr">code:</span> <span class="hljs-string">RkVyljMpecv-2Yxc2dzAh8lEtXvkhJAcHNfbkf8CEh4.pt5pTqDgWk8lik-LHuAE2yQGBganPsSa04JkNnSbsaN</span>
 <span class="hljs-attr">redirect_uri:</span> <span class="hljs-string">https://example.com/vipps-login-result-page</span>
 <span class="hljs-attr">client_id:</span> <span class="hljs-string">string</span>
 
@@ -2018,14 +2018,14 @@ To learn more about this endpoint please refer to the specification at <a href="
 <td>body</td>
 <td>string</td>
 <td>true</td>
-<td>none</td>
+<td>Value MUST be authorization_code.</td>
 </tr>
 <tr>
 <td>» code</td>
 <td>body</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
+<td>The authorization code received from the authorization server as a query param on the redirect_uri.</td>
 </tr>
 <tr>
 <td>» redirect_uri</td>
