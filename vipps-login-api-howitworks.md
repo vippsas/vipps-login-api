@@ -87,4 +87,4 @@ Take a look at the technical documentation in the [Vipps Login API Guide](vipps-
 We're always happy to help with code or other questions you might have!
 Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
 a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
-or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
+or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).

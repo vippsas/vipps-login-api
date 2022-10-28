@@ -137,7 +137,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 [**Vipps Login from QR-code**](#vipps-login-from-qr-code) is a new flow that we will gradually roll out support for. Our [How It Works page](vipps-login-from-QR-api-howitworks.md) shows the flow.
 
-See our [developer section](https://github.com/vippsas/vipps-developers/blob/master/vipps-test-environment.md#vipps-test-apps) for information about our test environment, test apps and test users.
+See our [developer section](https://github.com/vippsas/vipps-developers/blob/master/developer-resources/test-environment.md#vipps-test-apps) for information about our test environment, test apps and test users.
 
 ### Activation
 
@@ -1783,9 +1783,9 @@ For more information and to order the product go to:
 We're always happy to help with code or other questions you might have!
 Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
 a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
-or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
+or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
 
-Sign up for our [Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters).
+Sign up for our [Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).
 
 
 [login-wellknown-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/wellKnown
