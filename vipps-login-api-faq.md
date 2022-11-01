@@ -298,7 +298,9 @@ used for preventing cross-site request forgery.
 
 ## Can I use partner keys for Vipps login?
 
-No, Vipps login do not support partner keys. Each merchant has it own
+Partner keys are currently only available for the Vipps Login from phone number flows.
+
+For other scenarios, Vipps login does not support partner keys. Each merchant has it own
 individual 'client id' and 'client secret' and need to share this with the
 partner if required.
 

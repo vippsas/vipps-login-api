@@ -1718,15 +1718,16 @@ Payload
 
 ## Partner keys
 
-In addition to the normal Authentication, we offer partner keys which lets a partner make API calls on behalf of a merchant.
+In addition to the normal Authentication, we offer [Partner keys](https://github.com/vippsas/vipps-partner/blob/main/partner-keys.md) which lets a partner make API calls on behalf of a merchant.
 
 Partner keys are currently only available for the Vipps Login from phone number flows:
+
 * [Regular](#integrating-with-vipps-login-from-phone-number)
 * [Redirect to browser](#redirect-to-browser)
 
 If you are a Vipps partner managing agreements on behalf of Vipps merchants, you can use your own API credentials to authenticate, and then send the `Merchant-Serial-Number` header to identify which of your merchants you are acting on behalf of. The `Merchant-Serial-Number` must be sent in the header of all API requests.
 
- Partners must fetch an access token to use as authentication.
+Partners must fetch an access token to use as authentication.
 
 ### Call guide
 
