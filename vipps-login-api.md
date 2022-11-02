@@ -772,8 +772,7 @@ Example response:
 
 ##### JSON Web Keys Discovery
 
-This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and if enabled,
-OAuth 2.0 JWT Access Tokens.
+This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens.
 
 **Request**
 
