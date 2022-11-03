@@ -185,6 +185,10 @@ Which of the flows to use is controlled with the initiation of the individual lo
 
 The flows are described below.
 
+See
+[Vipps landing page](https://github.com/vippsas/vipps-developers/blob/master/common-topics/vipps-landing-page.md)
+from Common topics, for more details about the landing page.
+
 ##### App to app flow
 
 This flow is designed to be used with apps. It requires that the app initiate Vipps Login in an external browser that is opened within the app, see [specification](#using-vipps-login-in-native-applications). In this flow the merchant need to specify the app URI where the user will be returned after completing the confirmation in the Vipps app.
