@@ -698,6 +698,10 @@ This endpoint returns the payload with the information that the user has consent
 the OAuth 2.0 access token.
 You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
 
+See
+[User information](https://github.com/vippsas/vipps-developers/blob/master/common-topics/userinfo.md)
+in the Common topics to learn about scope and consent.
+
 **Request**
 
 _Headers_
@@ -710,65 +714,9 @@ The access token is received on a successful request to the [token endpoint](#oa
 
 [`GET:/vipps-userinfo-api/userinfo`][userinfo-endpoint]
 
-**Response**
-
-Overview
-
-| HTTP status             | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| `200 OK`                | Request successful.                                     |
-| `401 Unauthorized`      | Invalid credentials.                                    |
-| `500 Server Error`      | An internal Vipps problem.                              |
-
-Example response:
-
-```json
-{
-    "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944",
-    "birthdate": "1815-12-10",
-    "email": "user@example.com",
-    "email_verified": true,
-    "nin": "10121550047",
-    "name": "Ada Lovelace",
-    "given_name": "Ada",
-    "family_name": "Lovelace",
-    "sid": "7d78a726-af92-499e-b857-de263ef9a969",
-    "phone_number": "4712345678",
-    "address": {
-        "street_address": "Suburbia 23",
-        "postal_code": "2101",
-        "region": "OSLO",
-        "country": "NO",
-        "formatted": "Suburbia 23\\n2101 OSLO\\nNO",
-        "address_type": "home"
-    },
-    "other_addresses": [
-        {
-            "street_address": "Fancy Office Street 2",
-            "postal_code": "0218",
-            "region": "OSLO",
-            "country": "NO",
-            "formatted": "Fancy Office Street 2\\n0218 OSLO\\nNO",
-            "address_type": "work"
-        },
-        {
-            "street_address": "Summer House Lane 14",
-            "postal_code": "1452",
-            "region": "OSLO",
-            "country": "NO",
-            "formatted": "Summer House Lane 14\\n1452 OSLO\\nNO",
-            "address_type": "other"
-        }
-    ],
-    "accounts": [
-        {
-            "account_name": "My savings",
-            "account_number": "12064590675",
-            "bank_name": "My bank"
-        }
-    ]
-}
-```
+See
+[User information](https://github.com/vippsas/vipps-developers/blob/master/common-topics/userinfo.md)
+in the Common topics for examples.
 
 ##### JSON Web Keys Discovery
 
