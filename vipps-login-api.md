@@ -1458,7 +1458,7 @@ To use Vipps Login from QR Code you first need to [activate Vipps Login](vipps-l
 * Name of invoice recipient/approver
 * E-mail address we can send the invoice to, if necessary
 
-We currently don't have any self-service functionality on QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
+We don't yet have any self-service functionality on QR codes in our merchant portal, so for the integration to work, we will also need you to submit some technical details on how you plan to integrate the QR flow:
 
 * Should the QR code redirect the user back to your website? In that case, you need to send us a `redirect uri`. We can redirect the users back to your website after they have authenticated and consented in the Vipps app.
 * Should the QR code flow end in the Vipps app? In that case, you need to send us a `callback uri` that we can use to ping your backend service when the user has authenticated and consented in the Vipps app.
