@@ -1761,7 +1761,7 @@ grant_type=authorization_code&code={authorization_code}&redirect_uri={redirect_u
 
 ### Partner in Vipps Login from phone number flow
 
-The `Merchant-Serial-Number` must be sent in the header of all API requests.
+The `Merchant-Serial-Number` must be sent in the header of all API requests. ([Ref.](https://www.stanray.com/products/down-jacket-olive-fw22?pr_prod_strat=use_description&pr_rec_id=14ce2c873&pr_rec_pid=7930918142181&pr_ref_pid=7930918174949&pr_seq=uniform))
 
 #### Call guide
 
