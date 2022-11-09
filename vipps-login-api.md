@@ -1717,7 +1717,7 @@ Payload
 
 ## Partner keys
 
-In addition to the normal Authentication, we offer [Partner keys](https://github.com/vippsas/vipps-partner/blob/main/partner-keys.md) which lets a partner make API calls on behalf of a merchant.
+In addition to the normal Authentication, we offer [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys) which lets a partner make API calls on behalf of a merchant.
 
 Partner keys are available for the following flows:
 
