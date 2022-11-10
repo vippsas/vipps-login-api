@@ -1458,7 +1458,7 @@ To use Vipps Login from QR Code you first need to [activate Vipps Login](vipps-l
 * Name of invoice recipient/approver
 * E-mail address we can send the invoice to, if necessary
 
-We currently don't have any self service functionality on QR codes in our merchant portal (yet), so for the integration to work we will also need you to submit some technical details on how you plan to integrate the QR flow:
+We don't yet have any self-service functionality on QR codes in our merchant portal, so for the integration to work, we will also need you to submit some technical details on how you plan to integrate the QR flow:
 
 * Should the QR code redirect the user back to your website? In that case, you need to send us a `redirect uri`. We can redirect the users back to your website after they have authenticated and consented in the Vipps app.
 * Should the QR code flow end in the Vipps app? In that case, you need to send us a `callback uri` that we can use to ping your backend service when the user has authenticated and consented in the Vipps app.
@@ -1490,7 +1490,7 @@ Steps:
        "auth_req_id": "6tw7GmfPQRcWuydzlAwrUakpEEw",
        "iss": "https://api.vipps.no/access-management-1.0/access/",
        "exp": 1643981298,
-       "iat": 1643980998,
+       "iat": 1643980998
    }
    ```
 
@@ -1622,7 +1622,7 @@ Steps:
        "id_token": "eyJraWQiOiJwdWJsaWM6ZWUzNmQzZjUtMzkzNC00MDI5LTkyNmYtNzdmYTY1YmYwYjRiIiwiYWxnIjoiRVMyNTYifQ.eyJhdWQiOiJlZGRkYjMyZi01MDI4LTQzOTctYjBhYi1lOGVjZjIxOGZkYzIiLCJzdWIiOiI1MTY4ZWUwNi04NzFlLTQ2ZTYtOTQxZS0wMTAzYjk1NzA0OGUiLCJhdXRoUmVxSWQiOiI3QnpBWS1TYlZRSjM4Vi1VMEM3WjZrMjNfQ1kiLCJpc3MiOiJodHRwczpcL1wvZWNlNDZlYzQtNmY5Yy00ODliLThmZTUtMTQ2YTg5ZTExNjM1LnRlY2gtMDIubmV0XC9hY2Nlc3MtbWFuYWdlbWVudC0xLjBcL2FjY2Vzc1wvIiwiZXhwIjoxNjQzMTc5ODM3LCJpYXQiOjE2NDMxNzkyMzd9.iFvmdtRQVliAe91dBu_CZDfBD5I7WCbDTiDQxu4sOTApXFPb5EsSuEBEVfK_-14E7xjcfQLSMa6ZO06YvhRHAA",
        "expires_in": 3599,
          "scope": "openid",
-         "token_type": "bearer",
+         "token_type": "bearer"
     }
     ```
 
@@ -1717,24 +1717,59 @@ Payload
 
 ## Partner keys
 
-In addition to the normal Authentication, we offer [Partner keys](https://github.com/vippsas/vipps-partner/blob/main/partner-keys.md) which lets a partner make API calls on behalf of a merchant.
+In addition to the normal Authentication, we offer [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys) which lets a partner make API calls on behalf of a merchant.
 
-Partner keys are currently only available for the Vipps Login from phone number flows:
+Partner keys are available for the following flows:
 
-* [Regular](#integrating-with-vipps-login-from-phone-number)
-* [Redirect to browser](#redirect-to-browser)
+* [Vipps Login in browser](#vipps-login-in-browser)
+* Vipps Login from phone number
+  * [Regular](#integrating-with-vipps-login-from-phone-number)
+  * [Redirect to browser](#redirect-to-browser)
 
-If you are a Vipps partner managing agreements on behalf of Vipps merchants, you can use your own API credentials to authenticate, and then send the `Merchant-Serial-Number` header to identify which of your merchants you are acting on behalf of. The `Merchant-Serial-Number` must be sent in the header of all API requests.
+If you are a Vipps partner managing agreements on behalf of Vipps merchants, you can use your own API credentials to authenticate, and then send the Merchant Serial Number (MSN) to identify which of your merchants you are acting on behalf of.
+
+Browser and phone number flows have minor differences and are described in more detail further down.
 
 Partners must fetch an access token to use as authentication.
 
-### Call guide
+### Partner key in the browser flow
+
+#### Authorization endpoint
+
+To initiate a login as partner, send Merchant Serial Number as a `msn` query parameter instead of `client_id`.
+
+```http request
+GET https://api.vipps.no/access-management-1.0/access/oauth2/auth?msn={Merchant-Serial-Number}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}
+```
+
+#### Token endpoint
 
 1. Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
 2. Use the access token in the `Authorization` header `Bearer access_token`
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number
 
-### Example request
+**Example request:**
+
+```http request
+POST https://api.vipps.no/access-management-1.0/access/oauth2/token
+Authorization: Bearer askdjhasdkjashjkdhaskjdh
+Content-Type: application/x-www-form-urlencoded
+Merchant-Serial-Number: 12345
+
+grant_type=authorization_code&code={authorization_code}&redirect_uri={redirect_uri}
+```
+
+### Partner in Vipps Login from phone number flow
+
+The `Merchant-Serial-Number` must be sent in the header of all API requests. ([Ref.](https://www.stanray.com/products/down-jacket-olive-fw22?pr_prod_strat=use_description&pr_rec_id=14ce2c873&pr_rec_pid=7930918142181&pr_ref_pid=7930918174949&pr_seq=uniform))
+
+#### Call guide
+
+1. Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
+2. Use the access token in the `Authorization` header `Bearer access_token`
+3. Add the `Merchant-Serial-Number` header with the target merchant serial number
+
+#### Example request
 
 ```http request
 POST https://api.vipps.no/vipps-login-ciba/api/backchannel/authentication
@@ -1744,12 +1779,6 @@ Merchant-Serial-Number: 12345
 
 scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
 ```
-
-### Requirements
-
-* The target client must be configured with `client_secret_basic` authentication.
-
-### Where can it be used?
 
 The request could be one of the following endpoints:
 
@@ -1761,6 +1790,10 @@ The flows otherwise follows the guides as normal:
 
 * [Login without redirect](#integrating-with-vipps-login-from-phone-number)
 * [Login with redirect](#redirect-to-browser)
+
+### Requirements
+
+* The target client must be configured with `client_secret_basic` authentication.
 
 ### Merchant Serial Number (MSN)
 
