@@ -14,28 +14,30 @@ END_METADATA -->
 
 <!-- END_COMMENT -->
 
+Here are the Login API FAQs.
 See the [Vipps Login API](vipps-login-api.md) for all the details.
 
-See also:
-[Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md).
+For more common Vipps questions, see:
+
+* [Vipps API General FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/)
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.3.6.
+Document version 2.3.7.
 
 <!-- START_TOC -->
 
 ## Table of contents
 
-* [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-clientid-and-clientsecret)
+* [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-client_id-and-client_secret)
 * [How can I activate and set up Vipps Login?](#how-can-i-activate-and-set-up-vipps-login)
 * [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
 * [How can I change my name and logo?](#how-can-i-change-my-name-and-logo)
-* [How can I use `client_secret_post` for authentication?](#how-can-i-use-clientsecretpost-for-authentication)
-* [Why do I get `Error: invalid_client`?](#why-do-i-get-error-invalidclient)
+* [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
+* [Why do I get `Error: invalid_client`?](#why-do-i-get-error-invalid_client)
 * [Why do I get `Error: Could not get Vipps Login token” in Vipps`?](#why-do-i-get-error-could-not-get-vipps-login-token-in-vipps)
-* [Which scopes can I use? Why do I get `Invalid_scope`?](#which-scopes-can-i-use-why-do-i-get-invalidscope)
+* [Which scopes can I use? Why do I get `Invalid_scope`?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 * [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
 * [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
 * [Can a Vipps user less than 15 years old use Vipps Login?](#can-a-vipps-user-less-than-15-years-old-use-vipps-login)
@@ -51,7 +53,7 @@ Document version 2.3.6.
 * [Which configuration should I have when integrating using Azure B2C?](#which-configuration-should-i-have-when-integrating-using-azure-b2c)
 * [How can we detect users' consent removal?](#how-can-we-detect-users-consent-removal)
 * [Can we have multiple URIs as landing pages?](#can-we-have-multiple-uris-as-landing-pages)
-* [Can I use a custom URL scheme for the `redirect_url`?](#can-i-use-a-custom-url-scheme-for-the-redirecturl)
+* [Can I use a custom URL scheme for the `redirect_url`?](#can-i-use-a-custom-url-scheme-for-the-redirect_url)
 * [Can we change the name that appears in customer's Vipps app under `Login and Access`?](#can-we-change-the-name-that-appears-in-customers-vipps-app-under-login-and-access)
 * [How can I log out a user?](#how-can-i-log-out-a-user)
 * [Common errors](#common-errors)
@@ -132,10 +134,10 @@ screen where you both can update your name and ad your logo:
 
 ![By clicking "Rediger" next to the "Visning i appen" heading you will come to a screen where you both can update your name and ad you logo:](images/Sales_unit_change_name_and_logo.png)
 
-Currently this logo is not use for Vipps Login but soon it will be shown in the
+Currently, this logo is not use for Vipps Login but soon it will be shown in the
 overview of consents given.
 
-Unfortunately you can not change the name used for the test environment.
+Unfortunately you cannot change the name used for the test environment.
 
 ## How can I use `client_secret_post` for authentication?
 
@@ -439,6 +441,10 @@ If a user wants to log out of a specific browser remembered in Vipps Login, they
 `Profile->Personal Information->Browsers that remember you`, select a browser and press the logout button.
 
 ## Common errors
+
+See
+[FAQ: Common errors](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/common-errors-faq)
+for more questions.
 
 ### Why do I get `The client or its related sale unit or merchant does not exist or is not active`?
 
