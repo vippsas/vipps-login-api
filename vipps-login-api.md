@@ -1794,7 +1794,7 @@ The flows otherwise follows the guides as normal:
 
 ### ID token validation
 
-While acting as a partner on behalf of a merchant, you do not have access to this merchant's `client_id`, which is used for [ID token validation](#id-token).
+When acting as a partner on behalf of a merchant's sale unit, you do not have access to the merchant's `client_id`, which is used for [ID token validation](#id-token).
 We strongly encourage partners to use the `msn` claim in the ID token for this purpose and ensure that its value is the same as the Merchant serial number used for the login.
 
 ### Requirements
