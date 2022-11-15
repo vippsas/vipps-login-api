@@ -77,9 +77,9 @@ Document version 4.0.10.
     * [Call by call](#call-by-call)
     * [Authentication Request](#authentication-request)
       * [Authentication](#authentication)
-      * [The `login_hint` parameter (required)](#the-loginhint-parameter-required)
+      * [The `login_hint` parameter (required)](#the-login_hint-parameter-required)
       * [The `scope` parameter (required)](#the-scope-parameter-required)
-      * [The `binding_message` parameter (optional)](#the-bindingmessage-parameter-optional)
+      * [The `binding_message` parameter (optional)](#the-binding_message-parameter-optional)
       * [Format](#format)
       * [Error responses](#error-responses)
       * [Successful responses](#successful-responses)
@@ -92,10 +92,10 @@ Document version 4.0.10.
     * [Call by call](#call-by-call)
     * [Authentication Request With Redirect](#authentication-request-with-redirect)
       * [Authentication](#authentication-1)
-      * [The `login_hint` parameter (required)](#the-loginhint-parameter-required-1)
+      * [The `login_hint` parameter (required)](#the-login_hint-parameter-required-1)
       * [The `scope` parameter (required)](#the-scope-parameter-required)
-      * [The `binding_message` parameter (optional)](#the-bindingmessage-parameter-optional)
-      * [The `redirect_uri` parameter (required)](#the-redirecturi-parameter-required)
+      * [The `binding_message` parameter (optional)](#the-binding_message-parameter-optional-1)
+      * [The `redirect_uri` parameter (required)](#the-redirect_uri-parameter-required)
       * [Error responses](#error-responses)
 * [Integrating with Vipps Login from QR code](#integrating-with-vipps-login-from-qr-code)
   * [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
@@ -392,7 +392,7 @@ Vipps Login currently supports the following scopes:
 | Scopes      | Description                                    | User consent required  |
 | ------------| -----------------------------------------------|-------- |
 | openid      | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.              |   no    |
-| address     | User can have up to three addresses in Vipps: home, work and other. Users' addresses are given as claims 'address' and 'other_addresses'. The claim 'address' returns the address set as 'default' for the Vipps user. And the claim 'other_addresses' returns all other addresses of the end user, if any.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context. Some users will not have any registered address, in these situations the claim 'address' will be delivered, but the sub claims in address will be empty strings, e.i. "address" : {"country" : "", "street_address" : "", "address_type" : "", "formatted" : "", "postal_code" : "", "region" : "" } . If a user has information in the «Unit, floor or other details» field this will be included in the "street_address" respons. The «Street address» will then be presented first before "\n" and then the contents from «Unit, floor or other details», e.g: "Suburbia 23"\nUnit B5"|   yes   |
+| address     | User can have up to three addresses in Vipps: home, work and other. Users' addresses are given as claims 'address' and 'other_addresses'. The claim 'address' returns the address set as 'default' for the Vipps user. And the claim 'other_addresses' returns all other addresses of the end user, if any.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context. Some users will not have any registered address, in these situations the claim 'address' will be delivered, but the sub claims in address will be empty strings, e.i. "address" : {"country" : "", "street_address" : "", "address_type" : "", "formatted" : "", "postal_code" : "", "region" : "" } . If a user has information in the «Unit, floor or other details» field this will be included in the "street_address" response. The «Street address» will then be presented first before "\n" and then the contents from «Unit, floor or other details», e.g: "Suburbia 23"\nUnit B5"|   yes   |
 | birthDate   | User birth date (verified with National Population Register)                               |   yes   |
 | email       | User email (verified), the flag "email_verified : true" in the response can be used by merchant to confirm for each request that the email actually is verified                                   |   yes   |
 | name        | User first, middle and given name (verified with National Population Register)              |   yes   |
@@ -903,7 +903,7 @@ and the users information, is shown below:
 
 ### Using Vipps Login in native applications
 
-Web-views should not be used when using Vipps Login in a native application. Instead, the user should be redirected using an external browser openend by/within the app.
+Web views should not be used when using Vipps Login in a native application. Instead, the user should be redirected using an external browser opened by or within the app.
 
 Android: Use [Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) or fallback to open external browser on user's device.
 
@@ -1119,7 +1119,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
     [Information about polling](#polling). Note that the polling interval should adhere to the `interval` response parameter (in seconds) returned in step 1.
 
-    For other details about the request see [Token request](#token-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlrfcsection101).
+    For other details about the request, see [Token request](#token-request).
 
     Example request:
 
@@ -1256,7 +1256,7 @@ The responses from this endpoint is according to the standard.
 ##### Polling
 
 * Long polling as described in [the CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#token_request) is currently not supported
-* Remember not to poll more often than indicated by the `interval` parameter returned from the [authentication request](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request).
+* Remember not to poll more often than indicated by the `interval` parameter, returned from the [authentication request](#authentication-request).
 
 #### Error responses
 
