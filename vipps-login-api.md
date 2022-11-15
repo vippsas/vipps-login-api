@@ -1119,7 +1119,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
     [Information about polling](#polling). Note that the polling interval should adhere to the `interval` response parameter (in seconds) returned in step 1.
 
-    For other details about the request see [Token request](#token-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlrfcsection101).
+    For other details about the request, see [Token request](#token-request).
 
     Example request:
 
@@ -1256,7 +1256,7 @@ The responses from this endpoint is according to the standard.
 ##### Polling
 
 * Long polling as described in [the CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#token_request) is currently not supported
-* Remember not to poll more often than indicated by the `interval` parameter returned from the [authentication request](#authentication-request-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request).
+* Remember not to poll more often than indicated by the `interval` parameter, returned from the [authentication request](#authentication-request).
 
 #### Error responses
 
