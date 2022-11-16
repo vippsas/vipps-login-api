@@ -282,7 +282,7 @@ You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connec
 
 **Request**
 
-[`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-login-api/#/public/discoverOpenIDConfiguration)
+[`GET:/.well-known/openid-configuration`](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration)
 
 **Response**
 
@@ -368,10 +368,10 @@ Example response from the merchant test environment:
 
 | Operation                 | Description         | Endpoints |
 | ------------------------- | ------------------- | ------------------ |
-| [OAuth 2.0 Authorize](#oauth-20-authorize)            | Start an OAuth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth) |
-| [OAuth 2.0 Token](#oauth-20-token)                    | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token) |
-| [Userinfo](#userinfo)                                 | Returns information that the user has consented to share. | [`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo) |
-| [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown) |
+| [OAuth 2.0 Authorize](#oauth-20-authorize)            | Start an OAuth 2.0 authorization. | [`GET:/oauth2/auth`](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauth2Token) |
+| [OAuth 2.0 Token](#oauth-20-token)                    | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauth2Token) |
+| [Userinfo](#userinfo)                                 | Returns information that the user has consented to share. | [`GET:/userinfo`](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Userinfo-API) |
+| [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/wellKnown) |
 
 ##### OAuth 2.0 Authorize
 
@@ -397,7 +397,7 @@ means available to it via the user-agent.
 
 For example, the client directs the user-agent to make the following HTTP request:
 
-[`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`](https://vippsas.github.io/vipps-login-api/#/public/oauthAuth)
+[`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauth2Token)
 
 **Response**
 
@@ -464,7 +464,7 @@ var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 | code              | The authorization code received from the authorization server.                                                                                                           |
 | redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant) . This field is required for OIDC flows, i.e. regular Vipps Login logins. |                                                                                                                                    |
 
-[`POST:/oauth2/token`](https://vippsas.github.io/vipps-login-api/#/public/oauth2Token)
+[`POST:/oauth2/token`](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauth2Token)
 
 **Response**
 
@@ -502,7 +502,7 @@ You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connec
 
 The access token is received on a successful request to the [token endpoint](#oauth-20-token)
 
-[`GET:/userinfo`](https://vippsas.github.io/vipps-login-api/#/public/userinfo)
+[`GET:/userinfo`](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Userinfo-API)
 
 **Response**
 
@@ -573,7 +573,7 @@ OAuth 2.0 JWT Access Tokens.
 
 **Request**
 
-[`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-login-api/#/public/wellKnown)
+[`GET:/.well-known/jwks.json`](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/wellKnown)
 
 **Response**
 
@@ -667,12 +667,12 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 ### Technical
 
 **Q**: Can we have multiple URIs as landing pages?  
-**A**: You can register as many callback urls as you want; and then you specify which one you use in the request to [/auth](https://vippsas.github.io/vipps-login-api/#/Vipps%20Log%20In%20API/oauthAuth)  
+**A**: You can register as many callback urls as you want; and then you specify which one you use in the request to [/auth](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauthAuth).
 
 ### UX
 
 **Q**: Can we change the name that appears in customer's Vipps app under `Login and Access`?
-**A**: The name which is displayed in the app is the name of the Sale Unit. You can do it yourself in the merchant portal, [https://portal.vipps.no/](https://portal.vipps.no/). Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.  
+**A**: The name which is displayed in the app is the name of the Sale Unit. You can do it yourself in the merchant portal, [https://portal.vipps.no/](https://portal.vipps.no/). Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.
 
 ## Questions?
 
