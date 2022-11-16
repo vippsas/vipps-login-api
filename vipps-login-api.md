@@ -16,7 +16,7 @@ END_METADATA -->
 
 API version: 2.0
 
-Document version 4.0.10.
+Document version 4.0.11.
 <!-- START_TOC -->
 
 ## Table of contents
@@ -128,7 +128,7 @@ When Vipps Login is used in the browser, the user can choose to be remembered in
 
 Vipps Login is _not_ an electronic identification or certified eID.
 
-For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](https://github.com/vippsas/vipps-plugins).
+For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](https://vippsas.github.io/vipps-developer-docs/docs/vipps-plugins/).
 If a plugin is not available, the easiest - and **strongly recommended - way to integrate with the service is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language**. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
 
 Vipps Login in browser should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended).
@@ -137,7 +137,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 [**Vipps Login from QR-code**](#vipps-login-from-qr-code) is a new flow that we will gradually roll out support for. Our [How It Works page](vipps-login-from-QR-api-howitworks.md) shows the flow.
 
-See our [developer section](https://github.com/vippsas/vipps-developers/blob/master/developer-resources/test-environment.md#vipps-test-apps) for information about our test environment, test apps and test users.
+See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
 
 ### Activation
 
@@ -1744,7 +1744,7 @@ GET https://api.vipps.no/access-management-1.0/access/oauth2/auth?msn={Merchant-
 
 #### Token endpoint
 
-1. Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
+1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/docs/APIs/ecom-api/vipps-ecom-api#userinfo-call-by-call-guide)
 2. Use the access token in the `Authorization` header `Bearer access_token`
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number
 
@@ -1765,7 +1765,7 @@ The `Merchant-Serial-Number` must be sent in the header of all API requests. ([R
 
 #### Call guide
 
-1. Fetch [access_token](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#userinfo-call-by-call-guide)
+1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/docs/APIs/ecom-api/vipps-ecom-api#userinfo-call-by-call-guide)
 2. Use the access token in the `Authorization` header `Bearer access_token`
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number
 
