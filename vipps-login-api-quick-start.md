@@ -30,14 +30,14 @@ Use the Login API to confirm your identity through the log-in process.
   * [Vipps Login from phone number (CIBA with redirect)](#vipps-login-from-phone-number-ciba-with-redirect)
 <!-- END_TOC -->
 
-Document version 2.0.0.
+Document version 2.0.1.
 
 ## Postman
 
 ### Prerequisites
 
 Review
-[Vipps quick start guides](https://github.com/vippsas/vipps-developers/blob/master/developer-resources/quick-start-guides.md)
+[Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/quick-start-guides)
 for information about getting your test environment set up.
 
 ### Step 1: Get the Vipps Postman collection and environment
@@ -59,9 +59,9 @@ Save the following files to your computer:
 1. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
 1. Ensure that you have the correct values for the following fields:
    * `client_id` - Client ID for the merchant (the "username").
-     See [Getting Started: Getting the API keys](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys) for details.
+     See [Getting Started: Getting the API keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started#getting-the-api-keys) for details.
    * `client_secret` - Client Secret for the merchant (the "password").
-     See [Getting Started: Getting the API keys](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#getting-the-api-keys) for details.
+     See [Getting Started: Getting the API keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started#getting-the-api-keys) for details.
    * `well-known_uri` - URL to well-known endpoint for used environment.
       In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
       See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
