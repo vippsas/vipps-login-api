@@ -340,6 +340,7 @@ Example body:
   "iss": "https://apitest.vipps.no/access-management-1.0/access/",
   "jti": "62a85e56-3d45-4c7e-a055-46932093257a",
   "nonce": "",
+  "msn": "123456",
   "rat": 1557319255,
   "sub": "c06c4afe-d9e1-4c5d-939a-177d752a0944"
 }
@@ -1790,6 +1791,11 @@ The flows otherwise follows the guides as normal:
 
 * [Login without redirect](#integrating-with-vipps-login-from-phone-number)
 * [Login with redirect](#redirect-to-browser)
+
+### ID token validation
+
+When acting as a partner on behalf of a merchant's sale unit, you do not have access to the merchant's `client_id`, which is used for [ID token validation](#id-token).
+We strongly encourage partners to use the `msn` claim in the ID token for this purpose and ensure that its value is the same as the Merchant serial number used for the login.
 
 ### Requirements
 
