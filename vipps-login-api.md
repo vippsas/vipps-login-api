@@ -173,7 +173,7 @@ The user is then authenticated in browser and can provide consent if required. T
 
 If the user is on a mobile device, the Vipps landing page in the browser will automatically trigger a deeplink to the Vipps app if the user is not remembered in the browser. The user will not be prompted to enter the phone number.
 
-In the Vipps app, the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app, the user needs to switch back to the Vipps page in the browser/app. On the Vipps landing page, the user will finalise the authentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
+In the Vipps app, the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app, the user needs to switch back to the Vipps page in the browser/app. On the Vipps landing page, the user will finalize the authentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
 
 ![Mobile flow with app-switch](images/Mobile_flow_with_partial-app_switch.png)
 
@@ -233,7 +233,7 @@ Since Vipps Login from phone number is reserved for such special cases, it needs
 
 Vipps Login from phone number is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request.
 
-The merchant controls whether the user should get the confirmation of completion in the Vipps app or if they should be taken to the merchant's web page to finalise the flow. The merchant can e.g. take the user to their web page to enable input of more information, accept terms and condition, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How It Works](vipps-login-from-phone-number-api-howitworks.md).
+The merchant controls whether the user should get the confirmation of completion in the Vipps app or if they should be taken to the merchant's web page to finalize the flow. The merchant can e.g. take the user to their web page to enable input of more information, accept terms and condition, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How It Works](vipps-login-from-phone-number-api-howitworks.md).
 
 Illustration of how the flow will look like when the user end the flow and get the confirmation of completion in the Vipps app:
 
@@ -1275,7 +1275,7 @@ See [Activating Vipps Login from phone number](#activating-vipps-login-from-phon
 #### Overview
 
 This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user
-to be taken to the client's web page to finalise the flow.
+to be taken to the client's web page to finalize the flow.
 
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
 2) The user, via their browser, will be redirected to the Client's `redirect_uri` which enables the login to be completed.

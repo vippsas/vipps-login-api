@@ -86,7 +86,7 @@ This is the fallback flow for mobile devices if it is not possible to use the ap
 
 ### App-switch based flow - browser on mobile
 
-When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalise the authentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
+When the user starts to login with Vipps the browser automatically redirects the user to the Vipps-app, where login is confirmed and the user can choose not to be remembered in browser. After confirming in app the user is automatically redirected back to browser to finalize the authentication and provide consents if required. Then the user is redirected back to the redirect URI provided by merchant (can be webpage or app).
 
 ![Mobile flow with app-switch](../../images/Mobile_flow_with_app-switch.png)
 
