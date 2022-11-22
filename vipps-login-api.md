@@ -758,13 +758,6 @@ Example response:
             "formatted": "Summer House Lane 14\\n1452 OSLO\\nNO",
             "address_type": "other"
         }
-    ],
-    "accounts": [
-        {
-            "account_name": "My savings",
-            "account_number": "12064590675",
-            "bank_name": "My bank"
-        }
     ]
 }
 ```

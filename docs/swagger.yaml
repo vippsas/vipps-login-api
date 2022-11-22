@@ -150,10 +150,6 @@ paths:
                     country: 'NO'
                     formatted: 'Summer House Lane 14\n1452 OSLO\nNO'
                     address_type: 'other'
-                accounts:
-                  - account_name: "My savings"
-                    account_number: "12064590675"
-                    bank_name: "My bank"
 
   /access-management-1.0/access/.well-known/openid-configuration:
     get:
@@ -509,11 +505,6 @@ components:
     UserinfoApiV2:
       type: object
       properties:
-        accounts:
-          description: 'Contains an array with the end user''s accounts registered in the Vipps app'
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountInfoApi'
         address:
           description: 'Contains the end user''s preferred addresses.'
           items:
@@ -560,18 +551,6 @@ components:
           description: 'Subject - Identifier for the end user'
           type: string
           example: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
-    AccountInfoApi:
-      type: object
-      properties:
-        account_name:
-          description: "User''s defined name for account"
-          type: string
-        account_number:
-          description: "User''s account number"
-          type: string
-        bank_name:
-          description: "Bank connected to the account number"
-          type: string
     AddressApi:
       type: object
       properties:

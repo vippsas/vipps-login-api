@@ -43,7 +43,7 @@ Document version 2.0.3.
   - [ ] All URLs use HTTPS or native URL schemes (like `vipps://`), not HTTP.
   - [ ] ALL URLs match the exact URI sent on `/auth` request. No query parameters, no additional trailing `/`.
 - [ ] The scopes requested are only the scopes required, no "nice to have" scopes.
-- [ ] If using national identity number and/or account number scopes: You have been granted access to request these scopes.
+- [ ] If using national identity number: You have been granted access to request these scopes.
       [Apply here](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how)
 - [ ] A unique `state`
       [parameter](vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)
