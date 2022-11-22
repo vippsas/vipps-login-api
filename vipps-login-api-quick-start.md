@@ -59,9 +59,8 @@ Save the following files to your computer:
 1. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
 1. Ensure that you have the correct values for the following fields:
    * `client_id` - Client ID for the merchant (the "username").
-     See [Getting Started: Getting the API keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started#getting-the-api-keys) for details.
+     See [Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys) for details.
    * `client_secret` - Client Secret for the merchant (the "password").
-     See [Getting Started: Getting the API keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started#getting-the-api-keys) for details.
    * `well-known_uri` - URL to well-known endpoint for used environment.
       In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
       See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
