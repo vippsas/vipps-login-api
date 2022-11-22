@@ -553,13 +553,6 @@ Example response:
             "address_type": "other",
             "default": false
         }
-    ],
-    "accounts": [
-        {
-            "account_name": "My savings",
-            "account_number": "12064590675",
-            "bank_name": "My bank"
-        }
     ]
 }
 ```
