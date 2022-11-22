@@ -68,7 +68,7 @@ Document version 2.3.8.
 ## Where do I find the `client_id` and `client_secret`?
 
 See:
-[Getting started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started#getting-the-api-keys).
+[Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
 
 Be aware that you _only_ use the `client_id` and `client_secret`, not the
 subscription key (`Ocp-Apim-Subscription-Key`).
@@ -166,7 +166,7 @@ Please check:
   Be extra careful with trailing `/` and URL-encoded entities.
 * Are you using the `client_id` and `client_secret` for the correct environment?
   There are separate API keys for test and production. See:
-  [Getting Started: Getting the API keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started#getting-the-api-keys).
+  [Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys).
 
 ## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
 
