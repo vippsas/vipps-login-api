@@ -262,17 +262,6 @@ accessuserinfo@vipps.no. In the email you should specify:
 * The legal requirement and/or the reason why you need to use NIN to achieve
   required user identification.
 
-## Who can get access to account numbers and how?
-
-Access to account numbers is a paid service.
-Merchants need to order access to account numbers separately by sending an email
-to accessuserinfo@vipps.no. In the email you should specify:
-
-* Merchant name
-* Organization number
-* Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
-* Information on how you plan to use the account numbers
-
 ## Who can get access to Vipps Login from phone number and how?
 
 Vipps Login from phone number has been developed to support use-cases where
