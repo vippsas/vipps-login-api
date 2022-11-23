@@ -16,7 +16,7 @@ END_METADATA -->
 
 API version: 2.0
 
-Document version 4.0.11.
+Document version 4.0.12.
 <!-- START_TOC -->
 
 ## Table of contents
