@@ -43,6 +43,8 @@ Document version 2.3.8.
 * [Can a Vipps user less than 15 years old use Vipps Login?](#can-a-vipps-user-less-than-15-years-old-use-vipps-login)
 * [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 * [Who can get access to Vipps Login from phone number and how?](#who-can-get-access-to-vipps-login-from-phone-number-and-how)
+* [How can I get started with delegatedConsents?](#how-can-I-get-started-with-delegatedConsents?)
+* [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedConsents,-which-consents-does-Vipps-support?)
 * [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 * [Can I use partner keys for Vipps login?](#can-i-use-partner-keys-for-vipps-login)
 * [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2fa)
@@ -271,13 +273,40 @@ Vipps Login from phone number are reserved for such special cases and needs to b
 enabled by Vipps for eligible sale units. If a merchant uses Vipps Login from phone number on
 webpages or in apps used by end-users (on their own device), access to the feature can be withdrawn.
 
-Merchants need to apply for access to Vipps Login from phone number separately by sending an email
-to accessuserinfo@vipps.no. In the email you should specify:
+Merchants need to apply for access to Vipps Login from phone number separately. 
+This is done by sending an email to accessuserinfo@vipps.no and supplying the following information:
+ * Merchant serial number (MSN) for the sale unit for which you will use Vipps Login (this can be retrieved from portal.vipps.no)
+ * Information on how you plan to use Vipps Login from phone number
 
-* Merchant name
-* Organization number
-* Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
-* Information on how you plan to use Vipps Login from phone number
+Vipps Login from phone number is a billed service. As such, we also need some details regarding invoicing:
+ * Recipient name
+ * Recipient email
+ * Invoicing address
+
+## How can I get started with delegatedConsents?
+
+If you plan on using the scope delegatedConsents along with Vipps Login from phone number,
+you will need to supply some information on what consents you will retrieve and how.
+We will then tailor this screen to suit your needs. You can see what the flow looks like at
+[Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md).
+Send an email to accessuserinfo@vipps.no and supply the following information:
+
+| Item                                                 | Description                                                                                                                                                                      | Example                                                                           | Comments                                                                                                |
+|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Top text                                             | Specifies the purpose of collecting the consents                                                                                                                                 | "Merchant AS would like to send you tailored offers in several digital channels." |                                                                                                         |
+| Subset of consents you would like to ask for         | We offer a set of predefined consents. See [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedConsents,-which-consents-does-Vipps-support?) | email, sms                                                                        | If you want a consent type that we currently don't support, reach out to us at accessuserinfo@vipps.no  |
+| Links to your membership terms and privacy statement | We need to check your terms to make sure the flow is not used to mislead or abuse the end user                                                                                   | www.merchant.com/termsandconditions <br /> www.merchant.com/privacystatement      |                                                                                                         |
+| Recipient to sign DPA                                | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions                        | recipient@merchant.com                                                            |                                                                                                         |
+
+## When using delegatedConsents, which consents does Vipps support?
+
+We have built support for several consents, and the merchant may select a subset of these to include in their own flow.
+If we do not currently support the consents you look for, you may make a request to accessuserinfo@vipps.no and we'll be in touch.
+
+| Id                                                   | Consent text (Norwegian) | Consent text (English)   |
+|------------------------------------------------------|--------------------------|--------------------------|
+| Email                                                | Få tilbud på E-post      | Receive offers via email |
+| Sms                                                  | Få tilbud på SMS         | Receive offers via SMS   |
 
 ## What's the purpose of the `state` parameter?
 
