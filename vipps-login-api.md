@@ -98,16 +98,16 @@ Document version 4.0.11.
       * [The `redirect_uri` parameter (required)](#the-redirect_uri-parameter-required)
       * [Error responses](#error-responses-2)
   * [Merchant delegated consents](#merchants-delegated-consents)
-    * [Activation](#activation-delegated-consents)
-    * [Overview](#overview-delegated-consents)
-    * [Call by call](#call-by-call-delegated-consents)
+    * [Activation](#activation-3)
+    * [Overview](#overview-3)
+    * [Call by call](#call-by-call-3)
 * [Integrating with Vipps Login from QR code](#integrating-with-vipps-login-from-qr-code)
   * [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
   * [Initiate login from QR code](#initiate-login-from-qr-code)
-    * [Call by call](#call-by-call-3)
-  * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
-    * [Overview](#overview-3)
     * [Call by call](#call-by-call-4)
+  * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
+    * [Overview](#overview-4)
+    * [Call by call](#call-by-call-5)
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
 * [Partner keys](#partner-keys)
@@ -1229,12 +1229,6 @@ Read more about it in the standard <https://openid.net/specs/openid-client-initi
 
 Example: `....&binding_message=4MZ-CQ3&...`
 
-##### Error responses
-
-In addition to the responses defined by the standard these responses might be returned:
-
-* `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
-
 ##### Successful responses
 
 Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment>
@@ -1259,6 +1253,7 @@ The responses from this endpoint is according to the standard.
 
 In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
 
+* `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 * `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
 * `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
 
@@ -1449,20 +1444,20 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 
 ### Merchants delegated consents
 
-#### Activation {#delegated-consents}
+#### Activation
 
 See [How can I get started with delegatedConsents?](#how-can-I-get-started-with-delegatedConsents?).
 
-#### Overview {#delegated-consents}
+#### Overview
 
 For Client-Initiated Backchannel Authentication (CIBA) it is possible to initiate the authentication of an end-user through out-of-band mechanisms and collect consents on behalf of the merchant.
 
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint with scope delegatedConsents to ask for end-user authentication and on behalf of the merchant consents.
 2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
 3) The Client will receive the ID Token and Access Token by polling the token endpoint to get a response with the tokens.
-4) Token can be used to retrieve information about the user through our userinfo endpoint, this response will also contain the consents approved/declined for the user.
+4) Token can be used by the Client to retrieve information about the user through the `userinfo` endpoint, this response will also contain the consents that are approved/declined by the user.
 
-#### Call by call {#delegated-consents}
+#### Call by call
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
    See [.well-known](#openid-connect-discovery-endpoint)
@@ -1596,8 +1591,20 @@ For Client-Initiated Backchannel Authentication (CIBA) it is possible to initiat
     }
     ```
 
-#### Authentication Request with delegatedConsents
-Required parameters are listed in [Authentication Request](#authentication-request) and [Authentication Request With Redirect](#authentication-request-with-redirect)
+#### Authentication request with delegatedConsents
+Required parameters are listed in [Authentication request login from phone number](#authentication-request) and [Authentication request login from phone number with redirect](#authentication-request-with-redirect)
+
+##### Error responses
+See [Error responses login from phone number](#error-responses) or [Error responses login from phone number with redirect](#error-responses-1)
+
+##### Successful responses
+See [Successful responses login from phone number](#successful-responses)
+
+#### Token request
+See [Token request login from phone number](#token-request)
+
+##### Polling
+See [Polling login from phone number](#polling)
 
 
 ## Integrating with Vipps Login from QR code
