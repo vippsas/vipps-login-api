@@ -1096,8 +1096,8 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
     Example response:
 
-    ```200 application/json```
-    ```json
+    ```http
+    200 application/json
     {
       "auth_req_id": "VYGaaAMRkI6SyAm_uIywhxsN2K0",
       "expires_in": 600,
