@@ -1519,7 +1519,6 @@ Darkula color scheme from the JetBrains family of IDEs
 <!-- backwards compatibility -->
 <!-- backwards compatibility -->
 <!-- backwards compatibility -->
-<!-- backwards compatibility -->
   </head>
 
   <body data-languages="[&quot;shell&quot;,&quot;http&quot;,&quot;javascript&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;php&quot;,&quot;java&quot;,&quot;go&quot;]">
@@ -1642,11 +1641,6 @@ Darkula color scheme from the JetBrains family of IDEs
                 
                   <li>
                     <a href="#tocs_userinfoapiv2" class="toc-h2 toc-link" data-title="">UserinfoApiV2</a>
-                    
-                  </li>
-                
-                  <li>
-                    <a href="#tocs_accountinfoapi" class="toc-h2 toc-link" data-title="">AccountInfoApi</a>
                     
                   </li>
                 
@@ -2687,13 +2681,6 @@ System.out.println(response.toString());
       <span class="hljs-attr">&quot;formatted&quot;</span>: <span class="hljs-string">&quot;Summer House Lane 14\\n1452 OSLO\\nNO&quot;</span>,
       <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;other&quot;</span>
     }
-  ],
-  <span class="hljs-attr">&quot;accounts&quot;</span>: [
-    {
-      <span class="hljs-attr">&quot;account_name&quot;</span>: <span class="hljs-string">&quot;My savings&quot;</span>,
-      <span class="hljs-attr">&quot;account_number&quot;</span>: <span class="hljs-string">&quot;12064590675&quot;</span>,
-      <span class="hljs-attr">&quot;bank_name&quot;</span>: <span class="hljs-string">&quot;My bank&quot;</span>
-    }
   ]
 }
 </code></pre>
@@ -3153,13 +3140,6 @@ System.out.println(response.toString());
 <a id="tocSuserinfoapiv2"></a>
 <a id="tocsuserinfoapiv2"></a></p>
 <pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">&quot;accounts&quot;</span>: [
-    {
-      <span class="hljs-attr">&quot;account_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-      <span class="hljs-attr">&quot;account_number&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-      <span class="hljs-attr">&quot;bank_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-    }
-  ],
   <span class="hljs-attr">&quot;address&quot;</span>: [
     {
       <span class="hljs-attr">&quot;address_type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -3207,13 +3187,6 @@ System.out.println(response.toString());
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>accounts</td>
-<td>[<a href="#schemaaccountinfoapi">AccountInfoApi</a>]</td>
-<td>false</td>
-<td>none</td>
-<td>Contains an array with the end user's accounts registered in the Vipps app</td>
-</tr>
 <tr>
 <td>address</td>
 <td>array</td>
@@ -3300,53 +3273,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h2 id="tocs_accountinfoapi">AccountInfoApi</h2>
-<p><a id="schemaaccountinfoapi"></a>
-<a id="schema_AccountInfoApi"></a>
-<a id="tocSaccountinfoapi"></a>
-<a id="tocsaccountinfoapi"></a></p>
-<pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">&quot;account_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;account_number&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;bank_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-}
-
-</code></pre>
-<h3 id="properties-5">Properties</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Restrictions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>account_name</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>User''s defined name for account</td>
-</tr>
-<tr>
-<td>account_number</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>User''s account number</td>
-</tr>
-<tr>
-<td>bank_name</td>
-<td>string</td>
-<td>false</td>
-<td>none</td>
-<td>Bank connected to the account number</td>
-</tr>
-</tbody>
-</table>
 <h2 id="tocs_addressapi">AddressApi</h2>
 <p><a id="schemaaddressapi"></a>
 <a id="schema_AddressApi"></a>
@@ -3363,7 +3289,7 @@ System.out.println(response.toString());
 }
 
 </code></pre>
-<h3 id="properties-6">Properties</h3>
+<h3 id="properties-5">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -3441,7 +3367,7 @@ System.out.println(response.toString());
 
 </code></pre>
 <p>The token response</p>
-<h3 id="properties-7">Properties</h3>
+<h3 id="properties-6">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -3510,7 +3436,7 @@ System.out.println(response.toString());
 
 </code></pre>
 <p>ErrorResponse</p>
-<h3 id="properties-8">Properties</h3>
+<h3 id="properties-7">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -3547,7 +3473,6 @@ System.out.println(response.toString());
 </table>
 <!-- Renderer: Shins v2.6.0 -->
 <!-- Generator: Widdershins v4.0.1 -->
-<!-- backwards compatibility -->
 <!-- backwards compatibility -->
 <!-- backwards compatibility -->
 <!-- backwards compatibility -->

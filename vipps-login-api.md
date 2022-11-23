@@ -53,7 +53,7 @@ Document version 4.0.11.
     * [Openid connect discovery URLs](#openid-connect-discovery-urls)
       * [OAuth 2.0 Authorize](#oauth-20-authorize)
       * [OAuth 2.0 Token](#oauth-20-token)
-      * [Userinfo](#userinfo)
+      * [Userinfo](#userinfo-msn)
       * [JSON Web Keys Discovery](#json-web-keys-discovery)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
@@ -72,9 +72,9 @@ Document version 4.0.11.
 * [Integrating with Vipps Login from phone number](#integrating-with-vipps-login-from-phone-number)
   * [Activating Vipps Login from phone number](#activating-vipps-login-from-phone-number)
   * [Complete login in the Vipps app](#complete-login-in-the-vipps-app)
-    * [Activation](#activation)
-    * [Overview](#overview)
-    * [Call by call](#call-by-call)
+    * [Activation](#activation-complete-login)
+    * [Overview](#overview-complete-login)
+    * [Call by call](#call-by-call-complete-login)
     * [Authentication Request](#authentication-request)
       * [Authentication](#authentication)
       * [The `login_hint` parameter (required)](#the-login_hint-parameter-required)
@@ -85,25 +85,25 @@ Document version 4.0.11.
       * [Successful responses](#successful-responses)
     * [Token request](#token-request)
       * [Polling](#polling)
-    * [Error responses](#error-responses)
+    * [Error responses](#error-responses-complete-login)
   * [Redirect to browser](#redirect-to-browser)
-    * [Activation](#activation)
-    * [Overview](#overview)
-    * [Call by call](#call-by-call)
+    * [Activation](#activation-redirect-browser)
+    * [Overview](#overview-redirect-browser)
+    * [Call by call](#call-by-call-redirect-browser)
     * [Authentication Request With Redirect](#authentication-request-with-redirect)
-      * [Authentication](#authentication-1)
-      * [The `login_hint` parameter (required)](#the-login_hint-parameter-required-1)
-      * [The `scope` parameter (required)](#the-scope-parameter-required)
-      * [The `binding_message` parameter (optional)](#the-binding_message-parameter-optional-1)
+      * [Authentication](#authentication-redirect-browser)
+      * [The `login_hint` parameter (required)](#the-login_hint-parameter-required-redirect-browser)
+      * [The `scope` parameter (required)](#the-scope-parameter-required-redirect-browser)
+      * [The `binding_message` parameter (optional)](#the-binding_message-parameter-optional-redirect-browser)
       * [The `redirect_uri` parameter (required)](#the-redirect_uri-parameter-required)
-      * [Error responses](#error-responses)
+      * [Error responses](#error-responses-redirect-browser)
 * [Integrating with Vipps Login from QR code](#integrating-with-vipps-login-from-qr-code)
   * [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
   * [Initiate login from QR code](#initiate-login-from-qr-code)
-    * [Call by call](#call-by-call)
+    * [Call by call](#call-by-call-integrate-qr)
   * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
-    * [Overview](#overview)
-    * [Call by call](#call-by-call)
+    * [Overview](#overview-integrate-qr-redirect)
+    * [Call by call](#call-by-call-integrate-qr-redirect)
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
 * [Partner keys](#partner-keys)
@@ -390,15 +390,15 @@ For more information on the token endpoint see [OpenID Connect Core 1.0](https:/
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.
 Vipps Login currently supports the following scopes:
 
-| Scopes      | Description                                    | User consent required  |
-| ------------| -----------------------------------------------|-------- |
-| openid      | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.              |   no    |
-| address     | User can have up to three addresses in Vipps: home, work and other. Users' addresses are given as claims 'address' and 'other_addresses'. The claim 'address' returns the address set as 'default' for the Vipps user. And the claim 'other_addresses' returns all other addresses of the end user, if any.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context. Some users will not have any registered address, in these situations the claim 'address' will be delivered, but the sub claims in address will be empty strings, e.i. "address" : {"country" : "", "street_address" : "", "address_type" : "", "formatted" : "", "postal_code" : "", "region" : "" } . If a user has information in the «Unit, floor or other details» field this will be included in the "street_address" response. The «Street address» will then be presented first before "\n" and then the contents from «Unit, floor or other details», e.g: "Suburbia 23"\nUnit B5"|   yes   |
-| birthDate   | User birth date (verified with National Population Register)                               |   yes   |
-| email       | User email (verified), the flag "email_verified : true" in the response can be used by merchant to confirm for each request that the email actually is verified                                   |   yes   |
-| name        | User first, middle and given name (verified with National Population Register)              |   yes   |
-| phoneNumber | Verified phone number (verified - the number used with Vipps)                          |   yes   |
-| nin        | Norwegian national identity number (verified with National Population Register). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information |   yes      |
+| Scopes      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | User consent required  |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
+| openid      | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | no                     |
+| address     | User can have up to three addresses in Vipps: home, work and other. Users' addresses are given as claims 'address' and 'other_addresses'. The claim 'address' returns the address set as 'default' for the Vipps user. And the claim 'other_addresses' returns all other addresses of the end user, if any.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context. Some users will not have any registered address, in these situations the claim 'address' will be delivered, but the sub claims in address will be empty strings, e.i. "address" : {"country" : "", "street_address" : "", "address_type" : "", "formatted" : "", "postal_code" : "", "region" : "" } . If a user has information in the «Unit, floor or other details» field this will be included in the "street_address" response. The «Street address» will then be presented first before "\n" and then the contents from «Unit, floor or other details», e.g: "Suburbia 23"\nUnit B5" | yes                    |
+| birthDate   | User birth date (verified with National Population Register)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | yes                    |
+| email       | User email (verified), the flag "email_verified : true" in the response can be used by merchant to confirm for each request that the email actually is verified                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | yes                    |
+| name        | User first, middle and given name (verified with National Population Register)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | yes                    |
+| phoneNumber | Verified phone number (verified - the number used with Vipps)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | yes                    |
+| nin         | Norwegian national identity number (verified with National Population Register). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | yes                    |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
@@ -462,10 +462,10 @@ These endpoints should be fetched dynamically by your application, since they ar
 
 #### Openid connect discovery endpoint
 
-| Environment | Base URL |
-|-------------|----------|
-| Test        |<https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration> |
-| Production  |<https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>     |
+| Environment | Base URL                                                                                 |
+|-------------|------------------------------------------------------------------------------------------|
+| Test        | <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration> |
+| Production  | <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>     |
 
 The OpenID connect discovery endpoint can be used to retrieve configuration information for openid connect clients. We recommend to fetch these dynamically, however the response from this endpoint rarely changes. Therefore it can and should be cached so it's not fetched over the network on every login. The endpoint responds with a `Cache-Control: max-age=3600` header.
 
@@ -479,10 +479,10 @@ You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connec
 
 Overview
 
-| HTTP status             | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| `200 OK`                | Request successful.                                     |
-| `500 Server Error`      | An internal Vipps problem.                              |
+| HTTP status        | Description                                               |
+|--------------------|-----------------------------------------------------------|
+| `200 OK`           | Request successful.                                       |
+| `500 Server Error` | An internal Vipps problem.                                |
 
 Example response from the merchant test environment:
 
@@ -557,12 +557,12 @@ Example response from the merchant test environment:
 
 #### Openid connect discovery URLs
 
-| Operation                 | Description         | Endpoints |
-| ------------------------- | ------------------- | ------------------ |
-| [OAuth 2.0 Authorize](#oauth-20-authorize)            | Start an OAuth 2.0 authorization. | [`GET:/oauth2/auth`][access-auth-endpoint] |
-| [OAuth 2.0 Token](#oauth-20-token)                    | Get an OAuth 2.0 access token. | [`POST:/oauth2/token`][access-token-endpoint] |
-| [Userinfo](#userinfo)                                 | Returns information that the user has consented to share. | [`GET:/vipps-userinfo-api/userinfo`][userinfo-endpoint] |
-| [JSON Web Keys Discovery](#json-web-keys-discovery)   | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`][login-wellknown-endpoint] |
+| Operation                                           | Description                                                                         | Endpoints                                                |
+|-----------------------------------------------------|-------------------------------------------------------------------------------------|----------------------------------------------------------|
+| [OAuth 2.0 Authorize](#oauth-20-authorize)          | Start an OAuth 2.0 authorization.                                                   | [`GET:/oauth2/auth`][access-auth-endpoint]               |
+| [OAuth 2.0 Token](#oauth-20-token)                  | Get an OAuth 2.0 access token.                                                      | [`POST:/oauth2/token`][access-token-endpoint]            |
+| [Userinfo](#userinfo)                               | Returns information that the user has consented to share.                           | [`GET:/vipps-userinfo-api/userinfo`][userinfo-endpoint]  |
+| [JSON Web Keys Discovery](#json-web-keys-discovery) | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`][login-wellknown-endpoint] |
 
 ##### OAuth 2.0 Authorize
 
@@ -578,18 +578,18 @@ query component of the authorization endpoint URI using the
 owner to the constructed URI using an HTTP redirection response, or by other
 means available to it via the user-agent.
 
-| Query             | Description                                                                                                                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| response_type     | Value MUST be set to "code".                                                                                                                                                              |
-| client_id         | The client identifier, issued by Vipps.                                                                                                                                                   |
-| redirect_uri      | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)          |
-| scope             | Scope of the access request, space-separated list.                                                                                                                                        |
-| state             | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.   |
-| requested_flow            | Optional. Request a specific flow for the user. See [App integration](#app-integration), [Automatic return from Vipps app](#automatic-return-from-vipps-app) and [No dialog flow](#no-dialog-flow)                                            |
-| app_callback_uri  | Optional. The target uri for automatic switch back to merchant app. Requires `requested_flow=app_to_app`. Example `merchant-app://callback`
-| final_redirect_is_app | Optional. Either `true` or `false`. If this is `true` we will enable some compatibility features to make sure the user is returned to the app.                                                             |
-| code_challenge_method | Optional. Used for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636), either `S256` or `plain`. Default value is `plain` |
-| code_challenge | Optional. Used for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636). The value must be calculated based on the `code_verifier` later used towards the [token endpoint](#oauth-20-token)
+| Query                 | Description                                                                                                                                                                                                                                                                                  |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| response_type         | Value MUST be set to "code".                                                                                                                                                                                                                                                                 |
+| client_id             | The client identifier, issued by Vipps.                                                                                                                                                                                                                                                      |
+| redirect_uri          | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant) |
+| scope                 | Scope of the access request, space-separated list.                                                                                                                                                                                                                                           |
+| state                 | An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client.                                                                                                      |
+| requested_flow        | Optional. Request a specific flow for the user. See [App integration](#app-integration), [Automatic return from Vipps app](#automatic-return-from-vipps-app) and [No dialog flow](#no-dialog-flow)                                                                                           |
+| app_callback_uri      | Optional. The target uri for automatic switch back to merchant app. Requires `requested_flow=app_to_app`. Example `merchant-app://callback`                                                                                                                                                  |
+| final_redirect_is_app | Optional. Either `true` or `false`. If this is `true` we will enable some compatibility features to make sure the user is returned to the app.                                                                                                                                               |
+| code_challenge_method | Optional. Used for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636), either `S256` or `plain`. Default value is `plain`                                                                                                                                                                 |
+| code_challenge        | Optional. Used for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636). The value must be calculated based on the `code_verifier` later used towards the [token endpoint](#oauth-20-token)                                                                                                 |
 
 For example, the client directs the user-agent to make the following HTTP request:
 
@@ -643,10 +643,10 @@ below to the HTTP body by using the `application/x-www-form-urlencoded` format.
 
 _Headers_
 
-| Header            | Description                            |
-| ----------------- | -------------------------------------  |
-| Content-Type      | "application/x-www-form-urlencoded"    |
-| Authorization     | "Basic {Client Credentials}"           |
+| Header         | Description                         |
+|----------------|-------------------------------------|
+| Content-Type   | "application/x-www-form-urlencoded" |
+| Authorization  | "Basic {Client Credentials}"        |
 
 The Client Credentials is a base 64 encoded string consisting of the Client id
 and secret issued by Vipps joined by ":"
@@ -667,17 +667,17 @@ _Form content_
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | grant_type   | Value MUST be authorization_code.                                                                                                                                                                                                                                                                                                                                      |
 | code         | The authorization code received as a query param on the redirect_uri from the authorization server.                                                                                                                                                                                                                                                                    |
-| redirect_uri | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant) . This field is required for OIDC flows, i.e. regular Vipps Login logins. |                                                                                                                                    |
+| redirect_uri | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant) . This field is required for OIDC flows, i.e. regular Vipps Login logins. |
 
 [`POST:/oauth2/token`][access-token-endpoint]
 
 **Response**
 
-| HTTP status             | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| `200 OK`                | Request successful.                                     |
-| `401 Unauthorized`      | Invalid credentials.                                    |
-| `500 Server Error`      | An internal Vipps problem.                              |
+| HTTP status         | Description                 |
+|---------------------|-----------------------------|
+| `200 OK`            | Request successful.         |
+| `401 Unauthorized`  | Invalid credentials.        |
+| `500 Server Error`  | An internal Vipps problem.  |
 
 Example response:
 
@@ -701,9 +701,9 @@ You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connec
 
 _Headers_
 
-| Header            | Description                            |
-| ----------------- | -------------------------------------  |
-| Authorization     | "Bearer {Access Token}"                |
+| Header         | Description              |
+|----------------|--------------------------|
+| Authorization  | "Bearer {Access Token}"  |
 
 The access token is received on a successful request to the [token endpoint](#oauth-20-token).
 
@@ -713,11 +713,11 @@ The access token is received on a successful request to the [token endpoint](#oa
 
 Overview
 
-| HTTP status             | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| `200 OK`                | Request successful.                                     |
-| `401 Unauthorized`      | Invalid credentials.                                    |
-| `500 Server Error`      | An internal Vipps problem.                              |
+| HTTP status         | Description                 |
+|---------------------|-----------------------------|
+| `200 OK`            | Request successful.         |
+| `401 Unauthorized`  | Invalid credentials.        |
+| `500 Server Error`  | An internal Vipps problem.  |
 
 Example response:
 
@@ -774,10 +774,10 @@ This endpoint returns JSON Web Keys to be used as public keys for verifying Open
 
 Overview
 
-| HTTP status             | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| `200 OK`                | Request successful.                                     |
-| `500 Server Error`      | An internal Vipps problem.                              |
+| HTTP status         | Description                |
+|---------------------|----------------------------|
+| `200 OK`            | Request successful.        |
+| `500 Server Error`  | An internal Vipps problem. |
 
 Examples:
 _200 response_
@@ -811,10 +811,10 @@ with the following parameters added to the query component. This URI needs to
 be pre-registered with Vipps and supplied as a query parameter on calls to the
 [OAuth2 authorize endpoint](#oauth-20-authorize).
 
-| Param             | Description|
-| ----------------- | ---------- |
-| code              | The authorization code generated by the authorization server. The client MUST NOT use the authorization code more than once. The authorization code is bound to the client identifier and redirection URI.    |
-| state             | The exact value received from the client during the authorization request.|
+| Param   | Description                                                                                                                                                                                                |
+|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| code    | The authorization code generated by the authorization server. The client MUST NOT use the authorization code more than once. The authorization code is bound to the client identifier and redirection URI. |
+| state   | The exact value received from the client during the authorization request.                                                                                                                                 |
 
 Example:
 
@@ -829,26 +829,26 @@ If the user cancels the login or an error occurs, the user agent is redirected
 to the receive authentication result endpoint with the following parameters
 added to the query component.
 
-| Param             | Description                                                                                                                                                                                                   |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| error             | Standard [OAuth2](https://tools.ietf.org/html/rfc6749#section-4.1.2.1) or [OIDC](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) error code. |
-| error_description | A short text providing additional information on the error that occurred.                                                                                     |
-| state             | The exact value received from the client during the authorization request.                                                                                    |
+| Param              | Description                                                                                                                                                    |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| error              | Standard [OAuth2](https://tools.ietf.org/html/rfc6749#section-4.1.2.1) or [OIDC](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) error code.  |
+| error_description  | A short text providing additional information on the error that occurred.                                                                                      |
+| state              | The exact value received from the client during the authorization request.                                                                                     |
 
 #### Custom error codes
 
 In addition to the standard errors defined in [OAuth2](https://tools.ietf.org/html/rfc6749#section-4.1.2.1) and [OIDC](https://openid.net/specs/openid-connect-core-1_0.html#AuthError), Vipps Login also has some custom error codes that you might see on the redirect:
 
-| error_code                           | Description                                                       |
-| ------------------------------------ | ----------------------------------------------------------------- |
-| `access_denied`                      | User cancelled the login                                          |
-| `server_error`                       | Something went wrong, please try again                            |
-| `login_required`                     | User must login with interaction                                  |
-| `invalid_app_callback_uri`           | The app callback uri is not on a valid format                     |
-| `app_callback_uri_not_registered`    | The app callback uri is not registered as a redirect uri          |
-| `outdated_app_version`               | The user's Vipps app version is too old and needs to be updated   |
-| `wrong_challenge`                    | The user selected the wrong challenge                             |
-| `unknown_reject_reason`              | Something went wrong. Reject reason is unknown.                   |
+| error_code                         | Description                                                      |
+|------------------------------------|------------------------------------------------------------------|
+| `access_denied`                    | User cancelled the login                                         |
+| `server_error`                     | Something went wrong, please try again                           |
+| `login_required`                   | User must login with interaction                                 |
+| `invalid_app_callback_uri`         | The app callback uri is not on a valid format                    |
+| `app_callback_uri_not_registered`  | The app callback uri is not registered as a redirect uri         |
+| `outdated_app_version`             | The user's Vipps app version is too old and needs to be updated  |
+| `wrong_challenge`                  | The user selected the wrong challenge                            |
+| `unknown_reject_reason`            | Something went wrong. Reject reason is unknown.                  |
 
 There may be other errors, so integrators must be able to handle undocumented errors gracefully.
 
@@ -1063,11 +1063,11 @@ A sale unit can be set up with both Vipps Login in browser and phone number (and
 
 ### Complete login in the Vipps app
 
-#### Activation
+#### Activation {complete-login}
 
 See [Activating Vipps Login from phone number](#activating-vipps-login-from-phone-number)
 
-#### Overview
+#### Overview {complete-login}
 
 Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate the authentication of an end-user through out-of-band mechanisms.
 
@@ -1075,7 +1075,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
 3) The Client will receive the ID Token and Access Token by polling the token endpoint to get a response with the tokens.
 
-#### Call by call
+#### Call by call {complete-login}
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
    See [.well-known](#openid-connect-discovery-endpoint)
@@ -1096,7 +1096,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
     Example response:
 
-    ```json
+    ```http
     200 application/json
     {
       "auth_req_id": "VYGaaAMRkI6SyAm_uIywhxsN2K0",
@@ -1250,7 +1250,7 @@ The responses from this endpoint is according to the standard.
 * Long polling as described in [the CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#token_request) is currently not supported
 * Remember not to poll more often than indicated by the `interval` parameter, returned from the [authentication request](#authentication-request).
 
-#### Error responses
+#### Error responses {complete-login}
 
 In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
 
@@ -1259,11 +1259,11 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 
 ### Redirect to browser
 
-#### Activation
+#### Activation {redirect-browser}
 
 See [Activating Vipps Login from phone number](#activating-vipps-login-from-phone-number).
 
-#### Overview
+#### Overview {redirect-browser}
 
 This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user
 to be taken to the client's web page to finalize the flow.
@@ -1273,7 +1273,7 @@ to be taken to the client's web page to finalize the flow.
 
 ![image](https://user-images.githubusercontent.com/1453728/134330475-d6910cbd-c216-4c64-bef9-e0f84cb0a7fd.png)
 
-#### Call by call
+#### Call by call {redirect-browser}
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
    See [.well-known](#openid-connect-discovery-endpoint).
@@ -1328,24 +1328,29 @@ The ID token is a JWS that must be validated, see [ID Token](#id-token). The mer
       "id_token": "eyJraWQiOiJwdWJsaWM6ZWUzNmQzZjUtMzkzNC00MDI5LTkyNmYtNzdmYTY1YmYwYjRiIiwiYWxnIjoiRVMyNTYifQ.eyJhdWQiOiJlZGRkYjMyZi01MDI4LTQzOTctYjBhYi1lOGVjZjIxOGZkYzIiLCJzdWIiOiI1MTY4ZWUwNi04NzFlLTQ2ZTYtOTQxZS0wMTAzYjk1NzA0OGUiLCJhdXRoUmVxSWQiOiI3QnpBWS1TYlZRSjM4Vi1VMEM3WjZrMjNfQ1kiLCJpc3MiOiJodHRwczpcL1wvZWNlNDZlYzQtNmY5Yy00ODliLThmZTUtMTQ2YTg5ZTExNjM1LnRlY2gtMDIubmV0XC9hY2Nlc3MtbWFuYWdlbWVudC0xLjBcL2FjY2Vzc1wvIiwiZXhwIjoxNjQzMTc5ODM3LCJpYXQiOjE2NDMxNzkyMzd9.iFvmdtRQVliAe91dBu_CZDfBD5I7WCbDTiDQxu4sOTApXFPb5EsSuEBEVfK_-14E7xjcfQLSMa6ZO06YvhRHAA",
       "expires_in": 3599,
       "scope": "openid",
-      "token_type": "bearer",
+      "token_type": "bearer"
     }
     ```
 
     Decoded ID token JWS example:
 
+    `Header`
     ```json
     {
       "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
       "alg": "ES256"
-    }.{
+    }
+    ```
+    `Payload`
+    ```json
+    {
       "aud": "edddb32f-5028-4397-b0ab-e8ecf218fdc2",
       "sub": "5168ee06-871e-46e6-941e-0103b957048e",
       "auth_req_id": "7BzAY-SbVQJ38V-U0C7Z6k23_CY",
       "iss": "https://ece46ec4-6f9c-489b-8fe5-146a89e11635.tech-02.net/access-management-1.0/access/",
       "exp": 1643179837,
       "iat": 1643179237
-    }.[Signature]
+    }
     ```
 
 4. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 3.
@@ -1386,7 +1391,7 @@ The ID token is a JWS that must be validated, see [ID Token](#id-token). The mer
 
 The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
 
-##### Authentication
+##### Authentication {redirect-browser}
 
 The following authentication methods are currently supported:
 
@@ -1397,7 +1402,7 @@ The default token endpoint authentication method is `client_secret_basic`. It is
 
 Required parameters: `requested_flow`, `login_hint`, `scope`, `redirect_uri`
 
-##### The `login_hint` parameter (required)
+##### The `login_hint` parameter (required) {redirect-browser}
 
 Supported login hints:
 
@@ -1405,7 +1410,7 @@ Supported login hints:
 
 Example: `...&login_hint=urn:mobilenumber:12345678&...`.
 
-##### The `scope` parameter (required)
+##### The `scope` parameter (required) {redirect-browser}
 
 * We support the scopes listed at [Scopes](#scopes).
 * The legacy `nnin` scope is not supported, use `nin` instead.
@@ -1413,7 +1418,7 @@ Example: `...&login_hint=urn:mobilenumber:12345678&...`.
 
 Example: `...&scope=openid name address birthDate nin&...`
 
-##### The `binding_message` parameter (optional)
+##### The `binding_message` parameter (optional) {redirect-browser}
 
 A human-readable identifier or message intended to be displayed on both the consumption device and the authentication device to interlock them together for the transaction by way of a visual cue for the end-user.
 
@@ -1429,7 +1434,7 @@ Redirect URL which the user agent is redirected to after finishing a login. Must
 
 Example: `...&redirect_uri=https://merchant.com/callback&...`
 
-##### Error responses
+##### Error responses {redirect-browser}
 
 In addition to the responses defined by [the standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.13) these responses might also be returned:
 
@@ -1459,7 +1464,7 @@ With this in place, we can issue a Vipps Login QR code.
 
 ### Initiate login from QR code
 
-#### Call by call
+#### Call by call {integrate-qr}
 
 Prerequisite:
 
@@ -1520,11 +1525,16 @@ Steps:
 
     Decoded ID token JWS example:
 
+   `Header`
     ```json
     {
       "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
       "alg": "ES256"
-      }.{
+    }
+    ```
+   `Payload`
+    ```json
+    {
       "aud": "8de3f38f-4a79-4eb3-930f-1e595d460a57",
       "sub": "d6614352-ca55-4d89-8f82-d2facde311a4",
       "iss": "https://api.vipps.no/access-management-1.0/access/",
@@ -1532,7 +1542,7 @@ Steps:
       "iat": 1643983788,
       "qr_id": "oKAz7q1O",
       "qr_description": "description of QR code"
-      }.[Signature]
+    }
     ```
 
 5. The client must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 4.
@@ -1571,11 +1581,11 @@ Steps:
 
 ### Initiate login from QR code with redirect to browser
 
-#### Overview
+#### Overview {integrate-qr-redirect}
 
 [Vipps login from QR api how it works](#vipps-login-from-qr-code)
 
-#### Call by call
+#### Call by call {integrate-qr-redirect}
 
 Prerequisite:
 
@@ -1620,19 +1630,24 @@ Steps:
 
     Decoded ID token JWS example:
 
+   `Header`
     ```json
     {
-    "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
-    "alg": "ES256"
-    }.{
-    "aud": "8de3f38f-4a79-4eb3-930f-1e595d460a57",
-    "sub": "d6614352-ca55-4d89-8f82-d2facde311a4",
-    "iss": "https://api.vipps.no/access-management-1.0/access/",
-    "exp": 1643984388,
-    "iat": 1643983788,
-    "qr_id": "oKAz7q1O",
-    "qr_description": "description of QR code"
-    }.[Signature]
+      "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
+      "alg": "ES256"
+    }
+    ```
+   `Payload`
+    ```json
+    {
+      "aud": "8de3f38f-4a79-4eb3-930f-1e595d460a57",
+      "sub": "d6614352-ca55-4d89-8f82-d2facde311a4",
+      "iss": "https://api.vipps.no/access-management-1.0/access/",
+      "exp": 1643984388,
+      "iat": 1643983788,
+      "qr_id": "oKAz7q1O",
+      "qr_description": "description of QR code"
+    }
     ```
 
 3. The client must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 3.
@@ -1691,13 +1706,15 @@ eyJhbGciOiJub25lIiwidHlwIjogIkpXVCJ9Cg.eyJleHAiOjE1OTI1NzE3ODgsImlhdCI6MTU5MjU3M
 
 *Decoded JWT*
 
+`Header`
 ```json
-Header
 {
   "alg": "none",
   "typ": "JWT"
 }
-Payload
+```
+`Payload`
+```json
 {
   "exp": 1592571788,
   "iat": 1592571488,
@@ -1796,7 +1813,7 @@ We strongly encourage partners to use the `msn` claim in the ID token for this p
 
 This is a unique id for the sale unit. This is a required parameter if you are a Vipps partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
 
-### Userinfo
+### Userinfo {#msn}
 
 For fetching userinfo the token received during the login flow must be used.
 
