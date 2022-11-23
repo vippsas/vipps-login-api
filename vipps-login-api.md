@@ -53,7 +53,7 @@ Document version 4.0.11.
     * [Openid connect discovery URLs](#openid-connect-discovery-urls)
       * [OAuth 2.0 Authorize](#oauth-20-authorize)
       * [OAuth 2.0 Token](#oauth-20-token)
-      * [Userinfo](#userinfo-msn)
+      * [Userinfo](#userinfo)
       * [JSON Web Keys Discovery](#json-web-keys-discovery)
   * [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)
     * [Receive authentication result](#receive-authentication-result)
@@ -72,9 +72,9 @@ Document version 4.0.11.
 * [Integrating with Vipps Login from phone number](#integrating-with-vipps-login-from-phone-number)
   * [Activating Vipps Login from phone number](#activating-vipps-login-from-phone-number)
   * [Complete login in the Vipps app](#complete-login-in-the-vipps-app)
-    * [Activation](#activation-complete-login)
-    * [Overview](#overview-complete-login)
-    * [Call by call](#call-by-call-complete-login)
+    * [Activation](#activation-1)
+    * [Overview](#overview-1)
+    * [Call by call](#call-by-call-1)
     * [Authentication Request](#authentication-request)
       * [Authentication](#authentication)
       * [The `login_hint` parameter (required)](#the-login_hint-parameter-required)
@@ -85,18 +85,18 @@ Document version 4.0.11.
       * [Successful responses](#successful-responses)
     * [Token request](#token-request)
       * [Polling](#polling)
-    * [Error responses](#error-responses-complete-login)
+    * [Error responses](#error-responses-1)
   * [Redirect to browser](#redirect-to-browser)
-    * [Activation](#activation-redirect-browser)
-    * [Overview](#overview-redirect-browser)
-    * [Call by call](#call-by-call-redirect-browser)
+    * [Activation](#activation-2)
+    * [Overview](#overview-2)
+    * [Call by call](#call-by-call-2)
     * [Authentication Request With Redirect](#authentication-request-with-redirect)
-      * [Authentication](#authentication-redirect-browser)
-      * [The `login_hint` parameter (required)](#the-login_hint-parameter-required-redirect-browser)
-      * [The `scope` parameter (required)](#the-scope-parameter-required-redirect-browser)
-      * [The `binding_message` parameter (optional)](#the-binding_message-parameter-optional-redirect-browser)
+      * [Authentication](#authentication-1)
+      * [The `login_hint` parameter (required)](#the-login_hint-parameter-required-1)
+      * [The `scope` parameter (required)](#the-scope-parameter-required-1)
+      * [The `binding_message` parameter (optional)](#the-binding_message-parameter-optional-1)
       * [The `redirect_uri` parameter (required)](#the-redirect_uri-parameter-required)
-      * [Error responses](#error-responses-redirect-browser)
+      * [Error responses](#error-responses-2)
   * [Merchant delegated consents](#merchants-delegated-consents)
     * [Activation](#activation-delegated-consents)
     * [Overview](#overview-delegated-consents)
@@ -104,10 +104,10 @@ Document version 4.0.11.
 * [Integrating with Vipps Login from QR code](#integrating-with-vipps-login-from-qr-code)
   * [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
   * [Initiate login from QR code](#initiate-login-from-qr-code)
-    * [Call by call](#call-by-call-integrate-qr)
+    * [Call by call](#call-by-call-3)
   * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
-    * [Overview](#overview-integrate-qr-redirect)
-    * [Call by call](#call-by-call-integrate-qr-redirect)
+    * [Overview](#overview-3)
+    * [Call by call](#call-by-call-4)
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
 * [Partner keys](#partner-keys)
@@ -1068,11 +1068,11 @@ A sale unit can be set up with both Vipps Login in browser and phone number (and
 
 ### Complete login in the Vipps app
 
-#### Activation {complete-login}
+#### Activation
 
 See [Activating Vipps Login from phone number](#activating-vipps-login-from-phone-number)
 
-#### Overview {complete-login}
+#### Overview
 
 Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate the authentication of an end-user through out-of-band mechanisms.
 
@@ -1080,7 +1080,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
 3) The Client will receive the ID Token and Access Token by polling the token endpoint to get a response with the tokens.
 
-#### Call by call {complete-login}
+#### Call by call
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
    See [.well-known](#openid-connect-discovery-endpoint)
@@ -1255,7 +1255,7 @@ The responses from this endpoint is according to the standard.
 * Long polling as described in [the CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#token_request) is currently not supported
 * Remember not to poll more often than indicated by the `interval` parameter, returned from the [authentication request](#authentication-request).
 
-#### Error responses {complete-login}
+#### Error responses
 
 In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
 
@@ -1264,11 +1264,11 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 
 ### Redirect to browser
 
-#### Activation {redirect-browser}
+#### Activation
 
 See [Activating Vipps Login from phone number](#activating-vipps-login-from-phone-number).
 
-#### Overview {redirect-browser}
+#### Overview
 
 This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user
 to be taken to the client's web page to finalize the flow.
@@ -1278,7 +1278,7 @@ to be taken to the client's web page to finalize the flow.
 
 ![image](https://user-images.githubusercontent.com/1453728/134330475-d6910cbd-c216-4c64-bef9-e0f84cb0a7fd.png)
 
-#### Call by call {redirect-browser}
+#### Call by call
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
    See [.well-known](#openid-connect-discovery-endpoint).
@@ -1396,7 +1396,7 @@ The ID token is a JWS that must be validated, see [ID Token](#id-token). The mer
 
 The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
 
-##### Authentication {redirect-browser}
+##### Authentication
 
 The following authentication methods are currently supported:
 
@@ -1407,7 +1407,7 @@ The default token endpoint authentication method is `client_secret_basic`. It is
 
 Required parameters: `requested_flow`, `login_hint`, `scope`, `redirect_uri`
 
-##### The `login_hint` parameter (required) {redirect-browser}
+##### The `login_hint` parameter (required)
 
 Supported login hints:
 
@@ -1415,7 +1415,7 @@ Supported login hints:
 
 Example: `...&login_hint=urn:mobilenumber:12345678&...`.
 
-##### The `scope` parameter (required) {redirect-browser}
+##### The `scope` parameter (required)
 
 * We support the scopes listed at [Scopes](#scopes).
 * The legacy `nnin` scope is not supported, use `nin` instead.
@@ -1423,7 +1423,7 @@ Example: `...&login_hint=urn:mobilenumber:12345678&...`.
 
 Example: `...&scope=openid name address birthDate nin&...`
 
-##### The `binding_message` parameter (optional) {redirect-browser}
+##### The `binding_message` parameter (optional)
 
 A human-readable identifier or message intended to be displayed on both the consumption device and the authentication device to interlock them together for the transaction by way of a visual cue for the end-user.
 
@@ -1439,7 +1439,7 @@ Redirect URL which the user agent is redirected to after finishing a login. Must
 
 Example: `...&redirect_uri=https://merchant.com/callback&...`
 
-##### Error responses {redirect-browser}
+##### Error responses
 
 In addition to the responses defined by [the standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.13) these responses might also be returned:
 
@@ -1623,7 +1623,7 @@ With this in place, we can issue a Vipps Login QR code.
 
 ### Initiate login from QR code
 
-#### Call by call {integrate-qr}
+#### Call by call
 
 Prerequisite:
 
@@ -1740,11 +1740,11 @@ Steps:
 
 ### Initiate login from QR code with redirect to browser
 
-#### Overview {integrate-qr-redirect}
+#### Overview
 
 [Vipps login from QR api how it works](#vipps-login-from-qr-code)
 
-#### Call by call {integrate-qr-redirect}
+#### Call by call
 
 Prerequisite:
 
@@ -1972,7 +1972,7 @@ We strongly encourage partners to use the `msn` claim in the ID token for this p
 
 This is a unique id for the sale unit. This is a required parameter if you are a Vipps partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
 
-### Userinfo {#msn}
+### Userinfo
 
 For fetching userinfo the token received during the login flow must be used.
 
