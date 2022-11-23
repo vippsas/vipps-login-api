@@ -122,7 +122,7 @@ Vipps Login is available for several use cases:
 * Directly from machines and vending machines based on phone number
 * Directly from QR-codes on screens, posters, etc.
 
-Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. [Norwegian national identity number](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) and [account numbers](vipps-login-api-faq.md#who-can-get-access-to-account-numbers-and-how) are also available to some merchants.  The identity of all Vipps users is verified as part of Vipps' know your customer process, so rest assured that these are real people with correct name and information.
+Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. [Norwegian national identity number](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) is also available to some merchants.  The identity of all Vipps users is verified as part of Vipps' know your customer process, so rest assured that these are real people with correct name and information.
 
 When Vipps Login is used in the browser, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. The possibility for the user to be remembered in browser is a key feature of the service and cannot be controlled (turned off) by individual merchants. This means that it is not possible to set up Vipps Login is a 2 factor authentication (2FA).
 
@@ -399,7 +399,6 @@ Vipps Login currently supports the following scopes:
 | name        | User first, middle and given name (verified with National Population Register)              |   yes   |
 | phoneNumber | Verified phone number (verified - the number used with Vipps)                          |   yes   |
 | nin        | Norwegian national identity number (verified with National Population Register). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information |   yes      |
-| accountNumbers | User bank account numbers. NB: merchants need to apply for access to accountNumbers. Go to [Who can get access to account numbers and how?](vipps-login-api-faq.md#who-can-get-access-to-accountnumbers-and-how) For more information |   yes      |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
@@ -528,7 +527,6 @@ Example response from the merchant test environment:
     "phoneNumber",
     "nin",
     "birthDate",
-    "accountNumbers",
     "api_version_2"
   ],
   "token_endpoint_auth_methods_supported": [
@@ -759,13 +757,6 @@ Example response:
             "country": "NO",
             "formatted": "Summer House Lane 14\\n1452 OSLO\\nNO",
             "address_type": "other"
-        }
-    ],
-    "accounts": [
-        {
-            "account_name": "My savings",
-            "account_number": "12064590675",
-            "bank_name": "My bank"
         }
     ]
 }

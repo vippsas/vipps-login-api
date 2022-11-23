@@ -42,7 +42,6 @@ Document version 2.3.8.
 * [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
 * [Can a Vipps user less than 15 years old use Vipps Login?](#can-a-vipps-user-less-than-15-years-old-use-vipps-login)
 * [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
-* [Who can get access to account numbers and how?](#who-can-get-access-to-account-numbers-and-how)
 * [Who can get access to Vipps Login from phone number and how?](#who-can-get-access-to-vipps-login-from-phone-number-and-how)
 * [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 * [Can I use partner keys for Vipps login?](#can-i-use-partner-keys-for-vipps-login)
@@ -262,17 +261,6 @@ accessuserinfo@vipps.no. In the email you should specify:
 * The legal requirement and/or the reason why you need to use NIN to achieve
   required user identification.
 
-## Who can get access to account numbers and how?
-
-Access to account numbers is a paid service.
-Merchants need to order access to account numbers separately by sending an email
-to accessuserinfo@vipps.no. In the email you should specify:
-
-* Merchant name
-* Organization number
-* Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
-* Information on how you plan to use the account numbers
-
 ## Who can get access to Vipps Login from phone number and how?
 
 Vipps Login from phone number has been developed to support use-cases where
@@ -330,8 +318,7 @@ Then scroll down until you find the panel named "Successful logins".
 
 ![The dashboard looks like this:](images/API_Dashboard_Vipps_login.png)
 
-If you have access to request national identity number (NIN) and/or account
-numbers you will be able to see the number of logins with and without these
+If you have access to request national identity number (NIN) you will be able to see the number of logins with and without these
 scopes. If you click "Show details" under the graph you can see total logins
 for the period and number of unique users in the selected period. Keep in
 mind that there is a 10 minute delay from a login occurs, until it appears
