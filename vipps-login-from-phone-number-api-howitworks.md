@@ -67,7 +67,7 @@ If the scope is included in the request, the end user will be asked to give cons
 
 Some of the elements on the delegatedConsents screen can be adjusted to fit the merchant's needs
  * A top text where the purpose of collecting consents should be stated. This is customizable for you as a merchant.
- * The consents wanted by the merchant (see more below). These can be individually specified to be mandatory or optional. Mandatory consents must be ticked before the user can complete the login flow. See what consents we currently support, or reach out if you need something else and we'll se what we can do!
+ * The consents wanted by the merchant (see more [When using delegatedConsents, which consents does Vipps support?](vipps-login-api-faq.md#when-using-delegatedconsents-which-consents-does-vipps-support)). These can be individually specified to be mandatory or optional. Mandatory consents must be ticked before the user can complete the login flow. See what consents we currently support, or reach out if you need something else and we'll se what we can do!
  * A bottom text where we provide some contextual information for the end user. The text is fixed, but the links will point to the merchant's terms and conditions, as well as privacy statement.
 
 ### 4. Redirect or end the login in Vipps
