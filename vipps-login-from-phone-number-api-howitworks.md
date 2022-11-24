@@ -21,7 +21,7 @@ For technical documentation go to
 
 We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md) and [Vipps Login from QR-code](vipps-login-from-QR-api-howitworks.md).
 
-## The login from phone number process
+## The login from phone number Process
 
 You can choose between two different processes/user experiences
 
