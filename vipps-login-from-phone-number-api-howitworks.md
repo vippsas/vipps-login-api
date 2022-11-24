@@ -61,7 +61,9 @@ The merchant may choose to include the delegatedConsents scope to collect consen
 This scope is typically relevant for merchants who employ Vipps Login to enroll users to their loyalty program when the user is present in-store.
 If the scope is included in the request, the end user will be asked to give consents according to merchant specifications.
 
-//ToDo: insert image
+|                           Delegated consents shown                            |                           Delegated consents approved                            |
+|:-----------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+| ![User sees delegated consents in Vipps](images/delegated-consents-step1.png) | ![User confirm delegated consents in Vipps](images/delegated-consents-step2.png) |
 
 Some of the elements on the delegatedConsents screen can be adjusted to fit the merchant's needs
  * A top text where the purpose of collecting consents should be stated. This is customizable for you as a merchant.

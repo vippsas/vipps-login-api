@@ -291,22 +291,24 @@ We will then tailor this screen to suit your needs. You can see what the flow lo
 [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md).
 Send an email to accessuserinfo@vipps.no and supply the following information:
 
-| Item                                                 | Description                                                                                                                                                                      | Example                                                                           | Comments                                                                                                |
-|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| Top text                                             | Specifies the purpose of collecting the consents                                                                                                                                 | "Merchant AS would like to send you tailored offers in several digital channels." |                                                                                                         |
-| Subset of consents you would like to ask for         | We offer a set of predefined consents. See [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedConsents,-which-consents-does-Vipps-support?) | email, sms                                                                        | If you want a consent type that we currently don't support, reach out to us at accessuserinfo@vipps.no  |
-| Links to your membership terms and privacy statement | We need to check your terms to make sure the flow is not used to mislead or abuse the end user                                                                                   | www.merchant.com/termsandconditions <br /> www.merchant.com/privacystatement      |                                                                                                         |
-| Recipient to sign DPA                                | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions                        | recipient@merchant.com                                                            |                                                                                                         |
+| Item                                                 | Description                                                                                                                                                                      | Example                                                                           | Comments                                                                                               |
+|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| Top text                                             | Specifies the purpose of collecting the consents                                                                                                                                 | "Merchant AS would like to send you tailored offers in several digital channels." |                                                                                                        |
+| Subset of consents you would like to ask for         | We offer a set of predefined consents. See [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedConsents,-which-consents-does-Vipps-support?) | email, sms                                                                        | If you want a consent type that we currently don't support, reach out to us at accessuserinfo@vipps.no |
+| Links to your membership terms and privacy statement | We need to check your terms to make sure the flow is not used to mislead or abuse the end user                                                                                   | www.merchant.com/termsandconditions <br /> www.merchant.com/privacystatement      |                                                                                                        |
+| Recipient to sign DPA                                | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions                        | recipient@merchant.com                                                            |                                                                                                        |
 
 ## When using delegatedConsents, which consents does Vipps support?
 
 We have built support for several consents, and the merchant may select a subset of these to include in their own flow.
 If we do not currently support the consents you look for, you may make a request to accessuserinfo@vipps.no and we'll be in touch.
 
-| Id                                                   | Consent text (Norwegian) | Consent text (English)   |
-|------------------------------------------------------|--------------------------|--------------------------|
-| Email                                                | Få tilbud på E-post      | Receive offers via email |
-| Sms                                                  | Få tilbud på SMS         | Receive offers via SMS   |
+| Id       | Consent text (Norwegian)            | Consent text (English)                    |
+|----------|-------------------------------------|-------------------------------------------|
+| email    | Få tilbud på E-post                 | Receive offers via email                  |
+| sms      | Få tilbud på SMS                    | Receive offers via SMS                    |
+| digital  | Jeg vil motta digital markedsføring | I would like to receive digital marketing |
+| personal | Få tilpassede tilbud                | Get customized offers                     |
 
 ## What's the purpose of the `state` parameter?
 
