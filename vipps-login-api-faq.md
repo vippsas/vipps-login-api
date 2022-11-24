@@ -177,8 +177,8 @@ on the same phone.
 ## Which scopes can I use? Why do I get `Invalid_scope`?
 
 If you get “Invalid_scope” this means that you have included one or more scopes
-that you do not have access to or that is not supported. You will find the (list
-of supported scopes)[vipps-login-api.md#scopes].
+that you do not have access to or that is not supported. You will find the
+[list of supported scopes](vipps-login-api.md#scopes).
 
 All merchants get access to these scopes:
 
@@ -291,12 +291,12 @@ We will then tailor this screen to suit your needs. You can see what the flow lo
 [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md).
 Send an email to accessuserinfo@vipps.no and supply the following information:
 
-| Item                                                 | Description                                                                                                                                                                      | Example                                                                           | Comments                                                                                               |
-|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| Top text                                             | Specifies the purpose of collecting the consents                                                                                                                                 | "Merchant AS would like to send you tailored offers in several digital channels." |                                                                                                        |
-| Subset of consents you would like to ask for         | We offer a set of predefined consents. See [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedConsents,-which-consents-does-Vipps-support?) | email, sms                                                                        | If you want a consent type that we currently don't support, reach out to us at accessuserinfo@vipps.no |
-| Links to your membership terms and privacy statement | We need to check your terms to make sure the flow is not used to mislead or abuse the end user                                                                                   | www.merchant.com/termsandconditions <br /> www.merchant.com/privacystatement      |                                                                                                        |
-| Recipient to sign DPA                                | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions                        | recipient@merchant.com                                                            |                                                                                                        |
+| Item                                                 | Description                                                                                                                                                                    | Example                                                                           | Comments                                                                                               |
+|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| Top text                                             | Specifies the purpose of collecting the consents                                                                                                                               | "Merchant AS would like to send you tailored offers in several digital channels." |                                                                                                        |
+| Subset of consents you would like to ask for         | We offer a set of predefined consents. See [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedconsents-which-consents-does-vipps-support) | email, sms, digital, personal                                                     | If you want a consent type that we currently don't support, reach out to us at accessuserinfo@vipps.no |
+| Links to your membership terms and privacy statement | We need to check your terms to make sure the flow is not used to mislead or abuse the end user                                                                                 | www.merchant.com/termsandconditions <br /> www.merchant.com/privacystatement      |                                                                                                        |
+| Recipient to sign DPA                                | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions                      | recipient@merchant.com                                                            |                                                                                                        |
 
 ## When using delegatedConsents, which consents does Vipps support?
 
@@ -309,6 +309,8 @@ If we do not currently support the consents you look for, you may make a request
 | sms      | Få tilbud på SMS                    | Receive offers via SMS                    |
 | digital  | Jeg vil motta digital markedsføring | I would like to receive digital marketing |
 | personal | Få tilpassede tilbud                | Get customized offers                     |
+
+For more information about the response, please visit [Merchant delegated consents api doc](vipps-login-api.md#merchants-delegated-consents).
 
 ## What's the purpose of the `state` parameter?
 

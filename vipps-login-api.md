@@ -1457,6 +1457,8 @@ For Client-Initiated Backchannel Authentication (CIBA) it is possible to initiat
 3) The Client will receive the ID Token and Access Token by polling the token endpoint to get a response with the tokens.
 4) Token can be used by the Client to retrieve information about the user through the `userinfo` endpoint, this response will also contain the consents that are approved/declined by the user.
 
+Requesting on behalf consents for merchant is also available for [Vipps login from phone number with redirect to browser](#redirect-to-browser), by adding scope delegatedConsents to the initial request (1).
+
 #### Call by call
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
@@ -1591,20 +1593,20 @@ For Client-Initiated Backchannel Authentication (CIBA) it is possible to initiat
     }
     ```
 
-#### Authentication request with delegatedConsents
+#### Authentication request
 Required parameters are listed in [Authentication request login from phone number](#authentication-request) and [Authentication request login from phone number with redirect](#authentication-request-with-redirect)
 
 ##### Error responses
-See [Error responses login from phone number](#error-responses) or [Error responses login from phone number with redirect](#error-responses-1)
+Error responses are listed in [Error responses login from phone number](#error-responses) and [Error responses login from phone number with redirect](#error-responses-1)
 
 ##### Successful responses
-See [Successful responses login from phone number](#successful-responses)
+Success responses for Vipps login from phone number are listed in [Successful responses login from phone number](#successful-responses)
 
-#### Token request
-See [Token request login from phone number](#token-request)
+##### Token request
+Token request for Vipps login from phone number is described in [Token request login from phone number](#token-request)
 
 ##### Polling
-See [Polling login from phone number](#polling)
+Polling Vipps login from phone number is described in [Polling login from phone number](#polling)
 
 
 ## Integrating with Vipps Login from QR code
