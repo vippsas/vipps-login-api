@@ -300,7 +300,7 @@ Send an email to accessuserinfo@vipps.no and supply the following information:
 
 ## When using delegatedConsents, which consents does Vipps support?
 
-We have built support for several consents, and the merchant may select a subset of these to include in their own flow.
+We have built support for several consents, and the merchant may select a subset of these to include in their own flow as well as select which of the consents that are required/optional.
 If we do not currently support the consents you look for, you may make a request to accessuserinfo@vipps.no and we'll be in touch.
 
 | Id       | Consent text (Norwegian)            | Consent text (English)                    |
