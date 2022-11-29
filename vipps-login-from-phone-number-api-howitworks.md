@@ -77,9 +77,7 @@ The merchant controls what happens after the user has confirmed the login and sh
 
 The merchant can end the login process in Vipps, where the user will receive a confirmation screen that the login is complete.
 
-Alternatively, the merchant may redirect the user to a webpage in their browser. As the merchant will have an identified user
-entering their web page and as such can control the information given, and ask the user to do further actions to continue the process,
-if relevant. For example, this can be used to welcome a user to the customer club, ask for more information or preferences, or show offers or information of relevance.
+Alternatively, the merchant may redirect the user to it's website. The merchant will then have a identified user. This flow can be used to welcome a user to the customer club, ask for more information/preferences, show offers or information of relevance.
 
 ![User gets confirmation in Vipps or is taken to browser](images/vipps-login-confirmation.png)
 
