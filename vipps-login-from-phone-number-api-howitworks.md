@@ -50,7 +50,7 @@ After opening Vipps, the user will be asked to confirm sharing information with 
 On this screen, the merchant can choose to show a binding message (confirmation code). This is for added security if the merchant would like their representatives or their customers to have an explicit check that it is the correct transaction that is being accepted.
 
 After confirming the login and sharing of information, the user will be asked for the formal consent to share information from Vipps to the merchant.
-This consent is only needed once per merchant and applies across all Vipps services. In other words, if the user has already consented to share the
+The end user only need to consent once per merchant and the consent applies across all Vipps services. In other words, if the user has already consented to share the
 requested information with the merchant, no consent will be required, and this step will be skipped.
 
 ![User confirm in Vipps](images/vipps-login-confirm.png)
@@ -61,7 +61,7 @@ The merchant may choose to include the delegatedConsents scope to collect consen
 This scope is relevant for merchants who use Vipps Login to enroll end-users into customer club/loyalty program from POS system when the user is present in-store.
 If the scope is included in the request, the end user will be asked to give consents according to merchant specifications.
 
-|                           Delegated consents shown                            |                           Delegated consents approved                            |
+|                       Initial delegated consents screen                       |                           Delegated consents approved                            |
 |:-----------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
 | ![User sees delegated consents in Vipps](images/delegated-consents-step1.png) | ![User confirm delegated consents in Vipps](images/delegated-consents-step2.png) |
 
