@@ -58,7 +58,7 @@ requested information with the merchant, no consent will be required, and this s
 ### 3. Delegated consents (optional)
 
 The merchant may choose to include the delegatedConsents scope to collect consents from the end user in Vipps, on behalf of the merchant.
-This scope is typically relevant for merchants who employ Vipps Login to enroll users to their loyalty program when the user is present in-store.
+This scope is relevant for merchants who use Vipps Login to enroll end-users into customer club/loyalty program from POS system when the user is present in-store.
 If the scope is included in the request, the end user will be asked to give consents according to merchant specifications.
 
 |                           Delegated consents shown                            |                           Delegated consents approved                            |
