@@ -285,7 +285,7 @@ Vipps Login from phone number is a billed service. As such, we also need some de
 
 ## How can I get started with delegatedConsents?
 
-If you plan on using the scope delegatedConsents along with Vipps Login from phone number,
+If you plan on using the scope `delegatedConsents` along with Vipps Login from phone number,
 you will need to supply some information on what consents you will retrieve and how.
 We will then tailor this screen to suit your needs. You can see what the flow looks like at
 [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md).
