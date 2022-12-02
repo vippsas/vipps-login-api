@@ -289,7 +289,7 @@ If you plan on using the scope `delegatedConsents` along with Vipps Login from p
 you will need to supply some information on what consents you will retrieve and how.
 We will then tailor this screen to suit your needs. You can see what the flow looks like at
 [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md).
-Send an email to accessuserinfo@vipps.no and supply the following information:
+Send an email to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) and supply the following information:
 
 | Item                                                 | Description                                                                                                                                                                    | Example                                                                           | Comments                                                                                               |
 |------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
