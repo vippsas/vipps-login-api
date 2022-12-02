@@ -1452,7 +1452,7 @@ See [How can I get started with delegatedConsents?](vipps-login-api-faq.md#how-c
 
 For Client-Initiated Backchannel Authentication (CIBA) it is possible to initiate the authentication of an end-user through out-of-band mechanisms and collect consents on behalf of the merchant.
 
-1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint with scope delegatedConsents to ask for end-user authentication and on behalf of the merchant consents.
+1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint with scope `delegatedConsents` to ask for end-user authentication and on behalf of the merchant consents.
 2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background, along with collecting consents.
 3) The Client will receive the ID Token and Access Token by polling the token endpoint to get a response with the tokens.
 4) Token can be used by the Client to retrieve information about the user through the `userinfo` endpoint, this response will also contain the consents that are approved/declined by the user.
