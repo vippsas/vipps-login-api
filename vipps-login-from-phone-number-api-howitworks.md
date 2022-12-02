@@ -50,7 +50,7 @@ After opening Vipps, the user will be asked to confirm sharing information with 
 On this screen, the merchant can choose to show a binding message (confirmation code). This is for added security if the merchant would like their representatives or their customers to have an explicit check that it is the correct transaction that is being accepted.
 
 After confirming the login and sharing of information, the user will be asked for the formal consent to share information from Vipps to the merchant.
-The end user only need to consent once per merchant and the consent applies across all Vipps services. In other words, if the user has already consented to share the
+The end user must only consent once per merchant and the consent applies across all Vipps services. In other words, if the user has already consented to share the
 requested information with the merchant, no consent will be required, and this step will be skipped.
 
 ![User confirm in Vipps](images/vipps-login-confirm.png)
