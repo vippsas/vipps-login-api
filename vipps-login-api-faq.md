@@ -275,7 +275,7 @@ webpages or in apps used by end-users (on their own device), access to the featu
 
 Merchants need to apply for access to Vipps Login from phone number separately. 
 This is done by sending an email to accessuserinfo@vipps.no and supplying the following information:
- * Merchant serial number (MSN) for the sale unit for which you will use Vipps Login (this can be retrieved from portal.vipps.no)
+ * Merchant serial number (MSN) for the sale unit for which you will use Vipps Login (this can be retrieved from [portal.vipps.no](https://portal.vipps.no))
  * Information on how you plan to use Vipps Login from phone number
 
 Vipps Login from phone number is a billed service. As such, we also need some details regarding invoicing:
