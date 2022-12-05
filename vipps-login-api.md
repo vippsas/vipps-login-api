@@ -137,7 +137,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 [**Vipps Login from QR-code**](#vipps-login-from-qr-code) is a new flow that we will gradually roll out support for. Our [How It Works page](vipps-login-from-QR-api-howitworks.md) shows the flow.
 
-See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
+See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
 
 ### Activation
 
