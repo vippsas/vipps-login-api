@@ -254,7 +254,7 @@ If you need to store the NIN for new users we recommend that you use an
 electronic ID.
 
 Merchants need to apply for access to NIN separately by sending an email to
-accessuserinfo@vipps.no. In the email you should specify:
+[accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no). In the email you should specify:
 
 * Merchant name
 * Organization number
@@ -483,7 +483,7 @@ Upgrading to the latest version of Chrome should solve this.
 
 ### Why do I get `HTTP 502 Bad Gateway`?
 
-Some merchants have experienced a 502 Bad gateway response from api.vipps.no.
+Some merchants have experienced a 502 Bad gateway response from [api.vipps.no](https://api.vipps.no).
 This typically occurs in situations in which the `state` or `nonce` parameter
 is 1000+ characters. We've seen this issue when any of the requests in the
 redirect sequence are too long (i.e 2000+ characters). Therefore, try to keep
