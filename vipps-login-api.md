@@ -16,7 +16,7 @@ END_METADATA -->
 
 API version: 2.0
 
-Document version 4.0.11.
+Document version 4.0.12.
 <!-- START_TOC -->
 
 ## Table of contents
@@ -97,13 +97,17 @@ Document version 4.0.11.
       * [The `binding_message` parameter (optional)](#the-binding_message-parameter-optional-1)
       * [The `redirect_uri` parameter (required)](#the-redirect_uri-parameter-required)
       * [Error responses](#error-responses-2)
+  * [Merchant delegated consents](#merchants-delegated-consents)
+    * [Activation](#activation-3)
+    * [Overview](#overview-3)
+    * [Call by call](#call-by-call-3)
 * [Integrating with Vipps Login from QR code](#integrating-with-vipps-login-from-qr-code)
   * [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
   * [Initiate login from QR code](#initiate-login-from-qr-code)
-    * [Call by call](#call-by-call-3)
-  * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
-    * [Overview](#overview-3)
     * [Call by call](#call-by-call-4)
+  * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
+    * [Overview](#overview-4)
+    * [Call by call](#call-by-call-5)
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
 * [Partner keys](#partner-keys)
@@ -390,15 +394,16 @@ For more information on the token endpoint see [OpenID Connect Core 1.0](https:/
 Scopes are space-separated lists of identifiers used to specify what access privileges are being requested.
 Vipps Login currently supports the following scopes:
 
-| Scopes      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | User consent required  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
-| openid      | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | no                     |
-| address     | User can have up to three addresses in Vipps: home, work and other. Users' addresses are given as claims 'address' and 'other_addresses'. The claim 'address' returns the address set as 'default' for the Vipps user. And the claim 'other_addresses' returns all other addresses of the end user, if any.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context. Some users will not have any registered address, in these situations the claim 'address' will be delivered, but the sub claims in address will be empty strings, e.i. "address" : {"country" : "", "street_address" : "", "address_type" : "", "formatted" : "", "postal_code" : "", "region" : "" } . If a user has information in the «Unit, floor or other details» field this will be included in the "street_address" response. The «Street address» will then be presented first before "\n" and then the contents from «Unit, floor or other details», e.g: "Suburbia 23"\nUnit B5" | yes                    |
-| birthDate   | User birth date (verified with National Population Register)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | yes                    |
-| email       | User email (verified), the flag "email_verified : true" in the response can be used by merchant to confirm for each request that the email actually is verified                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | yes                    |
-| name        | User first, middle and given name (verified with National Population Register)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | yes                    |
-| phoneNumber | Verified phone number (verified - the number used with Vipps)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | yes                    |
-| nin         | Norwegian national identity number (verified with National Population Register). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) For more information                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | yes                    |
+| Scopes            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | User consent required |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| openid            | Scope used to request an Id-token. It provides the claim “sub” which is a unique id for the end user at that particular merchant. Note: Different merchants will get different subs for the same end user.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | no                    |
+| address           | User can have up to three addresses in Vipps: home, work and other. User addresses are given as claims `address` and `other_addresses`. The claim `address` returns the address set as default for the Vipps user. The claim `other_addresses` returns any other addresses of the end user.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context. Some users will not have any registered address, in these situations the claim `address` will be delivered, but the sub claims in address will be empty strings (e.g.,  "address" : {"country" : "", "street_address" : "", "address_type" : "", "formatted" : "", "postal_code" : "", "region" : "" }) . If a user has information in the *Unit, floor or other details* field, this will be included in the *street_address* response. The *Street address* will then be presented first, before "\n". Then, the contents from *Unit, floor or other details* (e.g., "Suburbia 23"\nUnit B5") | yes                   |
+| birthDate         | User birth date (verified with National Population Register)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | yes                   |
+| email             | User email (verified), the flag `email_verified : true` in the response can be used by merchants to confirm that the email actually is verified for each request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | yes                   |
+| name              | User first, middle and given name (verified with National Population Register)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | yes                   |
+| phoneNumber       | Verified phone number (verified - the number used with Vipps)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | yes                   |
+| nin               | Norwegian national identity number (NIN) (verified with National Population Register). NB: merchants need to apply for access to NIN. Go to [Who can get access to NIN and how?](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) for more information.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | yes                   |
+| delegatedConsents | Enabled consents to be collected on behalf of a merchant. This scope is only supported in Vipps login from phone number, see [Merchant delegated consents](#merchants-delegated-consents).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | yes                   |
 
 When requesting scopes that require user consent, a view listing these scopes
 will be displayed to the user with the option to allow or deny the consent
@@ -1224,12 +1229,6 @@ Read more about it in the standard <https://openid.net/specs/openid-client-initi
 
 Example: `....&binding_message=4MZ-CQ3&...`
 
-##### Error responses
-
-In addition to the responses defined by the standard these responses might be returned:
-
-* `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
-
 ##### Successful responses
 
 Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment>
@@ -1254,6 +1253,7 @@ The responses from this endpoint is according to the standard.
 
 In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
 
+* `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 * `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
 * `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
 
@@ -1440,6 +1440,174 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 * Most of the [general error codes](vipps-login-api.md#error-handling)
+
+
+### Merchants delegated consents
+
+#### Activation
+
+See [How can I get started with delegatedConsents?](vipps-login-api-faq.md#how-can-I-get-started-with-delegatedConsents?).
+
+#### Overview
+
+For Client-Initiated Backchannel Authentication (CIBA) it is possible to initiate the authentication of an end-user through out-of-band mechanisms and collect consents on behalf of the merchant.
+
+1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint with scope `delegatedConsents` to ask for end-user authentication and on behalf of the merchant consents.
+2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background, along with collecting consents.
+3) The Client will receive the ID Token and Access Token by polling the token endpoint to get a response with the tokens.
+4) Token can be used by the Client to retrieve information about the user through the `userinfo` endpoint, this response will also contain the consents that are approved/declined by the user.
+
+Requesting on behalf consents for merchant is also available for [Vipps login from phone number with redirect to browser](#redirect-to-browser), by adding scope delegatedConsents to the initial request (1).
+
+#### Call by call
+
+0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
+   See [.well-known](#openid-connect-discovery-endpoint)
+
+1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0 with scope `delegatedConsents`.
+
+   For details see [Authentication Request](#authentication-request).
+
+   Example request:
+
+    ```http
+    POST https://api.vipps.no/vipps-login-ciba/api/backchannel/authentication
+    Authorization: Basic asdkjhasdjhsad=
+    Content-Type: application/x-www-form-urlencoded
+
+    scope=name delegatedConsents openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
+    ```
+
+   Example response:
+
+    ```http
+    200 application/json
+    {
+      "auth_req_id": "VYGaaAMRkI6SyAm_uIywhxsN2K0",
+      "expires_in": 600,
+      "interval": 5
+    }
+    ```
+
+2. The merchant starts polling the `token` endpoint listed in the openid configuration fetched in step 0.
+
+   Polling in this context means doing repeated http requests with a delay between them.
+
+   [Information about polling](#polling). Note that the polling interval should adhere to the `interval` response parameter (in seconds) returned in step 1.
+
+   For other details about the request, see [Token request](#token-request).
+
+   Example request:
+
+    ```http
+    POST https://api.vipps.no/access-management-1.0/access/oauth2/token
+    Authorization: Basic asdkjhasdjhsad=
+    Content-Type: application/x-www-form-urlencoded
+
+    grant_type=urn%3Aopenid%3Aparams%3Agrant-type%3Aciba&auth_req_id=VYGaaAMRkI6SyAm_uIywhxsN2K0
+    ```
+
+   Example pending response (Other possible error responses can be found in the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11)):
+
+    ```http
+    HTTP/1.1 400 Bad Request
+    Content-Type: application/json;charset=UTF-8
+    {
+      "error": "authorization_pending",
+      "error_description": "The authorization request is still pending"
+    }
+    ```
+
+   The merchant should keep polling when it receives `authorization_pending` in the error response. After the user completes the login in the app, the `token` endpoint will give a successful response similar to the following example:
+
+    ```http
+    HTTP/1.1 200 OK
+     Content-Type: application/json;charset=UTF-8
+
+    {
+      "access_token": "ciba.W_IfBcSr-askdjhsakjhd",
+      "token_type": "Bearer",
+      "expires_in": 300,
+      "id_token": "eyaksjdhksajhdjkashdjksadjnn91283hedhn.eyasdkjhaskjdhskajhdkjhasdkjhaskjhdwqiuh"
+    }
+    ```
+
+3. The merchant must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
+
+   For details see [Userinfo request](#userinfo).
+
+   Example request:
+
+    ```http
+    GET https://api.vipps.no/vipps-userinfo-api/userinfo
+    Authorization: Bearer ciba.W_IfBcSr-askdjhsakjhd
+    ```
+
+   Example response:
+
+    ```http
+    HTTP/1.1 200 OK
+
+    {
+      "family_name": "Heyerdahl",
+      "given_name": "Tor Fos",
+      "name": "Tor Fos Heyerdahl",
+      "other_addresses": [],
+      "sid": "qwieuhwqiuhdiuwqh",
+      "sub": "f350ef33-22e2-47d0-9f47-12345667"
+      "delegatedConsents" : {
+        "language" : "EN",
+        "heading" : "Give consent",
+        "text" : "oidc-testclient wants to send you relevant offers through their digital channels.",
+        " termsDescription" : "By confirming, you accept oidc-testclient's terms of membership. They are responsible for processing the consents. You can withdraw them at any time on their website.",
+        "confirmConsentButtonText" : "Confirm",
+        "links" : {
+          "termsLinkText" : "Read the terms of use.",
+          "termsLinkUrl" : "https://www.vipps.no/vilkar/vilkar-privat/",
+          "privacyStatementLinkText" : "Read the privacy policy.",
+          "privacyStatementLinkUrl" : "https://www.vipps.no/vilkar/cookie-og-personvern/"
+        },
+        "timeOfConsent" : "2022-11-23T11:40:13Z",
+        "consents" : [ {
+          "id" : "email",
+          "accepted" : true,
+          "required" : true,
+          "textDisplayedToUser" : "Receive offers via email"
+        }, {
+          "id" : "sms",
+          "accepted" : true,
+          "required" : false,
+          "textDisplayedToUser" : "Receive offers via SMS"
+        }, {
+          "id" : "digital",
+          "accepted" : true,
+          "required" : false,
+          "textDisplayedToUser" : "I would like to receive digital marketing"
+        }, {
+          "id" : "personal",
+          "accepted" : true,
+          "required" : false,
+          "textDisplayedToUser" : "Get customized offers"
+        } ]
+      }
+    }
+    ```
+
+#### Authentication request
+Required parameters are listed in [Authentication request login from phone number](#authentication-request) and [Authentication request login from phone number with redirect](#authentication-request-with-redirect)
+
+##### Error responses
+Error responses are listed in [Error responses login from phone number](#error-responses) and [Error responses login from phone number with redirect](#error-responses-1)
+
+##### Successful responses
+Success responses for Vipps login from phone number are listed in [Successful responses login from phone number](#successful-responses)
+
+##### Token request
+Token request for Vipps login from phone number is described in [Token request login from phone number](#token-request)
+
+##### Polling
+Polling Vipps login from phone number is described in [Polling login from phone number](#polling)
+
 
 ## Integrating with Vipps Login from QR code
 
