@@ -139,8 +139,6 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 [**Vipps Login from phone number**](vipps-login-api.md#vipps-login-from-phone-number) is based on the Client initiated backchannel authentication (CIBA) standard and have been developed to support use cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser.
 
-[**Vipps Login from QR-code**](#vipps-login-from-qr-code) is a new flow that we will gradually roll out support for. Our [How It Works page](vipps-login-from-QR-api-howitworks.md) shows the flow.
-
 See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
 
 ### Activation

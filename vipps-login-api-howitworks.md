@@ -19,7 +19,7 @@ Let your customers log in to your website or app without the need for user names
 For technical documentation go to
 [Vipps Login API](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/).
 
-We also have _How it works_ for [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md) and [Vipps Login from QR-code](vipps-login-from-QR-api-howitworks.md)
+We also have _How it works_ for [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md)
 
 ## The login process
 
