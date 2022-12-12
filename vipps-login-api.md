@@ -32,7 +32,6 @@ Document version 4.0.12.
       * [Automatic return from Vipps app (requires the merchant to handle user session cross browsers)](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers)
     * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
   * [Vipps Login from phone number](#vipps-login-from-phone-number)
-  * [Vipps Login from QR-code](#vipps-login-from-qr-code)
   * [Vipps Login + Vipps Recurring](#vipps-login--vipps-recurring)
 * [Design guidelines and buttons](#design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
@@ -101,13 +100,6 @@ Document version 4.0.12.
     * [Activation](#activation-3)
     * [Overview](#overview-3)
     * [Call by call](#call-by-call-3)
-* [Integrating with Vipps Login from QR code](#integrating-with-vipps-login-from-qr-code)
-  * [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
-  * [Initiate login from QR code](#initiate-login-from-qr-code)
-    * [Call by call](#call-by-call-4)
-  * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
-    * [Overview](#overview-4)
-    * [Call by call](#call-by-call-5)
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
 * [Partner keys](#partner-keys)
@@ -124,7 +116,6 @@ Vipps Login is available for several use cases:
 * On web pages and in apps - Vipps Login is used in the browser
 * Directly from merchant systems (e.g. point of sales systems or call-center solutions) based on phone number
 * Directly from machines and vending machines based on phone number
-* Directly from QR-codes on screens, posters, etc.
 
 Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. [Norwegian national identity number](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) is also available to some merchants.  The identity of all Vipps users is verified as part of Vipps' know your customer process, so rest assured that these are real people with correct name and information.
 
@@ -231,7 +222,7 @@ See [how to implement](#no-dialog-flow).
 
 Vipps Login from phone number is based on the Client Initiated Backchannel Authentication (CIBA) standard and built to support special cases where login does not start in browser or app. This means that it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser. This could typically be physical contexts e.g point of sales solutions, on the phone e.g call-center solutions or devices/terminals e.g TV-boxes. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
 
-Since Vipps Login from phone number is reserved for such special cases, it needs to be specially enabled by Vipps for eligible sale units. [Description on how to order Vipps Login from phone number can be found here](vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). A sale unit can be set up with both Vipps Login in browser and from phone number (and QR-code) enabled. It is required to use the same sale unit for all use cases to ensure you, as a merchant, get the same user id ('sub') on the user across different scenarios.
+Since Vipps Login from phone number is reserved for such special cases, it needs to be specially enabled by Vipps for eligible sale units. [Description on how to order Vipps Login from phone number can be found here](vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). A sale unit can be set up with both Vipps Login in browser and from phone number enabled. It is required to use the same sale unit for all use cases to ensure you, as a merchant, get the same user id ('sub') on the user across different scenarios.
 
 Vipps Login from phone number is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request.
 
@@ -1054,7 +1045,7 @@ Vipps Login from phone number (CIBA flows) has been developed to support use cas
 
 Vipps Login from phone number is reserved for special cases and needs to be specially enabled by Vipps for eligible sale units. Instructions can be found at [Who can get access to Vipps Login from phone number and how](vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how).
 
-A sale unit can be set up with both Vipps Login in browser and phone number (and QR-code) enabled, and it is required to use the same sale unit for all use cases to ensure that you, as a merchant, get the same user id ('sub') on the user across different scenarios. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
+A sale unit can be set up with both Vipps Login in browser and Vipps Login from phone number. It is recommended to use the same sale unit for all use cases to ensure that you, as a merchant, get the same user id ('sub') on the user across different scenarios. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
 
 ### Complete login in the Vipps app
 
