@@ -1446,7 +1446,7 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 
 #### Activation
 
-See [How can I get started with delegatedConsents?](vipps-login-api-faq.md#how-can-I-get-started-with-delegatedConsents?).
+See [How can I get started with delegatedConsents?](vipps-login-api-faq.md#how-can-i-get-started-with-delegatedconsents).
 
 #### Overview
 
