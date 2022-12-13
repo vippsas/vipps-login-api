@@ -1643,7 +1643,7 @@ If you are a Vipps partner managing integrations on behalf of Vipps merchants, y
 
 The main differences between partner key integration and merchant integration is: 
 
-- Authentication is based on a token obtained from [POST: /accesstoken/get](https://vippsas.github.io/vipps-developer-docs/api/ecom#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost). This is the same token endpoint used for eCom payments. The token must be passed as a Bearer token in the header e.g `Authorization: Bearer <access-token>`. Regular `Basic` auth does not work for partner key integrations. 
+- Authentication is based on a token obtained from [POST: /accesstoken/get](https://vippsas.github.io/vipps-developer-docs/api/ecom#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost). This is the same token endpoint used for eCom payments. The token must be passed as a Bearer token in the header e.g `Authorization: Bearer <access-token>`. For partner key integration this authorization method *must* be used. The `token_endpoint_authentication` methods `client_secret_basic` and `client_secret_post` does not work for partner key integrations.
 - `Merchant-Serial-Number` header must be sent as part of backend requests to identify which merchant you're acting on behalf of. 
 
 Browser and phone number flows have minor differences and are described in more detail further down.
@@ -1661,7 +1661,7 @@ GET https://api.vipps.no/access-management-1.0/access/oauth2/auth?msn={Merchant-
 #### Token endpoint
 
 1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/api/ecom#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
-2. Use the access token in the `Authorization` header `Bearer access_token`
+2. Use the access token in the `Authorization` header `Bearer access_token`. 
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number
 
 **Example request:**
@@ -1679,7 +1679,6 @@ grant_type=authorization_code&code={authorization_code}&redirect_uri={redirect_u
 
 The `Merchant-Serial-Number` must be sent in the header of all API requests.
 
-#### Call guide
 
 1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/api/ecom#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
 2. Use the access token in the `Authorization` header `Bearer access_token`
