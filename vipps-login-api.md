@@ -1589,9 +1589,8 @@ Token request for Vipps login from phone number is described in [Token request l
 ##### Polling
 Polling Vipps login from phone number is described in [Polling login from phone number](#polling)
 
-## Consent Webhooks
+## Revoke Consent Webhook
 
-### Revoke
 
 Users can revoke their consent to share data with merchants. This is done in the profile section -> personal information in the app. If a user removes the consent to share data with a merchant, the practical consequences is that the user needs to give a consent the next time he/she would like to login with Vipps or share data as part of other Vipps services with the merchant.
 
@@ -1675,7 +1674,7 @@ grant_type=authorization_code&code={authorization_code}&redirect_uri={redirect_u
 
 ### Partner in Vipps Login from phone number flow
 
-The `Merchant-Serial-Number` must be sent in the header of all API requests. ([Ref.](https://www.stanray.com/products/down-jacket-olive-fw22?pr_prod_strat=use_description&pr_rec_id=14ce2c873&pr_rec_pid=7930918142181&pr_ref_pid=7930918174949&pr_seq=uniform))
+The `Merchant-Serial-Number` must be sent in the header of all API requests.
 
 #### Call guide
 
