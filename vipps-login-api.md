@@ -1657,11 +1657,14 @@ To initiate a login as partner, redirect the end-user's browser to a `/auth` url
 ```http request
 GET https://api.vipps.no/access-management-1.0/access/oauth2/auth?msn={Merchant-Serial-Number}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}
 ```
+This request will return a redirect to a `/auth` url where the `msn` query parameter is replaced by the merchant's `client_id`
+
 
 #### Token endpoint
+For the `/token` endpoint you should authenticate using an access token. Regular `client_secret_basic` or `client_secret_post` does not work for partner key integration. 
 
 1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/api/ecom#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
-2. Use the access token in the `Authorization` header `Bearer access_token`. 
+2. Use the access token in the `Authorization` header `Bearer access-token`. 
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number
 
 **Example request:**
@@ -1677,11 +1680,11 @@ grant_type=authorization_code&code={authorization_code}&redirect_uri={redirect_u
 
 ### Partner in Vipps Login from phone number flow
 
-The `Merchant-Serial-Number` must be sent in the header of all API requests.
+The `Merchant-Serial-Number` header must be sent in the header of all API requests.
 
 
 1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/api/ecom#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
-2. Use the access token in the `Authorization` header `Bearer access_token`
+2. Use the access token in the `Authorization` header `Bearer access-token`
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number
 
 #### Example /backchannel/authentication request
