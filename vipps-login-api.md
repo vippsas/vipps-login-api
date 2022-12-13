@@ -32,7 +32,6 @@ Document version 4.0.12.
       * [Automatic return from Vipps app (requires the merchant to handle user session cross browsers)](#automatic-return-from-vipps-app-requires-the-merchant-to-handle-user-session-cross-browsers)
     * [No dialog flow - log the user in directly when possible](#no-dialog-flow---log-the-user-in-directly-when-possible)
   * [Vipps Login from phone number](#vipps-login-from-phone-number)
-  * [Vipps Login from QR-code](#vipps-login-from-qr-code)
   * [Vipps Login + Vipps Recurring](#vipps-login--vipps-recurring)
 * [Design guidelines and buttons](#design-guidelines-and-buttons)
 * [Core concepts](#core-concepts)
@@ -101,13 +100,6 @@ Document version 4.0.12.
     * [Activation](#activation-3)
     * [Overview](#overview-3)
     * [Call by call](#call-by-call-3)
-* [Integrating with Vipps Login from QR code](#integrating-with-vipps-login-from-qr-code)
-  * [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
-  * [Initiate login from QR code](#initiate-login-from-qr-code)
-    * [Call by call](#call-by-call-4)
-  * [Initiate login from QR code with redirect to browser](#initiate-login-from-qr-code-with-redirect-to-browser)
-    * [Overview](#overview-4)
-    * [Call by call](#call-by-call-5)
 * [Consent](#consent-webhooks)
   * [Revoke](#revoke)
 * [Partner keys](#partner-keys)
@@ -124,7 +116,6 @@ Vipps Login is available for several use cases:
 * On web pages and in apps - Vipps Login is used in the browser
 * Directly from merchant systems (e.g. point of sales systems or call-center solutions) based on phone number
 * Directly from machines and vending machines based on phone number
-* Directly from QR-codes on screens, posters, etc.
 
 Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. [Norwegian national identity number](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) is also available to some merchants.  The identity of all Vipps users is verified as part of Vipps' know your customer process, so rest assured that these are real people with correct name and information.
 
@@ -138,8 +129,6 @@ If a plugin is not available, the easiest - and **strongly recommended - way to 
 Vipps Login in browser should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended).
 
 [**Vipps Login from phone number**](vipps-login-api.md#vipps-login-from-phone-number) is based on the Client initiated backchannel authentication (CIBA) standard and have been developed to support use cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser.
-
-[**Vipps Login from QR-code**](#vipps-login-from-qr-code) is a new flow that we will gradually roll out support for. Our [How It Works page](vipps-login-from-QR-api-howitworks.md) shows the flow.
 
 See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
 
@@ -233,7 +222,7 @@ See [how to implement](#no-dialog-flow).
 
 Vipps Login from phone number is based on the Client Initiated Backchannel Authentication (CIBA) standard and built to support special cases where login does not start in browser or app. This means that it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser. This could typically be physical contexts e.g point of sales solutions, on the phone e.g call-center solutions or devices/terminals e.g TV-boxes. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
 
-Since Vipps Login from phone number is reserved for such special cases, it needs to be specially enabled by Vipps for eligible sale units. [Description on how to order Vipps Login from phone number can be found here](vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). A sale unit can be set up with both Vipps Login in browser and from phone number (and QR-code) enabled. It is required to use the same sale unit for all use cases to ensure you, as a merchant, get the same user id ('sub') on the user across different scenarios.
+Since Vipps Login from phone number is reserved for such special cases, it needs to be specially enabled by Vipps for eligible sale units. [Description on how to order Vipps Login from phone number can be found here](vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how). A sale unit can be set up with both Vipps Login in browser and from phone number enabled. It is required to use the same sale unit for all use cases to ensure you, as a merchant, get the same user id ('sub') on the user across different scenarios.
 
 Vipps Login from phone number is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request.
 
@@ -252,14 +241,6 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 ![Optional confirmation code (`binding_message`)](images/CIBA_Confirmation_code.png)
 
 See [how to implement](#integrating-with-vipps-login-from-phone-number).
-
-### Vipps Login from QR-code
-
-With Vipps Login from QR code you can retrieve user data and log users in through a QR code.
-
-For an illustration of the flows that will be supported see [How It Works](vipps-login-from-QR-api-howitworks.md).
-
-Integration details and developer documentation can be [found here](#integrating-with-vipps-login-from-qr-code).
 
 ### Vipps Login + Vipps Recurring
 
@@ -1064,7 +1045,7 @@ Vipps Login from phone number (CIBA flows) has been developed to support use cas
 
 Vipps Login from phone number is reserved for special cases and needs to be specially enabled by Vipps for eligible sale units. Instructions can be found at [Who can get access to Vipps Login from phone number and how](vipps-login-api-faq.md#who-can-get-access-to-vipps-login-from-phone-number-and-how).
 
-A sale unit can be set up with both Vipps Login in browser and phone number (and QR-code) enabled, and it is required to use the same sale unit for all use cases to ensure that you, as a merchant, get the same user id ('sub') on the user across different scenarios. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
+A sale unit can be set up with both Vipps Login in browser and Vipps Login from phone number. It is recommended to use the same sale unit for all use cases to ensure that you, as a merchant, get the same user id ('sub') on the user across different scenarios. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
 
 ### Complete login in the Vipps app
 
@@ -1608,253 +1589,8 @@ Token request for Vipps login from phone number is described in [Token request l
 ##### Polling
 Polling Vipps login from phone number is described in [Polling login from phone number](#polling)
 
+## Revoke Consent Webhook
 
-## Integrating with Vipps Login from QR code
-
-[Vipps login from QR api how it works](vipps-login-from-QR-api-howitworks.md)
-
-Note: Vipps Login from QR code is not supported in our merchant test environment at the moment. The full flow can only be completed in the production environment.
-
-### Activating Vipps Login from QR code
-
-To use Vipps Login from QR Code you first need to [activate Vipps Login](vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login) in the Merchant portal. Since Vipps Login From QR code is a billed service, it is not enabled by default. To use Vipps Login from QR Code you therefore need to submit a request to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) containing your organisation's invoicing details, such as:
-
-* Invoice address of company/organisation
-* Name of invoice recipient/approver
-* E-mail address we can send the invoice to, if necessary
-
-We don't yet have any self-service functionality on QR codes in our merchant portal, so for the integration to work, we will also need you to submit some technical details on how you plan to integrate the QR flow:
-
-* Should the QR code redirect the user back to your website? In that case, you need to send us a `redirect uri`. We can redirect the users back to your website after they have authenticated and consented in the Vipps app.
-* Should the QR code flow end in the Vipps app? In that case, you need to send us a `callback uri` that we can use to ping your backend service when the user has authenticated and consented in the Vipps app.
-
-With this in place, we can issue a Vipps Login QR code.
-
-### Initiate login from QR code
-
-#### Call by call
-
-Prerequisite:
-
-* Client needs to register a QR code along with a webhook in our system. See [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code)
-
-Steps:
-
-0. The client has fetched the OpenID configuration from the [.well-known endpoint](#openid-connect-discovery-endpoint) and cached it.
-
-1. The user scans the QR code and then confirms the login in the Vipps app.
-
-2. The client will receive a JWS on the preregistered webhook.
-
-3. The client needs to validate this JWS using the keyset found in 'jwks_uri' under [.well-known](#openid-connect-discovery-endpoint).
-   Decoded JWS payload example.
-
-   ```json
-   {
-       "aud": "acae94b4-7b30-4615-9806-10c3b42079a3",
-       "auth_req_id": "6tw7GmfPQRcWuydzlAwrUakpEEw",
-       "iss": "https://api.vipps.no/access-management-1.0/access/",
-       "exp": 1643981298,
-       "iat": 1643980998
-   }
-   ```
-
-4. The client exchanges the `auth_req_id` for login tokens by passing it to the `{token_endpoint}`. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `auth_req_id={auth_req_id}` and `grant_type=urn:vipps:params:grant-type:qr` parameters in the body.
-
-    This returns an ID token and an access token that can be used to fetch userinfo.
-    * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo).
-    * The ID token is a JWS that must be validated, see ID Token.
-    * The claim `qr_id` can be used by the client to identify the specific QR code that the user scanned.
-    * Error responses as defined by the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11).
-
-    Example request:
-
-    ```http
-    POST https://api.vipps.no/access-management-1.0/access/oauth2/token
-    Authorization: Basic asdkjhasdjhsad=
-    Content-Type: application/x-www-form-urlencoded
-
-    grant_type=urn%3Avipps%3Aparams%3Agrant-type%3Aqr&auth_req_id=6tw7GmfPQRcWuydzlAwrUakpEEw
-    ```
-
-    Example response:
-
-    ```http
-    HTTP/1.1 200 OK
-     Content-Type: application/json;charset=UTF-8
-
-    {
-      "access_token": "ciba.W_IfBcSr-askdjhsakjhd",
-      "token_type": "Bearer",
-      "expires_in": 300,
-      "id_token": "eyaksjdhksajhdjkashdjksadjnn91283hedhn.eyasdkjhaskjdhskajhdkjhasdkjhaskjhdwqiuh"
-    }
-    ```
-
-    Decoded ID token JWS example:
-
-   `Header`
-    ```json
-    {
-      "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
-      "alg": "ES256"
-    }
-    ```
-   `Payload`
-    ```json
-    {
-      "aud": "8de3f38f-4a79-4eb3-930f-1e595d460a57",
-      "sub": "d6614352-ca55-4d89-8f82-d2facde311a4",
-      "iss": "https://api.vipps.no/access-management-1.0/access/",
-      "exp": 1643984388,
-      "iat": 1643983788,
-      "qr_id": "oKAz7q1O",
-      "qr_description": "description of QR code"
-    }
-    ```
-
-5. The client must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 4.
-
-   For details see [Userinfo request](#userinfo).
-
-   Example request:
-
-    ```http
-    GET https://api.vipps.no/vipps-userinfo-api/userinfo
-    Authorization: Bearer ciba.W_IfBcSr-askdjhsakjhd
-    ```
-
-   Example response:
-
-    ```http
-    HTTP/1.1 200 OK
-
-    {
-      "address": {
-        "address_type": "home",
-        "country": "NO",
-        "formatted": "jghj khhjhhkjh\n0603\nOSLO\nNO",
-        "postal_code": "0603",
-        "region": "OSLO",
-        "street_address": "jghj khhjhhkjh"
-      },
-      "family_name": "Heyerdahl",
-      "given_name": "Tor Fos",
-      "name": "Tor Fos Heyerdahl",
-      "other_addresses": [],
-      "sid": "qwieuhwqiuhdiuwqh",
-      "sub": "f350ef33-22e2-47d0-9f47-12345667"
-    }
-    ```
-
-### Initiate login from QR code with redirect to browser
-
-#### Overview
-
-[Vipps login from QR api how it works](#vipps-login-from-qr-code)
-
-#### Call by call
-
-Prerequisite:
-
-* Client needs to register a QR code along with a redirect uri in our system. See [Activating Vipps Login from QR code](#activating-vipps-login-from-qr-code).
-
-Steps:
-
-0. The client has fetched the OpenID configuration from the [.well-known endpoint](#openid-connect-discovery-endpoint) and cached it.
-
-1. The user scans the QR code and then confirms the login in the Vipps app. The user is then redirected to the preregistered `redirect_uri`. The redirect will contain the query parameter `code`: `{redirect_uri}?code={code}`.
-
-2. The client exchanges the code for login tokens by passing it to the `{token_endpoint}`. Perform a POST request, with `content_type=application/x-www-form-urlencoded`, and include the `code={code}` and `grant_type=urn:vipps:params:grant-type:qr-redirect` parameters in the body.
-
-    This returns an ID token and an access token that can be used to fetch userinfo.
-    * The access token can be used towards the standard [oidc userinfo endpoint](#userinfo)
-    * The ID token is a JWS that must be validated, see ID Token.
-    * The claim `qr_id` can be used by the client to identify the specific QR code that the user scanned.
-    * Error responses as defined by the [CIBA standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11).
-
-    Example request (the real payload will likely look different because of encoding):
-
-    ```http
-    POST https://api.vipps.no/access-management-1.0/access/oauth2/token
-    Authorization: Basic sadlksadkjasjdaksd
-    Content-Type: application/x-www-form-urlencoded
-
-    code=some-valid-code&grant_type=urn:vipps:params:grant-type:qr-redirect
-
-    ```
-
-    Example response:
-
-    ```json
-    {
-       "access_token": "hel39XaKjGH5tkCvIENGPNbsSHz1DLKluOat4qP-A4.WyV61hCK1E2snVs1aOvjOWZOXOayZad0K-Qfo3lLzus",
-       "id_token": "eyJraWQiOiJwdWJsaWM6ZWUzNmQzZjUtMzkzNC00MDI5LTkyNmYtNzdmYTY1YmYwYjRiIiwiYWxnIjoiRVMyNTYifQ.eyJhdWQiOiJlZGRkYjMyZi01MDI4LTQzOTctYjBhYi1lOGVjZjIxOGZkYzIiLCJzdWIiOiI1MTY4ZWUwNi04NzFlLTQ2ZTYtOTQxZS0wMTAzYjk1NzA0OGUiLCJhdXRoUmVxSWQiOiI3QnpBWS1TYlZRSjM4Vi1VMEM3WjZrMjNfQ1kiLCJpc3MiOiJodHRwczpcL1wvZWNlNDZlYzQtNmY5Yy00ODliLThmZTUtMTQ2YTg5ZTExNjM1LnRlY2gtMDIubmV0XC9hY2Nlc3MtbWFuYWdlbWVudC0xLjBcL2FjY2Vzc1wvIiwiZXhwIjoxNjQzMTc5ODM3LCJpYXQiOjE2NDMxNzkyMzd9.iFvmdtRQVliAe91dBu_CZDfBD5I7WCbDTiDQxu4sOTApXFPb5EsSuEBEVfK_-14E7xjcfQLSMa6ZO06YvhRHAA",
-       "expires_in": 3599,
-         "scope": "openid",
-         "token_type": "bearer"
-    }
-    ```
-
-    Decoded ID token JWS example:
-
-   `Header`
-    ```json
-    {
-      "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
-      "alg": "ES256"
-    }
-    ```
-   `Payload`
-    ```json
-    {
-      "aud": "8de3f38f-4a79-4eb3-930f-1e595d460a57",
-      "sub": "d6614352-ca55-4d89-8f82-d2facde311a4",
-      "iss": "https://api.vipps.no/access-management-1.0/access/",
-      "exp": 1643984388,
-      "iat": 1643983788,
-      "qr_id": "oKAz7q1O",
-      "qr_description": "description of QR code"
-    }
-    ```
-
-3. The client must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access token retrieved in step 3.
-
-   For details see [Userinfo request](#userinfo).
-
-   Example request:
-
-    ```http
-    GET https://api.vipps.no/vipps-userinfo-api/userinfo
-    Authorization: Bearer W_IfBcSr-askdjhsakjhdasdfgg
-    ```
-
-   Example response:
-
-    ```http
-    HTTP/1.1 200 OK
-
-    {
-      "address": {
-        "address_type": "home",
-        "country": "NO",
-        "formatted": "jghj khhjhhkjh\n0603\nOSLO\nNO",
-        "postal_code": "0603",
-        "region": "OSLO",
-        "street_address": "jghj khhjhhkjh"
-      },
-      "family_name": "Heyerdahl",
-      "given_name": "Tor Fos",
-      "name": "Tor Fos Heyerdahl",
-      "other_addresses": [],
-      "sid": "qwieuhwqiuhdiuwqh",
-      "sub": "f350ef33-22e2-47d0-9f47-12345667"
-    }
-    ```
-
-## Consent Webhooks
-
-### Revoke
 
 Users can revoke their consent to share data with merchants. This is done in the profile section -> personal information in the app. If a user removes the consent to share data with a merchant, the practical consequences is that the user needs to give a consent the next time he/she would like to login with Vipps or share data as part of other Vipps services with the merchant.
 
@@ -1938,7 +1674,7 @@ grant_type=authorization_code&code={authorization_code}&redirect_uri={redirect_u
 
 ### Partner in Vipps Login from phone number flow
 
-The `Merchant-Serial-Number` must be sent in the header of all API requests. ([Ref.](https://www.stanray.com/products/down-jacket-olive-fw22?pr_prod_strat=use_description&pr_rec_id=14ce2c873&pr_rec_pid=7930918142181&pr_ref_pid=7930918174949&pr_seq=uniform))
+The `Merchant-Serial-Number` must be sent in the header of all API requests.
 
 #### Call guide
 

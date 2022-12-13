@@ -19,7 +19,7 @@ Let your customers share their information or confirm who they are by triggering
 For technical documentation go to
 [Vipps Login API - login from phone number](vipps-login-api.md#vipps-login-from-phone-number).
 
-We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md) and [Vipps Login from QR-code](vipps-login-from-QR-api-howitworks.md).
+We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
 
 This flow also features in our [Loyalty at POS solution](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/loyalty-in-pos/).
 

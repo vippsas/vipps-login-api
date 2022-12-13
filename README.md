@@ -26,7 +26,6 @@ For information and to order the product go to:
 
 * [Vipps Login in browser: How It Works](./vipps-login-api-howitworks.md)
 * [Vipps Login from phone number: How It Works](./vipps-login-from-phone-number-api-howitworks.md)
-* [Vipps Login from QR-code: How It Works](vipps-login-from-QR-api-howitworks.md)
 * [Vipps Login + Vipps Recurring: How It Works](vipps-login-recurring-howitworks.md)
 
 ## Getting started
