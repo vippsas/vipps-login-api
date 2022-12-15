@@ -246,8 +246,8 @@ the claim "sub" that is delivered based on the "openid" scope. This unique
 identifier will allow you to keep a consistent user profile even if the user
 changes contact information.
 
-Beware that login with Vipps it not an electronic ID. Thus the NIN can only be
-used to simplify the customers processes by removing manual input or to lookup
+Beware that Vipps Login it not an electronic ID. Thus, the NIN can only be
+used to simplify the customers processes by removing manual input or to look up
 the customer in your own or external registers. This can be done as part of the
 processes to become a customer or to link login with Vipps to an existing user.
 If you need to store the NIN for new users we recommend that you use an
@@ -294,7 +294,7 @@ Send an email to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) and s
 | Links to your membership terms and privacy statement. | We must review your terms to ensure that the flow is not intended to mislead or abuse end users.                                                                                | www.merchant.com/termsandconditions <br /> www.merchant.com/privacystatement      |                                                                                                                                           |
 | Recipient to sign DPA                                 | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions                       | recipient@merchant.com                                                            |                                                                                                                                           |
 
-## When using delegatedConsents, which consents does Vipps support?
+## When using delegatedConsents, which consents are supported?
 
 We have built support for several consents, and the merchant may select a subset of these to include in their own flow as well as select which of the consents that are required/optional.
 If we do not currently support the consents you look for, you may make a request to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) and we'll be in touch.
@@ -328,7 +328,7 @@ These can be found in section 8.4 in our
 ## Can I control if a user is remembered in the browser (set up as 2FA)?
 
 No. Vipps Login do not support merchants specifying that the user needs
-to use the app to authenticate (two factor authentication - 2FA). The end-user chooses
+to use the app to authenticate (two-factor authentication - 2FA). The end-user chooses
 whether he would like to be remembered in browser or not. This is seen as a key feature of the service.
 
 ## Can I see statistics on Vipps Login usage?
