@@ -265,18 +265,14 @@ Merchants need to apply for access to NIN separately by sending an email to
 
 ## Who can get access to Vipps Login from phone number and how?
 
-Vipps Login from phone number has been developed to support use-cases where
+Vipps Login from phone number is available for all Vipps Login enabled clients. 
+
+Remember that Vipps Login from phone number has been developed to support use-cases where
 authentication/registration does not start in a browser or an app. This means
 that it is the merchant/merchant’s systems that trigger the
 authentication/registration and thus login cannot be done in the user’s browser.
-Vipps Login from phone number are reserved for such special cases and needs to be specially
-enabled by Vipps for eligible sale units. If a merchant uses Vipps Login from phone number on
-webpages or in apps used by end-users (on their own device), access to the feature can be withdrawn.
 
-Merchants need to apply for access to Vipps Login from phone number separately. 
-This is done by sending an email to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) and supplying the following information:
- * Merchant serial number (MSN) for the sale unit for which you will use Vipps Login (this can be retrieved from [portal.vipps.no](https://portal.vipps.no))
- * Information on how you plan to use Vipps Login from phone number
+Vipps Login from phone number are reserved for such special cases.  If a merchant uses Vipps Login from phone number on webpages or in apps used by end-users (on their own device), access to the feature can be withdrawn.
 
 Vipps Login from phone number is a billed service. As such, we also need some details regarding invoicing:
  * Recipient name
@@ -321,11 +317,7 @@ used for preventing cross-site request forgery.
 
 ## Can I use partner keys for Vipps login?
 
-Partner keys are currently only available for the Vipps Login from phone number flows.
-
-For other scenarios, Vipps login does not support partner keys. Each merchant has it own
-individual 'client id' and 'client secret' and need to share this with the
-partner if required.
+Yes, partner keys can be used for both Vipps Login in Browser and Vipps Login from Phone number. Be aware that the partner key integration [differs slightly from a regular merchant integration.](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api#partner-keys) 
 
 We support some scenarios where a merchant can be used for registration and
 login to other sites/merchants. Specific terms and conditions related to
