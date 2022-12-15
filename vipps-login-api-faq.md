@@ -44,7 +44,7 @@ Document version 2.3.8.
 * [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 * [Who can get access to Vipps Login from phone number and how?](#who-can-get-access-to-vipps-login-from-phone-number-and-how)
 * [How can I get started with delegatedConsents?](#how-can-i-get-started-with-delegatedconsents)
-* [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedconsents-which-consents-does-vipps-support)
+* [When using delegatedConsents, which consents are supported?](#when-using-delegatedconsents-which-consents-are-supported)
 * [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 * [Can I use partner keys for Vipps login?](#can-i-use-partner-keys-for-vipps-login)
 * [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2fa)
@@ -246,8 +246,8 @@ the claim "sub" that is delivered based on the "openid" scope. This unique
 identifier will allow you to keep a consistent user profile even if the user
 changes contact information.
 
-Beware that login with Vipps it not an electronic ID. Thus the NIN can only be
-used to simplify the customers processes by removing manual input or to lookup
+Beware that Vipps Login it not an electronic ID. Thus, the NIN can only be
+used to simplify the customers processes by removing manual input or to look up
 the customer in your own or external registers. This can be done as part of the
 processes to become a customer or to link login with Vipps to an existing user.
 If you need to store the NIN for new users we recommend that you use an
@@ -265,18 +265,14 @@ Merchants need to apply for access to NIN separately by sending an email to
 
 ## Who can get access to Vipps Login from phone number and how?
 
-Vipps Login from phone number has been developed to support use-cases where
+Vipps Login from phone number is available for all Vipps Login enabled clients. 
+
+Remember that Vipps Login from phone number has been developed to support use-cases where
 authentication/registration does not start in a browser or an app. This means
 that it is the merchant/merchant’s systems that trigger the
 authentication/registration and thus login cannot be done in the user’s browser.
-Vipps Login from phone number are reserved for such special cases and needs to be specially
-enabled by Vipps for eligible sale units. If a merchant uses Vipps Login from phone number on
-webpages or in apps used by end-users (on their own device), access to the feature can be withdrawn.
 
-Merchants need to apply for access to Vipps Login from phone number separately. 
-This is done by sending an email to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) and supplying the following information:
- * Merchant serial number (MSN) for the sale unit for which you will use Vipps Login (this can be retrieved from [portal.vipps.no](https://portal.vipps.no))
- * Information on how you plan to use Vipps Login from phone number
+Vipps Login from phone number are reserved for such special cases.  If a merchant uses Vipps Login from phone number on webpages or in apps used by end-users (on their own device), access to the feature can be withdrawn.
 
 Vipps Login from phone number is a billed service. As such, we also need some details regarding invoicing:
  * Recipient name
@@ -298,7 +294,7 @@ Send an email to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) and s
 | Links to your membership terms and privacy statement. | We must review your terms to ensure that the flow is not intended to mislead or abuse end users.                                                                                | www.merchant.com/termsandconditions <br /> www.merchant.com/privacystatement      |                                                                                                                                           |
 | Recipient to sign DPA                                 | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions                       | recipient@merchant.com                                                            |                                                                                                                                           |
 
-## When using delegatedConsents, which consents does Vipps support?
+## When using delegatedConsents, which consents are supported?
 
 We have built support for several consents, and the merchant may select a subset of these to include in their own flow as well as select which of the consents that are required/optional.
 If we do not currently support the consents you look for, you may make a request to [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no) and we'll be in touch.
@@ -321,11 +317,7 @@ used for preventing cross-site request forgery.
 
 ## Can I use partner keys for Vipps login?
 
-Partner keys are currently only available for the Vipps Login from phone number flows.
-
-For other scenarios, Vipps login does not support partner keys. Each merchant has it own
-individual 'client id' and 'client secret' and need to share this with the
-partner if required.
+Yes, partner keys can be used for both Vipps Login in Browser and Vipps Login from Phone number. Be aware that the partner key integration [differs slightly from a regular merchant integration.](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api#partner-keys) 
 
 We support some scenarios where a merchant can be used for registration and
 login to other sites/merchants. Specific terms and conditions related to
@@ -336,7 +328,7 @@ These can be found in section 8.4 in our
 ## Can I control if a user is remembered in the browser (set up as 2FA)?
 
 No. Vipps Login do not support merchants specifying that the user needs
-to use the app to authenticate (two factor authentication - 2FA). The end-user chooses
+to use the app to authenticate (two-factor authentication - 2FA). The end-user chooses
 whether he would like to be remembered in browser or not. This is seen as a key feature of the service.
 
 ## Can I see statistics on Vipps Login usage?
