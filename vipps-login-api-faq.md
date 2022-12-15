@@ -44,7 +44,7 @@ Document version 2.3.8.
 * [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
 * [Who can get access to Vipps Login from phone number and how?](#who-can-get-access-to-vipps-login-from-phone-number-and-how)
 * [How can I get started with delegatedConsents?](#how-can-i-get-started-with-delegatedconsents)
-* [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedconsents-which-consents-does-vipps-support)
+* [When using delegatedConsents, which consents are supported?](#when-using-delegatedconsents-which-consents-are-supported)
 * [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
 * [Can I use partner keys for Vipps login?](#can-i-use-partner-keys-for-vipps-login)
 * [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2fa)
