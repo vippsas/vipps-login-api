@@ -313,7 +313,7 @@ For more information about the response, please visit [Merchant delegated consen
 The `state` parameter is an opaque value used by the client to maintain state
 between the request and callback. The authorization server includes this value
 when redirecting the user-agent back to the client. The parameter should be
-used for preventing cross-site request forgery.
+used for preventing cross-site request forgery. It must be at least 8 characters long to ensure sufficient entropy. A GUID is a good choice for a state parameter value.
 
 ## Can I use partner keys for Vipps login?
 
