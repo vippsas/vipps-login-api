@@ -1195,7 +1195,7 @@ A human-readable identifier or message intended to be displayed on both the cons
 
 ##### Format
 
-The format possible for this field is limited to capital characters 'A-Z', numbers '0-9' and the character '-'. It must also be bewteen 5 and 8 characters long. Regex: ```^[A-Z0-9\\-]{5,8}$```.
+The format possible for this field is limited to capital characters 'A-Z', numbers '0-9' and the character '-'. It must also be between 5 and 8 characters long. Regex: ```^[A-Z0-9\\-]{5,8}$```.
 
 Read more about it in the standard <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>.
 
