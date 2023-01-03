@@ -19,7 +19,7 @@ END_METADATA -->
 
 For information and to order the product go to:
 
-* [Product information in Norwegian](https://www.vipps.no/produkter-og-tjenester/bedrift/innlogging-og-identifisering/logg-inn-med-vipps/)
+* [Product information in Norwegian](https://vipps.no/produkter-og-tjenester/bedrift/logg-inn-med-vipps/logg-inn-med-vipps/)
 * [Product FAQ in Norwegian](https://vipps.no/hjelp/vipps/vipps-logg-inn)
 
 ## How it works
