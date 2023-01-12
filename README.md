@@ -17,6 +17,10 @@ END_METADATA -->
 
 <!-- END_COMMENT -->
 
+With the Login API, users can login to your service by using their Vipps account.
+This simplifies the process for users, as they don't need to fill out a form or remember a password to access your services.
+This also provides you with pre-verified user data.
+
 For information and to order the product go to:
 
 * [Product information in Norwegian](https://vipps.no/produkter-og-tjenester/bedrift/logg-inn-med-vipps/logg-inn-med-vipps/)
