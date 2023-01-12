@@ -7,17 +7,12 @@ END_METADATA -->
 
 # Vipps Login API
 
+API version: 2.0
+
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
-
-API version: 2.0
-
-Document version 4.0.12.
-<!-- START_TOC -->
 
 ## Table of contents
 
@@ -114,7 +109,7 @@ Document version 4.0.12.
   * [Userinfo](#userinfo-1)
 * [Questions?](#questions)
 
-<!-- END_TOC -->
+<!-- END_COMMENT -->
 
 ## Introduction
 

@@ -8,13 +8,6 @@ END_METADATA -->
 
 # Vipps Login API: Frequently Asked Questions
 
-<!-- START_COMMENT -->
-
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
-
 Here are the Login API FAQs.
 See the [Vipps Login API](vipps-login-api.md) for all the details.
 
@@ -25,9 +18,10 @@ For more common Vipps questions, see:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
-Document version 2.3.8.
+<!-- START_COMMENT -->
 
-<!-- START_TOC -->
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
 ## Table of contents
 
@@ -65,7 +59,7 @@ Document version 2.3.8.
   * [Why do I get `HTTP 502 Bad Gateway`?](#why-do-i-get-http-502-bad-gateway)
 * [Questions?](#questions)
 
-<!-- END_TOC -->
+<!-- END_COMMENT -->
 
 ## Where do I find the `client_id` and `client_secret`?
 

@@ -7,16 +7,13 @@ END_METADATA -->
 
 # Quick start
 
+Use the Login API to confirm your identity through the log-in process.
+
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
-<!-- END_COMMENT -->
-
-Use the Login API to confirm your identity through the log-in process.
-
-<!-- START_TOC -->
 ## Table of Contents
 
 * [Postman](#postman)
@@ -28,9 +25,8 @@ Use the Login API to confirm your identity through the log-in process.
   * [Vipps Login in Browser](#vipps-login-in-browser)
   * [Vipps Login from phone number (CIBA without redirect)](#vipps-login-from-phone-number-ciba-without-redirect)
   * [Vipps Login from phone number (CIBA with redirect)](#vipps-login-from-phone-number-ciba-with-redirect)
-<!-- END_TOC -->
-
-Document version 2.0.1.
+  
+<!-- END_COMMENT -->
 
 ## Postman
 

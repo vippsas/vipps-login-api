@@ -16,8 +16,6 @@ END_METADATA -->
 
 API version: 2.0.
 
-Document version 2.0.3.
-
 ## Checklist
 
 - [ ] Integration with the Vipps Login API is redirect based (i.e no embedded iframe)
