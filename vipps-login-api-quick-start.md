@@ -100,12 +100,3 @@ Copy the query param `code` from the URL in the browser. Paste this code into th
 See the
 [API reference](https://vippsas.github.io/vipps-developer-docs/api/login)
 for details about the calls.
-
-## Questions?
-
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
-a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
-or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
-
-Sign up for our [Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).

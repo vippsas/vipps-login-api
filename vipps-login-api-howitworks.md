@@ -81,10 +81,3 @@ to add additional details not present in the user's Vipps profile.
 ## Great! Now you know how the Vipps Login process works.
 
 Take a look at the technical documentation in the [Vipps Login API Guide](vipps-login-api.md).
-
-## Questions?
-
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
-a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
-or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).

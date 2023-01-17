@@ -107,7 +107,6 @@ API version: 2.0
   * [Requirements](#requirements)
   * [Merchant Serial Number (MSN)](#merchant-serial-number-msn)
   * [Userinfo](#userinfo-1)
-* [Questions?](#questions)
 
 <!-- END_COMMENT -->
 
@@ -1718,23 +1717,6 @@ This is a unique id for the sale unit. This is a required parameter if you are a
 ### Userinfo
 
 For fetching userinfo the token received during the login flow must be used.
-
-## Questions?
-
-For more information and to order the product go to:
-
-* [Frequently Asked Questions](vipps-login-api-faq.md)
-
-* [Product information in Norwegian](https://vipps.no/produkter-og-tjenester/bedrift/logg-inn-med-vipps/logg-inn-med-vipps/)
-
-* [Product FAQ in Norwegian](https://vipps.no/hjelp/vipps/vipps-logg-inn)
-
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
-a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
-or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
-
-Sign up for our [Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).
 
 
 [login-wellknown-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/wellKnown

@@ -38,7 +38,6 @@ See
 [Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
 for information about API keys, product activation, how to make API calls, etc.
 
-
 ## Developer guide
 
 * [API Quick Start](vipps-login-api-quick-start.md): Quick Start.
@@ -46,11 +45,3 @@ for information about API keys, product activation, how to make API calls, etc.
 * [API FAQ](vipps-login-api-faq.md): Questions and answers.
 * [API Reference](https://vippsas.github.io/vipps-developer-docs/api/login): Login API reference documentation.
 
-## Questions
-
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
-a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
-or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
-
-Sign up for our [Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).
