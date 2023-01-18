@@ -77,6 +77,8 @@ paths:
                   type: string
               required:
                 - grant_type
+                - code
+                - redirect_uri
       responses:
         "200":
           description: oauth2TokenResponse
