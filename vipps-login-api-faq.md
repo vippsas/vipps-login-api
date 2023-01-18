@@ -223,7 +223,7 @@ Revoking consents will immediately affect future login and payment sessions.
 
 ## Can a Vipps user less than 15 years old use Vipps Login?
 
-No, Vipps Login requires a full Vipps profile. Users below the age of 15 using our U15 product can not use Vipps Login.
+No, Vipps Login requires a full Vipps profile. Users below the age of 15 can not use Vipps Login. See the [help pages for Vipps for those under 15 years](https://vipps.no/hjelp/vipps/under-15/hvordan-oppretter-jeg-vipps-for-de-under-15-år/).
 
 ## Who can get access to NIN and how?
 
