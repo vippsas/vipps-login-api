@@ -21,11 +21,12 @@ For technical documentation go to
 
 We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
 
-This flow also features in our [Loyalty at POS solution](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/loyalty-in-pos/).
+This flow also features in our [Loyalty at POS solution](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/loyalty-in-pos).
 
 ## The login from phone number process
 
 The merchant has several options available to make the flow tailored to the specific use case:
+
  * Binding message: Include a binding message in the confirmation step for some extra assurance
  * Delegated consents: In this extra step, merchants can collect the consents required to enroll the customer to your loyalty program
  * Redirect: You may choose to redirect the user to a website of your choosing after login is completed
@@ -84,10 +85,3 @@ Alternatively, the merchant may redirect the user to it's website. The merchant 
 ## Great! Now you know how Vipps Login from phone number works!
 
 Take a look at the technical documentation in the [Vipps Login API - login from phone number](vipps-login-api.md#vipps-login-from-phone-number).
-
-## Questions?
-
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
-a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
-or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).

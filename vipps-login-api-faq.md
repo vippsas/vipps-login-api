@@ -13,7 +13,7 @@ See the [Vipps Login API](vipps-login-api.md) for all the details.
 
 For more common Vipps questions, see:
 
-* [Vipps API General FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/)
+* [Vipps API General FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs)
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
@@ -57,7 +57,6 @@ You can also find frequently asked questions in the
   * [Why do I get a CORS error?](#why-do-i-get-a-cors-error)
   * [Why do I get `No CSRF value available in the session cookie`?](#why-do-i-get-no-csrf-value-available-in-the-session-cookie)
   * [Why do I get `HTTP 502 Bad Gateway`?](#why-do-i-get-http-502-bad-gateway)
-* [Questions?](#questions)
 
 <!-- END_COMMENT -->
 
@@ -477,12 +476,3 @@ redirect sequence are too long (i.e 2000+ characters). Therefore, try to keep
 these parameters at sane lengths. If there is a need to encode some payload in
 the `state` (i.e a JWT), it would be a better option to cache this at the
 client server and use the key as `state`.
-
-## Questions?
-
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-login-api/issues),
-a [pull request](https://github.com/vippsas/vipps-login-api/pulls),
-or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
-
-Sign up for our [Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).
