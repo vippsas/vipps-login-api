@@ -32,16 +32,15 @@ For information and to order the product go to:
 * [Vipps Login from phone number: How It Works](./vipps-login-from-phone-number-api-howitworks.md)
 * [Vipps Login + Vipps Recurring: How It Works](vipps-login-recurring-howitworks.md)
 
-## Getting started
+## Next steps
 
 See
 [Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
 for information about API keys, product activation, how to make API calls, etc.
 
-## Developer guide
+Review the detailed documentation found here:
 
-* [API Quick Start](vipps-login-api-quick-start.md): Quick Start.
-* [API Guide](vipps-login-api.md): In-depth guide to the Login API.
+* [API quick start](vipps-login-api-quick-start.md): Quick start.
+* [API guide](vipps-login-api.md): In-depth guide to the Login API.
 * [API FAQ](vipps-login-api-faq.md): Questions and answers.
-* [API Reference](https://vippsas.github.io/vipps-developer-docs/api/login): Login API reference documentation.
-
+* [API reference](https://vippsas.github.io/vipps-developer-docs/api/login): Login API reference specifications.

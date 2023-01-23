@@ -5,7 +5,7 @@ sidebar_position: 40
 ---
 END_METADATA -->
 
-# Vipps Login API Checklist
+# Checklist
 
 <!-- START_COMMENT -->
 
@@ -16,7 +16,7 @@ END_METADATA -->
 
 API version: 2.0.
 
-## Checklist
+## Checklist for full integration
 
 - [ ] Integration with the Vipps Login API is redirect based (i.e no embedded iframe)
 - [ ] Native app integrations use the [app-to-app flow](vipps-login-api.md#app-to-app-flow)

@@ -5,7 +5,7 @@ sidebar_position: 13
 ---
 END_METADATA -->
 
-# Vipps Login in browser: How It Works
+# How it works in the browser
 
 <!-- START_COMMENT -->
 
