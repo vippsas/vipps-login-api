@@ -5,7 +5,7 @@ sidebar_position: 14
 ---
 END_METADATA -->
 
-# Vipps Login from phone number: How It Works
+# How it works from mobile
 
 <!-- START_COMMENT -->
 

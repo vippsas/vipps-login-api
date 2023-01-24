@@ -5,7 +5,7 @@ sidebar_position: 16
 ---
 END_METADATA -->
 
-# Vipps Login + Vipps Recurring: How It Works
+# How it works with Vipps Recurring
 
 <!-- START_COMMENT -->
 
