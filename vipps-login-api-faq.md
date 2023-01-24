@@ -34,6 +34,9 @@ You can also find frequently asked questions in the
 * [Why do I get `Error: Could not get Vipps Login token” in Vipps`?](#why-do-i-get-error-could-not-get-vipps-login-token-in-vipps)
 * [Which scopes can I use? Why do I get `Invalid_scope`?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
 * [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
+* [If a user removes their consents, is the `sub` still the same?](if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
+* [If a user deletes their Vipps Profile and creates a new one, is the `sub` still the same?](if-a-user-deletes-their-vipps-profile-and-creates-a-new-one-is-the-sub-still-the-same)
+* [If a user changes phone number, is the `sub` still the same?](if-a-user-changes-phone-number-is-the-sub-still-the-same)
 * [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
 * [Can a Vipps user less than 15 years old use Vipps Login?](#can-a-vipps-user-less-than-15-years-old-use-vipps-login)
 * [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
@@ -197,9 +200,14 @@ You can find the list of scopes that your individual sales units have access to 
 [portal.vipps.no](https://portal.vipps.no)
 under the "Utvikler" section and the "Setup Vipps Login" panel.
 
-## If a user changes phone numbers, is the `sub` still the same?
+## If a user removes their consents, is the `sub` still the same?
+Yes, the sub provided will be the same when the user logs in again and re-consents
 
-Yes, it's connected to the national identity number (NIN).
+## If a user deletes their Vipps Profile and create a new one, is the `sub` still the same?
+No, upon deletion of the Vipps Profile the sub is also removed.
+
+## If a user changes phone number, is the `sub` still the same?
+No, in order to sign up with a new phone number a user will have to delete the Vipps profile on the old phone number. When this Vipps profile is deleted, the sub is also removed.
 
 ## Why can I get userinfo after the user has revoked consent?
 
