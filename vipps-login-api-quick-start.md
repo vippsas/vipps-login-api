@@ -13,19 +13,7 @@ Use the Login API to confirm your identity through the log-in process.
 
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-## Table of Contents
-
-* [Postman](#postman)
-  * [Prerequisites](#prerequisites)
-  * [Step 1: Get the Vipps Postman collection and environment](#step-1-get-the-vipps-postman-collection-and-environment)
-  * [Step 2: Import the Vipps Postman files](#step-2-import-the-vipps-postman-files)
-  * [Step 3: Set up Postman environment](#step-3-set-up-postman-environment)
-* [Make API calls](#make-api-calls)
-  * [Vipps Login in Browser](#vipps-login-in-browser)
-  * [Vipps Login from phone number (CIBA without redirect)](#vipps-login-from-phone-number-ciba-without-redirect)
-  * [Vipps Login from phone number (CIBA with redirect)](#vipps-login-from-phone-number-ciba-with-redirect)
-  
+ 
 <!-- END_COMMENT -->
 
 ## Postman

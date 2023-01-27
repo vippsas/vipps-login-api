@@ -23,44 +23,6 @@ You can also find frequently asked questions in the
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
-## Table of contents
-
-* [Where do I find the `client_id` and `client_secret`?](#where-do-i-find-the-client_id-and-client_secret)
-* [How can I activate and set up Vipps Login?](#how-can-i-activate-and-set-up-vipps-login)
-* [What are the requirements for Redirect URIs?](#what-are-the-requirements-for-redirect-uris)
-* [How can I change my name and logo?](#how-can-i-change-my-name-and-logo)
-* [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
-* [Why do I get `Error: invalid_client`?](#why-do-i-get-error-invalid_client)
-* [Why do I get `Error: Could not get Vipps Login token” in Vipps`?](#why-do-i-get-error-could-not-get-vipps-login-token-in-vipps)
-* [Which scopes can I use? Why do I get `Invalid_scope`?](#which-scopes-can-i-use-why-do-i-get-invalid_scope)
-* [If a user changes phone numbers, is the `sub` still the same?](#if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
-* [If a user removes their consents, is the `sub` still the same?](if-a-user-changes-phone-numbers-is-the-sub-still-the-same)
-* [If a user deletes their Vipps Profile and creates a new one, is the `sub` still the same?](if-a-user-deletes-their-vipps-profile-and-creates-a-new-one-is-the-sub-still-the-same)
-* [If a user changes phone number, is the `sub` still the same?](if-a-user-changes-phone-number-is-the-sub-still-the-same)
-* [Why can I get userinfo after the user has revoked consent?](#why-can-i-get-userinfo-after-the-user-has-revoked-consent)
-* [Can a Vipps user less than 15 years old use Vipps Login?](#can-a-vipps-user-less-than-15-years-old-use-vipps-login)
-* [Who can get access to NIN and how?](#who-can-get-access-to-nin-and-how)
-* [Who can get access to Vipps Login from phone number and how?](#who-can-get-access-to-vipps-login-from-phone-number-and-how)
-* [How can I get started with delegatedConsents?](#how-can-i-get-started-with-delegatedconsents)
-* [When using delegatedConsents, which consents are supported?](#when-using-delegatedconsents-which-consents-are-supported)
-* [What's the purpose of the `state` parameter?](#whats-the-purpose-of-the-state-parameter)
-* [Can I use partner keys for Vipps login?](#can-i-use-partner-keys-for-vipps-login)
-* [Can I control if a user is remembered in the browser (set up as 2FA)?](#can-i-control-if-a-user-is-remembered-in-the-browser-set-up-as-2fa)
-* [Can I see statistics on Vipps Login usage?](#can-i-see-statistics-on-vipps-login-usage)
-* [How is GDPR handled with Vipps Login?](#how-is-gdpr-handled-with-vipps-login)
-* [Can we control the language displayed to the user?](#can-we-control-the-language-displayed-to-the-user)
-* [Which configuration should I have when integrating using Azure B2C?](#which-configuration-should-i-have-when-integrating-using-azure-b2c)
-* [How can we detect users' consent removal?](#how-can-we-detect-users-consent-removal)
-* [Can we have multiple URIs as landing pages?](#can-we-have-multiple-uris-as-landing-pages)
-* [Can I use a custom URL scheme for the `redirect_url`?](#can-i-use-a-custom-url-scheme-for-the-redirect_url)
-* [Can we change the name that appears in customer's Vipps app under `Login and Access`?](#can-we-change-the-name-that-appears-in-customers-vipps-app-under-login-and-access)
-* [How can I log out a user?](#how-can-i-log-out-a-user)
-* [Common errors](#common-errors)
-  * [Why do I get `The client or its related sale unit or merchant does not exist or is not active`?](#why-do-i-get-the-client-or-its-related-sale-unit-or-merchant-does-not-exist-or-is-not-active)
-  * [Why do I get a CORS error?](#why-do-i-get-a-cors-error)
-  * [Why do I get `No CSRF value available in the session cookie`?](#why-do-i-get-no-csrf-value-available-in-the-session-cookie)
-  * [Why do I get `HTTP 502 Bad Gateway`?](#why-do-i-get-http-502-bad-gateway)
-
 <!-- END_COMMENT -->
 
 ## Where do I find the `client_id` and `client_secret`?
