@@ -1,6 +1,6 @@
 <!-- START_METADATA
 ---
-title: How it works in browser
+title: How it works in the browser
 sidebar_position: 13
 ---
 END_METADATA -->
