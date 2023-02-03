@@ -1527,7 +1527,7 @@ eyJhbGciOiJub25lIiwidHlwIjogIkpXVCJ9Cg.eyJleHAiOjE1OTI1NzE3ODgsImlhdCI6MTU5MjU3M
 
 ## Partner keys
 
-In addition to the normal Authentication, we offer [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys) which lets a partner make API calls on behalf of a merchant.
+In addition to the normal authentication, we offer [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys) which let a partner make API calls on behalf of a merchant.
 
 Partner keys are available for the following flows:
 
@@ -1538,10 +1538,10 @@ Partner keys are available for the following flows:
 
 If you are a Vipps partner managing integrations on behalf of Vipps merchants, you can use your partner API credentials to authenticate, and then send the Merchant Serial Number (MSN) to identify which of your merchants you are acting on behalf of.
 
-The main differences between partner key integration and merchant integration is: 
+The main differences between partner key integration and merchant integration are:
 
-- Authentication is based on a token obtained from [POST: /accesstoken/get](https://vippsas.github.io/vipps-developer-docs/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost). This is the same token endpoint used for eCom payments. The token must be passed as a Bearer token in the header e.g `Authorization: Bearer <access-token>`. For partner key integration this authorization method *must* be used. The `token_endpoint_authentication` methods `client_secret_basic` and `client_secret_post` does not work for partner key integrations.
-- `Merchant-Serial-Number` header must be sent as part of backend requests to identify which merchant you're acting on behalf of. 
+* Authentication is based on a token obtained from [POST: /accesstoken/get](https://vippsas.github.io/vipps-developer-docs/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost). This is the same token endpoint used for eCom payments. The token must be passed as a Bearer token in the header e.g `Authorization: Bearer <access-token>`. For partner key integration, this authorization method _must_ be used. The `token_endpoint_authentication` methods, `client_secret_basic` and `client_secret_post`, do not work for partner key integrations.
+* `Merchant-Serial-Number` header must be sent as part of backend requests to identify which merchant you're acting on behalf of.
 
 Browser and phone number flows have minor differences and are described in more detail further down.
 
@@ -1558,11 +1558,12 @@ This request will return a redirect to a `/auth` url where the `msn` query param
 
 
 #### Token endpoint
-For the `/token` endpoint you should authenticate using an access token. Regular `client_secret_basic` or `client_secret_post` does not work for partner key integration. 
+
+For the `/token` endpoint, you should authenticate using an access token. Regular `client_secret_basic` or `client_secret_post` does not work for partner key integration.
 
 1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
-2. Use the access token in the `Authorization` header `Bearer access-token`. 
-3. Add the `Merchant-Serial-Number` header with the target merchant serial number
+2. Use the access token in the `Authorization` header, `Bearer access-token`.
+3. Add the `Merchant-Serial-Number` header with the target merchant serial number.
 
 **Example request:**
 
