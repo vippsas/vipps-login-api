@@ -30,8 +30,6 @@ You can also find frequently asked questions in the
 See:
 [Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
 
-Be aware that you _only_ use the `client_id` and `client_secret`, not the
-subscription key (`Ocp-Apim-Subscription-Key`).
 
 ## How can I activate and set up Vipps Login?
 
