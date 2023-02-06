@@ -6,8 +6,10 @@ info:
   title: Vipps Login
   version: 1.0.4
 servers:
-  - url: https://apitest.vipps.no
   - url: https://api.vipps.no
+    description: Production environment
+  - url: https://apitest.vipps.no
+    description: Merchant Test environment
 paths:
   /access-management-1.0/access/oauth2/auth:
     get:
