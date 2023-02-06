@@ -1540,7 +1540,7 @@ If you are a Vipps partner managing integrations on behalf of Vipps merchants, y
 
 The main differences between partner key integration and merchant integration are:
 
-* Authentication is based on the general Vipps access token. Instructions can be found in [the access token API guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/access-token-api)).
+* Authentication is based on the general Vipps access token. Instructions can be found in [the access token API guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/access-token-api).
 * `Merchant-Serial-Number` header must be sent as part of backend requests to identify which merchant you're acting on behalf of.
 
 Browser and phone number flows have minor differences and are described in more detail further down.
