@@ -7,9 +7,9 @@ info:
   version: 1.0.4
 servers:
   - url: https://api.vipps.no
-    description: Production environment
+    description: Production environment (uses the production API keys, the official app and live data)
   - url: https://apitest.vipps.no
-    description: Merchant Test environment
+    description: Test environment (uses the test API keys, the test app and test data)
 paths:
   /access-management-1.0/access/oauth2/auth:
     get:
