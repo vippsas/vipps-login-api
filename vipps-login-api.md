@@ -1615,6 +1615,6 @@ For fetching userinfo the token received during the login flow must be used.
 
 [login-wellknown-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/wellKnown
 [login-discoveropenid-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration
-[userinfo-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/userinfo#tag/Vipps-Userinfo-API/operation/getUserinfo
+[userinfo-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/userinfo#operation/getUserinfo
 [access-auth-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauthAuth
 [access-token-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauth2Token
