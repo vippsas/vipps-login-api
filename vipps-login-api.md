@@ -248,7 +248,7 @@ to start is finding a library for your language at [jwt.io](https://jwt.io/#libr
 
 ### Access token
 
-An access token is a JSON Web Tokens (JWT) that represents the authorization of a
+An access token is a JSON Web Token (JWT) that represents the authorization of a
 specific application to access specific parts of a user's data.
 
 See the
