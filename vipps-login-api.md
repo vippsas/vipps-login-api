@@ -856,7 +856,22 @@ merchant-app://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resum
 
 #### A typical flow/implementation might look like this
 
-![A typical flow](images/app2appsuggestion.png)
+```mermaid
+sequenceDiagram
+    merchantApp ->> merchantBackend : Initiate login
+    merchantBackend ->> merchantApp: 1: Authorize request
+    merchantApp ->> merchantAppControlledBrowser : 2: Open authorize request url
+    merchantAppControlledBrowser -->> vippsApp : 3: User opens Vipps app in login client
+    vippsApp -->> vippsApp: User accepts the login
+    vippsApp -->> merchantApp : 4: Open app_callback_uri
+    merchantApp ->> merchantAppControlledBrowser : 5: Either show the browser that is already open, <br/> or open a new browser at the resume_uri
+    merchantAppControlledBrowser -->> merchantAppControlledBrowser: User consents
+    merchantAppControlledBrowser -->> merchantApp : 6: Open redirect_uri, includes code and state
+    merchantApp ->>merchantBackend : 7: Finish login (code, state)
+    merchantBackend ->> vippsBackend : 8: Get userinfo and auth token using code
+    vippsBackend -->> merchantBackend : Userinfo / Auth token
+    merchantBackend ->> merchantApp : Userinfo / Auth token
+```
 
 The dotted lines in this diagram are handled by Vipps (or the user),
 while the filled lines need to be implemented by the merchant.
