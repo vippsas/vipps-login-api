@@ -244,6 +244,8 @@ Vipps Login from phone number is a billed service. As such, we also need some de
 
 ## How can I get started with delegatedConsents?
 
+Note that delegated consents are only available for the [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md) flow. It is currently not possible to request delegated consents in the Vipps Login in browser flow. 
+
 If you plan on using the scope `delegatedConsents` along with Vipps Login from phone number,
 you will need to supply some information on what consents you will retrieve and how.
 We will then tailor this screen to suit your needs. You can see what the flow looks like at
