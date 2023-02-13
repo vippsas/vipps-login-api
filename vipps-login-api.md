@@ -1177,7 +1177,7 @@ to be taken to the client's web page to finalize the flow.
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
 
-    For details see [Authentication Request With Redirect](vipps-login-api.md#authentication-request-with-redirect-httpsopenidnetspecsopenid-client-initiated-backchannel-authentication-core-1_0htmlauth_request).
+    For details see [Authentication Request With Redirect](#authentication-request-with-redirect).
 
     Example request (the real payload will likely look different because of encoding):
 
