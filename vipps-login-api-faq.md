@@ -134,7 +134,7 @@ Please check:
 * Have you double checked that the `redirect_uri` used in the API call is
   _exactly_ the same as the one specified on
   [portal.vipps.no](https://portal.vipps.no)?
-* Pay extra attention to whether the URI used in the3 API request has a
+* Pay extra attention to whether the URI used in the API request has a
   trailing `/` or URL-encoded entities (like `%20`), and whether the URI added on
   [portal.vipps.no](https://portal.vipps.no)
   is an exact match.
