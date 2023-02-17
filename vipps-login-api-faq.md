@@ -54,7 +54,7 @@ First you activate Vipps Login by clicking the "Activate Vipps Login" button:
 
 Then you can add the redirect URIs you need:
 1. Enter the URI. It must be _exactly_ the same URI that you use when making
-   API requests. Remember if t he actual URI specified with `redirect_uri` in
+   API requests. Remember if the actual URI specified with `redirect_uri` in
    the API requests will have a trailing slash `/` or not.
 2. Click "Add URI" for the one or more URIs you are adding.
 3. Click "Save" to save all the URIs you have added.   
