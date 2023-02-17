@@ -63,7 +63,7 @@ Then you can add the redirect URIs you need:
 
 ## What are the requirements for redirect URIs?
 
-We validate redirect URIs used in API request against a whitelist of
+We validate redirect URIs used against a whitelist of
 pre-approved URIs. The URIs must be registered by the merchant on
 [portal.vipps.no](https://portal.vipps.no)
 as described above.
