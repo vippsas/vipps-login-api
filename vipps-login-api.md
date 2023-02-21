@@ -1179,7 +1179,7 @@ sequenceDiagram
 
     Merchant ->> VippsLogin: POST /authentication-request (scope, login_hint, redirect_uri...)
     User ->> VippsApp: Confirm login
-    User ->> Browser: Redirect
+    VippsApp ->> Browser: Opens browser
     Browser ->> Merchant: `redirect_uri`
     Merchant ->> VippsLogin: POST /oauth2/token
     Merchant ->> VippsLogin: GET /userinfo
