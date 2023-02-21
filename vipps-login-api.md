@@ -521,7 +521,7 @@ following HTTP response:
 
 ```http
 HTTP/1.1 302 Found
-Location: https://client.example.com/callback?code={code}&state={state}&scope={scopes}
+Location: https://example.com/callback?code={code}&state={state}&scope={scopes}
 ```
 
 If the resource owner declines the access request, or an error occurs, the authorization server adds the following parameters to the query component of the
@@ -717,7 +717,7 @@ Example:
 
 ```http
 HTTP/1.1 302 Found
-Location: https://client.example.com/callback?code={code}&state={state}
+Location: https://example.com/callback?code={code}&state={state}
 ```
 
 ### Error handling
@@ -753,7 +753,7 @@ Example:
 
 ```http
 HTTP/1.1 302 Found
-Location: https://client.example.com/callback?error=access_denied&error_description=user%20cancelled%20the%20login?state={state}
+Location: https://example.com/callback?error=access_denied&error_description=user%20cancelled%20the%20login?state={state}
 ```
 
 If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
@@ -955,11 +955,11 @@ This flow is described [here](#no-dialog-flow---log-the-user-in-directly-when-po
 
 If the user completes the login, they will be returned to the `redirect_uri` with a code that can be used to complete the login, just like in a regular [Authorization code](#authorization-code-grant) login.
 
-`https://client.example.com/callback?code=12adsa938721987321asd9873&state=123987218dh`
+`https://example.com/callback?code=12adsa938721987321asd9873&state=123987218dh`
 
 If the user is not logged in, they will be returned with an error. Some possible errors are `interaction_required`, `login_required` or `server_error`.
 
-Not logged in return uri example: `https://client.example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
+Not logged in return uri example: `https://example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
 
 In all cases, a new login can be started by removing the parameter `requested_flow=no_dialog` and initiating a new login for the user.
 
