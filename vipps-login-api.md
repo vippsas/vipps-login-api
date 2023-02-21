@@ -1168,7 +1168,23 @@ to be taken to the client's web page to finalize the flow.
 1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
 2) The user, via their browser, will be redirected to the Client's `redirect_uri` which enables the login to be completed.
 
-![image](https://user-images.githubusercontent.com/1453728/134330475-d6910cbd-c216-4c64-bef9-e0f84cb0a7fd.png)
+
+``` mermaid
+sequenceDiagram
+    participant Merchant
+    participant VippsLogin as Vipps Login
+    participant VippsApp as Vipps app
+    participant Browser
+    actor User
+
+    Merchant ->> VippsLogin: POST /authentication-request (scope, login_hint, redirect_uri...)
+    User ->> VippsApp: Confirm login
+    VippsApp ->> Browser: Opens browser
+    Browser ->> Merchant: `redirect_uri`
+    Merchant ->> VippsLogin: POST /oauth2/token
+    Merchant ->> VippsLogin: GET /userinfo
+```
+
 
 #### Call by call
 
