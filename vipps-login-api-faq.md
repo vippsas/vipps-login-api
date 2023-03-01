@@ -201,12 +201,12 @@ Vipps profile on the old phone number. When this Vipps profile is deleted, the
 
 During a login or a payment session the user consent to share information if
 it's requested by the merchant. The users information is then available for
-the merchant from the user info endpoint. For login sessions user information
+the merchant from the userinfo endpoint. For login sessions, user information
 is available for the ongoing login session.
 
 To better support merchants that
 do not handle online fetching and processing of the user info as part of a
-payment session we keep this information accessible for the merchant for the
+payment session, we keep this information accessible for the merchant for the
 next 168 hours, even though the user revokes the consent in this period.
 Revoking consents will immediately affect future login and payment sessions.
 
@@ -434,7 +434,7 @@ See [How can I use `client_secret_post` for authentication?](#how-can-i-use-clie
 
 Vipps Login does not return user information in the `id_token`, but provides a
 userinfo endpoint for this use case. See
-[the user info endpoint documentation](vipps-login-api.md#userinfo).
+[the userinfo endpoint documentation](vipps-login-api.md#userinfo).
 Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
 
@@ -445,7 +445,7 @@ for us to have access to his/her personal data in our system?
 
 We have a system for notifying merchants when an end user revokes their consent.
 See the
-[Consent webhooks](vipps-login-api.md#consent-webhooks) section for more information.
+[Consent webhooks](./vipps-login-api.md#revoke-consent-webhook) section for more information.
 
 ## Can we have multiple URIs as landing pages?
 
