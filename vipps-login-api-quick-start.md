@@ -24,20 +24,26 @@ Review
 [Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/quick-start-guides)
 for information about getting your test environment set up.
 
-### Step 1: Get the Vipps Postman collection and environment
+### Step 1: Setup login on your sale unit
+
+Your test sale unit must be set up for using login.
+See [How to setup login on your sales unit](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+
+
+### Step 2: Get the Vipps Postman collection and environment
 
 Save the following files to your computer:
 
 * [Vipps Login API Postman collection](tools/vipps-login-api.postman_collection.json)
 * [Vipps API Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
-### Step 2: Import the Vipps Postman files
+### Step 3: Import the Vipps Postman files
 
 1. In Postman, click *Import* in the upper-left corner.
 1. In the dialog that opens, with *File* selected, click *Upload Files*.
 1. Select the two files you have just downloaded and click *Import*.
 
-### Step 3: Set up Postman environment
+### Step 4: Set up Postman environment
 
 1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
 1. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
@@ -49,7 +55,7 @@ Save the following files to your computer:
       In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
       See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
    * `redirect_uri` - The URL where the user is sent after finishing a login.
-      The URL must be exactly the same as the one specified on [portal.vipps.no](https://portal.vipps.no) in the _Setup login_ section for your sale unit.
+      The URL must be exactly the same as the one specified in [Step 1: Setup login on your sale unit](#step-1-setup-login-on-your-sale-unit).
       For testing, you could, for example, use <http://localhost> in both places.
    * `mobileNumber` - Your 8 digit mobile number for your test version of Vipps. This is only used for the CIBA flows.
 
