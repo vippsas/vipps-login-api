@@ -28,7 +28,7 @@ API version: 2.0.
       [Vipps design guidelines](https://github.com/vippsas/vipps-design-guidelines).
 - [ ] Terms and conditions are presented to the user, and necessary consents are
       collected from the user (i.e consent to marketing purposes, etc)  
-- [ ] The sale unit name (appears on the Vipps Login landing page) corresponds
+- [ ] The sales unit name (appears on the Vipps Login landing page) corresponds
       to the name of your company on your website. See
       [how to change name](vipps-login-api-faq.md#how-can-i-change-my-name-and-logo)
 - [ ] The company logo, to be shown in Vipps on the list which the user has

@@ -48,7 +48,7 @@ See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/
 
 ### Vipps Login in browser
 
-The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](vipps-login-api-howitworks.md). This also explains how the login in browser flow adapts to different preconditions in regards to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sale unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
+The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](vipps-login-api-howitworks.md). This also explains how the login in browser flow adapts to different preconditions in regards to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sales unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
 
 #### Remembered flow
 
@@ -129,7 +129,7 @@ See [how to implement](#no-dialog-flow).
 
 Vipps Login from phone number is based on the Client Initiated Backchannel Authentication (CIBA) standard and built to support special cases where login does not start in browser or app. This means that it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser. This could typically be physical contexts e.g point of sales solutions, on the phone e.g call-center solutions or devices/terminals e.g TV-boxes. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
 
- It is recommended to use the same sale unit for all use cases to ensure you, as a merchant, get the same user id ('sub') on the user across different scenarios.
+ It is recommended to use the same sales unit for all use cases to ensure you, as a merchant, get the same user id ('sub') on the user across different scenarios.
 
 Vipps Login from phone number is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request.
 
@@ -969,7 +969,7 @@ Vipps Login from phone number is available for all Vipps Login enabled clients.
 
 Vipps Login from phone number (CIBA flows) has been developed to support use cases where authentication/registration does not start in a browser or an app. These flows are described [here](#vipps-login-from-phone-number). They are based on the CIBA OIDC standard <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html>.
 
-A sale unit can use both Vipps Login in browser and Vipps Login from phone number. It is recommended to use the same sale unit for all use cases to ensure that you, as a merchant, get the same user id ('sub') on the user across different scenarios. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
+A sales unit can use both Vipps Login in browser and Vipps Login from phone number. It is recommended to use the same sales unit for all use cases to ensure that you, as a merchant, get the same user id ('sub') on the user across different scenarios. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
 
 ### Complete login in the Vipps app
 
@@ -1651,7 +1651,7 @@ auth_req_id=<auth-req-id>&grant_type=urn:openid:params:grant-type:ciba
 
 ### ID token validation
 
-When acting as a partner on behalf of a merchant's sale unit, you do not have access to the merchant's `client_id`, which is used for [ID token validation](#id-token).
+When acting as a partner on behalf of a merchant's sales unit, you do not have access to the merchant's `client_id`, which is used for [ID token validation](#id-token).
 We strongly encourage partners to use the `msn` claim in the ID token for this purpose and ensure that its value is the same as the Merchant serial number used for the login.
 
 ### Requirements
@@ -1660,7 +1660,7 @@ We strongly encourage partners to use the `msn` claim in the ID token for this p
 
 ### Merchant Serial Number (MSN)
 
-This is a unique id for the sale unit. This is a required parameter if you are a Vipps partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
+This is a unique id for the sales unit. This is a required parameter if you are a Vipps partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
 
 ### Userinfo
 
