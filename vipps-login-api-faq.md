@@ -42,9 +42,9 @@ as well as requirements for the URIs below.
 
 You will find the "Setup Vipps Login" option under the "Utvikler" menu,
 in the same place as you find your `client_id` and `client_secret`.
-Click "Setup login" for the sale unit you want to set up Vipps Login for.
+Click "Setup login" for the sales unit you want to set up Vipps Login for.
 
-The "Setup login" button is on the right side of the sale unit overview:
+The "Setup login" button is on the right side of the sales unit overview:
 
 ![You will find the Setup Vipps Login option in the same place as you find your `client_id` and `client_secret`](images/portal_setup_login.png)
 
@@ -97,7 +97,7 @@ information for this sales unit:
 
 You go to the sales unit ("salgssted") and click the correct unit. From this
 page you can see the key information for this sales unit
-![See sale unit info](images/Sales_unit_see_info.png)
+![See sales unit info](images/Sales_unit_see_info.png)
 
 By clicking "Rediger" next to the "Visning i appen" heading you will come to a
 screen where you both can update your name and ad your logo:
@@ -116,7 +116,7 @@ It is possible to change the token endpoint authentication method on
 This setting will then apply to all login transactions on this sales unit.
 
 Under the "Utvikler" section you will find the Setup Vipps Login option for
-your sale units.
+your sales units.
 
 Here you have the option to change the token endpoint authentication method,
 and see which method is currently active:
@@ -172,7 +172,7 @@ The scope `openid` is required and does not require user consent. It
 provides the claim `sub` which is a unique id for the end user at that
 particular merchant.
 
-*Please note:** Different sale units will get different `sub`s for the
+*Please note:** Different sales units will get different `sub`s for the
 same end user.
 
 Some merchants can get access to national identity number (NIN) with the `nin`
@@ -253,7 +253,7 @@ In the email you must specify:
 
 * Organization number
 * Merchant name
-* Name and number of the sale unit from [portal.vipps.no](https://portal.vipps.no)
+* Name and number of the sales unit from [portal.vipps.no](https://portal.vipps.no)
 * Information on how you plan to use the NIN
 * The legal requirement and/or the reason why you need to use NIN to achieve
   required user identification.
@@ -460,7 +460,7 @@ is required: `myapp://path-to-something`.
 
 ## Can we change the name that appears in customer's Vipps app under `Login and Access`?
 
-The name which is displayed in the app is the name of the sale unit.
+The name which is displayed in the app is the name of the sales unit.
 You can do it yourself on
 [portal.vipps.no](https://portal.vipps.no/).
 Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.
@@ -481,7 +481,7 @@ See
 [FAQ: Common errors](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/common-errors-faq)
 for more questions.
 
-### Why do I get `The client or its related sale unit or merchant does not exist or is not active`?
+### Why do I get `The client or its related sales unit or merchant does not exist or is not active`?
 
 This means that the API credentials are for a MSN (Merchant Serial Number)
 that does not exist, or is not active. This can happen if the organization number
