@@ -216,6 +216,26 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
+  /api/backchannel/authentication:
+    post:
+      tags:
+        - Vipps Login CIBA API
+      operationId: authenticate
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                authenticationRequestPayload:
+                  $ref: '#/components/schemas/AuthenticationRequestPayload'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
 components:
   securitySchemes:
     basic:
@@ -635,3 +655,15 @@ components:
         error_code: 400
         error_debug: The request is missing a required parameter, includes an invalid
           parameter or is otherwise malformed.
+    AuthenticationRequestPayload:
+      required:
+        - loginHint
+      type: object
+      properties:
+        scope:
+          type: string
+        loginHint:
+          pattern: "\\d{10}"
+          type: string
+        bindingMessage:
+          type: string
