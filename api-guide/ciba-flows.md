@@ -401,14 +401,14 @@ Example: `...&redirect_uri=https://merchant.com/callback&...`
 In addition to the responses defined by [the standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.13) these responses might also be returned:
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
-* Most of the [general error codes](../vipps-login-api.md#error-handling)
+* Most of the [general error codes](integration.md#error-handling)
 
 
 ## Merchants delegated consents
 
 ### Activation
 
-See [How can I get started with delegatedConsents?](vipps-login-api-faq.md#how-can-i-get-started-with-delegatedconsents).
+See [How can I get started with delegatedConsents?](../vipps-login-api-faq.md#how-can-i-get-started-with-delegatedconsents).
 
 ### Overview
 

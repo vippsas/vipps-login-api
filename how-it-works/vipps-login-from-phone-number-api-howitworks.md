@@ -87,4 +87,4 @@ Alternatively, the merchant may redirect the user to it's website. The merchant 
 ## Great! Now you know how Vipps Login from phone number works!
 
 Take a look at the technical documentation in the
-[Vipps Login API - login from phone number](../vipps-login-api.md#vipps-login-from-phone-number).
+[Vipps Login API - login from phone number](../api-guide/overview.md#vipps-login-from-phone-number).

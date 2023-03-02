@@ -9,7 +9,7 @@ END_METADATA -->
 # Frequently asked questions
 
 Here are the Login API FAQs.
-See the [Vipps Login API](vipps-login-api.md) for all the details.
+See the [Vipps Login API](api-guide/README.md) for all the details.
 
 For more common Vipps questions, see:
 
@@ -37,7 +37,7 @@ On [portal.vipps.no](https://portal.vipps.no), in the same place as the
 `client_id` and `client_secret` described above, you can activate Vipps Login,
 and also add the redirect URIs needed for the service to work. This is the URL/URI of
 the page which the user is redirected to after finishing a login. See:
-[API endpoints](vipps-login-api.md#api-endpoints)
+[API endpoints](api-guide/integration.md#api-endpoints-required-from-the-merchant)
 as well as requirements for the URIs below.
 
 You will find the "Setup Vipps Login" option under the "Utvikler" menu,
@@ -153,7 +153,7 @@ and production app on the same phone.
 If you get “Invalid_scope” this means that you have included one or more scopes
 that you do not have access to or that is not supported.
 See:
-[Scopes](vipps-login-api.md#scopes).
+[Scopes](api-guide/core-concepts.md#scopes).
 
 All merchants have access to these scopes:
 
@@ -323,7 +323,7 @@ and we'll be in touch.
 | personal | Få tilpassede tilbud                | Get customized offers                     |
 
 See
-[Merchant delegated consents](vipps-login-api.md#merchants-delegated-consents)
+[Merchant delegated consents](api-guide/ciba-flows.md#merchants-delegated-consents)
 for details.
 
 ## What's the purpose of the `state` parameter?
@@ -434,7 +434,7 @@ See [How can I use `client_secret_post` for authentication?](#how-can-i-use-clie
 
 Vipps Login does not return user information in the `id_token`, but provides a
 userinfo endpoint for this use case. See
-[the userinfo endpoint documentation](vipps-login-api.md#userinfo).
+[the userinfo endpoint documentation](api-guide/integration.md#userinfo).
 Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
 
@@ -445,7 +445,7 @@ for us to have access to his/her personal data in our system?
 
 We have a system for notifying merchants when an end user revokes their consent.
 See the
-[Consent webhooks](./vipps-login-api.md#revoke-consent-webhook) section for more information.
+[Consent webhooks](api-guide/important-information#revoke-consent-webhook) section for more information.
 
 ## Can we have multiple URIs as landing pages?
 
