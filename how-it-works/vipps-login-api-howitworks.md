@@ -23,7 +23,7 @@ We also have _How it works_ for [Vipps Login from phone number](vipps-login-from
 
 ## The login process
 
-![login process](images/vipps-login-process-v3.svg)
+![login process](../images/vipps-login-process-v3.svg)
 
 ## The first time using Vipps Login
 
@@ -31,7 +31,7 @@ We also have _How it works_ for [Vipps Login from phone number](vipps-login-from
 
 A user chooses to log in with Vipps on a merchant’s site.
 
-![Buy subscription with Vipps](images/vipps-login-step1-2.svg)
+![Buy subscription with Vipps](../images/vipps-login-step1-2.svg)
 
 ### 2. The Vipps landing page
 
@@ -41,7 +41,7 @@ The user is then prompted to log in to Vipps and follow the instructions in the 
 
 If the login was started from a mobile device and the user needs to authenticate in the app, the user will confirm to be taken to the Vipps-app without having to enter their phone number.
 
-![Vipps landing page](images/vipps-login-step2.svg)
+![Vipps landing page](../images/vipps-login-step2.svg)
 
 ### 3. E-mail verification (first time only)
 
@@ -49,7 +49,7 @@ If the merchant has requested the user's e-mail address, the user have to verify
 
 The user can check and change their registered e-mail addresses. This is only necessary to do once. If the merchant has not requested the user's e-mail address, this step is skipped.
 
-![Accept agreement](images/vipps-login-step3-2.svg)
+![Accept agreement](../images/vipps-login-step3-2.svg)
 
 ### 4. Confirm login
 
@@ -59,7 +59,7 @@ If the login was started on a phone, the user can in this step choose to be reme
 
 If the login was started on desktop, the user confirms that the emoji in Vipps matches the one on the landing page, and confirms the login.
 
-![Confirmation of subscription](images/vipps-login-step4-2.svg)
+![Confirmation of subscription](../images/vipps-login-step4-2.svg)
 
 ### 5. Give consent to share information
 
@@ -67,7 +67,7 @@ The user gives consent to share information with the merchant.
 
 The user may click "See your information" to see the actual information that will be shared, but this is optional.
 
-![Overview of agreements](images/vipps-login-step5.svg)
+![Overview of agreements](../images/vipps-login-step5.svg)
 
 ### 6. Logged in
 
@@ -76,7 +76,7 @@ The user is now logged in on the merchant’s page.
 The user may be given the opportunity to edit the information, for instance
 to add additional details not present in the user's Vipps profile.
 
-![Overview of agreements](images/vipps-login-step6-2.svg)
+![Overview of agreements](../images/vipps-login-step6-2.svg)
 
 ## Great! Now you know how the Vipps Login process works.
 
