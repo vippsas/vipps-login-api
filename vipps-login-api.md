@@ -48,7 +48,7 @@ See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/
 
 ### Vipps Login in browser
 
-The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](vipps-login-api-howitworks.md). This also explains how the login in browser flow adapts to different preconditions in regards to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sales unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
+The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](./how-it-works/vipps-login-api-howitworks.md). This also explains how the login in browser flow adapts to different preconditions in regards to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sales unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
 
 #### Remembered flow
 
@@ -133,7 +133,7 @@ Vipps Login from phone number is based on the Client Initiated Backchannel Authe
 
 Vipps Login from phone number is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request.
 
-The merchant controls whether the user should get the confirmation of completion in the Vipps app or if they should be taken to the merchant's web page to finalize the flow. The merchant can e.g. take the user to their web page to enable input of more information, accept terms and condition, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How It Works](vipps-login-from-phone-number-api-howitworks.md).
+The merchant controls whether the user should get the confirmation of completion in the Vipps app or if they should be taken to the merchant's web page to finalize the flow. The merchant can e.g. take the user to their web page to enable input of more information, accept terms and condition, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How It Works](./how-it-works/vipps-login-from-phone-number-api-howitworks.md).
 
 Illustration of how the flow will look like when the user end the flow and get the confirmation of completion in the Vipps app:
 
@@ -151,7 +151,7 @@ See [how to implement](#integrating-with-vipps-login-from-phone-number).
 
 ### Vipps Login + Vipps Recurring
 
-* [Vipps Login + Vipps Recurring](vipps-login-recurring-howitworks.md): Learn how you can use Login and Recurring together.
+* [Vipps Login + Vipps Recurring](./how-it-works/vipps-login-recurring-howitworks.md): Learn how you can use Login and Recurring together.
 
 ## Design guidelines and buttons
 

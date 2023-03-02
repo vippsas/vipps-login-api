@@ -17,7 +17,7 @@ END_METADATA -->
 Let your customers share their information or confirm who they are by triggering a Login flow on their device based on their phone number.
 
 For technical documentation go to
-[Vipps Login API - login from phone number](vipps-login-api.md#vipps-login-from-phone-number).
+[Vipps Login API - login from phone number](../vipps-login-api.md#vipps-login-from-phone-number).
 
 We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
 
@@ -66,9 +66,11 @@ If the scope is included in the request, the end user will be asked to give cons
 |:-----------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
 | ![User sees delegated consents in Vipps](../images/delegated-consents-step1.png) | ![User confirm delegated consents in Vipps](../images/delegated-consents-step2.png) |
 
-Some of the elements on the delegated consents screen can be adjusted to fit the merchant's needs
+Some of the elements on the delegated consents screen can be adjusted to fit the merchant's needs:
+
  * A top text where the purpose of collecting consents should be stated. This is customizable for you as a merchant.
- * The consents wanted by the merchant (see more [When using delegatedConsents, which consents does Vipps support?](vipps-login-api-faq.md#when-using-delegatedconsents-which-consents-does-vipps-support)).
+ * The consents wanted by the merchant (see more
+   [When using delegatedConsents, which consents does Vipps support?](../vipps-login-api-faq.md#when-using-delegatedconsents-which-consents-does-vipps-support)).
    These can be individually specified to be mandatory or optional. Mandatory consents must be ticked before the user can complete the login flow. See what consents we currently support, or reach out if you need something else and we'll se what we can do!
  * A bottom text where we provide some contextual information for the end user. The text is fixed, but the links will point to the merchant's terms and conditions, as well as privacy statement.
 
@@ -84,4 +86,5 @@ Alternatively, the merchant may redirect the user to it's website. The merchant 
 
 ## Great! Now you know how Vipps Login from phone number works!
 
-Take a look at the technical documentation in the [Vipps Login API - login from phone number](vipps-login-api.md#vipps-login-from-phone-number).
+Take a look at the technical documentation in the
+[Vipps Login API - login from phone number](../vipps-login-api.md#vipps-login-from-phone-number).
