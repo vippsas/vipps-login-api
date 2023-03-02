@@ -17,7 +17,7 @@ END_METADATA -->
 Let your customers share their information or confirm who they are by triggering a Login flow on their device based on their phone number.
 
 For technical documentation go to
-[Vipps Login API - login from phone number](../vipps-login-api.md#vipps-login-from-phone-number).
+[Vipps Login API - login from phone number](../api-guide/overview.md#vipps-login-from-phone-number).
 
 We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
 

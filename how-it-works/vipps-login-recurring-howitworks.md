@@ -71,4 +71,4 @@ The user is returned to the merchant's web site or app, and the subscription is 
 
 ## Great! Now you know how you can use Vipps Login and Vipps Recurring together
 
-Take a look at the technical documentation in the [Vipps Login API Guide](../vipps-login-api.md) and the [Vipps Recurring API Guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/recurring-api/vipps-recurring-api).
+Take a look at the technical documentation in the [Vipps Login API Guide](../api-guide/README.md) and the [Vipps Recurring API Guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/recurring-api/vipps-recurring-api).

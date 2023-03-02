@@ -41,6 +41,6 @@ for information about API keys, product activation, how to make API calls, etc.
 Review the detailed documentation found here:
 
 * [API quick start](vipps-login-api-quick-start.md): Quick start.
-* [API guide](vipps-login-api.md): In-depth guide to the Login API.
+* [API guide](api-guide): In-depth guide to the Login API.
 * [API FAQ](vipps-login-api-faq.md): Questions and answers.
 * [API reference](https://vippsas.github.io/vipps-developer-docs/api/login): Login API reference specifications.
