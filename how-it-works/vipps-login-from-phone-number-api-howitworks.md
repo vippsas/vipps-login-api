@@ -17,7 +17,7 @@ END_METADATA -->
 Let your customers share their information or confirm who they are by triggering a Login flow on their device based on their phone number.
 
 For technical documentation go to
-[Vipps Login API - login from phone number](vipps-login-api.md#vipps-login-from-phone-number).
+[Vipps Login API - login from phone number](../vipps-login-api.md#vipps-login-from-phone-number).
 
 We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
 
@@ -31,7 +31,7 @@ The merchant has several options available to make the flow tailored to the spec
  * Delegated consents: In this extra step, merchants can collect the consents required to enroll the customer to your loyalty program
  * Redirect: You may choose to redirect the user to a website of your choosing after login is completed
 
-![login process](images/vipps-login-from-phone-number-process.png)
+![login process](../images/vipps-login-from-phone-number-process.png)
 
 The different steps are described and illustrated with screenshots below.
 
@@ -42,7 +42,7 @@ The user receives a push notification from Vipps and clicks the push to open the
 
 If the user has turned off push notifications or for some other reason do not get the push, they can open Vipps themselves and automatically start the login flow.
 
-![User gets push message from Vipps](images/vipps-login-phone-push.png)
+![User gets push message from Vipps](../images/vipps-login-phone-push.png)
 
 ### 2. Confirmation
 
@@ -54,7 +54,7 @@ After confirming the login and sharing of information, the user will be asked fo
 The end user must only consent once per merchant and the consent applies across all Vipps services. In other words, if the user has already consented to share the
 requested information with the merchant, no consent will be required, and this step will be skipped.
 
-![User confirm in Vipps](images/vipps-login-confirm.png)
+![User confirm in Vipps](../images/vipps-login-confirm.png)
 
 ### 3. Delegated consents (optional)
 
@@ -64,11 +64,13 @@ If the scope is included in the request, the end user will be asked to give cons
 
 |                       Initial delegated consents screen                       |                           Delegated consents approved                            |
 |:-----------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
-| ![User sees delegated consents in Vipps](images/delegated-consents-step1.png) | ![User confirm delegated consents in Vipps](images/delegated-consents-step2.png) |
+| ![User sees delegated consents in Vipps](../images/delegated-consents-step1.png) | ![User confirm delegated consents in Vipps](../images/delegated-consents-step2.png) |
 
-Some of the elements on the delegated consents screen can be adjusted to fit the merchant's needs
+Some of the elements on the delegated consents screen can be adjusted to fit the merchant's needs:
+
  * A top text where the purpose of collecting consents should be stated. This is customizable for you as a merchant.
- * The consents wanted by the merchant (see more [When using delegatedConsents, which consents does Vipps support?](vipps-login-api-faq.md#when-using-delegatedconsents-which-consents-does-vipps-support)).
+ * The consents wanted by the merchant (see more
+   [When using delegatedConsents, which consents does Vipps support?](../vipps-login-api-faq.md#when-using-delegatedconsents-which-consents-does-vipps-support)).
    These can be individually specified to be mandatory or optional. Mandatory consents must be ticked before the user can complete the login flow. See what consents we currently support, or reach out if you need something else and we'll se what we can do!
  * A bottom text where we provide some contextual information for the end user. The text is fixed, but the links will point to the merchant's terms and conditions, as well as privacy statement.
 
@@ -80,8 +82,9 @@ The merchant can end the login process in Vipps, where the user will receive a c
 
 Alternatively, the merchant may redirect the user to it's website. The merchant will then have a identified user. This flow can be used to welcome a user to the customer club, ask for more information/preferences, show offers or information of relevance.
 
-![User gets confirmation in Vipps or is taken to browser](images/vipps-login-confirmation.png)
+![User gets confirmation in Vipps or is taken to browser](../images/vipps-login-confirmation.png)
 
 ## Great! Now you know how Vipps Login from phone number works!
 
-Take a look at the technical documentation in the [Vipps Login API - login from phone number](vipps-login-api.md#vipps-login-from-phone-number).
+Take a look at the technical documentation in the
+[Vipps Login API - login from phone number](../vipps-login-api.md#vipps-login-from-phone-number).

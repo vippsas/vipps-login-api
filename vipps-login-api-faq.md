@@ -286,14 +286,14 @@ In the email you must specify:
 ## How can I get started with delegatedConsents?
 
 **Please note:** Delegated consents are only available for the
-[Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md)
+[Vipps Login from phone number](./how-it-works/vipps-login-from-phone-number-api-howitworks.md)
 flow. It is currently not possible to request delegated consents in the
 Vipps Login in browser flow.
 
 If you plan on using the scope `delegatedConsents` along with Vipps Login from phone number,
 you will need to supply some information on what consents you will retrieve and how.
 We will then tailor this screen to suit your needs. You can see what the flow looks like at
-[Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md).
+[Vipps Login from phone number](./how-it-works/vipps-login-from-phone-number-api-howitworks.md).
 
 Please send an email to
 [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no)
