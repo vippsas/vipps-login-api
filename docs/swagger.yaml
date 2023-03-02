@@ -635,15 +635,3 @@ components:
         error_code: 400
         error_debug: The request is missing a required parameter, includes an invalid
           parameter or is otherwise malformed.
-    AuthenticationRequestPayload:
-      required:
-        - loginHint
-      type: object
-      properties:
-        scope:
-          type: string
-        loginHint:
-          pattern: "\\d{10}"
-          type: string
-        bindingMessage:
-          type: string
