@@ -216,26 +216,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-  /api/backchannel/authentication:
-    post:
-      tags:
-        - Vipps Login CIBA API
-      operationId: authenticate
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                authenticationRequestPayload:
-                  $ref: '#/components/schemas/AuthenticationRequestPayload'
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                type: string
 components:
   securitySchemes:
     basic:
