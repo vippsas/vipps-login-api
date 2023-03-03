@@ -1,21 +1,14 @@
-<!-- START_METADATA
-
 ---
-title: API guide
+title: Core concepts
 sidebar_position: 30
 ---
-END_METADATA -->
+
 
 # Core concepts
 
 API version: 2.0
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 Vipps Login is to a large degree based on the OAuth2 and OpenID Connect standards. Some core concepts related to these are presented below.
 

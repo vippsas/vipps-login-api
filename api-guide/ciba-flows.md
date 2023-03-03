@@ -1,18 +1,12 @@
-<!-- START_METADATA
 ---
-title: API guide
+title: Integrating with Vipps Login from phone number
 sidebar_position: 30
 ---
-END_METADATA -->
+
 
 # Integrating with Vipps Login from phone number
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 

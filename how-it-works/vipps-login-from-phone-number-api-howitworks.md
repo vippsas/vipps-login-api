@@ -1,18 +1,12 @@
-<!-- START_METADATA
 ---
 title: How it works from mobile
 sidebar_position: 14
 ---
-END_METADATA -->
+
 
 # How it works from mobile
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 Let your customers share their information or confirm who they are by triggering a Login flow on their device based on their phone number.
 
@@ -21,7 +15,7 @@ For technical documentation go to
 
 We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
 
-This flow also features in our [Loyalty at POS solution](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/loyalty-in-pos).
+This flow also features in our [Loyalty at POS solution](/docs/vipps-solutions/loyalty-in-pos).
 
 ## The login from phone number process
 

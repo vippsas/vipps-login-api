@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Introduction
 sidebar_position: 1
@@ -6,16 +5,11 @@ hide_table_of_contents: true
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
+
 
 # Vipps Login API
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 With the Login API, users can login to your service by using their Vipps account.
 This simplifies the process for users, as they don't need to fill out a form or remember a password to access your services.
@@ -35,7 +29,7 @@ For information and to order the product go to:
 ## Next steps
 
 See
-[Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
+[Getting Started](/docs/vipps-developers/vipps-getting-started)
 for information about API keys, product activation, how to make API calls, etc.
 
 Review the detailed documentation found here:
@@ -43,4 +37,4 @@ Review the detailed documentation found here:
 * [API quick start](vipps-login-api-quick-start.md): Quick start.
 * [API guide](api-guide/README.md): In-depth guide to the Login API.
 * [API FAQ](vipps-login-api-faq.md): Questions and answers.
-* [API reference](https://vippsas.github.io/vipps-developer-docs/api/login): Login API reference specifications.
+* [API reference](/api/login): Login API reference specifications.

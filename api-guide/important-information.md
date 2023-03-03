@@ -1,23 +1,17 @@
-<!-- START_METADATA
 ---
-title: API guide
+title: Important information
 sidebar_position: 30
 ---
-END_METADATA -->
+
 
 # Important information
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 ## Design guidelines and buttons
 
 Buttons to use for Vipps Login can be found as part of our
-[design guidelines](https://github.com/vippsas/vipps-design-guidelines/tree/master/vipps-buttons).
+[design guidelines](/docs/vipps-design-guidelines/vipps-buttons).
 
 
 ## Recommendations on linking to user account

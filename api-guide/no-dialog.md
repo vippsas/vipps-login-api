@@ -1,18 +1,12 @@
-<!-- START_METADATA
 ---
-title: API guide
+title: No dialog flow
 sidebar_position: 30
 ---
-END_METADATA -->
+
 
 # No dialog flow
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 This flow is described [here](overview.md#no-dialog-flow---log-the-user-in-directly-when-possible). To attempt a no dialog login, add the query parameter `requested_flow=no_dialog` to the [Authorization request](integration.md#oauth-20-authorize) uri.
 

@@ -1,20 +1,11 @@
-<!-- START_METADATA
 ---
-title: API guide
+title: Integrating with Vipps Login
 sidebar_position: 30
 ---
-END_METADATA -->
 
 # Integrating with Vipps Login
 
 API version: 2.0
-
-<!-- START_COMMENT -->
-
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 Vipps Login mostly adheres to the OAuth2 and OpenID Connect standards. The easiest - and **strongly recommended - way
 to integrate with the service is therefore to use a well renowned
@@ -23,7 +14,7 @@ Vipps does not recommend a specific library, but the list of
 [OIDC Relying Party libraries](https://openid.net/developers/certified/)
 certified by the OpenID Foundation is a good starting point.
 
-## manual integration
+## Manual integration
 
 This section contains information necessary to perform a manual integration with
 Vipps Login. This **should not be attempted without a solid grasp of the OAuth2

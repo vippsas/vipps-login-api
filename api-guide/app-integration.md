@@ -1,18 +1,12 @@
-<!-- START_METADATA
 ---
-title: API guide
+title: App integration
 sidebar_position: 30
 ---
-END_METADATA -->
+
 
 # App integration
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 It is possible to enable automatic switch of users back to the merchant app,
 from the Vipps app. This flow is described [here](overview.md#app-to-app-flow).

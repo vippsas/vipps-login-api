@@ -1,23 +1,17 @@
-<!-- START_METADATA
 ---
 title: How it works in the browser
 sidebar_position: 13
 ---
-END_METADATA -->
+
 
 # How it works in the browser
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 Let your customers log in to your website or app without the need for user names and passwords.
 
 For technical documentation go to
-[Vipps Login API](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
+[Vipps Login API](/docs/APIs/login-api).
 
 We also have _How it works_ for [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md)
 

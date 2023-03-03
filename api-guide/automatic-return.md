@@ -1,18 +1,12 @@
-<!-- START_METADATA
 ---
-title: API guide
+title: Automatic return from Vipps app
 sidebar_position: 30
 ---
-END_METADATA -->
+
 
 # Automatic return from Vipps app
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 When enabled, this flow will automatically take the user back to a browser when they accept the login in the Vipps app. It is not suitable for every scenario. Please see [the detailed description](overview.md#automatic-return-from-vipps-app) and be aware of the security implications mentioned there.
 

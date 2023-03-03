@@ -1,18 +1,12 @@
-<!-- START_METADATA
 ---
-title: API guide
+title: Overview
 sidebar_position: 30
 ---
-END_METADATA -->
+
 
 # Overview
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 ## Introduction
 
@@ -28,7 +22,7 @@ When Vipps Login is used in the browser, the user can choose to be remembered in
 
 Vipps Login is _not_ an electronic identification or certified eID.
 
-For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](https://vippsas.github.io/vipps-developer-docs/docs/vipps-plugins).
+For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](/docs/vipps-plugins).
 If a plugin is not available, the easiest - and **strongly recommended - way to integrate with the service is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language**. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
 
 Vipps Login in browser should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended).
@@ -37,7 +31,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 
-See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
+See our [developer section](/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
 
 
 ## Flows
@@ -85,7 +79,7 @@ The flows are described below.
 
 This flow is designed to be used with apps. It requires that the app initiate Vipps Login in an external browser that is opened within the app, see [specification](important-information.md#using-vipps-login-in-native-applications). In this flow the merchant need to specify the app URI where the user will be returned after completing the confirmation in the Vipps app.
 
-See [how to implement](app-integration#app-integration).
+See [how to implement](app-integration).
 
 ##### Automatic return from Vipps app
 
@@ -97,7 +91,7 @@ Due to how the different mobile operating systems handle app-switch to browser, 
 
 By using this flow Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
 
-See [how to implement](automatic-return.md#automatic-return-from-vipps-app), including more information on the security considerations.
+See [how to implement](automatic-return), including more information on the security considerations.
 
 #### No dialog flow - log the user in directly when possible
 
@@ -121,7 +115,7 @@ In such scenarios, a user that can be logged in directly will get an even better
 
 If the user cannot be logged in directly, you can e.g. show them your ordinary login screen. On the login screen, Vipps will be an option. A user that is not remembered in browser or has not yet given consent can actively login with Vipps from here.
 
-See [how to implement](no-dialog.md#no-dialog-flow).
+See [how to implement](no-dialog).
 
 ### Vipps Login from phone number
 
@@ -145,7 +139,7 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 
 ![Optional confirmation code (`binding_message`)](../images/CIBA_Confirmation_code.png)
 
-See [how to implement](ciba-flows.md#integrating-with-vipps-login-from-phone-number).
+See [how to implement](ciba-flows).
 
 ### Vipps Login + Vipps Recurring
 
