@@ -8,8 +8,10 @@ END_METADATA -->
 # How it works with Vipps Recurring
 
 <!-- START_COMMENT -->
+
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
 <!-- END_COMMENT -->
 
 Vipps Login and Vipps Recurring can be used together making registration and payment simple for your customers.

@@ -8,6 +8,7 @@ END_METADATA -->
 # How it works from mobile
 
 <!-- START_COMMENT -->
+
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 

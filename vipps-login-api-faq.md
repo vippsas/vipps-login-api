@@ -8,12 +8,6 @@ END_METADATA -->
 
 # Frequently asked questions
 
-<!-- START_COMMENT -->
-
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
 
 Here are the Login API FAQs.
 See the [Vipps Login API](api-guide/README.md) for all the details.
@@ -25,6 +19,12 @@ For more common Vipps questions, see:
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
 
 ## Where do I find the `client_id` and `client_secret`?
 

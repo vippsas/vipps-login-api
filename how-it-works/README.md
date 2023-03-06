@@ -10,6 +10,7 @@ END_METADATA -->
 # How it works
 
 <!-- START_COMMENT -->
+
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
 

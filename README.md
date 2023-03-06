@@ -11,6 +11,7 @@ END_METADATA -->
 # Vipps Login API
 
 <!-- START_COMMENT -->
+
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
