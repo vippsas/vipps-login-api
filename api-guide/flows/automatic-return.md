@@ -7,8 +7,6 @@ END_METADATA -->
 
 # Automatic return from Vipps app
 
-
-
 When enabled, this flow will automatically take the user back to a browser when they accept the login in the Vipps app. It is not suitable for every scenario. Please see [the detailed description](../overview.md#automatic-return-from-vipps-app) and be aware of the security implications mentioned there.
 
 This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](../integration.md#oauth-20-authorize) request.

@@ -7,13 +7,10 @@ END_METADATA -->
 
 # Important information
 
-
-
 ## Design guidelines and buttons
 
 Buttons to use for Vipps Login can be found as part of our
 [design guidelines](https://vippsas.github.io/vipps-developer-docs/docs/vipps-design-guidelines/vipps-buttons).
-
 
 ## Recommendations on linking to user account
 
@@ -92,13 +89,16 @@ eyJhbGciOiJub25lIiwidHlwIjogIkpXVCJ9Cg.eyJleHAiOjE1OTI1NzE3ODgsImlhdCI6MTU5MjU3M
 *Decoded JWT*
 
 `Header`
+
 ```json
 {
   "alg": "none",
   "typ": "JWT"
 }
 ```
+
 `Payload`
+
 ```json
 {
   "exp": 1592571788,

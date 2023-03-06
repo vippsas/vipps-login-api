@@ -7,8 +7,6 @@ END_METADATA -->
 
 # Integrating with Vipps Login from phone number
 
-
-
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 
 Vipps Login from phone number (CIBA flows) has been developed to support use cases where authentication/registration does not start in a browser or an app. These flows are described [here](../overview.md#vipps-login-from-phone-number). They are based on the CIBA OIDC standard <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html>.
@@ -21,9 +19,9 @@ A sales unit can use both Vipps Login in browser and Vipps Login from phone numb
 
 Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate the authentication of an end-user through out-of-band mechanisms.
 
-1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
-2) Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
-3) The Client will receive the ID Token and Access Token by polling the token endpoint to get a response with the tokens.
+1. The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
+2. Vipps Login will respond immediately with a unique identifier that identifies that authentication while it tries to authenticate the user in the background.
+3. The Client will receive the ID Token and Access Token by polling the token endpoint to get a response with the tokens.
 
 ### Call by call
 
@@ -209,9 +207,8 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 This CIBA-related flow enables a Client to initiate the authentication of an end-user through out-of-band mechanisms and additionally facilitates the end user
 to be taken to the client's web page to finalize the flow.
 
-1) The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
-2) The user, via their browser, will be redirected to the Client's `redirect_uri` which enables the login to be completed.
-
+1. The Client shall make an "HTTP POST" request to the Backchannel Authentication Endpoint to ask for end-user authentication.
+2. The user, via their browser, will be redirected to the Client's `redirect_uri` which enables the login to be completed.
 
 ``` mermaid
 sequenceDiagram
@@ -228,7 +225,6 @@ sequenceDiagram
     Merchant ->> VippsLogin: POST /oauth2/token
     Merchant ->> VippsLogin: GET /userinfo
 ```
-
 
 ### Call by call
 
@@ -292,13 +288,16 @@ sequenceDiagram
    Decoded ID token JWS example:
 
    `Header`
+
     ```json
     {
       "kid": "public:ee36d3f5-3934-4029-926f-77fa65bf0b4b",
       "alg": "ES256"
     }
     ```
+
    `Payload`
+
     ```json
     {
       "aud": "edddb32f-5028-4397-b0ab-e8ecf218fdc2",
@@ -398,7 +397,6 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 * Most of the [general error codes](../integration.md#error-handling)
 
-
 ## Merchants delegated consents
 
 ### Activation
@@ -419,7 +417,7 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
 ### Call by call
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
-   See [.well-known](#openid-connect-discovery-endpoint)
+   See [.well-known](../integration.md#openid-connect-discovery-endpoint)
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0 with scope `delegatedConsents`.
 
@@ -491,7 +489,7 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
 
 3. The merchant must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
 
-   For details see [Userinfo request](#userinfo).
+   For details see [Userinfo request](../integration.md#userinfo).
 
    Example request:
 
@@ -551,17 +549,21 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
     ```
 
 ### Authentication request
+
 Required parameters are listed in [Authentication request login from phone number](#authentication-request) and [Authentication request login from phone number with redirect](#authentication-request-with-redirect)
 
 #### Error responses
+
 Error responses are listed in [Error responses login from phone number](#error-responses) and [Error responses login from phone number with redirect](#error-responses-1)
 
 #### Successful responses
+
 Success responses for Vipps login from phone number are listed in [Successful responses login from phone number](#successful-responses)
 
 ##### Token request
+
 Token request for Vipps login from phone number is described in [Token request login from phone number](#token-request)
 
 ##### Polling
-Polling Vipps login from phone number is described in [Polling login from phone number](#polling)
 
+Polling Vipps login from phone number is described in [Polling login from phone number](#polling)

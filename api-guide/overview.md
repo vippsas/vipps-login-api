@@ -7,8 +7,6 @@ END_METADATA -->
 
 # Overview
 
-
-
 ## Introduction
 
 Vipps Login is available for several use cases:
@@ -33,7 +31,6 @@ Vipps Login in browser should only be run in the browser window using redirects 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 
 See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
-
 
 ## Flows
 

@@ -7,8 +7,6 @@ END_METADATA -->
 
 # App integration
 
-
-
 It is possible to enable automatic switch of users back to the merchant app,
 from the Vipps app. This flow is described [here](../overview.md#app-to-app-flow).
 
@@ -61,7 +59,7 @@ Example `app_callback_uri` request
 merchant-app://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resume_uri=https%3A%2F%2Fapi.vipps.no%2Fvipps-login-idp%2Findex.html%3FtabId%3D7607f7f0-7ae2-49b7-9cb5-102143dac4ea
 ```
 
-#### A typical flow/implementation might look like this
+## A typical flow/implementation might look like this
 
 ```mermaid
 sequenceDiagram
@@ -128,4 +126,3 @@ Example success callback from browser (step 6):
 https://example.com/redirect-uri?state=218gz18yveu1ybajwh2g1h3g&code=<code>&scope=openid
 merchantapp://redirect-uri?state=218gz18yveu1ybajwh2g1h3g&code=<code>&scope=openid
 ```
-
