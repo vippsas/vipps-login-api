@@ -1,12 +1,17 @@
+<!-- START_METADATA
 ---
 title: How it works in the browser
 sidebar_position: 13
 ---
-
+END_METADATA -->
 
 # How it works in the browser
 
+<!-- START_COMMENT -->
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
+<!-- END_COMMENT -->
 
 Let your customers log in to your website or app without the need for user names and passwords.
 

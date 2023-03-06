@@ -1,12 +1,18 @@
+<!-- START_METADATA
 ---
 title: Checklist
 sidebar_position: 40
 ---
-
+END_METADATA -->
 
 # Checklist
 
+<!-- START_COMMENT -->
 
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
 
 API version: 2.0.
 

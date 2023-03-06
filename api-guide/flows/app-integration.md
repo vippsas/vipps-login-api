@@ -1,8 +1,9 @@
+<!-- START_METADATA
 ---
 title: App integration
 sidebar_position: 30
 ---
-
+END_METADATA -->
 
 # App integration
 

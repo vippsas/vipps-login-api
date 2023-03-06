@@ -1,7 +1,9 @@
+<!-- START_METADATA
 ---
 title: Integrating with Vipps Login
 sidebar_position: 30
 ---
+END_METADATA -->
 
 # Integrating with Vipps Login
 

@@ -1,8 +1,9 @@
+<!-- START_METADATA
 ---
 title: Important information
 sidebar_position: 30
 ---
-
+END_METADATA -->
 
 # Important information
 

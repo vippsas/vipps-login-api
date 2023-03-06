@@ -1,8 +1,9 @@
+<!-- START_METADATA
 ---
 title: Partner keys
 sidebar_position: 30
 ---
-
+END_METADATA -->
 
 # Partner keys
 

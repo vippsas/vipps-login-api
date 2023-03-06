@@ -1,8 +1,9 @@
+<!-- START_METADATA
 ---
 title: Integrating with Vipps Login from phone number
 sidebar_position: 30
 ---
-
+END_METADATA -->
 
 # Integrating with Vipps Login from phone number
 

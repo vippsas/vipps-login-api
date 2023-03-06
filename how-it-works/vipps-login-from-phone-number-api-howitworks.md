@@ -1,12 +1,17 @@
+<!-- START_METADATA
 ---
 title: How it works from mobile
 sidebar_position: 14
 ---
-
+END_METADATA -->
 
 # How it works from mobile
 
+<!-- START_COMMENT -->
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
+<!-- END_COMMENT -->
 
 Let your customers share their information or confirm who they are by triggering a Login flow on their device based on their phone number.
 
@@ -21,9 +26,9 @@ This flow also features in our [Loyalty at POS solution](https://vippsas.github.
 
 The merchant has several options available to make the flow tailored to the specific use case:
 
- * Binding message: Include a binding message in the confirmation step for some extra assurance
- * Delegated consents: In this extra step, merchants can collect the consents required to enroll the customer to your loyalty program
- * Redirect: You may choose to redirect the user to a website of your choosing after login is completed
+* Binding message: Include a binding message in the confirmation step for some extra assurance
+* Delegated consents: In this extra step, merchants can collect the consents required to enroll the customer to your loyalty program
+* Redirect: You may choose to redirect the user to a website of your choosing after login is completed
 
 ![login process](../images/vipps-login-from-phone-number-process.png)
 

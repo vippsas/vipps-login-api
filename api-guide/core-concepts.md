@@ -1,8 +1,9 @@
+<!-- START_METADATA
 ---
 title: Core concepts
 sidebar_position: 30
 ---
-
+END_METADATA -->
 
 # Core concepts
 

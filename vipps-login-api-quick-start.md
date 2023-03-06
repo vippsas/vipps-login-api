@@ -1,14 +1,20 @@
+<!-- START_METADATA
 ---
 title: Quick start
 sidebar_position: 20
 ---
-
+END_METADATA -->
 
 # Quick start
 
 Use the Login API to confirm your identity through the log-in process.
 
+<!-- START_COMMENT -->
 
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
 
 ## Postman
 
@@ -29,7 +35,7 @@ See [How to setup login on your sales unit](https://vippsas.github.io/vipps-deve
 Save the following files to your computer:
 
 * [Vipps Login API Postman collection](tools/vipps-login-api.postman_collection.json)
-* [Vipps API Global Postman environment](../../vipps-developers/tools/vipps-api-global-postman-environment.json)
+* [Vipps API Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
 ### Step 3: Import the Vipps Postman files
 
