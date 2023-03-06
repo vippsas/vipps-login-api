@@ -39,7 +39,7 @@ See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/
 
 ### Vipps Login in browser
 
-The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](../how-it-works). This also explains how the login in browser flow adapts to different preconditions in regard to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sales unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
+The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](../how-it-works/README.md). This also explains how the login in browser flow adapts to different preconditions in regard to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sales unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
 
 #### Remembered flow
 
@@ -80,7 +80,7 @@ The flows are described below.
 
 This flow is designed to be used with apps. It requires that the app initiate Vipps Login in an external browser that is opened within the app, see [specification](important-information.md#using-vipps-login-in-native-applications). In this flow the merchant need to specify the app URI where the user will be returned after completing the confirmation in the Vipps app.
 
-See [how to implement](flows/app-integration).
+See [how to implement](flows/app-integration.md).
 
 ##### Automatic return from Vipps app
 
@@ -92,7 +92,7 @@ Due to how the different mobile operating systems handle app-switch to browser, 
 
 By using this flow Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
 
-See [how to implement](flows/automatic-return), including more information on the security considerations.
+See [how to implement](flows/automatic-return.md), including more information on the security considerations.
 
 #### No dialog flow - log the user in directly when possible
 
@@ -116,7 +116,7 @@ In such scenarios, a user that can be logged in directly will get an even better
 
 If the user cannot be logged in directly, you can e.g. show them your ordinary login screen. On the login screen, Vipps will be an option. A user that is not remembered in browser or has not yet given consent can actively login with Vipps from here.
 
-See [how to implement](flows/no-dialog).
+See [how to implement](flows/no-dialog.md).
 
 ### Vipps Login from phone number
 
@@ -140,7 +140,7 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 
 ![Optional confirmation code (`binding_message`)](../images/CIBA_Confirmation_code.png)
 
-See [how to implement](flows/ciba-flows).
+See [how to implement](flows/ciba-flows.md).
 
 ### Vipps Login + Vipps Recurring
 

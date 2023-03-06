@@ -32,7 +32,11 @@ in Norway), and does not change (except in very special cases).
 If you have not already stored the ID: check if the user already has an account
 based on phone number and e-mail address. If this gives a match on one (and
 only one) account, then you can use this to log the user into that account since
-both phone number and e-mail address are verified in Vipps. Before linking an account based on e-mail, ensure that the flag "email_verified : true" in the response. If this for some reason is "false" the matching should be aborted, or the user should be prompted to login to the original account or confirm the account linking by having a confirmation link sent to the email address.
+both phone number and e-mail address are verified in Vipps.
+Before linking an account based on e-mail, ensure that the flag `email_verified : true` in the response.
+If this for some reason is "false", the matching should be aborted,
+or the user should be prompted to log in to the original account
+or confirm the account linking by having a confirmation link sent to the email address.
 
 Before completing the linking, it is an advantage to do a "sanity check" on the name
 of the Vipps user to the name in the existing account to make sure that the
@@ -48,7 +52,10 @@ option for logged in users that has not yet linked their profile to Vipps to do
 so, for an easier login the next time. This just means to provide the "login
 with Vipps"-button and linking the ID from Vipps with this account.
 
-If the user does not have an existing account, but this is required for some reason, e.g. because you have a separate sign-up process or the users need to be an existing member/customer, you should provide the user with a message explaining the situation after Vipps Login has finished. If relevant you should provide links or directions on how to create the required account.
+If the user does not have an existing account, but this is required for some reason
+(e.g. because you have a separate sign-up process or the users need to be an existing member/customer),
+you should provide the user with a message explaining the situation after Vipps Login has finished.
+If relevant, you should provide links or directions on how to create the required account.
 
 ## Using Vipps Login in native applications
 
@@ -56,20 +63,25 @@ Web views should not be used when using Vipps Login in a native application. Ins
 
 Android: Use [Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) or fallback to open external browser on user's device.
 
-iOS: Use [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) (for iOS 11 and 12) or [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) (for iOS 13 and above).
-
+iOS: Use [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) (for iOS 11 and 12) or
+[ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) (for iOS 13 and above).
 
 ## Revoke Consent Webhook
 
-Users can revoke their consent to share data with merchants. This is done in the profile section -> personal information in the app. If a user removes the consent to share data with a merchant, the practical consequences is that the user needs to give a consent the next time he/she would like to login with Vipps or share data as part of other Vipps services with the merchant.
+Users can revoke their consent to share data with merchants. This is done in the profile section -> personal information in the app.
+If a user removes the consent to share data with a merchant, the practical consequences is that the user needs to give a consent the next time he/she would like to login with Vipps
+or share data as part of other Vipps services with the merchant.
 
-When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier (sub) for the given user to the webhook provided by the merchant.
+When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier `sub` for the given user to the webhook provided by the merchant.
 
-This service is optional for the merchant and can be used to trigger events on the merchant's side. I.e. the merchant can inform the user that they still have an account, can provide information on alternative login solutions or where the user should go if they would like to delete the data they have stored with the merchant.
+This service is optional for the merchant and can be used to trigger events on the merchant's side.
+For example, the merchant can inform the user that they still have an account, can provide information on alternative login solutions, or
+can inform the user where to go if they would like to delete the data they have stored with the merchant.
 
 **Content**  
 The webhook is sent as a `POST` with a `text/plain` body containing an unsigned Json Web Token ([JWT](https://jwt.io/)).  
-The JWT format was chosen to allow for the possibility to add signing on a later state, but as of now the JWT  is delivered unsigned with the algorithm set to none and is therefore no more secure than a regular json and should be handled as such.
+The JWT format was chosen to allow for the possibility to add signing on a later state, but as of now the JWT is delivered unsigned with the algorithm set to `none`.
+It is therefore no more secure than a regular json and should be handled as such.
 
 **Example request:**
 
@@ -96,4 +108,3 @@ eyJhbGciOiJub25lIiwidHlwIjogIkpXVCJ9Cg.eyJleHAiOjE1OTI1NzE3ODgsImlhdCI6MTU5MjU3M
   "event": "CONSENT_REVOKED"
 }
 ```
-

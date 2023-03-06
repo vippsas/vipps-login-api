@@ -446,7 +446,7 @@ for us to have access to his/her personal data in our system?
 
 We have a system for notifying merchants when an end user revokes their consent.
 See the
-[Consent webhooks](api-guide/important-information#revoke-consent-webhook) section for more information.
+[Consent webhooks](api-guide/important-information.md#revoke-consent-webhook) section for more information.
 
 ## Can we have multiple URIs as landing pages?
 
