@@ -1,11 +1,11 @@
 <!-- START_METADATA
 ---
-title: How it works from mobile
+title: How it works from phone number
 sidebar_position: 14
 ---
 END_METADATA -->
 
-# How it works from mobile
+# How it works from phone number
 
 <!-- START_COMMENT -->
 
