@@ -12,7 +12,7 @@ See the [Vipps Login API](api-guide/README.md) for all the details.
 
 For more common Vipps questions, see:
 
-* [Vipps API General FAQ](/docs/vipps-developers/faqs)
+* [Vipps API General FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs)
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
@@ -22,7 +22,7 @@ You can also find frequently asked questions in the
 ## Where do I find the `client_id` and `client_secret`?
 
 See:
-[Common topics: API Keys](/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
+[Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
 
 
 ## How can I activate and set up Vipps Login?
@@ -134,12 +134,12 @@ Please check:
   is an exact match.
 * Are you using the `client_id` and `client_secret` for the correct environment?
   There are separate API keys for test and production. See:
-  [Common topics: API Keys](/docs/vipps-developers/common-topics/api-keys).
+  [Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys).
 
 ## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
 
 You can get this error if you have both the Vipps
-[test app](/docs/vipps-developers/test-environment#vipps-test-apps)
+[test app](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps)
 and production app on the same phone.
 
 ## Which scopes can I use? Why do I get `Invalid_scope`?
@@ -254,7 +254,7 @@ In the email you must specify:
 
 ## Who can get access to Vipps Login from phone number and how?
 
-[Vipps Login from phone number](/docs/APIs/login-api/vipps-login-api#vipps-login-from-phone-number)
+[Vipps Login from phone number](api-guide/overview.md#vipps-login-from-phone-number)
 is available for all Vipps Login enabled clients.
 
 Vipps Login from phone number is a paid service.
@@ -348,7 +348,7 @@ as a key feature of the service.
 
 Yes, statistics on successful logins with Vipps in production is available on
 the
-[API Dashboard](/docs/vipps-developers/developer-resources/api-dashboard).
+[API Dashboard](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/api-dashboard).
 
 Choose the sales unit with Vipps Login that you would like to see, the time
 period you would like to have covered and click "Fetch data".
@@ -472,7 +472,7 @@ If a user wants to log out of a specific browser remembered in Vipps Login, they
 ## Common errors
 
 See
-[FAQ: Common errors](/docs/vipps-developers/faqs/common-errors-faq)
+[FAQ: Common errors](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/common-errors-faq)
 for more questions.
 
 ### Why do I get `The client or its related sales unit or merchant does not exist or is not active`?
@@ -486,7 +486,7 @@ has been deactivated at [Brønnøysundregistrene](https://www.brreg.no).
 We do not currently support any flows that requires requests being made from browsers.
 
 See:
-[Common problems: Why do I get a CORS error?](/docs/vipps-developers/faqs/common-problems-faq#why-do-i-get-a-cors-error).
+[Common problems: Why do I get a CORS error?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/common-problems-faq#why-do-i-get-a-cors-error).
 
 ### Why do I get `No CSRF value available in the session cookie`?
 
