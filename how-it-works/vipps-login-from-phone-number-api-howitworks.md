@@ -1,11 +1,11 @@
 <!-- START_METADATA
 ---
-title: How it works from mobile
+title: How it works from phone number
 sidebar_position: 14
 ---
 END_METADATA -->
 
-# How it works from mobile
+# How it works from phone number
 
 <!-- START_COMMENT -->
 
@@ -17,7 +17,7 @@ END_METADATA -->
 Let your customers share their information or confirm who they are by triggering a Login flow on their device based on their phone number.
 
 For technical documentation go to
-[Vipps Login API - login from phone number](../vipps-login-api.md#vipps-login-from-phone-number).
+[Vipps Login API - login from phone number](../api-guide/overview.md#vipps-login-from-phone-number).
 
 We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
 
@@ -27,9 +27,9 @@ This flow also features in our [Loyalty at POS solution](https://vippsas.github.
 
 The merchant has several options available to make the flow tailored to the specific use case:
 
- * Binding message: Include a binding message in the confirmation step for some extra assurance
- * Delegated consents: In this extra step, merchants can collect the consents required to enroll the customer to your loyalty program
- * Redirect: You may choose to redirect the user to a website of your choosing after login is completed
+* Binding message: Include a binding message in the confirmation step for some extra assurance
+* Delegated consents: In this extra step, merchants can collect the consents required to enroll the customer to your loyalty program
+* Redirect: You may choose to redirect the user to a website of your choosing after login is completed
 
 ![login process](../images/vipps-login-from-phone-number-process.png)
 
@@ -68,11 +68,11 @@ If the scope is included in the request, the end user will be asked to give cons
 
 Some of the elements on the delegated consents screen can be adjusted to fit the merchant's needs:
 
- * A top text where the purpose of collecting consents should be stated. This is customizable for you as a merchant.
- * The consents wanted by the merchant (see more
-   [When using delegatedConsents, which consents does Vipps support?](../vipps-login-api-faq.md#when-using-delegatedconsents-which-consents-does-vipps-support)).
-   These can be individually specified to be mandatory or optional. Mandatory consents must be ticked before the user can complete the login flow. See what consents we currently support, or reach out if you need something else and we'll se what we can do!
- * A bottom text where we provide some contextual information for the end user. The text is fixed, but the links will point to the merchant's terms and conditions, as well as privacy statement.
+* A top text where the purpose of collecting consents should be stated. This is customizable for you as a merchant.
+* The consents wanted by the merchant (see more
+  [When using delegatedConsents, which consents does Vipps support?](../vipps-login-api-faq.md#when-using-delegatedconsents-which-consents-are-supported)).
+  These can be individually specified to be mandatory or optional. Mandatory consents must be ticked before the user can complete the login flow. See what consents we currently support, or reach out if you need something else and we'll se what we can do!
+* A bottom text where we provide some contextual information for the end user. The text is fixed, but the links will point to the merchant's terms and conditions, as well as privacy statement.
 
 ### 4. Redirect or end the login in Vipps
 
@@ -86,4 +86,5 @@ Alternatively, the merchant may redirect the user to it's website. The merchant 
 
 ## Great! Now you know how Vipps Login from phone number works!
 
-To check if your point-of-sales system or loyalty platform supports Vipps Login from phone number, please visit our [product homepage](https://vipps.no/produkter-og-tjenester/bedrift/logg-inn-med-vipps/logg-inn-med-vipps/). Check with your partner for pricing details. Alternatively, if you want to set up the integration yourself, take a look at the technical documentation in the [Vipps Login API - login from phone number](../vipps-login-api.md#vipps-login-from-phone-number).
+To check if your point-of-sales system or loyalty platform supports Vipps Login from phone number, please visit our [product homepage](https://vipps.no/produkter-og-tjenester/bedrift/logg-inn-med-vipps/logg-inn-med-vipps/). Check with your partner for pricing details. Alternatively, if you want to set up the integration yourself, take a look at the technical documentation in the
+[Vipps Login API - login from phone number](../api-guide/overview.md#vipps-login-from-phone-number).

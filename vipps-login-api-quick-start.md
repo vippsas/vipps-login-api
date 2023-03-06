@@ -13,7 +13,7 @@ Use the Login API to confirm your identity through the log-in process.
 
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
- 
+
 <!-- END_COMMENT -->
 
 ## Postman
@@ -53,7 +53,7 @@ Save the following files to your computer:
    * `client_secret` - Client Secret for the merchant (the "password").
    * `well-known_uri` - URL to well-known endpoint for used environment.
       In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
-      See [API Guide: well known](vipps-login-api#openid-connect-discovery-endpoint) for more details.
+      See [API Guide: well known](api-guide/integration.md#openid-connect-discovery-endpoint) for more details.
    * `redirect_uri` - The URL where the user is sent after finishing a login.
       The URL must be exactly the same as the one specified in [Step 1: Setup login on your sales unit](#step-1-setup-login-on-your-sales-unit).
       For testing, you could, for example, use <http://localhost> in both places.

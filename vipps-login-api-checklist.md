@@ -19,13 +19,13 @@ API version: 2.0.
 ## Checklist for full integration
 
 - [ ] Integration with the Vipps Login API is redirect based (i.e no embedded iframe)
-- [ ] Native app integrations use the [app-to-app flow](vipps-login-api.md#app-to-app-flow)
+- [ ] Native app integrations use the [app-to-app flow](api-guide/overview.md#app-to-app-flow)
 - [ ] Ensure that your solution is verified to work if the user start in a "non-default" browser on mobile, e.g. start Vipps Login from Chrome browser on iOS.
-- [ ] If you as a merchant will act on behalf of others (share data you have gotten from Vipps with other merchants) ensure that you comply with our terms and conditions to do this. This is shown in section 8.4 in our [terms and conditions for merchants](vipps-login-api.md#vipps-login-from-phone-number)
-- [ ] [Vipps Login from phone number](vipps-login-api.md#vipps-login-from-phone-number)
+- [ ] If you as a merchant will act on behalf of others (share data you have gotten from Vipps with other merchants) ensure that you comply with our terms and conditions to do this. This is shown in section 8.4 in our [terms and conditions for merchants](api-guide/overview.md#vipps-login-from-phone-number)
+- [ ] [Vipps Login from phone number](api-guide/overview.md#vipps-login-from-phone-number)
       must _not_ be used for web based login
 - [ ] Vipps-buttons and Vipps branding on your website follow the
-      [Vipps design guidelines](https://github.com/vippsas/vipps-design-guidelines).
+      [Vipps design guidelines](https://vippsas.github.io/vipps-developer-docs/docs/vipps-design-guidelines).
 - [ ] Terms and conditions are presented to the user, and necessary consents are
       collected from the user (i.e consent to marketing purposes, etc)  
 - [ ] The sales unit name (appears on the Vipps Login landing page) corresponds
@@ -51,7 +51,7 @@ API version: 2.0.
       (redirects with a `error` query parameter) are handled.
 - [ ] Proper linking of the Vipps user to your own user registry is implemented.
       This login must be based on either phone number or e-mail address. See
-      [recommendations on linking to user account](vipps-login-api.md#Recommendations-on-linking-to-user-account)
+      [recommendations on linking to user account](api-guide/important-information.md#Recommendations-on-linking-to-user-account)
 - [ ] Send the [Vipps HTTP headers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/http-headers)
       in all API requests for better tracking and troubleshooting:
   - [ ] `Merchant-Serial-Number`

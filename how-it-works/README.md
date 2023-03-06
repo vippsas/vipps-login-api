@@ -16,6 +16,6 @@ END_METADATA -->
 
 <!-- END_COMMENT -->
 
-* [How Vipps Login works in the browser](vipps-login-api-howitworks.md)
-* [How Vipps Login works from mobile](vipps-login-from-phone-number-api-howitworks.md)
-* [How Vipps Login works with Recurring](vipps-login-recurring-howitworks.md)
+* [Vipps Login in the browser](vipps-login-api-howitworks.md)
+* [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md)
+* [Vipps Login with Recurring](vipps-login-recurring-howitworks.md)
