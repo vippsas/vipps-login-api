@@ -37,4 +37,4 @@ Review the detailed documentation found here:
 * [API quick start](vipps-login-api-quick-start.md): Quick start.
 * [API guide](api-guide/README.md): In-depth guide to the Login API.
 * [API FAQ](vipps-login-api-faq.md): Questions and answers.
-* [API reference](/api/login): Login API reference specifications.
+* [API reference](https://vippsas.github.io/vipps-developer-docs/api/login): Login API reference specifications.

@@ -86,5 +86,5 @@ Copy the query param `code` from the URL in the browser. Paste this code into th
 1. Send request to `Get user info`. This will use the token from the previous step to obtain the user info of the logged-in user.
 
 See the
-[API reference](/api/login)
+[API reference](https://vippsas.github.io/vipps-developer-docs/api/login)
 for details about the calls.
