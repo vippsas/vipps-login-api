@@ -24,10 +24,11 @@ Vipps Login is the easiest way to sign in and create an account in both digital 
 The following topics are described:
 
 - [Overview](overview.md) higher level description of the flows our APIs facilitate
-- [Important information](important-information.md) 
+- [Important information](important-information.md)
 - [Core concepts](core-concepts.md) explains some relevant OIDC concepts and parameters
 - [Browser flow integration](integration.md) how to implement the browser flow
 - Special flows
+    - [App integration](flows/app-integration.md)
     - [Automatic return from Vipps app](flows/automatic-return.md) reducing required user interaction when appropriate
     - [Vipps login from phone number](flows/ciba-flows.md) direct login in the Vipps app
     - [No dialog flow](flows/no-dialog.md) check if a user is already logged in
@@ -38,4 +39,3 @@ asynchronous and trailing behind the other APIs. It is usually behind
 by a second or so, but if there are operational problems, it could, in the worst
 case, be behind by several hours. Therefore, you should always use other
 Vipps APIs as the source of truth for the status of an operation.
-
