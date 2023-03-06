@@ -1,7 +1,7 @@
 <!-- START_METADATA
 ---
 title: Vipps Login from phone number
-sidebar_position: 30
+sidebar_position: 10
 ---
 END_METADATA -->
 

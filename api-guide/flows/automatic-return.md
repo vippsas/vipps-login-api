@@ -1,7 +1,7 @@
 <!-- START_METADATA
 ---
 title: Automatic return from Vipps app
-sidebar_position: 20
+sidebar_position: 30
 ---
 END_METADATA -->
 

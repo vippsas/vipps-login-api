@@ -1,7 +1,7 @@
 <!-- START_METADATA
 ---
 title: App integration
-sidebar_position: 10
+sidebar_position: 20
 ---
 END_METADATA -->
 
