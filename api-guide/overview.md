@@ -137,7 +137,7 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 
 ![Optional confirmation code (`binding_message`)](../images/CIBA_Confirmation_code.png)
 
-See [how to implement](flows/ciba-flows.md).
+See [how to implement](flows/phone-number-ciba-flows.md).
 
 ### Vipps Login + Vipps Recurring
 

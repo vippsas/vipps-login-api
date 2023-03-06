@@ -12,9 +12,9 @@ In addition to the normal authentication, we offer [Partner keys](https://vippsa
 Partner keys are available for the following flows:
 
 * [Vipps Login in browser](overview.md#vipps-login-in-browser)
-* [Vipps Login from phone number](./flows/ciba-flows.md)
-  * [Regular](flows/ciba-flows.md#integrating-with-vipps-login-from-phone-number)
-  * [Redirect to browser](flows/ciba-flows.md#redirect-to-browser)
+* [Vipps Login from phone number](./flows/phone-number-ciba-flows.md)
+  * [Regular](flows/phone-number-ciba-flows.md#integrating-with-vipps-login-from-phone-number)
+  * [Redirect to browser](flows/phone-number-ciba-flows.md#redirect-to-browser)
 
 If you are a Vipps partner managing integrations on behalf of Vipps merchants, you can use your partner API credentials to authenticate, and then send the Merchant Serial Number (MSN) to identify which of your merchants you are acting on behalf of.
 

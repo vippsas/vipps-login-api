@@ -324,7 +324,7 @@ and we'll be in touch.
 | personal | Få tilpassede tilbud                | Get customized offers                     |
 
 See
-[Merchant delegated consents](api-guide/flows/ciba-flows.md#merchants-delegated-consents)
+[Merchant delegated consents](api-guide/flows/phone-number-ciba-flows.md#merchants-delegated-consents)
 for details.
 
 ## What's the purpose of the `state` parameter?

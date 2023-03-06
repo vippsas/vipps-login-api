@@ -12,5 +12,5 @@ END_METADATA -->
 
 - [App integration](app-integration.md)
 - [Automatic return from Vipps app](automatic-return.md) reducing required user interaction when appropriate
-- [Vipps login from phone number](ciba-flows.md) direct login in the Vipps app
+- [Vipps login from phone number](phone-number-ciba-flows.md) direct login in the Vipps app
 - [No dialog flow](no-dialog.md) check if a user is already logged in

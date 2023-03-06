@@ -23,14 +23,14 @@ Vipps Login is the easiest way to sign in and create an account in both digital 
 
 The following topics are described:
 
-- [Overview](overview.md) higher level description of the flows our APIs facilitate
+- [Overview](overview.md) high level description of the flows our APIs facilitate
 - [Important information](important-information.md)
 - [Core concepts](core-concepts.md) explains some relevant OIDC concepts and parameters
 - [Browser flow integration](integration.md) how to implement the browser flow
 - Special flows
     - [App integration](flows/app-integration.md)
     - [Automatic return from Vipps app](flows/automatic-return.md) reducing required user interaction when appropriate
-    - [Vipps login from phone number](flows/ciba-flows.md) direct login in the Vipps app
+    - [Vipps login from phone number](flows/phone-number-ciba-flows.md) direct login in the Vipps app
     - [No dialog flow](flows/no-dialog.md) check if a user is already logged in
 - [Partner keys](partner-keys.md) integration for partners
 
