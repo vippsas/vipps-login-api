@@ -1,7 +1,7 @@
 <!-- START_METADATA
 ---
 title: Important information
-sidebar_position: 30
+sidebar_position: 20
 ---
 END_METADATA -->
 

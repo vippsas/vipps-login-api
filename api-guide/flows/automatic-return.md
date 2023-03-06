@@ -1,7 +1,7 @@
 <!-- START_METADATA
 ---
 title: Automatic return from Vipps app
-sidebar_position: 30
+sidebar_position: 20
 ---
 END_METADATA -->
 
@@ -13,7 +13,7 @@ This flow can be enabled per login by adding the parameter `requested_flow=autom
 
 ## Implementation suggestions
 
-**It is not possible to give a single description that ensures secure use of this flow for all scenarios. The suggestions given here may not apply to every scenario and must be considered in relation to the specifics of the implementation.**
+It is not possible to give a single description that ensures secure use of this flow for all scenarios. The suggestions given here may not apply to every scenario and must be considered in relation to the specifics of the implementation.
 
 ### Session information
 

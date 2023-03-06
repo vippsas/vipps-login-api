@@ -1,11 +1,11 @@
 <!-- START_METADATA
 ---
-title: Integrating with Vipps Login
+title: Browser flow integration
 sidebar_position: 30
 ---
 END_METADATA -->
 
-# Integrating with Vipps Login
+# Browser flow integration
 
 API version: 2.0
 
