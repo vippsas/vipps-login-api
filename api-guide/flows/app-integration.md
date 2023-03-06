@@ -9,7 +9,7 @@ sidebar_position: 30
 
 
 It is possible to enable automatic switch of users back to the merchant app,
-from the Vipps app. This flow is described [here](overview.md#app-to-app-flow).
+from the Vipps app. This flow is described [here](../overview.md#app-to-app-flow).
 
 Expected flow:
 
@@ -18,10 +18,10 @@ Merchant app -> Merchant app controlled browser -> Vipps app -> Merchant app con
 ```
 
 Note that you should use an
-[external browser that is opened within the app, and not web-views](important-information.md#using-vipps-login-in-native-applications).
+[external browser that is opened within the app, and not web-views](../important-information.md#using-vipps-login-in-native-applications).
 
 This flow can be enabled per login request by adding the `requested_flow=app_to_app`
-and `app_callback_uri` parameters to the [Authorize](integration.md#oauth-20-authorize) request.
+and `app_callback_uri` parameters to the [Authorize](../integration.md#oauth-20-authorize) request.
 
 This flow requires both the `app_callback_uri` and `redirect_uri` parameters.
 
@@ -34,7 +34,7 @@ In either case it is important to avoid using static client secrets in the app f
 (For more information see <https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous> and <https://tools.ietf.org/html/rfc8252#section-8.5>).
 
 _Both_ URIs must be added in the [portal.vipps.no](https://portal.vipps.no/),
-you find more information on how to do this [here](../vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+you find more information on how to do this [here](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
 
 **Please note:** URIs specified on [portal.vipps.no](https://portal.vipps.no/)
 must be _exactly_ the same as used in the API calls. Be extra careful with
@@ -82,10 +82,10 @@ sequenceDiagram
 The dotted lines in this diagram are handled by Vipps (or the user),
 while the filled lines need to be implemented by the merchant.
 
-1. Merchant backend generates an [OpenID authentication flow authorization URI](core-concepts.md#oauth-20-authorize).
+1. Merchant backend generates an [OpenID authentication flow authorization URI](../core-concepts.md#oauth-20-authorize).
    The URI is communicated to the merchant app.
 2. Merchant app uses the URI to initiate Vipps Login in an external browser that is opened within the app,
-   see the [specification](important-information.md##using-vipps-login-in-native-applications) for details.
+   see the [specification](../important-information.md##using-vipps-login-in-native-applications) for details.
 3. Vipps Login will open the Vipps app, if required.
    (If the user is remembered in the browser, they will be authenticated directly
    and they will then be on step 6 below).
@@ -105,7 +105,7 @@ Example authorize request URL:
 .../oauth2/auth?app_callback_uri=https://example.com/app-callback&requested_flow=app_to_app&scope=<scopes>&response_type=code&redirect_uri=merchantapp://callback&code_challenge_method=S256&state=<state>&nonce=<nonce>&client_id=<clientid>&code_challenge=<challenge>
 ```
 
-Parameters `state` and possibly `error` will be passed as query parameters to the `app_callback_uri`. The `state` parameter has the same value as the `state` parameter passed to the [Authorize](core-concepts.md#oauth-20-authorize) request.
+Parameters `state` and possibly `error` will be passed as query parameters to the `app_callback_uri`. The `state` parameter has the same value as the `state` parameter passed to the [Authorize](../core-concepts.md#oauth-20-authorize) request.
 
 Example success callback from app (step 4):
 

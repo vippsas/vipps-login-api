@@ -205,7 +205,7 @@ next 168 hours, even though the user revokes the consent in this period.
 Revoking consents will immediately affect future login and payment sessions.
 
 See:
-[Userinfo API](/docs/APIs/userinfo-api).
+[Userinfo API](https://vippsas.github.io/vipps-developer-docs/docs/APIs/userinfo-api).
 
 ## Can a Vipps user less than 15 years old use Vipps Login?
 
@@ -317,7 +317,7 @@ and we'll be in touch.
 | personal | Få tilpassede tilbud                | Get customized offers                     |
 
 See
-[Merchant delegated consents](api-guide/ciba-flows.md#merchants-delegated-consents)
+[Merchant delegated consents](api-guide/flows/ciba-flows.md#merchants-delegated-consents)
 for details.
 
 ## What's the purpose of the `state` parameter?

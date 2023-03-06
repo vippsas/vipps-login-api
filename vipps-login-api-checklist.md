@@ -19,7 +19,7 @@ API version: 2.0.
 - [ ] [Vipps Login from phone number](api-guide/overview.md#vipps-login-from-phone-number)
       must _not_ be used for web based login
 - [ ] Vipps-buttons and Vipps branding on your website follow the
-      [Vipps design guidelines](/docs/vipps-design-guidelines).
+      [Vipps design guidelines](https://vippsas.github.io/vipps-developer-docs/docs/vipps-design-guidelines).
 - [ ] Terms and conditions are presented to the user, and necessary consents are
       collected from the user (i.e consent to marketing purposes, etc)  
 - [ ] The sales unit name (appears on the Vipps Login landing page) corresponds

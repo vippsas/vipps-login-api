@@ -10,7 +10,7 @@ sidebar_position: 30
 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 
-Vipps Login from phone number (CIBA flows) has been developed to support use cases where authentication/registration does not start in a browser or an app. These flows are described [here](overview.md#vipps-login-from-phone-number). They are based on the CIBA OIDC standard <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html>.
+Vipps Login from phone number (CIBA flows) has been developed to support use cases where authentication/registration does not start in a browser or an app. These flows are described [here](../overview.md#vipps-login-from-phone-number). They are based on the CIBA OIDC standard <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html>.
 
 A sales unit can use both Vipps Login in browser and Vipps Login from phone number. It is recommended to use the same sales unit for all use cases to ensure that you, as a merchant, get the same user id ('sub') on the user across different scenarios. To ensure a consistent user experience on webpages and in apps, it is not allowed to use Vipps Login from phone number for such use cases.
 
@@ -27,7 +27,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 ### Call by call
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
-   See [.well-known](integration.md#openid-connect-discovery-endpoint)
+   See [.well-known](../integration.md#openid-connect-discovery-endpoint)
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
 
@@ -99,7 +99,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
 3. The merchant must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
 
-   For details see [Userinfo request](integration.md#userinfo).
+   For details see [Userinfo request](../integration.md#userinfo).
 
    Example request:
 
@@ -144,7 +144,7 @@ The following authentication methods are currently supported:
 * client_secret_basic
 * client_secret_post
 
-The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](../vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
 
 #### The `login_hint` parameter (required)
 
@@ -156,7 +156,7 @@ Example: `...&login_hint=urn:mobilenumber:12345678&...`.
 
 #### The `scope` parameter (required)
 
-* We support the scopes listed at [Scopes](core-concepts.md#scopes)
+* We support the scopes listed at [Scopes](../core-concepts.md#scopes)
 * The legacy `nnin` scope is not supported, use `nin` instead.
 
 Example: `...&scope=name address birthDate nin&...`
@@ -186,7 +186,7 @@ Standard definition: <https://openid.net/specs/openid-client-initiated-backchann
 The responses from this endpoint is according to the standard.
 
 * Note the required `grant_type`: `urn:openid:params:grant-type:ciba`.
-* The access token can be used towards the standard [oidc userinfo endpoint](integration.md#userinfo).
+* The access token can be used towards the standard [oidc userinfo endpoint](../integration.md#userinfo).
 
 #### Polling
 
@@ -232,7 +232,7 @@ sequenceDiagram
 ### Call by call
 
 0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
-   See [.well-known](integration.md#openid-connect-discovery-endpoint).
+   See [.well-known](../integration.md#openid-connect-discovery-endpoint).
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
 
@@ -263,7 +263,7 @@ sequenceDiagram
 
 3. The merchant uses the code-parameter to obtain the login token. Perform a POST request towards the `{token_endpoint}` with `code={code}`, `grant_type=urn:vipps:params:grant-type:ciba-redirect` in the `application/x-www-form-urlencoded-body`.
    This returns an ID token and an access token that can be used to fetch userinfo.
-   The ID token is a JWS that must be validated, see [ID Token](core-concepts.md#id-token). The merchant **must validate** that it contains the `auth_req_id` they have previously received from step 2.
+   The ID token is a JWS that must be validated, see [ID Token](../core-concepts.md#id-token). The merchant **must validate** that it contains the `auth_req_id` they have previously received from step 2.
 
    Example request (the real payload will likely look different because of encoding):
 
@@ -311,7 +311,7 @@ sequenceDiagram
 
 4. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 3.
 
-   For details see [Userinfo request](integration.md#userinfo).
+   For details see [Userinfo request](../integration.md#userinfo).
 
    Example request:
 
@@ -354,7 +354,7 @@ The following authentication methods are currently supported:
 * client_secret_basic
 * client_secret_post
 
-The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](../vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
 
 Required parameters: `requested_flow`, `login_hint`, `scope`, `redirect_uri`
 
@@ -368,7 +368,7 @@ Example: `...&login_hint=urn:mobilenumber:12345678&...`.
 
 #### The `scope` parameter (required)
 
-* We support the scopes listed at [Scopes](core-concepts.md#scopes).
+* We support the scopes listed at [Scopes](../core-concepts.md#scopes).
 * The legacy `nnin` scope is not supported, use `nin` instead.
 * The `openid` scope is required
 
@@ -395,14 +395,14 @@ Example: `...&redirect_uri=https://merchant.com/callback&...`
 In addition to the responses defined by [the standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.13) these responses might also be returned:
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
-* Most of the [general error codes](integration.md#error-handling)
+* Most of the [general error codes](../integration.md#error-handling)
 
 
 ## Merchants delegated consents
 
 ### Activation
 
-See [How can I get started with delegatedConsents?](../vipps-login-api-faq.md#how-can-i-get-started-with-delegatedconsents).
+See [How can I get started with delegatedConsents?](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-get-started-with-delegatedconsents).
 
 ### Overview
 

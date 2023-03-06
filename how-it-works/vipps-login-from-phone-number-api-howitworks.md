@@ -15,7 +15,7 @@ For technical documentation go to
 
 We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
 
-This flow also features in our [Loyalty at POS solution](/docs/vipps-solutions/loyalty-in-pos).
+This flow also features in our [Loyalty at POS solution](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/loyalty-in-pos).
 
 ## The login from phone number process
 

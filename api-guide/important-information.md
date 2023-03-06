@@ -11,7 +11,7 @@ sidebar_position: 30
 ## Design guidelines and buttons
 
 Buttons to use for Vipps Login can be found as part of our
-[design guidelines](/docs/vipps-design-guidelines/vipps-buttons).
+[design guidelines](https://vippsas.github.io/vipps-developer-docs/docs/vipps-design-guidelines/vipps-buttons).
 
 
 ## Recommendations on linking to user account

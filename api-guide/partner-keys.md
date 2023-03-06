@@ -8,14 +8,14 @@ sidebar_position: 30
 
 
 
-In addition to the normal authentication, we offer [Partner keys](/docs/vipps-partner/partner-keys) which allow partners make API calls on behalf of their merchants.
+In addition to the normal authentication, we offer [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys) which allow partners make API calls on behalf of their merchants.
 
 Partner keys are available for the following flows:
 
 * [Vipps Login in browser](overview.md#vipps-login-in-browser)
 * Vipps Login from phone number
-    * [Regular](ciba-flows.md#integrating-with-vipps-login-from-phone-number)
-    * [Redirect to browser](ciba-flows.md#redirect-to-browser)
+    * [Regular](flows/ciba-flows.md#integrating-with-vipps-login-from-phone-number)
+    * [Redirect to browser](flows/ciba-flows.md#redirect-to-browser)
 
 If you are a Vipps partner managing integrations on behalf of Vipps merchants, you can use your partner API credentials to authenticate, and then send the Merchant Serial Number (MSN) to identify which of your merchants you are acting on behalf of.
 
@@ -27,8 +27,8 @@ The main differences between partner key integration and merchant integration ar
 
 Read more about partner verification in:
 
-* [Partner keys](/docs/vipps-partner/partner-keys)
-* [Access token API guide](/docs/APIs/access-token-api)
+* [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
+* [Access token API guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/access-token-api)
 
 Browser and phone number flows have minor differences and are described in more detail further down.
 
