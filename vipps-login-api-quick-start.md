@@ -9,15 +9,15 @@ pagination_prev: null
 ---
 END_METADATA -->
 
-# Quick start for the Login API
+# Quick start
 
-Use the Login API to confirm your identity through the log-in process.
 This is a quick start guide for the using the Login API with Postman.
+Use the Login API to confirm your identity through the log-in process.
 
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
 
 <!-- END_COMMENT -->
 
