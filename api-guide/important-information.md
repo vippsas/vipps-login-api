@@ -3,13 +3,15 @@
 title: Important information
 sidebar_label: Important information
 sidebar_position: 20
-description: Important information needed for Vipps login
+description: Important information needed for Login
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
 # Important information
+
+Here is some useful information which can help you as you integrate with Vipps Login.
 
 ## Design guidelines and buttons
 

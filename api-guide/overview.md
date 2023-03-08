@@ -1,6 +1,6 @@
 <!-- START_METADATA
 ---
-title: Overview of Vipps Login
+title: Overview of the Login API
 sidebar_label: Overview
 sidebar_position: 10
 description: Vipps Login is available for several use cases.
@@ -9,7 +9,7 @@ pagination_prev: null
 ---
 END_METADATA -->
 
-# Overview
+# Overview of the Login API
 
 ## Introduction
 
