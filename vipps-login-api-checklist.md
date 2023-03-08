@@ -1,11 +1,15 @@
 <!-- START_METADATA
 ---
-title: Checklist
+title: Login API Checklist
+sidebar_label: Checklist
 sidebar_position: 40
+description: Checklist for full integration with Vipps login.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
-# Checklist
+# Login API checklist
 
 <!-- START_COMMENT -->
 

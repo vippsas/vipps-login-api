@@ -1,13 +1,15 @@
 <!-- START_METADATA
 ---
-title: "How it works"
+title: How the Login API works
+sidebar_label: How it works
 sidebar_position: 1
+description: View the Login API how-it-works guides for illustrations of the main flows.
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# How it works
+# How the Login API works
 
 <!-- START_COMMENT -->
 

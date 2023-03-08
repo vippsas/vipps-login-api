@@ -1,7 +1,11 @@
 <!-- START_METADATA
 ---
 title: Important information
+sidebar_label: Important information
 sidebar_position: 20
+description: Important information needed for Vipps login
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 

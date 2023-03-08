@@ -1,13 +1,18 @@
 <!-- START_METADATA
 ---
-title: Quick start
+title: Quick start for the Login API
+sidebar_label: Quick start
 sidebar_position: 20
+description: Quick start guide for the using the Login API with Postman.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
-# Quick start
+# Quick start for the Login API
 
 Use the Login API to confirm your identity through the log-in process.
+This is a quick start guide for the using the Login API with Postman.
 
 <!-- START_COMMENT -->
 

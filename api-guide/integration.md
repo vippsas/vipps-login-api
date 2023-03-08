@@ -1,7 +1,11 @@
 <!-- START_METADATA
 ---
 title: Browser flow integration
+sidebar_label: Browser flow integration
 sidebar_position: 30
+description: Manual integration with Vipps Login for the browser flow.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
@@ -10,7 +14,7 @@ END_METADATA -->
 API version: 2.0
 
 Vipps Login mostly adheres to the OAuth2 and OpenID Connect standards. The easiest - and **strongly recommended - way
-to integrate with the service is therefore to use a well renowned
+to integrate with the service is therefore to use a well-renowned
 OAuth2.0/OpenID Connect Library for your programming language**.
 Vipps does not recommend a specific library, but the list of
 [OIDC Relying Party libraries](https://openid.net/developers/certified/)

@@ -1,14 +1,16 @@
 <!-- START_METADATA
 ---
-title: Introduction
+title: Introduction to Vipps Login
+sidebar_label: Introduction
 sidebar_label: API guide
 sidebar_position: 30
+description: Vipps Login is the easiest way to sign in and create an account in both digital and physical settings.
 pagination_prev: Null
 pagination_next: Null
 ---
 END_METADATA -->
 
-# API guide
+# Introduction to Vipps Login
 
 API version: 2.0
 

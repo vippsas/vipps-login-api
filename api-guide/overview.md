@@ -1,7 +1,11 @@
 <!-- START_METADATA
 ---
-title: Overview
+title: Overview of Vipps Login
+sidebar_label: Overview
 sidebar_position: 10
+description: Vipps Login is available for several use cases.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 

@@ -1,16 +1,18 @@
 <!-- START_METADATA
 ---
 title: FAQs
+sidebar_label: Login API FAQs
 sidebar_position: 50
+description: Login API Frequently Asked Questions
 pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
-# Frequently asked questions
-
+# Login API Frequently Asked Questions (FAQs)
 
 Here are the Login API FAQs.
-See the [Vipps Login API](api-guide/README.md) for all the details.
+See the [Vipps Login API](api-guide/README.md) for all the technical details.
 
 For more common Vipps questions, see:
 
@@ -30,7 +32,6 @@ You can also find frequently asked questions in the
 
 See:
 [Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
-
 
 ## How can I activate and set up Vipps Login?
 

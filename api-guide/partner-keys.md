@@ -1,7 +1,11 @@
 <!-- START_METADATA
 ---
 title: Partner keys
+sidebar_label: Partner keys
 sidebar_position: 30
+description: Vipps Login offers partner keys which allow partners make API calls on behalf of their merchants.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 

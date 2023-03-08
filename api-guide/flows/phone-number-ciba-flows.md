@@ -1,11 +1,15 @@
 <!-- START_METADATA
 ---
-title: Vipps Login from phone number
+title: Vipps Login from a phone number
+sidebar_label: Vipps Login from phone number
 sidebar_position: 10
+description: Vipps Login from a phone number.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
-# Vipps Login from phone number
+# Vipps Login from a phone number
 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 

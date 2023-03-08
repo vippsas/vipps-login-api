@@ -1,11 +1,15 @@
 <!-- START_METADATA
 ---
-title: How it works from phone number
+title: How Login works from a phone number
+sidebar_label: From a phone number
 sidebar_position: 14
+description: How Login works from phone number
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
-# How it works from phone number
+# How Login works from phone number
 
 <!-- START_COMMENT -->
 
