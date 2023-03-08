@@ -1,13 +1,14 @@
 <!-- START_METADATA
 ---
-title: Introduction
-sidebar_label: Special flows for the Login API
+title: Special flows for the Login API
+sidebar_label: Special flows
 sidebar_position: 40
 description: Special flows for the Login API.
 pagination_prev: Null
 pagination_next: Null
 ---
 END_METADATA -->
+
 
 # Special flows for the Login API
 

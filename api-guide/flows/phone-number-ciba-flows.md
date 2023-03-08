@@ -1,7 +1,7 @@
 <!-- START_METADATA
 ---
 title: Vipps Login from a phone number
-sidebar_label: Vipps Login from phone number
+sidebar_label: Login from phone number
 sidebar_position: 10
 description: Vipps Login from a phone number.
 pagination_next: null
