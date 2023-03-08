@@ -1,6 +1,6 @@
 <!-- START_METADATA
 ---
-title: Login API Checklist
+title: Login API checklist
 sidebar_label: Checklist
 sidebar_position: 40
 description: Checklist for full integration with Vipps login.
