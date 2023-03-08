@@ -1,15 +1,15 @@
 <!-- START_METADATA
 ---
-title: Login API FAQs
+title: Login API frequently asked questions
 sidebar_label: FAQs
 sidebar_position: 50
-description: Login API Frequently Asked Questions
+description: Login API frequently asked questions
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# Login API Frequently Asked Questions
+# Login API frequently asked questions
 
 Here are the Login API Frequently Asked Questions (FAQs).
 See the [Vipps Login API](api-guide/README.md) for all the technical details.
