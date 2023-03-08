@@ -9,7 +9,7 @@ pagination_prev: null
 ---
 END_METADATA -->
 
-# Login API checklist
+# Checklist
 
 <!-- START_COMMENT -->
 
