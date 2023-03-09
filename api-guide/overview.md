@@ -99,27 +99,17 @@ See [Automatic return from Vipps app](flows/automatic-return.md) for details abo
 
 #### No dialog flow - log the user in directly when possible
 
-This flow can be used to log in the user directly, if the required prerequisites are in place. If the prerequisites are not in place, then the Vipps Login process will be stopped and no interaction will be requested from the user in this flow. When using this flow, a spinner will be shown while Vipps Login tries to log the user in. Once the process is completed, the user will be returned to the merchant as in the ordinary Vipps Login flow. As with the other Vipps Login flow, it is recommended to run Vipps Login in a redirect mode and iFrame is not supported.
+Log the user into your website or service directly with the Login API, when the prerequisites are met.
+A user that can be logged in directly will get a better login experience and quickly come to the information and services that are relevant for them.
 
-The user will be logged in with this flow if:
+When using this flow, a spinner will be shown while Vipps Login tries to log the user in. Once the process is completed, the user will be returned to the merchant as in the ordinary Vipps Login flow.
 
-* they are remembered in the browser and no consent is required
-* they are remembered in the browser and consent has previously been given
+Possible use cases:
 
-Illustration of how the flow can look when the user clicks "Logg inn" on the front page:
+* The user is going to a section of your site/service that requires them to be logged in (e.g., my page or a personalized chatbot). This might be when the user is already on the webpage, or if the user is being linked directly to the page from an email or newsletter.
+* The user selects your login option. It is possible to try to log them in with Vipps first.
 
-![No dialog flow](../images/No_dialog_flow.png)
-
-Possible use cases includes:
-
-* When the user is going to a section of your site/service that requires them to be logged in, e.g. my page or a personalized chatbot. This might be when the user is already on the webpage, or if the user is being linked directly to the page from an email/newsletter.
-* When a user clicks on your login option, it is possible to try to log the user in with Vipps first.
-
-In such scenarios, a user that can be logged in directly will get an even better login experience and quickly come to the information and services that are relevant for them.
-
-If the user cannot be logged in directly, you can e.g. show them your ordinary login screen. On the login screen, Vipps will be an option. A user that is not remembered in browser or has not yet given consent can actively login with Vipps from here.
-
-See [how to implement](flows/no-dialog.md).
+See [No dialog flow](flows/no-dialog.md) for implementation details.
 
 ### Vipps Login from phone number
 
