@@ -38,9 +38,16 @@ See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/
 
 ## Flows
 
-### Vipps Login in browser
+A sales unit can use the Login API for many flows.
+It is recommended to use the same sales unit for all use cases to ensure that you get the same user id (`sub`) on the user across different scenarios.
 
-The generic steps in the Vipps Login in browser flow are shown in our [How it works guide](../how-it-works/README.md). This also explains how the login in browser flow adapts to different preconditions in regard to whether the user has chosen to be remembered in the browser they are currently using and whether the user has already consented to share information with the specific merchant (sales unit). Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
+### Login in browser
+
+The generic steps in the _Login in browser_ flow are shown in our [How it works guide](../how-it-works/README.md). This also explains how the _login in browser_ flow adapts to different preconditions.
+
+For example, conditions may include whether the user has chosen to be remembered in the browser they are currently using and whether they have already consented to share information with the specific merchant (sales unit).
+
+Below is a more detailed description on alternative flows and the choices that can be done to impact these flows when implementing Vipps Login.
 
 #### Remembered flow
 
@@ -109,7 +116,7 @@ Possible use cases:
 * The user is going to a section of your site/service that requires them to be logged in (e.g., my page or a personalized chatbot). This might be when the user is already on the webpage, or if the user is being linked directly to the page from an email or newsletter.
 * The user selects your login option. It is possible to try to log them in with Vipps first.
 
-See [No dialog flow](flows/no-dialog.md) for implementation details.
+See [No dialog flow](flows/no-dialog.md) for the technical details.
 
 ### Vipps Login from phone number
 
