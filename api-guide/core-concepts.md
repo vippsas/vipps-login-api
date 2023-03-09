@@ -1,7 +1,11 @@
 <!-- START_METADATA
 ---
 title: Core concepts
+sidebar_label: Core concepts
 sidebar_position: 30
+description: Core concepts related to OAuth2 and OpenID Connect standards as used with Vipps login.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 

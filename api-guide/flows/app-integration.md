@@ -1,7 +1,11 @@
 <!-- START_METADATA
 ---
 title: App integration
+sidebar_label: App integration
 sidebar_position: 20
+description: Enable automatic switch of users back to the merchant app from the Vipps app.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 

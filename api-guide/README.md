@@ -1,14 +1,15 @@
 <!-- START_METADATA
 ---
-title: Introduction
+title: Login API guide
 sidebar_label: API guide
 sidebar_position: 30
+description: Login API guide.
 pagination_prev: Null
 pagination_next: Null
 ---
 END_METADATA -->
 
-# API guide
+# Login API guide
 
 API version: 2.0
 
@@ -23,16 +24,16 @@ Vipps Login is the easiest way to sign in and create an account in both digital 
 
 The following topics are described:
 
-- [Overview](overview.md) high level description of the flows our APIs facilitate
-- [Important information](important-information.md)
-- [Core concepts](core-concepts.md) explains some relevant OIDC concepts and parameters
-- [Browser flow integration](integration.md) how to implement the browser flow
+- [Overview](overview.md) provides high-level descriptions of the Login API flows.
+- [Important information](important-information.md) to help you integrate with Vipps Login.
+- [Core concepts](core-concepts.md) related to relevant OIDC concepts and parameters.
+- [Browser flow integration](integration.md) describes how to implement the browser flow.
 - Special flows
-    - [App integration](flows/app-integration.md)
-    - [Automatic return from Vipps app](flows/automatic-return.md) reducing required user interaction when appropriate
-    - [Vipps login from phone number](flows/phone-number-ciba-flows.md) direct login in the Vipps app
-    - [No dialog flow](flows/no-dialog.md) check if a user is already logged in
-- [Partner keys](partner-keys.md) integration for partners
+    - [App integration](flows/app-integration.md) to enable automatic return from the Vipps app.
+    - [Automatic return from Vipps app](flows/automatic-return.md) reducing required user interaction when appropriate.
+    - [Vipps login from phone number](flows/phone-number-ciba-flows.md) and direct login in the Vipps app.
+    - [No dialog flow](flows/no-dialog.md) to check if a user is already logged in.
+- [Partner keys](partner-keys.md) facilitating integration for partners.
 
 **Please note:** The information fetched from the Report API is
 asynchronous and trailing behind the other APIs. It is usually behind

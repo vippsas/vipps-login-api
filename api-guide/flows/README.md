@@ -1,16 +1,18 @@
 <!-- START_METADATA
 ---
-title: Introduction
+title: Special flows for the Login API
 sidebar_label: Special flows
 sidebar_position: 40
+description: Special flows for the Login API.
 pagination_prev: Null
 pagination_next: Null
 ---
 END_METADATA -->
 
-# Special flows
 
-- [Vipps login from phone number](phone-number-ciba-flows.md) direct login in the Vipps app
-- [App integration](app-integration.md)
-- [Automatic return from Vipps app](automatic-return.md) reducing required user interaction when appropriate
-- [No dialog flow](no-dialog.md) check if a user is already logged in
+# Special flows for the Login API
+
+- [Vipps login from phone number](phone-number-ciba-flows.md) direct login in the Vipps app.
+- [App integration](app-integration.md) to enable automatic return from the Vipps app.
+- [Automatic return from Vipps app](automatic-return.md) for reducing required user interaction when appropriate.
+- [No dialog flow](no-dialog.md) to check if a user is already logged in.

@@ -1,7 +1,11 @@
 <!-- START_METADATA
 ---
-title: Checklist
+title: Login API checklist
+sidebar_label: Checklist
 sidebar_position: 40
+description: Checklist for full integration with Vipps login.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
@@ -10,7 +14,7 @@ END_METADATA -->
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
 
 <!-- END_COMMENT -->
 

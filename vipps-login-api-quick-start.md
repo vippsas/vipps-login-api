@@ -1,18 +1,23 @@
 <!-- START_METADATA
 ---
-title: Quick start
+title: Quick start for the Login API
+sidebar_label: Quick start
 sidebar_position: 20
+description: Quick start guide for the using the Login API with Postman.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
 # Quick start
 
+This is a quick start guide for the using the Login API with Postman.
 Use the Login API to confirm your identity through the log-in process.
 
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
 
 <!-- END_COMMENT -->
 
