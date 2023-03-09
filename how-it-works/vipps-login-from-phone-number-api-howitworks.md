@@ -1,15 +1,15 @@
 <!-- START_METADATA
 ---
-title: How Login works from a phone number
+title: How Vipps Login works from a phone number
 sidebar_label: From a phone number
 sidebar_position: 14
-description: How Login works from phone number
+description: How Vipps Login works from phone number
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# How Login works from phone number
+# How Vipps Login works from phone number
 
 <!-- START_COMMENT -->
 
@@ -21,11 +21,11 @@ END_METADATA -->
 Let your customers share their information or confirm who they are by triggering a Login flow on their device based on their phone number.
 
 For technical documentation go to
-[Vipps Login API - login from phone number](../api-guide/overview.md#vipps-login-from-phone-number).
+[Login API - login from phone number](../api-guide/flows/phone-number-ciba-flows.md).
 
-We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
+We also have [How Login works in the browser](vipps-login-api-howitworks.md)
 
-This flow also features in our [Loyalty at POS solution](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/loyalty-in-pos).
+This solution features in our [Loyalty at POS solution](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/loyalty-in-pos).
 
 ## The login from phone number process
 
@@ -86,9 +86,26 @@ The merchant can end the login process in Vipps, where the user will receive a c
 
 Alternatively, the merchant may redirect the user to it's website. The merchant will then have a identified user. This flow can be used to welcome a user to the customer club, ask for more information/preferences, show offers or information of relevance.
 
-![User gets confirmation in Vipps or is taken to browser](../images/vipps-login-confirmation.png)
+![User gets confirmation in Vipps MobilePay or is taken to browser](../images/vipps-login-confirmation.png)
 
-## Great! Now you know how Vipps Login from phone number works!
 
-To check if your point-of-sales system or loyalty platform supports Vipps Login from phone number, please visit our [product homepage](https://vipps.no/produkter-og-tjenester/bedrift/logg-inn-med-vipps/logg-inn-med-vipps/). Check with your partner for pricing details. Alternatively, if you want to set up the integration yourself, take a look at the technical documentation in the
-[Vipps Login API - login from phone number](../api-guide/overview.md#vipps-login-from-phone-number).
+
+
+Illustration of how the flow will look when the user ends the flow and gets the confirmation of completion in the Vipps app:
+
+![Confirm completion in Vipps MobilePay app](../images/CIBA_flow_in_app.png)
+
+Illustration of how the flow will look if the user is taken to the merchant's web page:
+
+![Redirect to browser](../images/CIBA_flow_take_to_merchant.png)
+
+The merchant has the option to show a confirmation code (`binding_message`) to the user in the app for added security:
+
+![Optional confirmation code (`binding_message`)](../images/CIBA_Confirmation_code.png)
+
+Great! Now you know how _Login from phone number_ works!
+
+To check if your point of sales system or loyalty platform supports Vipps Login from phone number, please visit our [product homepage](https://vipps.no/produkter-og-tjenester/bedrift/logg-inn-med-vipps/logg-inn-med-vipps/). Check with your partner for pricing details.
+
+Alternatively, if you want to set up the integration yourself, take a look at the technical documentation in the
+[Login API - login from phone number](../api-guide/flows/phone-number-ciba-flows.md).

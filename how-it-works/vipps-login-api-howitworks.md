@@ -1,15 +1,15 @@
 <!-- START_METADATA
 ---
-title: How Vipps Login works in the browser
+title: How Login works in the browser
 sidebar_label: In the browser
 sidebar_position: 13
-description: How Vipps Login works in the browser.
+description: How Login works in the browser.
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# How Vipps Login works in the browser
+# How Login works in the browser
 
 <!-- START_COMMENT -->
 
