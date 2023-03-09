@@ -134,4 +134,7 @@ See:
 
 ### Vipps Login + Vipps Recurring
 
+The Login API and the [Recurring API](https://vippsas.github.io/vipps-developer-docs/docs/APIs/recurring-api)
+can be used together making registration and payment of subscriptions simple for your customers.
+
 * [Vipps Login + Vipps Recurring](../how-it-works/vipps-login-recurring-howitworks.md): Learn how you can use Login and Recurring together.
