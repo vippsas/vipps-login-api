@@ -41,6 +41,9 @@ See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/
 A sales unit can use the Login API for many flows.
 It is recommended to use the same sales unit for all use cases to ensure that you get the same user id (`sub`) on the user across different scenarios.
 
+The Login API can also be combined with other APIs to make registration and payment simple for users.
+See [Vipps Login + Vipps Recurring](../how-it-works/vipps-login-recurring-howitworks.md) for an example solution.
+
 ### Login in browser
 
 The generic steps in the _Login in browser_ flow are shown in our [How it works guide](../how-it-works/README.md). This also explains how the _login in browser_ flow adapts to different preconditions.
@@ -131,10 +134,3 @@ See:
 
 * [How Vipps Login works from phone number](../how-it-works/vipps-login-from-phone-number-api-howitworks.md) for illustrations.
 * [Vipps Login from a phone number](flows/phone-number-ciba-flows.md) for the technical details.
-
-### Vipps Login + Vipps Recurring
-
-The Login API and the [Recurring API](https://vippsas.github.io/vipps-developer-docs/docs/APIs/recurring-api)
-can be used together making registration and payment of subscriptions simple for your customers.
-
-* [Vipps Login + Vipps Recurring](../how-it-works/vipps-login-recurring-howitworks.md): Learn how you can use Login and Recurring together.
