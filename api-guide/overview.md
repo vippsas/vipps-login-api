@@ -79,10 +79,8 @@ The flows are described below.
 
 ##### App-to-app flow
 
-
 It is possible to enable automatic switch of users back to the merchant app,
 from the Vipps app.
-
 
 This flow is designed to be used with apps. It requires that the app initiate Vipps Login in an external browser that is opened within the app.
 
@@ -90,15 +88,14 @@ See [App integration](flows/app-integration.md) for details about integrating.
 
 ##### Automatic return from Vipps app
 
-Requires the merchant to handle user session cross browsers.
+This flow will automatically take the user back to a browser when they accept the login in the Vipps app.
 
-This flow is designed for web-pages that would like to have the user automatically returned to a browser after completing the confirmation in the Vipps app. Note that there are security implications by using this flow. **It is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable**.
+There are security implications by using this flow which requires the merchant to handle the user session across browsers.
+ **It is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable**.
 
-Due to how the different mobile operating systems handle app-switch to browser, the user can be returned to a different browser than the one he/she started in. On iOS the user can e.g. start the login in Chrome and be returned to Safari after confirming in the Vipps app. This means that the merchant site cannot rely on cookies being present in the browser the user is returned to.
+By using this flow, Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
 
-By using this flow Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
-
-See [how to implement](flows/automatic-return.md), including more information on the security considerations.
+See [Automatic return from Vipps app](flows/automatic-return.md) for details about implementation and security considerations.
 
 #### No dialog flow - log the user in directly when possible
 
