@@ -15,7 +15,7 @@ END_METADATA -->
 You can enable automatic switch of users back to the merchant app,
 from the Vipps app.
 
-This flow is designed to be used with apps. It requires that the app initiate Vipps Login in an external browser that is opened within the app, as described in [Using Vipps Login in native applications](important-information.md#using-vipps-login-in-native-applications). You should not use web views.
+This flow is designed to be used with apps. It requires that the app initiate Vipps Login in an external browser that is opened within the app, as described in [Using Vipps Login in native applications](../important-information.md#using-vipps-login-in-native-applications). You should not use web views.
 
 The merchant must specify the app URI, where the user will be returned after completing the confirmation in the Vipps app.
 

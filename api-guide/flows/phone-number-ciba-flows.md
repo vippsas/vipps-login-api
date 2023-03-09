@@ -25,7 +25,7 @@ It is recommended to use the same sales unit for all use cases to ensure that yo
 _Login from phone number_ is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request.
 
 The merchant controls whether the user should get the confirmation of completion in the Vipps app or if they should be taken to the merchant's web page to finalize the flow.
-For example, the merchant can take the user to their web page to enable input of more information, accept terms and conditions, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How Login works from phone number](../how-it-works/vipps-login-from-phone-number-api-howitworks.md).
+For example, the merchant can take the user to their web page to enable input of more information, accept terms and conditions, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How Login works from phone number](../../how-it-works/vipps-login-from-phone-number-api-howitworks.md).
 
 Illustration of how the flow will look when the user ends the flow and gets the confirmation of completion in the Vipps app:
 
