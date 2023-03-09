@@ -13,7 +13,7 @@ END_METADATA -->
 
 _Login from phone number_ is built to support special cases where login does not start in a browser or app.
 
-_VLogin from phone number_ is based on the
+_Login from phone number_ is based on the
 [Client-Initiated Backchannel Authentication (CIBA) standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html)
 
 In this flow, the merchant's system triggers the authentication/registration; thus, log-in cannot be done in the user's browser.
