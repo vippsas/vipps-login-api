@@ -19,14 +19,14 @@ Vipps Login is available for several use cases:
 * Directly from merchant systems (e.g. point of sales systems or call-center solutions) based on phone number
 * Directly from machines and vending machines based on phone number
 
-Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. [Norwegian national identity number](../vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) is also available to some merchants.  The identity of all Vipps users is verified as part of Vipps' know your customer process, so rest assured that these are real people with correct name and information.
+Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birth date. [Norwegian national identity number](../vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) is also available to some merchants.  The identity of all Vipps users is verified as part of the Vipps Know Your Customer (KYC) process, so rest assured that these are real people with correct name and information.
 
 When Vipps Login is used in the browser, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. The possibility for the user to be remembered in browser is a key feature of the service and cannot be controlled (turned off) by individual merchants. This means that it is not possible to set up Vipps Login is a 2 factor authentication (2FA).
 
 Vipps Login is _not_ an electronic identification or certified eID.
 
-For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](https://vippsas.github.io/vipps-developer-docs/docs/vipps-plugins).
-If a plugin is not available, the easiest - and **strongly recommended - way to integrate with the service is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language**. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
+For _Vipps Login in browser_ there are _plugins_ available for several platforms. You find the complete list on our [plugins page](https://vippsas.github.io/vipps-developer-docs/docs/vipps-plugins).
+If a plugin is not available, the easiest - and **strongly recommended** - way to integrate with the service is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
 
 Vipps Login in browser should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended).
 
