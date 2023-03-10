@@ -224,6 +224,7 @@ not use Vipps Login. See the
 ## Who can get access to NIN and how?
 
 Access to the `nin` scope and the National Identity Number (NIN) is a paid service.
+Merchants will be billed for each successful login where they request a user's NIN.
 
 Only merchants with legal requirements or other objective needs to use the Norwegian
 National Identity Number (NIN) to achieve required user identification can get
