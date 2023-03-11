@@ -3,7 +3,7 @@
 title: Login API checklist
 sidebar_label: Checklist
 sidebar_position: 40
-description: Checklist for full integration with Vipps login.
+description: Checklist for full integration with the Login API.
 pagination_next: null
 pagination_prev: null
 ---
