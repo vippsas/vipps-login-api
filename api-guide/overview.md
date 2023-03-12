@@ -42,7 +42,8 @@ A sales unit can use the Login API for many flows.
 It is recommended to use the same sales unit for all use cases to ensure that you get the same user id (`sub`) on the user across different scenarios.
 
 The Login API can also be combined with other APIs to make registration and payment simple for users.
-See [Vipps Login + Vipps Recurring](../how-it-works/vipps-login-recurring-howitworks.md) for an example solution.
+See [Simplifying registration and payment (Recurring with Login)](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/recurring-and-login)
+for an example solution.
 
 ### Login in browser
 
