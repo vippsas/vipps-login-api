@@ -26,7 +26,7 @@ Use the Login API to confirm your identity through the log-in process.
 ### Prerequisites
 
 Review
-[Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/quick-start-guides)
+[quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/quick-start-guides)
 for information about getting your test environment set up.
 
 ### Step 1: Setup login on your sales unit
@@ -39,10 +39,10 @@ See [How to setup login on your sales unit](https://vippsas.github.io/vipps-deve
 
 Save the following files to your computer:
 
-* [Vipps Login API Postman collection](tools/vipps-login-api.postman_collection.json)
-* [Vipps API Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
+* [Login API Postman collection](tools/vipps-login-api.postman_collection.json)
+* [Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
-### Step 3: Import the Vipps Postman files
+### Step 3: Import the Postman files
 
 1. In Postman, click *Import* in the upper-left corner.
 1. In the dialog that opens, with *File* selected, click *Upload Files*.
@@ -66,11 +66,11 @@ Save the following files to your computer:
 
 ## Make API calls
 
-### Vipps Login in Browser
+### Login in Browser
 
 1. Send request `Get OIDC well-known`.
 1. In your active Postman environment, copy the value of key `start_login_uri`, and use this URL in any browser.
-1. Finish Vipps login. This request includes a scope parameter that requests access to user information.
+1. Finish login. This request includes a scope parameter that requests access to user information.
    This means that if you have not yet consented to sharing your user information, a distinct screen asking for your consent will appear the first time.
 1. When you finish your login, the website will update.
 If you used <http://localhost>, it will appear to be broken, but that doesn't matter.
@@ -78,7 +78,7 @@ Copy the query param `code` from the URL in the browser. Paste this code into th
 1. From the `Vipps Login in Browser` folder, send request `Get token`. This provides the access token and id token.
 1. Send request `Get user info` to get the user info of the logged-in user.
 
-### Vipps Login from phone number (CIBA without redirect)
+### Login from phone number (CIBA without redirect)
 
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests.
 2. From the `CIBA Without Redirect` folder, send request to `Init CIBA no-redirect`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
@@ -86,7 +86,7 @@ Copy the query param `code` from the URL in the browser. Paste this code into th
 4. Send request to `Token no-redirect` endpoint. This will populate the environment variable `access_token` used for the subsequent request.
 5. Send request to `Get user info`. This will use the token from (4) to obtain the userinfo of the logged-in user.
 
-### Vipps Login from phone number (CIBA with redirect)
+### Login from phone number (CIBA with redirect)
 
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests
 1. From the `CIBA With Redirect` folder, submit the `Init CIBA redirect`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment.
