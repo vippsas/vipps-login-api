@@ -18,4 +18,4 @@ END_METADATA -->
 
 <!-- END_COMMENT -->
 
-Currently, Vipps Login app integrations are based on browsers based flows. See [Vipps Login in browser: How It Works](vipps-login-api-howitworks.md).
+Vipps Login app integrations uses the browser for performing logins. See [Vipps Login in browser: How It Works](vipps-login-api-howitworks.md).

@@ -30,6 +30,8 @@ If a plugin is not available, the easiest - and **strongly recommended** - way t
 
 Vipps Login in browser should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended).
 
+[**Vipps Login from apps**](#app-to-app-flow) supports switching the user automatically between apps and is based on logins through a browser.
+
 [**Vipps Login from phone number**](#vipps-login-from-phone-number) is based on the Client initiated backchannel authentication (CIBA) standard and have been developed to support use cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser.
 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
