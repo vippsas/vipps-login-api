@@ -11,7 +11,7 @@ END_METADATA -->
 
 # App integration
 
-App integrations are currently based on using browsers. An app integration flow without the use of browsers is on the backlog but prioritization is uncertain, please contact us if you're interested.
+App integrations are currently based on using browsers.
 
 You can enable automatic switch of users back to the merchant app, from the Vipps app.
 
