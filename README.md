@@ -31,6 +31,7 @@ For information and to order the product go to:
 ## How it works
 
 * [Vipps Login in browser: How It Works](./how-it-works/vipps-login-api-howitworks.md)
+* [Vipps Login in apps: How It Works](./how-it-works/vipps-login-apps-howitworks.md)
 * [Vipps Login from phone number: How It Works](./how-it-works/vipps-login-from-phone-number-api-howitworks.md)
 
 ## Relates solutions
