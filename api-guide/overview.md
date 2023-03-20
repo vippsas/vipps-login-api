@@ -95,7 +95,7 @@ from the Vipps app.
 
 This flow is designed to be used with apps. It requires that the app initiate Vipps Login in an external browser that is opened within the app.
 
-See [App integration](flows/app-integration.md) for details about integrating.
+See [App integration](app-integration.md) for details about integrating.
 
 ##### Automatic return from Vipps app
 

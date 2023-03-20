@@ -28,8 +28,8 @@ The following topics are described:
 - [Important information](important-information.md) to help you integrate with Vipps Login.
 - [Core concepts](core-concepts.md) related to relevant OIDC concepts and parameters.
 - [Browser flow integration](integration.md) describes how to implement the browser flow.
+- [App integration](app-integration.md) describes how to integrate from an app.
 - Special flows
-    - [App integration](flows/app-integration.md) to enable automatic return from the Vipps app.
     - [Automatic return from Vipps app](flows/automatic-return.md) reducing required user interaction when appropriate.
     - [Vipps login from phone number](flows/phone-number-ciba-flows.md) and direct login in the Vipps app.
     - [No dialog flow](flows/no-dialog.md) to check if a user is already logged in.
