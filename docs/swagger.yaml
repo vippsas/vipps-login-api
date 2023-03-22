@@ -101,67 +101,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-  /vipps-userinfo-api/userinfo:
-    get:
-      security:
-        - oauth2: []
-      description: |-
-        This endpoint returns the payload with the information that the user has
-        consented to share. Find more info on the `/userinfo` endpoint at the
-        OIDC Standard https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
-      tags:
-        - Userinfo API
-      operationId: userinfoAuthorizationCode
-      parameters:
-        - in: header
-          name: Authorization
-          description: |-
-            The access token is required to authorize the userinfo request.
-            It should be sent as a `Bearer` token. The access token is received
-            on a successful request to the token endpoint `POST:/oauth2/token`.
-            In Vipps Login the access token is valid for 1 hour.
-          required: true
-          schema:
-            type: string
-          example: Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT...
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserinfoApiV2'
-              example:
-                sub: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
-                birthdate: '1815-12-10'
-                email: 'user@example.com'
-                email_verified: true
-                nin: '10121550047'
-                name: 'Ada Lovelace'
-                given_name: 'Ada'
-                family_name: 'Lovelace'
-                sid: '7d78a726-af92-499e-b857-de263ef9a969'
-                phone_number: '47912345678'
-                address:
-                  street_address: 'Suburbia 23'
-                  postal_code: '2101'
-                  region: 'OSLO'
-                  country: 'NO'
-                  formatted: 'Suburbia 23\n2101 OSLO\nNO'
-                  address_type: 'home'
-                other_addresses:
-                  - street_address: 'Fancy Office Street 2'
-                    postal_code: '0218'
-                    region: 'OSLO'
-                    country: 'NO'
-                    formatted: 'Fancy Office Street 2\n0218 OSLO\nNO'
-                    address_type: 'work'
-                  - street_address: 'Summer House Lane 14'
-                    postal_code: '1452'
-                    region: 'OSLO'
-                    country: 'NO'
-                    formatted: 'Summer House Lane 14\n1452 OSLO\nNO'
-                    address_type: 'other'
 
   /access-management-1.0/access/.well-known/openid-configuration:
     get:
