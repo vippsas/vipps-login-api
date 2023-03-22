@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3c9df9f7-8ca7-47b6-94ca-855e1a0a4b38",
+		"_postman_id": "fd57fa3b-6108-4487-9afa-090e202ca553",
 		"name": "vipps-login-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -463,6 +463,488 @@
 						"description": "Fetch the access token after the user has authenticated"
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "Partner login",
+			"item": [
+				{
+					"name": "CIBA with redirect",
+					"item": [
+						{
+							"name": "1. Get partner token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"",
+											"pm.environment.set(\"access_token\", jsonData.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "client_id",
+										"value": "{{client_id}}",
+										"type": "default"
+									},
+									{
+										"key": "client_secret",
+										"value": "{{client_secret}}",
+										"type": "default"
+									},
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{Ocp-Apim-Subscription-Key}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "https://apitest.vipps.no/accesstoken/get",
+									"protocol": "https",
+									"host": [
+										"apitest",
+										"vipps",
+										"no"
+									],
+									"path": [
+										"accesstoken",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2. Start login",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var client_id = pm.environment.get(\"client_id\");",
+											"var client_secret = pm.environment.get(\"client_secret\");",
+											"",
+											"var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + \":\" + client_secret);",
+											"var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);",
+											"",
+											"pm.environment.set(\"client_authorization\", client_authorization);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var auth_req_id = pm.response.json().auth_req_id;",
+											"",
+											"pm.environment.set(\"auth_req_id\", auth_req_id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "merchant-serial-number",
+										"value": "{{targetMerchantSerialNumber}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "scope",
+											"value": "name address openid phoneNumber birthDate",
+											"type": "text"
+										},
+										{
+											"key": "login_hint",
+											"value": "urn:mobilenumber:{{mobileNumber}}",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "some-state-long-enough-to-ensure-sufficient-entropy",
+											"type": "text"
+										},
+										{
+											"key": "binding_message",
+											"value": "XYZ-123",
+											"type": "text"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://localhost",
+											"type": "text"
+										},
+										{
+											"key": "requested_flow",
+											"value": "login_to_webpage",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{init_ciba_endpoint}}",
+									"host": [
+										"{{init_ciba_endpoint}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3. Get login token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var client_id = pm.environment.get(\"client_id\");",
+											"var client_secret = pm.environment.get(\"client_secret\");",
+											"",
+											"var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + \":\" + client_secret);",
+											"var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);",
+											"",
+											"pm.environment.set(\"client_authorization\", client_authorization);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var access_token = pm.response.json().access_token;",
+											"",
+											"pm.environment.set(\"access_token\", access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "merchant-serial-number",
+										"value": "{{targetMerchantSerialNumber}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "auth_req_id",
+											"value": "{{auth_req_id}}",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "urn:vipps:params:grant-type:ciba-redirect",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "36qCdgpWfoNoNvsD9cR3Km36KfQ",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{token_endpoint}}",
+									"host": [
+										"{{token_endpoint}}"
+									]
+								},
+								"description": "Fetch the access token after the user has authenticated. Use this request to initiate a Vipps Login from phone number aka CIBA login without redirect. "
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CIBA without redirect",
+					"item": [
+						{
+							"name": "1. Get partner token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"",
+											"pm.environment.set(\"access_token\", jsonData.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "client_id",
+										"value": "{{client_id}}",
+										"type": "default"
+									},
+									{
+										"key": "client_secret",
+										"value": "{{client_secret}}",
+										"type": "default"
+									},
+									{
+										"key": "Ocp-Apim-Subscription-Key",
+										"value": "{{Ocp-Apim-Subscription-Key}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "https://apitest.vipps.no/accesstoken/get",
+									"protocol": "https",
+									"host": [
+										"apitest",
+										"vipps",
+										"no"
+									],
+									"path": [
+										"accesstoken",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2. Start login",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var client_id = pm.environment.get(\"client_id\");",
+											"var client_secret = pm.environment.get(\"client_secret\");",
+											"",
+											"var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + \":\" + client_secret);",
+											"var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);",
+											"",
+											"pm.environment.set(\"client_authorization\", client_authorization);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var auth_req_id = pm.response.json().auth_req_id;",
+											"",
+											"pm.environment.set(\"auth_req_id\", auth_req_id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "merchant-serial-number",
+										"value": "{{targetMerchantSerialNumber}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "scope",
+											"value": "name address openid phoneNumber birthDate",
+											"type": "text"
+										},
+										{
+											"key": "login_hint",
+											"value": "urn:mobilenumber:{{mobileNumber}}",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "some-state-long-enough-to-ensure-sufficient-entropy",
+											"type": "text"
+										},
+										{
+											"key": "binding_message",
+											"value": "XYZ-123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{init_ciba_endpoint}}",
+									"host": [
+										"{{init_ciba_endpoint}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3. Get login token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var client_id = pm.environment.get(\"client_id\");",
+											"var client_secret = pm.environment.get(\"client_secret\");",
+											"",
+											"var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + \":\" + client_secret);",
+											"var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);",
+											"",
+											"pm.environment.set(\"client_authorization\", client_authorization);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var access_token = pm.response.json().access_token;",
+											"",
+											"pm.environment.set(\"access_token\", access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "merchant-serial-number",
+										"value": "{{targetMerchantSerialNumber}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "auth_req_id",
+											"value": "{{auth_req_id}}",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "urn:openid:params:grant-type:ciba",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{token_endpoint}}",
+									"host": [
+										"{{token_endpoint}}"
+									]
+								},
+								"description": "Fetch the access token after the user has authenticated. Use this request to initiate a Vipps Login from phone number aka CIBA login without redirect. "
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
