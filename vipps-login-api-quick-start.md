@@ -96,6 +96,45 @@ Copy the query param `code` from the URL in the browser. Paste this code into th
 1. Submit the  `Token redirect` request. This will populate the environment variable `access_token` used for the subsequent request.
 1. Send request to `Get user info`. This will use the token from the previous step to obtain the user info of the logged-in user.
 
+
+## Partner API calls
+
+### As a partner: Set up Postman environment
+
+1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
+1. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
+1. Ensure that you have the correct values for the following fields:
+   * `client_id` - Client ID for the partner.
+   * `client_secret` - Client Secret for the partner.
+   * `well-known_uri` - URL to well-known endpoint for used environment.
+     In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
+     See [API Guide: well known](api-guide/integration.md#openid-connect-discovery-endpoint) for more details.
+   * `redirect_uri` - The URL where the user is sent after finishing a login.
+   * `mobileNumber` - Your 8 digit mobile number for your test version of Vipps. This is only used for the CIBA flows.
+   * `targetMerchantSerialNumber` - The target merchant you want to log in towards.
+
+### As a partner: Login from phone number (CIBA without redirect)
+
+1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests.
+1. Using requests in the folder `Partner login/CIBA without redirect`
+1. Send request `Get partner token`
+1. Send request `Start login`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
+1. Authenticate in the Vipps app and approve the login request.
+1. Send request `Get login token`. This will populate the environment variable `access_token` used for the subsequent request.
+1. Send request `Get user info` stored in the root folder. This will use the token from (6) to obtain the userinfo of the logged-in user.
+
+### As a partner: Login from phone number (CIBA with redirect)
+
+1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests.
+1. Using requests in the folder `Partner login/CIBA with redirect`
+1. Send request `Get partner token`
+1. Send request `Start login`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
+1. Authenticate in the Vipps app and approve the login request. Your mobile will now open the URL specified by `redirect_uri` (default <http://localhost>) with a `code` query parameter after successful authentication. It doesn't matter if the page appears to be broken, you only need the `code` value from the address.
+1. Copy/take note of the `code` parameter in the query string that you were returned to in the above step. This code has 300s time-to-live in test environment and 30s time-to-live in production environment.
+1. Set the value of the `code` parameter in the body of the `Get login token` request to the code you obtained in the previous step.
+1. Send request `Get login token`. This will populate the environment variable `access_token` used for the subsequent request.
+1. Send request `Get user info` stored in the root folder. This will use the token from (8) to obtain the userinfo of the logged-in user.
+
 See the
 [API reference](https://vippsas.github.io/vipps-developer-docs/api/login)
 for details about the calls.
