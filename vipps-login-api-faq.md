@@ -279,7 +279,43 @@ on the dashboard.
 
 ## How is GDPR handled with Vipps Login?
 
-See [Userinfo FAQ](https://vippsas.github.io/vipps-developer-docs/docs/APIs/userinfo-api/userinfo-api-faq#how-is-gdpr-handled-with-vipps-login).
+With regard to the processing of personal data and GDPR, the following applies
+to Vipps Login:
+
+1. Vipps Login gives a merchant the opportunity to ask a Vipps end user to share
+   a selection of data from their profile in Vipps. This can include name, phone
+   number, email, addresses, and date of birth. The merchant controls which of
+   this data is requested. The user must consent to the sharing of data.
+   The consent is the legal basis for the Vipps AS transfer of
+   this information to the merchant.
+2. Vipps AS is responsible for our processing of information related to Vipps
+   end users and the personal information generated using the Vipps services.
+   For the Vipps Login service, the merchant will be responsible for the
+   processing of the profile information received, starting when the merchant
+   receives the profile information from Vipps end user. The merchant will thus
+   be an independent data processor for this data, and there is no need for a
+   data processing agreement between Vipps and the merchant.
+3. The merchant must therefore obtain a valid basis for further processing of
+   the personal data (e.g agreement, terms or consent), to e.g. register the
+   information in its customer register and start customer processing from there.
+4. When such sharing from Vipps AS to the merchant has been made, a Vipps end
+   user can later use Vipps to log in to the merchant, and the merchant will
+   then have access to updated information on the data elements that the company
+   has requested. A Vipps end user can go into Vipps (the app) and see which
+   companies they have shared data with, which data has been shared and they
+   can withdraw their consent to share. This means that new consent must be
+   obtained before Vipps AS can share data again with the merchant.
+5. When an end user uses Vipps Login at a merchant, Vipps AS stores, as part
+   of our service to the Vipps end user and with Vipps AS as data processor,
+   information about a) what information a user has agreed to share with a
+   merchant and b) when a user has used Vipps log in to the relevant merchant.
+6. Vipps AS does not receive any information from the merchant about Vipps end user.
+
+See more information in our end user
+[terms and condition](https://www.vipps.no/vilkar/vilkar-privat/),
+[privacy policy](https://www.vipps.no/vilkar/cookie-og-personvern/)
+and
+[merchant agreement](https://www.vipps.no/vilkar/vilkar-bedrift/).
 
 ## Can we control the language displayed to the user?
 
