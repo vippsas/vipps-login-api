@@ -35,33 +35,9 @@ See:
 
 ## How can I activate and set up Vipps Login?
 
-On [portal.vipps.no](https://portal.vipps.no), in the same place as the
-`client_id` and `client_secret` described above, you can activate Vipps Login,
-and also add the redirect URIs needed for the service to work. This is the URL/URI of
-the page which the user is redirected to after finishing a login. See:
-[API endpoints](api-guide/integration.md#api-endpoints-required-from-the-merchant)
-as well as requirements for the URIs below.
+You can activate Vipps Login on the [portal.vipps.no](https://portal.vipps.no).
+See [Developer resources: Vipps portal: How to setup login on your sales unit](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
-You will find the "Setup Vipps Login" option under the "Utvikler" menu,
-in the same place as you find your `client_id` and `client_secret`.
-Click "Setup login" for the sales unit you want to set up Vipps Login for.
-
-The "Setup login" button is on the right side of the sales unit overview:
-
-![You will find the Setup Vipps Login option in the same place as you find your `client_id` and `client_secret`](images/portal_setup_login.png)
-
-First you activate Vipps Login by clicking the "Activate Vipps Login" button:
-
-![First you activate Vipps Login](images/portal_setup.jpeg)
-
-Then you can add the redirect URIs you need:
-1. Enter the URI. It must be _exactly_ the same URI that you use when making
-   API requests. Remember if the actual URI specified with `redirect_uri`
-   has a trailing slash `/` or not.
-2. Click "Add URI" for the one or more URIs you are adding.
-3. Click "Save" to save all the URIs you have added.   
-
-![Then you can add the redirect URIs you need](images/portal_direct_uris.jpeg)
 
 ## What are the requirements for redirect URIs?
 
@@ -70,8 +46,8 @@ pre-approved URIs. The URIs must be registered by the merchant on
 [portal.vipps.no](https://portal.vipps.no)
 as described above.
 
-You can register as many URIs as you want to. You specify the URI that will be used with
-the query parameter `redirect_uri` on the initial request to the authentication
+You can register as many URIs as you want to. Specify the URI that will be used with
+the query parameter, `redirect_uri`, on the initial request to the `authentication`
 endpoint.
 
 **Please note:**
