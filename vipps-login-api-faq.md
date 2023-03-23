@@ -108,7 +108,7 @@ This means that the `client_id` and `client_secret` used is not valid for Vipps 
 Please check:
 
 * Have you activated Vipps Login and set up a redirect URI? See:
-  [How can I activate and set up Vipps Login?](#how-can-i-activate-and-set-up-vipps-login)
+  [Developer resources: Portal: How to setup login on your sales unit?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 * Have you double checked that the `redirect_uri` used in the API call is
   _exactly_ the same as the one specified on
   [portal.vipps.no](https://portal.vipps.no)?
