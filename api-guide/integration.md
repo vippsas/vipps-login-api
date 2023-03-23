@@ -464,6 +464,6 @@ and the users information, is shown below:
 
 [login-wellknown-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/wellKnown
 [login-discoveropenid-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration
-[userinfo-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Userinfo-API/operation/userinfoAuthorizationCode
+[userinfo-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/userinfo#operation/userinfoAuthorizationCode
 [access-auth-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauthAuth
 [access-token-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauth2Token

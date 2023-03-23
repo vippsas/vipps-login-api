@@ -2,6 +2,7 @@ openapi: 3.0.0
 info:
   description: >
     See the [API Guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api) for more information.
+    For the userinfo endpoint, see [Vipps Userinfo API](https://vippsas.github.io/vipps-developer-docs/api/userinfo).
   title: Vipps Login API
   version: 1.1.0
 servers:
@@ -101,67 +102,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-  /vipps-userinfo-api/userinfo:
-    get:
-      security:
-        - oauth2: []
-      description: |-
-        This endpoint returns the payload with the information that the user has
-        consented to share. Find more info on the `/userinfo` endpoint at the
-        OIDC Standard https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
-      tags:
-        - Userinfo API
-      operationId: userinfoAuthorizationCode
-      parameters:
-        - in: header
-          name: Authorization
-          description: |-
-            The access token is required to authorize the userinfo request.
-            It should be sent as a `Bearer` token. The access token is received
-            on a successful request to the token endpoint `POST:/oauth2/token`.
-            In Vipps Login the access token is valid for 1 hour.
-          required: true
-          schema:
-            type: string
-          example: Bearer mM60UNNAQTbLS5aJCeFGUbUYaoJT...
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserinfoApiV2'
-              example:
-                sub: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
-                birthdate: '1815-12-10'
-                email: 'user@example.com'
-                email_verified: true
-                nin: '10121550047'
-                name: 'Ada Lovelace'
-                given_name: 'Ada'
-                family_name: 'Lovelace'
-                sid: '7d78a726-af92-499e-b857-de263ef9a969'
-                phone_number: '47912345678'
-                address:
-                  street_address: 'Suburbia 23'
-                  postal_code: '2101'
-                  region: 'OSLO'
-                  country: 'NO'
-                  formatted: 'Suburbia 23\n2101 OSLO\nNO'
-                  address_type: 'home'
-                other_addresses:
-                  - street_address: 'Fancy Office Street 2'
-                    postal_code: '0218'
-                    region: 'OSLO'
-                    country: 'NO'
-                    formatted: 'Fancy Office Street 2\n0218 OSLO\nNO'
-                    address_type: 'work'
-                  - street_address: 'Summer House Lane 14'
-                    postal_code: '1452'
-                    region: 'OSLO'
-                    country: 'NO'
-                    formatted: 'Summer House Lane 14\n1452 OSLO\nNO'
-                    address_type: 'other'
 
   /access-management-1.0/access/.well-known/openid-configuration:
     get:
@@ -490,92 +430,7 @@ components:
             example:
               - client_secret_basic
               - client_secret_post
-        userinfo_endpoint:
-          description: URL of the OP's UserInfo Endpoint.
-          type: string
-          example: https://apitest.vipps.no/access-management-1.0/access/userinfo
-        userinfo_signing_alg_values_supported:
-          description: JSON array containing a list of the JWS [JWS] signing algorithms
-            (alg values) [JWA] supported by the UserInfo Endpoint to encode the
-            Claims in a JWT [JWT].
-          type: array
-          items:
-            type: string
-            example:
-              - RS256
-    UserinfoApiV2:
-      type: object
-      properties:
-        address:
-          description: 'Contains the end user''s preferred addresses.'
-          items:
-            $ref: '#/components/schemas/AddressApi'
-        other_addresses:
-          description: 'Contains an array with the end user''s none default addresses, if any. This list can contain an address with the address_type home, work, and/or other, if the user has registered them in the Vipps app'
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressApi'
-        birthdate:
-          description: 'End-User''s birthday formatted as YYYY-MM-DD'
-          type: string
-          example: '2000-12-31'
-        email:
-          description: 'End user''s email address.'
-          type: string
-        email_verified:
-          description: 'Boolean value if the End user''s email address is verified.'
-          type: boolean
-        family_name:
-          description: 'Surname(s) or last name(s) of the end user.'
-          type: string
-        given_name:
-          description: 'Given name(s) or first name(s) of the end user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.'
-          type: string
-        name:
-          description: 'End user''s full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User''s locale and preferences.'
-          type: string
-        nin:
-          description: 'National identity number'
-          type: string
-          example: '09057517287'
-          pattern: '^\d{11}$'
-        phone_number:
-          description: 'End-User''s telephone number on MSISDN format, up to 15 digits.'
-          type: string
-          example: '47912345678'
-          pattern: '^\d{15}$'
-        sid:
-          description: 'Session identifier - This represents a Session of a User Agent or device. Currently not in use'
-          type: string
-          example: '7d78a726-af92-499e-b857-de263ef9a969'
-        sub:
-          description: 'Subject - Identifier for the end user'
-          type: string
-          example: 'c06c4afe-d9e1-4c5d-939a-177d752a0944'
-    AddressApi:
-      type: object
-      properties:
-        address_type:
-          description: 'Address type is either home, work or other'
-          type: string
-        country:
-          description: 'Two letter country code'
-          type: string
-        default:
-          description: 'If this is default address'
-          type: boolean
-        formatted:
-          description: 'End user address as a formatted string'
-          type: string
-        postal_code:
-          description: 'Postal code'
-          type: string
-        region:
-          description: 'End user region'
-          type: string
-        street_address:
-          description: 'End user street address'
-          type: string
+
     OauthTokenResponse:
       description: The token response
       type: object
