@@ -40,14 +40,16 @@ In either case it is important to avoid using static client secrets in the app f
 (For more information see <https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous> and <https://tools.ietf.org/html/rfc8252#section-8.5>).
 
 _Both_ URIs must be added in the [portal.vipps.no](https://portal.vipps.no/),
-you find more information on how to do this [here](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login).
+you find more information on how to do this [Developer resources: Portal: How to setup login on your sales unit?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 **Please note:** URIs specified on [portal.vipps.no](https://portal.vipps.no/)
 must be _exactly_ the same as used in the API calls. Be extra careful with
 trailing `/` and URL-encoded entities. If the URIs are not identical you will get
 this error:
 
->The provided authorization grant (e.g., authorization code, resource owner credentials) or refresh token is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client
+```text
+The provided authorization grant (e.g., authorization code, resource owner credentials) or refresh token is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client
+```
 
 The Vipps app will return some data with the return to the `app_callback_uri`.
 It contains two query parameters `state` and `resume_uri`.
