@@ -150,6 +150,12 @@ You can get this error if you have both the Vipps
 [test app](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps)
 and production app on the same phone.
 
+## Why do I get `Invalid_scope`?
+If you get “Invalid_scope” this means that you have included one or more scopes
+that you do not have access to or that is not supported.
+
+For more information see See [Userinfo FAQ](https://vippsas.github.io/vipps-developer-docs/docs/APIs/userinfo-api/userinfo-api-faq)
+
 ## Questions about Userinfo, scope, and sub
 
 See [Userinfo FAQ](https://vippsas.github.io/vipps-developer-docs/docs/APIs/userinfo-api/userinfo-api-faq).
