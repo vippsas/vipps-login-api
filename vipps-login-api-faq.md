@@ -242,18 +242,18 @@ In the email you must specify:
 [Vipps Login from phone number](api-guide/overview.md#vipps-login-from-phone-number)
 is available for all Vipps Login enabled clients.
 
-Vipps Login from phone number is a paid service.
+_Vipps Login from phone number_ is a paid service.
 
-Remember that Vipps Login from phone number has been developed to support use-cases where
+Remember that _Vipps Login from phone number_ has been developed to support use cases where
 authentication/registration does not start in a browser or an app. This means
 that it is the merchant that triggers the authentication/registration (either
-manually or automatically) and thus the login cannot be done in the user’s browser.
+manually or automatically) and thus the log-in cannot be done in the user’s browser.
 
-Vipps Login from phone number are reserved for such special cases.  If a merchant
-uses Vipps Login from phone number on webpages or in apps used by end-users
+_Vipps Login from phone number_ is reserved for such special cases. If a merchant
+uses this incorrectly on webpages or in apps used by end users
 (on their own device), access to the feature can be withdrawn.
 
-Merchants need to apply for access to Vipps Login from phone number
+Merchants need to apply for access to _Vipps Login from phone number_
 by sending an email to
 [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no).
 In the email you must specify:
@@ -264,12 +264,12 @@ In the email you must specify:
 
 ## How can I get started with delegatedConsents?
 
-**Please note:** Delegated consents are only available for the
+**Please note:** _Delegated consents_ are only available for the
 [Vipps Login from phone number](./how-it-works/vipps-login-from-phone-number-api-howitworks.md)
 flow. It is currently not possible to request delegated consents in the
-Vipps Login in browser flow.
+_Vipps Login in browser_ flow.
 
-If you plan on using the scope `delegatedConsents` along with Vipps Login from phone number,
+If you plan on using the scope `delegatedConsents` along with _Vipps Login from phone number_,
 you will need to supply some information on what consents you will retrieve and how.
 We will then tailor this screen to suit your needs. You can see what the flow looks like at
 [Vipps Login from phone number](./how-it-works/vipps-login-from-phone-number-api-howitworks.md).
@@ -287,10 +287,10 @@ and supply the following information:
 
 ## When using `delegatedConsents`, which consents are supported?
 
-We have built support for several consents, and the merchant may select a subset
-of these to include in their own flow as well as select which of the consents
-that are required/optional. If we do not currently support the consents you look
-for, you may make a request to
+Vipps Login has support for several consents, and you may select a subset
+of these to include in your own flow, as well as select which of the consents
+that are required/optional. If the consents you need are not currently supported,
+you can make a request to
 [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no)
 and we'll be in touch.
 
@@ -310,23 +310,26 @@ for details.
 The `state` parameter is an opaque value used by the client to maintain state
 between the request and callback. The authorization server includes this value
 when redirecting the user-agent back to the client. The parameter should be
-used for preventing cross-site request forgery. It must be at least 8 characters long to ensure sufficient entropy. A GUID is a good choice for a state parameter value.
+used for preventing cross-site request forgery. It must be at least 8 characters long
+to ensure sufficient entropy. A GUID is a good choice for a state parameter value.
 
 ## Can I use partner keys for Vipps login?
 
-Yes, partner keys can be used for both Vipps Login in Browser and Vipps Login from Phone number. Be aware that the partner key integration [differs slightly from a regular merchant integration.](api-guide/partner-keys.md)
+Yes, partner keys can be used for both _Vipps Login in Browser_ and _Vipps Login from Phone number_.
+Be aware that the partner key integration
+[differs slightly from a regular merchant integration.](api-guide/partner-keys.md).
 
-We support some scenarios where a merchant can be used for registration and
+Vipps Login supports some scenarios where a merchant can be used for registration and
 login to other sites/merchants. Specific terms and conditions related to
-UX/branding, consent, terms and privacy statement apply to such scenarios.
-These can be found in section 8.4 in our
-[Terms and Conditions for merchants](https://www.vipps.no/vilkar/vilkar-bedrift/)
+UX/branding, consent, terms, and privacy statement apply to such scenarios.
+These can be found in section 8.4 in the
+[Terms and Conditions for merchants](https://www.vipps.no/vilkar/vilkar-bedrift/).
 
 ## Can I control if a user is remembered in the browser (set up as 2FA)?
 
 No. Vipps Login does not support merchants specifying that the user needs
-to use the app to authenticate (two-factor authentication - 2FA). The end-user
-chooses whether he would like to be remembered in browser or not. This is seen
+to use the app to authenticate (two-factor authentication - 2FA). The end user
+chooses whether or not to be remembered in browser. This is seen
 as a key feature of the service.
 
 ## Can I see statistics on Vipps Login usage?
@@ -343,10 +346,11 @@ Then scroll down until you find the panel named "Successful logins".
 
 If you have access to request national identity number (NIN) you will be able
 to see the number of logins with and without these
-scopes. If you click "Show details" under the graph you can see total logins
-for the period and number of unique users in the selected period. Keep in
-mind that there may be up to 10 minutes delay from a login occurs, until it appears
-on the dashboard.
+scopes. If you click _Show details_ under the graph, you can see total logins
+for the period and the number of unique users in the selected period.
+
+Keep in mind that there may be up to 10 minutes delay from whe a login occurs
+until it appears on the dashboard.
 
 **Please note:** The statistics are only available for the production environment.
 
@@ -394,8 +398,8 @@ and
 
 No. The language is controlled by the browser settings.
 
-Specifically `window.navigator.language`, however it gets more complicated as
-there are fallbacks. Refer to the documentation for your browsers.  
+Specifically, language is controlled by `window.navigator.language`; however, it gets more complicated
+since there are fallbacks. Refer to the documentation for your browsers.
 
 ## Which configuration should I have when integrating using Azure B2C?
 
@@ -411,9 +415,10 @@ Azure B2C uses `client_secret_post` as `token_endpoint_auth_method` and the defa
 
 See [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 
-Vipps Login does not return user information in the `id_token`, but provides a
-userinfo endpoint for this use case. See
-[the userinfo endpoint documentation](api-guide/integration.md#userinfo).
+Vipps Login does not return user information in the `id_token`, but there is a
+[userinfo endpoint](https://vippsas.github.io/vipps-developer-docs/api/userinfo#operation/userinfoAuthorizationCode)
+ for this use case. See
+[the Login API userinfo endpoint documentation](api-guide/integration.md#userinfo).
 Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
 
@@ -440,19 +445,19 @@ is required: `myapp://path-to-something`.
 ## Can we change the name that appears in customer's Vipps app under `Login and Access`?
 
 The name which is displayed in the app is the name of the sales unit.
-You can do it yourself on
+You can change it yourself on
 [portal.vipps.no](https://portal.vipps.no/).
-Press `rediger`/`edit` under `salgsstedsinfo`/`?` and change to the desired name.
+Press  _rediger_ (_edit_) under _salgsstedsinfo_ (_sales unit information_) and change to the desired name.
 
-## How can I log out a user?
+## How can I log a user out?
 
-_Vipps Login_ does not support merchant initiated logout in the browser as this
+_Vipps Login_ does not support merchant-initiated log-out in the browser. as this
 would effectively log the user out of Vipps Login (meaning that the user will no
 longer be remembered in the browser across sites that use Vipps Login). You
 are of course free to log the user out of your service (by disabling your own session).
 
-If a user wants to log out of a specific browser remembered in Vipps Login, they need to do this in the Vipps app by navigating to:  
-`Profile->Personal Information->Browsers that remember you`, select a browser and press the logout button.
+If a user wants to log out of a specific browser remembered in Vipps Login, they need to do this in the Vipps app by navigating to:
+_Profile_ > _Personal Information_ > _Browsers that remember you_, select a browser, and press the _logout_ button.
 
 ## Common errors
 
