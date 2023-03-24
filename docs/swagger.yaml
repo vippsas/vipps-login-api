@@ -81,8 +81,8 @@ paths:
                 code_verifier:
                   description: |-
                     Required if PKCE, https://tools.ietf.org/html/rfc7636, is used.
-                    type: string
-                    example: RuzfVVEowM_e9wkyTjNCmCz4PKL4MOh2FACGhGRsAq4
+                  type: string
+                  example: RuzfVVEowM_e9wkyTjNCmCz4PKL4MOh2FACGhGRsAq4
               required:
                 - grant_type
                 - code
