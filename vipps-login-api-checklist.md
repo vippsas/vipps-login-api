@@ -10,7 +10,7 @@ END_METADATA -->
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://developer.vippsmobilepay.com/).
 
 <!-- END_COMMENT -->
 
@@ -52,7 +52,7 @@ API version: 2.0.
 - [ ] Proper linking of the Vipps user to your own user registry is implemented.
       This login must be based on either phone number or e-mail address. See
       [recommendations on linking to user account](vipps-login-api.md#Recommendations-on-linking-to-user-account)
-- [ ] Send the [Vipps HTTP headers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/http-headers)
+- [ ] Send the [Vipps HTTP headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers)
       in all API requests for better tracking and troubleshooting:
   - [ ] `Merchant-Serial-Number`
   - [ ] `Vipps-System-Name`

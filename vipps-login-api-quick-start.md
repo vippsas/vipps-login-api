@@ -12,7 +12,7 @@ Use the Login API to confirm your identity through the log-in process.
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://developer.vippsmobilepay.com/).
  
 <!-- END_COMMENT -->
 
@@ -21,7 +21,7 @@ Use the Login API to confirm your identity through the log-in process.
 ### Prerequisites
 
 Review
-[Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/quick-start-guides)
+[Vipps quick start guides](https://developer.vippsmobilepay.com/docs/vipps-developers/quick-start-guides)
 for information about getting your test environment set up.
 
 ### Step 1: Get the Vipps Postman collection and environment
@@ -43,7 +43,7 @@ Save the following files to your computer:
 1. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
 1. Ensure that you have the correct values for the following fields:
    * `client_id` - Client ID for the merchant (the "username").
-     See [Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys) for details.
+     See [Common topics: API Keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys) for details.
    * `client_secret` - Client Secret for the merchant (the "password").
    * `well-known_uri` - URL to well-known endpoint for used environment.
       In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
@@ -86,5 +86,5 @@ Copy the query param `code` from the URL in the browser. Paste this code into th
 1. Send request to `Get user info`. This will use the token from the previous step to obtain the user info of the logged-in user.
 
 See the
-[API reference](https://vippsas.github.io/vipps-developer-docs/api/login)
+[API reference](https://developer.vippsmobilepay.com/api/login)
 for details about the calls.

@@ -12,7 +12,7 @@ API version: 2.0
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://developer.vippsmobilepay.com/).
 
 <!-- END_COMMENT -->
 
@@ -32,7 +32,7 @@ When Vipps Login is used in the browser, the user can choose to be remembered in
 
 Vipps Login is _not_ an electronic identification or certified eID.
 
-For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](https://vippsas.github.io/vipps-developer-docs/docs/vipps-plugins).
+For **Vipps Login in browser** there are **plugins** available for several platforms. You find the complete list on our [plugins page](https://developer.vippsmobilepay.com/docs/vipps-plugins).
 If a plugin is not available, the easiest - and **strongly recommended - way to integrate with the service is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language**. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
 
 Vipps Login in browser should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended).
@@ -41,7 +41,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 
-See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
+See our [developer section](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
 
 
 ## Flows
@@ -1562,7 +1562,7 @@ eyJhbGciOiJub25lIiwidHlwIjogIkpXVCJ9Cg.eyJleHAiOjE1OTI1NzE3ODgsImlhdCI6MTU5MjU3M
 
 ## Partner keys
 
-In addition to the normal authentication, we offer [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys) which allow partners make API calls on behalf of a their merchants.
+In addition to the normal authentication, we offer [Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys) which allow partners make API calls on behalf of a their merchants.
 
 Partner keys are available for the following flows:
 
@@ -1576,13 +1576,13 @@ If you are a Vipps partner managing integrations on behalf of Vipps merchants, y
 The main differences between partner key integration and merchant integration are:
 
 * For merchant integration, authentication is based on the Vipps Login access token, described in the [Access token](#access-token) section.
-   But for partner key integration, a token is obtained from [POST: /accesstoken/get](https://vippsas.github.io/vipps-developer-docs/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost). This is the same token endpoint used for eCom payments. The token must be passed as a Bearer token in the header e.g `Authorization: Bearer <access-token>`. For partner key integration, this authorization method _must_ be used. The `token_endpoint_authentication` methods, `client_secret_basic` and `client_secret_post`, do not work for partner key integrations.
+   But for partner key integration, a token is obtained from [POST: /accesstoken/get](https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost). This is the same token endpoint used for eCom payments. The token must be passed as a Bearer token in the header e.g `Authorization: Bearer <access-token>`. For partner key integration, this authorization method _must_ be used. The `token_endpoint_authentication` methods, `client_secret_basic` and `client_secret_post`, do not work for partner key integrations.
 * For partner key integration, the `Merchant-Serial-Number` header must be sent as part of backend requests to identify which merchant you're acting on behalf of.
 
 Read more about partner verification in:
 
-* [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
-* [Access token API guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/access-token-api)
+* [Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys)
+* [Access token API guide](https://developer.vippsmobilepay.com/docs/APIs/access-token-api)
 
 Browser and phone number flows have minor differences and are described in more detail further down.
 
@@ -1602,7 +1602,7 @@ This request will return a redirect to a `/auth` url where the `msn` query param
 
 For the `/token` endpoint, you should authenticate using an access token. Regular `client_secret_basic` or `client_secret_post` does not work for partner key integration.
 
-1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
+1. Fetch [access_token](https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
 2. Use the access token in the `Authorization` header, `Bearer access-token`.
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number.
 
@@ -1622,7 +1622,7 @@ grant_type=authorization_code&code={authorization_code}&redirect_uri={redirect_u
 The `Merchant-Serial-Number` header must be sent in the header of all API requests.
 
 
-1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
+1. Fetch [access_token](https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
 2. Use the access token in the `Authorization` header `Bearer access-token`
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number
 
@@ -1667,8 +1667,8 @@ This is a unique id for the sale unit. This is a required parameter if you are a
 For fetching userinfo the token received during the login flow must be used.
 
 
-[login-wellknown-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/wellKnown
-[login-discoveropenid-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration
-[userinfo-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Userinfo-API/operation/userinfoAuthorizationCode
-[access-auth-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauthAuth
-[access-token-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauth2Token
+[login-wellknown-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/wellKnown
+[login-discoveropenid-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration
+[userinfo-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Userinfo-API/operation/userinfoAuthorizationCode
+[access-auth-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/oauthAuth
+[access-token-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/oauth2Token

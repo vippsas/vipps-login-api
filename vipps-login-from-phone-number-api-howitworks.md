@@ -10,7 +10,7 @@ END_METADATA -->
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://developer.vippsmobilepay.com/).
 
 <!-- END_COMMENT -->
 
@@ -21,7 +21,7 @@ For technical documentation go to
 
 We also have _How it works_ for [Vipps Login in browser](vipps-login-api-howitworks.md)
 
-This flow also features in our [Loyalty at POS solution](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/loyalty-in-pos).
+This flow also features in our [Loyalty at POS solution](https://developer.vippsmobilepay.com/docs/vipps-solutions/loyalty-in-pos).
 
 ## The login from phone number process
 

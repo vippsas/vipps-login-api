@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   description: >
-    See the [API Guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api) for more information.
+    See the [API Guide](https://developer.vippsmobilepay.com/docs/APIs/login-api) for more information.
   title: Vipps Login API
   version: 1.1.0
 servers:

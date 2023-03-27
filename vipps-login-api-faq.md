@@ -13,7 +13,7 @@ See the [Vipps Login API](vipps-login-api.md) for all the details.
 
 For more common Vipps questions, see:
 
-* [Vipps API General FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs)
+* [Vipps API General FAQ](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs)
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
@@ -21,14 +21,14 @@ You can also find frequently asked questions in the
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://developer.vippsmobilepay.com/).
 
 <!-- END_COMMENT -->
 
 ## Where do I find the `client_id` and `client_secret`?
 
 See:
-[Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
+[Common topics: API Keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
 
 
 ## How can I activate and set up Vipps Login?
@@ -140,12 +140,12 @@ Please check:
   is an exact match.
 * Are you using the `client_id` and `client_secret` for the correct environment?
   There are separate API keys for test and production. See:
-  [Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys).
+  [Common topics: API Keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys).
 
 ## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
 
 You can get this error if you have both the Vipps
-[test app](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps)
+[test app](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps)
 and production app on the same phone.
 
 ## Which scopes can I use? Why do I get `Invalid_scope`?
@@ -211,7 +211,7 @@ next 168 hours, even though the user revokes the consent in this period.
 Revoking consents will immediately affect future login and payment sessions.
 
 See:
-[Userinfo API](https://vippsas.github.io/vipps-developer-docs/docs/APIs/userinfo-api).
+[Userinfo API](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api).
 
 ## Can a Vipps user less than 15 years old use Vipps Login?
 
@@ -260,7 +260,7 @@ In the email you must specify:
 
 ## Who can get access to Vipps Login from phone number and how?
 
-[Vipps Login from phone number](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api#vipps-login-from-phone-number)
+[Vipps Login from phone number](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api#vipps-login-from-phone-number)
 is available for all Vipps Login enabled clients.
 
 Vipps Login from phone number is a paid service.
@@ -335,7 +335,7 @@ used for preventing cross-site request forgery. It must be at least 8 characters
 
 ## Can I use partner keys for Vipps login?
 
-Yes, partner keys can be used for both Vipps Login in Browser and Vipps Login from Phone number. Be aware that the partner key integration [differs slightly from a regular merchant integration.](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api#partner-keys)
+Yes, partner keys can be used for both Vipps Login in Browser and Vipps Login from Phone number. Be aware that the partner key integration [differs slightly from a regular merchant integration.](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api#partner-keys)
 
 We support some scenarios where a merchant can be used for registration and
 login to other sites/merchants. Specific terms and conditions related to
@@ -354,7 +354,7 @@ as a key feature of the service.
 
 Yes, statistics on successful logins with Vipps in production is available on
 the
-[API Dashboard](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/api-dashboard).
+[API Dashboard](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/api-dashboard).
 
 Choose the sales unit with Vipps Login that you would like to see, the time
 period you would like to have covered and click "Fetch data".
@@ -451,7 +451,7 @@ See the
 
 Yes. You can register as many callback URLs as you want; and then you specify which
 one you use in the request to
-[/auth](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauthAuth).
+[/auth](https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/oauthAuth).
 
 ## Can I use a custom URL scheme for the `redirect_url`?
 
@@ -478,7 +478,7 @@ If a user wants to log out of a specific browser remembered in Vipps Login, they
 ## Common errors
 
 See
-[FAQ: Common errors](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/common-errors-faq)
+[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/common-errors-faq)
 for more questions.
 
 ### Why do I get `The client or its related sale unit or merchant does not exist or is not active`?
@@ -492,7 +492,7 @@ has been deactivated at [Brønnøysundregistrene](https://www.brreg.no).
 We do not currently support any flows that requires requests being made from browsers.
 
 See:
-[Common problems: Why do I get a CORS error?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/common-problems-faq#why-do-i-get-a-cors-error).
+[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/common-problems-faq#why-do-i-get-a-cors-error).
 
 ### Why do I get `No CSRF value available in the session cookie`?
 
