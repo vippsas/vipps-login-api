@@ -14,14 +14,14 @@ END_METADATA -->
 <!-- START_COMMENT -->
 
 ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
+[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 
 <!-- END_COMMENT -->
 
 Let your customers log in to your website or app without the need for user names and passwords.
 
 For technical documentation go to
-[Vipps Login API](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
+[Vipps Login API](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 
 We also have _How it works_ for [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md)
 

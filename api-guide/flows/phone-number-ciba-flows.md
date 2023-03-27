@@ -170,7 +170,7 @@ The following authentication methods are currently supported:
 * client_secret_basic
 * client_secret_post
 
-The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
 
 #### The `login_hint` parameter (required)
 
@@ -381,7 +381,7 @@ The following authentication methods are currently supported:
 * client_secret_basic
 * client_secret_post
 
-The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
 
 Required parameters: `requested_flow`, `login_hint`, `scope`, `redirect_uri`
 
@@ -428,7 +428,7 @@ In addition to the responses defined by [the standard](https://openid.net/specs/
 
 ### Activation
 
-See [How can I get started with delegatedConsents?](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-get-started-with-delegatedconsents).
+See [How can I get started with delegatedConsents?](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-get-started-with-delegatedconsents).
 
 ### Overview
 

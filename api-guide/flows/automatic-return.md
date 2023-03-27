@@ -30,7 +30,7 @@ It is not possible to give a single description that ensures secure use of this 
 
 ### Session information
 
-The [state parameter](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](../integration.md#oauth-20-authorize) request can carry some information from the start of a login until the callback.
+The [state parameter](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](../integration.md#oauth-20-authorize) request can carry some information from the start of a login until the callback.
 The state parameter cannot be thought of as a direct replacement of a user agent bound session.
 
 Some relevant considerations:

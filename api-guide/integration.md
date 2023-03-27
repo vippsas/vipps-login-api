@@ -462,8 +462,8 @@ and the users information, is shown below:
 
    See [Userinfo](#userinfo).
 
-[login-wellknown-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/wellKnown
-[login-discoveropenid-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration
-[userinfo-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/userinfo#operation/userinfoAuthorizationCode
-[access-auth-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauthAuth
-[access-token-endpoint]: https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauth2Token
+[login-wellknown-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/wellKnown
+[login-discoveropenid-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration
+[userinfo-endpoint]: https://developer.vippsmobilepay.com/api/userinfo#operation/userinfoAuthorizationCode
+[access-auth-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/oauthAuth
+[access-token-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/oauth2Token

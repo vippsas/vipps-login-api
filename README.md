@@ -15,7 +15,7 @@ END_METADATA -->
 <!-- START_COMMENT -->
 
 ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
+[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 
 <!-- END_COMMENT -->
 
@@ -36,12 +36,12 @@ For information and to order the product go to:
 
 ## Relates solutions
 
-* [Simplifying registration and payment (Recurring with Login)](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/recurring-and-login)
+* [Simplifying registration and payment (Recurring with Login)](https://developer.vippsmobilepay.com/docs/vipps-solutions/recurring-and-login)
 
 ## Next steps
 
 See
-[Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/getting-started)
+[Getting Started](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started)
 for information about API keys, product activation, how to make API calls, etc.
 
 Review the detailed documentation found here:
@@ -49,4 +49,4 @@ Review the detailed documentation found here:
 * [API quick start](vipps-login-api-quick-start.md): Quick start.
 * [API guide](api-guide/README.md): In-depth guide to the Login API.
 * [API FAQ](vipps-login-api-faq.md): Questions and answers.
-* [API reference](https://vippsas.github.io/vipps-developer-docs/api/login): Login API reference specifications.
+* [API reference](https://developer.vippsmobilepay.com/api/login): Login API reference specifications.

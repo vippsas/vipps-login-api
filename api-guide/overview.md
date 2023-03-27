@@ -25,7 +25,7 @@ When Vipps Login is used in the browser, the user can choose to be remembered in
 
 Vipps Login is _not_ an electronic identification or certified eID.
 
-For _Vipps Login in browser_ there are _plugins_ available for several platforms. You find the complete list on our [plugins page](https://vippsas.github.io/vipps-developer-docs/docs/vipps-plugins).
+For _Vipps Login in browser_ there are _plugins_ available for several platforms. You find the complete list on our [plugins page](https://developer.vippsmobilepay.com/docs/vipps-plugins).
 If a plugin is not available, the easiest - and **strongly recommended** - way to integrate with the service is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
 
 Vipps Login in browser should only be run in the browser window using redirects (iFrame is not supported and new window is not recommended).
@@ -36,7 +36,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 
-See our [developer section](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
+See our [developer section](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps) for information about our test environment, test apps and test users.
 
 ## Flows
 
@@ -44,7 +44,7 @@ A sales unit can use the Login API for many flows.
 It is recommended to use the same sales unit for all use cases to ensure that you get the same user id (`sub`) on the user across different scenarios.
 
 The Login API can also be combined with other APIs to make registration and payment simple for users.
-See [Simplifying registration and payment (Recurring with Login)](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/recurring-and-login)
+See [Simplifying registration and payment (Recurring with Login)](https://developer.vippsmobilepay.com/docs/vipps-solutions/recurring-and-login)
 for an example solution.
 
 ### Login in browser
