@@ -126,9 +126,9 @@ You can get this error if you have both the Vipps
 [test app](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps)
 and production app on the same phone.
 
-## Which scopes can I use? Why do I get `Invalid_scope`?
+## Why do I get `Invalid_scope`?
 
-If you get “Invalid_scope” this means that you have included one or more scopes
+If you get `Invalid_scope` this means that you have included one or more scopes
 that you do not have access to or that is not supported.
 See:
 [Scopes](api-guide/core-concepts.md#scopes).
@@ -150,7 +150,7 @@ The scope `openid` is required and does not require user consent. It
 provides the claim `sub` which is a unique id for the end user at that
 particular merchant.
 
-*Please note:** Different sales units will get different `sub`s for the
+**Please note:** Different sales units will get different `sub`s for the
 same end user.
 
 Some merchants can get access to national identity number (NIN) with the `nin`
@@ -159,7 +159,7 @@ scope. Merchants need to request this separately. See
 
 You can find the list of scopes that your individual sales units have access to in
 [portal.vipps.no](https://portal.vipps.no)
-under the "Utvikler" section and the "Setup Vipps Login" panel.
+under the _Utvikler_ section and the _Setup Vipps Login_ panel.
 
 ## If a user removes their consents, is the `sub` still the same?
 
@@ -219,7 +219,7 @@ the claim `sub` that is delivered based on the `openid` scope. This unique
 identifier will allow you to keep a consistent user profile even if the user
 changes contact information.
 
-Beware that Vipps Login it not an electronic ID. Thus, the NIN can only be
+Be aware that Vipps Login it not an electronic ID. Thus, the NIN can only be
 used to simplify the customers processes by removing manual input or to look up
 the customer in your own or external registers. This can be done as part of the
 processes to become a customer or to link login with Vipps to an existing user.
@@ -360,10 +360,10 @@ With regard to the processing of personal data and GDPR, the following applies
 to Vipps Login:
 
 1. Vipps Login gives a merchant the opportunity to ask a Vipps end user to share
-   a selection of data from their profile in Vipps. This can e.g. be name, phone
-   number, email, addresses and date of birth. The merchant controls which of
-   these data they request. The user must consent to the sharing of data for
-   this to be done. The consent is the legal basis for Vipps AS' transfer of
+   a selection of data from their profile in Vipps. This can include name, phone
+   number, email, addresses, and date of birth. The merchant controls which of
+   this data is requested. The user must consent to the sharing of data.
+   The consent is the legal basis for the Vipps AS transfer of
    this information to the merchant.
 2. Vipps AS is responsible for our processing of information related to Vipps
    end users and the personal information generated using the Vipps services.
@@ -392,7 +392,7 @@ See more information in our end user
 [terms and condition](https://www.vipps.no/vilkar/vilkar-privat/),
 [privacy policy](https://www.vipps.no/vilkar/cookie-og-personvern/)
 and
-[merchant agreement](https://www.vipps.no/vilkar/vilkar-bedrift/)
+[merchant agreement](https://www.vipps.no/vilkar/vilkar-bedrift/).
 
 ## Can we control the language displayed to the user?
 
@@ -424,10 +424,11 @@ to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory
 
 ## How can we detect users' consent removal?
 
-Or: How can our system dynamically "know/find out" if the user has revoked the consent
-for us to have access to his/her personal data in our system?
+Or: _How can our system dynamically "know/find out" if the user has revoked the consent
+for us to have access to his/her personal data in our system?_
 
-We have a system for notifying merchants when an end user revokes their consent.
+Your system can dynamically detect when a user's consent has been revoked by using _consent webhooks_.
+This is a system for notifying merchants when an end user revokes their consent.
 See the
 [Consent webhooks](api-guide/important-information.md#revoke-consent-webhook) section for more information.
 
