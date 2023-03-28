@@ -11,7 +11,7 @@ END_METADATA -->
 
 # Partner keys
 
-In addition to the normal authentication, we offer [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys) which allow partners make API calls on behalf of their merchants.
+In addition to the normal authentication, we offer [Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys) which allow partners make API calls on behalf of their merchants.
 
 Partner keys are available for the following flows:
 
@@ -25,13 +25,13 @@ If you are a Vipps partner managing integrations on behalf of Vipps merchants, y
 The main differences between partner key integration and merchant integration are:
 
 * For merchant integration, authentication is based on the Vipps Login access token, described in the [Access token](core-concepts.md#access-token) section.
-  But for partner key integration, a token is obtained from [POST: /accesstoken/get](https://vippsas.github.io/vipps-developer-docs/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost). This is the same token endpoint used for eCom payments. The token must be passed as a Bearer token in the header e.g `Authorization: Bearer <access-token>`. For partner key integration, this authorization method _must_ be used. The `token_endpoint_authentication` methods, `client_secret_basic` and `client_secret_post`, do not work for partner key integrations.
+  But for partner key integration, a token is obtained from [POST: /accesstoken/get](https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost). This is the same token endpoint used for eCom payments. The token must be passed as a Bearer token in the header e.g `Authorization: Bearer <access-token>`. For partner key integration, this authorization method _must_ be used. The `token_endpoint_authentication` methods, `client_secret_basic` and `client_secret_post`, do not work for partner key integrations.
 * For partner key integration, the `Merchant-Serial-Number` header must be sent as part of backend requests to identify which merchant you're acting on behalf of.
 
 Read more about partner verification in:
 
-* [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
-* [Access token API guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/access-token-api)
+* [Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys)
+* [Access token API guide](https://developer.vippsmobilepay.com/docs/APIs/access-token-api)
 
 Browser and phone number flows have minor differences and are described in more detail further down.
 
@@ -51,7 +51,7 @@ This request will return a redirect to a `/auth` url where the `msn` query param
 
 For the `/token` endpoint, you should authenticate using an access token. Regular `client_secret_basic` or `client_secret_post` does not work for partner key integration.
 
-1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
+1. Fetch [access_token](https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
 2. Use the access token in the `Authorization` header, `Bearer access-token`.
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number.
 
@@ -70,7 +70,7 @@ grant_type=authorization_code&code={authorization_code}&redirect_uri={redirect_u
 
 The `Merchant-Serial-Number` header must be sent in the header of all API requests.
 
-1. Fetch [access_token](https://vippsas.github.io/vipps-developer-docs/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
+1. Fetch [access_token](https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
 2. Use the access token in the `Authorization` header `Bearer access-token`
 3. Add the `Merchant-Serial-Number` header with the target merchant serial number
 

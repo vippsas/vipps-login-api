@@ -16,7 +16,7 @@ See the [Vipps Login API](api-guide/README.md) for all the technical details.
 
 For more common Vipps questions, see:
 
-* [Vipps API General FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs)
+* [Vipps API General FAQ](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs)
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
@@ -24,19 +24,19 @@ You can also find frequently asked questions in the
 <!-- START_COMMENT -->
 
 ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
+[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 
 <!-- END_COMMENT -->
 
 ## Where do I find the `client_id` and `client_secret`?
 
 See:
-[Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
+[Common topics: API Keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
 
 ## How can I activate and set up Vipps Login?
 
 You can activate Vipps Login on the [portal.vipps.no](https://portal.vipps.no).
-See [Developer resources: Vipps portal: How to setup login on your sales unit](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+See [Developer resources: Vipps portal: How to setup login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 
 ## What are the requirements for redirect URIs?
@@ -108,7 +108,7 @@ This means that the `client_id` and `client_secret` used is not valid for Vipps 
 Please check:
 
 * Have you activated Vipps Login and set up a redirect URI? See:
-  [Developer resources: Portal: How to setup login on your sales unit?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+  [Developer resources: Portal: How to setup login on your sales unit?](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 * Have you double checked that the `redirect_uri` used in the API call is
   _exactly_ the same as the one specified on
   [portal.vipps.no](https://portal.vipps.no)?
@@ -118,12 +118,12 @@ Please check:
   is an exact match.
 * Are you using the `client_id` and `client_secret` for the correct environment?
   There are separate API keys for test and production. See:
-  [Common topics: API Keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-keys).
+  [Common topics: API Keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys).
 
 ## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
 
 You can get this error if you have both the Vipps
-[test app](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/test-environment#vipps-test-apps)
+[test app](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps)
 and production app on the same phone.
 
 ## Which scopes can I use? Why do I get `Invalid_scope`?
@@ -189,7 +189,7 @@ next 168 hours, even though the user revokes the consent in this period.
 Revoking consents will immediately affect future login and payment sessions.
 
 See:
-[Userinfo API](https://vippsas.github.io/vipps-developer-docs/docs/APIs/userinfo-api).
+[Userinfo API](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api).
 
 ## Can a Vipps user less than 15 years old use Vipps Login?
 
@@ -336,7 +336,7 @@ as a key feature of the service.
 
 Yes, statistics on successful logins with Vipps in production is available on
 the
-[API Dashboard](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/developer-resources/api-dashboard).
+[API Dashboard](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/api-dashboard).
 
 Choose the sales unit with Vipps Login that you would like to see, the time
 period you would like to have covered and click "Fetch data".
@@ -416,7 +416,7 @@ Azure B2C uses `client_secret_post` as `token_endpoint_auth_method` and the defa
 See [How can I use `client_secret_post` for authentication?](#how-can-i-use-client_secret_post-for-authentication)
 
 Vipps Login does not return user information in the `id_token`, but there is a
-[userinfo endpoint](https://vippsas.github.io/vipps-developer-docs/api/userinfo#operation/userinfoAuthorizationCode)
+[userinfo endpoint](https://developer.vippsmobilepay.com/api/userinfo#operation/userinfoAuthorizationCode)
  for this use case. See
 [the Login API userinfo endpoint documentation](api-guide/integration.md#userinfo).
 Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
@@ -435,7 +435,7 @@ See the
 
 Yes. You can register as many callback URLs as you want; and then you specify which
 one you use in the request to
-[/auth](https://vippsas.github.io/vipps-developer-docs/api/login#tag/Vipps-Login-API/operation/oauthAuth).
+[/auth](https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/oauthAuth).
 
 ## Can I use a custom URL scheme for the `redirect_url`?
 
@@ -462,7 +462,7 @@ _Profile_ > _Personal Information_ > _Browsers that remember you_, select a brow
 ## Common errors
 
 See
-[FAQ: Common errors](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/common-errors-faq)
+[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/common-errors-faq)
 for more questions.
 
 ### Why do I get `The client or its related sales unit or merchant does not exist or is not active`?
@@ -476,7 +476,7 @@ has been deactivated at [Brønnøysundregistrene](https://www.brreg.no).
 We do not currently support any flows that requires requests being made from browsers.
 
 See:
-[Common problems: Why do I get a CORS error?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/common-problems-faq#why-do-i-get-a-cors-error).
+[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/common-problems-faq#why-do-i-get-a-cors-error).
 
 ### Why do I get `No CSRF value available in the session cookie`?
 

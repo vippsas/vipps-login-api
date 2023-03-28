@@ -14,7 +14,7 @@ END_METADATA -->
 <!-- START_COMMENT -->
 
 ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api).
+[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 
 <!-- END_COMMENT -->
 
@@ -25,7 +25,7 @@ For technical documentation go to
 
 We also have [How Login works in the browser](vipps-login-api-howitworks.md)
 
-This solution features in our [Loyalty at POS solution](https://vippsas.github.io/vipps-developer-docs/docs/vipps-solutions/loyalty-in-pos).
+This solution features in our [Loyalty at POS solution](https://developer.vippsmobilepay.com/docs/vipps-solutions/loyalty-in-pos).
 
 ## The login from phone number process
 
