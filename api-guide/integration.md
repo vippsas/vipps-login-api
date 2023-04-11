@@ -264,7 +264,9 @@ Example response:
 
 This endpoint returns the payload with the information that the user has consented to share, which is provided in
 the OAuth 2.0 access token.
-You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
+This is also called "Profile Sharing".
+
+You can learn more at [OIDC Standard](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
 
 **Request**
 

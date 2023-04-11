@@ -109,8 +109,8 @@ We strongly encourage partners to use the `msn` claim in the ID token for this p
 
 ## Merchant Serial Number (MSN)
 
-This is a unique id for the sales unit. This is a required parameter if you are a Vipps partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
+This is a unique ID for the sales unit. This is a required parameter if you are a Vipps partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
 
 ## Userinfo
 
-For fetching userinfo the token received during the login flow must be used.
+For fetching userinfo, the token received during the login flow must be used.
