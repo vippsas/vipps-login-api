@@ -122,7 +122,7 @@ Please check:
 
 ## Why do I get `invalid_grant`?
 
-The most common reason is that the token has expired. 
+The most common reason is that the authorization code has expired.
 
 From
 [RFC 6749](https://www.rfc-editor.org/rfc/rfc6749#section-5.2):
