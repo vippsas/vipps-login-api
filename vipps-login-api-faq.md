@@ -101,7 +101,7 @@ and see which method is currently active:
 
 ![Token endpoint authentication method choice in the portal](images/portal_token_endpoint_authentication_method.png)
 
-## Why do I get `Error: invalid_client`?
+## Why do I get `invalid_client`?
 
 This means that the `client_id` and `client_secret` used is not valid for Vipps Login.
 
@@ -120,13 +120,18 @@ Please check:
   There are separate API keys for test and production. See:
   [Common topics: API Keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys).
 
-## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
+## Why do I get `invalid_grant`?
 
-You can get this error if you have both the Vipps
-[test app](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps)
-and production app on the same phone.
+The most common reason is that the token has expired. 
 
-## Which scopes can I use? Why do I get `Invalid_scope`?
+From
+[RFC 6749](https://www.rfc-editor.org/rfc/rfc6749#section-5.2):
+
+> The provided authorization grant (e.g., authorization code, resource owner credentials)
+> or refresh token is invalid, expired, revoked, does not match the redirection URI used
+> in the authorization request, or was issued to another client.
+
+## Which scopes can I use? Why do I get `invalid_scope`?
 
 If you get `Invalid_scope` this means that you have included one or more scopes
 that you do not have access to or that is not supported.
@@ -161,6 +166,19 @@ You can find the list of scopes that your individual sales units have access to 
 [portal.vipps.no](https://portal.vipps.no)
 under the _Utvikler_ section and the _Setup Vipps Login_ panel.
 
+## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
+
+You can get this error if you have both the Vipps
+[test app](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps)
+and production app on the same phone.
+
+## Is the `sub` unique per MSN?
+
+Yes, the `sub` is unique for each MSN (sales unit).
+You can not not the `sub` for one MSN with the API keys for a different MSN
+with the
+[Userinfo API](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api).
+
 ## If a user removes their consents, is the `sub` still the same?
 
 Yes, the `sub` provided will be the same when the user logs in again and re-consents.
@@ -182,11 +200,11 @@ it's requested by the merchant. The users information is then available for
 the merchant from the userinfo endpoint. For login sessions, user information
 is available for the ongoing login session.
 
-To better support merchants that
-do not handle online fetching and processing of the user info as part of a
-payment session, we keep this information accessible for the merchant for the
-next 168 hours, even though the user revokes the consent in this period.
-Revoking consents will immediately affect future login and payment sessions.
+To better support merchants that do not handle online fetching and processing
+of the user info as part of a payment session, we keep this information accessible
+for the merchant for the next **168 hours**, even though the user revokes the
+consent in this period. Revoking consents will immediately affect future login
+and payment sessions.
 
 See:
 [Userinfo API](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api).
