@@ -173,26 +173,19 @@ You can get this error if you have both the Vipps
 [test app](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps)
 and production app on the same phone.
 
-## Is the `sub` unique per MSN?
+## What is the sub?
+The `sub` is a unique user identifier for a Vipps user. The `sub` is based on the user's national identity number ("fødselsnummer" in Norway).
 
-Yes, the `sub` is unique for each MSN (sales unit).
-You can not not the `sub` for one MSN with the API keys for a different MSN
+The `sub` is unique for each MSN (sales unit).
+You can not use the `sub` for one MSN with the API keys for a different MSN
 with the
 [Userinfo API](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api).
 
-## If a user removes their consents, is the `sub` still the same?
+The `sub` will not change if a user removes their consents, and logs in again and re-consents.
 
-Yes, the `sub` provided will be the same when the user logs in again and re-consents.
-
-## If a user deletes their Vipps Profile and create a new one, is the `sub` still the same?
-
-No, upon deletion of the Vipps Profile the `sub` is also removed.
-
-## If a user changes phone number, is the `sub` still the same?
-
-No, in order to sign up with a new phone number a user will have to delete the
-Vipps profile on the old phone number. When this Vipps profile is deleted, the
-`sub` is also removed.
+There are some special cases where the `sub` will change for a user:
+- If a user deletes their Vipps Profile and creates a new one.
+- If a user changes their phone number
 
 ## Why can I get userinfo after the user has revoked consent?
 
