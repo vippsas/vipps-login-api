@@ -58,35 +58,6 @@ endpoint.
   In this case a path is required: `myapp://path-to-something`
   (not just `myapp://`).
 
-## How can I change my name and logo?
-
-Vipps Login will show the name of the sales unit you use in the different
-Vipps Login user dialogues. This includes the confirm login screen, the give
-consent screen and the overview of consents given.
-
-You can administer this name for `production` in
-[portal.vipps.no](https://portal.vipps.no).
-
-To change your display name in production you go to sales units ("salgssteder") in the
-left menu and select the correct unit. From this page you can see the key
-information for this sales unit:
-
-![You can administer this name in [portal.vipps.no](https://portal.vipps.no).
-
-You go to the sales unit ("salgssted") and click the correct unit. From this
-page you can see the key information for this sales unit
-![See sales unit info](images/Sales_unit_see_info.png)
-
-By clicking "Rediger" next to the "Visning i appen" heading you will come to a
-screen where you both can update your name and ad your logo:
-
-![By clicking "Rediger" next to the "Visning i appen" heading you will come to a screen where you both can update your name and ad you logo:](images/Sales_unit_change_name_and_logo.png)
-
-Currently, this logo is not use for Vipps Login but soon it will be shown in the
-overview of consents given.
-
-Unfortunately you cannot change the name used for the test environment.
-
 ## How can I use `client_secret_post` for authentication?
 
 It is possible to change the token endpoint authentication method on
