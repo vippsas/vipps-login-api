@@ -123,6 +123,7 @@ Please check:
 ## Why do I get `invalid_grant`?
 
 The most common reason is that the authorization code has expired.
+The code is short-lived, so it will only be valid for a couple of minutes.
 
 From
 [RFC 6749](https://www.rfc-editor.org/rfc/rfc6749#section-5.2):
