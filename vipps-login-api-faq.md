@@ -158,6 +158,13 @@ There are some special cases where the `sub` will change for a user:
 - If a user deletes their Vipps Profile and creates a new one.
 - If a user changes their phone number
 
+## How long is userinfo available for?
+
+The lifetime of the access token received during the login flow decides how long userinfo is available. This will typically be about 10 minutes.
+
+Userinfo during payments has different lifetimes see:
+[Userinfo API](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api).
+
 ## Why can I get userinfo after the user has revoked consent?
 
 During a login or a payment session the user consent to share information if
