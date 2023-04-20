@@ -154,7 +154,7 @@ for this and more information about the `sub`.
 
 When the user consents to sharing information with the merchant, the merchant
 has ~10 minutes to retrieve the information.
-The infomration can be retrieved evey time the user logs in.
+The information can be retrieved every time the user logs in.
 The merchant must save this information and handle everything according to GDPR.  
 
 ## Why can I get userinfo after the user has revoked consent?
