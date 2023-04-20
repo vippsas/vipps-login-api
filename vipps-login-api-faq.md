@@ -150,6 +150,13 @@ See:
 [Userinfo API FAQ: What is the `sub`](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-userinfo-api-faq/#what-is-the-sub)
 for this and more information about the `sub`.
 
+## How can I get updated information, like addresses, for a user?
+
+When the user consents to sharing information with the merchant, the merchant
+has ~10 minutes to retrieve the information.
+The infomration can be retrieved evey time the user logs in.
+The merchant must save this information and handle everything according to GDPR.  
+
 ## Why can I get userinfo after the user has revoked consent?
 
 During a login or a payment session the user consent to share information if
