@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Login API checklist
 sidebar_label: Checklist
@@ -7,16 +6,8 @@ description: Checklist for full integration with the Login API.
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # Checklist
-
-<!-- START_COMMENT -->
-
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
-
-<!-- END_COMMENT -->
 
 API version: 2.0.
 

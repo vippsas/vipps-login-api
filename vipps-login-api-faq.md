@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Login API frequently asked questions
 sidebar_label: FAQ
@@ -7,7 +6,6 @@ description: Login API frequently asked questions
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # Frequently asked questions
 
@@ -20,13 +18,6 @@ For more common Vipps questions, see:
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
-
-<!-- START_COMMENT -->
-
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
-
-<!-- END_COMMENT -->
 
 ## Where do I find the `client_id` and `client_secret`?
 

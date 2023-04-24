@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Automatic return from Vipps app
 sidebar_label: Automatic return from app
@@ -7,7 +6,6 @@ description: Enable automatic return from the Vipps app.
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # Automatic return from Vipps app
 

@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: How Vipps Login works from a phone number
 sidebar_label: From a phone number
@@ -7,16 +6,9 @@ description: How Vipps Login works from phone number
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # How Vipps Login works from phone number
 
-<!-- START_COMMENT -->
-
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
-
-<!-- END_COMMENT -->
 
 Let your customers share their information or confirm who they are by triggering a Login flow on their device based on their phone number.
 
