@@ -147,7 +147,7 @@ and production app on the same phone.
 ## What is the `sub`?
 
 See:
-[Userinfo API FAQ: What is the `sub`](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-userinfo-api-faq/#what-is-the-sub)
+[Userinfo API FAQ: What is the `sub`](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api/userinfo-api-faq/#what-is-the-sub)
 for this and more information about the `sub`.
 
 ## How can I get updated information, like addresses, for a user?
