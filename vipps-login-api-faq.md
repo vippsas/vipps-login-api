@@ -146,34 +146,16 @@ and production app on the same phone.
 
 ## What is the `sub`?
 
-The `sub` is a unique user identifier for a Vipps user, related to that user's consent
-to share information with a specific MSN (sales unit).
+See:
+[Userinfo API FAQ: What is the `sub`](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-userinfo-api-faq/#what-is-the-sub)
+for this and more information about the `sub`.
 
-The `sub` is _based on_ the user's national identity number ("fødselsnummer" in Norway),
-but  is not a replacement for NIN (National Identity Number) or any other unique identifier
-for the user. 
+## How can I get updated information, like addresses, for a user?
 
-The `sub` is unique for each MSN (sales unit).
-User may have many different `sub`s for the same merchant: One for each of
-the merchant's MSNs (sales units).
-You can not use the `sub` for one MSN with the API keys for a different MSN.
-
-The `sub` will not change if a user removes their consents, and logs in again and re-consents.
-
-See
-[Userinfo API](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api)
-for more details about how to retrieve the user's data based on the `sub`.
-
-**Please note:** There are some special cases where the `sub` will change for a user:
-- If a user deletes the Vipps Profile and creates a new one.
-- If a user changes the phone number (in practice: Creates a new Vipps user)
-
-## How long is userinfo available for?
-
-The lifetime of the access token received during the login flow decides how long userinfo is available. This will typically be about 10 minutes.
-
-Userinfo during payments has different lifetimes see:
-[Userinfo API](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api).
+When the user consents to sharing information with the merchant, the merchant
+has ~10 minutes to retrieve the information.
+The information can be retrieved every time the user logs in.
+The merchant must save this information and handle everything according to GDPR.  
 
 ## Why can I get userinfo after the user has revoked consent?
 
