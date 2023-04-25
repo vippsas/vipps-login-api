@@ -39,7 +39,7 @@ See [How to setup login on your sales unit](https://developer.vippsmobilepay.com
 
 Save the following files to your computer:
 
-* [Login API Postman collection](tools/vipps-login-api.postman_collection.json)
+* [Login API Postman collection](/tools/vipps-login-api.postman_collection.json)
 * [Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
 ### Step 3: Import the Postman files
