@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: No dialog flow
 sidebar_label: No dialog flow
@@ -7,7 +6,6 @@ description: Log the user in directly when possible.
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # No dialog flow
 

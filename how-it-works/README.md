@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: How the Login API works
 sidebar_label: How it works
@@ -7,16 +6,9 @@ description: View the Login API how-it-works guides for illustrations of the mai
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # How the Login API works
 
-<!-- START_COMMENT -->
-
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
-
-<!-- END_COMMENT -->
 
 View the Login API how-it-works guides for illustrations of the main flows.
 

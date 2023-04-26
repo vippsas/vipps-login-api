@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Login API guide
 sidebar_label: API guide
@@ -7,18 +6,12 @@ description: Login API guide.
 pagination_prev: Null
 pagination_next: Null
 ---
-END_METADATA -->
 
 # Login API guide
 
 API version: 2.0
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/).
-
-<!-- END_COMMENT -->
 
 Vipps Login is the easiest way to sign in and create an account in both digital and physical settings. No typing required! Users don’t need to worry about forgetting or loosing their usernames and passwords. All they need to remember is their phone number. Vipps Login is easier for the user while you as a merchant get better conversion and data quality.
 

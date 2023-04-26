@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Introduction to the Login API
 sidebar_label: Introduction
@@ -8,16 +7,8 @@ description: Use the Login API to allow users to log in to your service by using
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # Introduction
-
-<!-- START_COMMENT -->
-
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
-
-<!-- END_COMMENT -->
 
 With the Login API, users can log in to your service by using their Vipps account.
 This simplifies the process for users, as they don't need to fill out a form or remember a password to access your services.

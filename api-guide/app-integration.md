@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: App integration
 sidebar_label: App integration
@@ -7,7 +6,6 @@ description: Enable automatic switch of users back to the merchant app from the 
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # App integration
 
