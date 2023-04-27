@@ -20,7 +20,7 @@ paths:
         https://openid.net/specs/openid-connect-discovery-1_0.html
       tags:
         - Vipps Login API
-      summary: Get ODIC well-known endpoint
+      summary: OpenID configuration endpoint
       operationId: discoverOpenIDConfiguration
       responses:
         "200":
