@@ -290,7 +290,7 @@ to ensure sufficient entropy. A GUID is a good choice for a state parameter valu
 
 Yes, partner keys can be used for both _Vipps Login in Browser_ and _Vipps Login from Phone number_.
 Be aware that the partner key integration
-[differs slightly from a regular merchant integration.](api-guide/partner-keys.md).
+[differs slightly from a regular merchant integration](api-guide/partner-keys.md).
 
 Vipps Login supports some scenarios where a merchant can be used for registration and
 login to other sites/merchants. Specific terms and conditions related to
@@ -322,7 +322,7 @@ to see the number of logins with and without these
 scopes. If you click _Show details_ under the graph, you can see total logins
 for the period and the number of unique users in the selected period.
 
-Keep in mind that there may be up to 10 minutes delay from whe a login occurs
+Keep in mind that there may be up to 10-minute delay from when a login occurs
 until it appears on the dashboard.
 
 **Please note:** The statistics are only available for the production environment.
@@ -336,9 +336,9 @@ to Vipps Login:
    a selection of data from their profile in Vipps. This can include name, phone
    number, email, addresses, and date of birth. The merchant controls which of
    this data is requested. The user must consent to the sharing of data.
-   The consent is the legal basis for the Vipps AS transfer of
+   The consent is the legal basis for the Vipps AS (hereafter called Vipps) transfer of
    this information to the merchant.
-2. Vipps AS is responsible for our processing of information related to Vipps
+2. Vipps is responsible for our processing of information related to Vipps
    end users and the personal information generated using the Vipps services.
    For the Vipps Login service, the merchant will be responsible for the
    processing of the profile information received, starting when the merchant
@@ -346,20 +346,20 @@ to Vipps Login:
    be an independent data processor for this data, and there is no need for a
    data processing agreement between Vipps and the merchant.
 3. The merchant must therefore obtain a valid basis for further processing of
-   the personal data (e.g agreement, terms or consent), to e.g. register the
+   the personal data (e.g., agreement, terms or consent), to e.g. register the
    information in its customer register and start customer processing from there.
-4. When such sharing from Vipps AS to the merchant has been made, a Vipps end
+4. When such sharing from Vipps to the merchant has been made, a Vipps end
    user can later use Vipps to log in to the merchant, and the merchant will
    then have access to updated information on the data elements that the company
    has requested. A Vipps end user can go into Vipps (the app) and see which
-   companies they have shared data with, which data has been shared and they
+   companies they have shared data with, which data has been shared, and they
    can withdraw their consent to share. This means that new consent must be
-   obtained before Vipps AS can share data again with the merchant.
-5. When an end user uses Vipps Login at a merchant, Vipps AS stores, as part
-   of our service to the Vipps end user and with Vipps AS as data processor,
+   obtained before Vipps can share data again with the merchant.
+5. When an end user uses Vipps Login at a merchant, Vipps stores, as part
+   of our service to the Vipps end user and with Vipps as data processor,
    information about a) what information a user has agreed to share with a
    merchant and b) when a user has used Vipps log in to the relevant merchant.
-6. Vipps AS does not receive any information from the merchant about Vipps end user.
+6. Vipps does not receive any information from the merchant about Vipps end user.
 
 See more information in our end user
 [terms and condition](https://www.vipps.no/vilkar/vilkar-privat/),
@@ -392,7 +392,7 @@ Vipps Login does not return user information in the `id_token`, but there is a
 [userinfo endpoint](https://developer.vippsmobilepay.com/api/userinfo#operation/userinfoAuthorizationCode)
  for this use case. See
 [the Login API userinfo endpoint documentation](api-guide/integration.md#userinfo).
-Azure B2C's User Flows does not use the userinfo endpoint and you will therefore need
+Azure B2C's User Flows does not use the userinfo endpoint, and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
 
 ## How can we detect users' consent removal?
@@ -425,8 +425,8 @@ Press  _rediger_ (_edit_) under _salgsstedsinfo_ (_sales unit information_) and 
 
 ## How can I log a user out?
 
-_Vipps Login_ does not support merchant-initiated log-out in the browser. as this
-would effectively log the user out of Vipps Login (meaning that the user will no
+_Vipps Login_ does not support merchant-initiated log-out in the browser, as this
+would effectively log the user out of Vipps (meaning that the user will no
 longer be remembered in the browser across sites that use Vipps Login). You
 are of course free to log the user out of your service (by disabling your own session).
 
@@ -441,7 +441,7 @@ for more questions.
 
 ### Why do I get `The client or its related sales unit or merchant does not exist or is not active`?
 
-This means that the API credentials are for a MSN (Merchant Serial Number)
+This means that the API credentials are for an MSN (Merchant Serial Number)
 that does not exist, or is not active. This can happen if the organization number
 has been deactivated at [Brønnøysundregistrene](https://www.brreg.no).
 
@@ -454,7 +454,7 @@ See:
 
 ### Why do I get `No CSRF value available in the session cookie`?
 
-Certain versions of Chrome gives the error `No+CSRF+value+available+in+the+session+cookie`.
+Certain versions of Chrome give the error `No+CSRF+value+available+in+the+session+cookie`.
 Upgrading to the latest version of Chrome should solve this.
 
 ### Why do I get `HTTP 502 Bad Gateway`?
@@ -462,7 +462,7 @@ Upgrading to the latest version of Chrome should solve this.
 Some merchants have experienced a 502 Bad gateway response from [api.vipps.no](https://api.vipps.no).
 This typically occurs in situations in which the `state` or `nonce` parameter
 is 1000+ characters. We've seen this issue when any of the requests in the
-redirect sequence are too long (i.e 2000+ characters). Therefore, try to keep
+redirect sequence are too long (i.e.,2000+ characters). Therefore, try to keep
 these parameters at sane lengths. If there is a need to encode some payload in
 the `state` (i.e a JWT), it would be a better option to cache this at the
 client server and use the key as `state`.
