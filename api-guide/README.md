@@ -27,9 +27,3 @@ The following topics are described:
     - [Vipps login from phone number](flows/phone-number-ciba-flows.md) and direct login in the Vipps app.
     - [No dialog flow](flows/no-dialog.md) to check if a user is already logged in.
 - [Partner keys](partner-keys.md) facilitating integration for partners.
-
-**Please note:** The information fetched from the Report API is
-asynchronous and trailing behind the other APIs. It is usually behind
-by a second or so, but if there are operational problems, it could, in the worst
-case, be behind by several hours. Therefore, you should always use other
-Vipps APIs as the source of truth for the status of an operation.
