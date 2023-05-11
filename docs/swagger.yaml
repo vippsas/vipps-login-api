@@ -554,7 +554,7 @@ components:
       in: header
       description: |-
         The version number of the ecommerce plugin (if applicable).
-        See [http-headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers).
+        See [HTTP headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers).
       schema:
         type: string
         maxLength: 30
