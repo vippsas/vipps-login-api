@@ -544,7 +544,7 @@ components:
       description: |-
         The name of the plugin (if applicable).
         One word in lowercase letters is good.
-        See [http-headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers).
+        See [HTTP headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers).
       schema:
         type: string
         maxLength: 30
