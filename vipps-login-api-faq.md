@@ -94,6 +94,12 @@ From
 > or refresh token is invalid, expired, revoked, does not match the redirection URI used
 > in the authorization request, or was issued to another client.
 
+## Why do I get `invalid_request`?
+
+The most common reason is that the `redirect_uri` sent in the API request is not identical to one of the URIs registered by the merchant on [portal.vipps.no](https://portal.vipps.no).
+
+Please check that you are including the necessary required parameters in the API request.
+
 ## Which scopes can I use? Why do I get `invalid_scope`?
 
 If you get `Invalid_scope` this means that you have included one or more scopes
