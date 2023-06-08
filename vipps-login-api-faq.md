@@ -99,7 +99,7 @@ From
 The most common reason is that the `redirect_uri` sent in the API request is not identical
 to one of the URIs registered by the merchant on [portal.vipps.no](https://portal.vipps.no).
 
-The `redirect_uri` must be an exact match, meaning captialization, query string, etc.
+The `redirect_uri` must be an exact match, meaning capitalization, query string, etc.
 It must be 100 % identical.
 
 Please check that you are including the necessary required parameters in the API request.
