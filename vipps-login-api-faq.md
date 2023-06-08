@@ -94,6 +94,8 @@ From
 > or refresh token is invalid, expired, revoked, does not match the redirection URI used
 > in the authorization request, or was issued to another client.
 
+If you first make one request, and then repeat the same request, you will get this error.
+
 ## Why do I get `invalid_request`?
 
 The most common reason is that the `redirect_uri` sent in the API request is not identical
