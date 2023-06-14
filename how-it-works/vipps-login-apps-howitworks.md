@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: How Login works from apps
 sidebar_label: From apps 
@@ -6,6 +7,7 @@ description: How Login works from apps.
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # How Login works from apps
 

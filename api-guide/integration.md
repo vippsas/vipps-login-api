@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Browser flow integration
 sidebar_label: Browser flow integration
@@ -6,6 +7,7 @@ description: Manual integration with Vipps Login for the browser flow.
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Browser flow integration
 

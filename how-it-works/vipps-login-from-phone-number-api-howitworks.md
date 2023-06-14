@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: How Vipps Login works from a phone number
 sidebar_label: From a phone number
@@ -6,6 +7,7 @@ description: How Vipps Login works from phone number
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # How Vipps Login works from phone number
 

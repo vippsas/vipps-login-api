@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: How Login works in the browser
 sidebar_label: In the browser
@@ -6,6 +7,7 @@ description: How Login works in the browser.
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # How Login works in the browser
 

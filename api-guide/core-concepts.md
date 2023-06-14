@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Core concepts
 sidebar_label: Core concepts
@@ -6,6 +7,7 @@ description: Core concepts related to OAuth2 and OpenID Connect standards as use
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Core concepts
 

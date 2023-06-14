@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Login API checklist
 sidebar_label: Checklist
@@ -6,6 +7,7 @@ description: Checklist for full integration with the Login API.
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Checklist
 

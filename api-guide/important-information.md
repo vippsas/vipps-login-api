@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Important information
 sidebar_label: Important information
@@ -6,6 +7,7 @@ description: Important information needed for Login
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Important information
 

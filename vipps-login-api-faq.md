@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Login API frequently asked questions
 sidebar_label: FAQ
@@ -6,6 +7,7 @@ description: Login API frequently asked questions
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Frequently asked questions
 
