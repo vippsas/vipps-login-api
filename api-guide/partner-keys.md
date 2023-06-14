@@ -28,8 +28,8 @@ The main differences between partner key integration and merchant integration ar
   [Access token](core-concepts.md#access-token) section.
   But for partner key integration, a token is obtained from
   [`POST: /accesstoken/get`](https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost).
-  This is the same token endpoint used for eCom payments. The token must be passed as a Bearer token
-  in the header e.g `Authorization: Bearer <access-token>`. For partner key integration, this
+  This is the same token endpoint used for eCom API payments. The token must be passed as a Bearer token
+  in the header (e.g., `Authorization: Bearer <access-token>`). For partner key integration, this
   authorization method _must_ be used. The `token_endpoint_authentication` methods,
   `client_secret_basic` and `client_secret_post`, do not work for partner key integrations.
 * For partner key integration, the `Merchant-Serial-Number` header must be sent as part of
@@ -46,13 +46,13 @@ Browser and phone number flows have minor differences and are described in more 
 
 ### Authorization endpoint
 
-To initiate a login as partner, redirect the end-user's browser to a `/auth` url containing the merchant serial number as a `msn` query parameter instead of `client_id`.
+To initiate a login as partner, redirect the end-user's browser to a `/auth` URL containing the merchant serial number as a `msn` query parameter instead of `client_id`.
 
 ```http request
 GET https://api.vipps.no/access-management-1.0/access/oauth2/auth?msn={Merchant-Serial-Number}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}
 ```
 
-This request will return a redirect to a `/auth` url where the `msn` query parameter is replaced by the merchant's `client_id`
+This request will return a redirect to a `/auth` URL where the `msn` query parameter is replaced by the merchant's `client_id`
 
 ### Token endpoint
 

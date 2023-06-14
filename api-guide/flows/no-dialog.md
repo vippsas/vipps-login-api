@@ -38,6 +38,6 @@ If the user completes the login, they will be returned to the `redirect_uri` wit
 
 If the user is not logged in, they will be returned with an error. Some possible errors are `interaction_required`, `login_required` or `server_error`.
 
-Not logged in return uri example: `https://example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
+Not logged in return URI example: `https://example.com/callback?error=interaction_required&error_description=User+interaction+is+required&state=1312312321983212a3b`.
 
 In all cases, a new login can be started by removing the parameter `requested_flow=no_dialog` and initiating a new login for the user.

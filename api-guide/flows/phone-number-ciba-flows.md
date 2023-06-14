@@ -20,7 +20,7 @@ In this flow, the merchant's system triggers the authentication/registration; th
 To ensure a consistent user experience, _Vipps Login from phone number_ is not allowed on webpages and in apps.
 
 A sales unit can use the Login API for many flows.
-It is recommended to use the same sales unit for all use cases to ensure that you get the same user id (`sub`) on the user across different scenarios.
+It is recommended to use the same sales unit for all use cases to ensure that you get the same user ID (`sub`) on the user across different scenarios.
 
 _Login from phone number_ is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request.
 
@@ -39,7 +39,6 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 
 ![Optional confirmation code (`binding_message`)](../../images/CIBA_Confirmation_code.png)
 
-
 ## Complete login in the Vipps app
 
 ### Overview
@@ -52,10 +51,10 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
 ### Call by call
 
-0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
+0. Before all this, the merchant has fetched the OpenID configuration from the well-known endpoint and cached it.
    See [.well-known](../integration.md#openid-connect-discovery-endpoint)
 
-1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
+1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the OpenID configuration fetched in step 0.
 
    For details see [Authentication Request](#authentication-request).
 
@@ -80,9 +79,9 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
     }
     ```
 
-2. The merchant starts polling the `token` endpoint listed in the openid configuration fetched in step 0.
+2. The merchant starts polling the `token` endpoint listed in the OpenID configuration fetched in step 0.
 
-   Polling in this context means doing repeated http requests with a delay between them.
+   Polling in this context means doing repeated HTTP requests with a delay between them.
 
    [Information about polling](#polling). Note that the polling interval should adhere to the `interval` response parameter (in seconds) returned in step 1.
 
@@ -203,7 +202,7 @@ Example: `....&binding_message=4MZ-CQ3&...`
 
 Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment>
 
-Responses according to the standard. Note we do return an `interval` parameter which indicates the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
+Responses according to the standard. Note, we do return an `interval` parameter which indicates the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
 
 ### Token request
 
@@ -225,7 +224,7 @@ In addition to the responses defined by the [standard](https://openid.net/specs/
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
 * `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
-* `error_code=invalid_user`: No account exists, the user's account is not active or the user is in some way not eligible to use this login flow currently e.g. U15 users.
+* `error_code=invalid_user`: No account exists, the user's account is not active, or the user is in some way not eligible to use this login flow currently e.g. U15 users.
 
 ## Redirect to browser
 
@@ -255,10 +254,10 @@ sequenceDiagram
 
 ### Call by call
 
-0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
+0. Before all this, the merchant has fetched the OpenID configuration from the well-known endpoint and cached it.
    See [.well-known](../integration.md#openid-connect-discovery-endpoint).
 
-1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0.
+1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the OpenID configuration fetched in step 0.
 
    For details see [Authentication Request With Redirect](#authentication-request-with-redirect).
 
@@ -443,10 +442,10 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
 
 ### Call by call
 
-0. Before all this, the merchant has fetched the openid configuration from the well-known endpoint and cached it.
+0. Before all this, the merchant has fetched the OpenID configuration from the well-known endpoint and cached it.
    See [.well-known](../integration.md#openid-connect-discovery-endpoint)
 
-1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the openid configuration fetched in step 0 with scope `delegatedConsents`.
+1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the OpenID configuration fetched in step 0 with scope `delegatedConsents`.
 
    For details see [Authentication Request](#authentication-request).
 
@@ -471,9 +470,9 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
     }
     ```
 
-2. The merchant starts polling the `token` endpoint listed in the openid configuration fetched in step 0.
+2. The merchant starts polling the `token` endpoint listed in the OpenID configuration fetched in step 0.
 
-   Polling in this context means doing repeated http requests with a delay between them.
+   Polling in this context means doing repeated HTTP requests with a delay between them.
 
    [Information about polling](#polling). Note that the polling interval should adhere to the `interval` response parameter (in seconds) returned in step 1.
 
@@ -585,7 +584,7 @@ Error responses are listed in [Error responses login from phone number](#error-r
 
 #### Successful responses
 
-Success responses for Vipps login from phone number are listed in [Successful responses login from phone number](#successful-responses)
+Success responses for Vipps login from phone number are listed in [Successful responses for login from phone number](#successful-responses)
 
 ##### Token request
 

@@ -29,8 +29,7 @@ See:
 ## How can I activate and set up Vipps Login?
 
 You can activate Vipps Login on the [portal.vipps.no](https://portal.vipps.no).
-See [Developer resources: Vipps portal: How to setup login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
-
+See [Developer resources: Vipps portal: How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 ## What are the requirements for redirect URIs?
 
@@ -72,8 +71,8 @@ This means that the `client_id` and `client_secret` used is not valid for Vipps 
 Please check:
 
 * Have you activated Vipps Login and set up a redirect URI? See:
-  [Developer resources: Portal: How to setup login on your sales unit?](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
-* Have you double checked that the `redirect_uri` used in the API call is
+  [Developer resources: Portal: How to set up login on your sales unit?](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+* Have you double-checked that the `redirect_uri` used in the API call is
   _exactly_ the same as the one specified on
   [portal.vipps.no](https://portal.vipps.no)?
 * Pay extra attention to whether the URI used in the API request has a
@@ -117,19 +116,19 @@ See:
 
 All merchants have access to these scopes:
 
-* openid
-* address
-* birthdate
-* email
-* name
-* phoneNumber
+* `openid`
+* `address`
+* `birthdate`
+* `email`
+* `name`
+* `phoneNumber`
 
 **Important:** You should never ask for more scopes than you need for your
 application. The user will need to consent to sharing the information with you
 so adding more scopes increases the chance that they will decline.
 
 The scope `openid` is required and does not require user consent. It
-provides the claim `sub` which is a unique id for the end user at that
+provides the claim `sub` which is a unique ID for the end user at that
 particular merchant.
 
 **Please note:** Different sales units will get different `sub`s for the
@@ -165,7 +164,7 @@ The merchant must save this information and handle everything according to GDPR.
 ## Why can I get userinfo after the user has revoked consent?
 
 During a login or a payment session the user consent to share information if
-it's requested by the merchant. The users information is then available for
+it's requested by the merchant. The user's information is then available for
 the merchant from the userinfo endpoint. For login sessions, user information
 is available for the ongoing login session.
 
@@ -245,9 +244,9 @@ by sending an email to
 [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no).
 In the email you must specify:
 
- * Recipient name
- * Recipient email
- * Invoicing address
+* Recipient name
+* Recipient email
+* Invoicing address
 
 ## How can I get started with delegatedConsents?
 
@@ -261,16 +260,16 @@ you will need to supply some information on what consents you will retrieve and 
 We will then tailor this screen to suit your needs. You can see what the flow looks like at
 [Vipps Login from phone number](./how-it-works/vipps-login-from-phone-number-api-howitworks.md).
 
-Please send an email to
+Please email
 [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no)
 and supply the following information:
 
-| Item                                                  | Description                                                                                                                                                                     | Example                                                                           | Comments                                                                                                                                  |
-|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| Top text                                              | Specifies the purpose of collecting the consents                                                                                                                                | "Merchant AS would like to send you tailored offers in several digital channels." |                                                                                                                                           |
-| Subset of consents you would like to request.         | We offer a set of predefined consents. See [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedconsents-which-consents-are-supported). | email, sms, digital, personal                                                     | If you want a consent type that we currently don't support, reach out to us at [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no). |
-| Links to your membership terms and privacy statement. | We must review your terms to ensure that the flow is not intended to mislead or abuse end users.                                                                                | www.merchant.com/termsandconditions <br /> www.merchant.com/privacystatement      |                                                                                                                                           |
-| Recipient to sign DPA                                 | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions                       | recipient@merchant.com                                                            |                                                                                                                                           |
+| Item | Description | Example | Comments |
+|------|-------------|---------|----------|
+| Top text | Specifies the purpose of collecting the consents | "Merchant AS would like to send you tailored offers in several digital channels." | |
+| Subset of consents you would like to request. | We offer a set of predefined consents. See [When using delegatedConsents, which consents are supported?](#when-using-delegatedconsents-which-consents-are-supported). | email, SMS, digital, personal | If you want a consent type that we currently don't support, reach out to us at [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no). |
+| Links to your membership terms and privacy statement. | We must review your terms to ensure that the flow is not intended to mislead or abuse end users. | <www.merchant.com/termsandconditions> <br /> <www.merchant.com/privacystatement> | |
+| Recipient to sign DPA | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions | <recipient@merchant.com> | |
 
 ## When using `delegatedConsents`, which consents are supported?
 
@@ -278,15 +277,15 @@ Vipps Login has support for several consents, and you may select a subset
 of these to include in your own flow, as well as select which of the consents
 that are required/optional. If the consents you need are not currently supported,
 you can make a request to
-[accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no)
+[accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no),
 and we'll be in touch.
 
-| Id       | Consent text (Norwegian)            | Consent text (English)                    |
-|----------|-------------------------------------|-------------------------------------------|
-| email    | Få tilbud på E-post                 | Receive offers via email                  |
-| sms      | Få tilbud på SMS                    | Receive offers via SMS                    |
-| digital  | Jeg vil motta digital markedsføring | I would like to receive digital marketing |
-| personal | Få tilpassede tilbud                | Get customized offers                     |
+| ID         | Consent text (Norwegian)            | Consent text (English)                    |
+|------------|-------------------------------------|-------------------------------------------|
+| `email`    | Få tilbud på E-post                 | Receive offers via email                  |
+| `sms`      | Få tilbud på SMS                    | Receive offers via SMS                    |
+| `digital`  | Jeg vil motta digital markedsføring | I would like to receive digital marketing |
+| `personal` | Få tilpassede tilbud                | Get customized offers                     |
 
 See
 [Merchant delegated consents](api-guide/flows/phone-number-ciba-flows.md#merchants-delegated-consents)
@@ -371,8 +370,8 @@ to Vipps Login:
    obtained before Vipps can share data again with the merchant.
 5. When an end user uses Vipps Login at a merchant, Vipps stores, as part
    of our service to the Vipps end user and with Vipps as data processor,
-   information about a) what information a user has agreed to share with a
-   merchant and b) when a user has used Vipps log in to the relevant merchant.
+   information about (a) what information a user has agreed to share with a
+   merchant and (b) when a user has used Vipps log in to the relevant merchant.
 6. Vipps does not receive any information from the merchant about Vipps end user.
 
 See more information in our end user

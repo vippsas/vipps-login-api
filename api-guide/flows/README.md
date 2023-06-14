@@ -9,7 +9,6 @@ pagination_next: Null
 ---
 END_METADATA -->
 
-
 # Special flows for the Login API
 
 * [Vipps login from phone number](phone-number-ciba-flows.md) direct login in the Vipps app.

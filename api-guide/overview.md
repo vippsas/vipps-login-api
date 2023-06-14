@@ -25,8 +25,12 @@ When Vipps Login is used in the browser, the user can choose to be remembered in
 
 Vipps Login is _not_ an electronic identification or certified eID.
 
-For _Vipps Login in browser_ there are _plugins_ available for several platforms. You find the complete list on our [plugins page](https://developer.vippsmobilepay.com/docs/vipps-plugins).
-If a plugin is not available, the easiest - and **strongly recommended** - way to integrate with the service is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language. Vipps does not recommend a specific library, but the list of [OIDC Relying Party libraries](https://openid.net/developers/certified/) certified by the OpenID Foundation is a good starting point.
+For _Vipps Login in browser_ there are _plugins_ available for several platforms.
+You find the complete list on our [plugins page](https://developer.vippsmobilepay.com/docs/vipps-plugins).
+If a plugin is not available, the easiest - and **strongly recommended** - way to integrate with the service
+is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language.
+Vipps does not recommend a specific library, but the
+[Certified OpenID Developer Tools](https://openid.net/developers/certified/) site is a good starting point.
 
 Vipps Login in browser should only be run in the browser window using redirects (iFrame is not supported, and new window is not recommended).
 
@@ -84,7 +88,7 @@ In the Vipps app, the user confirms the login and can choose whether to be remem
 
 Apps should follow the [recommendations](important-information.md#using-vipps-login-in-native-applications) to use correct browser types for their platform.
 
-There are two specialized flows that merchants can use to automatically switch the user back from the Vipps app to the originating browser/app upon login confirmation. From the illustration above, this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch" will be replaced by an automatic app-switch (eg. deeplink). These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
+There are two specialized flows that merchants can use to automatically switch the user back from the Vipps app to the originating browser/app upon login confirmation. From the illustration above, this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch" will be replaced by an automatic app-switch (e.g., deeplink). These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
 
 Which of the flows to use is controlled with the initiation of the individual login session. The merchant can thus use all available login flows on the same client_id and adapt to the different use cases and login scenarios.
 

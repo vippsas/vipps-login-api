@@ -43,4 +43,5 @@ Some relevant considerations:
 
 ### Verification
 
-It is important that merchants verify that users returning to a different browser than where the login started are handled as expected. It is also recommended to test starting the login in private/incognito mode, as this will have similar effects as being returned to a different browser.
+Verify that users being returned to a browser different from where the login started are handled as expected.
+Test starting the login in private/incognito mode, as this will have similar effects as being returned to a different browser.
