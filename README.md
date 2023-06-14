@@ -27,7 +27,7 @@ For information and to order the product go to:
 
 ## Relates solutions
 
-* [Simplifying registration and payment (Recurring with Login)](https://developer.vippsmobilepay.com/docs/vipps-solutions/recurring-and-login)
+* [Subscriptions](https://developer.vippsmobilepay.com/docs/vipps-solutions/recurring-and-login)
 
 ## Next steps
 
