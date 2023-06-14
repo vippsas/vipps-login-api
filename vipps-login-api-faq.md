@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Login API frequently asked questions
 sidebar_label: FAQ
@@ -6,6 +7,7 @@ description: Login API frequently asked questions
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Frequently asked questions
 
@@ -27,8 +29,7 @@ See:
 ## How can I activate and set up Vipps Login?
 
 You can activate Vipps Login on the [portal.vipps.no](https://portal.vipps.no).
-See [Developer resources: Vipps portal: How to setup login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
-
+See [Developer resources: Vipps portal: How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 ## What are the requirements for redirect URIs?
 
@@ -70,9 +71,9 @@ This means that the `client_id` and `client_secret` used is not valid for Vipps 
 Please check:
 
 * Have you activated Vipps Login and set up a redirect URI? See:
-  [Developer resources: Portal: How to setup login on your sales unit?](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
-* Have you double checked that the `redirect_uri` used in the API call is
-  _exactly_ the same as the one specified on
+  [Developer resources: Portal: How to set up login on your sales unit?](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+* Have you double-checked that the `redirect_uri` used in the API call is
+  *exactly* the same as the one specified on
   [portal.vipps.no](https://portal.vipps.no)?
 * Pay extra attention to whether the URI used in the API request has a
   trailing `/` or URL-encoded entities (like `%20`), and whether the URI added on
@@ -115,19 +116,19 @@ See:
 
 All merchants have access to these scopes:
 
-* openid
-* address
-* birthdate
-* email
-* name
-* phoneNumber
+* `openid`
+* `address`
+* `birthdate`
+* `email`
+* `name`
+* `phoneNumber`
 
 **Important:** You should never ask for more scopes than you need for your
 application. The user will need to consent to sharing the information with you
 so adding more scopes increases the chance that they will decline.
 
 The scope `openid` is required and does not require user consent. It
-provides the claim `sub` which is a unique id for the end user at that
+provides the claim `sub` which is a unique ID for the end user at that
 particular merchant.
 
 **Please note:** Different sales units will get different `sub`s for the
@@ -139,7 +140,7 @@ scope. Merchants need to request this separately. See
 
 You can find the list of scopes that your individual sales units have access to in
 [portal.vipps.no](https://portal.vipps.no)
-under the _Utvikler_ section and the _Setup Vipps Login_ panel.
+under the *Utvikler* section and the *Set up Vipps Login* panel.
 
 ## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
 
@@ -163,7 +164,7 @@ The merchant must save this information and handle everything according to GDPR.
 ## Why can I get userinfo after the user has revoked consent?
 
 During a login or a payment session the user consent to share information if
-it's requested by the merchant. The users information is then available for
+it's requested by the merchant. The user's information is then available for
 the merchant from the userinfo endpoint. For login sessions, user information
 is available for the ongoing login session.
 
@@ -227,48 +228,48 @@ In the email you must specify:
 [Vipps Login from phone number](api-guide/overview.md#vipps-login-from-phone-number)
 is available for all Vipps Login enabled clients.
 
-_Vipps Login from phone number_ is a paid service.
+*Vipps Login from phone number* is a paid service.
 
-Remember that _Vipps Login from phone number_ has been developed to support use cases where
+Remember that *Vipps Login from phone number* has been developed to support use cases where
 authentication/registration does not start in a browser or an app. This means
 that it is the merchant that triggers the authentication/registration (either
 manually or automatically) and thus the log-in cannot be done in the user’s browser.
 
-_Vipps Login from phone number_ is reserved for such special cases. If a merchant
+*Vipps Login from phone number* is reserved for such special cases. If a merchant
 uses this incorrectly on webpages or in apps used by end users
 (on their own device), access to the feature can be withdrawn.
 
-Merchants need to apply for access to _Vipps Login from phone number_
+Merchants need to apply for access to *Vipps Login from phone number*
 by sending an email to
 [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no).
 In the email you must specify:
 
- * Recipient name
- * Recipient email
- * Invoicing address
+* Recipient name
+* Recipient email
+* Invoicing address
 
 ## How can I get started with delegatedConsents?
 
-**Please note:** _Delegated consents_ are only available for the
+**Please note:** *Delegated consents* are only available for the
 [Vipps Login from phone number](./how-it-works/vipps-login-from-phone-number-api-howitworks.md)
 flow. It is currently not possible to request delegated consents in the
-_Vipps Login in browser_ flow.
+*Vipps Login in browser* flow.
 
-If you plan on using the scope `delegatedConsents` along with _Vipps Login from phone number_,
+If you plan on using the scope `delegatedConsents` along with *Vipps Login from phone number*,
 you will need to supply some information on what consents you will retrieve and how.
 We will then tailor this screen to suit your needs. You can see what the flow looks like at
 [Vipps Login from phone number](./how-it-works/vipps-login-from-phone-number-api-howitworks.md).
 
-Please send an email to
+Please email
 [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no)
 and supply the following information:
 
-| Item                                                  | Description                                                                                                                                                                     | Example                                                                           | Comments                                                                                                                                  |
-|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| Top text                                              | Specifies the purpose of collecting the consents                                                                                                                                | "Merchant AS would like to send you tailored offers in several digital channels." |                                                                                                                                           |
-| Subset of consents you would like to request.         | We offer a set of predefined consents. See [When using delegatedConsents, which consents does Vipps support?](#when-using-delegatedconsents-which-consents-are-supported). | email, sms, digital, personal                                                     | If you want a consent type that we currently don't support, reach out to us at [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no). |
-| Links to your membership terms and privacy statement. | We must review your terms to ensure that the flow is not intended to mislead or abuse end users.                                                                                | www.merchant.com/termsandconditions <br /> www.merchant.com/privacystatement      |                                                                                                                                           |
-| Recipient to sign DPA                                 | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions                       | recipient@merchant.com                                                            |                                                                                                                                           |
+| Item | Description | Example | Comments |
+|------|-------------|---------|----------|
+| Top text | Specifies the purpose of collecting the consents | "Merchant AS would like to send you tailored offers in several digital channels." | |
+| Subset of consents you would like to request. | We offer a set of predefined consents. See [When using delegatedConsents, which consents are supported?](#when-using-delegatedconsents-which-consents-are-supported). | email, SMS, digital, personal | If you want a consent type that we currently don't support, reach out to us at [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no). |
+| Links to your membership terms and privacy statement. | We must review your terms to ensure that the flow is not intended to mislead or abuse end users. | <www.merchant.com/termsandconditions> <br /> <www.merchant.com/privacystatement> | |
+| Recipient to sign DPA | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions | <recipient@merchant.com> | |
 
 ## When using `delegatedConsents`, which consents are supported?
 
@@ -276,15 +277,15 @@ Vipps Login has support for several consents, and you may select a subset
 of these to include in your own flow, as well as select which of the consents
 that are required/optional. If the consents you need are not currently supported,
 you can make a request to
-[accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no)
+[accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no),
 and we'll be in touch.
 
-| Id       | Consent text (Norwegian)            | Consent text (English)                    |
-|----------|-------------------------------------|-------------------------------------------|
-| email    | Få tilbud på E-post                 | Receive offers via email                  |
-| sms      | Få tilbud på SMS                    | Receive offers via SMS                    |
-| digital  | Jeg vil motta digital markedsføring | I would like to receive digital marketing |
-| personal | Få tilpassede tilbud                | Get customized offers                     |
+| ID         | Consent text (Norwegian)            | Consent text (English)                    |
+|------------|-------------------------------------|-------------------------------------------|
+| `email`    | Få tilbud på E-post                 | Receive offers via email                  |
+| `sms`      | Få tilbud på SMS                    | Receive offers via SMS                    |
+| `digital`  | Jeg vil motta digital markedsføring | I would like to receive digital marketing |
+| `personal` | Få tilpassede tilbud                | Get customized offers                     |
 
 See
 [Merchant delegated consents](api-guide/flows/phone-number-ciba-flows.md#merchants-delegated-consents)
@@ -300,7 +301,7 @@ to ensure sufficient entropy. A GUID is a good choice for a state parameter valu
 
 ## Can I use partner keys for Vipps login?
 
-Yes, partner keys can be used for both _Vipps Login in Browser_ and _Vipps Login from Phone number_.
+Yes, partner keys can be used for both *Vipps Login in Browser* and *Vipps Login from Phone number*.
 Be aware that the partner key integration
 [differs slightly from a regular merchant integration](api-guide/partner-keys.md).
 
@@ -331,7 +332,7 @@ Then scroll down until you find the panel named "Successful logins".
 
 If you have access to request national identity number (NIN) you will be able
 to see the number of logins with and without these
-scopes. If you click _Show details_ under the graph, you can see total logins
+scopes. If you click *Show details* under the graph, you can see total logins
 for the period and the number of unique users in the selected period.
 
 Keep in mind that there may be up to 10-minute delay from when a login occurs
@@ -369,8 +370,8 @@ to Vipps Login:
    obtained before Vipps can share data again with the merchant.
 5. When an end user uses Vipps Login at a merchant, Vipps stores, as part
    of our service to the Vipps end user and with Vipps as data processor,
-   information about a) what information a user has agreed to share with a
-   merchant and b) when a user has used Vipps log in to the relevant merchant.
+   information about (a) what information a user has agreed to share with a
+   merchant and (b) when a user has used Vipps log in to the relevant merchant.
 6. Vipps does not receive any information from the merchant about Vipps end user.
 
 See more information in our end user
@@ -409,10 +410,10 @@ to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory
 
 ## How can we detect users' consent removal?
 
-Or: _How can our system dynamically "know/find out" if the user has revoked the consent
-for us to have access to his/her personal data in our system?_
+Or: *How can our system dynamically "know/find out" if the user has revoked the consent
+for us to have access to his/her personal data in our system?*
 
-Your system can dynamically detect when a user's consent has been revoked by using _consent webhooks_.
+Your system can dynamically detect when a user's consent has been revoked by using *consent webhooks*.
 This is a system for notifying merchants when an end user revokes their consent.
 See the
 [Consent webhooks](api-guide/important-information.md#revoke-consent-webhook) section for more information.
@@ -433,17 +434,17 @@ is required: `myapp://path-to-something`.
 The name which is displayed in the app is the name of the sales unit.
 You can change it yourself on
 [portal.vipps.no](https://portal.vipps.no/).
-Press  _rediger_ (_edit_) under _salgsstedsinfo_ (_sales unit information_) and change to the desired name.
+Press  *rediger* (*edit*) under *salgsstedsinfo* (*sales unit information*) and change to the desired name.
 
 ## How can I log a user out?
 
-_Vipps Login_ does not support merchant-initiated log-out in the browser, as this
+*Vipps Login* does not support merchant-initiated log-out in the browser, as this
 would effectively log the user out of Vipps (meaning that the user will no
 longer be remembered in the browser across sites that use Vipps Login). You
 are of course free to log the user out of your service (by disabling your own session).
 
 If a user wants to log out of a specific browser remembered in Vipps Login, they need to do this in the Vipps app by navigating to:
-_Profile_ > _Personal Information_ > _Browsers that remember you_, select a browser, and press the _logout_ button.
+*Profile* > *Personal Information* > *Browsers that remember you*, select a browser, and press the *logout* button.
 
 ## Common errors
 

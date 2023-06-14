@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Automatic return from Vipps app
 sidebar_label: Automatic return from app
@@ -6,19 +7,20 @@ description: Enable automatic return from the Vipps app.
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Automatic return from Vipps app
 
 This flow is designed for web pages. It will return users to a browser after completing the login in the Vipps app.
 This requires the merchant to handle the user session across browsers.
 
-**This flow has security implications and is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable**.
+*This flow has security implications and is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable*.
 
 Due to how the various mobile operating systems handle app-switch to browser, the user can be returned to a different browser than the one he/she started in.
 
 On iOS, the user can, for example, start the login in Chrome and be returned to Safari after confirming in the Vipps app. This means that the merchant site cannot rely on cookies being present in the browser the user is returned to.
 
-By using this flow, Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information, such as cookies.**
+By using this flow, Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant**must ensure that logins can complete, even without session information, such as cookies.*
 
 ## Implementation suggestions
 
@@ -41,4 +43,5 @@ Some relevant considerations:
 
 ### Verification
 
-It is important that merchants verify that users returning to a different browser than where the login started are handled as expected. It is also recommended to test starting the login in private/incognito mode, as this will have similar effects as being returned to a different browser.
+Verify that users being returned to a browser different from where the login started are handled as expected.
+Test starting the login in private/incognito mode, as this will have similar effects as being returned to a different browser.

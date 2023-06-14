@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Quick start for the Login API
 sidebar_label: Quick start
@@ -6,6 +7,7 @@ description: Quick start guide for the using the Login API with Postman.
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Quick start
 
@@ -23,8 +25,7 @@ for information about getting your test environment set up.
 ### Step 1: Setup login on your sales unit
 
 Your test sales unit must be set up for using login.
-See [How to setup login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
-
+See [How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 ### Step 2: Get the Vipps Postman collection and environment
 
@@ -65,8 +66,8 @@ Save the following files to your computer:
    This means that if you have not yet consented to sharing your user information, a distinct screen asking for your consent will appear the first time.
 1. When you finish your login, the website will update.
 If you used <http://localhost>, it will appear to be broken, but that doesn't matter.
-Copy the query param `code` from the URL in the browser. Paste this code into the key `code` in the active Postman environment.
-1. From the `Vipps Login in Browser` folder, send request `Get token`. This provides the access token and id token.
+Copy the query parameter `code` from the URL in the browser. Paste this code into the key `code` in the active Postman environment.
+1. From the `Vipps Login in Browser` folder, send request `Get token`. This provides the access token and ID token.
 1. Send request `Get user info` to get the user info of the logged-in user.
 
 ### Login from phone number (CIBA without redirect)
@@ -86,7 +87,6 @@ Copy the query param `code` from the URL in the browser. Paste this code into th
 1. Set the value of the `code` parameter in the body of the `Token redirect` request to the code you obtained in the previous step.
 1. Submit the  `Token redirect` request. This will populate the environment variable `access_token` used for the subsequent request.
 1. Send request to `Get user info`. This will use the token from the previous step to obtain the user info of the logged-in user.
-
 
 ## Partner API calls
 

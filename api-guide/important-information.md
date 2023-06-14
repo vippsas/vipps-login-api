@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Important information
 sidebar_label: Important information
@@ -6,6 +7,7 @@ description: Important information needed for Login
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Important information
 
@@ -19,7 +21,7 @@ Buttons to use for Vipps Login can be found as part of our
 ## Recommendations on linking to user account
 
 To ensure the best user experience, we recommend performing the following checks
-related to login/registration:
+related to logging in and registration:
 
 First check if you already have the unique user identifier for Vipps ("ID" from
 now on, and called `sub` in the response from our API) stored on one of your
@@ -48,8 +50,8 @@ If you get a match on multiple accounts, you can provide information on this and
 offer the user the possibility to log in to her existing account (using the old
 login method) and then link the account to Vipps.
 
-It is also recommended on "my page" or similar in the website to provide the
-option for logged in users that has not yet linked their profile to Vipps to do
+It is also recommended on "my page" or similar on the website to provide the
+option for logged-in users that has not yet linked their profile to Vipps to do
 so, for an easier login the next time. This just means to provide the "login
 with Vipps"-button and linking the ID from Vipps with this account.
 
@@ -70,19 +72,19 @@ iOS: Use [SFAuthenticationSession](https://developer.apple.com/documentation/saf
 ## Revoke Consent Webhook
 
 Users can revoke their consent to share data with merchants. This is done in the profile section -> personal information in the app.
-If a user removes the consent to share data with a merchant, the practical consequences is that the user needs to give a consent the next time he/she would like to login with Vipps
+If a user removes the consent to share data with a merchant, the practical consequence is that the user needs to give a consent the next time he/she would like to log in with Vipps
 or share data as part of other Vipps services with the merchant.
 
-When a user revokes their consent, Vipps will send an `CONSENT_REVOKED` event containing the unique identifier `sub` for the given user to the webhook provided by the merchant.
+When a user revokes their consent, Vipps will send a `CONSENT_REVOKED` event containing the unique identifier `sub` for the given user to the webhook provided by the merchant.
 
 This service is optional for the merchant and can be used to trigger events on the merchant's side.
 For example, the merchant can inform the user that they still have an account, can provide information on alternative login solutions, or
 can inform the user where to go if they would like to delete the data they have stored with the merchant.
 
 **Content**  
-The webhook is sent as a `POST` with a `text/plain` body containing an unsigned Json Web Token ([JWT](https://jwt.io/)).  
+The webhook is sent as a `POST` with a `text/plain` body containing an unsigned JSON Web Token ([JWT](https://jwt.io/)).  
 The JWT format was chosen to allow for the possibility to add signing on a later state, but as of now the JWT is delivered unsigned with the algorithm set to `none`.
-It is therefore no more secure than a regular json and should be handled as such.
+It is therefore no more secure than a regular JSON and should be handled as such.
 
 **Example request:**
 

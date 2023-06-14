@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Login API guide
 sidebar_label: API guide
@@ -6,8 +7,13 @@ description: Login API guide.
 pagination_prev: Null
 pagination_next: Null
 ---
+END_METADATA -->
 
 # Login API guide
+
+<!-- START_COMMENT -->
+💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/login-api>. 💥
+<!-- END_COMMENT -->
 
 API version: 2.0
 
