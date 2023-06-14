@@ -28,9 +28,9 @@ Integrate the [API endpoints](https://developer.vippsmobilepay.com/api/login/#ta
 
 | Action | Comment   |
 |--------|-----------|
-| Use correct flow   | Native app integrations use the [app-to-app flow](api-guide/overview.md#app-to-app-flow). [Vipps Login from phone number](api-guide/overview.md#vipps-login-from-phone-number) must _not_ be used for web-based login.|
+| Use correct flow   | Native app integrations use the [app-to-app flow](api-guide/overview.md#app-to-app-flow). [Vipps Login from phone number](api-guide/overview.md#vipps-login-from-phone-number) must *not* be used for web-based login.|
 | Do not use embedded iFrames | Integration with the Login API is redirect-based (i.e., do not use an embedded iFrame). |
-|  Set company name and logo  | The sales unit name appears on the Vipps Login landing page. Both the name and logo appear in the Vipps app under _Personal information_ > _Companies with access_. See [how to change name and logo](vipps-login-api-faq.md#how-can-i-change-my-name-and-logo).|
+|  Set company name and logo  | The sales unit name appears on the Vipps Login landing page. Both the name and logo appear in the Vipps app under *Personal information* > *Companies with access*. See [how to change name and logo](vipps-login-api-faq.md#how-can-i-change-my-name-and-logo).|
 |   Whitelist redirect URIs   | Ensure that all `redirect_uri`s for your integration have been added to the merchant portal white list. See the [FAQ](vipps-login-api-faq.md#how-can-i-activate-and-set-up-vipps-login) for how to do this. Ensure that all URLs use `HTTPS` or native URL schemes (i.e., `vipps://`), not `HTTP`. ALL URLs must match the exact URI sent on `/auth` request. No query parameters or additional trailing `/` can be included. |
 |  Use only required scopes | Request only the scopes that you require, no "nice to have" scopes. If using national identity number, you must be granted access to request these scopes. See [FAQ](vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) for details. |
 |  Comply with Vipps terms and conditions   | If you, as a merchant, will act on behalf of others (share data you have gotten from Vipps with other merchants), ensure that you comply with our terms and conditions to do this. This is shown in section 8.4 in our [terms and conditions for merchants](api-guide/overview.md#vipps-login-from-phone-number). |
@@ -57,4 +57,4 @@ Integrate the [API endpoints](https://developer.vippsmobilepay.com/api/login/#ta
 | Action | Comment   |
 |--------|-----------|
 | Follow design guidelines| The Vipps branding must be according to the [Vipps design guidelines](https://developer.vippsmobilepay.com/docs/vipps-design-guidelines).|
-| Educate customer support| Make sure your customer service, etc. has all the tools and information they need available in _your_ system, through the APIs listed in the first item in this checklist, and that they do not need to visit [portal.vipps.no](https://portal.vipps.no) for normal work.|
+| Educate customer support| Make sure your customer service, etc. has all the tools and information they need available in *your* system, through the APIs listed in the first item in this checklist, and that they do not need to visit [portal.vipps.no](https://portal.vipps.no) for normal work.|

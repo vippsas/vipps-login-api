@@ -169,7 +169,7 @@ You can test this by entering the URL into any browser. This will initiate the l
 For more information about testing this with the Postman collection, see the step-by-step instructions in the [quick start guide](../vipps-login-api-quick-start.md).
 
 **Please note:** URIs specified on [portal.vipps.no](https://portal.vipps.no/)
-must be _exactly_ the same as used in the API calls. Be extra careful with
+must be *exactly* the same as used in the API calls. Be extra careful with
 trailing `/` and URL-encoded entities. If the URIs are not identical you will get
 this error:
 
@@ -210,7 +210,7 @@ below to the HTTP body by using the `application/x-www-form-urlencoded` format.
 
 **Request**
 
-_Headers_
+*Headers*
 
 | Header         | Description                         |
 |----------------|-------------------------------------|
@@ -230,7 +230,7 @@ var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + ":" + client_secret);
 var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 ```
 
-_Form content_
+*Form content*
 
 | Key | Description |
 |-----|-------------|
@@ -270,7 +270,7 @@ You can learn more at [OIDC Standard](https://openid.net/specs/openid-connect-co
 
 **Request**
 
-_Headers_
+*Headers*
 
 | Header         | Description              |
 |----------------|--------------------------|
@@ -351,7 +351,7 @@ Overview
 | `500 Server Error`  | An internal Vipps problem. |
 
 Examples:
-_200 response_
+*200 response*
 
 ```json
 {
@@ -434,7 +434,7 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 
 ## Call by call
 
-A very basic case, from a user clicks "Log in with Vipps" until the merchant receives login token
+A very basic case, from a user clicks *Log in with Vipps* until the merchant receives login token
 and the user's information, is shown below:
 
 0. Before all this, the merchant has fetched the OpenID configuration from the well-known endpoint

@@ -30,7 +30,7 @@ The main differences between partner key integration and merchant integration ar
   [`POST: /accesstoken/get`](https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost).
   This is the same token endpoint used for eCom API payments. The token must be passed as a Bearer token
   in the header (e.g., `Authorization: Bearer <access-token>`). For partner key integration, this
-  authorization method _must_ be used. The `token_endpoint_authentication` methods,
+  authorization method *must* be used. The `token_endpoint_authentication` methods,
   `client_secret_basic` and `client_secret_post`, do not work for partner key integrations.
 * For partner key integration, the `Merchant-Serial-Number` header must be sent as part of
   backend requests to identify which merchant you're acting on behalf of.
