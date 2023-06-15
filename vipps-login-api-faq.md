@@ -56,7 +56,7 @@ It is possible to change the token endpoint authentication method on
 [portal.vipps.no](https://portal.vipps.no).
 This setting will then apply to all login transactions on this sales unit.
 
-Under the "Utvikler" section you will find the Setup Vipps Login option for
+Under the *Utvikler* section you will find the *Setup Vipps Login* option for
 your sales units.
 
 Here you have the option to change the token endpoint authentication method,
