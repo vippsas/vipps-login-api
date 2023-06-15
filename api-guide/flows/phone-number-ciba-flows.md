@@ -14,7 +14,7 @@ END_METADATA -->
 *Login from phone number* is built to support special cases where login does not start in a browser or app.
 
 *Login from phone number* is based on the
-[Client-Initiated Backchannel Authentication (CIBA) standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1*0.html)
+[Client-Initiated Backchannel Authentication (CIBA) standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html).
 
 In this flow, the merchant's system triggers the authentication/registration; thus, log-in cannot be done in the user's browser.
 To ensure a consistent user experience, *Vipps Login from phone number* is not allowed on webpages and in apps.
