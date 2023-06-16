@@ -211,7 +211,7 @@ Standard definition: <https://openid.net/specs/openid-client-initiated-backchann
 The responses from this endpoint is according to the standard.
 
 * Note the required `grant_type`: `urn:openid:params:grant-type:ciba`.
-* The access token can be used towards the standard [oidc userinfo endpoint](../integration.md#userinfo).
+* The access token can be used towards the standard [OIDC userinfo endpoint](../integration.md#userinfo).
 
 #### Polling
 
