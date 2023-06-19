@@ -30,7 +30,9 @@ For information and to order the product go to:
 * [Vipps Login in browser: How It Works](./how-it-works/vipps-login-api-howitworks.md)
 * [Vipps Login from phone number: How It Works](./how-it-works/vipps-login-from-phone-number-api-howitworks.md)
 
-## Relates solutions
+## Related flows
+
+Examples of how to combine the Login and Recurring APIs:
 
 * [Subscriptions](https://developer.vippsmobilepay.com/docs/vipps-solutions/recurring-and-login)
 
