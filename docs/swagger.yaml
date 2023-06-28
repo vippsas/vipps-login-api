@@ -91,6 +91,7 @@ paths:
         - Vipps Login API
       summary: The OAuth 2.0 token endpoint
       parameters:
+        - $ref: "#/components/parameters/Merchant-Serial-Number"
         - $ref: "#/components/parameters/Vipps-System-Name"
         - $ref: "#/components/parameters/Vipps-System-Version"
         - $ref: "#/components/parameters/Vipps-System-Plugin-Name"
@@ -578,3 +579,12 @@ components:
         type: string
         maxLength: 30
         example: "4.3"
+    Merchant-Serial-Number:
+      name: Merchant-Serial-Number
+      in: header
+      description: |-
+        This is a required parameter if you are a partner making API requests on behalf of a merchant. 
+        The partner must use the merchant's MSN, not the partner's MSN.
+      schema:
+        type: string
+        example: "123456"
