@@ -81,7 +81,8 @@ paths:
   /access-management-1.0/access/oauth2/token:
     post:
       security:
-        - basic: []
+        - Basic-Authorization: []
+        - Bearer-Authorization: []
       description: |-
         The token endpoint is used by the client to obtain an access token by
         presenting its authorization grant.
@@ -90,6 +91,7 @@ paths:
         - Vipps Login API
       summary: The OAuth 2.0 token endpoint
       parameters:
+        - $ref: "#/components/parameters/Merchant-Serial-Number"
         - $ref: "#/components/parameters/Vipps-System-Name"
         - $ref: "#/components/parameters/Vipps-System-Version"
         - $ref: "#/components/parameters/Vipps-System-Plugin-Name"
@@ -121,9 +123,14 @@ paths:
                 client_id:
                   description: |-
                     The `client_id` is available on portal.vipps.no, under the 'Utvikler' tab.
-                    Think of it as the "username".
+                    This parameter is required if the token endpoint authentication method is set to `client_secret_post`.
                   type: string
                   example: fb492b5e-7907-4d83-ba20-c7fb60ca35de
+                client_secret:
+                  description: |-
+                    The `client_secret` is available on portal.vipps.no, under the 'Utvikler' tab.
+                    This parameter is required if the token endpoint authentication method is set to `client_secret_post`.
+                  type: string
                 code_verifier:
                   description: |-
                     Required if PKCE, https://tools.ietf.org/html/rfc7636, is used.
@@ -133,7 +140,6 @@ paths:
                 - grant_type
                 - code
                 - redirect_uri
-                - client_id
       responses:
         "200":
           description: oauth2TokenResponse
@@ -183,9 +189,23 @@ paths:
                 $ref: "#/components/schemas/ErrorResponse"
 components:
   securitySchemes:
-    basic:
+    Basic-Authorization:
       type: http
       scheme: basic
+      description: |-
+        This authorization scheme should be used if the token endpoint authentication method is set to `client_secret_basic`.
+        `client_secret_basic` is the default authentication method. Read more about token endpoint authentication here:
+        [`token authentication methods.`](https://developer.vippsmobilepay.com/docs/APIs/login-api/api-guide/core-concepts/#token-endpoint-authentication-method)
+    Bearer-Authorization:
+      type: http
+      scheme: bearer
+      description: |-
+        This authorization scheme should be used if you are a partner making API calls on behalf of your merchants.
+        Read more about partner keys in Vipps Login:
+        [`partner keys.`](https://developer.vippsmobilepay.com/docs/APIs/login-api/api-guide/partner-keys/)
+        The access token is fetched from the
+        [`POST:/accesstoken/get`](https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost)
+        endpoint.
     oauth2:
       type: oauth2
       flows:
@@ -559,3 +579,12 @@ components:
         type: string
         maxLength: 30
         example: "4.3"
+    Merchant-Serial-Number:
+      name: Merchant-Serial-Number
+      in: header
+      description: |-
+        This is a required parameter if you are a partner making API requests on behalf of a merchant.
+        The partner must use the merchant's MSN, not the partner's MSN.
+      schema:
+        type: string
+        example: "123456"
