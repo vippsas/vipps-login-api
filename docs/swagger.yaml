@@ -583,7 +583,7 @@ components:
       name: Merchant-Serial-Number
       in: header
       description: |-
-        This is a required parameter if you are a partner making API requests on behalf of a merchant. 
+        This is a required parameter if you are a partner making API requests on behalf of a merchant.
         The partner must use the merchant's MSN, not the partner's MSN.
       schema:
         type: string
