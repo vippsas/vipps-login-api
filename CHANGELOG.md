@@ -14,13 +14,13 @@ All notable changes to the current API will be documented in this file.
 To learn about API versioning, see
 [Common topics: API Lifecycle](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-lifecycle/).
 
-## January 2022
+## January 2023
 
-Vipps Login support for logging in directly from phone number and QR code.
+Removed QR code login flow
 
 ## September 2021
 
-Vipps Login support for authentication/registration outside of browser/app (CIBA).
+Vipps Login support for logging in directly from phone number (CIBA) and QR code.
 
 ## February 2021
 
