@@ -11,8 +11,7 @@ END_METADATA -->
 
 # How Login works in the browser
 
-
-Let your customers log in to your website or app without the need for user names and passwords.
+Let your customers log in to your website or app without the need for usernames and passwords.
 
 For technical documentation go to
 [Vipps Login API](https://developer.vippsmobilepay.com/docs/APIs/login-api).
@@ -31,15 +30,17 @@ A user chooses to log in with Vipps on a merchant’s site.
 
 ![Buy subscription with Vipps](../images/vipps-login-step1-2.svg)
 
-### 2. The Vipps landing page
+### 2. The landing page
 
-If the login was started on a desktop device, the user will be sent to the Vipps landing page. If the user is not remembered in browser from earlier, the user enters their phone number and can choose to be remembered in the browser for a quicker login the next time. The "Remember me in browser" option applies to the browser, independent of merchants. This option is default off on desktop devices.
+If the login was started on a desktop device, the user will be sent to the
+[landing page](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/landing-page/).
+If the user is not remembered in browser from earlier, the user enters their phone number and can choose to be remembered in the browser for a quicker login the next time. The "Remember me in browser" option applies to the browser, independent of merchants. This option is default off on desktop devices.
 
 The user is then prompted to log in to Vipps and follow the instructions in the app.
 
 If the login was started from a mobile device and the user needs to authenticate in the app, the user will confirm to be taken to the Vipps app without having to enter their phone number.
 
-![Vipps landing page](../images/vipps-login-step2.svg)
+![landing page](../images/vipps-login-step2.svg)
 
 ### 3. E-mail verification (first time only)
 
