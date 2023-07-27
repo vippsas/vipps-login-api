@@ -32,8 +32,7 @@ A user chooses to log in with Vipps on a merchant’s site.
 
 ### 2. The landing page
 
-If the login was started on a desktop device, the user will be sent to the
-[landing page](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/landing-page/).
+If the login was started on a desktop device, the user will be sent to the landing page.
 If the user is not remembered in browser from earlier, the user enters their phone number and can choose to be remembered in the browser for a quicker login the next time. The "Remember me in browser" option applies to the browser, independent of merchants. This option is default off on desktop devices.
 
 The user is then prompted to log in to Vipps and follow the instructions in the app.
