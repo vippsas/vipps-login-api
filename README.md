@@ -44,7 +44,7 @@ for information about API keys, product activation, how to make API calls, etc.
 
 Review the detailed documentation found here:
 
-* [API quick start](vipps-login-api-quick-start.md): Quick start.
+* [API quick start](vipps-login-api-quick-start.md): Quick start to logging in with the browser.
 * [API guide](api-guide/README.md): In-depth guide to the Login API.
 * [API FAQ](vipps-login-api-faq.md): Questions and answers.
 * [API reference](https://developer.vippsmobilepay.com/api/login): Login API reference specifications.
