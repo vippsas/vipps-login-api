@@ -235,11 +235,9 @@ curl https://apitest.vipps.no/vipps-userinfo-api/userinfo/ \
 </Tabs>
 
 
+## Next steps
 
-
-
-
-
+See the [API guide](api-guide/README.md).
 
 
 
