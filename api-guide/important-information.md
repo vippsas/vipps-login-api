@@ -30,7 +30,8 @@ earlier and have an explicit link to the account. In this case use the ID to log
 the user into her account.
 
 The `sub` is based on the user's national identity number ("fødselsnummer"
-in Norway), and does not change (except in very special cases). See: [What is the sub](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api/userinfo-api-faq/#what-is-the-sub)
+in Norway), and does not change (except in very special cases).
+See: [What is the sub?](https://developer.vippsmobilepay.com/docs/APIs/userinfo-api/userinfo-api-faq/#what-is-the-sub)
 
 If you have not already stored the ID: check if the user already has an account
 based on phone number and e-mail address. If this gives a match on one (and

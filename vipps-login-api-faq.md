@@ -140,7 +140,7 @@ scope. Merchants need to request this separately. See
 
 You can find the list of scopes that your individual sales units have access to in
 [portal.vipps.no](https://portal.vipps.no)
-under the *Utvikler* section and the *Set up Vipps Login* panel.
+under the *Utvikler* section and the *Set-up Vipps Login* panel.
 
 ## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
 
@@ -163,9 +163,11 @@ The merchant must save this information and handle everything according to GDPR.
 
 ## Why can I get userinfo after the user has revoked consent?
 
-During a login or a payment session the user consent to share information if
-it's requested by the merchant. The user's information is then available for
-the merchant from the userinfo endpoint. For login sessions, user information
+During a login or a payment session, the user consents to share information if
+requested by the merchant. The user's information is then available for
+the merchant from the
+[userinfo](https://developer.vippsmobilepay.com/api/userinfo/)
+endpoint. For login sessions, user information
 is available for the ongoing login session.
 
 To better support merchants that do not handle online fetching and processing
@@ -403,7 +405,7 @@ See [How can I use `client_secret_post` for authentication?](#how-can-i-use-clie
 
 Vipps Login does not return user information in the `id_token`, but there is a
 [userinfo endpoint](https://developer.vippsmobilepay.com/api/userinfo#operation/userinfoAuthorizationCode)
- for this use case. See
+for this use case. See
 [the Login API userinfo endpoint documentation](api-guide/integration.md#userinfo).
 Azure B2C's User Flows does not use the userinfo endpoint, and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).

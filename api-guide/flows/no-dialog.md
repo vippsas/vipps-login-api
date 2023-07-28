@@ -15,7 +15,7 @@ This flow can be used to log in the user directly, when the required prerequisit
 
 When using this flow, a spinner will be shown while Vipps Login tries to log the user in. Once the process is completed, the user will be returned to the merchant, as in the ordinary Vipps Login flow.
 
-For example, after the user clicks "Logg inn" on the front page, the flow might be:
+For example, after the user clicks *Log in* on the front page, the flow might be:
 
 ![No dialog flow](../../images/No_dialog_flow.png)
 
