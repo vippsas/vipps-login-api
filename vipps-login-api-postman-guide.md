@@ -1,6 +1,6 @@
 <!-- START_METADATA
 ---
-title: Login API expanded Postman guide
+title: Login API extended Postman guide
 sidebar_label: Postman guide
 sidebar_position: 190
 description: Extensive examples of the Login API using Postman.
@@ -9,54 +9,49 @@ pagination_prev: null
 ---
 END_METADATA -->
 
-# Quick start
+# Login API extended Postman guide
 
-This is a quick start guide for the using the Login API with Postman.
+This is a postman guide for the using the Login API with Postman.
 Use the Login API to confirm your identity through the log-in process.
 
-## Postman
+This is an extension of the [Login API quick start guide](vipps-login-api-quick-start.md) which shows the
+recommended flow in both Postman and curl.
 
-### Prerequisites
+## Prerequisites
 
-Review
-[quick start guides](https://developer.vippsmobilepay.com/docs/vipps-developers/quick-start-guides)
-for information about getting your test environment set up.
+You must have already signed up as an organization with Vipps MobilePay and have
+your test credentials from the merchant portal, as described in the
+[Getting started guide](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started).
 
-### Step 1: Set up login on your sales unit
 
 Your test sales unit must be set up for using login.
 See [How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
-### Step 2: Get the Vipps Postman collection and environment
+## Set up
 
-Save the following files to your computer:
+Import the following files into Postman:
 
 * [Login API Postman collection](/tools/vipps-login-api.postman_collection.json)
 * [Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
-### Step 3: Import the Postman files
+In Postman, tweak the environment with your own values (see
+[API keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys/)):
 
-1. In Postman, click *Import* in the upper-left corner.
-1. In the dialog that opens, with *File* selected, click *Upload Files*.
-1. Select the two files you have just downloaded and click *Import*.
+* `client_id` - Merchant key required for getting the access token.
+* `client_secret` - Merchant key required for getting the access token.
+* `Ocp-Apim-Subscription-Key` - Merchant subscription key.
+* `merchantSerialNumber` - Merchant ID.
+* `mobileNumber` - The phone number for the test app profile you have received or registered.
+* `well-known_uri` - URL to well-known endpoint for used environment.
+   See [API Guide: well known](api-guide/integration.md#openid-connect-discovery-endpoint) for more details.
+* `redirect_uri` - The URL where the user is sent after finishing a login.
+   The URL must be exactly the same as the one specified in your sale unit.
+   See [How to set up login on your sales unit](/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
-### Step 4: Set up Postman environment
+For help using Postman, see
+[Quick start guides](https://developer.vippsmobilepay.com/docs/vipps-developers/quick-start-guides).
 
-1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
-1. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
-1. Ensure that you have the correct values for the following fields:
-   * `client_id` - Client ID for the merchant (the "username").
-     See [Common topics: API Keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys) for details.
-   * `client_secret` - Client Secret for the merchant (the "password").
-   * `well-known_uri` - URL to well-known endpoint for used environment.
-      In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
-      See [API Guide: well known](api-guide/integration.md#openid-connect-discovery-endpoint) for more details.
-   * `redirect_uri` - The URL where the user is sent after finishing a login.
-      The URL must be exactly the same as the one specified in [Step 1: Set up login on your sales unit](#step-1-set-up-login-on-your-sales-unit).
-      For testing, you could, for example, use <http://localhost> in both places.
-   * `mobileNumber` - Your 8-digit mobile number for your test version of Vipps.
-
-## Make API calls
+## Standard Login API calls
 
 ### Login in Browser
 

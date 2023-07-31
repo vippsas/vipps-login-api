@@ -27,7 +27,7 @@ use *your* values. This includes API keys, HTTP headers, reference, etc.
 
 ## Log in with browser
 
-### Step 1 - Setup for Login API
+### Step 1 - Setup
 
 
 <Tabs
@@ -41,7 +41,7 @@ values={[
 
 Import the following files into Postman:
 
-* [Userinfo API Postman collection](pathname:///tools/userinfo-api-postman-collection.json)
+* [Login API Postman collection](/tools/vipps-login-api.postman_collection.json)
 * [Global Postman environment](pathname:///tools/vipps-api-global-postman-environment.json)
 
 In Postman, tweak the environment with your own values (see
@@ -54,7 +54,6 @@ In Postman, tweak the environment with your own values (see
 * `mobileNumber` - The phone number for the test app profile you have received or registered.
 * `redirect_uri` - The website to send the user to after they log in.
    This must be exactly the same as the one specified your sales unit.
-   See [How to set up login on your sales unit](/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 For help using Postman, see
 [Quick start guides](/docs/vipps-developers/quick-start-guides).
@@ -102,7 +101,7 @@ curl https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-co
 
 ### Step 3 - Log in
 
-Run the URI that requests log-in and access to user information.
+
 
 <Tabs
 defaultValue="postman"
@@ -160,7 +159,7 @@ Send request Get token
 Use the `code` in the following command.
 You will also need to generate client authorization.
 
-The client credentials is a base 64 encoded string consisting of the client_id and secret issued by Vipps.
+The client credentials is a base64-encoded string consisting of the client_id and secret issued by Vipps.
 
 Example in JavaScript:
 
@@ -171,7 +170,6 @@ var client_secret = testdzlJbUZaM1lqODlnUUtrUHI=
 var wordArrayAzp = CryptoJS.enc.Utf8.parse(client_id + ":" + client_secret);
 var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 ```
-
 
 ```bash
 curl https://apitest.vipps.no/access-management-1.0/access/oauth2/token \
@@ -194,7 +192,7 @@ Copy the access token from the response.
 </Tabs>
 
 
-### Step 5 - (Optional) Get user info
+### Step 5 - (Optional) Get userinfo
 
 Send request `Get Userinfo`. This uses [`GET:/vipps-userinfo-api/userinfo/`][userinfo-endpoint-login].
 
@@ -227,7 +225,6 @@ curl https://apitest.vipps.no/vipps-userinfo-api/userinfo/ \
 -H "Vipps-System-Version: 3.1.2" \
 -H "Vipps-System-Plugin-Name: acme-webshop" \
 -H "Vipps-System-Plugin-Version: 4.5.6" \
--H "Idempotency-Key: 49ca711a-acee-4d01-993b-9487112e1def" \
 -X GET
 ```
 
@@ -237,7 +234,7 @@ curl https://apitest.vipps.no/vipps-userinfo-api/userinfo/ \
 
 ## Next steps
 
-See the [API guide](api-guide/README.md).
+See the [Login API guide](api-guide/README.md).
 
 
 
