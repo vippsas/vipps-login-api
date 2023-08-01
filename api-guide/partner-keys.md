@@ -11,7 +11,7 @@ END_METADATA -->
 
 # Partner keys
 
-In addition to the normal authentication, we offer [Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys) which allow partners make API calls on behalf of their merchants.
+In addition to the normal authentication, we offer [Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys) which allow partners make API calls on behalf of their merchants.
 
 Partner keys are available for the following flows:
 
@@ -37,7 +37,7 @@ The main differences between partner key integration and merchant integration ar
 
 Read more about partner verification in:
 
-* [Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys)
+* [Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys)
 * [Access token API guide](https://developer.vippsmobilepay.com/docs/APIs/access-token-api)
 
 Browser and phone number flows have minor differences and are described in more detail further down.
