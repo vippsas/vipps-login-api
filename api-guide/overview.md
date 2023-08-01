@@ -26,7 +26,7 @@ When Vipps Login is used in the browser, the user can choose to be remembered in
 Vipps Login is *not* an electronic identification or certified eID.
 
 For *Vipps Login in browser*, there are *plugins* available for several platforms.
-You find the complete list on our [plugins page](https://developer.vippsmobilepay.com/docs/vipps-plugins).
+You find the complete list on our [plugins page](https://developer.vippsmobilepay.com/docs/plugins).
 If a plugin is not available, the easiest - and **strongly recommended** - way to integrate with the service
 is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language.
 Vipps does not recommend a specific library, but the
