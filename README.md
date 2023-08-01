@@ -38,13 +38,12 @@ Examples of how to combine the Login and Recurring APIs:
 
 ## Next steps
 
-See
-[Getting Started](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started)
-for information about API keys, product activation, how to make API calls, etc.
+If you're new to this platform, see
+[Getting Started](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started).
 
 Review the detailed documentation found here:
 
-* [API quick start](vipps-login-api-quick-start.md): Quick start.
+* [API quick start](vipps-login-api-quick-start.md): Quick start to logging in with the browser.
 * [API guide](api-guide/README.md): In-depth guide to the Login API.
 * [API FAQ](vipps-login-api-faq.md): Questions and answers.
 * [API reference](https://developer.vippsmobilepay.com/api/login): Login API reference specifications.

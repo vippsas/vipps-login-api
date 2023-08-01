@@ -166,7 +166,8 @@ For example, the client directs the user-agent to make the following HTTP reques
 
 You can test this by entering the URL into any browser. This will initiate the log in sequence.
 
-For more information about testing this with the Postman collection, see the step-by-step instructions in the [quick start guide](../vipps-login-api-quick-start.md).
+For more information about testing this with the Postman collection, see the step-by-step instructions in the
+[Login Postman guide](../vipps-login-api-postman-guide.md).
 
 **Please note:** URIs specified on [portal.vipps.no](https://portal.vipps.no/)
 must be *exactly* the same as used in the API calls. Be extra careful with
