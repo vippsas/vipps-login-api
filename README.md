@@ -39,7 +39,7 @@ Examples of how to combine the Login and Recurring APIs:
 ## Next steps
 
 If you're new to this platform, see
-[Getting Started](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started).
+[Getting Started](https://developer.vippsmobilepay.com/docs/getting-started).
 
 Review the detailed documentation found here:
 

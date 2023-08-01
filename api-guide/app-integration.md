@@ -44,7 +44,7 @@ In either case it is important to avoid using static client secrets in the app f
 (For more information see <https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous> and <https://tools.ietf.org/html/rfc8252#section-8.5>).
 
 *Both* URIs must be added in the [portal.vipps.no](https://portal.vipps.no/),
-you find more information on how to do this [Developer resources: Portal: How to set up login on your sales unit?](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+you find more information on how to do this [Developer resources: Portal: How to set up login on your sales unit?](https://developer.vippsmobilepay.com/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 **Please note:** URIs specified on [portal.vipps.no](https://portal.vipps.no/)
 must be *exactly* the same as used in the API calls. Be extra careful with

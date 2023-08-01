@@ -40,7 +40,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 
-See the [Test environment](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps)
+See the [Test environment](https://developer.vippsmobilepay.com/docs/test-environment#vipps-test-apps)
 page for information about our test environment, test apps and test users.
 
 ## Flows
