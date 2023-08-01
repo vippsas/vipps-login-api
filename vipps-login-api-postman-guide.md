@@ -68,10 +68,10 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 ### Login from phone number (CIBA without redirect)
 
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests.
-2. From the `CIBA Without Redirect` folder, send request to `Init CIBA no-redirect`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
-3. Authenticate in the Vipps app and approve the login request.
-4. Send request to `Token no-redirect` endpoint. This will populate the environment variable `access_token` used for the subsequent request.
-5. Send request to `Get user info`. This will use the token from (4) to obtain the userinfo of the logged-in user.
+1. From the `CIBA Without Redirect` folder, send request to `Init CIBA no-redirect`. This will trigger a push message to the Vipps app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
+1. Authenticate in the Vipps app and approve the login request.
+1. Send request to `Token no-redirect` endpoint. This will populate the environment variable `access_token` used for the subsequent request.
+1. Send request to `Get user info`. This will use the token from (4) to obtain the userinfo of the logged-in user.
 
 ### Login from phone number (CIBA with redirect)
 
