@@ -34,7 +34,7 @@ For information and to order the product go to:
 
 Examples of how to combine the Login and Recurring APIs:
 
-* [Subscriptions](https://developer.vippsmobilepay.com/docs/vipps-solutions/recurring-and-login)
+* [Subscriptions](https://developer.vippsmobilepay.com/docs/solutions/recurring-and-login)
 
 ## Next steps
 
