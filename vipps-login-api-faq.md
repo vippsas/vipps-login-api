@@ -16,7 +16,7 @@ See the [Vipps Login API](api-guide/README.md) for all the technical details.
 
 For more common Vipps questions, see:
 
-* [Vipps API General FAQ](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs)
+* [Vipps API General FAQ](https://developer.vippsmobilepay.com/docs/faqs)
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
@@ -24,12 +24,12 @@ You can also find frequently asked questions in the
 ## Where do I find the `client_id` and `client_secret`?
 
 See:
-[Common topics: API Keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys#getting-the-api-keys).
+[Common topics: API Keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys#getting-the-api-keys).
 
 ## How can I activate and set up Vipps Login?
 
 You can activate Vipps Login on the [portal.vipps.no](https://portal.vipps.no).
-See [Developer resources: Vipps portal: How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+See [Developer resources: Vipps portal: How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 ## What are the requirements for redirect URIs?
 
@@ -71,7 +71,7 @@ This means that the `client_id` and `client_secret` used is not valid for Vipps 
 Please check:
 
 * Have you activated Vipps Login and set up a redirect URI? See:
-  [Developer resources: Portal: How to set up login on your sales unit?](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+  [Developer resources: Portal: How to set up login on your sales unit?](https://developer.vippsmobilepay.com/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 * Have you double-checked that the `redirect_uri` used in the API call is
   *exactly* the same as the one specified on
   [portal.vipps.no](https://portal.vipps.no)?
@@ -81,7 +81,7 @@ Please check:
   is an exact match.
 * Are you using the `client_id` and `client_secret` for the correct environment?
   There are separate API keys for test and production. See:
-  [Common topics: API Keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys).
+  [Common topics: API Keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys).
 
 ## Why do I get `invalid_grant`?
 
@@ -145,7 +145,7 @@ under the *Utvikler* section and the *Set-up Vipps Login* panel.
 ## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
 
 You can get this error if you have both the Vipps
-[test app](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps)
+[test app](https://developer.vippsmobilepay.com/docs/test-environment#vipps-test-apps)
 and production app on the same phone.
 
 ## What is the `sub`?
@@ -324,7 +324,7 @@ as a key feature of the service.
 
 Yes, statistics on successful logins with Vipps in production is available on
 the
-[API Dashboard](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/api-dashboard).
+[API Dashboard](https://developer.vippsmobilepay.com/docs/developer-resources/api-dashboard).
 
 Choose the sales unit with Vipps Login that you would like to see, the time
 period you would like to have covered and click "Fetch data".
@@ -451,7 +451,7 @@ If a user wants to log out of a specific browser remembered in Vipps Login, they
 ## Common errors
 
 See
-[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/common-errors-faq)
+[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/faqs/common-errors-faq)
 for more questions.
 
 ### Why do I get `The client or its related sales unit or merchant does not exist or is not active`?
@@ -465,7 +465,7 @@ has been deactivated at [Brønnøysundregistrene](https://www.brreg.no).
 We do not currently support any flows that requires requests being made from browsers.
 
 See:
-[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/common-problems-faq#why-do-i-get-a-cors-error).
+[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/faqs/common-problems-faq#why-do-i-get-a-cors-error).
 
 ### Why do I get `No CSRF value available in the session cookie`?
 

@@ -16,7 +16,7 @@ Here is some useful information which can help you as you integrate with Vipps L
 ## Design guidelines and buttons
 
 Buttons to use for Vipps Login can be found as part of our
-[design guidelines](https://developer.vippsmobilepay.com/docs/vipps-design-guidelines/).
+[design guidelines](https://developer.vippsmobilepay.com/docs/design-guidelines/).
 
 ## Recommendations on linking to user account
 

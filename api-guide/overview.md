@@ -26,7 +26,7 @@ When Vipps Login is used in the browser, the user can choose to be remembered in
 Vipps Login is *not* an electronic identification or certified eID.
 
 For *Vipps Login in browser*, there are *plugins* available for several platforms.
-You find the complete list on our [plugins page](https://developer.vippsmobilepay.com/docs/vipps-plugins).
+You find the complete list on our [plugins page](https://developer.vippsmobilepay.com/docs/plugins).
 If a plugin is not available, the easiest - and **strongly recommended** - way to integrate with the service
 is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language.
 Vipps does not recommend a specific library, but the
@@ -40,7 +40,7 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 Vipps Login from phone number is available for all Vipps Login enabled clients.
 
-See the [Test environment](https://developer.vippsmobilepay.com/docs/vipps-developers/test-environment#vipps-test-apps)
+See the [Test environment](https://developer.vippsmobilepay.com/docs/test-environment#vipps-test-apps)
 page for information about our test environment, test apps and test users.
 
 ## Flows
@@ -49,7 +49,7 @@ A sales unit can use the Login API for many flows.
 It is recommended to use the same sales unit for all use cases to ensure that you get the same user ID (`sub`) on the user across different scenarios.
 
 The Login API can also be combined with other APIs to make registration and payment simple for users.
-See an example for simplifying registration and payment in [Subscriptions](https://developer.vippsmobilepay.com/docs/vipps-solutions/recurring-and-login).
+See an example for simplifying registration and payment in [Subscriptions](https://developer.vippsmobilepay.com/docs/solutions/recurring-and-login).
 
 ### Login in browser
 

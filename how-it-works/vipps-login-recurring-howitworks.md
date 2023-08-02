@@ -14,4 +14,4 @@ END_METADATA -->
 
 Vipps Login and Vipps Recurring can be used together making registration and payment simple for your customers.
 
-See [Subscriptions](https://developer.vippsmobilepay.com/docs/vipps-solutions/recurring-and-login).
+See [Subscriptions](https://developer.vippsmobilepay.com/docs/solutions/recurring-and-login).

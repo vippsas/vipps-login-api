@@ -18,7 +18,7 @@ For technical documentation go to
 
 We also have [How Login works in the browser](vipps-login-api-howitworks.md)
 
-This solution features in our [In-store using merchant scan](https://developer.vippsmobilepay.com/docs/vipps-solutions/loyalty-in-pos).
+This solution features in our [In-store using merchant scan](https://developer.vippsmobilepay.com/docs/solutions/loyalty-in-pos).
 
 ## The login from phone number process
 

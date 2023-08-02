@@ -21,11 +21,11 @@ recommended flow in both Postman and curl.
 
 You must have already signed up as an organization with Vipps MobilePay and have
 your test credentials from the merchant portal, as described in the
-[Getting started guide](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started).
+[Getting started guide](https://developer.vippsmobilepay.com/docs/getting-started).
 
 
 Your test sales unit must be set up for using login.
-See [How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+See [How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 ## Set up
 
@@ -35,7 +35,7 @@ Import the following files into Postman:
 * [Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
 In Postman, tweak the environment with your own values (see
-[API keys](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-keys/)):
+[API keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys/)):
 
 * `client_id` - Merchant key required for getting the access token.
 * `client_secret` - Merchant key required for getting the access token.
@@ -46,10 +46,10 @@ In Postman, tweak the environment with your own values (see
    See [API Guide: well known](api-guide/integration.md#openid-connect-discovery-endpoint) for more details.
 * `redirect_uri` - The URL where the user is sent after finishing a login.
    The URL must be exactly the same as the one specified in your sale unit.
-   See [How to set up login on your sales unit](/docs/vipps-developers/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+   See [How to set up login on your sales unit](/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 For help using Postman, see
-[Quick start guides](https://developer.vippsmobilepay.com/docs/vipps-developers/quick-start-guides).
+[Quick start guides](https://developer.vippsmobilepay.com/docs/quick-start-guides).
 
 ## Standard Login API calls
 

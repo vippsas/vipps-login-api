@@ -34,12 +34,12 @@ For information and to order the product go to:
 
 Examples of how to combine the Login and Recurring APIs:
 
-* [Subscriptions](https://developer.vippsmobilepay.com/docs/vipps-solutions/recurring-and-login)
+* [Subscriptions](https://developer.vippsmobilepay.com/docs/solutions/recurring-and-login)
 
 ## Next steps
 
 If you're new to this platform, see
-[Getting Started](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started).
+[Getting Started](https://developer.vippsmobilepay.com/docs/getting-started).
 
 Review the detailed documentation found here:
 

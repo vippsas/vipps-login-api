@@ -50,11 +50,11 @@ Integrate the [API endpoints](https://developer.vippsmobilepay.com/api/login/#ta
 | Ensure functionality | Ensure that your solution is verified to work if the user start in a "non-default" browser on mobile, e.g. start Vipps Login from Chrome browser on iOS. |
 | Update user registry | Implement proper linking of the Vipps user to your own user registry. This login must be based on either phone number or e-mail address. See [recommendations on linking to user account](api-guide/important-information.md#Recommendations-on-linking-to-user-account). |
 | Handle errors | Make sure to log and handle all errors. For example, handle cancelled logins and error situations while redirecting the user back to `redirect_uri` (i.e., redirect with an `error` query parameter). In addition, display errors in a way that the users (customers and merchant employees/administrators) can see and understand them. |
-| Include Vipps HTTP headers | Send the [Vipps HTTP headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers) in all API requests for better tracking and troubleshooting (mandatory for partners and platforms, who must send these headers as part of the checklist approval). |
+| Include Vipps HTTP headers | Send the [Vipps HTTP headers](https://developer.vippsmobilepay.com/docs/common-topics/http-headers) in all API requests for better tracking and troubleshooting (mandatory for partners and platforms, who must send these headers as part of the checklist approval). |
 
 ## Avoid integration pitfalls
 
 | Action | Comment   |
 |--------|-----------|
-| Follow design guidelines| The Vipps branding must be according to the [Vipps design guidelines](https://developer.vippsmobilepay.com/docs/vipps-design-guidelines).|
+| Follow design guidelines| The Vipps branding must be according to the [Vipps design guidelines](https://developer.vippsmobilepay.com/docs/design-guidelines).|
 | Educate customer support| Make sure your customer service, etc. has all the tools and information they need available in *your* system, through the APIs listed in the first item in this checklist, and that they do not need to visit [portal.vipps.no](https://portal.vipps.no) for normal work.|
