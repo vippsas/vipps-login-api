@@ -546,7 +546,7 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
           "termsLinkText" : "Read the terms of use.",
           "termsLinkUrl" : "https://www.vipps.no/vilkar/vilkar-privat/",
           "privacyStatementLinkText" : "Read the privacy policy.",
-          "privacyStatementLinkUrl" : "https://www.vipps.no/vilkar/cookie-og-personvern/"
+          "privacyStatementLinkUrl" : "https://www.vipps.no/personvern-og-vilkar/personvern/"
         },
         "timeOfConsent" : "2022-11-23T11:40:13Z",
         "consents" : [ {

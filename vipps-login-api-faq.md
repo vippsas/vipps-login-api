@@ -378,7 +378,7 @@ to Vipps Login:
 
 See more information in our end user
 [terms and condition](https://www.vipps.no/vilkar/vilkar-privat/),
-[privacy policy](https://www.vipps.no/vilkar/cookie-og-personvern/)
+[privacy policy](https://www.vipps.no/personvern-og-vilkar/personvern/)
 and
 [merchant agreement](https://www.vipps.no/vilkar/vilkar-bedrift/).
 
