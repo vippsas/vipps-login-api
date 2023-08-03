@@ -11,6 +11,9 @@ END_METADATA -->
 
 # Login API extended Postman guide
 
+**Please note:** Postman is discontinuing their offline version. Use only your test keys and delete them after testing. Ensure that your company allows for cloud use before continuing.
+
+
 This is a postman guide for the using the Login API with Postman.
 Use the Login API to confirm your identity through the log-in process.
 
@@ -47,9 +50,6 @@ In Postman, tweak the environment with your own values (see
 * `redirect_uri` - The URL where the user is sent after finishing a login.
    The URL must be exactly the same as the one specified in your sale unit.
    See [How to set up login on your sales unit](/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
-
-For help using Postman, see
-[Quick start guides](https://developer.vippsmobilepay.com/docs/quick-start-guides).
 
 ## Standard Login API calls
 
