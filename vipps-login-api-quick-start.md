@@ -39,7 +39,9 @@ values={[
 ]}>
 <TabItem value="postman">
 
-Import the following files into Postman:
+**Please note:** Postman is discontinuing their offline version. Use only your test keys and delete them after testing. Ensure that your company allows for cloud use before continuing.
+
+If you wish to use Postman, import the following files:
 
 * [Login API Postman collection](/tools/vipps-login-api.postman_collection.json)
 * [Global Postman environment](pathname:///tools/vipps-api-global-postman-environment.json)
@@ -55,8 +57,6 @@ In Postman, tweak the environment with your own values (see
 * `redirect_uri` - The website to send the user to after they log in.
    This must be exactly the same as the one specified your sales unit.
 
-For help using Postman, see
-[Quick start guides](/docs/quick-start-guides).
 
 </TabItem>
 <TabItem value="curl">
