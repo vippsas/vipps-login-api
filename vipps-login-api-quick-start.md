@@ -236,7 +236,10 @@ curl https://apitest.vipps.no/vipps-userinfo-api/userinfo/ \
 
 ## Next steps
 
-See the [Login API guide](api-guide/README.md).
+See the [Login API guide](api-guide/README.md) to read about the concepts and details.
+
+For more examples, see the step-by-step instructions in the
+[Login Postman guide](../vipps-login-api-postman-guide.md).
 
 
 
