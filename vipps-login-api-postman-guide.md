@@ -11,21 +11,20 @@ END_METADATA -->
 
 # Login API extended Postman guide
 
-**Please note:** Postman is discontinuing their offline version. Use only your test keys and delete them after testing. Ensure that your company allows for cloud use before continuing.
-
-
-This is a postman guide for the using the Login API with Postman.
+This is a guide for the using the Login API with Postman.
 Use the Login API to confirm your identity through the log-in process.
 
 This is an extension of the [Login API quick start guide](vipps-login-api-quick-start.md) which shows the
 recommended flow in both Postman and curl.
+
+**Please note:** Postman is discontinuing their offline version. Use only your test keys and delete them after testing.
+Ensure that your company allows for cloud use before continuing.
 
 ## Prerequisites
 
 You must have already signed up as an organization with Vipps MobilePay and have
 your test credentials from the merchant portal, as described in the
 [Getting started guide](https://developer.vippsmobilepay.com/docs/getting-started).
-
 
 Your test sales unit must be set up for using login.
 See [How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).

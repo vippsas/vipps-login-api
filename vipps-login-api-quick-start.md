@@ -17,7 +17,9 @@ import TabItem from '@theme/TabItem';
 
 ## Before you begin
 
-This document covers the quick steps for getting started with the Userinfo API.
+Use the Login API to confirm your identity through the log-in process.
+
+This document covers the quick steps for getting started with the Login API.
 You must have already signed up as an organization with Vipps MobilePay and have
 your test credentials from the merchant portal, as described in the
 [Getting started guide](/docs/getting-started).
