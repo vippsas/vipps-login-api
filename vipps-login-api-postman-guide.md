@@ -11,10 +11,8 @@ END_METADATA -->
 
 # Login API extended Postman guide
 
-This is a guide for the using the Login API with Postman.
-Use the Login API to confirm your identity through the log-in process.
-
-This is an extension of the [Login API quick start guide](vipps-login-api-quick-start.md) which shows the
+This is a guide for the using the Login API with Postman, and is an extension of the
+[Login API quick start guide](vipps-login-api-quick-start.md) which shows the
 recommended flow in both Postman and curl.
 
 **Please note:** Postman is discontinuing their offline version. Use only your test keys and delete them after testing.
