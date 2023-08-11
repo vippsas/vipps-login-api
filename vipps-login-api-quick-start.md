@@ -72,7 +72,7 @@ No setup needed :)
 ### Step 2 - Get OIDC Well known
 
 <Tabs
-defaultValue="postman"
+defaultValue="curl"
 groupId="sdk-choice"
 values={[
 {label: 'curl', value: 'curl'},
@@ -106,7 +106,7 @@ curl https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-co
 
 
 <Tabs
-defaultValue="postman"
+defaultValue="curl"
 groupId="sdk-choice"
 values={[
 {label: 'curl', value: 'curl'},
@@ -140,7 +140,7 @@ If you have already completed this process and selected *Remember me in browser*
 On the redirect URL page, copy the `code` value out from the address field in the URL.
 
 <Tabs
-defaultValue="postman"
+defaultValue="curl"
 groupId="sdk-choice"
 values={[
 {label: 'curl', value: 'curl'},
@@ -201,7 +201,7 @@ Send request `Get Userinfo`. This uses [`GET:/vipps-userinfo-api/userinfo/`][use
 Use the access token from the previous step.
 
 <Tabs
-defaultValue="postman"
+defaultValue="curl"
 groupId="sdk-choice"
 values={[
 {label: 'curl', value: 'curl'},
