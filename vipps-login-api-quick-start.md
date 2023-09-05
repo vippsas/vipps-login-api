@@ -135,7 +135,7 @@ If you have not yet consented to sharing your user information, a new screen wil
 
 If you have already completed this process and selected *Remember me in browser* earlier, this will take you straight to the redirect URL.
 
-### Step 4 Get token
+### Step 4 - Get token
 
 On the redirect URL page, copy the `code` value out from the address field in the URL.
 
