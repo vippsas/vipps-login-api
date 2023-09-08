@@ -15,6 +15,8 @@ END_METADATA -->
 💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/login-api>. 💥
 <!-- END_COMMENT -->
 
+💥 *This API is expected to be available in Denmark and Finland some months after OnePlatform is launched.* 💥
+
 API version: 2.0
 
 Vipps Login is the easiest way to sign in and create an account in both digital and physical settings. No typing required! Users don’t need to worry about forgetting or loosing their usernames and passwords. All they need to remember is their phone number. Vipps Login is easier for the user while you as a merchant get better conversion and data quality.

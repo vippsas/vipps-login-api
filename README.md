@@ -16,6 +16,8 @@ END_METADATA -->
 💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/login-api>. 💥
 <!-- END_COMMENT -->
 
+💥 *This API is expected to be available in Denmark and Finland some months after OnePlatform is launched.* 💥
+
 With the Login API, users can log in to your service by using their Vipps account.
 This simplifies the process for users, as they don't need to fill out a form or remember a password to access your services.
 This also provides you with pre-verified user data.
