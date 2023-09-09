@@ -69,7 +69,11 @@ No setup needed :)
 </Tabs>
 
 
-### Step 2 - Get OIDC Well known
+### Step 2 - Get OIDC well-known endpoint
+
+Get configuration information for OpenID Connect clients by using
+[OpenID configuration endpoint](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration).
+
 
 <Tabs
 defaultValue="curl"
@@ -100,10 +104,12 @@ curl https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-co
 </TabItem>
 </Tabs>
 
+The URL of the OP's OAuth 2.0 Authorization Endpoint is provided in the response.
+
 
 ### Step 3 - Log in
 
-
+Log the user in by using OAuth 2.0.
 
 <Tabs
 defaultValue="curl"
@@ -119,7 +125,7 @@ In your active Postman environment, copy the value of key `start_login_uri` and 
 </TabItem>
 <TabItem value="curl">
 
-Put together the URI in this format ([OAuth 2.0 Authorize](/docs/APIs/login-api/api-guide/integration/#oauth-20-authorize)):
+Compose the URI in this format ([OAuth 2.0 Authorize](/docs/APIs/login-api/api-guide/integration/#oauth-20-authorize)):
 
 ```http
 https://apitest.vipps.no/access-management-1.0/access/oauth2/auth?client_id=YOUR-CLIENT-ID&response_type=code&scope=openid%20name%20phoneNumber%20address%20birthDate&state=8652682f-ba1d-4719-b1ec-8694ba97bde7&redirect_uri=http://localhost
@@ -243,8 +249,8 @@ For more examples, see the step-by-step instructions in the
 
 
 
-[access-token-endpoint]: /api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost
-[create-payment-endpoint]: /api/epayment#tag/CreatePayments/operation/createPayment
-[get-payment-endpoint]: /api/epayment#tag/QueryPayments/operation/getPayment
-[userinfo-endpoint]: /api/userinfo#operation/getUserinfo
-[userinfo-endpoint-login]: /api/userinfo/#operation/userinfoAuthorizationCode
+[access-token-endpoint]: https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost
+[create-payment-endpoint]: https://developer.vippsmobilepay.com/api/epayment#tag/CreatePayments/operation/createPayment
+[get-payment-endpoint]: https://developer.vippsmobilepay.com/api/epayment#tag/QueryPayments/operation/getPayment
+[userinfo-endpoint]: https://developer.vippsmobilepay.com/api/userinfo#operation/getUserinfo
+[userinfo-endpoint-login]: https://developer.vippsmobilepay.com/api/userinfo/#operation/userinfoAuthorizationCode
