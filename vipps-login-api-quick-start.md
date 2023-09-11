@@ -109,7 +109,7 @@ The URL of the OP's OAuth 2.0 Authorization Endpoint is provided in the response
 
 ### Step 3 - Log in
 
-Log the user in by using OAuth 2.0.
+Log the user in by using OpenID Connect.
 
 <Tabs
 defaultValue="curl"
