@@ -20,7 +20,7 @@ Integrate the [API endpoints](https://developer.vippsmobilepay.com/api/login/#ta
 | Endpoint | Comment |
 |----------|---------|
 | OpenID Connect (Get OIDC well-known endpoint) | [`GET:/access-management-1.0/access/.well-known/openid-configuration`](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration) |
-| The OAuth 2.0 authorize endpoint | [`GET:/access-management-1.0/access/oauth2/token`](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/oauthAuth) |
+| The OAuth 2.0 authorize endpoint | [`GET:/access-management-1.0/access/oauth2/auth`](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/oauthAuth) |
 | The OAuth 2.0 token endpoint | [`POST:/access-management-1.0/access/oauth2/token`](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/oauth2Token) |
 | JSON Web Keys Discovery | [`GET:/access-management-1.0/access/.well-known/jwks.json`](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/wellKnown) |
 
