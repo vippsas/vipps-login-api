@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fd57fa3b-6108-4487-9afa-090e202ca553",
+		"_postman_id": "0bfe1ba1-4fef-402f-9d85-32a75d444749",
 		"name": "vipps-login-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -181,7 +181,7 @@
 								},
 								{
 									"key": "login_hint",
-									"value": "urn:mobilenumber:{{mobileNumber}}",
+									"value": "urn:msisdn:{{internationalMobileNumber}}",
 									"type": "text"
 								},
 								{
@@ -351,7 +351,7 @@
 								},
 								{
 									"key": "login_hint",
-									"value": "urn:mobilenumber:{{mobileNumber}}",
+									"value": "urn:msisdn:{{internationalMobileNumber}}",
 									"type": "text"
 								},
 								{
