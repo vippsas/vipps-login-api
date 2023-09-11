@@ -104,7 +104,7 @@ curl https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-co
 </TabItem>
 </Tabs>
 
-The URL of the OP's OAuth 2.0 Authorization Endpoint is provided in the response.
+The URL of the OpenID Provider's OAuth 2.0 Authorization Endpoint is provided in the response.
 
 
 ### Step 3 - Log in
