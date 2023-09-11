@@ -65,7 +65,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
     Authorization: Basic asdkjhasdjhsad=
     Content-Type: application/x-www-form-urlencoded
 
-    scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
+    scope=name address openid&login_hint=urn:msisdn:{msisdn}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
     ```
 
    Example response:
@@ -175,9 +175,9 @@ The default token endpoint authentication method is `client_secret_basic`. It is
 
 Supported login hints:
 
-* Norwegian mobile phone numbers can be targeted by passing login hint's on the format `urn:mobilenumber:{8 digit norwegian mobile number}`.
+* Norwegian mobile phone numbers can be targeted by passing login hint as an MSISDN.
 
-Example: `...&login_hint=urn:mobilenumber:12345678&...`.
+Example: `...&login_hint=urn:msisdn:4712345678&...`.
 
 #### The `scope` parameter (required)
 
@@ -268,7 +268,7 @@ sequenceDiagram
     Authorization: Basic asdkjhasdjhsad=
     Content-Type: application/x-www-form-urlencoded
 
-    requested_flow=login_to_webpage&scope=openid name address&login_hint=urn:mobilenumber:{mobileNumber}&redirect_uri=https://merchantwebpage.com/callback
+    requested_flow=login_to_webpage&scope=openid name address&login_hint=urn:msisdn:{msisdn}&redirect_uri=https://merchantwebpage.com/callback
     ```
 
    Example response, the `auth_req_id` should be used to connect this login to a token response since the ID token should contain the same `auth_req_id` value.
@@ -388,9 +388,9 @@ Required parameters: `requested_flow`, `login_hint`, `scope`, `redirect_uri`
 
 Supported login hints:
 
-* Norwegian mobile phone numbers can be targeted by passing login hint's on the format `urn:mobilenumber:{8 digit norwegian mobile number}`.
+* Norwegian mobile phone numbers can be targeted by passing login hint as an MSISDN.
 
-Example: `...&login_hint=urn:mobilenumber:12345678&...`.
+Example: `...&login_hint=urn:msisdn:4712345678&...`.
 
 #### The `scope` parameter (required)
 
@@ -456,7 +456,7 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
     Authorization: Basic asdkjhasdjhsad=
     Content-Type: application/x-www-form-urlencoded
 
-    scope=name delegatedConsents openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
+    scope=name delegatedConsents openid&login_hint=urn:msisdn:{msisdn}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
     ```
 
    Example response:
