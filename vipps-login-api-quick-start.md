@@ -43,12 +43,12 @@ values={[
 **Please note:** To prevent your sensitive data and credentials from being synced to the Postman cloud,
 store them in the *Current Value* fields of your Postman environment.
 
-Import the following files:
+In Postman, import the following files:
 
 * [Login API Postman collection](/tools/vipps-login-api.postman_collection.json)
 * [Global Postman environment](pathname:///tools/vipps-api-global-postman-environment.json)
 
-In Postman, tweak the environment with your own values (see
+Update the *Current Value* field the environment with your own values (see
 [API keys](/docs/common-topics/api-keys/)):
 
 * `client_id` - Merchant key required for getting the access token.
