@@ -12,7 +12,8 @@ END_METADATA -->
 # Login API guide
 
 <!-- START_COMMENT -->
-💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/login-api>. 💥
+ℹ️ Please use the website:
+[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 <!-- END_COMMENT -->
 
 API version: 2.0

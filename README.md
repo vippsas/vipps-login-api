@@ -13,7 +13,8 @@ END_METADATA -->
 # Introduction
 
 <!-- START_COMMENT -->
-💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/login-api>. 💥
+ℹ️ Please use the website:
+[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 <!-- END_COMMENT -->
 
 With the Login API, users can log in to your service by using their Vipps account.
