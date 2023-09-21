@@ -12,6 +12,10 @@ END_METADATA -->
 
 # Introduction
 
+![Vipps](./images/vipps.png) *Available for Vipps now.*
+
+![MobilePay](./images/mp.png) *Available for MobilePay in selected markets at the [Vipps MobilePay joint platform launch](https://www.vippsmobilepay.com/#about).*
+
 <!-- START_COMMENT -->
 ℹ️ Please use the website:
 [Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
