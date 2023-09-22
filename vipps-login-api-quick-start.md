@@ -19,9 +19,7 @@ Use the Login API to confirm your identity through the log-in process.
 
 ## Before you begin
 
-This document covers the quick steps for getting started with the Login API.
-
-**Important:** The examples use standard example values that you must change to
+The examples use standard example values that you must change to
 use *your* values. This includes API keys, HTTP headers, reference, etc.
 
 ## Log in with browser
