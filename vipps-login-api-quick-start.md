@@ -15,14 +15,11 @@ import TabItem from '@theme/TabItem';
 
 # Quick start
 
-## Before you begin
-
 Use the Login API to confirm your identity through the log-in process.
 
+## Before you begin
+
 This document covers the quick steps for getting started with the Login API.
-You must have already signed up as an organization with Vipps MobilePay and have
-your test credentials from the merchant portal, as described in the
-[Getting started guide](/docs/getting-started).
 
 **Important:** The examples use standard example values that you must change to
 use *your* values. This includes API keys, HTTP headers, reference, etc.
@@ -30,6 +27,20 @@ use *your* values. This includes API keys, HTTP headers, reference, etc.
 ## Log in with browser
 
 ### Step 1 - Setup
+
+You must have already signed up as an organization with Vipps MobilePay and have
+your test credentials from the merchant portal.
+
+You will need the following values, as described in the
+[Getting started guide](https://developer.vippsmobilepay.com/docs/getting-started):
+
+* `client_id` - Client_id for a test sales unit.
+* `client_secret` - Client_id for a test sales unit.
+* `Ocp-Apim-Subscription-Key` - Subscription key for a test sales unit.
+* `merchantSerialNumber` - The unique ID for a test sales unit.
+* `mobileNumber` - The phone number for the test app profile you have received or registered.
+* `redirect_uri` - The website to send the user to after they log in.
+   This must be exactly the same as the one specified your sales unit.
 
 <Tabs
 defaultValue="curl"
@@ -48,22 +59,15 @@ In Postman, import the following files:
 * [Login API Postman collection](/tools/vipps-login-api.postman_collection.json)
 * [Global Postman environment](pathname:///tools/vipps-api-global-postman-environment.json)
 
-Update the *Current Value* field in your Postman environment with your own values (see
-[API keys](/docs/common-topics/api-keys/)):
+🔥 **Do not use production keys in Postman.** 🔥
 
-* `client_id` - Merchant key required for getting the access token.
-* `client_secret` - Merchant key required for getting the access token.
-* `Ocp-Apim-Subscription-Key` - Merchant subscription key.
-* `merchantSerialNumber` - Merchant ID.
-* `mobileNumber` - The phone number for the test app profile you have received or registered.
-* `redirect_uri` - The website to send the user to after they log in.
-   This must be exactly the same as the one specified your sales unit.
-
+Update the *Current Value* field in your Postman environment with your **Merchant Test** keys.
+Use *Current Value* field for added security, as these values are not synced to the cloud.
 
 </TabItem>
 <TabItem value="curl">
 
-No setup needed :)
+No additional setup needed :)
 
 </TabItem>
 </Tabs>
@@ -93,7 +97,7 @@ Send Get OIDC well-known
 
 ```bash
 curl https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration \
--H "Merchant-Serial-Number: 123456" \
+-H "Merchant-Serial-Number: YOUR-MSN" \
 -H "Vipps-System-Name: acme" \
 -H "Vipps-System-Version: 3.1.2" \
 -H "Vipps-System-Plugin-Name: acme-webshop" \
@@ -183,7 +187,7 @@ var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 curl https://apitest.vipps.no/access-management-1.0/access/oauth2/token \
 -H 'Content-Type: application/x-www-form-urlencoded' \
 -H 'Authorization: Basic {client credentials}' \
--H "Merchant-Serial-Number: 123456" \
+-H "Merchant-Serial-Number: YOUR-MSN" \
 -H "Vipps-System-Name: acme" \
 -H "Vipps-System-Version: 3.1.2" \
 -H "Vipps-System-Plugin-Name: acme-webshop" \
@@ -228,7 +232,7 @@ curl https://apitest.vipps.no/vipps-userinfo-api/userinfo/ \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni <truncated>" \
 -H "Ocp-Apim-Subscription-Key: 0f14ebcab0ec4b29ae0cb90d91b4a84a" \
--H "Merchant-Serial-Number: 123456" \
+-H "Merchant-Serial-Number: YOUR-MSN" \
 -H "Vipps-System-Name: acme" \
 -H "Vipps-System-Version: 3.1.2" \
 -H "Vipps-System-Plugin-Name: acme-webshop" \
