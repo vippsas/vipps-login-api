@@ -15,7 +15,7 @@ This is a guide for the using the Login API with Postman, and is an extension of
 [Login API quick start guide](vipps-login-api-quick-start.md) which shows the
 recommended flow in both Postman and curl.
 
-🔥 **Do not use production keys in Postman.** 🔥
+🔥 **Don't store production keys in the cloud version of Postman, because this introduces a risk of exposure.** 🔥
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ In Postman, tweak the environment with your own values (see
    The URL must be exactly the same as the one specified in your sale unit.
    See [How to set up login on your sales unit](/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
-🔥 **Do not use production keys in Postman.** 🔥
+🔥 **Don't store production keys in the cloud version of Postman, because this introduces a risk of exposure.** 🔥
 
 Update the *Current Value* field in your Postman environment with your **Merchant Test** keys.
 Use *Current Value* field for added security, as these values are not synced to the cloud.
