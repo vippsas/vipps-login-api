@@ -19,7 +19,7 @@ Use the Login API to confirm your identity through the log-in process.
 
 ## Before you begin
 
-The provided example values in this guide must be changed with the values for your test sales unit and user.
+The provided example values in this guide must be changed with the values for your sales unit and user.
 This applies for API keys, HTTP headers, reference, phone number, etc.
 
 ## Log in with browser
