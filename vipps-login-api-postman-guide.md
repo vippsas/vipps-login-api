@@ -15,8 +15,7 @@ This is a guide for the using the Login API with Postman, and is an extension of
 [Login API quick start guide](vipps-login-api-quick-start.md) which shows the
 recommended flow in both Postman and curl.
 
-**Please note:** Postman is discontinuing their offline version. Use only your test keys and delete them after testing.
-Ensure that your company allows for cloud use before continuing.
+🔥 **To reduce risk of exposure, never store production keys in Postman or any similar tools.** 🔥
 
 ## Prerequisites
 
@@ -32,21 +31,26 @@ See [How to set up login on your sales unit](https://developer.vippsmobilepay.co
 Import the following files into Postman:
 
 * [Login API Postman collection](/tools/vipps-login-api.postman_collection.json)
-* [Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
+* [Global Postman environment](https://github.com/vippsas/vipps-developers/blob/master/tools/vipps-api-global-postman-environment.json)
 
 In Postman, tweak the environment with your own values (see
 [API keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys/)):
 
-* `client_id` - Merchant key required for getting the access token.
-* `client_secret` - Merchant key required for getting the access token.
-* `Ocp-Apim-Subscription-Key` - Merchant subscription key.
-* `merchantSerialNumber` - Merchant ID.
+* `client_id` - Client_id for a test sales unit.
+* `client_secret` - Client_secret for a test sales unit.
+* `Ocp-Apim-Subscription-Key` - Subscription key for a test sales unit.
+* `merchantSerialNumber` - The unique ID for a test sales unit.
 * `mobileNumber` - The phone number for the test app profile you have received or registered.
 * `well-known_uri` - URL to well-known endpoint for used environment.
    See [API Guide: well known](api-guide/integration.md#openid-connect-discovery-endpoint) for more details.
 * `redirect_uri` - The URL where the user is sent after finishing a login.
    The URL must be exactly the same as the one specified in your sale unit.
    See [How to set up login on your sales unit](/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+
+🔥 **To reduce risk of exposure, never store production keys in Postman or any similar tools.** 🔥
+
+Update the *Current Value* field in your Postman environment with your **Merchant Test** keys.
+Use *Current Value* field for added security, as these values are not synced to the cloud.
 
 ## Standard Login API calls
 
