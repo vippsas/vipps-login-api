@@ -37,7 +37,7 @@ In Postman, tweak the environment with your own values (see
 [API keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys/)):
 
 * `client_id` - Client_id for a test sales unit.
-* `client_secret` - Client_id for a test sales unit.
+* `client_secret` - Client_secret for a test sales unit.
 * `Ocp-Apim-Subscription-Key` - Subscription key for a test sales unit.
 * `merchantSerialNumber` - The unique ID for a test sales unit.
 * `mobileNumber` - The phone number for the test app profile you have received or registered.
