@@ -57,7 +57,7 @@ In Postman, import the following files:
 * [Login API Postman collection](/tools/vipps-login-api.postman_collection.json)
 * [Global Postman environment](pathname:///tools/vipps-api-global-postman-environment.json)
 
-🔥 **Don't store production keys in the cloud version of Postman, because this introduces a risk of exposure.** 🔥
+🔥 **To reduce risk of exposure, never store production keys in Postman or any similar tools.** 🔥
 
 Update the *Current Value* field in your Postman environment with your **Merchant Test** keys.
 Use *Current Value* field for added security, as these values are not synced to the cloud.
