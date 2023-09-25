@@ -33,7 +33,7 @@ You will need the following values, as described in the
 [Getting started guide](https://developer.vippsmobilepay.com/docs/getting-started):
 
 * `client_id` - Client_id for a test sales unit.
-* `client_secret` - Client_id for a test sales unit.
+* `client_secret` - Client_secret for a test sales unit.
 * `Ocp-Apim-Subscription-Key` - Subscription key for a test sales unit.
 * `merchantSerialNumber` - The unique ID for a test sales unit.
 * `mobileNumber` - The phone number for the test app profile you have received or registered.
