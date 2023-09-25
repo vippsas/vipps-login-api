@@ -38,7 +38,7 @@ You will need the following values, as described in the
 * `merchantSerialNumber` - The unique ID for a test sales unit.
 * `mobileNumber` - The phone number for the test app profile you have received or registered.
 * `redirect_uri` - The website to send the user to after they log in.
-   This must be exactly the same as the one specified your sales unit.
+   This must be exactly the same redirect uri as the one you specified on your sales unit in the merchant portal.
 
 <Tabs
 defaultValue="curl"
