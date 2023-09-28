@@ -122,13 +122,13 @@ paths:
                     Be extra careful with trailing slashes and URL-encoded entities.
                 client_id:
                   description: |-
-                    The `client_id` is available on portal.vipps.no, under the 'Utvikler' tab.
+                    The `client_id` is available on portal.vipps.no, under the 'Utvikler' section.
                     This parameter is required if the token endpoint authentication method is set to `client_secret_post`.
                   type: string
                   example: fb492b5e-7907-4d83-ba20-c7fb60ca35de
                 client_secret:
                   description: |-
-                    The `client_secret` is available on portal.vipps.no, under the 'Utvikler' tab.
+                    The `client_secret` is available on portal.vipps.no, under the 'Utvikler' section.
                     This parameter is required if the token endpoint authentication method is set to `client_secret_post`.
                   type: string
                 code_verifier:
