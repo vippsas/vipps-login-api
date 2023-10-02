@@ -34,5 +34,4 @@ The following topics are described:
 * Special flows
   * [Automatic return from Vipps app](flows/automatic-return.md) reducing required user interaction when appropriate.
   * [Vipps login from phone number](flows/phone-number-ciba-flows.md) and direct login in the Vipps app.
-  * [No dialog flow](flows/no-dialog.md) to check if a user is already logged in.
 * [Partner keys](partner-keys.md) facilitating integration for partners.
