@@ -115,20 +115,6 @@ By using this flow, Vipps Login will be able to complete the login process even 
 
 See [Automatic return from Vipps app](flows/automatic-return.md) for details about implementation and security considerations.
 
-#### No dialog flow - log the user in directly when possible
-
-Log the user into your website or service directly with the Login API, when the prerequisites are met.
-A user that can be logged in directly will get a better login experience and quickly come to the information and services that are relevant for them.
-
-When using this flow, a spinner will be shown while Vipps Login tries to log the user in. Once the process is completed, the user will be returned to the merchant as in the ordinary Vipps Login flow.
-
-Possible use cases:
-
-* The user is going to a section of your site/service that requires them to be logged in (e.g., my page or a personalized chatbot). This might be when the user is already on the webpage, or if the user is being linked directly to the page from an email or newsletter.
-* The user selects your login option. It is possible to try to log them in with Vipps first.
-
-See [No dialog flow](flows/no-dialog.md) for the technical details.
-
 ### Vipps Login from phone number
 
 *Vipps Login from phone number* is built to support special cases where login does not start in a browser or app. This could typically be physical contexts (e.g., point of sales solutions), on the phone (e.g., call-center solutions), or devices and terminals (e.g., TV boxes).
