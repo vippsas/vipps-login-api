@@ -2,8 +2,8 @@ openapi: 3.0.0
 info:
   description: >
     See the [API Guide](https://developer.vippsmobilepay.com/docs/APIs/login-api) for more information.
-    For the userinfo endpoint, see [Vipps Userinfo API](https://developer.vippsmobilepay.com/api/userinfo).
-  title: Vipps Login API
+    For the userinfo endpoint, see [Userinfo API](https://developer.vippsmobilepay.com/api/userinfo).
+  title: Login API
   version: 1.1.0
 servers:
   - url: https://api.vipps.no
@@ -19,7 +19,7 @@ paths:
         To learn more about this endpoint, please refer to the specification at
         https://openid.net/specs/openid-connect-discovery-1_0.html
       tags:
-        - Vipps Login API
+        - Login API
       parameters:
         - $ref: "#/components/parameters/Vipps-System-Name"
         - $ref: "#/components/parameters/Vipps-System-Version"
@@ -55,7 +55,7 @@ paths:
         and it is used to obtain an authorization grant.
         To learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.1
       tags:
-        - Vipps Login API
+        - Login API
       parameters:
         - $ref: "#/components/parameters/Vipps-System-Name"
         - $ref: "#/components/parameters/Vipps-System-Version"
@@ -88,7 +88,7 @@ paths:
         presenting its authorization grant.
         To learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.2
       tags:
-        - Vipps Login API
+        - Login API
       summary: The OAuth 2.0 token endpoint
       parameters:
         - $ref: "#/components/parameters/Merchant-Serial-Number"
@@ -166,7 +166,7 @@ paths:
         verifying OpenID Connect ID Tokens and,
         if enabled, OAuth 2.0 JWT (JSON Web Token, the access token).
       tags:
-        - Vipps Login API
+        - Login API
       parameters:
         - $ref: "#/components/parameters/Vipps-System-Name"
         - $ref: "#/components/parameters/Vipps-System-Version"

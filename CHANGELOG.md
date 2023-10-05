@@ -24,7 +24,7 @@ Vipps Login support for logging in directly from phone number (CIBA) and QR code
 
 ## February 2021
 
-### Launched Vipps Login API version 2
+### Launched Login API version 2
 
 To have a unified way of providing user information across Vipps services
 we are standardizing the data formats, both within Vipps and with the OIDC standard.

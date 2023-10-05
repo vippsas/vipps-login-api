@@ -14,7 +14,7 @@ END_METADATA -->
 Let your customers log in to your website or app without the need for usernames and passwords.
 
 For technical documentation go to
-[Vipps Login API](https://developer.vippsmobilepay.com/docs/APIs/login-api).
+[Login API](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 
 We also have _How it works_ for [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md)
 
@@ -78,4 +78,4 @@ to add additional details not present in the user's Vipps profile.
 
 ## Great! Now you know how the Vipps Login process works.
 
-Take a look at the technical documentation in the [Vipps Login API Guide](../api-guide/README.md).
+Take a look at the technical documentation in the [Login API Guide](../api-guide/README.md).

@@ -12,7 +12,7 @@ END_METADATA -->
 # Frequently asked questions
 
 Here are the Login API Frequently Asked Questions (FAQ).
-See the [Vipps Login API](api-guide/README.md) for all the technical details.
+See the [Login API](api-guide/README.md) for all the technical details.
 
 For more common Vipps questions, see:
 
