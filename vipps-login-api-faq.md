@@ -24,7 +24,7 @@ You can also find frequently asked questions in the
 ## Where do I find the `client_id` and `client_secret`?
 
 See:
-[Common topics: API Keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys#getting-the-api-keys).
+[Knowledge base: API Keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys#getting-the-api-keys).
 
 ## How can I activate and set up Vipps Login?
 
@@ -81,7 +81,7 @@ Please check:
   is an exact match.
 * Are you using the `client_id` and `client_secret` for the correct environment?
   There are separate API keys for test and production. See:
-  [Common topics: API Keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys).
+  [Knowledge base: API Keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys).
 
 ## Why do I get `invalid_grant`?
 
