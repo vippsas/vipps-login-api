@@ -458,7 +458,7 @@ for more questions.
 
 This means that the API credentials are for an MSN (Merchant Serial Number)
 that does not exist, or is not active. This can happen if the organization number
-has been deactivated at [Brønnøysundregistrene](https://www.brreg.no).
+has been deactivated at the [Brønnøysund Register](https://www.brreg.no).
 
 ### Why do I get a CORS error?
 
