@@ -195,9 +195,9 @@ National Identity Number (NIN) to achieve required user identification can get
 access to NIN. We follow the
 [guidance from Datatilsynet](https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/fodselsnummer/).
 
-According to the above NIN can only be used when it is legally required or when
+According to the above, NIN can only be used when it is legally required or when
 there is a need for a secure identification of the person and the NIN is
-required to achieve this. This applies e.g. when a company is required to
+required to achieve this. For example, this applies when a business is required to
 report to the tax authorities or within healthcare and credit.
 
 Keeping a unique and consistent identifier for the user over time is not a
