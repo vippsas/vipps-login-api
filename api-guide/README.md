@@ -35,3 +35,4 @@ The following topics are described:
   * [Automatic return from Vipps app](flows/automatic-return.md) reducing required user interaction when appropriate.
   * [Vipps login from phone number](flows/phone-number-ciba-flows.md) and direct login in the Vipps app.
 * [Partner keys](partner-keys.md) facilitating integration for partners.
+* [Authentication solutions](./auth-solutions/README.md): How to use the Login API with Auth0 and Azure AD B2C authentication solutions.
