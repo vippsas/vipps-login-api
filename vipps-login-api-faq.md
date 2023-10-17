@@ -268,7 +268,6 @@ and supply the following information:
 
 | Item | Description | Example | Comments |
 |------|-------------|---------|----------|
-| Top text | Specifies the purpose of collecting the consents | "Merchant AS would like to send you tailored offers in several digital channels." | |
 | Subset of consents you would like to request. | We offer a set of predefined consents. See [When using delegatedConsents, which consents are supported?](#when-using-delegatedconsents-which-consents-are-supported). | email, SMS, digital, personal | If you want a consent type that we currently don't support, reach out to us at [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no). |
 | Links to your membership terms and privacy statement. | We must review your terms to ensure that the flow is not intended to mislead or abuse end users. | <www.merchant.com/termsandconditions> <br /> <www.merchant.com/privacystatement> | |
 | Recipient to sign DPA | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions | <recipient@merchant.com> | |
