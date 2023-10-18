@@ -59,7 +59,7 @@ The Vipps or MobilePay app will return some data with the return to the `app_cal
 It contains two query parameters `state` and `resume_uri`.
 `State` is the OIDC `state` parameter passed at the start of a login which can be used to identify the specific login if needed.
 
-The `resume_uri` parameter that we generate which
+The `resume_uri` parameter that we generate
 can optionally be used to resume the login when the user returns from the Vipps or MobilePay app.
 If the merchant app manages to keep the initial browser window open it is not required to use the `resume_uri`.
 To use the `resume_uri`, it must be opened in the same browser used in the initial phase
