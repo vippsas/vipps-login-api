@@ -26,7 +26,7 @@ We also have _How it works_ for [Vipps Login from phone number](vipps-login-from
 
 ### 1. Log in with Vipps
 
-A user chooses to log in with Vipps on a merchant’s site.
+A user chooses to log in with Vipps or MobilePay on a merchant’s site.
 
 ![Buy subscription with Vipps](../images/vipps-login-step1-2.svg)
 
@@ -35,7 +35,7 @@ A user chooses to log in with Vipps on a merchant’s site.
 If the login was started on a desktop device, the user will be sent to the landing page.
 If the user is not remembered in browser from earlier, the user enters their phone number and can choose to be remembered in the browser for a quicker login the next time. The "Remember me in browser" option applies to the browser, independent of merchants. This option is default off on desktop devices.
 
-The user is then prompted to log in to Vipps and follow the instructions in the app.
+The user is then prompted to log in to Vipps MobilePay and follow the instructions in the app.
 
 If the login was started from a mobile device and the user needs to authenticate in the app, the user will confirm to be taken to the Vipps or MobilePay app without having to enter their phone number.
 
@@ -43,7 +43,7 @@ If the login was started from a mobile device and the user needs to authenticate
 
 ### 3. E-mail verification (first time only)
 
-If the merchant has requested the user's e-mail address, the user have to verify their e-mail address in Vipps the first time they use Vipps login, or if they change their e-mail address at a later time.
+If the merchant has requested the user's e-mail address, the user have to verify their e-mail address in Vipps MobilePay the first time they use Vipps login, or if they change their e-mail address at a later time.
 
 The user can check and change their registered e-mail addresses. This is only necessary to do once. If the merchant has not requested the user's e-mail address, this step is skipped.
 
@@ -72,7 +72,7 @@ The user may click "See your information" to see the actual information that wil
 The user is now logged in on the merchant’s page.
 
 The user may be given the opportunity to edit the information, for instance
-to add additional details not present in the user's Vipps profile.
+to add additional details not present in the user's Vipps or MobilePay profile.
 
 ![Overview of agreements](../images/vipps-login-step6-2.svg)
 

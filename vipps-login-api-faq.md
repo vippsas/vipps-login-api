@@ -14,9 +14,9 @@ END_METADATA -->
 Here are the Login API Frequently Asked Questions (FAQ).
 See the [Login API](api-guide/README.md) for all the technical details.
 
-For more common Vipps questions, see:
+For more common questions, see:
 
-* [Vipps API General FAQ](https://developer.vippsmobilepay.com/docs/faqs)
+* [API General FAQ](https://developer.vippsmobilepay.com/docs/faqs)
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
@@ -29,7 +29,7 @@ See:
 ## How can I activate and set up Vipps Login?
 
 You can activate Vipps Login on the [portal.vipps.no](https://portal.vipps.no).
-See [Developer resources: Vipps portal: How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+See [Developer resources: merchant portal: How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
 
 ## What are the requirements for redirect URIs?
 
@@ -181,7 +181,7 @@ See:
 
 ## Can a Vipps user less than 15 years old use Vipps Login?
 
-No, Vipps Login requires a full Vipps profile. Users below the age of 15 can
+No, Vipps Login requires a full Vipps or MobilePay profile. Users below the age of 15 can
 not use Vipps Login. See the
 [help pages for Vipps for those under 15 years](https://vipps.no/hjelp/vipps/under-15/hvordan-oppretter-jeg-vipps-for-de-under-15-år/).
 
@@ -201,7 +201,7 @@ required to achieve this. For example, this applies when a business is required 
 report to the tax authorities or within healthcare and credit.
 
 Keeping a unique and consistent identifier for the user over time is not a
-sufficient requirement. For this purpose Vipps offers a unique merchant specific
+sufficient requirement. For this purpose, we offer a unique merchant specific
 user identifier that are delivered as part of the registration/login. This is
 the claim `sub` that is delivered based on the `openid` scope. This unique
 identifier will allow you to keep a consistent user profile even if the user
@@ -210,7 +210,7 @@ changes contact information.
 Be aware that Vipps Login it not an electronic ID. Thus, the NIN can only be
 used to simplify the customers processes by removing manual input or to look up
 the customer in your own or external registers. This can be done as part of the
-processes to become a customer or to link login with Vipps to an existing user.
+processes to become a customer or to link login with Vipps MobilePay to an existing user.
 If you need to store the NIN for new users we recommend that you use an
 electronic ID.
 
@@ -270,7 +270,7 @@ and supply the following information:
 |------|-------------|---------|----------|
 | Subset of consents you would like to request. | We offer a set of predefined consents. See [When using delegatedConsents, which consents are supported?](#when-using-delegatedconsents-which-consents-are-supported). | email, SMS, digital, personal | If you want a consent type that we currently don't support, reach out to us at [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no). |
 | Links to your membership terms and privacy statement. | We must review your terms to ensure that the flow is not intended to mislead or abuse end users. | <www.merchant.com/termsandconditions> <br /> <www.merchant.com/privacystatement> | |
-| Recipient to sign DPA | Vipps will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions | <recipient@merchant.com> | |
+| Recipient to sign DPA | Vipps MobilePay will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions | <recipient@merchant.com> | |
 
 ## When using `delegatedConsents`, which consents are supported?
 
@@ -321,7 +321,7 @@ as a key feature of the service.
 
 ## Can I see statistics on Vipps Login usage?
 
-Yes, statistics on successful logins with Vipps in production is available on
+Yes, statistics on successful logins with Vipps MobilePay in production is available on
 the
 [API Dashboard](https://developer.vippsmobilepay.com/docs/developer-resources/api-dashboard).
 
@@ -346,11 +346,11 @@ until it appears on the dashboard.
 With regard to the processing of personal data and GDPR, the following applies
 to Vipps Login:
 
-1. Vipps Login gives a merchant the opportunity to ask a Vipps end user to share
+1. Vipps Login gives a merchant the opportunity to ask a Vipps or MobilePay end user to share
    a selection of data from their profile in Vipps. This can include name, phone
    number, email, addresses, and date of birth. The merchant controls which of
    this data is requested. The user must consent to the sharing of data.
-   The consent is the legal basis for the Vipps AS (hereafter called Vipps) transfer of
+   The consent is the legal basis for the Vipps MobilePay AS (hereafter called Vipps) transfer of
    this information to the merchant.
 2. Vipps is responsible for our processing of information related to Vipps
    end users and the personal information generated using the Vipps services.
@@ -440,7 +440,7 @@ Press  *rediger* (*edit*) under *salgsstedsinfo* (*sales unit information*) and 
 ## How can I log a user out?
 
 *Vipps Login* does not support merchant-initiated log-out in the browser, as this
-would effectively log the user out of Vipps (meaning that the user will no
+would effectively log the user out of Vipps MobilePay (meaning that the user will no
 longer be remembered in the browser across sites that use Vipps Login). You
 are of course free to log the user out of your service (by disabling your own session).
 

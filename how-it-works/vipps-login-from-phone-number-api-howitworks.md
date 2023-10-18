@@ -35,9 +35,9 @@ The different steps are described and illustrated with screenshots below.
 ### 1. Initiate Vipps Login from phone number
 
 The merchant initiates Vipps Login on the user's device from their system, based on the user's phone number.
-The user receives a push notification from Vipps and clicks the push to open the Vipps or MobilePay app.
+The user receives a push notification and clicks to open the Vipps or MobilePay app.
 
-If the user has turned off push notifications or for some other reason do not get the push, they can open Vipps themselves and automatically start the login flow.
+If the user has turned off push notifications or for some other reason do not get the push, they can open Vipps or MobilePay themselves and automatically start the login flow.
 
 ![User gets push message from Vipps](../images/vipps-login-phone-push.png)
 
@@ -47,8 +47,8 @@ After opening Vipps, the user will be asked to confirm sharing information with 
 
 On this screen, the merchant can choose to show a binding message (confirmation code). This is for added security if the merchant would like their representatives or their customers to have an explicit check that it is the correct transaction that is being accepted.
 
-After confirming the login and sharing of information, the user will be asked for the formal consent to share information from Vipps to the merchant.
-The end user must only consent once per merchant and the consent applies across all Vipps services. In other words, if the user has already consented to share the
+After confirming the login and sharing of information, the user will be asked for the formal consent to share information from Vipps MobilePay to the merchant.
+The end user must only consent once per merchant and the consent applies across all Vipps MobilePay services. In other words, if the user has already consented to share the
 requested information with the merchant, no consent will be required, and this step will be skipped.
 
 ![User confirm in Vipps](../images/vipps-login-confirm.png)

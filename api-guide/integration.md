@@ -16,7 +16,7 @@ API version: 2.0
 Vipps Login mostly adheres to the OAuth2 and OpenID Connect standards. The easiest - and **strongly recommended - way
 to integrate with the service is therefore to use a well-renowned
 OAuth2.0/OpenID Connect Library for your programming language**.
-Vipps does not recommend a specific library, but the
+We don't recommend a specific library, but the
 [Certified OpenID Developer Tools](https://openid.net/developers/certified/) page
 is a good starting point.
 
@@ -51,7 +51,7 @@ Overview
 | HTTP status        | Description                                               |
 |--------------------|-----------------------------------------------------------|
 | `200 OK`           | Request successful.                                       |
-| `500 Server Error` | An internal Vipps problem.                                |
+| `500 Server Error` | An internal Vipps MobilePay problem.                                |
 
 Example response from the merchant test environment:
 
@@ -151,7 +151,7 @@ means available to it via the user-agent.
 |-------|-------------|
 | `response_type` | Value MUST be set to "code". |
 | `client_id`     | The client identifier, issued by Vipps. |
-| `redirect_uri`  | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)                                                                                                |
+| `redirect_uri`  | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant)                                                                                                |
 | `scope`         | Scope of the access request, space-separated list. |
 | state           | An opaque value (e.g. a GUID) used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. It must be at least 8 characters long to ensure sufficient entropy. In case of a too short state parameter the end-user will be redirected back to the merchant's site with an error. |
 | `requested_flow` | Optional. Request a specific flow for the user. See [App integration](./app-integration.md) and[Automatic return from Vipps or MobilePay app](./overview.md#automatic-return-from-vipps-app) |
@@ -219,7 +219,7 @@ below to the HTTP body by using the `application/x-www-form-urlencoded` format.
 | Authorization  | `Basic {Client Credentials}`        |
 
 The `Client Credentials` is a base 64 encoded string consisting of the `client_id`
-and secret issued by Vipps joined by `:`.
+and secret issued by Vipps MobilePay joined by `:`.
 
 Example in JavaScript:
 
@@ -237,7 +237,7 @@ var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 |-----|-------------|
 | `grant_type`   | Value MUST be authorization_code.|
 | `code`         | The authorization code received as a query parameter on the `redirect_uri` from the authorization server.|
-| `redirect_uri` | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant). This field is required for OIDC flows, i.e. regular Vipps Login logins. |
+| `redirect_uri` | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant). This field is required for OIDC flows, i.e. regular Vipps Login logins. |
 
 [`POST:/oauth2/token`][access-token-endpoint]
 
@@ -247,7 +247,7 @@ var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 |---------------------|-----------------------------|
 | `200 OK`            | Request successful.         |
 | `401 Unauthorized`  | Invalid credentials.        |
-| `500 Server Error`  | An internal Vipps problem.  |
+| `500 Server Error`  | An internal Vipps MobilePay problem.  |
 
 Example response:
 
@@ -289,7 +289,7 @@ Overview
 |---------------------|-----------------------------|
 | `200 OK`            | Request successful.         |
 | `401 Unauthorized`  | Invalid credentials.        |
-| `500 Server Error`  | An internal Vipps problem.  |
+| `500 Server Error`  | An internal Vipps MobilePay problem.  |
 
 Example response:
 
@@ -349,7 +349,7 @@ Overview
 | HTTP status         | Description                |
 |---------------------|----------------------------|
 | `200 OK`            | Request successful.        |
-| `500 Server Error`  | An internal Vipps problem. |
+| `500 Server Error`  | An internal Vipps MobilePay problem. |
 
 Examples:
 *200 response*
@@ -380,7 +380,7 @@ to redirect the resource owner to them.
 
 After a successful authentication, the user agent is redirected to this endpoint
 with the following parameters added to the query component. This URI needs to
-be pre-registered with Vipps and supplied as a query parameter on calls to the
+be pre-registered with Vipps MobilePay and supplied as a query parameter on calls to the
 [OAuth2 authorize endpoint](#oauth-20-authorize).
 
 | Parameter | Description |
@@ -431,7 +431,7 @@ HTTP/1.1 302 Found
 Location: https://example.com/callback?error=access_denied&error_description=user%20cancelled%20the%20login?state={state}
 ```
 
-If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps styled error page will be shown containing a brief error description.
+If a fatal error occurs where the user can not be redirected back to the merchant, a generic Vipps or MobilePay styled error page will be shown containing a brief error description.
 
 ## Call by call
 

@@ -91,7 +91,7 @@ sequenceDiagram
     merchantBackend ->> merchantApp : Userinfo / Auth token
 ```
 
-The dotted lines in this diagram are handled by Vipps (or the user),
+The dotted lines in this diagram are handled by us (or the user),
 while the filled lines need to be implemented by the merchant.
 
 1. Merchant backend generates an [OpenID authentication flow authorization URI](core-concepts.md#oauth-20-authorize).
