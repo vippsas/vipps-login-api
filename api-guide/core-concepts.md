@@ -159,4 +159,4 @@ therefore not accept for example name and deny address.
 We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
 
-[access-token-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/oauth2Token
+[access-token-endpoint]: https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/oauth2Token

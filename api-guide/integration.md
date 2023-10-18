@@ -465,8 +465,8 @@ and the user's information, is shown below:
 
    See [Userinfo](#userinfo).
 
-[login-wellknown-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/wellKnown
-[login-discoveropenid-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration
+[login-wellknown-endpoint]: https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/wellKnown
+[login-discoveropenid-endpoint]: hhttps://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/discoverOpenIDConfiguration
 [userinfo-endpoint]: https://developer.vippsmobilepay.com/api/userinfo#operation/userinfoAuthorizationCode
-[access-auth-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/oauthAuth
-[access-token-endpoint]: https://developer.vippsmobilepay.com/api/login#tag/Vipps-Login-API/operation/oauth2Token
+[access-auth-endpoint]: https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/oauthAuth
+[access-token-endpoint]: https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/oauth2Token
