@@ -74,7 +74,7 @@ No additional setup needed :)
 ### Step 2 - Get OIDC well-known endpoint
 
 Get configuration information for OpenID Connect clients by using
-[OpenID configuration endpoint](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration).
+[OpenID configuration endpoint](https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/discoverOpenIDConfiguration).
 
 
 <Tabs

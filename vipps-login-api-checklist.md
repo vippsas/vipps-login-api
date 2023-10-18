@@ -15,14 +15,14 @@ API version: 2.0.
 
 ## Endpoints to integrate
 
-Integrate the [API endpoints](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API). For examples of requests and responses, see the [Postman collection](/tools/vipps-login-api.postman_collection.json) and [environment](https://github.com/vippsas/vipps-developers/blob/master/tools/vipps-api-global-postman-environment.json).
+Integrate the [API endpoints](https://developer.vippsmobilepay.com/api/login/#tag/Login-API). For examples of requests and responses, see the [Postman collection](/tools/vipps-login-api.postman_collection.json) and [environment](https://github.com/vippsas/vipps-developers/blob/master/tools/vipps-api-global-postman-environment.json).
 
 | Endpoint | Comment |
 |----------|---------|
-| OpenID Connect (Get OIDC well-known endpoint) | [`GET:/access-management-1.0/access/.well-known/openid-configuration`](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/discoverOpenIDConfiguration) |
-| The OAuth 2.0 authorize endpoint | [`GET:/access-management-1.0/access/oauth2/auth`](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/oauthAuth) |
-| The OAuth 2.0 token endpoint | [`POST:/access-management-1.0/access/oauth2/token`](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/oauth2Token) |
-| JSON Web Keys Discovery | [`GET:/access-management-1.0/access/.well-known/jwks.json`](https://developer.vippsmobilepay.com/api/login/#tag/Vipps-Login-API/operation/wellKnown) |
+| OpenID Connect (Get OIDC well-known endpoint) | [`GET:/access-management-1.0/access/.well-known/openid-configuration`](https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/discoverOpenIDConfiguration) |
+| The OAuth 2.0 authorize endpoint | [`GET:/access-management-1.0/access/oauth2/auth`](https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/oauthAuth) |
+| The OAuth 2.0 token endpoint | [`POST:/access-management-1.0/access/oauth2/token`](https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/oauth2Token) |
+| JSON Web Keys Discovery | [`GET:/access-management-1.0/access/.well-known/jwks.json`](https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/wellKnown) |
 
 ## Integration considerations
 
