@@ -431,7 +431,7 @@ After linking, the *Raw JSON* of the new user in Auth0 will now look like this:
   "picture": "https://s.gravatar.com/avatar/{...}.png",
   "updated_at": "2023-07-04T10:57:43.939Z",
   "user_id": "oauth2|VippsLogin|{sub}",
-  "last_ip": "77.40.174.194",
+  "last_ip": "127.0.0.1",
   "last_login": "2023-07-04T10:57:43.939Z",
   "logins_count": 2,
   "blocked_for": [],
