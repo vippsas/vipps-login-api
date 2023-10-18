@@ -80,7 +80,7 @@ The user is then authenticated in browser and can provide consent if required. T
 
 #### Mobile flow - deeplink based flow
 
-If the user is on a mobile device, the Vipps landing page
+If the user is on a mobile device, the Vipps MobilePay landing page
 in the browser will automatically trigger a deeplink to the Vipps or MobilePay app if the user is not remembered in the browser. The user will not be prompted to enter the phone number.
 
 In the Vipps or MobilePay app, the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app, the user needs to switch back to the Vipps MobilePay page in the browser/app. On the landing page, the user will finalize the authentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).

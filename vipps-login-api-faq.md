@@ -144,7 +144,7 @@ under the *Utvikler* section and the *Set-up Vipps Login* panel.
 
 ## Why do I get `Error: Could not get Vipps Login token” in Vipps`?
 
-You can get this error if you have both the Vipps
+You can get this error if you have both our
 [test app](https://developer.vippsmobilepay.com/docs/test-environment#vipps-test-apps)
 and production app on the same phone.
 
@@ -350,30 +350,30 @@ to Vipps Login:
    a selection of data from their profile in Vipps. This can include name, phone
    number, email, addresses, and date of birth. The merchant controls which of
    this data is requested. The user must consent to the sharing of data.
-   The consent is the legal basis for the Vipps MobilePay AS (hereafter called Vipps) transfer of
+   The consent is the legal basis for the Vipps MobilePay AS (hereafter called Vipps MobilePay) transfer of
    this information to the merchant.
-2. Vipps is responsible for our processing of information related to Vipps
-   end users and the personal information generated using the Vipps services.
+2. We are responsible for our processing of information related to our
+   end users and the personal information generated using the Vipps MobilePay services.
    For the Vipps Login service, the merchant will be responsible for the
    processing of the profile information received, starting when the merchant
-   receives the profile information from Vipps end user. The merchant will thus
+   receives the profile information from Vipps or MobilePay end user. The merchant will thus
    be an independent data processor for this data, and there is no need for a
-   data processing agreement between Vipps and the merchant.
+   data processing agreement between Vipps MobilePay and the merchant.
 3. The merchant must therefore obtain a valid basis for further processing of
    the personal data (e.g., agreement, terms or consent), to e.g. register the
    information in its customer register and start customer processing from there.
-4. When such sharing from Vipps to the merchant has been made, a Vipps end
-   user can later use Vipps to log in to the merchant, and the merchant will
+4. When such sharing from Vipps MobilePay to the merchant has been made, the end
+   user can later use our services to log in to the merchant, and the merchant will
    then have access to updated information on the data elements that the company
-   has requested. A Vipps end user can go into Vipps (the app) and see which
+   has requested. A Vipps MobilePay end user can go into the Vipps or MobilePay app and see which
    companies they have shared data with, which data has been shared, and they
    can withdraw their consent to share. This means that new consent must be
-   obtained before Vipps can share data again with the merchant.
-5. When an end user uses Vipps Login at a merchant, Vipps stores, as part
-   of our service to the Vipps end user and with Vipps as data processor,
+   obtained before we can share data again with the merchant.
+5. When an end user uses Vipps Login at a merchant, we store, as part
+   of our service to the end user and with Vipps MobilePay as data processor,
    information about (a) what information a user has agreed to share with a
-   merchant and (b) when a user has used Vipps log in to the relevant merchant.
-6. Vipps does not receive any information from the merchant about Vipps end user.
+   merchant and (b) when a user has used Vipps MobilePay log in to the relevant merchant.
+6. Vipps MobilePay does not receive any information from the merchant about a Vipps MobilePay end user.
 
 See more information in our end user
 [terms and condition](https://www.vipps.no/vilkar/vilkar-privat/),

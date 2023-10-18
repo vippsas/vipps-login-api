@@ -39,11 +39,11 @@ The user receives a push notification and clicks to open the Vipps or MobilePay 
 
 If the user has turned off push notifications or for some other reason do not get the push, they can open Vipps or MobilePay themselves and automatically start the login flow.
 
-![User gets push message from Vipps](../images/vipps-login-phone-push.png)
+![User gets push message from Vipps MobilePay](../images/vipps-login-phone-push.png)
 
 ### 2. Confirmation
 
-After opening Vipps, the user will be asked to confirm sharing information with the merchant. The first screen will specify the information requested by the merchant.
+After opening their Vipps or MobilePay app, the user will be asked to confirm sharing information with the merchant. The first screen will specify the information requested by the merchant.
 
 On this screen, the merchant can choose to show a binding message (confirmation code). This is for added security if the merchant would like their representatives or their customers to have an explicit check that it is the correct transaction that is being accepted.
 
@@ -51,17 +51,17 @@ After confirming the login and sharing of information, the user will be asked fo
 The end user must only consent once per merchant and the consent applies across all Vipps MobilePay services. In other words, if the user has already consented to share the
 requested information with the merchant, no consent will be required, and this step will be skipped.
 
-![User confirm in Vipps](../images/vipps-login-confirm.png)
+![User confirm in the app](../images/vipps-login-confirm.png)
 
 ### 3. Delegated consents (optional)
 
-The merchant may choose to include the delegatedConsents scope to collect consents from the end user in Vipps, on behalf of the merchant.
+The merchant may choose to include the `delegatedConsents` scope to collect consents from the end user in their Vipps or MobilePay app, on behalf of the merchant.
 This scope is relevant for merchants who use Vipps Login to enroll end-users into customer club/loyalty program from POS system when the user is present in-store.
 If the scope is included in the request, the end user will be asked to give consents according to merchant specifications.
 
 |                       Initial delegated consents screen                       |                           Delegated consents approved                            |
 |:-----------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
-| ![User sees delegated consents in Vipps](../images/delegated-consents-step1.png) | ![User confirm delegated consents in Vipps](../images/delegated-consents-step2.png) |
+| ![User sees delegated consents in the app](../images/delegated-consents-step1.png) | ![User confirm delegated consents in the app](../images/delegated-consents-step2.png) |
 
 Some elements on the delegated consents screen can be adjusted to fit the merchant's needs:
 
@@ -73,19 +73,19 @@ Some elements on the delegated consents screen can be adjusted to fit the mercha
 * A bottom text where we provide some contextual information for the end user.
 The text is fixed, but the links will point to the merchant's terms and conditions, as well as privacy statement.
 
-### 4. Redirect or end the login in Vipps
+### 4. Redirect or end the login in the app
 
 The merchant controls what happens after the user has confirmed the login and sharing of information.
 
-The merchant can end the login process in Vipps, where the user will receive a confirmation screen that the login is complete.
+The merchant can end the login process in the Vipps or MobilePay app, where the user will receive a confirmation screen that the login is complete.
 
 Alternatively, the merchant may redirect the user to its website. The merchant will then have an identified user. This flow can be used to welcome a user to the customer club, ask for more information/preferences, show offers or information of relevance.
 
-![User gets confirmation in Vipps MobilePay or is taken to browser](../images/vipps-login-confirmation.png)
+![User gets confirmation in the app or is taken to browser](../images/vipps-login-confirmation.png)
 
 Illustration of how the flow will look when the user ends the flow and gets the confirmation of completion in the Vipps or MobilePay app:
 
-![Confirm completion in Vipps MobilePay app](../images/CIBA_flow_in_app.png)
+![Confirm completion in the app](../images/CIBA_flow_in_app.png)
 
 Illustration of how the flow will look if the user is taken to the merchant's web page:
 
