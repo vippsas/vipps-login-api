@@ -430,9 +430,9 @@ one you use in the request to
 Yes. If the `redirect_url` is using a custom URL scheme, such as `myapp://`, a path
 is required: `myapp://path-to-something`.
 
-## Can we change the name that appears in customer's Vipps app under `Login and Access`?
+## Can we change the name that appears in customer's app under `Login and Access`?
 
-The name which is displayed in the app is the name of the sales unit.
+The name which is displayed in the customer's Vipps or MobilePay app is the name of the sales unit.
 You can change it yourself on
 [portal.vipps.no](https://portal.vipps.no/).
 Press  *rediger* (*edit*) under *salgsstedsinfo* (*sales unit information*) and change to the desired name.
@@ -444,7 +444,7 @@ would effectively log the user out of Vipps (meaning that the user will no
 longer be remembered in the browser across sites that use Vipps Login). You
 are of course free to log the user out of your service (by disabling your own session).
 
-If a user wants to log out of a specific browser remembered in Vipps Login, they need to do this in the Vipps app by navigating to:
+If a user wants to log out of a specific browser remembered in Vipps Login, they need to do this in the Vipps or MobilePay app by navigating to:
 *Profile* > *Personal Information* > *Browsers that remember you*, select a browser, and press the *logout* button.
 
 ## Common errors

@@ -22,14 +22,14 @@ To ensure a consistent user experience, *Vipps Login from phone number* is not a
 A sales unit can use the Login API for many flows.
 It is recommended to use the same sales unit for all use cases to ensure that you get the same user ID (`sub`) on the user across different scenarios.
 
-*Login from phone number* is initiated using the user's mobile number. This triggers a push message from the user's Vipps app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps app and possibly pull the home screen down for a refresh to receive the authentication request.
+*Login from phone number* is initiated using the user's mobile number. This triggers a push message from the user's Vipps or MobilePay app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps or MobilePay app and possibly pull the home screen down for a refresh to receive the authentication request.
 
-The merchant controls whether the user should get the confirmation of completion in the Vipps app or if they should be taken to the merchant's web page to finalize the flow.
+The merchant controls whether the user should get the confirmation of completion in the Vipps or MobilePay app or if they should be taken to the merchant's web page to finalize the flow.
 For example, the merchant can take the user to their web page to enable input of more information, accept terms and conditions, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How Login works from phone number](../../how-it-works/vipps-login-from-phone-number-api-howitworks.md).
 
-Illustration of how the flow will look when the user ends the flow and gets the confirmation of completion in the Vipps app:
+Illustration of how the flow will look when the user ends the flow and gets the confirmation of completion in the Vipps or MobilePay app:
 
-![Confirm completion in Vipps app](../../images/CIBA_flow_in_app.png)
+![Confirm completion in Vipps or MobilePay app](../../images/CIBA_flow_in_app.png)
 
 Illustration of how the flow will look if the user is taken to the merchant's web page:
 
@@ -39,7 +39,7 @@ The merchant has the option to show a confirmation code (`binding_message`) to t
 
 ![Optional confirmation code (`binding_message`)](../../images/CIBA_Confirmation_code.png)
 
-## Complete login in the Vipps app
+## Complete login in the Vipps or MobilePay app
 
 ### Overview
 
@@ -223,7 +223,7 @@ The responses from this endpoint is according to the standard.
 In addition to the responses defined by the [standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.11) these responses might be returned:
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
-* `error_code=old_app`: The user's Vipps app is outdated and does not support this login flow.
+* `error_code=old_app`: The user's Vipps or MobilePay app is outdated and does not support this login flow.
 * `error_code=invalid_user`: No account exists, the user's account is not active, or the user is in some way not eligible to use this login flow currently e.g. U15 users.
 
 ## Redirect to browser
@@ -240,7 +240,7 @@ to be taken to the client's web page to finalize the flow.
 sequenceDiagram
     participant Merchant
     participant VippsLogin as Vipps Login
-    participant VippsApp as Vipps app
+    participant VippsApp as Vipps or MobilePay app
     participant Browser
     actor User
 

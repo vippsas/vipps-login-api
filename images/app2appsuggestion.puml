@@ -3,7 +3,7 @@
 merchantApp -> merchantBackend : Initiate login
 merchantBackend -> merchantApp: 1: Authorize request
 merchantApp -> merchantAppControlledBrowser : 2: Open authorize request url
-merchantAppControlledBrowser --> vippsApp : 3: User opens Vipps app in login client
+merchantAppControlledBrowser --> vippsApp : 3: User opens Vipps or MobilePay app in login client
 vippsApp --> vippsApp: User accepts the login
 vippsApp --> merchantApp : 4: Open app_callback_uri
 merchantApp -> merchantAppControlledBrowser : 5: Either show the browser that is already open,\n\

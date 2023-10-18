@@ -37,7 +37,7 @@ If the user is not remembered in browser from earlier, the user enters their pho
 
 The user is then prompted to log in to Vipps and follow the instructions in the app.
 
-If the login was started from a mobile device and the user needs to authenticate in the app, the user will confirm to be taken to the Vipps app without having to enter their phone number.
+If the login was started from a mobile device and the user needs to authenticate in the app, the user will confirm to be taken to the Vipps or MobilePay app without having to enter their phone number.
 
 ![landing page](../images/vipps-login-step2.svg)
 
@@ -51,7 +51,7 @@ The user can check and change their registered e-mail addresses. This is only ne
 
 ### 4. Confirm login
 
-The user confirms the login in the Vipps app.
+The user confirms the login in the Vipps or MobilePay app.
 
 If the login was started on a phone, the user can in this step choose to be remembered in the browser for a quicker registration or login the next time. The "Remember me in browser" option is default on for mobile devices.
 

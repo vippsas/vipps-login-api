@@ -154,7 +154,7 @@ means available to it via the user-agent.
 | `redirect_uri`  | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required by Vipps from the merchant](#api-endpoints-required-from-the-merchant)                                                                                                |
 | `scope`         | Scope of the access request, space-separated list. |
 | state           | An opaque value (e.g. a GUID) used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. It must be at least 8 characters long to ensure sufficient entropy. In case of a too short state parameter the end-user will be redirected back to the merchant's site with an error. |
-| `requested_flow` | Optional. Request a specific flow for the user. See [App integration](./app-integration.md) and[Automatic return from Vipps app](./overview.md#automatic-return-from-vipps-app) |
+| `requested_flow` | Optional. Request a specific flow for the user. See [App integration](./app-integration.md) and[Automatic return from Vipps or MobilePay app](./overview.md#automatic-return-from-vipps-app) |
 | `app_callback_uri` | Optional. The target URI for automatic switch back to merchant app. Requires `requested_flow=app_to_app`. Example `merchant-app://callback` |
 | `final_redirect_is_app` | Optional. Either `true` or `false`. If this is `true` we will enable some compatibility features to make sure the user is returned to the app. |
 | `code_challenge_method` | Optional. Used for [PKCE](https://datatracker.ietf.org/doc/html/rfc7636), either `S256` or `plain`. Default value is `plain` |
@@ -418,7 +418,7 @@ In addition to the standard errors defined in [OAuth2](https://tools.ietf.org/ht
 | `login_required`                   | User must log in with interaction                                |
 | `invalid_app_callback_uri`         | The app callback URI is not on a valid format                    |
 | `app_callback_uri_not_registered`  | The app callback URI is not registered as a redirect URI         |
-| `outdated_app_version`             | The user's Vipps app version is too old and needs to be updated  |
+| `outdated_app_version`             | The user's Vipps or MobilePay app version is too old and needs to be updated  |
 | `wrong_challenge`                  | The user selected the wrong challenge                            |
 | `unknown_reject_reason`            | Something went wrong. Reject reason is unknown.                  |
 

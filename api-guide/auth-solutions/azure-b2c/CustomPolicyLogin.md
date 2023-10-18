@@ -93,7 +93,7 @@ sequenceDiagram
     participant MerchantApp
     participant Azure AD B2C
     participant Login API
-    participant Vipps App
+    participant Vipps or MobilePay app
 
     MerchantApp->>Azure AD B2C: Initiate login
 
@@ -101,11 +101,11 @@ sequenceDiagram
 
     Login API->>MerchantApp: Redirect to Authorize request URL
 
-    MerchantApp-->>Vipps App: User opens Vipps MobilePay app in login client
+    MerchantApp-->>Vipps or MobilePay app: User opens Vipps MobilePay app in login client
 
-    Vipps App->>Vipps App: User accepts the login
+    Vipps or MobilePay app->>Vipps or MobilePay app: User accepts the login
 
-    Vipps App-->>Azure AD B2C: Callback to Azure AD B2C with code
+    Vipps or MobilePay app-->>Azure AD B2C: Callback to Azure AD B2C with code
 
     Azure AD B2C->>Login API: Request Access Token with code
 

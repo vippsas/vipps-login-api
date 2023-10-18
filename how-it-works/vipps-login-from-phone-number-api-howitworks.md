@@ -35,7 +35,7 @@ The different steps are described and illustrated with screenshots below.
 ### 1. Initiate Vipps Login from phone number
 
 The merchant initiates Vipps Login on the user's device from their system, based on the user's phone number.
-The user receives a push notification from Vipps and clicks the push to open the Vipps app.
+The user receives a push notification from Vipps and clicks the push to open the Vipps or MobilePay app.
 
 If the user has turned off push notifications or for some other reason do not get the push, they can open Vipps themselves and automatically start the login flow.
 
@@ -83,7 +83,7 @@ Alternatively, the merchant may redirect the user to its website. The merchant w
 
 ![User gets confirmation in Vipps MobilePay or is taken to browser](../images/vipps-login-confirmation.png)
 
-Illustration of how the flow will look when the user ends the flow and gets the confirmation of completion in the Vipps app:
+Illustration of how the flow will look when the user ends the flow and gets the confirmation of completion in the Vipps or MobilePay app:
 
 ![Confirm completion in Vipps MobilePay app](../images/CIBA_flow_in_app.png)
 

@@ -11,5 +11,5 @@ END_METADATA -->
 
 # Special flows for the Login API
 
-* [Vipps login from phone number](phone-number-ciba-flows.md) direct login in the Vipps app.
-* [Automatic return from Vipps app](automatic-return.md) for reducing required user interaction when appropriate.
+* [Vipps login from phone number](phone-number-ciba-flows.md) direct login in the Vipps or MobilePay app.
+* [Automatic return from Vipps or MobilePay app](automatic-return.md) for reducing required user interaction when appropriate.
