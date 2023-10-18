@@ -32,7 +32,7 @@ The following topics are described:
 * [Browser flow integration](integration.md) describes how to implement the browser flow.
 * [App integration](app-integration.md) describes how to integrate from an app.
 * Special flows
-  * [Automatic return from Vipps app](flows/automatic-return.md) reducing required user interaction when appropriate.
-  * [Vipps login from phone number](flows/phone-number-ciba-flows.md) and direct login in the Vipps app.
+  * [Automatic return from Vipps or MobilePay app](flows/automatic-return.md) reducing required user interaction when appropriate.
+  * [Vipps login from phone number](flows/phone-number-ciba-flows.md) and direct login in the Vipps or MobilePay app.
 * [Partner keys](partner-keys.md) facilitating integration for partners.
 * [Authentication solutions](./auth-solutions/README.md): How to use the Login API with Auth0 and Azure AD B2C authentication solutions.

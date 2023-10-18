@@ -624,7 +624,7 @@
 										"{{init_ciba_endpoint}}"
 									]
 								},
-								"description": "Start the CIBA with redirect login flow. This triggers a new login flow in the target user's Vipps app."
+								"description": "Start the CIBA with redirect login flow. This triggers a new login flow in the target user's Vipps or MobilePay app."
 							},
 							"response": []
 						},
@@ -711,7 +711,7 @@
 										"{{token_endpoint}}"
 									]
 								},
-								"description": "Fetch the access token after the user has authenticated. Note you have to fill in the `code` field manually. You can get the `code` from the redirect URI that happens after you complete the login in the Vipps app.\n\nThis access token can be used towards to fetch user data from /userinfo."
+								"description": "Fetch the access token after the user has authenticated. Note you have to fill in the `code` field manually. You can get the `code` from the redirect URI that happens after you complete the login in the Vipps or MobilePay app.\n\nThis access token can be used towards to fetch user data from /userinfo."
 							},
 							"response": []
 						}
@@ -862,7 +862,7 @@
 										"{{init_ciba_endpoint}}"
 									]
 								},
-								"description": "Start the CIBA without redirect login flow. This triggers a new login flow in the target user's Vipps app."
+								"description": "Start the CIBA without redirect login flow. This triggers a new login flow in the target user's Vipps or MobilePay app."
 							},
 							"response": []
 						},

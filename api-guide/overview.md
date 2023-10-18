@@ -63,7 +63,7 @@ Below is a more detailed description on alternative flows and the choices that c
 
 If a user has chosen to be remembered in browser, then the authentication can be completed in the browser. The user will then either be asked to provide consent to share profile information or be logged in directly. This applies to both desktop and mobile.
 
-If the user is not remembered the user needs to confirm the login in the Vipps app. The flow associated with this will differ depending on whether the user is on desktop or mobile:
+If the user is not remembered the user needs to confirm the login in the Vipps or MobilePay app. The flow associated with this will differ depending on whether the user is on desktop or mobile:
 
 #### Desktop flow - phone number based push flow
 
@@ -72,7 +72,7 @@ If the user is on desktop and not remembered in browser, then they will follow t
 The user initiates the login by entering the phone number and selecting whether to be remembered in the browser:
 ![Number input in desktop](../images/Number_input_flow_desktop1.png)
 
-The user goes to the Vipps app and confirms the login:
+The user goes to the Vipps or MobilePay app and confirms the login:
 ![Confirmation in app in phone number flow](../images/Number_input_flow_app.png)
 
 The user is then authenticated in browser and can provide consent if required. Then the user is redirected back to the redirect URI provided by merchant:
@@ -81,15 +81,15 @@ The user is then authenticated in browser and can provide consent if required. T
 #### Mobile flow - deeplink based flow
 
 If the user is on a mobile device, the Vipps landing page
-in the browser will automatically trigger a deeplink to the Vipps app if the user is not remembered in the browser. The user will not be prompted to enter the phone number.
+in the browser will automatically trigger a deeplink to the Vipps or MobilePay app if the user is not remembered in the browser. The user will not be prompted to enter the phone number.
 
-In the Vipps app, the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app, the user needs to switch back to the Vipps page in the browser/app. On the landing page, the user will finalize the authentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
+In the Vipps or MobilePay app, the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app, the user needs to switch back to the Vipps page in the browser/app. On the landing page, the user will finalize the authentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
 
 ![Mobile flow with app-switch](../images/Mobile_flow_with_partial-app_switch.png)
 
 Apps should follow the [recommendations](important-information.md#using-vipps-login-in-native-applications) to use correct browser types for their platform.
 
-There are two specialized flows that merchants can use to automatically switch the user back from the Vipps app to the originating browser/app upon login confirmation. From the illustration above, this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch" will be replaced by an automatic app-switch (e.g., deeplink). These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
+There are two specialized flows that merchants can use to automatically switch the user back from the Vipps or MobilePay app to the originating browser/app upon login confirmation. From the illustration above, this means that the page "Gå tilbake til butikken" will be skipped and that the "manual app switch" will be replaced by an automatic app-switch (e.g., deeplink). These flows give a better user experience than the standard flow, but they also require the merchant to handle some more complexity in the integration.
 
 Which of the flows to use is controlled with the initiation of the individual login session. The merchant can thus use all available login flows on the same client_id and adapt to the different use cases and login scenarios.
 
@@ -98,22 +98,22 @@ The flows are described below.
 ##### App-to-app flow
 
 It is possible to enable automatic switch of users back to the merchant app,
-from the Vipps app.
+from the Vipps or MobilePay app.
 
 This flow is designed to be used with apps. It requires that the app initiate Vipps Login in an external browser that is opened within the app.
 
 See [App integration](app-integration.md) for details about integrating.
 
-##### Automatic return from Vipps app
+##### Automatic return from Vipps or MobilePay app
 
-This flow will automatically take the user back to a browser when they accept the login in the Vipps app.
+This flow will automatically take the user back to a browser when they accept the login in the Vipps or MobilePay app.
 
 There are security implications by using this flow which requires the merchant to handle the user session across browsers.
  **It is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable**.
 
 By using this flow, Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant **must ensure that logins can complete, even without session information like cookies.**
 
-See [Automatic return from Vipps app](flows/automatic-return.md) for details about implementation and security considerations.
+See [Automatic return from Vipps or MobilePay app](flows/automatic-return.md) for details about implementation and security considerations.
 
 ### Vipps Login from phone number
 

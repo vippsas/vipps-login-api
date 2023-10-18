@@ -10,13 +10,17 @@ END_METADATA -->
 
 # Changelog
 
+![Vipps](./images/vipps.png) *Available for Vipps now.*
+
+![MobilePay](./images/mp.png) *Available for MobilePay in selected markets at the [Vipps MobilePay joint platform launch](https://www.vippsmobilepay.com/#about).*
+
 All notable changes to the current API will be documented in this file.
 To learn about API versioning, see
 [API Lifecycle](https://developer.vippsmobilepay.com/docs/common-topics/api-lifecycle/).
 
 ## January 2023
 
-Removed QR code login flow
+Removed QR code login flow.
 
 ## September 2021
 

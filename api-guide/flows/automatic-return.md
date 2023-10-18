@@ -1,24 +1,24 @@
 <!-- START_METADATA
 ---
-title: Automatic return from Vipps app
+title: Automatic return from Vipps or MobilePay app
 sidebar_label: Automatic return from app
 sidebar_position: 30
-description: Enable automatic return from the Vipps app.
+description: Enable automatic return from the Vipps or MobilePay app.
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# Automatic return from Vipps app
+# Automatic return from Vipps or MobilePay app
 
-This flow is designed for web pages. It will return users to a browser after completing the login in the Vipps app.
+This flow is designed for web pages. It will return users to a browser after completing the login in the Vipps or MobilePay app.
 This requires the merchant to handle the user session across browsers.
 
 *This flow has security implications and is not suited for every scenario. Merchants must make their own considerations to ensure that it is only used where suitable*.
 
 Due to how the various mobile operating systems handle app-switch to browser, the user can be returned to a different browser than the one he/she started in.
 
-On iOS, the user can, for example, start the login in Chrome and be returned to Safari after confirming in the Vipps app. This means that the merchant site cannot rely on cookies being present in the browser the user is returned to.
+On iOS, the user can, for example, start the login in Chrome and be returned to Safari after confirming in the Vipps or MobilePay app. This means that the merchant site cannot rely on cookies being present in the browser the user is returned to.
 
 By using this flow, Vipps Login will be able to complete the login process even if the user ends up in a different browser. However, the merchant**must ensure that logins can complete, even without session information, such as cookies.*
 
