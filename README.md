@@ -35,11 +35,16 @@ For information and to order the product go to:
 * [Vipps Login in browser: How It Works](./how-it-works/vipps-login-api-howitworks.md)
 * [Vipps Login from phone number: How It Works](./how-it-works/vipps-login-from-phone-number-api-howitworks.md)
 
-## Related flows
+Related flow:
 
-Examples of how to combine the Login and Recurring APIs:
+* [Using Login and Recurring API together](https://developer.vippsmobilepay.com/docs/solutions/recurring-and-login)
 
-* [Subscriptions](https://developer.vippsmobilepay.com/docs/solutions/recurring-and-login)
+## Plugins for Login
+
+* [Login for Drupal](https://developer.vippsmobilepay.com/docs/plugins-ext/login-drupal/)
+* [Login for Magento 2](https://developer.vippsmobilepay.com/docs/plugins-ext/login-magento/)
+* [Login for ASP.NET and Optimizely](https://developer.vippsmobilepay.com/docs/plugins-ext/login-dotnet/)
+* [Login for WordPress and WooCommerce](https://developer.vippsmobilepay.com/docs/plugins-ext/login-wordpress/)
 
 ## Next steps
 
