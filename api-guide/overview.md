@@ -19,7 +19,7 @@ Vipps Login is available for several use cases:
 * Directly from merchant systems (e.g. point of sales systems or call-center solutions) based on phone number
 * Directly from machines and vending machines based on phone number
 
-Users can create a new account through sharing high-quality data from the user’s Vipps profile. Available information includes name, email, addresses, phone number, and birthdate. [Norwegian national identity number](../vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) is also available to some merchants.  The identity of all Vipps users is verified as part of the Vipps Know Your Customer (KYC) process, so rest assured that these are real people with correct name and information.
+Users can create a new account through sharing high-quality data from the user’s Vipps or MobilePay profile. Available information includes name, email, addresses, phone number, and birthdate. [Norwegian national identity number](../vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) is also available to some merchants.  The identity of all Vipps MobilePay users is verified as part of our Know Your Customer (KYC) process, so rest assured that these are real people with correct name and information.
 
 When Vipps Login is used in the browser, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. The possibility for the user to be remembered in browser is a key feature of the service and cannot be controlled (turned off) by individual merchants. This means that it is not possible to set up Vipps Login as a two-factor authentication (2FA).
 
@@ -29,7 +29,7 @@ For *Vipps Login in browser*, there are *plugins* available for several platform
 You find the complete list on our [plugins page](https://developer.vippsmobilepay.com/docs/plugins).
 If a plugin is not available, the easiest - and **strongly recommended** - way to integrate with the service
 is to use a well renowned OAuth2.0/OpenID Connect Library for your programming language.
-Vipps does not recommend a specific library, but the
+We don't recommend a specific library, but the
 [Certified OpenID Developer Tools](https://openid.net/developers/certified/) site is a good starting point.
 
 Vipps Login in browser should only be run in the browser window using redirects (iFrame is not supported, and new window is not recommended).
@@ -80,10 +80,10 @@ The user is then authenticated in browser and can provide consent if required. T
 
 #### Mobile flow - deeplink based flow
 
-If the user is on a mobile device, the Vipps landing page
+If the user is on a mobile device, the Vipps MobilePay landing page
 in the browser will automatically trigger a deeplink to the Vipps or MobilePay app if the user is not remembered in the browser. The user will not be prompted to enter the phone number.
 
-In the Vipps or MobilePay app, the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app, the user needs to switch back to the Vipps page in the browser/app. On the landing page, the user will finalize the authentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
+In the Vipps or MobilePay app, the user confirms the login and can choose whether to be remembered in the browser for later logins. After confirming in the app, the user needs to switch back to the Vipps MobilePay page in the browser/app. On the landing page, the user will finalize the authentication and provide consents if required. The user is then redirected back to the redirect URI provided by merchant (could be webpage or an app).
 
 ![Mobile flow with app-switch](../images/Mobile_flow_with_partial-app_switch.png)
 

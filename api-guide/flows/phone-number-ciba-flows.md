@@ -22,7 +22,7 @@ To ensure a consistent user experience, *Vipps Login from phone number* is not a
 A sales unit can use the Login API for many flows.
 It is recommended to use the same sales unit for all use cases to ensure that you get the same user ID (`sub`) on the user across different scenarios.
 
-*Login from phone number* is initiated using the user's mobile number. This triggers a push message from the user's Vipps or MobilePay app. By clicking the push message, the user is taken to Vipps to confirm the authentication/registration. If the user has not already consented to share information with a merchant, such consent will be required. If the user has not enabled push from Vipps, they need to manually open the Vipps or MobilePay app and possibly pull the home screen down for a refresh to receive the authentication request.
+*Login from phone number* is initiated using the user's mobile number. This triggers a push message from the user's Vipps or MobilePay app. By clicking the push message, the user is taken to their Vipps or MobilePay app to confirm the authentication/registration. If they haven't already consented to share information with a merchant, such consent will be required. If the user hasn't enabled push from Vipps or MobilePay, they need to manually open the app and possibly pull the home screen down for a refresh to receive the authentication request.
 
 The merchant controls whether the user should get the confirmation of completion in the Vipps or MobilePay app or if they should be taken to the merchant's web page to finalize the flow.
 For example, the merchant can take the user to their web page to enable input of more information, accept terms and conditions, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How Login works from phone number](../../how-it-works/vipps-login-from-phone-number-api-howitworks.md).
@@ -169,7 +169,7 @@ The following authentication methods are currently supported:
 * client_secret_basic
 * client_secret_post
 
-The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the merchant portal. [More information in the FAQ](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
 
 #### The `login_hint` parameter (required)
 
@@ -380,7 +380,7 @@ The following authentication methods are currently supported:
 * client_secret_basic
 * client_secret_post
 
-The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the Vipps portal. [More information in the FAQ](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
+The default token endpoint authentication method is `client_secret_basic`. It is possible to change the authentication method to `client_secret_post` in the merchant portal. [More information in the FAQ](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication).
 
 Required parameters: `requested_flow`, `login_hint`, `scope`, `redirect_uri`
 

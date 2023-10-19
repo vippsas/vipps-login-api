@@ -129,7 +129,7 @@ Vipps Login does not currently support refresh tokens.
 The token endpoint is a standard OIDC endpoint used for requesting Access and ID Tokens.
 The default token endpoint authentication method is `client_secret_basic`.
 
-It is possible to change the authentication method to `client_secret_post` in the Vipps portal. This setting will then apply to all login transactions on this sales unit.
+It is possible to change the authentication method to `client_secret_post` in the merchant portal. This setting will then apply to all login transactions on this sales unit.
 Go to [How can I use client_secret_post for authentication?](../vipps-login-api-faq.md#how-can-i-use-client_secret_post-for-authentication) for more information on how to change the authentication method.
 
 For more information on the token endpoint see [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint) and [RFC-6749 section 3.2](https://tools.ietf.org/html/rfc6749#section-3.2).
@@ -142,11 +142,11 @@ Vipps Login currently supports the following scopes:
 | Scopes | Description | User consent required |
 |--------|-------------|-----------------------|
 | openid | This is the scope used to request an Id-token. It provides the claim `sub` which is a unique ID for the end user at that particular merchant. Note: Different merchants will get different `sub`s for the same end user. | no |
-| address | The user can have up to three addresses in Vipps: home, work and other. User addresses are given as claims `address` and `other_addresses`. The claim `address` returns the address set as default for the Vipps user. The claim `other_addresses` returns any other addresses of the end user.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context. Some users will not have any registered address, in these situations the claim `address` will be delivered, but the `sub` claims in address will be empty strings (e.g., `"address" : {"country" : "", "street_address" : "", "address_type" : "", "formatted" : "", "postal_code" : "", "region" : "" }`). If a user has information in the `Unit, floor or other details` field, this will be included in the `street_address` response. The `Street address` will then be presented first, before "\n". Then, the contents from `Unit, floor or other details` (e.g., `Suburbia 23"\nUnit B5`) | yes |
+| address | The user can have up to three addresses in their Vipps or MobilePay app: home, work and other. User addresses are given as claims `address` and `other_addresses`. The claim `address` returns the address set as default for the Vipps or MobilePay user. The claim `other_addresses` returns any other addresses of the end user.  We recommend that merchants fetch all addresses on a user and allow the user to choose which address to use in the relevant context. Some users will not have any registered address, in these situations the claim `address` will be delivered, but the `sub` claims in address will be empty strings (e.g., `"address" : {"country" : "", "street_address" : "", "address_type" : "", "formatted" : "", "postal_code" : "", "region" : "" }`). If a user has information in the `Unit, floor or other details` field, this will be included in the `street_address` response. The `Street address` will then be presented first, before "\n". Then, the contents from `Unit, floor or other details` (e.g., `Suburbia 23"\nUnit B5`) | yes |
 | birthDate | User birthdate (verified with National Population Register) | yes |
 | email | User email (verified). The flag `email_verified : true` in the response can be used by merchants to confirm that the email actually is verified for each request. | yes |
 | name | User first, middle, and given name (verified with National Population Register) | yes |
-| phoneNumber | Verified phone number (verified - the number used with Vipps) | yes |
+| phoneNumber | Verified phone number (verified - the number used with Vipps MobilePay) | yes |
 | nin | Norwegian national identity number (NIN) (verified with National Population Register). Note, merchants need to apply for access to NIN. See [Who can get access to NIN and how?](../vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) for more information. | yes |
 | delegatedConsents | Enabled consents to be collected on behalf of a merchant. This scope is only supported in *Vipps login from phone number*, see [Merchant delegated consents](flows/phone-number-ciba-flows.md#merchants-delegated-consents). | yes |
 

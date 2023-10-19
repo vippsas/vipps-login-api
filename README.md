@@ -4,7 +4,7 @@ title: Introduction to the Login API
 sidebar_label: Introduction
 sidebar_position: 1
 hide_table_of_contents: true
-description: Use the Login API to allow users to log in to your service by using their Vipps account.
+description: Use the Login API to allow users to log in to your service by using their Vipps or MobilePay account.
 pagination_next: null
 pagination_prev: null
 ---
@@ -21,7 +21,7 @@ END_METADATA -->
 [Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 <!-- END_COMMENT -->
 
-With the Login API, users can log in to your service by using their Vipps account.
+With the Login API, users can log in to your service by using their Vipps or MobilePay account.
 This simplifies the process for users, as they don't need to fill out a form or remember a password to access your services.
 This also provides you with pre-verified user data.
 
