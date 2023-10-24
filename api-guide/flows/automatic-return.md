@@ -1,7 +1,7 @@
 <!-- START_METADATA
 ---
 title: Automatic return from Vipps or MobilePay app
-sidebar_label: Automatic return from app
+sidebar_label: Automatic return from Vipps or MobilePay app
 sidebar_position: 30
 description: Enable automatic return from the Vipps or MobilePay app.
 pagination_next: null

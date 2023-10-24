@@ -1,15 +1,15 @@
 <!-- START_METADATA
 ---
 title: App integration
-sidebar_label: App integration
+sidebar_label: Integrate from a mobile app
 sidebar_position: 20
-description: Enable automatic switch of users back to the merchant app from the Vipps or MobilePay app.
+description: Integrate from a mobile app.
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# App integration
+# Integrate from a mobile app
 
 App integrations are currently based on using browsers.
 

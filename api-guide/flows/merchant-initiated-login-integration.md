@@ -1,23 +1,23 @@
 <!-- START_METADATA
 ---
-title: Vipps Login from a phone number
-sidebar_label: Login from phone number
+title: Merchant initiated login integration
+sidebar_label: Merchant initiated login integration
 sidebar_position: 10
-description: Vipps Login from a phone number.
+description: Merchant initiated login integration
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# Login from a phone number
+# Merchant initiated login integration
 
-*Login from phone number* is built to support special cases where login does not start in a browser or app.
+*Merchant initiated login* is built to support special cases where login does not start in a browser or app.
 
-*Login from phone number* is based on the
+*Merchant initiated login* is based on the
 [Client-Initiated Backchannel Authentication (CIBA) standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html).
 
 In this flow, the merchant's system triggers the authentication/registration; thus, log-in cannot be done in the user's browser.
-To ensure a consistent user experience, *Vipps Login from phone number* is not allowed on webpages and in apps.
+To ensure a consistent user experience, *Merchant initiated login* is not allowed on webpages and in apps.
 
 A sales unit can use the Login API for many flows.
 It is recommended to use the same sales unit for all use cases to ensure that you get the same user ID (`sub`) on the user across different scenarios.
