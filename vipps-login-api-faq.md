@@ -464,7 +464,7 @@ has been deactivated at the [Brønnøysund Register](https://www.brreg.no).
 We do not currently support any flows that requires requests being made from browsers.
 
 See:
-[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/faqs/common-problems-faq#why-do-i-get-a-cors-error).
+[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/common-topics/errors/#why-do-i-get-a-cors-error).
 
 ### Why do I get `No CSRF value available in the session cookie`?
 
