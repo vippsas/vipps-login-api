@@ -16,7 +16,7 @@ Let your customers log in to your website or app without the need for usernames 
 For technical documentation, see the
 [Login API Guide](../api-guide/README.md).
 
-We also have _How it works_ for [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md)
+We also have _How it works_ for [Merchant initiated login](merchant-initiated-login-howitworks.md)
 
 ## The login process
 

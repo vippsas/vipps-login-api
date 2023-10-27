@@ -33,6 +33,6 @@ The following topics are described:
 * [App integration](app-integration.md) describes how to integrate from an app.
 * Special flows
   * [Automatic return from Vipps or MobilePay app](flows/automatic-return.md) reducing required user interaction when appropriate.
-  * [Merchant initiated login](flows/merchant-intitiated-login-integration.md) describes implementing a flow where the merchant's system initiates the login towards a user.
+  * [Merchant initiated login](flows/merchant-initiated-login-integration.md) describes implementing a flow where the merchant's system initiates the login towards a user.
 * [Partner keys](partner-keys.md) facilitating integration for partners.
 * [Authentication solutions](./auth-solutions/README.md): How to use the Login API with Auth0 and Azure AD B2C authentication solutions.

@@ -32,8 +32,8 @@ For information and to order the product go to:
 
 ## How it works
 
-* [End-user initiated login: How It Works](./how-it-works/vipps-login-api-howitworks.md)
-* [Merchant initiated login: How It Works](./how-it-works/vipps-login-from-phone-number-api-howitworks.md)
+* [End-user initiated login: How It Works](./how-it-works/user-initiated-login-howitworks.md)
+* [Merchant initiated login: How It Works](./how-it-works/merchant-initiated-login-howitworks.md)
 
 Related flow:
 

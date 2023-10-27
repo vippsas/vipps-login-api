@@ -2,7 +2,7 @@
 ---
 title: App integration
 sidebar_label: Integrate from a mobile app
-sidebar_position: 20
+sidebar_position: 31
 description: Integrate from a mobile app.
 pagination_next: null
 pagination_prev: null

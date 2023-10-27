@@ -253,14 +253,14 @@ In the email you must specify:
 ## How can I get started with delegatedConsents?
 
 **Please note:** *Delegated consents* are only available for the
-[Vipps Login from phone number](./how-it-works/vipps-login-from-phone-number-api-howitworks.md)
+[Merchant initiated login](./how-it-works/merchant-initiated-login-howitworks.md)
 flow. It is currently not possible to request delegated consents in the
 *Vipps Login in browser* flow.
 
-If you plan on using the scope `delegatedConsents` along with *Vipps Login from phone number*,
+If you plan on using the scope `delegatedConsents` along with *Merchant initiated login*,
 you will need to supply some information on what consents you will retrieve and how.
 We will then tailor this screen to suit your needs. You can see what the flow looks like at
-[Vipps Login from phone number](./how-it-works/vipps-login-from-phone-number-api-howitworks.md).
+[Merchant initiated login](./how-it-works/merchant-initiated-login-howitworks.md).
 
 Please email
 [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no)
@@ -405,7 +405,7 @@ See [How can I use `client_secret_post` for authentication?](#how-can-i-use-clie
 Vipps Login does not return user information in the `id_token`, but there is a
 [userinfo endpoint](https://developer.vippsmobilepay.com/api/userinfo#operation/userinfoAuthorizationCode)
 for this use case. See
-[the Login API userinfo endpoint documentation](api-guide/integration.md#userinfo).
+[the Login API userinfo endpoint documentation](api-guide/browser-flow-integration.md#userinfo).
 Azure B2C's User Flows does not use the userinfo endpoint, and you will therefore need
 to use a [Custom policy](https://docs.microsoft.com/en-us/azure/active-directory-b2c/userinfo-endpoint?pivots=b2c-custom-policy).
 
