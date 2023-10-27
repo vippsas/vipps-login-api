@@ -109,7 +109,7 @@ These access tokens are provided by the
 endpoint.
 The token itself does not provide any information, but it can be used to
 fetch the data that the end-user has consented to share from the
-[userinfo endpoint](integration.md#userinfo).
+[userinfo endpoint](browser-flow-integration.md#userinfo).
 Access tokens *must* be kept confidential in transit and storage.
 
 Example:

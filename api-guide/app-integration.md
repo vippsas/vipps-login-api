@@ -31,7 +31,7 @@ Merchant app -> Merchant app controlled browser -> Vipps or MobilePay app -> Mer
 ```
 
 This flow can be enabled per login request by adding the `requested_flow=app_to_app`
-and `app_callback_uri` parameters to the [Authorize](integration.md#oauth-20-authorize) request.
+and `app_callback_uri` parameters to the [Authorize](browser-flow-integration.md#oauth-20-authorize) request.
 
 This flow requires both the `app_callback_uri` and `redirect_uri` parameters.
 
