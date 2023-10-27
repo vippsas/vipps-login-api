@@ -127,7 +127,7 @@ In your active Postman environment, copy the value of key `start_login_uri` and 
 </TabItem>
 <TabItem value="curl">
 
-Compose the URI in this format ([OAuth 2.0 Authorize](/docs/APIs/login-api/api-guide/integration/#oauth-20-authorize)):
+Compose the URI in this format ([OAuth 2.0 Authorize](./api-guide/browser-flow-integration#oauth-20-authorize)):
 
 ```http
 https://apitest.vipps.no/access-management-1.0/access/oauth2/auth?client_id=YOUR-CLIENT-ID&response_type=code&scope=openid%20name%20phoneNumber%20address%20birthDate&state=8652682f-ba1d-4719-b1ec-8694ba97bde7&redirect_uri=http://localhost
