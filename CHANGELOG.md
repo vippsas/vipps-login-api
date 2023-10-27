@@ -12,7 +12,7 @@ END_METADATA -->
 
 ![Vipps](./images/vipps.png) *Available for Vipps now.*
 
-![MobilePay](./images/mp.png) *Available for MobilePay in selected markets at the [Vipps MobilePay joint platform launch](https://www.vippsmobilepay.com/#about).*
+![MobilePay](./images/mp.png) *Available for MobilePay in selected markets at the [Vipps MobilePay joint platform launch](https://www.vippsmobilepay.com/about).*
 
 All notable changes to the current API will be documented in this file.
 To learn about API versioning, see
