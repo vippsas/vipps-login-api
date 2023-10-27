@@ -449,7 +449,7 @@ If a user wants to log out of a specific browser remembered in Vipps Login, they
 ## Common errors
 
 See
-[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/faqs/common-errors-faq)
+[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/common-topics/errors)
 for more questions.
 
 ### Why do I get `The client or its related sales unit or merchant does not exist or is not active`?
