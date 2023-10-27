@@ -14,9 +14,8 @@ END_METADATA -->
 Here are the Login API Frequently Asked Questions (FAQ).
 See the [Login API](api-guide/README.md) for all the technical details.
 
-For more common questions, see:
-
-* [API General FAQ](https://developer.vippsmobilepay.com/docs/faqs)
+For general information and questions, please check in the
+[Knowledge base](https://developer.vippsmobilepay.com/docs/common-topics/).
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
@@ -450,7 +449,7 @@ If a user wants to log out of a specific browser remembered in Vipps Login, they
 ## Common errors
 
 See
-[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/faqs/common-errors-faq)
+[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/common-topics/errors)
 for more questions.
 
 ### Why do I get `The client or its related sales unit or merchant does not exist or is not active`?
@@ -464,7 +463,7 @@ has been deactivated at the [Brønnøysund Register](https://www.brreg.no).
 We do not currently support any flows that requires requests being made from browsers.
 
 See:
-[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/faqs/common-problems-faq#why-do-i-get-a-cors-error).
+[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/common-topics/errors/#why-do-i-get-a-cors-error).
 
 ### Why do I get `No CSRF value available in the session cookie`?
 
