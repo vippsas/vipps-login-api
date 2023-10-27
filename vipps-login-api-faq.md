@@ -14,9 +14,8 @@ END_METADATA -->
 Here are the Login API Frequently Asked Questions (FAQ).
 See the [Login API](api-guide/README.md) for all the technical details.
 
-For more common questions, see:
-
-* [API General FAQ](https://developer.vippsmobilepay.com/docs/faqs)
+For general information and questions, please check in the
+[Knowledge base](https://developer.vippsmobilepay.com/docs/common-topics/).
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
