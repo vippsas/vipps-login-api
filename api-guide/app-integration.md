@@ -1,15 +1,15 @@
 <!-- START_METADATA
 ---
 title: App integration
-sidebar_label: App integration
-sidebar_position: 20
-description: Enable automatic switch of users back to the merchant app from the Vipps or MobilePay app.
+sidebar_label: Integrate from a mobile app
+sidebar_position: 31
+description: Integrate from a mobile app.
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# App integration
+# Integrate from a mobile app
 
 App integrations are currently based on using browsers.
 
@@ -31,7 +31,7 @@ Merchant app -> Merchant app controlled browser -> Vipps or MobilePay app -> Mer
 ```
 
 This flow can be enabled per login request by adding the `requested_flow=app_to_app`
-and `app_callback_uri` parameters to the [Authorize](integration.md#oauth-20-authorize) request.
+and `app_callback_uri` parameters to the [Authorize](browser-flow-integration.md#oauth-20-authorize) request.
 
 This flow requires both the `app_callback_uri` and `redirect_uri` parameters.
 

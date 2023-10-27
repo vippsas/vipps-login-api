@@ -1,26 +1,26 @@
 <!-- START_METADATA
 ---
-title: How Vipps Login works from a phone number
-sidebar_label: From a phone number
+title: Merchant initiated login
+sidebar_label: Merchant initiated login
 sidebar_position: 14
-description: How Vipps Login works from phone number
+description: Merchant initiated login
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# How Vipps Login works from phone number
+# Merchant initiated login
 
-Let your customers share their information or confirm who they are by triggering a Login flow on their device based on their phone number.
+Let your customers share their information or confirm who they are by triggering a Vipps Login flow on their device based on their phone number.
 
 For technical documentation go to
-[Login API - login from phone number](../api-guide/flows/phone-number-ciba-flows.md).
+[Login API - Merchant initiated login](../api-guide/flows/merchant-initiated-login-integration.md).
 
-We also have [How Login works in the browser](vipps-login-api-howitworks.md)
+We also have [User initiated login](user-initiated-login-howitworks.md)
 
 This solution features in our [In-store using merchant scan](https://developer.vippsmobilepay.com/docs/solutions/loyalty-in-pos).
 
-## The login from phone number process
+## Merchant initiated login process
 
 The merchant has several options available to make the flow tailored to the specific use case:
 
@@ -32,9 +32,9 @@ The merchant has several options available to make the flow tailored to the spec
 
 The different steps are described and illustrated with screenshots below.
 
-### 1. Initiate Vipps Login from phone number
+### 1. Initiate Login with a phone number
 
-The merchant initiates Vipps Login on the user's device from their system, based on the user's phone number.
+The merchant initiates Login on the user's device from their system, based on the user's phone number.
 The user receives a push notification and clicks to open the Vipps or MobilePay app.
 
 If the user has turned off push notifications or for some other reason do not get the push, they can open Vipps or MobilePay themselves and automatically start the login flow.
@@ -100,4 +100,4 @@ Great! Now you know how _Login from phone number_ works!
 To check if your point of sales system or loyalty platform supports Vipps Login from phone number, please visit our [product homepage](https://vipps.no/produkter-og-tjenester/bedrift/logg-inn-med-vipps/logg-inn-med-vipps/). Check with your partner for pricing details.
 
 Alternatively, if you want to set up the integration yourself, take a look at the technical documentation in the
-[Login API - login from phone number](../api-guide/flows/phone-number-ciba-flows.md).
+[Login API - login from phone number](../api-guide/flows/merchant-initiated-login-integration.md).

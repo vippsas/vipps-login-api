@@ -10,7 +10,7 @@ END_METADATA -->
 
 # Login in Auth0 using Social Connections
 
-This guide will describe how to use Auth0's actions to automatically create and login users using Vipps MobilePay. The following implementation will provide the same [Login in browser flow](../../../how-it-works/vipps-login-api-howitworks.md#the-login-process).
+This guide will describe how to use Auth0's actions to automatically create and login users using Vipps MobilePay. The following implementation will provide the same [Login in browser flow](../../../how-it-works/user-initiated-login-howitworks.md#the-login-process).
 
 With Auth0's Social Connections, merchants can implement a login flow using Vipps MobilePay as an identity provider.
 

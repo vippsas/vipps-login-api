@@ -42,7 +42,7 @@ In Postman, tweak the environment with your own values (see
 * `merchantSerialNumber` - The unique ID for a test sales unit.
 * `mobileNumber` - The phone number for the test app profile you have received or registered.
 * `well-known_uri` - URL to well-known endpoint for used environment.
-   See [API Guide: well known](api-guide/integration.md#openid-connect-discovery-endpoint) for more details.
+   See [API Guide: well known](api-guide/browser-flow-integration.md#openid-connect-discovery-endpoint) for more details.
 * `redirect_uri` - The URL where the user is sent after finishing a login.
    The URL must be exactly the same as the one specified in your sale unit.
    See [How to set up login on your sales unit](/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
@@ -95,7 +95,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
    * `client_secret` - Client Secret for the partner.
    * `well-known_uri` - URL to well-known endpoint for used environment.
      In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
-     See [API Guide: well known](api-guide/integration.md#openid-connect-discovery-endpoint) for more details.
+     See [API Guide: well known](api-guide/browser-flow-integration.md#openid-connect-discovery-endpoint) for more details.
    * `redirect_uri` - The URL where the user is sent after finishing a login.
    * `mobileNumber` - Your 8 digit mobile number for your test version of Vipps. This is only used for the CIBA flows.
    * `targetMerchantSerialNumber` - The target merchant you want to log in towards.

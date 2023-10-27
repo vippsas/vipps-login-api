@@ -1,7 +1,7 @@
 <!-- START_METADATA
 ---
 title: Automatic return from Vipps or MobilePay app
-sidebar_label: Automatic return from app
+sidebar_label: Automatic return from Vipps or MobilePay app
 sidebar_position: 30
 description: Enable automatic return from the Vipps or MobilePay app.
 pagination_next: null
@@ -24,13 +24,13 @@ By using this flow, Vipps Login will be able to complete the login process even 
 
 ## Implementation suggestions
 
-This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](../integration.md#oauth-20-authorize) request.
+This flow can be enabled per login by adding the parameter `requested_flow=automatic_return_from_vipps_app` to the [Authorize](../browser-flow-integration.md#oauth-20-authorize) request.
 
 It is not possible to give a single description that ensures secure use of this flow for all scenarios. The suggestions given here may not apply to every scenario and must be considered in relation to the specifics of the implementation.
 
 ### Session information
 
-The [state parameter](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](../integration.md#oauth-20-authorize) request can carry some information from the start of a login until the callback.
+The [state parameter](https://developer.vippsmobilepay.com/docs/APIs/login-api/vipps-login-api-faq.md#whats-the-purpose-of-the-state-parameter)  passed in the [OAuth2 authorize endpoint](../browser-flow-integration.md#oauth-20-authorize) request can carry some information from the start of a login until the callback.
 The state parameter cannot be thought of as a direct replacement of a user agent bound session.
 
 Some relevant considerations:

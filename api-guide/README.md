@@ -29,10 +29,10 @@ The following topics are described:
 * [Overview](overview.md) provides high-level descriptions of the Login API flows.
 * [Important information](important-information.md) to help you integrate with Vipps Login.
 * [Core concepts](core-concepts.md) related to relevant OIDC concepts and parameters.
-* [Browser flow integration](integration.md) describes how to implement the browser flow.
+* [Website integration](browser-flow-integration.md) describes how to integrate from a website.
 * [App integration](app-integration.md) describes how to integrate from an app.
 * Special flows
   * [Automatic return from Vipps or MobilePay app](flows/automatic-return.md) reducing required user interaction when appropriate.
-  * [Vipps login from phone number](flows/phone-number-ciba-flows.md) and direct login in the Vipps or MobilePay app.
+  * [Merchant initiated login](flows/merchant-initiated-login-integration.md) describes implementing a flow where the merchant's system initiates the login towards a user.
 * [Partner keys](partner-keys.md) facilitating integration for partners.
 * [Authentication solutions](./auth-solutions/README.md): How to use the Login API with Auth0 and Azure AD B2C authentication solutions.

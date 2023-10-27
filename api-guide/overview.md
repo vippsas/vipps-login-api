@@ -36,9 +36,9 @@ Vipps Login in browser should only be run in the browser window using redirects 
 
 [**Vipps Login from apps**](#app-to-app-flow) supports switching the user automatically between apps and is based on logins through a browser.
 
-[**Vipps Login from phone number**](#vipps-login-from-phone-number) is based on the Client initiated backchannel authentication (CIBA) standard and have been developed to support use cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser.
+[**Merchant initiated login**](#merchant-initiated-login) is based on the Client initiated backchannel authentication (CIBA) standard and have been developed to support use cases where it is the merchant/merchant's systems that trigger the authentication/registration and thus login cannot be done in the user's browser.
 
-Vipps Login from phone number is available for all Vipps Login enabled clients.
+Merchant initiated login is available for all Vipps Login enabled clients.
 
 See the [Test environment](https://developer.vippsmobilepay.com/docs/test-environment#vipps-test-apps)
 page for information about our test environment, test apps and test users.
@@ -115,16 +115,16 @@ By using this flow, Vipps Login will be able to complete the login process even 
 
 See [Automatic return from Vipps or MobilePay app](flows/automatic-return.md) for details about implementation and security considerations.
 
-### Vipps Login from phone number
+### Merchant initiated login
 
-*Vipps Login from phone number* is built to support special cases where login does not start in a browser or app. This could typically be physical contexts (e.g., point of sales solutions), on the phone (e.g., call-center solutions), or devices and terminals (e.g., TV boxes).
+*Merchant initiated login* is built to support special cases where login does not start in a browser or app. This could typically be physical contexts (e.g., point of sales solutions), on the phone (e.g., call-center solutions), or devices and terminals (e.g., TV boxes).
 
 In this flow, the merchant's system triggers the authentication/registration; thus, log-in cannot be done in the user's browser.
-To ensure a consistent user experience, *Vipps Login from phone number* is not allowed on webpages and in apps.
+To ensure a consistent user experience, *Merchant initiated login* is not allowed on webpages and in apps.
 
-*Vipps Login from phone number* is available for all Login-enabled clients.
+*Merchant initiated login* is available for all Login-enabled clients.
 
 See:
 
-* [How Vipps Login works from phone number](../how-it-works/vipps-login-from-phone-number-api-howitworks.md) for illustrations.
-* [Vipps Login from a phone number](flows/phone-number-ciba-flows.md) for the technical details.
+* [How merchant initiated login works](../how-it-works/merchant-initiated-login-howitworks.md) for illustrations.
+* [Merchant initiated login integration](flows/merchant-initiated-login-integration.md) for the technical details.

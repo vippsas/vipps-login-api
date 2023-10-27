@@ -2,7 +2,7 @@
 ---
 title: Partner keys
 sidebar_label: Partner keys
-sidebar_position: 30
+sidebar_position: 33
 description: Vipps Login offers partner keys which allow partners make API calls on behalf of their merchants.
 pagination_next: null
 pagination_prev: null
@@ -16,9 +16,9 @@ In addition to the normal authentication, we offer [Partner keys](https://develo
 Partner keys are available for the following flows:
 
 * [Vipps Login in browser](overview.md#vipps-login-in-browser)
-* [Vipps Login from phone number](./flows/phone-number-ciba-flows.md)
-  * [Regular](flows/phone-number-ciba-flows.md#integrating-with-vipps-login-from-phone-number)
-  * [Redirect to browser](flows/phone-number-ciba-flows.md#redirect-to-browser)
+* [Vipps Login from phone number](./flows/merchant-initiated-login-integration.md)
+  * [Regular](flows/merchant-initiated-login-integration.md#integrating-with-vipps-login-from-phone-number)
+  * [Redirect to browser](flows/merchant-initiated-login-integration.md#redirect-to-browser)
 
 If you are a Vipps MobilePay partner managing integrations on behalf of Vipps MobilePay merchants, you can use your partner API credentials to authenticate, and then send the Merchant Serial Number (MSN) to identify which of your merchants you are acting on behalf of.
 

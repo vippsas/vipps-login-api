@@ -1,23 +1,23 @@
 <!-- START_METADATA
 ---
-title: Vipps Login from a phone number
-sidebar_label: Login from phone number
+title: Merchant initiated login integration
+sidebar_label: Merchant initiated login integration
 sidebar_position: 10
-description: Vipps Login from a phone number.
+description: Merchant initiated login integration
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# Login from a phone number
+# Merchant initiated login integration
 
-*Login from phone number* is built to support special cases where login does not start in a browser or app.
+*Merchant initiated login* is built to support special cases where login does not start in a browser or app.
 
-*Login from phone number* is based on the
+*Merchant initiated login* is based on the
 [Client-Initiated Backchannel Authentication (CIBA) standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html).
 
 In this flow, the merchant's system triggers the authentication/registration; thus, log-in cannot be done in the user's browser.
-To ensure a consistent user experience, *Vipps Login from phone number* is not allowed on webpages and in apps.
+To ensure a consistent user experience, *Merchant initiated login* is not allowed on webpages and in apps.
 
 A sales unit can use the Login API for many flows.
 It is recommended to use the same sales unit for all use cases to ensure that you get the same user ID (`sub`) on the user across different scenarios.
@@ -25,7 +25,7 @@ It is recommended to use the same sales unit for all use cases to ensure that yo
 *Login from phone number* is initiated using the user's mobile number. This triggers a push message from the user's Vipps or MobilePay app. By clicking the push message, the user is taken to their Vipps or MobilePay app to confirm the authentication/registration. If they haven't already consented to share information with a merchant, such consent will be required. If the user hasn't enabled push from Vipps or MobilePay, they need to manually open the app and possibly pull the home screen down for a refresh to receive the authentication request.
 
 The merchant controls whether the user should get the confirmation of completion in the Vipps or MobilePay app or if they should be taken to the merchant's web page to finalize the flow.
-For example, the merchant can take the user to their web page to enable input of more information, accept terms and conditions, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How Login works from phone number](../../how-it-works/vipps-login-from-phone-number-api-howitworks.md).
+For example, the merchant can take the user to their web page to enable input of more information, accept terms and conditions, log the user in at their web page, show relevant information/offers or to continue to set up an agreement or completing a purchase. This is illustrated in [How Login works from phone number](../../how-it-works/merchant-initiated-login-howitworks.md).
 
 Illustration of how the flow will look when the user ends the flow and gets the confirmation of completion in the Vipps or MobilePay app:
 
@@ -52,7 +52,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 ### Call by call
 
 0. Before all this, the merchant has fetched the OpenID configuration from the well-known endpoint and cached it.
-   See [.well-known](../integration.md#openid-connect-discovery-endpoint)
+   See [.well-known](../browser-flow-integration.md#openid-connect-discovery-endpoint)
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the OpenID configuration fetched in step 0.
 
@@ -124,7 +124,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
 3. The merchant must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
 
-   For details see [Userinfo request](../integration.md#userinfo).
+   For details see [Userinfo request](../browser-flow-integration.md#userinfo).
 
    Example request:
 
@@ -211,7 +211,7 @@ Standard definition: <https://openid.net/specs/openid-client-initiated-backchann
 The responses from this endpoint is according to the standard.
 
 * Note the required `grant_type`: `urn:openid:params:grant-type:ciba`.
-* The access token can be used towards the standard [OIDC userinfo endpoint](../integration.md#userinfo).
+* The access token can be used towards the standard [OIDC userinfo endpoint](../browser-flow-integration.md#userinfo).
 
 #### Polling
 
@@ -255,7 +255,7 @@ sequenceDiagram
 ### Call by call
 
 0. Before all this, the merchant has fetched the OpenID configuration from the well-known endpoint and cached it.
-   See [.well-known](../integration.md#openid-connect-discovery-endpoint).
+   See [.well-known](../browser-flow-integration.md#openid-connect-discovery-endpoint).
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the OpenID configuration fetched in step 0.
 
@@ -337,7 +337,7 @@ sequenceDiagram
 
 4. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 3.
 
-   For details see [Userinfo request](../integration.md#userinfo).
+   For details see [Userinfo request](../browser-flow-integration.md#userinfo).
 
    Example request:
 
@@ -421,7 +421,7 @@ Example: `...&redirect_uri=https://merchant.com/callback&...`
 In addition to the responses defined by [the standard](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.13) these responses might also be returned:
 
 * `429` status responses: Too many login requests started towards the same user at the same time. Please respect the `Retry-After` header returned.
-* Most of the [general error codes](../integration.md#error-handling)
+* Most of the [general error codes](../browser-flow-integration.md#error-handling)
 
 ## Merchants delegated consents
 
@@ -443,7 +443,7 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
 ### Call by call
 
 0. Before all this, the merchant has fetched the OpenID configuration from the well-known endpoint and cached it.
-   See [.well-known](../integration.md#openid-connect-discovery-endpoint)
+   See [.well-known](../browser-flow-integration.md#openid-connect-discovery-endpoint)
 
 1. The merchant initiates a login by calling the `backchannel_authentication_endpoint` listed in the OpenID configuration fetched in step 0 with scope `delegatedConsents`.
 
@@ -515,7 +515,7 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
 
 3. The merchant must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
 
-   For details see [Userinfo request](../integration.md#userinfo).
+   For details see [Userinfo request](../browser-flow-integration.md#userinfo).
 
    Example request:
 

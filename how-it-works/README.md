@@ -17,7 +17,7 @@ END_METADATA -->
 
 View the Login API how-it-works guides for illustrations of the main flows.
 
-* [Vipps Login in the browser](vipps-login-api-howitworks.md)
-* [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md)
+* [User initiated login](user-initiated-login-howitworks.md)
+* [Merchant initiated login](merchant-initiated-login-howitworks.md)
 
 See the [Subscriptions](https://developer.vippsmobilepay.com/docs/solutions/recurring-and-login) solution for how Login and Recurring can be used together to simplify the payment flow.

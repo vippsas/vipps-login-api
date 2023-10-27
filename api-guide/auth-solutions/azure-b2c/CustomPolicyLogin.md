@@ -10,7 +10,7 @@ END_METADATA -->
 
 # Login API in Azure AD B2C using custom policies
 
-This guide will describe how to use Azure AD B2C's custom policies to automatically create and log users in using Vipps MobilePay. The custom policy implementation will provide the [login browser flow](../../../how-it-works/vipps-login-api-howitworks.md#the-login-process).
+This guide will describe how to use Azure AD B2C's custom policies to automatically create and log users in using Vipps MobilePay. The custom policy implementation will provide the [login browser flow](../../../how-it-works/user-initiated-login-howitworks.md#the-login-process).
 
 With Azure AD B2C's custom policies, merchants can implement a Vipps login flow by using Vipps as an identity provider. Other identity providers can be configured to correspond to the same user in Azure AD B2C as Vipps MobilePay. For more details on creating custom policies with identity providers in Azure AD B2C, see [References](#references).
 

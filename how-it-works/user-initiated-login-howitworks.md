@@ -1,22 +1,22 @@
 <!-- START_METADATA
 ---
-title: How Login works in the browser
-sidebar_label: In the browser
+title: User initiated login
+sidebar_label: User initiated login
 sidebar_position: 13
-description: How Login works in the browser.
+description: User initiated login
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# How Login works in the browser
+# User initiated login
 
 Let your customers log in to your website or app without the need for usernames and passwords.
 
 For technical documentation, see the
 [Login API Guide](../api-guide/README.md).
 
-We also have _How it works_ for [Vipps Login from phone number](vipps-login-from-phone-number-api-howitworks.md)
+We also have _How it works_ for [Merchant initiated login](merchant-initiated-login-howitworks.md)
 
 ## The login process
 
