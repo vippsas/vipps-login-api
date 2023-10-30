@@ -15,7 +15,7 @@ Here are the Login API Frequently Asked Questions (FAQ).
 See the [Login API](api-guide/README.md) for all the technical details.
 
 For general information and questions, please check in the
-[Knowledge base](https://developer.vippsmobilepay.com/docs/common-topics/).
+[Knowledge base](https://developer.vippsmobilepay.com/docs/knowledge-base/).
 
 You can also find frequently asked questions in the
 [Product FAQ](https://vipps.no/hjelp/vipps/vipps-logg-inn).
@@ -23,7 +23,7 @@ You can also find frequently asked questions in the
 ## Where do I find the `client_id` and `client_secret`?
 
 See:
-[Knowledge base: API Keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys#getting-the-api-keys).
+[Knowledge base: API Keys](https://developer.vippsmobilepay.com/docs/knowledge-base/api-keys#getting-the-api-keys).
 
 ## How can I activate and set up Vipps Login?
 
@@ -80,7 +80,7 @@ Please check:
   is an exact match.
 * Are you using the `client_id` and `client_secret` for the correct environment?
   There are separate API keys for test and production. See:
-  [Knowledge base: API Keys](https://developer.vippsmobilepay.com/docs/common-topics/api-keys).
+  [Knowledge base: API Keys](https://developer.vippsmobilepay.com/docs/knowledge-base/api-keys).
 
 ## Why do I get `invalid_grant`?
 
@@ -449,7 +449,7 @@ If a user wants to log out of a specific browser remembered in Vipps Login, they
 ## Common errors
 
 See
-[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/common-topics/errors)
+[FAQ: Common errors](https://developer.vippsmobilepay.com/docs/knowledge-base/errors)
 for more questions.
 
 ### Why do I get `The client or its related sales unit or merchant does not exist or is not active`?
@@ -463,7 +463,7 @@ has been deactivated at the [Brønnøysund Register](https://www.brreg.no).
 We do not currently support any flows that requires requests being made from browsers.
 
 See:
-[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/common-topics/errors/#why-do-i-get-a-cors-error).
+[Common problems: Why do I get a CORS error?](https://developer.vippsmobilepay.com/docs/knowledge-base/errors/#why-do-i-get-a-cors-error).
 
 ### Why do I get `No CSRF value available in the session cookie`?
 
