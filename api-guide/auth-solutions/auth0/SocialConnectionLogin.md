@@ -146,4 +146,4 @@ Create a custom Social Connection with Vipps as an identity provider.
 
 Terminology:
 
-* [Common terms](https://developer.vippsmobilepay.com/docs/terminology/#common-terms)
+* [Common terms](https://developer.vippsmobilepay.com/docs/common-topics/terminology/#common-terms)
