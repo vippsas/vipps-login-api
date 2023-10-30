@@ -22,12 +22,16 @@ Use the Login API to confirm your identity through the log-in process.
 The provided example values in this guide must be changed with the values for your sales unit and user.
 This applies for API keys, HTTP headers, reference, phone number, etc.
 
+
 ## Log in with browser
 
 ### Step 1 - Setup
 
 You must have already signed up as an organization with Vipps MobilePay and have
 your test credentials from the merchant portal.
+
+In addition, your sales unit must be set up for login.
+See [Knowledge base: How to set up Login for your sales unit](https://developer.vippsmobilepay.com/docs/developer-resources/portal/#how-to-set-up-login-for-your-sales-unit).
 
 You will need the following values, as described in the
 [Getting started guide](https://developer.vippsmobilepay.com/docs/getting-started):
@@ -38,7 +42,7 @@ You will need the following values, as described in the
 * `merchantSerialNumber` - The unique ID for a test sales unit.
 * `mobileNumber` - The phone number for the test app profile you have received or registered.
 * `redirect_uri` - The website to send the user to after they log in.
-   This must be exactly the same redirect uri as the one you specified on your sales unit in the merchant portal.
+   This must be exactly the same redirect URI as the one you specified on your sales unit in the merchant portal.
 
 <Tabs
 defaultValue="curl"
