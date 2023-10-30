@@ -42,7 +42,7 @@ You can learn more at the [OIDC Standard](https://openid.net/specs/openid-connec
 
 **Request**
 
-[`GET:/.well-known/openid-configuration`][login-discoveropenid-endpoint]
+[`GET:/access-management-1.0/access/.well-known/openid-configuration`][login-discoveropenid-endpoint]
 
 **Response**
 
@@ -128,8 +128,8 @@ Example response from the merchant test environment:
 
 | Operation                                           | Description                                                                         | Endpoints                                                |
 |-----------------------------------------------------|-------------------------------------------------------------------------------------|----------------------------------------------------------|
-| [OAuth 2.0 Authorize](#oauth-20-authorize)          | Start an OAuth 2.0 authorization.                                                   | [`GET:/oauth2/auth`][access-auth-endpoint]               |
-| [OAuth 2.0 Token](#oauth-20-token)                  | Get an OAuth 2.0 access token.                                                      | [`POST:/oauth2/token`][access-token-endpoint]            |
+| [OAuth 2.0 Authorize](#oauth-20-authorize)          | Start an OAuth 2.0 authorization.                                                   | [`GET:/access-management-1.0/access/oauth2/auth`][access-auth-endpoint]               |
+| [OAuth 2.0 Token](#oauth-20-token)                  | Get an OAuth 2.0 access token.                                                      | [`POST:/access-management-1.0/access/oauth2/token`][access-token-endpoint]            |
 | [Userinfo](#userinfo)                               | Returns information that the user has consented to share.                           | [`GET:/vipps-userinfo-api/userinfo`][userinfo-endpoint]  |
 | [JSON Web Keys Discovery](#json-web-keys-discovery) | Get JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens. | [`GET:/.well-known/jwks.json`][login-wellknown-endpoint] |
 
@@ -162,7 +162,7 @@ means available to it via the user-agent.
 
 For example, the client directs the user-agent to make the following HTTP request:
 
-[`GET:/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`][access-auth-endpoint]
+[`GET:/access-management-1.0/access/oauth2/auth?client_id={client_id}&response_type=code&scope={scopes}&state={state}&redirect_uri={redirect_uri}`][access-auth-endpoint]
 
 You can test this by entering the URL into any browser. This will initiate the log in sequence.
 
@@ -239,7 +239,7 @@ var client_authorization = CryptoJS.enc.Base64.stringify(wordArrayAzp);
 | `code`         | The authorization code received as a query parameter on the `redirect_uri` from the authorization server.|
 | `redirect_uri` | Redirect URL which the user agent is redirected to after finishing a login. If the URL is using a custom URL scheme, such as `myapp://`, a path is required: `myapp://path-to-something`. See [API endpoints required from the merchant](#api-endpoints-required-from-the-merchant). This field is required for OIDC flows, i.e. regular Vipps MobilePay logins. |
 
-[`POST:/oauth2/token`][access-token-endpoint]
+[`POST:/access-management-1.0/access/oauth2/token`][access-token-endpoint]
 
 **Response**
 
@@ -340,7 +340,7 @@ This endpoint returns JSON Web Keys to be used as public keys for verifying Open
 
 **Request**
 
-[`GET:/.well-known/jwks.json`][login-wellknown-endpoint]
+[`GET:/access-management-1.0/access/.well-known/jwks.json`][login-wellknown-endpoint]
 
 **Response**
 

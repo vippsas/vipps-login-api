@@ -422,7 +422,7 @@ See the
 
 Yes. You can register as many callback URLs as you want; and then you specify which
 one you use in the request to
-[/auth](https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/oauthAuth).
+[`GET:/access-management-1.0/access/oauth2/auth`](https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/oauthAuth).
 
 ## Can I use a custom URL scheme for the `redirect_url`?
 

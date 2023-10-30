@@ -105,7 +105,7 @@ Access tokens are random strings that represent the authorization of a
 specific application to access specific parts of a user’s data.
 
 These access tokens are provided by the
-[access-management-1.0/access/oauth2/token][access-token-endpoint]
+[`POST:/access-management-1.0/access/oauth2/token`][access-token-endpoint]
 endpoint.
 The token itself does not provide any information, but it can be used to
 fetch the data that the end-user has consented to share from the
@@ -160,3 +160,4 @@ We recommend asking for the minimal number of scopes needed for your use case to
 minimize the number of users that deny the consent request.
 
 [access-token-endpoint]: https://developer.vippsmobilepay.com/api/login/#tag/Login-API/operation/oauth2Token
+
