@@ -456,4 +456,4 @@ Linking users in Auth0
 
 Terminology
 
-* [Common terms](https://developer.vippsmobilepay.com/docs/common-topics/terminology/#common-terms)
+* [Common terms](https://developer.vippsmobilepay.com/docs/knowledge-base/terminology/#common-terms)
