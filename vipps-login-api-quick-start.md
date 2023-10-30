@@ -250,8 +250,6 @@ For more examples, see the step-by-step instructions in the
 [Login API Postman guide](vipps-login-api-postman-guide.md).
 
 
-
-[access-token-endpoint]: https://developer.vippsmobilepay.com/api/access-token#tag/Authorization-Service/operation/fetchAuthorizationTokenUsingPost
 [create-payment-endpoint]: https://developer.vippsmobilepay.com/api/epayment#tag/CreatePayments/operation/createPayment
 [get-payment-endpoint]: https://developer.vippsmobilepay.com/api/epayment#tag/QueryPayments/operation/getPayment
 [userinfo-endpoint]: https://developer.vippsmobilepay.com/api/userinfo#operation/getUserinfo

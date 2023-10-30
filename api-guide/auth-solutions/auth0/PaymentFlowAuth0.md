@@ -153,7 +153,7 @@ public async Task<string> CreatePayment(string phoneNumber, long amount, string 
     }
 ```
 
-See the [ePayment API spec](https://developer.vippsmobilepay.com/api/epayment/#tag/CreatePayments) for more details.
+See the [ePayment API spec](https://developer.vippsmobilepay.com/api/epayment/) for more details.
 
 ## Store user in Auth0
 
