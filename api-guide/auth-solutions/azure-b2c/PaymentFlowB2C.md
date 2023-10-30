@@ -249,4 +249,4 @@ Storing users in Azure AD B2C
 
 Terminology
 
-- [Common terms](https://developer.vippsmobilepay.com/docs/common-topics/terminology/#common-terms)
+- [Common terms](https://developer.vippsmobilepay.com/docs/knowledge-base/terminology/#common-terms)

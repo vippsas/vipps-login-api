@@ -139,4 +139,4 @@ Calling a REST API using a custom policy:
 
 Terminology:
 
-- [Common terms](https://developer.vippsmobilepay.com/docs/common-topics/terminology/#common-terms)
+- [Common terms](https://developer.vippsmobilepay.com/docs/knowledge-base/terminology/#common-terms)
