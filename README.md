@@ -48,9 +48,9 @@ Related flow:
 
 ## Next steps
 
-* [API quick start](vipps-login-api-quick-start.md): Quick start to logging in with the browser. Run the basic examples in curl or Postman.
+* [API quick start](login-api-quick-start.md): Quick start to logging in with the browser. Run the basic examples in curl or Postman.
 * [API guide](api-guide/README.md): Learn about the Login API features.
-* [API FAQ](vipps-login-api-faq.md): Look for your question among those people have asked before.
+* [API FAQ](login-api-faq.md): Look for your question among those people have asked before.
 * [API reference](https://developer.vippsmobilepay.com/api/login): Go straight to the endpoint specifications.
 
 If you're new to the platform, see

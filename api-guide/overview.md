@@ -19,7 +19,7 @@ Vipps Login is available for several use cases:
 * Directly from merchant systems (e.g. point of sales systems or call-center solutions) based on phone number
 * Directly from machines and vending machines based on phone number
 
-Users can create a new account through sharing high-quality data from the user’s Vipps or MobilePay profile. Available information includes name, email, addresses, phone number, and birthdate. [Norwegian national identity number](../vipps-login-api-faq.md#who-can-get-access-to-nin-and-how) is also available to some merchants.  The identity of all Vipps MobilePay users is verified as part of our Know Your Customer (KYC) process, so rest assured that these are real people with correct name and information.
+Users can create a new account through sharing high-quality data from the user’s Vipps or MobilePay profile. Available information includes name, email, addresses, phone number, and birthdate. [Norwegian national identity number](../login-api-faq.md#who-can-get-access-to-nin-and-how) is also available to some merchants.  The identity of all Vipps MobilePay users is verified as part of our Know Your Customer (KYC) process, so rest assured that these are real people with correct name and information.
 
 When Vipps Login is used in the browser, the user can choose to be remembered in the browser, enabling automatic sign-ins for later visits. The possibility for the user to be remembered in browser is a key feature of the service and cannot be controlled (turned off) by individual merchants. This means that it is not possible to set up Vipps Login as a two-factor authentication (2FA).
 

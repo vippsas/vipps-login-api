@@ -12,7 +12,7 @@ END_METADATA -->
 # Login API extended Postman guide
 
 This is a guide for the using the Login API with Postman, and is an extension of the
-[Login API quick start guide](vipps-login-api-quick-start.md) which shows the
+[Login API quick start guide](login-api-quick-start.md) which shows the
 recommended flow in both Postman and curl.
 
 🔥 **To reduce risk of exposure, never store production keys in Postman or any similar tools.** 🔥

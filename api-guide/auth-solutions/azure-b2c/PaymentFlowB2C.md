@@ -159,7 +159,7 @@ public async Task<string> GetSubFromVippsPayment(string reference)
 }
 ```
 
-The `sub` is a unique identifier for a given user. For more information, see [FAQ: What is the sub?](../../../vipps-login-api-faq.md#what-is-the-sub)
+The `sub` is a unique identifier for a given user. For more information, see [FAQ: What is the sub?](../../../login-api-faq.md#what-is-the-sub)
 
 ### Use the sub to collect user information
 
