@@ -214,7 +214,7 @@ If you need to store the NIN for new users we recommend that you use an
 electronic ID.
 
 Merchants need to apply for access to NIN by sending an email to
-[accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no).
+[accessuserinfo@vippsmobilepay.com](mailto:accessuserinfo@vippsmobilepay.com).
 In the email you must specify:
 
 * Organization number
@@ -242,7 +242,7 @@ uses this incorrectly on webpages or in apps used by end users
 
 Merchants need to apply for access to *Vipps Login from phone number*
 by sending an email to
-[accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no).
+[accessuserinfo@vippsmobilepay.com](mailto:accessuserinfo@vippsmobilepay.com).
 In the email you must specify:
 
 * Recipient name
@@ -262,12 +262,12 @@ We will then tailor this screen to suit your needs. You can see what the flow lo
 [Merchant initiated login](./how-it-works/merchant-initiated-login-howitworks.md).
 
 Please email
-[accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no)
+[accessuserinfo@vippsmobilepay.com](mailto:accessuserinfo@vippsmobilepay.com)
 and supply the following information:
 
 | Item | Description | Example | Comments |
 |------|-------------|---------|----------|
-| Subset of consents you would like to request. | We offer a set of predefined consents. See [When using delegatedConsents, which consents are supported?](#when-using-delegatedconsents-which-consents-are-supported). | email, SMS, digital, personal | If you want a consent type that we currently don't support, reach out to us at [accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no). |
+| Subset of consents you would like to request. | We offer a set of predefined consents. See [When using delegatedConsents, which consents are supported?](#when-using-delegatedconsents-which-consents-are-supported). | email, SMS, digital, personal | If you want a consent type that we currently don't support, reach out to us at [accessuserinfo@vippsmobilepay.com](mailto:accessuserinfo@vippsmobilepay.com). |
 | Links to your membership terms and privacy statement. | We must review your terms to ensure that the flow is not intended to mislead or abuse end users. | <www.merchant.com/termsandconditions> <br /> <www.merchant.com/privacystatement> | |
 | Recipient to sign DPA | Vipps MobilePay will function as a data processor and not have any ownership to the data involved. For more information, please visit merchant terms and conditions | <recipient@merchant.com> | |
 
@@ -277,7 +277,7 @@ Vipps Login has support for several consents, and you may select a subset
 of these to include in your own flow, as well as select which of the consents
 that are required/optional. If the consents you need are not currently supported,
 you can make a request to
-[accessuserinfo@vipps.no](mailto:accessuserinfo@vipps.no),
+[accessuserinfo@vippsmobilepay.com](mailto:accessuserinfo@vippsmobilepay.com),
 and we'll be in touch.
 
 | ID         | Consent text (Norwegian)            | Consent text (English)                    |
