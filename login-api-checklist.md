@@ -15,7 +15,7 @@ API version: 2.0.
 
 ## Endpoints to integrate
 
-Integrate the [API endpoints](https://developer.vippsmobilepay.com/api/login/#tag/Login-API). For examples of requests and responses, see the [Postman collection](/tools/vipps-login-api.postman_collection.json) and [environment](https://github.com/vippsas/vipps-developers/blob/master/tools/vipps-api-global-postman-environment.json).
+Integrate the [API endpoints](https://developer.vippsmobilepay.com/api/login/#tag/Login-API). For examples of requests and responses, see the [Postman collection](/tools/login-api.postman_collection.json) and [environment](https://github.com/vippsas/vipps-developers/blob/master/tools/vipps-api-global-postman-environment.json).
 
 | Endpoint | Comment |
 |----------|---------|
