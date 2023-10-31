@@ -89,7 +89,7 @@ Authorization: Bearer <access-token>
 Content-Type: application/x-www-form-urlencoded
 Merchant-Serial-Number: 12345
 
-scope=name address openid&login_hint=urn:mobilenumber:{mobileNumber}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
+scope=name address openid&login_hint=urn:msisdn:{msisdn}&state=13821s837213bng26e2n61gege26&nonce=21hebdhwqdb7261bd1b23
 ```
 
 ### Example /token request (without redirect)

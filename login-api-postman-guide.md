@@ -40,7 +40,7 @@ In Postman, tweak the environment with your own values (see
 * `client_secret` - Client_secret for a test sales unit.
 * `Ocp-Apim-Subscription-Key` - Subscription key for a test sales unit.
 * `merchantSerialNumber` - The unique ID for a test sales unit.
-* `mobileNumber` - The phone number for the test app profile you have received or registered.
+* `internationalMobileNumber` - The MSISDN for the test app profile you have received or registered. This is your test mobile number including country code.
 * `well-known_uri` - URL to well-known endpoint for used environment.
    See [API Guide: well known](api-guide/browser-flow-integration.md#openid-connect-discovery-endpoint) for more details.
 * `redirect_uri` - The URL where the user is sent after finishing a login.
@@ -69,7 +69,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 ### Login from phone number (CIBA without redirect)
 
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests.
-1. From the `CIBA Without Redirect` folder, send request to `Init CIBA no-redirect`. This will trigger a push message to the Vipps or MobilePay app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
+1. From the `CIBA Without Redirect` folder, send request to `Init CIBA no-redirect`. This will trigger a push message to the Vipps or MobilePay app registered with the `internationalMobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
 1. Authenticate in the Vipps or MobilePay app and approve the login request.
 1. Send request to `Token no-redirect` endpoint. This will populate the environment variable `access_token` used for the subsequent request.
 1. Send request to `Get user info`. This will use the token from (4) to obtain the userinfo of the logged-in user.
@@ -77,7 +77,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 ### Login from phone number (CIBA with redirect)
 
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests
-1. From the `CIBA With Redirect` folder, submit the `Init CIBA redirect`. This will trigger a push message to the Vipps or MobilePay app registered with the `mobileNumber` in your environment.
+1. From the `CIBA With Redirect` folder, submit the `Init CIBA redirect`. This will trigger a push message to the Vipps or MobilePay app registered with the `internationalMobileNumber` in your environment.
 1. Authenticate in the Vipps or MobilePay app and approve the login request. Your mobile will now open the URL specified by `redirect_uri` (default <http://localhost>) with a `code` query parameter after successful authentication. It doesn't matter if the page appears to be broken, you only need the `code` value from the address.
 1. Copy/take note of the `code` parameter in the query string that you were returned to in the above step. This code has 300s time-to-live in test environment and 30s time-to-live in production environment.
 1. Set the value of the `code` parameter in the body of the `Token redirect` request to the code you obtained in the previous step.
@@ -97,7 +97,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
      In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
      See [API Guide: well known](api-guide/browser-flow-integration.md#openid-connect-discovery-endpoint) for more details.
    * `redirect_uri` - The URL where the user is sent after finishing a login.
-   * `mobileNumber` - Your 8 digit mobile number for your test version of Vipps. This is only used for the CIBA flows.
+   * `internationalMobileNumber` - The MSISDN for the test app profile you have received or registered. This is your test mobile number including country code.
    * `targetMerchantSerialNumber` - The target merchant you want to log in towards.
 
 ### As a partner: Login from phone number (CIBA without redirect)
@@ -105,7 +105,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests.
 1. Using requests in the folder `Partner login/CIBA without redirect`
 1. Send request `Get partner token`
-1. Send request `Start login`. This will trigger a push message to the Vipps or MobilePay app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
+1. Send request `Start login`. This will trigger a push message to the Vipps or MobilePay app registered with the `internationalMobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
 1. Authenticate in the Vipps or MobilePay app and approve the login request.
 1. Send request `Get login token`. This will populate the environment variable `access_token` used for the subsequent request.
 1. Send request `Get user info` stored in the root folder. This will use the token from (6) to obtain the userinfo of the logged-in user.
@@ -115,7 +115,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests.
 1. Using requests in the folder `Partner login/CIBA with redirect`
 1. Send request `Get partner token`
-1. Send request `Start login`. This will trigger a push message to the Vipps or MobilePay app registered with the `mobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
+1. Send request `Start login`. This will trigger a push message to the Vipps or MobilePay app registered with the `internationalMobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
 1. Authenticate in the Vipps or MobilePay app and approve the login request. Your mobile will now open the URL specified by `redirect_uri` (default <http://localhost>) with a `code` query parameter after successful authentication. It doesn't matter if the page appears to be broken, you only need the `code` value from the address.
 1. Copy/take note of the `code` parameter in the query string that you were returned to in the above step. This code has 300s time-to-live in test environment and 30s time-to-live in production environment.
 1. Set the value of the `code` parameter in the body of the `Get login token` request to the code you obtained in the previous step.

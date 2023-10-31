@@ -593,7 +593,7 @@
 										},
 										{
 											"key": "login_hint",
-											"value": "urn:mobilenumber:{{mobileNumber}}",
+											"value": "urn:msisdn:{{internationalMobileNumber}}",
 											"type": "text"
 										},
 										{
@@ -841,7 +841,7 @@
 										},
 										{
 											"key": "login_hint",
-											"value": "urn:mobilenumber:{{mobileNumber}}",
+											"value": "urn:msisdn:{{internationalMobileNumber}}",
 											"type": "text"
 										},
 										{
