@@ -67,7 +67,7 @@ Some elements on the delegated consents screen can be adjusted to fit the mercha
 
 * A top text where the purpose of collecting consents should be stated. This is customizable for you as a merchant.
 * The consents wanted by the merchant (see more
-  [When using delegatedConsents, which consents are supported?](../vipps-login-api-faq.md#when-using-delegatedconsents-which-consents-are-supported)).
+  [When using delegatedConsents, which consents are supported?](../login-api-faq.md#when-using-delegatedconsents-which-consents-are-supported)).
   These can be individually specified to be mandatory or optional. Mandatory consents must be ticked before the user can complete the login flow.
   See what consents we currently support, or reach out if you need something else, and we'll see what we can do!
 * A bottom text where we provide some contextual information for the end user.

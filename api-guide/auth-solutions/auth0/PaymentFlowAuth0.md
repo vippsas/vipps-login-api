@@ -173,7 +173,7 @@ public async Task<string> GetSubFromVippsPayment(string reference)
 }
 ```
 
-The `sub` is an identifier that will be unique to a given user. For more information, see [FAQ: What is the sub?](../../../vipps-login-api-faq.md#what-is-the-sub)
+The `sub` is an identifier that will be unique to a given user. For more information, see [FAQ: What is the sub?](../../../login-api-faq.md#what-is-the-sub)
 
 ### Use the sub to collect user information
 
@@ -267,7 +267,7 @@ Before a user can be created through the API, you must make sure that there are 
 "oauth2|VippsLogin|{sub}"
 ```
 
-Here, the `sub` is a unique identifier. See [FAQ: What is the sub](../../../vipps-login-api-faq.md#what-is-the-sub) for details.
+Here, the `sub` is a unique identifier. See [FAQ: What is the sub](../../../login-api-faq.md#what-is-the-sub) for details.
 
 In this case, the provider is `oauth2` and the connection is `VippsLogin`.
 
