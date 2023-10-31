@@ -40,7 +40,7 @@ You will need the following values, as described in the
 * `client_secret` - Client_secret for a test sales unit.
 * `Ocp-Apim-Subscription-Key` - Subscription key for a test sales unit.
 * `merchantSerialNumber` - The unique ID for a test sales unit.
-* `mobileNumber` - The phone number for the test app profile you have received or registered.
+* `internationalMobileNumber` - The MSISDN for the test app profile you have received or registered. This is your test mobile number including country code.
 * `redirect_uri` - The website to send the user to after they log in.
    This must be exactly the same redirect URI as the one you specified on your sales unit in the merchant portal.
 
