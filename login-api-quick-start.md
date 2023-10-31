@@ -58,7 +58,7 @@ store them in the *Current Value* fields of your Postman environment.
 
 In Postman, import the following files:
 
-* [Login API Postman collection](/tools/vipps-login-api.postman_collection.json)
+* [Login API Postman collection](/tools/login-api.postman_collection.json)
 * [Global Postman environment](pathname:///tools/vipps-api-global-postman-environment.json)
 
 🔥 **To reduce risk of exposure, never store production keys in Postman or any similar tools.** 🔥
