@@ -578,7 +578,7 @@
 										"type": "text"
 									},
 									{
-										"key": "merchant-serial-number",
+										"key": "Merchant-Serial-Number",
 										"value": "{{targetMerchantSerialNumber}}",
 										"type": "default"
 									}
@@ -680,7 +680,7 @@
 										"type": "text"
 									},
 									{
-										"key": "merchant-serial-number",
+										"key": "Merchant-Serial-Number",
 										"value": "{{targetMerchantSerialNumber}}",
 										"type": "default"
 									}
@@ -826,7 +826,7 @@
 										"type": "text"
 									},
 									{
-										"key": "merchant-serial-number",
+										"key": "Merchant-Serial-Number",
 										"value": "{{targetMerchantSerialNumber}}",
 										"type": "default"
 									}
@@ -918,7 +918,7 @@
 										"type": "text"
 									},
 									{
-										"key": "merchant-serial-number",
+										"key": "Merchant-Serial-Number",
 										"value": "{{targetMerchantSerialNumber}}",
 										"type": "default"
 									}
