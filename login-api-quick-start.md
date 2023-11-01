@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 # Quick start
 
-Use the Login API to confirm your identity through the Vipps Login *Browser flow process*.
+Use the Login API to integrate from a website.
 
 ## Before you begin
 
@@ -30,7 +30,7 @@ This applies for API keys, HTTP headers, reference, phone number, etc.
 
 ## Scope
 
-This quick start shows how to use the Vipps Login *Browser flow process*.
+This quick start shows how to integrate from a website.
 For one of the other flows, see the extended
 [Login API Postman guide](login-api-postman-guide.md):
 
@@ -38,8 +38,7 @@ For one of the other flows, see the extended
 * [Login from phone number (CIBA with redirect)](login-api-postman-guide.md#login-from-phone-number-ciba-with-redirect)
 * [Partner API calls](login-api-postman-guide.md#partner-api-calls)
 
-## Log in with browser
-
+## Integrate from a website
 
 
 ### Step 1 - Setup

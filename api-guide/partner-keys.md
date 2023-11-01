@@ -47,7 +47,7 @@ Read more about partner verification in:
 
 Browser and phone number flows have minor differences and are described in more detail further down.
 
-## Partner key in the Vipps Login in browser flow
+## Partner key when integrating from a website
 
 ### Authorization endpoint
 
