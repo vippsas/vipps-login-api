@@ -15,26 +15,35 @@ import TabItem from '@theme/TabItem';
 
 # Quick start
 
-Use the Login API to confirm your identity through the log-in process.
+Use the Login API to integrate from a website.
 
 ## Before you begin
 
-The provided example values in this guide must be changed with the values for your sales unit and user.
+1. You must have already signed up as an organization with Vipps MobilePay and have
+your test credentials from the merchant portal.
+
+1. Your test sales unit must be set up for using login.
+See [How to set up login on your sales unit](https://developer.vippsmobilepay.com/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).
+
+1. The provided example values in this guide must be changed with the values for your sales unit and user.
 This applies for API keys, HTTP headers, reference, phone number, etc.
 
+## Scope
 
-## Log in with browser
+This quick start shows how to integrate from a website.
+For one of the other flows, see the extended
+[Login API Postman guide](login-api-postman-guide.md):
+
+* [Login from phone number (CIBA without redirect)](login-api-postman-guide.md#login-from-phone-number-ciba-without-redirect)
+* [Login from phone number (CIBA with redirect)](login-api-postman-guide.md#login-from-phone-number-ciba-with-redirect)
+* [Partner API calls](login-api-postman-guide.md#partner-api-calls)
+
+## Integrate from a website
+
 
 ### Step 1 - Setup
 
-You must have already signed up as an organization with Vipps MobilePay and have
-your test credentials from the merchant portal.
-
-In addition, your sales unit must be set up for login.
-See [Knowledge base: How to set up Login for your sales unit](https://developer.vippsmobilepay.com/docs/developer-resources/portal/#how-to-set-up-login-for-your-sales-unit).
-
-You will need the following values, as described in the
-[Getting started guide](https://developer.vippsmobilepay.com/docs/getting-started):
+You will need the following values:
 
 * `client_id` - Client_id for a test sales unit.
 * `client_secret` - Client_secret for a test sales unit.
@@ -43,6 +52,9 @@ You will need the following values, as described in the
 * `internationalMobileNumber` - The MSISDN for the test app profile you have received or registered. This is your test mobile number including country code.
 * `redirect_uri` - The website to send the user to after they log in.
    This must be exactly the same redirect URI as the one you specified on your sales unit in the merchant portal.
+
+For help finding these values, see the
+[Getting started guide](https://developer.vippsmobilepay.com/docs/getting-started)
 
 <Tabs
 defaultValue="curl"

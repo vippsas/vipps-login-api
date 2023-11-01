@@ -54,7 +54,7 @@ Use *Current Value* field for added security, as these values are not synced to 
 
 ## Standard Login API calls
 
-### Login in Browser
+### User initiated login from a website
 
 1. Send request `Get OIDC well-known`.
 1. In your active Postman environment, copy the value of key `start_login_uri`, and use this URL in any browser.
@@ -66,7 +66,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 1. From the `Vipps Login in Browser` folder, send request `Get token`. This provides the access token and ID token.
 1. Send request `Get user info` to get the user info of the logged-in user.
 
-### Login from phone number (CIBA without redirect)
+### Merchant initiated login (CIBA without redirect)
 
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests.
 1. From the `CIBA Without Redirect` folder, send request to `Init CIBA no-redirect`. This will trigger a push message to the Vipps or MobilePay app registered with the `internationalMobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
@@ -74,7 +74,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 1. Send request to `Token no-redirect` endpoint. This will populate the environment variable `access_token` used for the subsequent request.
 1. Send request to `Get user info`. This will use the token from (4) to obtain the userinfo of the logged-in user.
 
-### Login from phone number (CIBA with redirect)
+### Merchant initiated login (CIBA with redirect)
 
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests
 1. From the `CIBA With Redirect` folder, submit the `Init CIBA redirect`. This will trigger a push message to the Vipps or MobilePay app registered with the `internationalMobileNumber` in your environment.
@@ -85,6 +85,8 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 1. Send request to `Get user info`. This will use the token from the previous step to obtain the user info of the logged-in user.
 
 ## Partner API calls
+
+**Please note:** Partner API keys are only functional in the production environment, not the test environment.
 
 ### As a partner: Set up Postman environment
 

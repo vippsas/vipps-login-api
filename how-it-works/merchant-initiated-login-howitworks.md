@@ -11,7 +11,7 @@ END_METADATA -->
 
 # Merchant initiated login
 
-Let your customers share their information or confirm who they are by triggering a Vipps Login flow on their device based on their phone number.
+Enable your customers to share their information or confirm their identity by triggering a Vipps Login flow on their device based on their phone number.
 
 For technical documentation go to
 [Login API - Merchant initiated login](../api-guide/flows/merchant-initiated-login-integration.md).

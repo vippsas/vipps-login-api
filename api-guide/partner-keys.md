@@ -11,7 +11,12 @@ END_METADATA -->
 
 # Partner keys
 
-In addition to the normal authentication, we offer [Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys) which allow partners make API calls on behalf of their merchants.
+In addition to the normal authentication, we offer
+[Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys)
+which allow partners make API calls on behalf of their merchants.
+
+
+**Please note:** Partner API keys are only functional in the production environment, not the test environment.
 
 Partner keys are available for the following flows:
 
@@ -20,7 +25,7 @@ Partner keys are available for the following flows:
   * [Regular](flows/merchant-initiated-login-integration.md#integrating-with-vipps-login-from-phone-number)
   * [Redirect to browser](flows/merchant-initiated-login-integration.md#redirect-to-browser)
 
-If you are a Vipps MobilePay partner managing integrations on behalf of Vipps MobilePay merchants, you can use your partner API credentials to authenticate, and then send the Merchant Serial Number (MSN) to identify which of your merchants you are acting on behalf of.
+If you are a Vipps MobilePay partner managing integrations on behalf of merchants, you can use your partner API credentials to authenticate, and then send the Merchant Serial Number (MSN) to identify which of your merchants you are acting on behalf of.
 
 The main differences between partner key integration and merchant integration are:
 
@@ -42,7 +47,7 @@ Read more about partner verification in:
 
 Browser and phone number flows have minor differences and are described in more detail further down.
 
-## Partner key in the Vipps Login in browser flow
+## Partner key when integrating from a website
 
 ### Authorization endpoint
 
@@ -116,7 +121,7 @@ We strongly encourage partners to use the `msn` claim in the ID token for this p
 
 ## Merchant Serial Number (MSN)
 
-This is a unique ID for the sales unit. This is a required parameter if you are a Vipps MobilePay partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
+This is a unique ID for the sales unit. This is a required parameter if you are a partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
 
 ## Userinfo
 
