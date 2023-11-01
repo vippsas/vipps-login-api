@@ -20,7 +20,7 @@ Partner keys are available for the following flows:
   * [Regular](flows/merchant-initiated-login-integration.md#integrating-with-vipps-login-from-phone-number)
   * [Redirect to browser](flows/merchant-initiated-login-integration.md#redirect-to-browser)
 
-If you are a Vipps MobilePay partner managing integrations on behalf of Vipps MobilePay merchants, you can use your partner API credentials to authenticate, and then send the Merchant Serial Number (MSN) to identify which of your merchants you are acting on behalf of.
+If you are a Vipps MobilePay partner managing integrations on behalf of merchants, you can use your partner API credentials to authenticate, and then send the Merchant Serial Number (MSN) to identify which of your merchants you are acting on behalf of.
 
 The main differences between partner key integration and merchant integration are:
 
@@ -116,7 +116,7 @@ We strongly encourage partners to use the `msn` claim in the ID token for this p
 
 ## Merchant Serial Number (MSN)
 
-This is a unique ID for the sales unit. This is a required parameter if you are a Vipps MobilePay partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
+This is a unique ID for the sales unit. This is a required parameter if you are a partner making API requests on behalf of a merchant. The partner must use the merchant's MSN, not the partner's MSN.
 
 ## Userinfo
 

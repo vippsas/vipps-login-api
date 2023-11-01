@@ -86,6 +86,10 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 
 ## Partner API calls
 
+
+**Please note:** Partner API keys are only functional in the production environment, not the test environment.
+
+
 ### As a partner: Set up Postman environment
 
 1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
