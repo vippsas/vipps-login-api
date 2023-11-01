@@ -11,7 +11,12 @@ END_METADATA -->
 
 # Partner keys
 
-In addition to the normal authentication, we offer [Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys) which allow partners make API calls on behalf of their merchants.
+In addition to the normal authentication, we offer
+[Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys)
+which allow partners make API calls on behalf of their merchants.
+
+
+**Please note:** Partner API keys are only functional in the production environment, not the test environment.
 
 Partner keys are available for the following flows:
 
