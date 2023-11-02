@@ -85,7 +85,9 @@ You must change the comments `<!-- Vipps environment -->` in *TrustFrameworkExte
 
    d. *SignUpOrSignin.xml*
 
-To test the policy select *B2C_1A_signup_signin*, select the web application you wish to test, specify a Reply URL (for example <https://jwt.ms>), and click *Run Now*. The Reply URL will be the page the user is sent to after a successful login.
+To test the policy, select *B2C_1A_signup_signin*, select the web application you wish to test,
+specify a Reply URL (for example, [https://jwt.ms](https://jwt.ms)), and click *Run Now*.
+The Reply URL will be the page the user is sent to after a successful login.
 
 ## Sequence Diagram of the flow implementation
 

@@ -158,9 +158,9 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
 
 ### Authentication Request
 
-Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>
+Standard definition: `https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request`
 
-The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
+The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration `https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration`.
 
 #### Authentication
 
@@ -194,19 +194,19 @@ A human-readable identifier or message intended to be displayed on both the cons
 
 The format possible for this field is limited to capital characters 'A-Z', numbers '0-9' and the character '-'. It must also be between 5 and 8 characters long. Regex: ```^[A-Z0-9\\-]{5,8}$```.
 
-Read more about it in the standard <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>.
+Read more about it in the standard `https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request`.
 
 Example: `....&binding_message=4MZ-CQ3&...`
 
 #### Successful responses
 
-Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment>
+Standard definition: [OpenID Connect Client-Initiated Backchannel Authentication Flow: Successful Authentication Request Acknowledgement](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#successful_authentication_request_acknowdlegment)
 
 Responses according to the standard. Note, we do return an `interval` parameter which indicates the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
 
 ### Token request
 
-Standard definition: <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1>
+Standard definition: [OpenID Connect Client-Initiated Backchannel Authentication Flow: Token Request Using CIBA Grant Type](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#rfc.section.10.1)
 
 The responses from this endpoint is according to the standard.
 
@@ -371,7 +371,7 @@ sequenceDiagram
 
 ### Authentication Request With Redirect
 
-The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
+The Backchannel Authentication Endpoint is listed as `backchannel_authentication_endpoint` in the configuration `https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration`.
 
 #### Authentication
 
@@ -404,7 +404,7 @@ Example: `...&scope=openid name address birthDate nin&...`
 
 A human-readable identifier or message intended to be displayed on both the consumption device and the authentication device to interlock them together for the transaction by way of a visual cue for the end-user.
 
-Read more about it in the standard <https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request>
+Read more about it in the standard `https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request`
 
 Note: "the binding_message value SHOULD be relatively short and use a limited set of plain text characters"
 

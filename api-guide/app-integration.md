@@ -41,7 +41,8 @@ app again after the Vipps or MobilePay app portion of the flow is done (example:
 The `redirect_uri` is opened in the browser once the Vipps login flow is completed there.
 This URL can either redirect the user to a page in the browser, or be handled/intercepted by the merchant app.
 In either case it is important to avoid using static client secrets in the app for completing the login.
-(For more information see <https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous> and <https://tools.ietf.org/html/rfc8252#section-8.5>).
+(For more information, see [AppAuth for Android Utilizing client secrets (DANGEROUS)](https://github.com/openid/AppAuth-Android#utilizing-client-secrets-dangerous)
+and [OAuth 2.0 for Native Apps: Client Authentication](https://tools.ietf.org/html/rfc8252#section-8.5)).
 
 *Both* URIs must be added in the [portal.vipps.no](https://portal.vipps.no/),
 you find more information on how to do this [Developer resources: Portal: How to set up login on your sales unit?](https://developer.vippsmobilepay.com/docs/developer-resources/portal#how-to-setup-login-on-your-sales-unit).

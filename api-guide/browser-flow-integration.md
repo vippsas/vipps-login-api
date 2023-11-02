@@ -31,8 +31,8 @@ These endpoints should be fetched dynamically by your application, since they ar
 
 | Environment | Base URL                                                                                 |
 |-------------|------------------------------------------------------------------------------------------|
-| Test        | <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration> |
-| Production  | <https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration>     |
+| Test        | `https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration` |
+| Production  | `https://api.vipps.no/access-management-1.0/access/.well-known/openid-configuration`     |
 
 The OpenID connect discovery endpoint can be used to retrieve configuration information for OpenID connect clients.
 We recommend fetching these dynamically, however the response from this endpoint rarely changes.

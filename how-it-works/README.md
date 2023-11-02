@@ -12,7 +12,8 @@ END_METADATA -->
 # How the Login API works
 
 <!-- START_COMMENT -->
-💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/login-api>. 💥
+ℹ️ Please use the website:
+[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/login-api).
 <!-- END_COMMENT -->
 
 View the Login API how-it-works guides for illustrations of the main flows.
