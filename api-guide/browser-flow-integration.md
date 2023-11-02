@@ -275,7 +275,7 @@ You can learn more at [OIDC Standard](https://openid.net/specs/openid-connect-co
 
 | Header         | Description              |
 |----------------|--------------------------|
-| Authorization  | "Bearer {Access Token}"  |
+| Authorization  | `Bearer {Access Token}`  |
 
 The access token is received on a successful request to the [token endpoint](#oauth-20-token).
 

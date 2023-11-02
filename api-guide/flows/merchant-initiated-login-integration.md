@@ -122,7 +122,7 @@ Client-Initiated Backchannel Authentication (CIBA) enables a Client to initiate 
     }
     ```
 
-3. The merchant must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
+3. The merchant must do a GET to the `userinfo` endpoint with the header: `Authorization: Bearer {access_token}`, using the access_token retrieved in step 2.
 
    For details see [Userinfo request](../browser-flow-integration.md#userinfo).
 
@@ -335,7 +335,7 @@ sequenceDiagram
     }
     ```
 
-4. The merchant must do a GET  to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 3.
+4. The merchant must do a GET  to the `userinfo` endpoint with the header: `Authorization: Bearer {access_token}`, using the access_token retrieved in step 3.
 
    For details see [Userinfo request](../browser-flow-integration.md#userinfo).
 
@@ -513,7 +513,7 @@ Requesting on behalf consents for merchant is also available for [Vipps login fr
     }
     ```
 
-3. The merchant must do a GET to the `userinfo` endpoint with the header: Authorization: Bearer {access_token}, using the access_token retrieved in step 2.
+3. The merchant must do a GET to the `userinfo` endpoint with the header: `Authorization: Bearer {access_token}`, using the access_token retrieved in step 2.
 
    For details see [Userinfo request](../browser-flow-integration.md#userinfo).
 
