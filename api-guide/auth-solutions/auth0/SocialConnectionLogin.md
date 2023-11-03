@@ -41,9 +41,9 @@ Log in to the Auth0 portal. Under *Authentication*, select *Social* and click on
 
 * **Name**: Name of your connection, for example, "VippsLogin".
 
-* **Authorization URL**: `https://{{Vipps environment}}/access-management-1.0/access/oauth2/auth>`
+* **Authorization URL**: `https://{Vipps environment}/access-management-1.0/access/oauth2/auth>`
 
-* **Token URL**: `https://{{Vipps environment}}/access-management-1.0/access/oauth2/token`
+* **Token URL**: `https://{Vipps environment}/access-management-1.0/access/oauth2/token`
 
 * **Scope**: The scope defines the information you are requesting from the users. The `openid` scope must be specified, but additional
 [scope](../../core-concepts.md#scopes) parameters can be provided.
