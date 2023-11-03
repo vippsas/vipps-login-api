@@ -61,7 +61,7 @@ Use *Current Value* field for added security, as these values are not synced to 
 1. Finish login. This request includes a scope parameter that requests access to user information.
    This means that if you have not yet consented to sharing your user information, a distinct screen asking for your consent will appear the first time.
 1. When you finish your login, the website will update.
-If you used <http://localhost>, it will appear to be broken, but that doesn't matter.
+If you used `http://localhost`, it will appear to be broken, but that doesn't matter.
 Copy the query parameter `code` from the URL in the browser. Paste this code into the key `code` in the active Postman environment.
 1. From the `Vipps Login in Browser` folder, send request `Get token`. This provides the access token and ID token.
 1. Send request `Get user info` to get the user info of the logged-in user.
@@ -78,7 +78,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 
 1. Send request `Get OIDC well-known`. This will populate the environment variables `init_ciba_endpoint`, `token_endpoint` and `userinfo_endpoint` used in subsequent requests
 1. From the `CIBA With Redirect` folder, submit the `Init CIBA redirect`. This will trigger a push message to the Vipps or MobilePay app registered with the `internationalMobileNumber` in your environment.
-1. Authenticate in the Vipps or MobilePay app and approve the login request. Your mobile will now open the URL specified by `redirect_uri` (default <http://localhost>) with a `code` query parameter after successful authentication. It doesn't matter if the page appears to be broken, you only need the `code` value from the address.
+1. Authenticate in the Vipps or MobilePay app and approve the login request. Your mobile will now open the URL specified by `redirect_uri` (default `http://localhost`) with a `code` query parameter after successful authentication. It doesn't matter if the page appears to be broken, you only need the `code` value from the address.
 1. Copy/take note of the `code` parameter in the query string that you were returned to in the above step. This code has 300s time-to-live in test environment and 30s time-to-live in production environment.
 1. Set the value of the `code` parameter in the body of the `Token redirect` request to the code you obtained in the previous step.
 1. Submit the  `Token redirect` request. This will populate the environment variable `access_token` used for the subsequent request.
@@ -96,7 +96,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
    * `client_id` - Client ID for the partner.
    * `client_secret` - Client Secret for the partner.
    * `well-known_uri` - URL to well-known endpoint for used environment.
-     In the test environment, you can use <https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration>.
+     In the test environment, you can use `https://apitest.vipps.no/access-management-1.0/access/.well-known/openid-configuration`.
      See [API Guide: well known](api-guide/browser-flow-integration.md#openid-connect-discovery-endpoint) for more details.
    * `redirect_uri` - The URL where the user is sent after finishing a login.
    * `internationalMobileNumber` - The MSISDN for the test app profile you have received or registered. This is your test mobile number including country code.
@@ -118,7 +118,7 @@ Copy the query parameter `code` from the URL in the browser. Paste this code int
 1. Using requests in the folder `Partner login/CIBA with redirect`
 1. Send request `Get partner token`
 1. Send request `Start login`. This will trigger a push message to the Vipps or MobilePay app registered with the `internationalMobileNumber` in your environment. This request will populate the environment variable `auth_req_id` used for the subsequent token request.
-1. Authenticate in the Vipps or MobilePay app and approve the login request. Your mobile will now open the URL specified by `redirect_uri` (default <http://localhost>) with a `code` query parameter after successful authentication. It doesn't matter if the page appears to be broken, you only need the `code` value from the address.
+1. Authenticate in the Vipps or MobilePay app and approve the login request. Your mobile will now open the URL specified by `redirect_uri` (default `http://localhost`) with a `code` query parameter after successful authentication. It doesn't matter if the page appears to be broken, you only need the `code` value from the address.
 1. Copy/take note of the `code` parameter in the query string that you were returned to in the above step. This code has 300s time-to-live in test environment and 30s time-to-live in production environment.
 1. Set the value of the `code` parameter in the body of the `Get login token` request to the code you obtained in the previous step.
 1. Send request `Get login token`. This will populate the environment variable `access_token` used for the subsequent request.
