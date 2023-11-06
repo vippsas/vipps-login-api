@@ -77,18 +77,24 @@ merchant-app://callback/?state=RFiQdrl_lvJUpVmTRSKmsZRGLM0G1N1qh0WebZ1gDNk&resum
 
 ```mermaid
 sequenceDiagram
+    participant merchantApp as Merchant app
+    participant merchantBackend as Merchant backend
+    participant vmBackend as Vipps MobilePay Backend
+    participant vmApp as Vipps/MobilePay app
+    participant merchantAppControlledBrowser as Merchant app controlled browser
+
     merchantApp ->> merchantBackend : Initiate login
     merchantBackend ->> merchantApp: 1: Authorize request
     merchantApp ->> merchantAppControlledBrowser : 2: Open authorize request url
-    merchantAppControlledBrowser -->> vippsApp : 3: User opens Vipps or MobilePay app in login client
-    vippsApp -->> vippsApp: User accepts the login
-    vippsApp -->> merchantApp : 4: Open app_callback_uri
+    merchantAppControlledBrowser -->> vmApp : 3: User opens Vipps or MobilePay app in login client
+    vmApp -->> vmApp: User accepts the login
+    vmApp -->> merchantApp : 4: Open app_callback_uri
     merchantApp ->> merchantAppControlledBrowser : 5: Either show the browser that is already open, <br/> or open a new browser at the resume_uri
     merchantAppControlledBrowser -->> merchantAppControlledBrowser: User consents
     merchantAppControlledBrowser -->> merchantApp : 6: Open redirect_uri, includes code and state
     merchantApp ->>merchantBackend : 7: Finish login (code, state)
-    merchantBackend ->> vippsBackend : 8: Get userinfo and auth token using code
-    vippsBackend -->> merchantBackend : Userinfo / Auth token
+    merchantBackend ->> vmBackend : 8: Get userinfo and auth token using code
+    vmBackend -->> merchantBackend : Userinfo / Auth token
     merchantBackend ->> merchantApp : Userinfo / Auth token
 ```
 
