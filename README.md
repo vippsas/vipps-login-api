@@ -35,9 +35,9 @@ For information and to order the product go to:
 * [End-user initiated login: How It Works](./how-it-works/user-initiated-login-howitworks.md)
 * [Merchant initiated login: How It Works](./how-it-works/merchant-initiated-login-howitworks.md)
 
-Related flow:
+## Recommended flows
 
-* [Using Login and Recurring API together](https://developer.vippsmobilepay.com/docs/solutions/recurring-and-login)
+* [Subscriptions: Using Login and Recurring API together](https://developer.vippsmobilepay.com/docs/solutions/recurring-and-login)
 
 ## Plugins for Login
 

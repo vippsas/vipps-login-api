@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "0bfe1ba1-4fef-402f-9d85-32a75d444749",
-		"name": "vipps-login-api",
+		"name": "Vipps MobilePay Login API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [

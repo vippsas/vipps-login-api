@@ -435,8 +435,8 @@ If a fatal error occurs where the user can not be redirected back to the merchan
 
 ## Call by call
 
-A very basic case, from a user clicks *Log in with Vipps* until the merchant receives login token
-and the user's information, is shown below:
+The following is very basic case, starting with a user clicking *Log in with Vipps/MobilePay* until the merchant receives login token
+and the user's information:
 
 0. Before all this, the merchant has fetched the OpenID configuration from the well-known endpoint
    and cached it.
