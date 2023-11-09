@@ -71,7 +71,7 @@ store them in the *Current Value* fields of your Postman environment.
 In Postman, import the following files:
 
 * [Login API Postman collection](/tools/login-api.postman_collection.json)
-* [Global Postman environment](https://github.com/vippsas/vipps-developer-docs/blob/main/static/internal-tools/global-postman-environment.json)
+* [Global Postman environment](https://developer.vippsmobilepay.com/internal-tools/global-postman-environment.json)
 
 🔥 **To reduce risk of exposure, never store production keys in Postman or any similar tools.** 🔥
 
