@@ -31,7 +31,7 @@ See [How to set up login on your sales unit](https://developer.vippsmobilepay.co
 Import the following files into Postman:
 
 * [Login API Postman collection](/tools/login-api.postman_collection.json)
-* [Global Postman environment](https://github.com/vippsas/vipps-developers/blob/master/tools/global-postman-environment.json)
+* [Global Postman environment](https://github.com/vippsas/vipps-developer-docs/blob/main/static/internal-tools/global-postman-environment.json)
 
 In Postman, tweak the environment with your own values (see
 [API keys](https://developer.vippsmobilepay.com/docs/knowledge-base/api-keys/)):
