@@ -38,13 +38,13 @@ To implement Vipps login as a custom policy, you must download the modified vers
 
 Download the following files:
 
-- [**TrustFrameworkBase.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/TrustFrameworkBase.xml) - Few modifications are required.
+- [**TrustFrameworkBase.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/TrustFrameworkBase.xml) - A few modifications are required.
 
-- [**TrustFrameworkLocalization.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/TrustFrameworkLocalization.xml) - Few modifications are required.
+- [**TrustFrameworkLocalization.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/TrustFrameworkLocalization.xml) - A few modifications are required.
 
-- [**TrustFrameworkExtensions.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/TrustFrameworkExtensions.xml) - Modifications are required.
+- [**TrustFrameworkExtensions.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/TrustFrameworkExtensions.xml) - Modifications are required. **Please note:** You need to edit line 93 to make it valid XML.
 
-- [**SignUpOrSignin.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/SignUpOrSignin.xml) - Few modifications are required.
+- [**SignUpOrSignin.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/SignUpOrSignin.xml) - A few modifications are required.
 
 To make the custom policy work with your Azure AD B2C tenant, all files must have all instances of `yourtenantid` replaced by the name of your tenant. For example: `yourtenantname.onmicrosoft.com`.
 
