@@ -42,7 +42,7 @@ Download the following files:
 
 - [**TrustFrameworkLocalization.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/TrustFrameworkLocalization.xml) - A few modifications are required.
 
-- [**TrustFrameworkExtensions.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/TrustFrameworkExtensions.xml) - Modifications are required. **Please note:** You need to edit line 93 to make it valid XML.
+- [**TrustFrameworkExtensions.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/TrustFrameworkExtensions.xml) - Both `yourtenantid` and [environment](#vipps-environment) modifications are required. 
 
 - [**SignUpOrSignin.xml**](https://github.com/vippsas/vipps-developer-docs/tree/main/static/downloads/azure-b2c/SignUpOrSignin.xml) - A few modifications are required.
 
