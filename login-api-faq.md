@@ -454,9 +454,9 @@ for more questions.
 
 ### Why do I get `The client or its related sales unit or merchant does not exist or is not active`?
 
-This means that the API credentials are for an MSN (Merchant Serial Number)
+This means that the API credentials are for a Merchant Serial Number (MSN)
 that does not exist, or is not active. This can happen if the organization number
-has been deactivated at the [Brønnøysund Register](https://www.brreg.no).
+has been deactivated. For Norwegian business, this happens at the [Business registry](https://www.brreg.no).
 
 ### Why do I get a CORS error?
 
