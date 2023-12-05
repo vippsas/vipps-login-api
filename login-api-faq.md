@@ -192,7 +192,7 @@ Merchants will be billed for each successful login where they request a user's N
 Only merchants with legal requirements or other objective needs to use the Norwegian
 National Identity Number (NIN) to achieve required user identification can get
 access to NIN. We follow the
-[guidance from Datatilsynet](https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/fodselsnummer/).
+[guidance from Datatilsynet, the Norwegian Data Protection Authority](https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/fodselsnummer/).
 
 According to the above, NIN can only be used when it is legally required or when
 there is a need for a secure identification of the person and the NIN is
