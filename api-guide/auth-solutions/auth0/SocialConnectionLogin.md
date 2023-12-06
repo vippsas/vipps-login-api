@@ -37,11 +37,11 @@ With Auth0's Social Connections, merchants can implement a login flow using Vipp
 
 ## Configure a Social Connection
 
-Log in to the Auth0 portal. Under *Authentication*, select *Social* and click on *Create Social Connection*. In the URLs you must change `<Vipps environment>` to the environment you are using. This could be either `api.vipps.no` (Prod) or `apitest.vipps.no` (Test). To set up Vipps login, fill in the following fields:
+Log in to the Auth0 portal. Under *Authentication*, select *Social*, click on *Create Social Connection* and then select "Create Custom". In the URLs you must change `<Vipps environment>` to the environment you are using. This could be either `api.vipps.no` (Prod) or `apitest.vipps.no` (Test). To set up Vipps login, fill in the following fields:
 
 * **Name**: Name of your connection, for example, "VippsLogin".
 
-* **Authorization URL**: `https://{Vipps environment}/access-management-1.0/access/oauth2/auth>`
+* **Authorization URL**: `https://{Vipps environment}/access-management-1.0/access/oauth2/auth`
 
 * **Token URL**: `https://{Vipps environment}/access-management-1.0/access/oauth2/token`
 
@@ -50,7 +50,7 @@ Log in to the Auth0 portal. Under *Authentication*, select *Social* and click on
 The scope parameters will be used to decide which user attributes are used to create an Auth0 user.
 
   If multiple scopes are provided, separate them with spaces and select *Separate scopes using a space*.
-For example, enter `openid name phoneNumber email`, request name, phone number, and the email of the user.
+For example, enter `openid name phoneNumber email`.
 
 * **Client ID** Enter your `client_id` recorded earlier.
 
